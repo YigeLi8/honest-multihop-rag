@@ -1,0 +1,26 @@
+# arm64 py3.12, Apple Silicon. GPU = Metal (MPS / MLX); no CUDA packages here.
+numpy
+pandas
+matplotlib
+scikit-learn
+pyyaml
+tqdm
+
+# retrieval
+bm25s
+torch                  # MPS backend for embeddings + reranker
+sentence-transformers
+FlagEmbedding
+faiss-cpu
+
+# generation / serving (Metal)
+mlx
+mlx-lm
+llama-cpp-python
+
+# pipeline + eval
+llama-index
+ragas
+datasets
+
+asitop                 # GPU/power monitor, handy for the serving sweep

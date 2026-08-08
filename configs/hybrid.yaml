@@ -1,0 +1,8 @@
+run:
+  name: hybrid_ircot_hotpot_dev
+retrieval:
+  method: hybrid
+pipeline:
+  mode: multihop_ircot
+generation:
+  backend: mlx

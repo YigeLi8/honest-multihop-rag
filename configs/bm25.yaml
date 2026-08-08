@@ -1,0 +1,4 @@
+run:
+  name: bm25_hotpot_dev
+retrieval:
+  method: bm25

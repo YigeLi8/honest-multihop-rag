@@ -1,0 +1,12 @@
+# hybrid.yaml plus the reranker; wider first stage, cut back to top_n
+run:
+  name: hybrid_ircot_rerank_hotpot_dev
+retrieval:
+  method: hybrid
+  top_k: 20
+rerank:
+  enabled: true
+pipeline:
+  mode: multihop_ircot
+generation:
+  backend: mlx

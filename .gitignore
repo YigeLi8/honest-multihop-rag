@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# project
+.idea/
+data/raw/
+data/processed/
+results/
+*.gguf
+*.faiss
+*.safetensors

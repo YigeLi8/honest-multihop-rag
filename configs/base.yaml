@@ -1,0 +1,56 @@
+# defaults; the other configs override whatever they change
+run:
+  name: base
+  seed: 13
+
+dataset:
+  name: hotpotqa        # hotpotqa | 2wiki | beir-nfcorpus | beir-scifact | beir-fiqa
+  split: dev
+  subset_size: null     # null = full split
+
+chunking:
+  unit: sentence        # matches HotpotQA supporting-fact granularity
+  max_tokens: 256
+
+retrieval:
+  method: bm25          # bm25 | dense | hybrid
+  top_k: 10
+  bm25:
+    variant: bm25s
+  dense:
+    model: BAAI/bge-small-en-v1.5
+    device: mps
+    normalize: true
+    batch_size: 64
+  hybrid:
+    alpha: 0.5          # weight on the dense score
+
+rerank:
+  enabled: false
+  model: BAAI/bge-reranker-base
+  top_n: 5
+
+pipeline:
+  mode: single_hop      # single_hop | multihop_ircot
+  max_hops: 3
+  stop_on_answer: true
+
+generation:
+  backend: none         # none | mlx | llamacpp | vllm
+  model: mlx-community/Qwen2.5-7B-Instruct-4bit
+  max_tokens: 512
+  temperature: 0.0
+
+serving:
+  batch_size: 1
+  kv_cache_limit: null
+  quant: 4bit
+
+eval:
+  gold: true
+  ragas: false
+
+paths:
+  data_dir: data/processed
+  index_dir: data/processed/index
+  results_dir: results

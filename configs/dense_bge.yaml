@@ -1,0 +1,4 @@
+run:
+  name: dense_bge_hotpot_dev
+retrieval:
+  method: dense
