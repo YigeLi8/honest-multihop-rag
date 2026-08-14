@@ -6,9 +6,9 @@ cd "$(dirname "$0")/.."
 python scripts/check_env.py
 
 # day 1: data + indexes
-# python -m data.download
-# python -m data.prepare_hotpotqa
-# python -m data.prepare_2wiki
+python -m data.download --datasets hotpotqa
+python -m data.prepare_hotpotqa
+# python -m data.prepare_2wiki   # needs the 2wiki zip in data/raw/2wiki first
 
 # day 2: single-hop baseline + gold harness + 2x2
 # day 3: multi-hop + reranker ablation
