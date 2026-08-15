@@ -71,9 +71,36 @@ def test_hybrid_fusion():
     assert len(out) == 3 and [r.rank for r in out] == [1, 2, 3]
 
 
+def test_answer_metrics():
+    from src.eval.answer_metrics import em, f1
+    assert em("The Beatles", "beatles") == 1.0
+    assert em("yes", "no") == 0.0
+    assert f1("Barack Obama", "Obama, Barack") == 1.0
+    assert f1("yes", "no") == 0.0          # yes/no disagreement zeroes f1
+    assert 0.0 < f1("the red car", "red bicycle") < 1.0
+
+
+def test_precision_recall():
+    from src.eval.per_hop_precision import precision_recall
+    p, r = precision_recall(["a", "b", "c", "d"], ["a", "x"])
+    assert p == 0.25 and r == 0.5
+    assert precision_recall([], ["a"]) == (0.0, 0.0)
+
+
+def test_decoupling_table():
+    from src.eval.decoupling import build_table
+    t = build_table([(True, True), (True, False), (True, False),
+                     (False, True), (False, False)])
+    assert (t.ac_rc, t.ac_rw, t.aw_rc, t.aw_rw) == (1, 2, 1, 1)
+    assert t.n == 5 and abs(t.illusion_rate - 0.4) < 1e-9
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
     test_minmax()
     test_hybrid_fusion()
+    test_answer_metrics()
+    test_precision_recall()
+    test_decoupling_table()
     print("all good")

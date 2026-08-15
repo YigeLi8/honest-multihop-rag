@@ -22,10 +22,43 @@ class Decoupling2x2:
     def illusion_rate(self):
         return self.ac_rw / self.n if self.n else 0.0
 
+    def __str__(self):
+        return (f"n={self.n}  ans+/retr+ {self.ac_rc}  ans+/retr- {self.ac_rw} "
+                f"(illusion {self.illusion_rate:.2%})  ans-/retr+ {self.aw_rc}  "
+                f"ans-/retr- {self.aw_rw}")
 
-def build_table(results, gold):
-    raise NotImplementedError
+
+def build_table(pairs):
+    """pairs: iterable of (answer_correct, retrieval_correct) booleans."""
+    t = Decoupling2x2()
+    for ans_ok, retr_ok in pairs:
+        if ans_ok and retr_ok:
+            t.ac_rc += 1
+        elif ans_ok:
+            t.ac_rw += 1
+        elif retr_ok:
+            t.aw_rc += 1
+        else:
+            t.aw_rw += 1
+    return t
 
 
 def plot_table(table, out_path):
-    raise NotImplementedError
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    cells = [[table.ac_rc, table.ac_rw], [table.aw_rc, table.aw_rw]]
+    fig, ax = plt.subplots(figsize=(5, 4))
+    ax.imshow(cells, cmap="Blues")
+    for i in range(2):
+        for j in range(2):
+            pct = cells[i][j] / table.n if table.n else 0
+            ax.text(j, i, f"{cells[i][j]}\n{pct:.1%}", ha="center", va="center")
+    ax.set_xticks([0, 1], ["retrieval correct", "retrieval wrong"])
+    ax.set_yticks([0, 1], ["answer correct", "answer wrong"])
+    # the interesting cell
+    ax.add_patch(plt.Rectangle((0.5, -0.5), 1, 1, fill=False, edgecolor="red", lw=2))
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
