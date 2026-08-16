@@ -95,6 +95,62 @@ def test_decoupling_table():
     assert t.n == 5 and abs(t.illusion_rate - 0.4) < 1e-9
 
 
+def test_parse_step():
+    from src.pipeline.multihop import parse_step
+    assert parse_step("thinking...\nSEARCH: who wrote book x") == (None, "who wrote book x")
+    assert parse_step("ANSWER: yes") == ("yes", None)
+    assert parse_step("no marker at all") == (None, None)
+
+
+def test_ircot_loop():
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+
+    class NS:
+        pass
+    cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+    cfg.pipeline.mode = "multihop_ircot"
+    cfg.pipeline.max_hops = 3
+    cfg.retrieval.top_k = 2
+
+    class FakeIndexRetriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            cid = "hop2::0" if "university" in query else "hop1::0"
+            return [_hit(cid, 1.0, 1)]
+
+    class FakeGen:
+        def __init__(self):
+            self.calls = 0
+
+        def generate(self, prompt, max_tokens=None):
+            self.calls += 1
+            m = GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0,
+                           completion_tokens=5)
+            if self.calls == 1:
+                return "SEARCH: which university", m
+            return "ANSWER: some university", m
+
+    from src.types import Example
+    ex = Example(id="q", question="where did the author study", answer="some university",
+                 hops=2, gold_chunk_ids=["hop1::0", "hop2::0"])
+    p = MultiHopPipeline.__new__(MultiHopPipeline)
+    p.cfg = cfg
+    p.retriever = FakeIndexRetriever()
+    p.reranker = None
+    p.generator = FakeGen()
+
+    res = p.run_example(ex)
+    assert res.answer == "some university"
+    assert len(res.hops) == 2                       # stopped once it answered
+    assert res.hops[1].query == "which university"
+    got = {rc.chunk.chunk_id for h in res.hops for rc in h.retrieved}
+    assert got == {"hop1::0", "hop2::0"}            # both hops contributed
+    assert res.reasoning_tokens == 10
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
@@ -103,4 +159,6 @@ if __name__ == "__main__":
     test_answer_metrics()
     test_precision_recall()
     test_decoupling_table()
+    test_parse_step()
+    test_ircot_loop()
     print("all good")
