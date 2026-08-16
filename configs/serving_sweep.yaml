@@ -1,18 +1,17 @@
 run:
   name: serving_sweep_metal
 dataset:
-  subset_size: 500      # smaller set for the sweep, report n
+  subset_size: 100      # per sweep point, report n
 retrieval:
   method: hybrid
 pipeline:
-  mode: multihop_ircot
+  mode: single_hop      # keeps points comparable; the ircot axis is its own study
 generation:
   backend: mlx
 
-# cartesian product; every point is a full eval pass so keep the lists short
+# cartesian product; every point is a full eval pass so keep the lists short.
+# batch size / concurrency needs a continuous-batching server, deferred.
 sweep:
-  backend: [mlx, llamacpp]
-  quant: [4bit, 8bit]   # llamacpp reads these as Q4_K_M / Q8
+  quant: [4bit, 8bit]
   top_k: [5, 10, 20]
-  batch_size: [1, 4, 8]
   rerank: [false, true]
