@@ -9,8 +9,7 @@ tqdm
 # retrieval
 bm25s
 torch                  # MPS backend for embeddings + reranker
-sentence-transformers
-FlagEmbedding
+sentence-transformers  # BGE embeddings + CrossEncoder reranker
 faiss-cpu
 
 # generation / serving (Metal)

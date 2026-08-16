@@ -1,4 +1,8 @@
-"""BGE cross-encoder reranker, top_k in -> top_n out."""
+"""Cross-encoder reranker, top_k in -> top_n out.
+
+Scores with sentence-transformers' CrossEncoder. FlagEmbedding's FlagReranker
+segfaults on Metal (fp16 plus its multiprocess pool), same weights either way.
+"""
 from src.types import RetrievedChunk
 
 
@@ -8,17 +12,17 @@ class Reranker:
         self.model = None
 
     def _load(self):
-        from FlagEmbedding import FlagReranker
-        self.model = FlagReranker(self.cfg.rerank.model, use_fp16=True)
+        import torch
+        from sentence_transformers import CrossEncoder
+        device = "mps" if torch.backends.mps.is_available() else "cpu"
+        self.model = CrossEncoder(self.cfg.rerank.model, device=device)
 
     def rerank(self, query, candidates):
         if not candidates:
             return []
         if self.model is None:
             self._load()
-        scores = self.model.compute_score([[query, c.chunk.text] for c in candidates])
-        if not isinstance(scores, list):
-            scores = [scores]   # single pair comes back as a bare float
+        scores = self.model.predict([(query, c.chunk.text) for c in candidates])
         order = sorted(zip(candidates, scores), key=lambda t: -t[1])
         return [RetrievedChunk(chunk=c.chunk, score=float(s), rank=i + 1)
                 for i, (c, s) in enumerate(order[: self.cfg.rerank.top_n])]
