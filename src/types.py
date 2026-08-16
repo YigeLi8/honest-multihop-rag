@@ -39,6 +39,19 @@ class HopTrace:
     reasoning: str = ""
 
 
+def example_from_json(d):
+    return Example(
+        id=d["id"], question=d["question"], answer=d["answer"], hops=d.get("hops", 2),
+        chunks=[Chunk(chunk_id=c["chunk_id"], text=c["text"],
+                      title=c.get("title", ""), sent_idx=c.get("sent_idx", -1))
+                for c in d["chunks"]],
+        gold_chunk_ids=d.get("gold_chunk_ids", []),
+        gold_supporting_facts=d.get("gold_supporting_facts", []),
+        evidence_triples=d.get("evidence_triples", []),
+        reasoning_path=d.get("reasoning_path", []),
+    )
+
+
 @dataclass
 class PipelineResult:
     example_id: str
