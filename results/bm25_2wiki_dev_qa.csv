@@ -1,0 +1,201 @@
+id,answer_gold,answer_pred,em,f1,retrieval_correct,hops,n_context,reasoning_tokens,latency_s,tokens_per_s,peak_memory_mb
+8813f87c0bdd11eba7f7acde48001122,Małgorzata Braunek,She was the mother of Prince Morinaga.,0.0,0.0,1,1,10,10,5.435,16.7,4758.8
+61a46987092f11ebbdaeac1f6bf848b6,The Mask Of Fu Manchu,The Mask Of Fu Manchu,1.0,1.0,1,1,10,6,0.485,12.4,4804.0
+e2a3bf2a0bdd11eba7f7acde48001122,12 June 1516,1391,0.0,0.0,0,1,10,4,0.499,8.0,4898.9
+0cd3bdea0bde11eba7f7acde48001122,Myanmar Motion Picture Academy Awards,No,0.0,0.0,0,1,10,1,0.359,2.8,4798.8
+f9dcb4a60bda11eba7f7acde48001122,"Missoula, Montana","Missoula, Montana",1.0,1.0,1,1,10,5,0.453,11.1,4804.0
+8981e1ce0bb011ebab90acde48001122,Charles Armand René de La Trémoille,Charles I de la Trémoille,0.0,0.7273,1,1,10,8,0.663,12.1,4873.2
+019bed300bde11eba7f7acde48001122,Galați,Bucharest,0.0,0.0,1,1,10,3,0.418,7.2,4795.7
+a7b9672009c311ebbdb0ac1f6bf848b6,no,yes,0.0,0.0,1,1,10,1,0.339,3.0,4796.1
+298f23b8088a11ebbd6eac1f6bf848b6,El Extraño Viaje,Love In Pawn,0.0,0.0,0,1,10,3,0.378,7.9,4876.4
+2ec440560bb011ebab90acde48001122,Ptolemy IX Lathyros,no,0.0,0.0,0,1,10,1,0.379,2.6,4886.9
+05f8a691087b11ebbd67ac1f6bf848b6,The Working Class Goes To Heaven,The Working Class Goes To Heaven,1.0,1.0,0,1,10,6,0.462,13.0,4817.3
+645c9a5a08c311ebbd8dac1f6bf848b6,Once A Gentleman,The Girl in White,0.0,0.0,1,1,10,4,0.455,8.8,4811.8
+5bec3cd408a711ebbd7fac1f6bf848b6,The Trial Of Joan Of Arc,Il Seduttore,0.0,0.0,0,1,10,4,0.46,8.7,4809.2
+464cfa460bd911eba7f7acde48001122,Brooklyn,no,0.0,0.0,0,1,10,1,0.36,2.8,4798.1
+c05e16a40bdd11eba7f7acde48001122,stroke,No,0.0,0.0,0,1,10,1,0.482,2.1,4940.2
+2935f1640bda11eba7f7acde48001122,Nice,Not provided,0.0,0.0,0,1,10,2,0.403,5.0,4818.1
+ada1b358085211ebbd58ac1f6bf848b6,Fleetwood Sheppard,Fleetwood Sheppard,1.0,1.0,1,1,10,5,0.414,12.1,4855.4
+3f857208086c11ebbd61ac1f6bf848b6,The Raven'S Dance,The Raven's Dance,1.0,1.0,0,1,10,4,0.477,8.4,4835.8
+dfe93efe0bdd11eba7f7acde48001122,1983,"The context does not provide information about Jean Martin's husband or his death. Therefore, I cannot answer the question based on the given context.",0.0,0.0,0,1,10,28,0.702,39.9,4648.5
+1d890623088711ebbd6dac1f6bf848b6,Tangled Destinies,Tangled Destinies,1.0,1.0,0,1,10,5,0.407,12.3,4856.5
+d8c36503097411ebbdb0ac1f6bf848b6,Moment Of Danger,Moment Of Danger,1.0,1.0,1,1,9,3,0.371,8.1,4821.8
+2207e9060bda11eba7f7acde48001122,United States,no,0.0,0.0,0,1,10,1,0.324,3.1,4769.3
+7abc1e3008d511ebbd98ac1f6bf848b6,The Machine To Kill Bad People,The Machine To Kill Bad People,1.0,1.0,1,1,10,6,0.486,12.4,4792.5
+ae331827088b11ebbd6fac1f6bf848b6,"Heads I Win, Tails You Lose","Heads I Win, Tails You Lose",1.0,1.0,0,1,10,9,0.511,17.6,4863.2
+2002bf0c0bb011ebab90acde48001122,Rupert,Rupert III of the Palatinate,0.0,0.4,1,1,10,8,0.615,13.0,4965.2
+c531e7560baf11ebab90acde48001122,Marie Leszczyńska,Queen Marie Leszczyńska,0.0,0.8,1,1,10,6,0.45,13.4,4864.3
+4d982dc308c111ebbd8bac1f6bf848b6,Condemned Women,Condemned Women,1.0,1.0,0,1,10,4,0.389,10.3,4845.4
+a9cc5f240bdb11eba7f7acde48001122,Catherine Robbe-Grillet,Alain Robbe-Grillet,0.0,0.5,0,1,10,7,0.494,14.2,4794.0
+6ebe05740bde11eba7f7acde48001122,Hilandar,Mount Athos,0.0,0.0,0,1,10,3,0.458,6.6,4882.3
+a0065fe9085f11ebbd5dac1f6bf848b6,yes,no,0.0,0.0,1,1,10,1,0.318,3.1,4750.8
+7c490349090311ebbdadac1f6bf848b6,Placer Sangriento,Placer Sangriento,1.0,1.0,1,1,10,5,0.382,13.1,4732.4
+8d2382e0085811ebbd5aac1f6bf848b6,Gwenc'Hlan Le Scouëzec,Şemsettin Baş,0.0,0.0,1,1,10,5,0.496,10.1,4843.9
+1a114c5e088f11ebbd71ac1f6bf848b6,Bhoomiyude Avakashikal,Bhoomiyude Avakashikal,1.0,1.0,0,1,10,8,0.458,17.5,4829.8
+7a1d9d7c0bb011ebab90acde48001122,Pompey,Julia,0.0,0.0,1,1,10,2,0.409,4.9,4805.8
+0bedb7e80bdc11eba7f7acde48001122,tuberculosis,No,0.0,0.0,0,1,10,1,0.421,2.4,4856.4
+1869092c0bb011ebab90acde48001122,Rukn al-Dawla,Ziyar,0.0,0.0,0,1,10,3,0.452,6.7,4840.3
+9980b1ed089d11ebbd78ac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.335,3.0,4842.3
+c19b72520bdb11eba7f7acde48001122,Xi'an,Spain,0.0,0.0,0,1,10,1,0.312,3.2,4758.8
+3a84baaf088311ebbd6dac1f6bf848b6,Madame Pasca,"Alice Marie Angèle Pasquier (Madame Pasca) died on May 25, 1914, while James A. Donohoe died on February 26, 1956. Therefore, the answer is yes, Madame Pasca died first.",0.0,0.1379,1,1,10,58,1.327,43.7,4881.1
+633132f008b711ebbd88ac1f6bf848b6,D'Arcy Coulson,D'Arcy Coulson,1.0,1.0,1,1,10,6,0.468,12.8,4827.6
+9aee006a09c211ebbdb0ac1f6bf848b6,no,yes,0.0,0.0,0,1,10,1,0.318,3.2,4768.6
+b3110a5e0bda11eba7f7acde48001122,German,Württemberg,0.0,0.0,0,1,10,5,0.52,9.6,4878.5
+5b6b8c02089711ebbd77ac1f6bf848b6,45 Fathers,45 Fathers,1.0,1.0,1,1,10,3,0.456,6.6,4835.8
+3705552a0bb011ebab90acde48001122,Louis-Alexandre Berthier,"Louis- Alexandre Berthier, 1st Prince of Wagram",0.0,0.2222,1,1,10,14,0.723,19.4,4836.7
+07e964920bde11eba7f7acde48001122,Pavia,"The context does not provide the birthplace of Caterina Visconti's husband. Therefore, no answer can be given based on the provided information.",0.0,0.0,0,1,10,29,0.818,35.5,4792.5
+f7c4fdf2087611ebbd67ac1f6bf848b6,A Quiet Place In The Country,When Were You Born,0.0,0.0,0,1,10,4,0.428,9.4,4800.8
+db19bf4c086e11ebbd62ac1f6bf848b6,John Beach,Gordon Persons,0.0,0.0,1,1,10,3,0.451,6.7,4851.8
+9e6d7bdc08a111ebbd79ac1f6bf848b6,Charlie Chan In Honolulu,Charlie Chan In Honolulu,1.0,1.0,1,1,10,4,0.437,9.2,4827.6
+c3c94d0a0bdc11eba7f7acde48001122,Víctor Bó,No,0.0,0.0,0,1,10,1,0.334,3.0,4812.6
+96fb4aee0baf11ebab90acde48001122,Urraca of Castile,Beatrice of Castile,0.0,0.6667,1,1,10,5,0.479,10.4,4878.1
+e618b2c608c911ebbd92ac1f6bf848b6,Giuseppe Cesari,yes,0.0,0.0,0,1,10,1,0.348,2.9,4859.2
+d71f453b085811ebbd5bac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.345,2.9,4815.9
+f7eb7e31088c11ebbd70ac1f6bf848b6,Aryeh Ben-Eliezer,yes,0.0,0.0,1,1,10,1,0.41,2.4,4844.2
+e41c14820bd911eba7f7acde48001122,Cahiers du cinéma,France,0.0,0.0,0,1,10,1,0.339,3.0,4867.1
+27e835ee0bb011ebab90acde48001122,"Sir Arthur Gore, 2nd Baronet","Sir Arthur Gore, 2nd Baronet",1.0,1.0,1,1,10,9,0.507,17.8,4807.6
+3f635554096511ebbdafac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.343,2.9,4805.4
+b69ad95c08ad11ebbd83ac1f6bf848b6,Heroes Of The Street,Aanaval Mothiram,0.0,0.0,0,1,10,6,0.432,13.9,4882.9
+931a85420bdd11eba7f7acde48001122,London,England,0.0,0.0,0,1,10,1,0.337,3.0,4860.0
+0bbded440bda11eba7f7acde48001122,Pakistan,India,0.0,0.0,0,1,10,1,0.384,2.6,4806.4
+258867240bdd11eba7f7acde48001122,"Winnipeg, Manitoba","Berlin, Germany",0.0,0.0,0,1,10,3,0.349,8.6,4779.3
+3cbd107e0bde11eba7f7acde48001122,Fukuoka,Japan,0.0,0.0,0,1,10,1,0.383,2.6,4796.3
+5e8240ea0bdd11eba7f7acde48001122,Roma,Italy,0.0,0.0,1,1,10,1,0.413,2.4,4861.8
+6638110e0bdb11eba7f7acde48001122,"Moscow, USSR","Moscow, USSR",1.0,1.0,1,1,10,4,0.384,10.4,4860.0
+7de9188c088b11ebbd6fac1f6bf848b6,Toen 'T Licht Verdween,Toen't licht verdween,0.0,0.5714,0,1,10,7,0.472,14.8,4807.6
+3972d2b60baf11ebab90acde48001122,Jeanne d'Albret,Marie de' Medici,0.0,0.0,0,1,10,6,0.527,11.4,4861.0
+a8cbc4c40bdc11eba7f7acde48001122,New York,Fredrikstad,0.0,0.0,0,1,10,3,0.354,8.5,4787.5
+32e50df00bb011ebab90acde48001122,Louis II,Otto I Wittelsbach,0.0,0.0,0,1,10,6,0.463,13.0,4887.6
+deb907f80bdd11eba7f7acde48001122,Bohemia,Bohemia,1.0,1.0,0,1,10,3,0.447,6.7,4795.7
+b81fbe620bdc11eba7f7acde48001122,Gura Humorului,Fredrikstad,0.0,0.0,1,1,10,3,0.365,8.2,4793.0
+3717c0600bde11eba7f7acde48001122,Meran,"The context does not provide information about where Prince Gustav of Thurn and Taxis's mother died. Therefore, I cannot answer the question based on the given context.",0.0,0.0,0,1,10,34,0.996,34.2,4919.8
+0f1ac1a00bdb11eba7f7acde48001122,Grammy,5 Grammy Award nominations,0.0,0.4,1,1,10,4,0.318,12.6,4666.6
+f420d4a008a311ebbd7cac1f6bf848b6,Dodging The Dole,Dodging the Dole,1.0,1.0,1,1,10,5,0.41,12.2,4859.2
+6638a0f0084e11ebbd56ac1f6bf848b6,yes,no,0.0,0.0,1,1,10,1,0.312,3.2,4730.6
+07388c7c0bb011ebab90acde48001122,Peter I,"John, Duke of Berry",0.0,0.0,0,1,10,5,0.492,10.2,4841.7
+83ff07cd096711ebbdafac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.323,3.1,4775.2
+7a57c5d2089111ebbd73ac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.426,2.4,4841.2
+42f6d3b208b911ebbd88ac1f6bf848b6,Gene Watson,Gene Watson,1.0,1.0,1,1,10,2,0.328,6.1,4753.9
+f1ff478c089011ebbd72ac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.453,2.2,4890.9
+6b55ac320bdb11eba7f7acde48001122,24 March 1927,"The context does not provide the date of Prince John Konstantinovich of Russia's mother's death. Therefore, no.",0.0,0.0,0,1,10,25,0.823,30.4,4890.1
+424d56700bde11eba7f7acde48001122,Ostrogothic Kingdom,English,0.0,0.0,0,1,10,1,0.314,3.2,4747.7
+5c0c69f80bdd11eba7f7acde48001122,Kurdish,Norway,0.0,0.0,0,1,10,2,0.328,6.1,4737.5
+ac786909087411ebbd67ac1f6bf848b6,no,no,1.0,1.0,1,1,10,1,0.346,2.9,4809.2
+29427eea0bdd11eba7f7acde48001122,Liverpool,Liverpool,1.0,1.0,1,1,10,1,0.424,2.4,4864.5
+d370f0b0085711ebbd5aac1f6bf848b6,Captain Kidd And The Slave Girl,Relax Freddie,0.0,0.0,0,1,10,3,0.42,7.2,4806.4
+a9f9985a09a211ebbdb0ac1f6bf848b6,Go Ahead And Break My Heart,Go Ahead And Break My Heart,1.0,1.0,1,1,10,6,0.513,11.7,4846.6
+53ab316c08b911ebbd88ac1f6bf848b6,The Devil'S Hairpin,The Devil's Hairpin,1.0,1.0,0,1,10,5,0.404,12.4,4869.1
+bc633e2c0baf11ebab90acde48001122,"Louis, Grand Dauphin",Field Marshal Gen Sugiyama,0.0,0.0,0,1,10,6,0.466,12.9,4806.4
+2b4bd5020baf11ebab90acde48001122,Kujō Michiie,Kujō Michiie,1.0,1.0,1,1,10,6,0.424,14.2,4822.5
+3647118c0bdd11eba7f7acde48001122,Madrid,Madrid,1.0,1.0,1,1,10,2,0.364,5.5,4806.1
+d6074911090011ebbdadac1f6bf848b6,She Wore A Yellow Ribbon,She Wore A Yellow Ribbon,1.0,1.0,0,1,9,6,0.466,12.9,4790.0
+146b7443086611ebbd5eac1f6bf848b6,Edward Dearle,Michael Doeberl,0.0,0.0,1,1,10,4,0.362,11.1,4784.5
+ea1fc06c0bda11eba7f7acde48001122,United Nations,foreign minister,0.0,0.0,0,1,10,2,0.397,5.0,4819.4
+00c75ffc0bde11eba7f7acde48001122,Paris,Fredrikstad,0.0,0.0,0,1,10,3,0.379,7.9,4824.9
+94198d580bb011ebab90acde48001122,Mathilde of Bourbon,Margaret I of Flanders,0.0,0.2857,0,1,10,6,0.5,12.0,4866.7
+71d8e20e0bdb11eba7f7acde48001122,London,London,1.0,1.0,1,1,10,1,0.344,2.9,4839.6
+0323cdea090d11ebbdadac1f6bf848b6,Emmy Of Stork'S Nest,Emmy of Stork's Nest,1.0,1.0,1,1,10,7,0.434,16.2,4808.1
+f7c153ce092e11ebbdaeac1f6bf848b6,Celine: Through The Eyes Of The World,Celine: Through the Eyes of the World,1.0,1.0,0,1,10,9,0.506,17.8,4830.6
+0f44750808e411ebbda4ac1f6bf848b6,Lee Mantle,Silas Hardy,0.0,0.0,1,1,10,3,0.473,6.3,4865.5
+e701105e0bdd11eba7f7acde48001122,Königsberg,"The context does not provide information about the place of burial of Albert Frederick, Duke of Prussia's mother. Therefore, I cannot answer the question based on the given context.",0.0,0.0,0,1,10,35,0.904,38.8,4792.5
+b5e9ef2c0bdd11eba7f7acde48001122,Homs,Syria,0.0,0.0,0,1,10,2,0.439,4.6,4835.6
+48c8f7f80bdd11eba7f7acde48001122,Alain Poiré,Jean-Marie Poiré,0.0,0.5,0,1,10,6,0.422,14.2,4834.9
+aa0370860bdb11eba7f7acde48001122,"Naha, Okinawa",Japan,0.0,0.0,0,1,10,1,0.39,2.6,4807.2
+a5bed06e0bdc11eba7f7acde48001122,Byzantine,Unknown,0.0,0.0,0,1,10,1,0.386,2.6,4805.8
+d13381ae08da11ebbd9cac1f6bf848b6,Viktoriya Zeynep Güneş,Viktoriya Zeynep Güneş,1.0,1.0,1,1,10,11,0.635,17.3,4944.3
+2294ccfc0bdc11eba7f7acde48001122,"August 8, 1975","August 8, 1975",1.0,1.0,0,1,10,9,0.511,17.6,4803.4
+e8d8f7200bdd11eba7f7acde48001122,Chuck Schumer,Telltale Games,0.0,0.0,0,1,10,4,0.436,9.2,4795.7
+c2ccbd23087811ebbd67ac1f6bf848b6,no,no,1.0,1.0,1,1,10,1,0.385,2.6,4819.6
+cf06000e094611ebbdaeac1f6bf848b6,Les Résultats Du Féminisme,Les Résultats Du Féminisme,1.0,1.0,1,1,10,9,0.457,19.7,4808.1
+844fe30c0bda11eba7f7acde48001122,Florence,Forlì,0.0,0.0,0,1,10,3,0.405,7.4,4886.9
+c32ac4ca0bda11eba7f7acde48001122,Helsingfors,Sweden,0.0,0.0,0,1,10,1,0.386,2.6,4810.2
+6021e2d80bde11eba7f7acde48001122,Dutch,Dutch,1.0,1.0,1,1,10,2,0.48,4.2,4885.2
+8eaa7497095c11ebbdaeac1f6bf848b6,Kids Of The Round Table,Kids Of The Round Table,1.0,1.0,1,1,10,5,0.482,10.4,4794.0
+b5b63b160bdb11eba7f7acde48001122,Tisch,Tisch School of the Arts of New York University,0.0,0.2222,1,1,10,10,0.518,19.4,4882.2
+4b1b91720bde11eba7f7acde48001122,India,Korean,0.0,0.0,0,1,10,2,0.435,4.6,4856.4
+5bf96996085111ebbd58ac1f6bf848b6,Xenoa,Xenoa,1.0,1.0,1,1,10,3,0.354,8.5,4784.5
+0458640a0bdd11eba7f7acde48001122,leukemia,"The context does not provide the cause of death of Alex Matthiessen's father. Therefore, no answer can be given based solely on the provided information.",0.0,0.0,1,1,10,31,0.822,37.7,4869.8
+94dd39d80bdd11eba7f7acde48001122,Herstal,Rouen,0.0,0.0,0,1,10,3,0.377,8.0,4846.1
+abc68a180bd911eba7f7acde48001122,22 January 1794,six months before Patrick Stuart was born,0.0,0.0,1,1,10,7,0.483,14.5,4796.4
+363279db08d011ebbd95ac1f6bf848b6,"It'S A Joke, Son!","It's a Joke, Son!",1.0,1.0,0,1,10,8,0.534,15.0,4854.3
+bbccb00a08c211ebbd8cac1f6bf848b6,yes,no,0.0,0.0,0,1,9,1,0.343,2.9,4852.7
+5c77f7ed08ac11ebbd82ac1f6bf848b6,Sabawoon Rehabilitation Centre,Whitehorse Manor Junior School,0.0,0.0,1,1,10,5,0.411,12.2,4811.9
+b4e780a5088f11ebbd72ac1f6bf848b6,yes,yes,1.0,1.0,1,1,10,1,0.284,3.5,4684.8
+97ce0ec00baf11ebab90acde48001122,Stanisław Leszczyński,King Stanisław Leszczyński,0.0,0.8,1,1,10,8,0.562,14.3,4873.0
+69a7e9ca08e011ebbda1ac1f6bf848b6,Leave It To Henry,The Last Night of Scheherazade,0.0,0.0,0,1,10,8,0.536,14.9,4877.3
+04a544a40bde11eba7f7acde48001122,3 August 979,979,0.0,0.5,1,1,10,3,0.651,4.6,4915.0
+4f49c369098d11ebbdb0ac1f6bf848b6,yes,yes,1.0,1.0,1,1,10,1,0.478,2.1,4820.3
+a982212e08a311ebbd7bac1f6bf848b6,Ulti Ganga,I Am Breathing,0.0,0.0,0,1,10,4,0.509,7.9,4850.3
+c30b9f8108b211ebbd85ac1f6bf848b6,Charlotte Spurkeland,Charlotte Spurkeland,1.0,1.0,1,1,10,5,0.565,8.9,4851.8
+a08505d20bdc11eba7f7acde48001122,Aldo Parisot,"He was the father of Obata Masamori. No specific director's name is given for Red 2, and Obata Masamori is not listed as a director. Therefore, based on the given context, the answer cannot be definitively stated. However, if we strictly follow the question's phrasing and the given context, the answer is not available. But if we must choose, it would be: no.",0.0,0.0,0,1,10,86,1.722,50.0,4725.1
+982f8e440bdb11eba7f7acde48001122,1886,1886,1.0,1.0,1,1,10,4,0.362,11.1,4754.6
+5142f59e0bda11eba7f7acde48001122,Nevele,Deinze,0.0,0.0,0,1,10,3,0.372,8.1,4785.5
+041581680bdc11eba7f7acde48001122,Manchester,Wales,0.0,0.0,0,1,10,2,0.473,4.2,4790.0
+ad43c9300bdb11eba7f7acde48001122,Tantallon Castle,Edinburgh,0.0,0.0,0,1,10,2,0.508,3.9,4881.7
+5839dbac0bde11eba7f7acde48001122,American,Austrian,0.0,0.0,0,1,10,3,0.445,6.8,4816.6
+22d296de0bde11eba7f7acde48001122,Sochi,Not provided,0.0,0.0,0,1,10,2,0.449,4.5,4809.2
+ae85fcce089411ebbd75ac1f6bf848b6,Trainer And Temptress,Santa Fe Uprising,0.0,0.0,0,1,10,4,0.497,8.1,4794.0
+c01a2fa8087111ebbd63ac1f6bf848b6,Adam'S Rib,Thendral Veesum,0.0,0.0,0,1,10,6,0.523,11.5,4854.9
+9c3ff1040bdb11eba7f7acde48001122,French,Canada,0.0,0.0,0,1,10,1,0.369,2.7,4834.9
+81ca57e60bdc11eba7f7acde48001122,"Winnipeg, Manitoba","Winnipeg, Manitoba",1.0,1.0,1,1,10,5,0.434,11.5,4858.5
+dc6985ea096211ebbdafac1f6bf848b6,Noerr,No,0.0,0.0,0,1,10,1,0.424,2.4,4819.6
+30ee74680bde11eba7f7acde48001122,Villafranca del Bierzo,Florence,0.0,0.0,0,1,10,2,0.419,4.8,4813.6
+f491b33e0bda11eba7f7acde48001122,Jean Hersholt Humanitarian Award,no,0.0,0.0,0,1,10,1,0.357,2.8,4883.6
+5b637e060bb011ebab90acde48001122,"Princess Madeleine, Duchess of Hälsingland and Gästrikland",Princess Madeleine,0.0,0.4444,0,1,10,4,0.391,10.2,4792.3
+1a2188840bb011ebab90acde48001122,Princess Augusta of Schwarzburg-Sondershausen,Princess Augusta of Schwarzburg-Sondershausen,1.0,1.0,1,1,10,9,0.629,14.3,4954.3
+d1fd9cbe0bdc11eba7f7acde48001122,Cahiers du cinéma,Australia,0.0,0.0,0,1,10,1,0.352,2.8,4866.3
+909aa544086411ebbd5eac1f6bf848b6,"Figaro-Ci, Figaro-Là","Figaro-Ci, Figaro-Là",1.0,1.0,1,1,10,9,0.476,19.0,4840.3
+47806bc308c411ebbd8eac1f6bf848b6,Farber'S Nerve,Farber's Nerve,1.0,1.0,0,1,10,5,0.376,13.3,4755.7
+f6e2b9280bdd11eba7f7acde48001122,China,Qatar,0.0,0.0,0,1,10,2,0.409,4.9,4812.1
+ce5bfc90086c11ebbd61ac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.398,2.5,4818.1
+e6688a7e0baf11ebab90acde48001122,Charles I of Naples,King Charles of Anjou,0.0,0.5,1,1,10,6,0.514,11.7,4885.8
+3e3cd62a086211ebbd5dac1f6bf848b6,Holm Jølsen,Holm Jølsen,1.0,1.0,1,1,10,5,0.458,10.9,4824.3
+9b2ccd4e088b11ebbd6fac1f6bf848b6,The Crime Doctor'S Courage,The Crime Doctor's Courage,1.0,1.0,1,1,10,5,0.492,10.2,4844.2
+49ec1ade0bdd11eba7f7acde48001122,Argentina,Argentina,1.0,1.0,1,1,10,1,0.312,3.2,4760.8
+beda709d090e11ebbdadac1f6bf848b6,My Wife'S Lodger,Raiders of the Seven Seas,0.0,0.0,1,1,10,7,0.439,16.0,4840.3
+7d94382208d011ebbd95ac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.432,2.3,4869.1
+e4e02a240bda11eba7f7acde48001122,Jacques Cousteau,Jean-Michel Cousteau,0.0,0.5,0,1,10,6,0.399,15.1,4741.3
+49a5c36b086111ebbd5dac1f6bf848b6,Knights Of The Range,Knights Of The Range,1.0,1.0,0,1,10,5,0.405,12.4,4793.0
+fa58491e084b11ebbd56ac1f6bf848b6,Narcís Ventalló,Narcís Ventalló,1.0,1.0,1,1,10,6,0.421,14.3,4843.4
+8223ad8e097811ebbdb0ac1f6bf848b6,The Beginning Or The End,The Beginning or the End,1.0,1.0,1,1,10,5,0.379,13.2,4779.3
+8f8aaf0b088711ebbd6dac1f6bf848b6,Aneta Hladíková,Aneta Hladíková,1.0,1.0,1,1,10,7,0.441,15.9,4863.2
+c9b515020bda11eba7f7acde48001122,Thessaloniki,Greece,0.0,0.0,0,1,10,2,0.521,3.8,4904.1
+652d7dac0bdc11eba7f7acde48001122,New York,New York City,0.0,0.8,1,1,10,3,0.419,7.2,4800.8
+2b7db0200bde11eba7f7acde48001122,University of Paris,"The context does not provide information about where Charles Stewart, 3rd Duke of Richmond's father graduated from.",0.0,0.1053,0,1,10,22,0.843,26.1,4963.0
+437f3b9a0bdd11eba7f7acde48001122,Hackney,English,0.0,0.0,0,1,10,1,0.344,2.9,4826.7
+37c6703a0bdc11eba7f7acde48001122,1969,1969,1.0,1.0,1,1,10,4,0.411,9.7,4815.9
+e7f8e98808a311ebbd7cac1f6bf848b6,A Couch In New York,A Couch in New York,1.0,1.0,0,1,10,5,0.469,10.7,4801.0
+618527ff089911ebbd77ac1f6bf848b6,The Constant Woman,The Constant Woman,1.0,1.0,0,1,10,3,0.392,7.7,4882.9
+86b7e74808e211ebbda4ac1f6bf848b6,Dis-Moi Qui Tuer,Dis-Moi Qui Tuer,1.0,1.0,1,1,9,6,0.44,13.7,4859.2
+68cb7bc00bdd11eba7f7acde48001122,Huahine,Huahiné,0.0,0.0,0,1,10,4,0.408,9.8,4874.0
+74207b920bdd11eba7f7acde48001122,Brighton,No,0.0,0.0,0,1,10,1,0.387,2.6,4815.8
+00c727580bde11eba7f7acde48001122,10 May 1912,1912,0.0,0.5,0,1,10,4,0.43,9.3,4796.3
+4e84cd2d08bb11ebbd88ac1f6bf848b6,Helly Shah,Helly Shah,1.0,1.0,1,1,10,3,0.384,7.8,4874.0
+dc68effd08d811ebbd9cac1f6bf848b6,Marco De Luigi,Marco De Luigi,1.0,1.0,1,1,10,3,0.419,7.2,4789.2
+c21fb3ab08a711ebbd7fac1f6bf848b6,Guns And Guitars,Guns and Guitars,1.0,1.0,0,1,10,6,0.474,12.7,4791.9
+33b0c274087211ebbd64ac1f6bf848b6,The Falcon In San Francisco,The Falcon in San Francisco,1.0,1.0,1,1,10,5,0.558,9.0,4904.1
+77f41ab20bb011ebab90acde48001122,"John de Vere, 15th Earl of Oxford","John de Vere, 16th Earl of Oxford",0.0,0.8571,0,1,10,11,0.657,16.8,4926.1
+b1b78c480bdd11eba7f7acde48001122,Kreuzlingen,Berlin,0.0,0.0,0,1,10,1,0.386,2.6,4810.2
+09762e08087311ebbd66ac1f6bf848b6,Bulldog Drummond'S Revenge,Jayam Manade,0.0,0.0,0,1,10,4,0.443,9.0,4824.9
+f1145dc6084f11ebbd56ac1f6bf848b6,Monster A Go-Go,The Gamecock (Film),0.0,0.0,0,1,10,6,0.475,12.6,4832.7
+3c68e44c0bdc11eba7f7acde48001122,Florence,Florence,1.0,1.0,0,1,10,2,0.335,6.0,4761.9
+027970120bdc11eba7f7acde48001122,Århus,"Århus, Region Midtjylland, Denmark",0.0,0.4,1,1,10,10,0.528,19.0,4813.1
+eebc066c08c411ebbd8eac1f6bf848b6,yes,no,0.0,0.0,0,1,10,1,0.348,2.9,4866.0
+94873b220bd911eba7f7acde48001122,Florence,Florence,1.0,1.0,0,1,10,2,0.413,4.9,4832.7
+20ddd33208ca11ebbd92ac1f6bf848b6,Wiesław Perszke,Wiesław Perszke,1.0,1.0,1,1,10,6,0.468,12.8,4809.7
+26b866e6085c11ebbd5cac1f6bf848b6,Ride Lonesome,Ride Lonesome,1.0,1.0,1,1,10,5,0.498,10.1,4842.8
+ece1bdae0bdb11eba7f7acde48001122,British,English,0.0,0.0,1,1,10,1,0.347,2.9,4839.6
+0a630db408c211ebbd8bac1f6bf848b6,A Mother'S Secret,A Mother's Secret,1.0,1.0,0,1,10,4,0.4,10.0,4850.3
+6e5e9de109af11ebbdb0ac1f6bf848b6,1990-Sick (Get 'Em All),1990-Sick (Get 'Em All),1.0,1.0,1,1,10,12,0.598,20.1,4848.2
+2fd031c00bde11eba7f7acde48001122,State University of New York at Purchase,No information provided about the director's educational background.,0.0,0.0,0,1,10,10,0.491,20.4,4829.0
+09b7d46a0bda11eba7f7acde48001122,2 September 1770,1824,0.0,0.0,0,1,10,4,0.516,7.8,4888.2
+c5601df108a411ebbd7dac1f6bf848b6,Bountiful Summer,Bountiful Summer,1.0,1.0,0,1,10,4,0.441,9.1,4808.1
+61d1f6900bde11eba7f7acde48001122,1080,c. 1033,0.0,0.0,0,1,10,7,0.521,13.5,4824.3
+c3c76b780bd911eba7f7acde48001122,30 June 1963,1963,0.0,0.5,1,1,10,4,0.461,8.7,4798.8
+2e13ff240bde11eba7f7acde48001122,Wales,Powys,0.0,0.0,0,1,10,2,0.412,4.9,4804.9
+c40d35580bda11eba7f7acde48001122,Rosario,"Rodrigo Grande was born in Rosario, Santa Fe Province.",0.0,0.2,1,1,10,14,0.532,26.4,4737.5
+2cf578340bde11eba7f7acde48001122,1701,1701,1.0,1.0,1,1,10,4,0.452,8.9,4796.4
+79675c6e0bd911eba7f7acde48001122,German,Kazakhstan,0.0,0.0,0,1,10,3,0.427,7.0,4827.6
+30885e540bb011ebab90acde48001122,Franz Joseph I,"Franz Joseph I, Prince of Liechtenstein",0.0,0.6667,0,1,10,10,0.687,14.6,4833.1
+6e4854a00bde11eba7f7acde48001122,Amman,Syria,0.0,0.0,0,1,10,2,0.376,5.3,4866.3
+421b26d80bb011ebab90acde48001122,Princess Maria Immaculata of Bourbon-Two Sicilies,Archduchess Maria Theresa of Austria,0.0,0.3636,0,1,10,8,0.503,15.9,4801.8
