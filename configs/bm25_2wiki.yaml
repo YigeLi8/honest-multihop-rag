@@ -1,0 +1,6 @@
+run:
+  name: bm25_2wiki_dev
+dataset:
+  name: 2wiki
+retrieval:
+  method: bm25
