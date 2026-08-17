@@ -1,0 +1,201 @@
+id,answer_gold,answer_pred,em,f1,retrieval_correct,latency_s,tokens_per_s,peak_memory_mb
+5a8b57f25542995d1e6f1371,yes,no,0.0,0.0,0,77.737,0.8,4829.7
+5a8c7595554299585d9e36b6,Chief of Protocol,Secretary of State for Constitutional Affairs,0.0,0.2222,0,0.467,12.9,4832.7
+5a85ea095542994775f606a8,Animorphs,Animorphs,1.0,1.0,0,0.419,7.2,4819.6
+5adbf0a255429947ff17385a,no,no,1.0,1.0,1,0.417,2.4,4885.8
+5a8e3ea95542995a26add48d,"Greenwich Village, New York City",New York City,0.0,0.75,1,0.424,7.1,4807.2
+5abd94525542992ac4f382d2,YG Entertainment,YG Entertainment,1.0,1.0,1,0.369,5.4,4855.4
+5a85b2d95542997b5ce40028,Eenasul Fateh,Eenasul Fateh,1.0,1.0,1,0.514,9.7,4874.4
+5a87ab905542996e4f3088c1,"3,677 seated",550,0.0,0.0,0,0.416,7.2,4804.0
+5a7bbb64554299042af8f7cc,Terry Richardson,Annie Morton,0.0,0.0,1,0.433,6.9,4817.9
+5a8db19d5542994ba4e3dd00,yes,yes,1.0,1.0,0,0.345,2.9,4879.1
+5a7166395542994082a3e814,Kansas Song,Kansas Song (We’re From Kansas),0.0,0.5714,1,0.498,16.1,4825.7
+5a877e5d5542993e715abf7d,David Weissman,David Weissman,1.0,1.0,1,0.404,7.4,4887.6
+5ab3b0bf5542992ade7c6e39,1999,1999,1.0,1.0,0,0.457,8.8,4883.1
+5ab56e32554299637185c594,no,no,1.0,1.0,0,0.417,2.4,4847.4
+5ab6d09255429954757d337d,from 1986 to 2013,1986 to 2013,0.0,0.8571,0,0.585,17.1,4897.0
+5a75e05c55429976ec32bc5f,"9,984","9,984",1.0,1.0,1,0.402,12.5,4815.9
+5ab3e45655429976abd1bcd4,the North Atlantic Conference,North Atlantic Conference,1.0,1.0,1,0.455,6.6,4836.4
+5ab29c24554299449642c932,yes,yes,1.0,1.0,1,0.433,2.3,4843.9
+5ae0d4c9554299603e418468,1969 until 1974,1969-1974,0.0,0.0,0,0.744,12.1,4938.2
+5a8133725542995ce29dcbdb,Robert Erskine Childers DSC,Robert Erskine Childers,0.0,0.8571,1,0.509,11.8,4840.9
+5ae7a8175542993210983ed8,Pedro Rodríguez,Adrian Sutil,0.0,0.0,0,0.438,9.1,4813.1
+5ae6050f55429929b0807a5e,Sonic,Tails,0.0,0.0,0,0.449,4.5,4843.4
+5adddccd5542997dc7907069,keyboard function keys,iSight iMac G5,0.0,0.0,0,0.49,14.3,4824.3
+5ae2070a5542994d89d5b313,Badly Drawn Boy,Wolf Alice,0.0,0.0,0,0.445,4.5,4881.2
+5ae22b8d554299234fd0440f,World's Best Goalkeeper,World's Best Goalkeeper,1.0,1.0,1,0.495,10.1,4835.8
+5a722b8655429971e9dc9329,Barton Lee Hazlewood,Lee Hazlewood and Abdul Wali,0.0,0.5,0,0.495,16.2,4817.3
+5adf37a95542995ec70e8f97,1838,1818,0.0,0.0,0,0.43,9.3,4810.2
+5abd259d55429924427fcf1a,yes,no,0.0,0.0,1,0.39,2.6,4799.4
+5a828c8355429966c78a6a50,Henry J. Kaiser,yes,0.0,0.0,0,0.452,2.2,4881.7
+5a8a3e745542996c9b8d5e70,Arena of Khazan,Arena of Khazan,1.0,1.0,1,0.483,10.4,4840.3
+5ac23ff0554299636651994d,2000,2000,1.0,1.0,0,0.474,8.5,4879.0
+5ae4a3265542995ad6573de5,"Fujioka, Gunma",Japan,0.0,0.0,1,0.342,2.9,4811.9
+5ae0361155429925eb1afc2c,Charles Eugène,François Coli,0.0,0.0,0,0.513,5.9,4915.0
+5abc0a5d5542993f40c73c64,no,no,1.0,1.0,1,0.387,2.6,4799.4
+5a7cc50e554299452d57ba3e,Letters to Cleo,Screaming Trees,0.0,0.0,0,0.469,8.5,4857.3
+5abf63f15542997ec76fd3ea,October 1922,1923,0.0,0.0,0,0.502,8.0,4890.1
+5a8ef2a75542995a26add583,2000,2000,1.0,1.0,1,0.434,9.2,4807.6
+5a80721b554299485f5985ef,World War II,World War II,1.0,1.0,1,0.373,8.1,4874.0
+5ab51dae5542991779162d82,no,no,1.0,1.0,1,0.445,2.3,4849.2
+5a7571135542992d0ec05f98,New York City,New York City,1.0,1.0,1,0.414,7.3,4798.8
+5a7a0e1e5542990783324e1a,Scotch Collie,Manchester Terrier,0.0,0.0,1,0.452,6.7,4835.6
+5a74106b55429979e288289e,Mumbai,"Mumbai, Maharashtra",0.0,0.6667,0,0.394,10.2,4829.0
+5a79311755429970f5fffe67,1962,1978,0.0,0.0,0,0.471,8.5,4846.6
+5ab2d3df554299194fa9352c,sovereignty,Ethiopian sovereignty,0.0,0.6667,0,0.551,7.3,4951.8
+5a760ab65542994ccc918697,Nelson Rockefeller,Nelson Rockefeller,1.0,1.0,0,0.459,6.6,4840.9
+5a7d54165542995f4f402256,Yellowcraig,Yellowcraig,1.0,1.0,0,0.419,7.2,4828.1
+5ab859a955429934fafe6d7b,Phil Spector,Phil Spector,1.0,1.0,1,0.478,6.3,4884.3
+5add61d65542995b365fab21,Organizations could come together to address global issues,World Summit of Nobel Peace Laureates,0.0,0.0,1,0.545,12.9,4866.2
+5a8e068b5542995085b37384,yes,yes,1.0,1.0,0,0.344,2.9,4846.1
+5abbf698554299114383a0b5,English Electric Canberra,English Electric Canberra,1.0,1.0,1,0.459,6.5,4796.4
+5a8e1027554299653c1aa15f,2009 Big 12 Conference,2009 Big 12 Conference,1.0,1.0,0,0.541,16.6,4881.9
+5ab84bf555429916710eb01f,"1,462",no,0.0,0.0,0,0.382,2.6,4799.1
+5a77724455429972597f153e,Indianapolis Motor Speedway,Indianapolis Motor Speedway,1.0,1.0,0,0.47,8.5,4837.1
+5a87c13f5542996e4f30890c,Rome,New York City,0.0,0.0,0,0.444,6.8,4856.4
+5ab96ab755429970cfb8eacd,"Max Martin, Savan Kotecha and Ilya Salmanzadeh",Starsmith,0.0,0.0,0,0.391,5.1,4798.8
+5a8a43eb5542996c9b8d5e82,"Marion, South Australia",Marion,0.0,0.5,0,0.434,4.6,4837.1
+5ae73acb5542991e8301cc07,Drifting,Drifting,1.0,1.0,1,0.396,5.1,4886.9
+5a7320565542991f9a20c61d,Keith Bostic,no,0.0,0.0,1,0.362,2.8,4831.8
+5ae32e125542991a06ce9946,"35,124","25,949",0.0,0.0,0,0.545,11.0,4881.7
+5adc53f75542996e6852530a,no,no,1.0,1.0,0,0.433,2.3,4869.7
+5a8b20335542996c9b8d5fb3,shortest player ever to play in the National Basketball Association,shortest player ever to play in the National Basketball Association,1.0,1.0,0,0.552,20.0,4792.5
+5a85fb085542994775f606de,Ronald Shusett,Shusett,0.0,0.6667,0,0.386,7.8,4821.8
+5a7be2595542997c3ec972ac,Adeline Virginia Woolf,Virginia Woolf,0.0,0.8,1,0.409,7.4,4801.0
+5a77152355429966f1a36c2e,821,19800,0.0,0.0,1,0.375,13.4,4706.6
+5a8f4c8d554299458435d5a3,more than 70 countries,70,0.0,0.4,1,0.395,5.1,4812.5
+5a80840f554299485f59863b,Charmed,Charmed,1.0,1.0,1,0.442,4.5,4851.8
+5a8361b65542992ef85e22a0,International Boxing Hall of Fame,International Boxing Hall of Fame (IBHOF),0.0,0.9091,1,0.906,11.0,5124.5
+5ae7ba7a5542993210983f12,Usher,Usher,1.0,1.0,1,0.454,4.4,4850.6
+5ac2acff55429921a00ab02b,Bill Murray,Thomas Middleditch,0.0,0.0,0,0.383,10.5,4822.5
+5aba7cfe554299232ef4a2fd,Carabao Cup,Carabao Cup,1.0,1.0,0,0.504,8.0,4870.3
+5ae5aba0554299546bf82f17,Teen Titans Go!,Teen Titans,0.0,0.8,0,0.432,4.6,4844.2
+5ae1f4cb554299234fd0436d,"276,170 inhabitants","276,170",0.0,0.6667,1,0.563,12.5,4838.8
+5ae7e1fc55429952e35ea9cc,orange,orange,1.0,1.0,1,0.438,2.3,4846.0
+5ae37c765542992f92d822d4,Tromeo and Juliet,Tromeo and Juliet,1.0,1.0,0,0.487,10.3,4839.3
+5ae33c4d5542992f92d82262,William Jefferson Clinton,Bill Clinton,0.0,0.4,0,0.398,5.0,4798.8
+5a77cb335542997042120b3a,John John Florence,John Alexander Florence,0.0,0.6667,0,0.418,7.2,4792.5
+5a8979f4554299669944a52e,Ann,Ward,0.0,0.0,0,0.403,5.0,4821.9
+5a713ea95542994082a3e6e4,Apalachees,the native populations living south of St. Augustine and in the Cape Canaveral area,0.0,0.0,0,0.619,27.5,4799.4
+5a78bd9b554299078472774a,British,British,1.0,1.0,1,0.413,2.4,4844.2
+5a7625e8554299109176e66a,1865,1865,1.0,1.0,1,0.438,9.1,4789.2
+5ae2dd2055429928c423950d,Newport,Sullivan County,0.0,0.0,0,0.431,7.0,4790.0
+5abdf12255429976d4830a2f,Bob Seger,Bob Seger,1.0,1.0,1,0.413,7.3,4822.3
+5a88658955429938390d3f47,Conscription,requiring only men to register for the draft,0.0,0.0,0,0.546,16.5,4848.2
+5a86ebac55429960ec39b6d6,"Mondelez International, Inc.",Mondelez International,0.0,0.8,1,0.475,8.4,4851.2
+5aba5d2e55429901930fa799,Monica Lewinsky,Monica Lewinsky,1.0,1.0,0,0.528,7.6,4914.4
+5ae5736e5542990ba0bbb2b3,"April 1, 1949",1949,0.0,0.5,1,0.472,8.5,4832.9
+5ae005b555429942ec259bec,1866,1866,1.0,1.0,0,0.469,8.5,4861.2
+5a7759fc5542993569682d60,"Canary Islands, Spain","Teide National Park is located in Tenerife, Canary Islands, Spain. Garajonay National Park is located in La Gomera, one of the Canary Islands, Spain.",0.0,0.2308,1,0.936,40.7,4804.0
+5a835478554299123d8c20ed,250 million,250 million,1.0,1.0,1,0.431,9.3,4809.1
+5aba749055429901930fa7d8,director,director,1.0,1.0,1,0.385,2.6,4801.8
+5abfb3425542990832d3a1c0,The Conversation,The Conversation,1.0,1.0,1,0.427,4.7,4809.2
+5ac3165c5542995ef918c10a,John Waters,no,0.0,0.0,1,0.385,2.6,4792.5
+5ae53b545542990ba0bbb23c,Las Vegas Strip in Paradise,Flamingo Las Vegas,0.0,0.5,0,0.379,13.2,4787.5
+5ae224da554299234fd043ee,no,no,1.0,1.0,0,0.386,2.6,4822.3
+5ae2b770554299495565db0f,March and April,March or April,0.0,0.6667,0,0.367,8.2,4816.6
+5a80b3a9554299485f5986cc,Fairfax County,Fairfax,0.0,0.6667,0,0.394,5.1,4818.1
+5a8e0a005542995085b373a1,IT products and services,IT products and services,1.0,1.0,1,0.427,9.4,4809.2
+5ac1b8ee5542994d76dccedc,Levni Yilmaz,Levni Yilmaz,1.0,1.0,1,0.494,12.2,4864.5
+5adccd795542990d50227d2c,Beijing,Rabat,0.0,0.0,1,0.524,5.7,4937.2
+5a84c4135542994c784dda31,no,no,1.0,1.0,1,0.39,2.6,4832.7
+5a85eed75542996432c5713b,"Coahuila, Mexico","El Nacimiento in Múzquiz Municipality, Mexico",0.0,0.25,1,0.561,21.4,4803.4
+5a774e9c55429972597f14f3,Larnelle Harris,yes,0.0,0.0,1,0.452,2.2,4852.3
+5ae738f75542991bbc9761c4,2003,1999,0.0,0.0,0,0.44,9.1,4822.4
+5ac32b565542995ef918c154,North Avenue at Techwood Drive,"Atlanta, Georgia",0.0,0.0,0,0.462,6.5,4835.8
+5abc8d75554299700f9d7900,Leo Varadkar,Leo Eric Varadkar,0.0,0.8,1,0.706,7.1,4976.1
+5a8bb29b554299240d9c2089,George Raft,George Raft,1.0,1.0,0,0.411,7.3,4798.8
+5ab659e355429954757d324e,1887,1909,0.0,0.0,0,0.448,9.0,4796.4
+5a8b8b3155429949d91db5d7,business,valuation method,0.0,0.0,1,0.366,5.5,4815.9
+5ae7eaf65542994a481bbe1d,7 October 1978,1978,0.0,0.5,1,0.449,8.9,4825.7
+5a8c4c625542995e66a475a1,B-17 Flying Fortress bomber,B-17 Flying Fortress,0.0,0.8571,0,0.47,12.8,4805.8
+5a818387554299260e20a291,Blake Shelton,Blake Shelton,1.0,1.0,1,0.418,7.2,4812.5
+5ab978855542996be2020512,three centuries,three,0.0,0.6667,0,0.398,2.5,4819.4
+5ae63dad55429929b0807afe,7 January 1936,7 January 1936,1.0,1.0,1,0.485,14.5,4830.6
+5a7a455c5542994f819ef1a7,George Archainbaud,Ralph Murphy,0.0,0.0,1,0.485,6.2,4864.1
+5a7dcc775542990b8f503ab5,picric acid,Picric acid,1.0,1.0,0,0.424,7.1,4809.2
+5a887bc0554299206df2b2b6,230,16,0.0,0.0,1,0.366,5.5,4880.2
+5a83880e554299123d8c214e,Marvel,Ghost Rider,0.0,0.0,1,0.368,5.4,4864.0
+5a879adb5542996e4f30887f,United States Senator,D-Maryland,0.0,0.0,0,0.498,8.0,4861.0
+5add11935542994734353827,no,no,1.0,1.0,1,0.422,2.4,4837.9
+5a8c5569554299240d9c2126,yes,yes,1.0,1.0,0,0.348,2.9,4879.1
+5a75f0ea5542994ccc91866c,The A41,no,0.0,0.0,0,0.378,2.7,4886.9
+5a89f5815542993b751ca9c5,Princess Jessica,Princess Jessica,1.0,1.0,1,0.418,7.2,4822.4
+5a8d5fc6554299585d9e37c6,The Spiderwick Chronicles,The Spiderwick Chronicles,1.0,1.0,0,0.462,8.7,4846.0
+5ac120c55542992a796dedfc,KKR & Co,Kohlberg Kravis Roberts,0.0,0.0,0,0.456,13.2,4820.3
+5ab7c1a955429928e1fe38c8,The Bye Bye Man,Bottom of the World,0.0,0.0,0,0.535,7.5,4914.4
+5abd01205542992ac4f3819b,Richmond,Richmond River,0.0,0.6667,1,0.38,7.9,4880.2
+5ab69c25554299110f219a39,Owsley Stanley,Owsley Stanley,1.0,1.0,0,0.506,7.9,4897.0
+5a7b12a355429927d897bf2a,the late 12th Century,eighteenth century,0.0,0.4,0,0.462,6.5,4840.9
+5ae0006755429925eb1afbd3,"San Luis Obispo, California",San Luis Obispo,0.0,0.8571,0,0.411,12.2,4869.8
+5ae305df5542992decbdcdc3,Mercedes-Benz Superdome,University of Phoenix Stadium,0.0,0.0,0,0.432,9.3,4825.7
+5a8574945542997b5ce3fffb,LaLee's Kin: The Legacy of Cotton,"Gimme Shelter, the 1970 Rolling Stones documentary",0.0,0.0,0,0.588,23.9,4814.8
+5a7332935542991f9a20c67d,Pirate's Cove,Catan,0.0,0.0,1,0.407,4.9,4824.9
+5a80071f5542992bc0c4a684,Crystal Dynamics,Core Design,0.0,0.0,1,0.438,4.6,4836.4
+5ae73c065542991e8301cc18,"""The Marshall Mathers LP 2""",The Marshall Mathers LP 2,1.0,1.0,1,0.474,14.8,4798.2
+5a87d8215542994775f60800,Suicide Squad,Training Day,0.0,0.0,1,0.443,4.5,4866.7
+5ac2ffbd554299677310267b,Jillian Belk,Dixie,0.0,0.0,0,0.463,6.5,4847.4
+5a7c960655429935c91b5244,Texas Tech University,Texas Tech University,1.0,1.0,1,0.454,6.6,4859.4
+5a7d61775542991319bc93b9,Lord Combermere,no,0.0,0.0,0,0.456,2.2,4878.5
+5ac1c6805542994ab5c67e11,"seasonal television specials, particularly its work in stop motion animation",stop motion animation,0.0,0.4615,1,0.468,6.4,4846.6
+5a7a230e5542996a35c170ee,2014,2007,0.0,0.0,0,0.399,10.0,4840.3
+5ae4627d5542991a06ce9a4d,Oxford,Oxford University,0.0,0.6667,0,0.429,7.0,4814.8
+5ac2d1d755429921a00ab053,Roberta Vinci,Sara Errani,0.0,0.0,0,0.401,10.0,4832.9
+5ab4e3065542990594ba9cb4,"""Teach the Controversy"" campaign",Teach the Controversy,0.0,0.8,1,0.436,13.8,4859.2
+5ac298f9554299657fa28fc9,Lostprophets disbanded in 2013 after Watkins was charged with sexual offences in late 2012.,no,0.0,0.0,0,0.396,2.5,4813.1
+5ab6a2be554299710c8d1f08,Nebo Zovyot,Nebo Zovyot,1.0,1.0,1,0.46,10.9,4832.1
+5a738d27554299623ed4abf3,Erika Jayne,Erika Jayne,1.0,1.0,1,0.487,8.2,4869.7
+5ab2a186554299295394677b,2009,2009,1.0,1.0,1,0.392,10.2,4850.3
+5a8704f8554299211dda2ba4,Kingdom of the Isles,Isles,0.0,0.5,0,0.412,4.9,4830.6
+5ab5ed505542997d4ad1f255,The Beatles,The Beatles,1.0,1.0,1,0.476,4.2,4881.1
+5a77c1505542997042120b1b,"""We'll Burn That Bridge""",Chattahoochee,0.0,0.0,0,0.638,7.8,4902.1
+5a88d745554299206df2b378,director,director,1.0,1.0,1,0.45,2.2,4837.1
+5ae748d1554299572ea547b0,1901,1901,1.0,1.0,1,0.471,8.5,4867.5
+5a7a8a9c554299042af8f666,Argand lamp,Argand lamp,1.0,1.0,1,0.386,7.8,4882.2
+5adffe7155429906c02daa9e,seven,7,0.0,0.0,1,0.383,2.6,4803.4
+5ab642845542995eadeeff8e,yes,yes,1.0,1.0,1,0.386,2.6,4817.9
+5a906a685542990a9849362e,Brazil,No,0.0,0.0,0,0.43,2.3,4837.3
+5a7633ad5542992db9473741,The Seven Days Battles,Seven Days Battles,1.0,1.0,1,0.461,6.5,4846.1
+5a74ce9655429974ef308c6c,Lush Ltd.,Lush Ltd.,1.0,1.0,0,0.43,9.3,4813.1
+5a713a5a5542994082a3e6a9,Manchester United,Manchester United Football Club,0.0,0.6667,1,0.427,9.4,4803.4
+5ab341f755429969a97a8114,1989,1989,1.0,1.0,1,0.434,9.2,4827.6
+5a8325b35542990548d0b18f,Kathryn Jean Martin,Dorothy Tangney,0.0,0.0,0,0.517,9.7,4850.9
+5ab9374b554299131ca422c6,Frank Lowy,Sir Frank P. Lowy,0.0,0.6667,1,0.467,12.9,4833.3
+5ae52c0f5542992663a4f12e,Las Vegas,Las Vegas,1.0,1.0,0,0.402,5.0,4819.0
+5adbfbd555429947ff173893,Kelly Lee Osbourne,Kelly Lee Osbourne,1.0,1.0,0,0.422,9.5,4859.2
+5ab7f0015542992aa3b8c88b,Sean Yseult.,No,0.0,0.0,0,0.387,2.6,4801.4
+5ac547525542993e66e822a3,Prescription Drug User Fee Act,approximately $700 million,0.0,0.0,0,0.538,11.2,4899.7
+5a7cbf8c554299452d57b9f4,Dinosaur,Dinosaur,1.0,1.0,0,0.432,4.6,4840.3
+5a7ddc5a5542995f4f4022da,Wichita,Wichita,1.0,1.0,1,0.418,7.2,4799.4
+5a7a1cd85542990783324e65,United States presidential election of 2016,The United States presidential election of 2016,1.0,1.0,1,0.557,19.8,4824.3
+5ae0a59a55429945ae9593e2,Roman,Togodumnus ruled southeastern Britain prior to the Roman conquest.,0.0,0.2222,1,0.636,22.0,4854.9
+5a8b987f5542997f31a41d7a,C. W. Grafton,C. W. Grafton,1.0,1.0,0,0.451,15.5,4879.1
+5a8739a05542994775f607ab,"Brooklyn, New York",no,0.0,0.0,0,0.346,2.9,4836.3
+5ae67dba55429908198fa5f0,"48,982","1,324,108",0.0,0.0,0,0.469,19.2,4869.1
+5a7b3f4d5542992d025e67bb,Pasek & Paul,Benj Pasek and Justin Paul,0.0,0.5714,1,0.454,17.7,4869.1
+5ae2dfd155429928c423951b,City of Newcastle,Newcastle,0.0,0.5,0,0.403,5.0,4816.4
+5ab6ba245542995eadef007f,yes,yes,1.0,1.0,1,0.397,2.5,4813.6
+5ab8854555429934fafe6e0c,drawings,prints,0.0,0.0,0,0.405,2.5,4821.9
+5a8eea4a5542990e94052bb7,between the 8th and 16th centuries,8th century,0.0,0.2857,0,0.423,7.1,4818.1
+5a74c85055429916b0164218,Alistair Grant,Sir Matthew Alistair Grant,0.0,0.6667,1,0.471,12.8,4796.4
+5a88dcf9554299206df2b383,Scotland,Scotland,1.0,1.0,1,0.401,2.5,4795.7
+5a7625c7554299109176e668,Comedy Film Nerds,Maltin on Movies,0.0,0.0,0,0.457,11.0,4811.8
+5ac0d83a554299294b219038,Summerlin,Summerlin,1.0,1.0,0,0.401,5.0,4804.0
+5a790d8f554299029c4b5eec,George Harrison,George Harrison,1.0,1.0,1,0.366,5.5,4863.2
+5ab2c5e255429916697740ba,Canadian professional ice hockey centre,Centre,0.0,0.3333,1,0.492,2.0,4912.8
+5abcfc365542993a06baf9d6,1952,1952,1.0,1.0,0,0.437,9.2,4794.0
+5a8ee6915542990e94052bad,third,third,1.0,1.0,0,0.42,2.4,4833.1
+5abba4855542993f40c73b68,Mark Neveldine and Brian Taylor,Mark Neveldine and Brian Taylor,1.0,1.0,1,0.518,13.5,4854.9
+5ae0bae555429906c02dab08,Hidden America with Jonah Ray,Hidden America with Jonah Ray,1.0,1.0,0,0.518,9.7,4859.1
+5ab271fe554299449642c8a6,no,yes,0.0,0.0,1,0.385,2.6,4833.3
+5a7997a2554299029c4b5f59,1943,1943,1.0,1.0,0,0.468,8.6,4835.6
+5add673e5542992ae4cec54d,Oregon Ducks football,no,0.0,0.0,0,0.427,2.3,4833.1
+5ae819ac55429952e35eaa16,National Broadcasting Company,NBC,0.0,0.0,0,0.39,2.6,4813.6
+5aba65a055429939ce03dcd2,North African Arab,Tunisian,0.0,0.0,0,0.477,8.4,4841.2
+5a87bada5542994846c1cddc,Murray Hill,Murray Hill,1.0,1.0,1,0.437,6.9,4832.7
+5ae74fc45542997b22f6a6b4,severe acute respiratory syndrome,Severe acute respiratory syndrome (SARS),0.0,0.8889,1,0.524,17.2,4807.2
+5adf65555542992d7e9f9334,Wendell Berry,no,0.0,0.0,0,0.4,2.5,4824.3
+5ade69e455429975fa854ec5,Tinu Suresh Desai,Vikram Bhatt,0.0,0.0,0,0.486,10.3,4850.6
+5ae057fd55429945ae959328,"Golden Valley, Minnesota,",Chicago,0.0,0.0,0,0.359,2.8,4834.9
+5ab28019554299722f9b4d51,$10.5 million,0,0.0,0.0,0,0.377,2.7,4882.2
+5a75f79555429976ec32bcca,1999 Odisha cyclone,Kathantara,0.0,0.0,1,0.542,7.4,4867.6

@@ -214,7 +214,6 @@ __marimo__/
 .idea/
 data/raw/
 data/processed/
-results/
 *.gguf
 *.faiss
 *.safetensors
