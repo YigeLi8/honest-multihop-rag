@@ -95,6 +95,31 @@ def test_decoupling_table():
     assert t.n == 5 and abs(t.illusion_rate - 0.4) < 1e-9
 
 
+def test_wilson_ci():
+    from src.eval.stats import wilson_ci
+    lo, hi = wilson_ci(50, 100)
+    assert 0.40 < lo < 0.41 and 0.59 < hi < 0.60
+    assert wilson_ci(0, 0) == (0.0, 0.0)
+    lo, hi = wilson_ci(0, 200)
+    assert lo == 0.0 and hi < 0.02
+
+
+def test_score_hops():
+    from src.eval.per_hop_precision import score
+    from src.types import Chunk, HopTrace, PipelineResult, RetrievedChunk
+
+    def hit(cid):
+        return RetrievedChunk(chunk=Chunk(chunk_id=cid, text=""), score=1.0, rank=1)
+
+    res = PipelineResult(example_id="x", answer="", hops=[
+        HopTrace(hop=0, query="q", retrieved=[hit("a"), hit("b")], gold_chunk_ids=["a"]),
+        HopTrace(hop=1, query="q2", retrieved=[hit("c")], gold_chunk_ids=["c", "d"]),
+    ])
+    s = score([res])
+    assert s[0]["precision"] == 0.5 and s[0]["recall"] == 1.0
+    assert s[1]["recall"] == 0.5 and s[1]["retrieved_mean"] == 1.0
+
+
 def test_parse_step():
     from src.pipeline.multihop import parse_step
     assert parse_step("thinking...\nSEARCH: who wrote book x") == (None, "who wrote book x")
@@ -159,6 +184,8 @@ if __name__ == "__main__":
     test_answer_metrics()
     test_precision_recall()
     test_decoupling_table()
+    test_wilson_ci()
+    test_score_hops()
     test_parse_step()
     test_ircot_loop()
     print("all good")

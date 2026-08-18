@@ -13,6 +13,8 @@ from pathlib import Path
 from src.config import load_config
 from src.eval.answer_metrics import em, f1
 from src.eval.decoupling import build_table, plot_table
+from src.eval.per_hop_precision import plot_per_hop, score
+from src.eval.stats import wilson_ci
 from src.pipeline.multihop import MultiHopPipeline
 from src.types import example_from_json
 
@@ -37,8 +39,10 @@ def main():
 
     pipe = MultiHopPipeline(cfg)
     rows = []
+    results = []
     for i, ex in enumerate(examples):
         res = pipe.run_example(ex)
+        results.append(res)
         got = {rc.chunk.chunk_id for h in res.hops for rc in h.retrieved}
         retr_ok = set(ex.gold_chunk_ids) <= got
         rows.append({
@@ -67,14 +71,26 @@ def main():
         w.writerows(rows)
 
     n = len(rows)
-    mean_em = sum(r["em"] for r in rows) / n
+    em_hits = sum(r["em"] for r in rows)
     mean_f1 = sum(r["f1"] for r in rows) / n
     table = build_table((bool(r["em"]), bool(r["retrieval_correct"])) for r in rows)
     png = out_dir / f"{cfg.run.name}_2x2.png"
     plot_table(table, png)
 
-    print(f"\n{cfg.run.name}: n={n}  EM={mean_em:.4f}  F1={mean_f1:.4f}")
-    print(table)
+    em_lo, em_hi = wilson_ci(em_hits, n)
+    il_lo, il_hi = wilson_ci(table.ac_rw, n)
+    print(f"\n{cfg.run.name}: n={n}  EM={em_hits / n:.4f} "
+          f"(95% CI {em_lo:.3f}-{em_hi:.3f})  F1={mean_f1:.4f}")
+    print(f"{table}  illusion CI {il_lo:.3f}-{il_hi:.3f}")
+
+    hop_stats = score(results)
+    for hop, s in hop_stats.items():
+        print(f"hop {hop}: precision={s['precision']:.3f} recall={s['recall']:.3f} "
+              f"n={s['n']} retrieved/hop={s['retrieved_mean']:.1f} "
+              f"(var {s['retrieved_var']:.1f})")
+    if len(hop_stats) > 1:
+        plot_per_hop(hop_stats, out_dir / f"{cfg.run.name}_per_hop.png")
+
     print(f"csv: {out}\nplot: {png}")
 
 
