@@ -1,201 +1,501 @@
 id,answer_gold,answer_pred,em,f1,retrieval_correct,hops,n_context,reasoning_tokens,latency_s,tokens_per_s,peak_memory_mb
-5a8b57f25542995d1e6f1371,yes,yes,1.0,1.0,1,3,8,23,9.017,2.6,4840.3
-5a8c7595554299585d9e36b6,Chief of Protocol,"The woman who portrayed Corliss Archer in the film Kiss and Tell, Shirley Temple, held government positions as United States ambassador to Ghana and to Czechoslovakia and also served as Chief of Protocol of the United States.",0.0,0.1622,0,1,5,48,1.143,47.4,4740.6
-5a85ea095542994775f606a8,Animorphs,Animorphs,1.0,1.0,1,3,7,40,2.026,7.3,4815.9
-5adbf0a255429947ff17385a,no,no,1.0,1.0,1,2,6,17,1.494,2.9,4866.0
-5a8e3ea95542995a26add48d,"Greenwich Village, New York City",Greenwich Village,0.0,0.5714,1,1,5,5,0.493,13.4,4785.5
-5abd94525542992ac4f382d2,YG Entertainment,YG Entertainment,1.0,1.0,1,2,6,46,1.783,6.1,4793.0
-5a85b2d95542997b5ce40028,Eenasul Fateh,"Eenasul Fateh, also known by his stage name Aladin, is a Bangladeshi-British cultural practitioner, magician, live artist and former international management consultant who helped organizations improve their performance as a consultant.",0.0,0.129,1,2,6,66,1.925,44.4,4791.9
-5a87ab905542996e4f3088c1,"3,677 seated",550,0.0,0.0,0,2,6,23,1.592,8.9,4798.8
-5a7bbb64554299042af8f7cc,Terry Richardson,Annie Morton,0.0,0.0,0,2,9,17,1.568,7.2,4822.4
-5a8db19d5542994ba4e3dd00,yes,yes,1.0,1.0,1,3,9,16,1.468,2.9,4848.5
-5a7166395542994082a3e814,Kansas Song,Kansas Song (We’re From Kansas),0.0,0.5714,1,3,8,57,2.138,18.0,4843.4
-5a877e5d5542993e715abf7d,David Weissman,David Diamond,0.0,0.5,0,2,8,24,1.616,5.0,4815.8
-5ab3b0bf5542992ade7c6e39,1999,1999,1.0,1.0,1,3,8,37,1.946,9.3,4866.0
-5ab56e32554299637185c594,no,no,1.0,1.0,0,3,8,42,2.184,2.9,4869.8
-5ab6d09255429954757d337d,from 1986 to 2013,1992-1994,0.0,0.0,0,3,9,32,1.968,16.0,4883.8
-5a75e05c55429976ec32bc5f,"9,984","9,984",1.0,1.0,1,3,9,27,1.521,13.5,4787.5
-5ab3e45655429976abd1bcd4,the North Atlantic Conference,North Atlantic Conference,1.0,1.0,0,2,7,61,2.036,8.1,4845.4
-5ab29c24554299449642c932,yes,yes,1.0,1.0,1,3,7,29,2.026,2.9,4874.0
-5ae0d4c9554299603e418468,1969 until 1974,1969 to 1974,0.0,0.6667,1,2,9,22,1.798,17.1,4881.1
-5a8133725542995ce29dcbdb,Robert Erskine Childers DSC,Robert Erskine Childers was from England.,0.0,0.6,1,1,5,13,0.607,26.7,4779.3
-5ae7a8175542993210983ed8,Pedro Rodríguez,Pedro Rodríguez,1.0,1.0,1,3,10,46,1.909,12.1,4879.1
-5ae6050f55429929b0807a5e,Sonic,Dr. Robotnik,0.0,0.0,0,3,9,38,1.762,10.2,4852.7
-5adddccd5542997dc7907069,keyboard function keys,iSight iMac G5,0.0,0.0,0,3,8,40,1.822,16.2,4832.9
-5ae2070a5542994d89d5b313,Badly Drawn Boy,Badly Drawn Boy,1.0,1.0,1,3,8,38,1.933,11.2,4832.1
-5ae22b8d554299234fd0440f,World's Best Goalkeeper,the IFFHS World's Best Goalkeeper,0.0,0.8571,1,2,7,51,1.977,19.0,4883.6
-5a722b8655429971e9dc9329,Barton Lee Hazlewood,"Lee Hazlewood was the writer of ""These Boots Are Made for Walkin'"" and he died in 2007.",0.0,0.2105,1,1,5,30,0.926,38.4,4826.7
-5adf37a95542995ec70e8f97,1838,1838,1.0,1.0,1,2,8,17,1.081,17.8,4867.1
-5abd259d55429924427fcf1a,yes,no,0.0,0.0,1,3,7,36,1.686,2.9,4829.0
-5a828c8355429966c78a6a50,Henry J. Kaiser,yes,0.0,0.0,1,3,11,26,1.77,2.3,4859.1
-5a8a3e745542996c9b8d5e70,Arena of Khazan,Arena of Khazan is a 1979 role-playing game adventure for Tunnels & Trolls published by Flying Buffalo.,0.0,0.3333,1,1,5,31,0.906,40.3,4782.4
-5ac23ff0554299636651994d,2000,2000,1.0,1.0,1,2,7,40,1.806,10.4,4842.3
-5ae4a3265542995ad6573de5,"Fujioka, Gunma",Japan,0.0,0.0,1,3,8,16,1.37,3.2,4811.2
-5ae0361155429925eb1afc2c,Charles Eugène,Charles Nungesser and François Coli flew L'Oiseau Blanc.,0.0,0.2,1,2,8,39,1.628,25.3,4858.3
-5abc0a5d5542993f40c73c64,no,No,1.0,1.0,1,2,6,31,1.731,2.9,4879.1
-5a7cc50e554299452d57ba3e,Letters to Cleo,Letters to Cleo,1.0,1.0,0,3,7,37,1.917,9.5,4842.3
-5abf63f15542997ec76fd3ea,October 1922,1922,0.0,0.6667,1,2,8,24,1.755,8.6,4883.4
-5a8ef2a75542995a26add583,2000,2000,1.0,1.0,1,3,10,31,1.932,8.5,4851.8
-5a80721b554299485f5985ef,World War II,World War II,1.0,1.0,1,3,11,31,1.657,7.2,4882.9
+5a8b57f25542995d1e6f1371,yes,yes,1.0,1.0,1,3,8,23,9.544,2.5,4840.3
+5a8c7595554299585d9e36b6,Chief of Protocol,"The woman who portrayed Corliss Archer in the film Kiss and Tell, Shirley Temple, held government positions as United States ambassador to Ghana and to Czechoslovakia and also served as Chief of Protocol of the United States.",0.0,0.1622,0,1,5,48,1.162,46.6,4740.6
+5a85ea095542994775f606a8,Animorphs,Animorphs,1.0,1.0,1,3,7,40,2.041,7.2,4815.9
+5adbf0a255429947ff17385a,no,no,1.0,1.0,1,2,6,17,1.518,2.9,4866.0
+5a8e3ea95542995a26add48d,"Greenwich Village, New York City",Greenwich Village,0.0,0.5714,1,1,5,5,0.531,12.8,4785.5
+5abd94525542992ac4f382d2,YG Entertainment,YG Entertainment,1.0,1.0,1,2,6,46,1.911,5.6,4793.0
+5a85b2d95542997b5ce40028,Eenasul Fateh,"Eenasul Fateh, also known by his stage name Aladin, is a Bangladeshi-British cultural practitioner, magician, live artist and former international management consultant who helped organizations improve their performance as a consultant.",0.0,0.129,1,2,6,66,1.971,43.7,4791.9
+5a87ab905542996e4f3088c1,"3,677 seated",550,0.0,0.0,0,2,6,23,1.642,8.0,4798.8
+5a7bbb64554299042af8f7cc,Terry Richardson,Annie Morton,0.0,0.0,0,2,9,17,1.631,7.0,4822.4
+5a8db19d5542994ba4e3dd00,yes,yes,1.0,1.0,1,3,9,16,1.566,2.8,4848.5
+5a7166395542994082a3e814,Kansas Song,Kansas Song (We’re From Kansas),0.0,0.5714,1,3,8,57,2.27,17.2,4843.4
+5a877e5d5542993e715abf7d,David Weissman,David Diamond,0.0,0.5,0,2,8,24,1.696,5.0,4815.8
+5ab3b0bf5542992ade7c6e39,1999,1999,1.0,1.0,1,3,8,37,1.991,9.3,4866.0
+5ab56e32554299637185c594,no,no,1.0,1.0,0,3,8,42,2.169,2.9,4869.8
+5ab6d09255429954757d337d,from 1986 to 2013,1992-1994,0.0,0.0,0,3,9,32,1.965,16.1,4883.8
+5a75e05c55429976ec32bc5f,"9,984","9,984",1.0,1.0,1,3,9,27,1.522,13.7,4787.5
+5ab3e45655429976abd1bcd4,the North Atlantic Conference,North Atlantic Conference,1.0,1.0,0,2,7,61,2.025,8.1,4845.4
+5ab29c24554299449642c932,yes,yes,1.0,1.0,1,3,7,29,2.014,3.0,4874.0
+5ae0d4c9554299603e418468,1969 until 1974,1969 to 1974,0.0,0.6667,1,2,9,22,1.817,16.6,4881.1
+5a8133725542995ce29dcbdb,Robert Erskine Childers DSC,Robert Erskine Childers was from England.,0.0,0.6,1,1,5,13,0.655,25.8,4779.3
+5ae7a8175542993210983ed8,Pedro Rodríguez,Pedro Rodríguez,1.0,1.0,1,3,10,46,1.941,12.2,4879.1
+5ae6050f55429929b0807a5e,Sonic,Dr. Robotnik,0.0,0.0,0,3,9,38,1.755,10.3,4852.7
+5adddccd5542997dc7907069,keyboard function keys,iSight iMac G5,0.0,0.0,0,3,8,40,1.841,16.1,4832.9
+5ae2070a5542994d89d5b313,Badly Drawn Boy,Badly Drawn Boy,1.0,1.0,1,3,8,38,1.92,11.2,4832.1
+5ae22b8d554299234fd0440f,World's Best Goalkeeper,the IFFHS World's Best Goalkeeper,0.0,0.8571,1,2,7,51,1.969,19.5,4883.6
+5a722b8655429971e9dc9329,Barton Lee Hazlewood,"Lee Hazlewood was the writer of ""These Boots Are Made for Walkin'"" and he died in 2007.",0.0,0.2105,1,1,5,30,0.923,38.5,4826.7
+5adf37a95542995ec70e8f97,1838,1838,1.0,1.0,1,2,8,17,1.075,17.8,4867.1
+5abd259d55429924427fcf1a,yes,no,0.0,0.0,1,3,7,36,1.674,3.0,4829.0
+5a828c8355429966c78a6a50,Henry J. Kaiser,yes,0.0,0.0,1,3,11,26,1.78,2.2,4859.1
+5a8a3e745542996c9b8d5e70,Arena of Khazan,Arena of Khazan is a 1979 role-playing game adventure for Tunnels & Trolls published by Flying Buffalo.,0.0,0.3333,1,1,5,31,0.907,40.2,4782.4
+5ac23ff0554299636651994d,2000,2000,1.0,1.0,1,2,7,40,1.805,10.4,4842.3
+5ae4a3265542995ad6573de5,"Fujioka, Gunma",Japan,0.0,0.0,1,3,8,16,1.495,3.1,4811.2
+5ae0361155429925eb1afc2c,Charles Eugène,Charles Nungesser and François Coli flew L'Oiseau Blanc.,0.0,0.2,1,2,8,39,1.644,24.9,4858.3
+5abc0a5d5542993f40c73c64,no,No,1.0,1.0,1,2,6,31,1.791,2.9,4879.1
+5a7cc50e554299452d57ba3e,Letters to Cleo,Letters to Cleo,1.0,1.0,0,3,7,37,1.943,9.2,4842.3
+5abf63f15542997ec76fd3ea,October 1922,1922,0.0,0.6667,1,2,8,24,1.761,8.6,4883.4
+5a8ef2a75542995a26add583,2000,2000,1.0,1.0,1,3,10,31,1.951,8.3,4851.8
+5a80721b554299485f5985ef,World War II,World War II,1.0,1.0,1,3,11,31,1.663,7.3,4882.9
 5ab51dae5542991779162d82,no,no,1.0,1.0,1,3,12,16,1.699,2.2,4883.8
-5a7571135542992d0ec05f98,New York City,New York City,1.0,1.0,1,2,7,21,1.595,8.1,4872.2
-5a7a0e1e5542990783324e1a,Scotch Collie,Scotch Collie,1.0,1.0,1,3,7,35,1.848,10.5,4849.2
-5a74106b55429979e288289e,Mumbai,Mumbai,1.0,1.0,1,3,9,21,1.469,5.7,4792.3
-5a79311755429970f5fffe67,1962,1962,1.0,1.0,1,3,10,32,1.891,8.5,4869.7
-5ab2d3df554299194fa9352c,sovereignty,Ethiopia's sovereignty and freedom from colonization.,0.0,0.2857,0,1,5,11,0.775,20.8,4796.3
-5a760ab65542994ccc918697,Nelson Rockefeller,no,0.0,0.0,0,3,8,57,2.51,2.3,4840.9
-5a7d54165542995f4f402256,Yellowcraig,Dirleton Castle borders on the south side of the Yellowcraig coastal area.,0.0,0.1818,0,2,9,42,1.877,26.0,4836.4
-5ab859a955429934fafe6d7b,Phil Spector,Phil Spector,1.0,1.0,1,3,11,39,2.244,5.7,4958.9
-5add61d65542995b365fab21,Organizations could come together to address global issues,"The World Summit of Nobel Peace Laureates is the type of forum that a former Soviet statesman, Mikhail Gorbachev, initiated.",0.0,0.0,1,1,5,31,0.994,36.7,4824.3
-5a8e068b5542995085b37384,yes,yes,1.0,1.0,1,3,9,26,1.477,3.2,4769.3
-5abbf698554299114383a0b5,English Electric Canberra,English Electric Canberra,1.0,1.0,1,1,5,26,1.011,10.1,4686.0
-5a8e1027554299653c1aa15f,2009 Big 12 Conference,2009 Big 12 Conference,1.0,1.0,1,3,13,48,2.074,15.8,4879.7
-5ab84bf555429916710eb01f,"1,462","1,462",1.0,1.0,1,3,8,47,1.967,12.1,4874.0
-5a77724455429972597f153e,Indianapolis Motor Speedway,The Indianapolis Motor Speedway hosts a 500-mile race every May.,0.0,0.5455,1,2,9,32,1.438,26.2,4858.5
+5a7571135542992d0ec05f98,New York City,New York City,1.0,1.0,1,2,7,21,1.604,8.0,4872.2
+5a7a0e1e5542990783324e1a,Scotch Collie,Scotch Collie,1.0,1.0,1,3,7,35,1.834,10.4,4849.2
+5a74106b55429979e288289e,Mumbai,Mumbai,1.0,1.0,1,3,9,21,1.462,5.8,4792.3
+5a79311755429970f5fffe67,1962,1962,1.0,1.0,1,3,10,32,1.867,8.6,4869.7
+5ab2d3df554299194fa9352c,sovereignty,Ethiopia's sovereignty and freedom from colonization.,0.0,0.2857,0,1,5,11,0.772,20.9,4796.3
+5a760ab65542994ccc918697,Nelson Rockefeller,no,0.0,0.0,0,3,8,57,2.51,2.4,4840.9
+5a7d54165542995f4f402256,Yellowcraig,Dirleton Castle borders on the south side of the Yellowcraig coastal area.,0.0,0.1818,0,2,9,42,1.878,26.1,4836.4
+5ab859a955429934fafe6d7b,Phil Spector,Phil Spector,1.0,1.0,1,3,11,39,2.238,5.8,4958.9
+5add61d65542995b365fab21,Organizations could come together to address global issues,"The World Summit of Nobel Peace Laureates is the type of forum that a former Soviet statesman, Mikhail Gorbachev, initiated.",0.0,0.0,1,1,5,31,0.992,36.8,4824.3
+5a8e068b5542995085b37384,yes,yes,1.0,1.0,1,3,9,26,1.497,3.1,4769.3
+5abbf698554299114383a0b5,English Electric Canberra,English Electric Canberra,1.0,1.0,1,1,5,26,1.016,10.0,4686.0
+5a8e1027554299653c1aa15f,2009 Big 12 Conference,2009 Big 12 Conference,1.0,1.0,1,3,13,48,2.062,15.9,4879.7
+5ab84bf555429916710eb01f,"1,462","1,462",1.0,1.0,1,3,8,47,1.973,11.8,4874.0
+5a77724455429972597f153e,Indianapolis Motor Speedway,The Indianapolis Motor Speedway hosts a 500-mile race every May.,0.0,0.5455,1,2,9,32,1.437,26.6,4858.5
 5a87c13f5542996e4f30890c,Rome,Santa Fe,0.0,0.0,0,2,5,48,1.964,5.5,4866.3
-5ab96ab755429970cfb8eacd,"Max Martin, Savan Kotecha and Ilya Salmanzadeh","Ellie Goulding also shared writing credits with Fraser T Smith on ""Your Biggest Mistake"" from the album Delirium.",0.0,0.0,0,1,5,28,0.819,39.2,4763.9
-5a8a43eb5542996c9b8d5e82,"Marion, South Australia",Adelaide,0.0,0.0,0,3,9,38,2.139,4.5,4840.3
-5ae73acb5542991e8301cc07,Drifting,Drifting,1.0,1.0,1,1,5,5,0.493,13.3,4717.3
-5a7320565542991f9a20c61d,Keith Bostic,Keith Bostic,1.0,1.0,1,3,9,25,1.674,9.2,4809.2
-5ae32e125542991a06ce9946,"35,124","25,949",0.0,0.0,1,3,10,39,2.043,11.9,4861.2
-5adc53f75542996e6852530a,no,no,1.0,1.0,1,3,9,32,1.807,2.6,4805.8
-5a8b20335542996c9b8d5fb3,shortest player ever to play in the National Basketball Association,Michael Jordan,0.0,0.0,0,3,9,52,2.109,4.8,4807.2
-5a85fb085542994775f606de,Ronald Shusett,No,0.0,0.0,0,2,6,41,1.795,3.2,4760.8
-5a7be2595542997c3ec972ac,Adeline Virginia Woolf,Virginia Woolf,0.0,0.8,1,3,9,15,1.586,6.9,4828.1
-5a77152355429966f1a36c2e,821,821,1.0,1.0,0,2,6,37,1.482,9.9,4659.4
-5a8f4c8d554299458435d5a3,more than 70 countries,70,0.0,0.4,1,3,10,27,1.738,4.9,4819.0
-5a80840f554299485f59863b,Charmed,Charmed,1.0,1.0,0,3,7,27,1.778,4.9,4820.3
-5a8361b65542992ef85e22a0,International Boxing Hall of Fame,International Boxing Hall of Fame (IBHOF),0.0,0.9091,1,3,9,35,2.967,11.2,5072.7
-5ae7ba7a5542993210983f12,Usher,Usher,1.0,1.0,1,3,9,40,2.156,4.4,4859.2
-5ac2acff55429921a00ab02b,Bill Murray,Kenny,0.0,0.0,0,3,6,39,1.776,6.1,4753.9
-5aba7cfe554299232ef4a2fd,Carabao Cup,Carabao Cup,1.0,1.0,1,2,8,36,1.923,8.1,4885.2
-5ae5aba0554299546bf82f17,Teen Titans Go!,Raven,0.0,0.0,0,2,7,22,1.722,4.9,4811.2
-5ae1f4cb554299234fd0436d,"276,170 inhabitants","276,170",0.0,0.6667,1,2,8,31,1.698,14.3,4818.1
-5ae7e1fc55429952e35ea9cc,orange,"People of the Netherlands wear orange clothing such as T-shirts, caps, and scarfs during Oranjegekte or to celebrate the national holiday Koningsdag.",0.0,0.0952,1,1,5,35,1.048,40.7,4801.9
-5ae37c765542992f92d822d4,Tromeo and Juliet,Tromeo and Juliet,1.0,1.0,1,1,5,36,1.408,12.0,4855.4
-5ae33c4d5542992f92d82262,William Jefferson Clinton,Bill Jefferson Clinton,0.0,0.6667,1,3,8,42,1.985,7.0,4804.9
-5a77cb335542997042120b3a,John John Florence,Joao Machado,0.0,0.0,0,2,6,58,2.087,10.0,4863.2
-5a8979f4554299669944a52e,Ann,Christopher,0.0,0.0,1,2,6,22,1.148,10.8,4782.4
-5a713ea95542994082a3e6e4,Apalachees,Apalachees,1.0,1.0,1,2,9,56,2.022,10.1,4874.0
-5a78bd9b554299078472774a,British,Both Alfred Gell and Edmund Leach were British.,0.0,0.2222,1,1,5,14,0.671,25.7,4811.9
-5a7625e8554299109176e66a,1865,1865,1.0,1.0,1,1,5,8,0.547,17.8,4801.9
-5ae2dd2055429928c423950d,Newport,Ossipee,0.0,0.0,1,3,9,35,1.769,10.1,4805.4
-5abdf12255429976d4830a2f,Bob Seger,Bob Seger,1.0,1.0,1,3,9,32,1.822,6.9,4821.9
-5a88658955429938390d3f47,Conscription,requiring only men to register for the draft,0.0,0.0,1,3,10,39,2.159,16.0,4881.2
-5a86ebac55429960ec39b6d6,"Mondelez International, Inc.","Mondelez International, Inc.",1.0,1.0,1,1,5,10,0.585,22.5,4706.6
-5aba5d2e55429901930fa799,Monica Lewinsky,Monica Lewinsky,1.0,1.0,1,3,8,52,2.293,8.1,4865.1
-5ae5736e5542990ba0bbb2b3,"April 1, 1949","April 1, 1949",1.0,1.0,1,2,7,25,1.78,16.3,4866.7
-5ae005b555429942ec259bec,1866,1866,1.0,1.0,1,3,10,48,2.169,8.4,4846.0
-5a7759fc5542993569682d60,"Canary Islands, Spain","Teide National Park is located in Tenerife, Canary Islands, Spain. Garajonay National Park is located in La Gomera, one of the Canary Islands, Spain.",0.0,0.2308,1,3,7,77,2.397,41.5,4883.6
-5a835478554299123d8c20ed,250 million,250 million,1.0,1.0,1,2,5,40,1.822,10.7,4805.4
-5aba749055429901930fa7d8,director,film director,0.0,0.6667,1,3,7,34,1.655,6.1,4761.9
-5abfb3425542990832d3a1c0,The Conversation,The Conversation,1.0,1.0,1,1,5,5,0.494,13.1,4748.8
-5ac3165c5542995ef918c10a,John Waters,no,0.0,0.0,1,3,10,32,1.697,2.5,4831.8
-5ae53b545542990ba0bbb23c,Las Vegas Strip in Paradise,Flamingo Las Vegas,0.0,0.5,0,2,7,27,1.431,13.3,4754.6
-5ae224da554299234fd043ee,no,no,1.0,1.0,1,3,10,34,1.789,2.8,4858.5
-5ae2b770554299495565db0f,March and April,November,0.0,0.0,1,3,8,39,1.74,3.1,4714.6
-5a80b3a9554299485f5986cc,Fairfax County,Tysons Galleria is located in Fairfax County.,0.0,0.4444,0,1,5,14,0.633,27.2,4728.2
-5a8e0a005542995085b373a1,IT products and services,IT products and services,1.0,1.0,1,2,9,24,1.68,9.7,4866.0
-5ac1b8ee5542994d76dccedc,Levni Yilmaz,Lev Yilmaz,0.0,0.5,1,2,7,23,1.237,15.7,4815.9
-5adccd795542990d50227d2c,Beijing,Rabat,0.0,0.0,1,3,10,23,2.028,5.9,4881.1
-5a84c4135542994c784dda31,no,no,1.0,1.0,1,3,10,20,1.619,2.5,4832.7
-5a85eed75542996432c5713b,"Coahuila, Mexico",The descendants of the group of black Indians associated with the Seminole people settled in Oklahoma and Florida.,0.0,0.0,0,2,9,36,1.433,32.0,4801.0
-5a774e9c55429972597f14f3,Larnelle Harris,yes,0.0,0.0,1,3,9,34,1.904,2.3,4846.0
-5ae738f75542991bbc9761c4,2003,1999,0.0,0.0,0,2,6,30,1.581,11.0,4741.7
-5ac32b565542995ef918c154,North Avenue at Techwood Drive,"The stadium at which the 1964 Georgia Tech Yellow Jackets football team played their home game is located in Atlanta, Georgia.",0.0,0.0833,0,1,5,30,0.856,39.9,4769.3
-5abc8d75554299700f9d7900,Leo Varadkar,Leo Eric Varadkar,0.0,0.8,1,3,8,49,2.905,7.5,4963.0
-5a8bb29b554299240d9c2089,George Raft,George Raft,1.0,1.0,0,2,8,33,1.754,7.8,4872.9
-5ab659e355429954757d324e,1887,1887,1.0,1.0,1,2,5,40,1.718,10.9,4778.3
-5a8b8b3155429949d91db5d7,business,valuation method,0.0,0.0,1,3,7,31,1.583,6.0,4745.0
-5ae7eaf65542994a481bbe1d,7 October 1978,7 October 1978,1.0,1.0,1,1,5,11,0.58,23.3,4730.6
-5a8c4c625542995e66a475a1,B-17 Flying Fortress bomber,B-17 Flying Fortress,0.0,0.8571,0,2,7,44,2.043,12.3,4839.6
-5a818387554299260e20a291,Blake Shelton,Blake Shelton,1.0,1.0,1,1,5,6,0.49,17.1,4662.5
-5ab978855542996be2020512,three centuries,2,0.0,0.0,0,3,7,33,2.012,2.4,4856.4
-5ae63dad55429929b0807afe,7 January 1936,7 January 1936,1.0,1.0,1,3,8,24,1.962,13.8,4857.3
-5a7a455c5542994f819ef1a7,George Archainbaud,"George Archainbaud died first. He died on February 20, 1959, while Ralph Murphy died on February 10, 1967.",0.0,0.2,1,2,8,49,1.816,38.8,4884.9
-5a7dcc775542990b8f503ab5,picric acid,Picric acid,1.0,1.0,0,2,9,29,1.718,7.0,4818.1
-5a887bc0554299206df2b2b6,230,16,0.0,0.0,1,2,6,24,1.18,15.4,4760.8
-5a83880e554299123d8c214e,Marvel,Batman,0.0,0.0,0,3,9,34,1.835,2.8,4806.1
-5a879adb5542996e4f30887f,United States Senator,no,0.0,0.0,0,2,6,35,1.898,2.5,4848.5
-5add11935542994734353827,no,no,1.0,1.0,1,2,9,15,1.499,2.8,4859.2
-5a8c5569554299240d9c2126,yes,yes,1.0,1.0,1,3,7,28,1.611,3.1,4792.3
-5a75f0ea5542994ccc91866c,The A41,A41,1.0,1.0,1,3,6,25,1.532,8.6,4768.6
-5a89f5815542993b751ca9c5,Princess Jessica,"Caroline Carver played the role of Princess Jessica in the 1999 Hallmark Entertainment made-for-TV fantasy movie ""The Magical Legend of the Leprechauns"".",0.0,0.2,1,1,5,39,1.018,43.5,4772.4
-5a8d5fc6554299585d9e37c6,The Spiderwick Chronicles,The Spiderwick Chronicles,1.0,1.0,0,2,6,30,1.622,11.3,4779.3
-5ac120c55542992a796dedfc,KKR & Co,"Maxeda has been owned since 2004 by Kohlberg Kravis Roberts, an American multinational private equity firm.",0.0,0.0,0,1,5,29,0.821,41.2,4686.8
-5ab7c1a955429928e1fe38c8,The Bye Bye Man,The Bye Bye Man,1.0,1.0,1,3,8,53,2.277,9.0,4853.4
-5abd01205542992ac4f3819b,Richmond,Tabulam is the town on the banks of the Clarence River.,0.0,0.0,1,1,5,17,0.655,30.3,4732.4
-5ab69c25554299110f219a39,Owsley Stanley,"Owsley Stanley recorded the album ""Old and in the Way.""",0.0,0.4,1,2,9,29,1.403,24.8,4866.7
-5a7b12a355429927d897bf2a,the late 12th Century,late 12th Century,1.0,1.0,1,2,8,26,1.688,12.6,4832.1
-5ae0006755429925eb1afbd3,"San Luis Obispo, California",San Luis Obispo,0.0,0.8571,1,3,8,31,1.758,11.8,4869.8
-5ae305df5542992decbdcdc3,Mercedes-Benz Superdome,Yum Stadium,0.0,0.0,0,3,9,51,2.29,6.9,4887.6
-5a8574945542997b5ce3fffb,LaLee's Kin: The Legacy of Cotton,no,0.0,0.0,0,3,6,43,1.944,3.0,4812.6
-5a7332935542991f9a20c67d,Pirate's Cove,Pirate's Cove,1.0,1.0,1,3,7,25,1.915,8.6,4815.9
-5a80071f5542992bc0c4a684,Crystal Dynamics,no,0.0,0.0,0,3,10,38,2.028,2.2,4842.8
-5ae73c065542991e8301cc18,"""The Marshall Mathers LP 2""",The Marshall Mathers LP 2,1.0,1.0,1,3,10,38,1.863,14.8,4869.1
-5a87d8215542994775f60800,Suicide Squad,Training Day,0.0,0.0,1,3,7,39,2.058,4.7,4824.9
-5ac2ffbd554299677310267b,Jillian Belk,Jillian Belk,1.0,1.0,1,2,8,30,1.941,8.0,4880.1
-5a7c960655429935c91b5244,Texas Tech University,Texas Tech University,1.0,1.0,1,1,5,6,0.491,16.7,4686.8
-5a7d61775542991319bc93b9,Lord Combermere,He,0.0,0.0,0,2,7,51,1.943,3.1,4771.3
-5ac1c6805542994ab5c67e11,"seasonal television specials, particularly its work in stop motion animation","Rankin/Bass Productions is best known for its seasonal television specials, particularly its work in stop motion animation.",0.0,0.7407,1,1,5,25,0.884,35.3,4771.3
-5a7a230e5542996a35c170ee,2014,2014,1.0,1.0,0,3,11,30,1.911,8.0,4850.3
-5ae4627d5542991a06ce9a4d,Oxford,Oxford University,0.0,0.6667,1,2,9,23,1.658,6.8,4833.3
-5ac2d1d755429921a00ab053,Roberta Vinci,Jorge Lozano,0.0,0.0,1,3,8,33,1.773,9.9,4795.0
-5ab4e3065542990594ba9cb4,"""Teach the Controversy"" campaign",Teach the Controversy,0.0,0.8,1,3,10,36,1.937,12.2,4819.4
-5ac298f9554299657fa28fc9,Lostprophets disbanded in 2013 after Watkins was charged with sexual offences in late 2012.,Ian Watkins,0.0,0.125,1,3,10,25,1.771,4.6,4843.4
-5ab6a2be554299710c8d1f08,Nebo Zovyot,Nebo Zovyot,1.0,1.0,1,3,7,51,1.991,12.7,4778.3
-5a738d27554299623ed4abf3,Erika Jayne,"Erika Jayne was born on 10 July 1971, while Marco Da Silva was born on 10 April 1992. Therefore, Erika Jayne was born first.",0.0,0.1538,1,1,5,47,1.193,45.3,4718.0
-5ab2a186554299295394677b,2009,2009,1.0,1.0,1,3,9,27,1.622,9.9,4829.0
-5a8704f8554299211dda2ba4,Kingdom of the Isles,The Kingdom of the Isles,1.0,1.0,1,2,8,34,1.424,15.4,4795.7
-5ab5ed505542997d4ad1f255,The Beatles,"Bruce Spizer is an expert on The Beatles, who are known as the most influential act of the rock era.",0.0,0.1176,1,1,5,26,1.005,32.8,4812.5
-5a77c1505542997042120b1b,"""We'll Burn That Bridge""",Chattahoochee,0.0,0.0,0,2,6,59,2.302,11.6,4882.2
-5a88d745554299206df2b378,director,director,1.0,1.0,1,3,7,31,1.787,2.8,4840.3
-5ae748d1554299572ea547b0,1901,1901,1.0,1.0,1,3,8,26,1.856,8.9,4842.3
-5a7a8a9c554299042af8f666,Argand lamp,Argand lamp,1.0,1.0,1,3,7,50,2.024,7.7,4821.8
-5adffe7155429906c02daa9e,seven,7,0.0,0.0,0,3,7,48,2.186,2.8,4860.0
-5ab642845542995eadeeff8e,yes,"Broughtonia is an orchid genus, but Laeliocattleya is a nothogenus of intergeneric orchid hybrids.",0.0,0.0,1,1,5,32,0.977,39.8,4737.5
-5a906a685542990a9849362e,Brazil,Brazil,1.0,1.0,1,2,9,19,1.278,8.2,4839.6
-5a7633ad5542992db9473741,The Seven Days Battles,The Seven Days Battles,1.0,1.0,1,2,8,26,1.643,9.7,4880.2
-5a74ce9655429974ef308c6c,Lush Ltd.,Lush Ltd.,1.0,1.0,0,2,5,48,1.74,12.4,4677.5
-5a713a5a5542994082a3e6a9,Manchester United,Manchester United Football Club plays in the area between the old toll gates: Brook Bar and Trafford Bar.,0.0,0.2222,0,1,5,23,0.794,34.8,4737.5
-5ab341f755429969a97a8114,1989,1989,1.0,1.0,1,3,11,40,2.031,8.1,4837.3
-5a8325b35542990548d0b18f,Kathryn Jean Martin,Dorothy Tangney,0.0,0.0,0,2,5,49,1.847,14.6,4728.2
-5ab9374b554299131ca422c6,Frank Lowy,"Sir Frank P. Lowy was born on October 22, 1930.",0.0,0.3333,1,1,5,23,0.794,34.6,4741.3
-5ae52c0f5542992663a4f12e,Las Vegas,Las Vegas,1.0,1.0,0,1,5,5,0.488,14.6,4684.8
-5adbfbd555429947ff173893,Kelly Lee Osbourne,Kelly Osbourne hosted the 16th Annual Young Hollywood Awards.,0.0,0.3636,1,1,5,17,0.682,32.0,4690.3
-5ab7f0015542992aa3b8c88b,Sean Yseult.,Sean Yseult,1.0,1.0,1,3,9,37,1.91,9.1,4882.9
-5ac547525542993e66e822a3,Prescription Drug User Fee Act,FDA,0.0,0.0,0,3,8,51,2.441,2.1,4878.5
-5a7cbf8c554299452d57b9f4,Dinosaur,Dinosaur,1.0,1.0,1,2,6,24,1.699,5.3,4869.8
-5a7ddc5a5542995f4f4022da,Wichita,Wichita,1.0,1.0,1,1,5,4,0.494,10.9,4721.6
-5a7a1cd85542990783324e65,United States presidential election of 2016,2016,0.0,0.2857,1,3,9,37,2.095,7.7,4867.6
-5ae0a59a55429945ae9593e2,Roman,no,0.0,0.0,1,3,12,24,1.906,1.9,4933.7
-5a8b987f5542997f31a41d7a,C. W. Grafton,Sue Grafton,0.0,0.4,1,2,7,39,1.912,11.8,4855.4
-5a8739a05542994775f607ab,"Brooklyn, New York","Brooklyn, New York",1.0,1.0,0,1,5,7,0.539,17.2,4718.0
-5ae67dba55429908198fa5f0,"48,982","48,982",1.0,1.0,0,3,8,35,1.777,13.9,4839.6
-5a7b3f4d5542992d025e67bb,Pasek & Paul,Benj Pasek and Justin Paul,0.0,0.5714,0,3,10,47,2.059,17.0,4866.0
-5ae2dfd155429928c423951b,City of Newcastle,Newcastle,0.0,0.5,0,3,6,36,1.726,6.0,4764.6
-5ab6ba245542995eadef007f,yes,yes,1.0,1.0,1,3,8,31,1.702,2.8,4869.1
-5ab8854555429934fafe6e0c,drawings,drawings,1.0,1.0,0,3,8,50,2.103,4.9,4819.6
-5a8eea4a5542990e94052bb7,between the 8th and 16th centuries,8th century,0.0,0.2857,1,3,11,40,2.123,6.0,4883.0
-5a74c85055429916b0164218,Alistair Grant,yes,0.0,0.0,1,3,9,31,1.89,2.5,4840.3
-5a88dcf9554299206df2b383,Scotland,Scotland,1.0,1.0,1,1,5,4,0.443,12.3,4684.1
-5a7625c7554299109176e668,Comedy Film Nerds,Maltin on Movies,0.0,0.0,0,3,9,33,1.922,10.9,4798.8
-5ac0d83a554299294b219038,Summerlin,Las Vegas,0.0,0.0,1,2,6,24,1.474,6.0,4769.3
-5a790d8f554299029c4b5eec,George Harrison,George Harrison,1.0,1.0,1,2,7,36,1.779,5.5,4829.8
-5ab2c5e255429916697740ba,Canadian professional ice hockey centre,centre,0.0,0.3333,1,2,8,29,1.788,2.5,4834.9
-5abcfc365542993a06baf9d6,1952,1964,0.0,0.0,0,3,7,48,2.298,8.9,4854.3
-5a8ee6915542990e94052bad,third,third,1.0,1.0,0,3,10,60,2.362,2.3,4882.9
-5abba4855542993f40c73b68,Mark Neveldine and Brian Taylor,No,0.0,0.0,0,2,6,39,1.98,2.5,4830.6
-5ae0bae555429906c02dab08,Hidden America with Jonah Ray,Hidden America with Jonah Ray,1.0,1.0,1,3,9,36,1.957,10.6,4852.7
-5ab271fe554299449642c8a6,no,yes,0.0,0.0,1,3,7,35,1.799,2.8,4845.4
-5a7997a2554299029c4b5f59,1943,1943,1.0,1.0,0,3,9,32,1.957,8.1,4869.1
-5add673e5542992ae4cec54d,Oregon Ducks football,no,0.0,0.0,0,3,9,24,1.716,2.5,4803.4
-5ae819ac55429952e35eaa16,National Broadcasting Company,NBC,0.0,0.0,1,3,11,34,1.902,2.2,4838.7
-5aba65a055429939ce03dcd2,North African Arab,Arab,0.0,0.5,1,2,8,26,1.801,4.8,4872.2
-5a87bada5542994846c1cddc,Murray Hill,Murray Hill,1.0,1.0,1,3,8,22,1.555,7.7,4812.6
-5ae74fc45542997b22f6a6b4,severe acute respiratory syndrome,Severe acute respiratory syndrome (SARS),0.0,0.8889,0,1,5,12,0.609,24.7,4732.4
-5adf65555542992d7e9f9334,Wendell Berry,Wendell Berry,1.0,1.0,1,3,9,42,2.076,8.3,4843.4
-5ade69e455429975fa854ec5,Tinu Suresh Desai,Vikram Bhatt,0.0,0.0,0,3,9,54,2.236,10.1,4850.6
-5ae057fd55429945ae959328,"Golden Valley, Minnesota,",The context does not provide information about Robert Smith founding any multinational company.,0.0,0.0,0,1,5,17,0.63,32.4,4690.3
-5ab28019554299722f9b4d51,$10.5 million,The character from the Son of al Quada got a $10.5 million (USD 8 million) settlement in 2017.,0.0,0.2353,0,1,5,34,0.957,40.9,4721.6
-5a75f79555429976ec32bcca,1999 Odisha cyclone,Super Cyclonic Storm Gonu,0.0,0.0,0,2,6,32,1.714,14.1,4829.8
+5ab96ab755429970cfb8eacd,"Max Martin, Savan Kotecha and Ilya Salmanzadeh","Ellie Goulding also shared writing credits with Fraser T Smith on ""Your Biggest Mistake"" from the album Delirium.",0.0,0.0,0,1,5,28,0.82,39.2,4763.9
+5a8a43eb5542996c9b8d5e82,"Marion, South Australia",Adelaide,0.0,0.0,0,3,9,38,2.184,4.6,4840.3
+5ae73acb5542991e8301cc07,Drifting,Drifting,1.0,1.0,1,1,5,5,0.483,13.7,4717.3
+5a7320565542991f9a20c61d,Keith Bostic,Keith Bostic,1.0,1.0,1,3,9,25,1.687,9.2,4809.2
+5ae32e125542991a06ce9946,"35,124","25,949",0.0,0.0,1,3,10,39,2.049,12.0,4861.2
+5adc53f75542996e6852530a,no,no,1.0,1.0,1,3,9,32,1.772,2.7,4805.8
+5a8b20335542996c9b8d5fb3,shortest player ever to play in the National Basketball Association,Michael Jordan,0.0,0.0,0,3,9,52,2.128,4.8,4807.2
+5a85fb085542994775f606de,Ronald Shusett,No,0.0,0.0,0,2,6,41,1.862,3.0,4760.8
+5a7be2595542997c3ec972ac,Adeline Virginia Woolf,Virginia Woolf,0.0,0.8,1,3,9,15,1.543,7.3,4828.1
+5a77152355429966f1a36c2e,821,821,1.0,1.0,0,2,6,37,1.448,10.4,4659.4
+5a8f4c8d554299458435d5a3,more than 70 countries,70,0.0,0.4,1,3,10,27,1.832,4.8,4819.0
+5a80840f554299485f59863b,Charmed,Charmed,1.0,1.0,0,3,7,27,1.806,5.0,4820.3
+5a8361b65542992ef85e22a0,International Boxing Hall of Fame,International Boxing Hall of Fame (IBHOF),0.0,0.9091,1,3,9,35,2.997,11.1,5072.7
+5ae7ba7a5542993210983f12,Usher,Usher,1.0,1.0,1,3,9,40,2.139,4.5,4859.2
+5ac2acff55429921a00ab02b,Bill Murray,Kenny,0.0,0.0,0,3,6,39,1.824,5.9,4753.9
+5aba7cfe554299232ef4a2fd,Carabao Cup,Carabao Cup,1.0,1.0,1,2,8,36,1.886,8.5,4885.2
+5ae5aba0554299546bf82f17,Teen Titans Go!,Raven,0.0,0.0,0,2,7,22,1.699,5.1,4811.2
+5ae1f4cb554299234fd0436d,"276,170 inhabitants","276,170",0.0,0.6667,1,2,8,31,1.738,13.7,4818.1
+5ae7e1fc55429952e35ea9cc,orange,"People of the Netherlands wear orange clothing such as T-shirts, caps, and scarfs during Oranjegekte or to celebrate the national holiday Koningsdag.",0.0,0.0952,1,1,5,35,1.107,37.8,4801.9
+5ae37c765542992f92d822d4,Tromeo and Juliet,Tromeo and Juliet,1.0,1.0,1,1,5,36,1.449,12.1,4855.4
+5ae33c4d5542992f92d82262,William Jefferson Clinton,Bill Jefferson Clinton,0.0,0.6667,1,3,8,42,2.017,7.2,4804.9
+5a77cb335542997042120b3a,John John Florence,Joao Machado,0.0,0.0,0,2,6,58,2.149,10.1,4863.2
+5a8979f4554299669944a52e,Ann,Christopher,0.0,0.0,1,2,6,22,1.127,11.3,4782.4
+5a713ea95542994082a3e6e4,Apalachees,Apalachees,1.0,1.0,1,2,9,56,2.013,10.4,4874.0
+5a78bd9b554299078472774a,British,Both Alfred Gell and Edmund Leach were British.,0.0,0.2222,1,1,5,14,0.67,26.0,4811.9
+5a7625e8554299109176e66a,1865,1865,1.0,1.0,1,1,5,8,0.54,18.0,4801.9
+5ae2dd2055429928c423950d,Newport,Ossipee,0.0,0.0,1,3,9,35,1.835,9.7,4805.4
+5abdf12255429976d4830a2f,Bob Seger,Bob Seger,1.0,1.0,1,3,9,32,1.822,6.8,4821.9
+5a88658955429938390d3f47,Conscription,requiring only men to register for the draft,0.0,0.0,1,3,10,39,2.239,15.4,4882.3
+5a86ebac55429960ec39b6d6,"Mondelez International, Inc.","Mondelez International, Inc.",1.0,1.0,1,1,5,10,0.604,21.9,4706.6
+5aba5d2e55429901930fa799,Monica Lewinsky,Monica Lewinsky,1.0,1.0,1,3,8,52,2.336,7.9,4865.1
+5ae5736e5542990ba0bbb2b3,"April 1, 1949","April 1, 1949",1.0,1.0,1,2,7,25,1.783,15.9,4866.7
+5ae005b555429942ec259bec,1866,1866,1.0,1.0,1,3,10,48,2.189,8.4,4846.0
+5a7759fc5542993569682d60,"Canary Islands, Spain","Teide National Park is located in Tenerife, Canary Islands, Spain. Garajonay National Park is located in La Gomera, one of the Canary Islands, Spain.",0.0,0.2308,1,3,7,77,2.35,42.5,4883.6
+5a835478554299123d8c20ed,250 million,250 million,1.0,1.0,1,2,5,40,1.763,11.2,4805.4
+5aba749055429901930fa7d8,director,film director,0.0,0.6667,1,3,7,34,1.693,5.7,4761.9
+5abfb3425542990832d3a1c0,The Conversation,The Conversation,1.0,1.0,1,1,5,5,0.481,13.7,4748.8
+5ac3165c5542995ef918c10a,John Waters,no,0.0,0.0,1,3,10,32,1.708,2.6,4831.8
+5ae53b545542990ba0bbb23c,Las Vegas Strip in Paradise,Flamingo Las Vegas,0.0,0.5,0,2,7,27,1.438,13.3,4754.6
+5ae224da554299234fd043ee,no,no,1.0,1.0,1,3,10,34,1.781,2.9,4858.5
+5ae2b770554299495565db0f,March and April,November,0.0,0.0,1,3,8,39,1.736,3.2,4714.6
+5a80b3a9554299485f5986cc,Fairfax County,Tysons Galleria is located in Fairfax County.,0.0,0.4444,0,1,5,14,0.632,27.2,4728.2
+5a8e0a005542995085b373a1,IT products and services,IT products and services,1.0,1.0,1,2,9,24,1.69,9.8,4866.0
+5ac1b8ee5542994d76dccedc,Levni Yilmaz,Lev Yilmaz,0.0,0.5,1,2,7,23,1.217,16.1,4815.9
+5adccd795542990d50227d2c,Beijing,Rabat,0.0,0.0,1,3,10,23,2.034,6.0,4881.1
+5a84c4135542994c784dda31,no,no,1.0,1.0,1,3,10,20,1.624,2.6,4832.7
+5a85eed75542996432c5713b,"Coahuila, Mexico",The descendants of the group of black Indians associated with the Seminole people settled in Oklahoma and Florida.,0.0,0.0,0,2,9,36,1.445,31.7,4801.0
+5a774e9c55429972597f14f3,Larnelle Harris,yes,0.0,0.0,1,3,9,34,1.912,2.3,4846.0
+5ae738f75542991bbc9761c4,2003,1999,0.0,0.0,0,2,6,30,1.599,10.8,4741.7
+5ac32b565542995ef918c154,North Avenue at Techwood Drive,"The stadium at which the 1964 Georgia Tech Yellow Jackets football team played their home game is located in Atlanta, Georgia.",0.0,0.0833,0,1,5,30,0.882,38.8,4769.3
+5abc8d75554299700f9d7900,Leo Varadkar,Leo Eric Varadkar,0.0,0.8,1,3,8,49,2.891,7.8,4963.0
+5a8bb29b554299240d9c2089,George Raft,George Raft,1.0,1.0,0,2,8,33,1.762,8.0,4872.9
+5ab659e355429954757d324e,1887,1887,1.0,1.0,1,2,5,40,1.724,10.9,4778.3
+5a8b8b3155429949d91db5d7,business,valuation method,0.0,0.0,1,3,7,31,1.716,5.9,4745.0
+5ae7eaf65542994a481bbe1d,7 October 1978,7 October 1978,1.0,1.0,1,1,5,11,0.596,22.8,4730.6
+5a8c4c625542995e66a475a1,B-17 Flying Fortress bomber,B-17 Flying Fortress,0.0,0.8571,0,2,7,44,2.095,11.1,4839.6
+5a818387554299260e20a291,Blake Shelton,Blake Shelton,1.0,1.0,1,1,5,6,0.523,16.2,4662.5
+5ab978855542996be2020512,three centuries,2,0.0,0.0,0,3,7,33,2.045,2.6,4856.4
+5ae63dad55429929b0807afe,7 January 1936,7 January 1936,1.0,1.0,1,3,8,24,1.93,14.3,4857.3
+5a7a455c5542994f819ef1a7,George Archainbaud,"George Archainbaud died first. He died on February 20, 1959, while Ralph Murphy died on February 10, 1967.",0.0,0.2,1,2,8,49,1.814,39.1,4884.9
+5a7dcc775542990b8f503ab5,picric acid,Picric acid,1.0,1.0,0,2,9,29,1.689,7.1,4818.1
+5a887bc0554299206df2b2b6,230,16,0.0,0.0,1,2,6,24,1.23,14.5,4760.8
+5a83880e554299123d8c214e,Marvel,Batman,0.0,0.0,0,3,9,34,1.836,2.8,4806.1
+5a879adb5542996e4f30887f,United States Senator,no,0.0,0.0,0,2,6,35,1.949,2.5,4848.5
+5add11935542994734353827,no,no,1.0,1.0,1,2,9,15,1.534,2.9,4859.2
+5a8c5569554299240d9c2126,yes,yes,1.0,1.0,1,3,7,28,1.624,3.1,4792.3
+5a75f0ea5542994ccc91866c,The A41,A41,1.0,1.0,1,3,6,25,1.562,8.7,4768.6
+5a89f5815542993b751ca9c5,Princess Jessica,"Caroline Carver played the role of Princess Jessica in the 1999 Hallmark Entertainment made-for-TV fantasy movie ""The Magical Legend of the Leprechauns"".",0.0,0.2,1,1,5,39,1.04,42.7,4772.4
+5a8d5fc6554299585d9e37c6,The Spiderwick Chronicles,The Spiderwick Chronicles,1.0,1.0,0,2,6,30,1.645,11.2,4779.3
+5ac120c55542992a796dedfc,KKR & Co,"Maxeda has been owned since 2004 by Kohlberg Kravis Roberts, an American multinational private equity firm.",0.0,0.0,0,1,5,29,0.841,40.6,4686.8
+5ab7c1a955429928e1fe38c8,The Bye Bye Man,The Bye Bye Man,1.0,1.0,1,3,8,53,2.327,8.6,4853.4
+5abd01205542992ac4f3819b,Richmond,Tabulam is the town on the banks of the Clarence River.,0.0,0.0,1,1,5,17,0.694,28.8,4732.4
+5ab69c25554299110f219a39,Owsley Stanley,"Owsley Stanley recorded the album ""Old and in the Way.""",0.0,0.4,1,2,9,29,1.422,24.3,4866.7
+5a7b12a355429927d897bf2a,the late 12th Century,late 12th Century,1.0,1.0,1,2,8,26,1.703,12.5,4832.1
+5ae0006755429925eb1afbd3,"San Luis Obispo, California",San Luis Obispo,0.0,0.8571,1,3,8,31,1.907,11.8,4869.8
+5ae305df5542992decbdcdc3,Mercedes-Benz Superdome,Yum Stadium,0.0,0.0,0,3,9,51,2.176,6.7,4887.6
+5a8574945542997b5ce3fffb,LaLee's Kin: The Legacy of Cotton,no,0.0,0.0,0,3,6,43,2.041,2.9,4812.6
+5a7332935542991f9a20c67d,Pirate's Cove,Pirate's Cove,1.0,1.0,1,3,7,25,1.881,9.0,4815.9
+5a80071f5542992bc0c4a684,Crystal Dynamics,no,0.0,0.0,0,3,10,38,1.964,2.3,4842.8
+5ae73c065542991e8301cc18,"""The Marshall Mathers LP 2""",The Marshall Mathers LP 2,1.0,1.0,1,3,10,38,1.79,15.9,4869.1
+5a87d8215542994775f60800,Suicide Squad,Training Day,0.0,0.0,1,3,7,39,2.052,4.6,4824.9
+5ac2ffbd554299677310267b,Jillian Belk,Jillian Belk,1.0,1.0,1,2,8,30,1.941,8.2,4880.1
+5a7c960655429935c91b5244,Texas Tech University,Texas Tech University,1.0,1.0,1,1,5,6,0.515,16.0,4686.8
+5a7d61775542991319bc93b9,Lord Combermere,He,0.0,0.0,0,2,7,51,2.106,2.9,4771.3
+5ac1c6805542994ab5c67e11,"seasonal television specials, particularly its work in stop motion animation","Rankin/Bass Productions is best known for its seasonal television specials, particularly its work in stop motion animation.",0.0,0.7407,1,1,5,25,0.915,34.9,4771.3
+5a7a230e5542996a35c170ee,2014,2014,1.0,1.0,0,3,11,30,1.929,8.0,4850.3
+5ae4627d5542991a06ce9a4d,Oxford,Oxford University,0.0,0.6667,1,2,9,23,1.632,7.0,4833.3
+5ac2d1d755429921a00ab053,Roberta Vinci,Jorge Lozano,0.0,0.0,1,3,8,33,1.738,10.2,4795.0
+5ab4e3065542990594ba9cb4,"""Teach the Controversy"" campaign",Teach the Controversy,0.0,0.8,1,3,10,36,2.07,11.0,4819.4
+5ac298f9554299657fa28fc9,Lostprophets disbanded in 2013 after Watkins was charged with sexual offences in late 2012.,Ian Watkins,0.0,0.125,1,3,10,25,1.798,4.9,4843.4
+5ab6a2be554299710c8d1f08,Nebo Zovyot,Nebo Zovyot,1.0,1.0,1,3,7,51,1.99,12.8,4778.3
+5a738d27554299623ed4abf3,Erika Jayne,"Erika Jayne was born on 10 July 1971, while Marco Da Silva was born on 10 April 1992. Therefore, Erika Jayne was born first.",0.0,0.1538,1,1,5,47,1.19,46.0,4718.0
+5ab2a186554299295394677b,2009,2009,1.0,1.0,1,3,9,27,1.571,10.2,4829.0
+5a8704f8554299211dda2ba4,Kingdom of the Isles,The Kingdom of the Isles,1.0,1.0,1,2,8,34,1.432,15.4,4795.7
+5ab5ed505542997d4ad1f255,The Beatles,"Bruce Spizer is an expert on The Beatles, who are known as the most influential act of the rock era.",0.0,0.1176,1,1,5,26,1.054,31.6,4812.5
+5a77c1505542997042120b1b,"""We'll Burn That Bridge""",Chattahoochee,0.0,0.0,0,2,6,59,2.33,11.4,4882.2
+5a88d745554299206df2b378,director,director,1.0,1.0,1,3,7,31,1.83,2.8,4840.3
+5ae748d1554299572ea547b0,1901,1901,1.0,1.0,1,3,8,26,1.858,8.8,4842.3
+5a7a8a9c554299042af8f666,Argand lamp,Argand lamp,1.0,1.0,1,3,7,50,2.005,7.9,4821.8
+5adffe7155429906c02daa9e,seven,7,0.0,0.0,0,3,7,48,2.184,2.8,4860.0
+5ab642845542995eadeeff8e,yes,"Broughtonia is an orchid genus, but Laeliocattleya is a nothogenus of intergeneric orchid hybrids.",0.0,0.0,1,1,5,32,0.961,40.6,4737.5
+5a906a685542990a9849362e,Brazil,Brazil,1.0,1.0,1,2,9,19,1.267,8.4,4839.6
+5a7633ad5542992db9473741,The Seven Days Battles,The Seven Days Battles,1.0,1.0,1,2,8,26,1.602,10.1,4880.2
+5a74ce9655429974ef308c6c,Lush Ltd.,Lush Ltd.,1.0,1.0,0,2,5,48,1.808,12.4,4677.5
+5a713a5a5542994082a3e6a9,Manchester United,Manchester United Football Club plays in the area between the old toll gates: Brook Bar and Trafford Bar.,0.0,0.2222,0,1,5,23,0.786,35.1,4737.5
+5ab341f755429969a97a8114,1989,1989,1.0,1.0,1,3,11,40,1.987,8.3,4837.3
+5a8325b35542990548d0b18f,Kathryn Jean Martin,Dorothy Tangney,0.0,0.0,0,2,5,49,1.858,14.7,4728.2
+5ab9374b554299131ca422c6,Frank Lowy,"Sir Frank P. Lowy was born on October 22, 1930.",0.0,0.3333,1,1,5,23,0.786,35.2,4741.3
+5ae52c0f5542992663a4f12e,Las Vegas,Las Vegas,1.0,1.0,0,1,5,5,0.482,14.7,4684.8
+5adbfbd555429947ff173893,Kelly Lee Osbourne,Kelly Osbourne hosted the 16th Annual Young Hollywood Awards.,0.0,0.3636,1,1,5,17,0.695,31.5,4690.3
+5ab7f0015542992aa3b8c88b,Sean Yseult.,Sean Yseult,1.0,1.0,1,3,9,37,1.964,8.8,4882.9
+5ac547525542993e66e822a3,Prescription Drug User Fee Act,FDA,0.0,0.0,0,3,8,51,2.476,2.2,4878.5
+5a7cbf8c554299452d57b9f4,Dinosaur,Dinosaur,1.0,1.0,1,2,6,24,1.73,5.2,4869.8
+5a7ddc5a5542995f4f4022da,Wichita,Wichita,1.0,1.0,1,1,5,4,0.487,11.1,4721.6
+5a7a1cd85542990783324e65,United States presidential election of 2016,2016,0.0,0.2857,1,3,9,37,2.109,7.8,4867.6
+5ae0a59a55429945ae9593e2,Roman,no,0.0,0.0,1,3,12,24,1.861,2.0,4933.7
+5a8b987f5542997f31a41d7a,C. W. Grafton,Sue Grafton,0.0,0.4,1,2,7,39,1.889,12.1,4855.4
+5a8739a05542994775f607ab,"Brooklyn, New York","Brooklyn, New York",1.0,1.0,0,1,5,7,0.544,17.0,4718.0
+5ae67dba55429908198fa5f0,"48,982","48,982",1.0,1.0,0,3,8,35,1.794,14.6,4839.6
+5a7b3f4d5542992d025e67bb,Pasek & Paul,Benj Pasek and Justin Paul,0.0,0.5714,0,3,10,47,2.068,17.2,4866.0
+5ae2dfd155429928c423951b,City of Newcastle,Newcastle,0.0,0.5,0,3,6,36,1.761,5.6,4764.6
+5ab6ba245542995eadef007f,yes,yes,1.0,1.0,1,3,8,31,1.754,2.7,4869.1
+5ab8854555429934fafe6e0c,drawings,drawings,1.0,1.0,0,3,8,50,2.133,4.9,4819.6
+5a8eea4a5542990e94052bb7,between the 8th and 16th centuries,8th century,0.0,0.2857,1,3,11,40,2.184,5.8,4883.0
+5a74c85055429916b0164218,Alistair Grant,yes,0.0,0.0,1,3,9,31,1.881,2.5,4840.3
+5a88dcf9554299206df2b383,Scotland,Scotland,1.0,1.0,1,1,5,4,0.445,12.1,4684.1
+5a7625c7554299109176e668,Comedy Film Nerds,Maltin on Movies,0.0,0.0,0,3,9,33,1.892,11.1,4798.8
+5ac0d83a554299294b219038,Summerlin,Las Vegas,0.0,0.0,1,2,6,24,1.494,5.9,4769.3
+5a790d8f554299029c4b5eec,George Harrison,George Harrison,1.0,1.0,1,2,7,36,1.831,5.2,4829.8
+5ab2c5e255429916697740ba,Canadian professional ice hockey centre,centre,0.0,0.3333,1,2,8,29,1.824,2.5,4834.9
+5abcfc365542993a06baf9d6,1952,1964,0.0,0.0,0,3,7,48,2.326,8.8,4854.3
+5a8ee6915542990e94052bad,third,third,1.0,1.0,0,3,10,60,2.343,2.3,4882.9
+5abba4855542993f40c73b68,Mark Neveldine and Brian Taylor,No,0.0,0.0,0,2,6,39,1.979,2.5,4830.6
+5ae0bae555429906c02dab08,Hidden America with Jonah Ray,Hidden America with Jonah Ray,1.0,1.0,1,3,9,36,2.008,10.5,4852.7
+5ab271fe554299449642c8a6,no,yes,0.0,0.0,1,3,7,35,1.833,2.9,4845.4
+5a7997a2554299029c4b5f59,1943,1943,1.0,1.0,0,3,9,32,1.917,8.5,4869.1
+5add673e5542992ae4cec54d,Oregon Ducks football,no,0.0,0.0,0,3,9,24,1.672,2.6,4803.4
+5ae819ac55429952e35eaa16,National Broadcasting Company,NBC,0.0,0.0,1,3,11,34,1.866,2.4,4838.7
+5aba65a055429939ce03dcd2,North African Arab,Arab,0.0,0.5,1,2,8,26,1.79,4.9,4872.2
+5a87bada5542994846c1cddc,Murray Hill,Murray Hill,1.0,1.0,1,3,8,22,1.535,8.0,4812.6
+5ae74fc45542997b22f6a6b4,severe acute respiratory syndrome,Severe acute respiratory syndrome (SARS),0.0,0.8889,0,1,5,12,0.628,24.0,4732.4
+5adf65555542992d7e9f9334,Wendell Berry,Wendell Berry,1.0,1.0,1,3,9,42,2.067,8.8,4843.4
+5ade69e455429975fa854ec5,Tinu Suresh Desai,Vikram Bhatt,0.0,0.0,0,3,9,54,2.157,10.6,4850.6
+5ae057fd55429945ae959328,"Golden Valley, Minnesota,",The context does not provide information about Robert Smith founding any multinational company.,0.0,0.0,0,1,5,17,0.645,31.4,4690.3
+5ab28019554299722f9b4d51,$10.5 million,The character from the Son of al Quada got a $10.5 million (USD 8 million) settlement in 2017.,0.0,0.2353,0,1,5,34,0.937,41.9,4721.6
+5a75f79555429976ec32bcca,1999 Odisha cyclone,Super Cyclonic Storm Gonu,0.0,0.0,0,2,6,32,1.754,12.4,4829.8
+5adef80b5542993a75d263c4,Crackle,Crackle,1.0,1.0,0,2,8,18,1.522,5.6,4792.3
+5ae0aaf455429945ae959401,Salford City Football Club,Salford City,0.0,0.6667,1,1,5,7,0.539,16.6,4764.6
+5ab47d765542991751b4d78f,architect Michael Graves,Michael Graves,0.0,0.8,1,2,8,24,1.862,4.2,4864.1
+5a7ed2c655429930675135e5,multiple awards,nominated,0.0,0.0,1,2,5,58,2.151,5.2,4778.3
+5ac3e0f7554299194317388b,Kevin Spacey,Kevin Spacey,1.0,1.0,0,2,8,19,1.216,12.6,4804.0
+5a7bae20554299294a54aa96,Ryan Seacrest,Onika Tanya Maraj is not a judge on any of the shows mentioned in the context.,0.0,0.0,0,1,5,23,0.769,35.5,4711.5
+5ab8ee035542991b5579f04b,yes,yes,1.0,1.0,1,2,8,27,1.569,3.1,4819.7
+5a7a276d5542996c55b2dd27,Colonel Charles Hastings Judd,Kalākaua was Chamberlain and Colonel of the military staff of The Merrie Monarch.,0.0,0.1333,0,1,5,24,0.82,34.6,4816.6
+5a717d4c5542994082a3e854,Pavel Sergeyevich Alexandrov,Pavel Alexandrov,0.0,0.8,1,2,7,28,1.25,15.6,4777.5
+5ac02e31554299294b218f3f,Gal Gadot,Gal Gadot,1.0,1.0,0,3,10,42,2.216,6.0,4859.1
+5a79ea435542996c55b2dc9e,Rear Adm. J. Edward Snyder,"The captain of the USS New Jersey during its deployment to the Vietnam War in 1968 was (October 23, 1924 – November 4, 2007).",0.0,0.0,1,2,10,62,1.955,39.5,4882.3
+5ab7e4dc5542995dae37e9df,Jackson Storm,Jackson Storm,1.0,1.0,1,3,10,28,2.033,4.4,4866.3
+5a834ed95542990548d0b1ca,712 5th Avenue,712 Fifth Avenue,0.0,0.6667,1,3,7,28,1.867,10.6,4880.2
+5ab41d855542996a3a969f4b,right-hand,left-hand,0.0,0.0,1,3,10,44,2.06,4.8,4824.3
+5a7b7ff75542995eb53be93d,Arthur Ignatius Conan Doyle,Arthur Conan Doyle,0.0,0.8571,1,2,6,37,1.761,7.9,4785.5
+5a7d19d85542995ed0d165e8,"Birmingham, Alabama",Birmingham,0.0,0.6667,1,3,7,21,1.562,5.7,4819.7
+5ae7ed17554299540e5a56a3,44,no,0.0,0.0,0,3,10,28,2.024,1.9,4852.3
+5ab2659e554299340b5254b2,the Parthian Empire,the Parthian Empire,1.0,1.0,1,1,5,8,0.596,17.3,4784.5
+5abd2eab5542992ac4f38210,Erinsborough,"Ramsay Street, a fictional cul-de-sac, is the setting for the Australian soap opera ""Neighbours"" where the character Beverly Marshall is featured.",0.0,0.0,0,1,5,34,0.957,40.8,4649.6
+5abaf3195542996cc5e49f2c,Samoa,Samoa,1.0,1.0,0,3,6,35,2.125,4.7,4817.3
+5a791a97554299148911f9f2,"Kimberly Couger ""Kimmy"" Schmidt",Kimmy Schmidt,0.0,0.6667,1,2,6,23,1.255,13.4,4806.1
+5adf58f15542993a75d264d2,"""The Comic Strip Presents...""",Bottom,0.0,0.0,0,3,10,29,1.789,2.5,4879.1
+5adc65e85542996e68525350,no,no,1.0,1.0,1,3,9,26,1.693,2.7,4815.9
+5a87ab9b5542996e4f3088c2,nineteenth,The 19th century,0.0,0.0,1,2,8,31,1.568,15.4,4852.7
+5a738fe855429908901be2fb,Awake,Awake,1.0,1.0,0,2,5,34,1.547,6.3,4656.0
+5a8c65a1554299585d9e3680,French Canadians,French Canadians,1.0,1.0,1,1,5,5,0.608,11.8,4760.8
+5ac2bbd0554299218029db09,American,American,1.0,1.0,1,1,5,4,0.492,10.6,4724.4
+5adf3e355542993a75d26440,8 km,8 km,1.0,1.0,1,3,8,27,2.05,4.1,4881.6
+5ae82ae555429952e35eaa71,Rawhide,Rawhide,1.0,1.0,0,2,7,28,1.816,5.0,4863.2
+5ac289ff5542996366519a02,Marsilea,Marsilea,1.0,1.0,1,2,7,32,1.624,11.0,4815.9
+5a7a5b3a5542996c55b2dd71,Mark Masons' Hall,St James's Palace,0.0,0.0,0,1,5,7,0.551,16.8,4707.3
+5ab8688b55429934fafe6daa,Starlite,"The hairdresser from Yorkshire, England invented Starlite, a thermal shielding material, which was named by his granddaughter Kimberly.",0.0,0.1176,1,1,5,28,0.974,34.7,4819.7
+5a7a3a945542996a35c17147,Hong Kong,yes,0.0,0.0,1,3,10,23,1.719,2.3,4860.0
+5ab9b29c554299743d22ebae,Craig v. Boren,"United States v. Paramount Pictures, Inc. came first.",0.0,0.1818,1,1,5,15,0.946,21.8,4888.7
+5a8b63fa55429950cd6afcd7,"""Queen City""","Bangor is known as the ""Queen City"" of Maine.",0.0,0.4,1,1,5,16,0.687,28.3,4717.3
+5ade51b45542997c77adedf4,Arrowhead Stadium,Arrowhead Stadium,1.0,1.0,0,3,8,37,1.812,8.0,4798.1
+5ae4c49a5542995dadf24400,acidic,Cranberries in acidic bogs,0.0,0.4,1,3,8,36,2.202,13.9,4806.9
+5a7d3470554299452d57bb56,Compliance,Compliance,1.0,1.0,1,2,7,22,1.239,10.5,4845.4
+5ae4f2c75542993aec5ec0fb,Logan International Airport,Logan International Airport,1.0,1.0,0,1,5,6,0.555,15.0,4697.6
+5ab1d7ac554299449642c7e6,Ehretia,Ehretia,1.0,1.0,1,2,6,30,1.494,11.4,4734.7
+5a85cead5542991dd0999ea9,a pinball machine,Frank Thomas' Big Hurt is a pinball machine designed by Bill Parker and released by Gottlieb in 1995.,0.0,0.2105,1,2,9,41,1.791,33.8,4876.6
+5a73a7c755429978a71e9068,Donna Paige Helmintoller,Celine Dion,0.0,0.0,0,3,6,47,2.168,7.0,4856.5
+5a7f113d55429934daa2fcbe,"Reginald Martinez ""Reggie"" Jackson",Jackson,0.0,0.4,0,2,7,53,1.996,3.0,4787.5
+5ae6828f5542996d980e7bb9,Thomas Mawson,Thomas Mawson,1.0,1.0,0,1,5,7,0.584,15.5,4798.1
+5ab31864554299233954ff06,strings,sarod,0.0,0.0,0,2,8,40,1.786,6.0,4793.0
+5abe239355429976d4830a7d,Brad Silberling,Brad Silberling,1.0,1.0,1,2,8,36,1.981,8.1,4881.7
+5ac2659b55429963665199a1,25 laps,25,0.0,0.6667,1,3,8,42,2.106,5.0,4872.2
+5ae058e855429945ae959331,yes,No,0.0,0.0,1,2,7,29,1.717,2.8,4829.8
+5a7b8749554299294a54a9db,Thomas Loren Friedman,no,0.0,0.0,1,3,8,30,1.73,2.8,4859.2
+5a864ff7554299211dda2af2,Taylor Swift,Taylor Swift,1.0,1.0,1,3,10,38,2.036,4.7,4887.6
+5ae4d3c95542990ba0bbb165,"Istanbul, Turkey",Istanbul,0.0,0.6667,0,1,5,4,0.522,10.8,4740.6
+5ab7f97a5542991d322237ef,super-regional shopping mall,super-regional shopping mall,1.0,1.0,1,3,7,33,1.91,11.9,4877.1
+5a7b46e55542995eb53be8e5,Ordos City,"Ordos City China Science Flying Universe Science and Technology Co., Ltd.",0.0,0.3077,1,3,10,57,2.355,23.0,4819.6
+5a879ba55542993e715abfc3,Scott Sidney,Alain Resnais,0.0,0.0,1,2,9,19,1.667,10.3,4879.1
+5ae4563e5542996836b02c7f,over 600 stores,600,0.0,0.5,1,3,9,49,2.023,8.0,4795.0
+5ab6ff3a5542991d3222372a,Berea College,Berea College,1.0,1.0,1,1,5,6,0.554,14.7,4698.4
+5a7a46605542994f819ef1ad,1945,1945,1.0,1.0,1,3,11,40,1.875,8.9,4850.3
+5ade7a435542997c77adee3a,Mountbatten family,Mountbatten-Windsor,0.0,0.0,1,3,7,40,2.063,12.8,4817.9
+5ac1795f5542994ab5c67d5f,James Burke,James Burke,1.0,1.0,1,2,6,32,1.768,5.4,4882.9
+5ab1e984554299340b525428,Gulangyu,Gulangyu,1.0,1.0,1,3,7,28,1.755,9.9,4836.3
+5a86769c5542994775f60776,Slaughterhouse-Five,"Armageddon in Retrospect was written by Kurt Vonnegut, who was best known for his 1969 satire novel ""Slaughterhouse-Five"".",0.0,0.1053,1,1,5,39,1.025,43.3,4734.7
+5ab7da6f55429928e1fe3928,the east of Ireland,east,0.0,0.5,0,3,8,27,1.725,2.7,4812.6
+5ae497f15542995ad6573db8,Distillery,Newington Y.C. Football Club,0.0,0.0,0,1,5,23,1.003,19.5,4731.3
+5ae6f2a7554299572ea5464a,Tybalt,Romeo,0.0,0.0,0,3,6,54,2.0,9.9,4732.4
+5adea9ea55429939a52fe934,SKUM,SKUM,1.0,1.0,0,3,7,40,2.069,5.1,4816.6
+5a7caae75542996dd594b971,Anabolic steroids,Anabolic-androgenic steroids (AAS) are commonly used in bodybuilding.,0.0,0.2,0,2,9,29,1.519,26.5,4869.1
+5ac01bb8554299012d1db5a6,Don S. Davis,Don S. Davis,1.0,1.0,1,3,10,34,2.064,7.3,4956.8
+5abc3a65554299700f9d782d,Charles Kelley,"Wayne ""Animal"" Turner",0.0,0.0,1,2,7,52,2.184,12.5,4872.5
+5ae3ff575542995dadf242aa,"3,384,569","3,384,569",1.0,1.0,1,3,7,46,2.082,19.3,4882.2
+5a89fb525542993b751ca9d6,Anna Clyne,"Anna Clyne created Night Ferry, which was first performed in 2012 at Symphony Center in Chicago.",0.0,0.2222,1,1,5,26,0.825,38.2,4710.7
+5ab3d69255429969a97a81c9,USS Essex,USS Essex (CV-9),0.0,0.8,0,1,5,10,0.594,21.2,4853.4
+5ac5199a5542994611c8b38a,yes,yes,1.0,1.0,0,3,7,47,1.865,3.2,4771.3
+5ae048a255429924de1b708e,Catwoman,Catwoman,1.0,1.0,1,3,8,36,1.933,4.8,4820.3
+5a9068a95542990a98493621,7 miles,20 miles,0.0,0.5,1,3,9,25,1.585,8.2,4801.9
+5adf9dc3554299025d62a2e6,Laura Ann Osnes,Marilyn Rockafellow,0.0,0.0,0,3,8,57,2.295,12.2,4880.1
+5ae406245542995dadf242e2,20,20,1.0,1.0,1,2,8,30,1.761,5.6,4869.1
+5ab6369655429953192ad2a1,Eucryphia,Eucryphia,1.0,1.0,1,2,6,36,1.377,13.1,4684.8
+5ae628f55542995703ce8b32,Venice,Venice,1.0,1.0,1,2,8,18,1.682,4.7,4883.1
+5adccdd55542992c1e3a2408,Waimea Bay,Waimea Bay,1.0,1.0,1,2,8,16,1.114,15.1,4887.6
+5abd1529554299114383a1e3,evangelical Christian periodical,evangelicalism’s flagship magazine,0.0,0.0,0,1,5,8,0.492,21.7,4671.4
+5a78db8055429970f5fffdb2,James Franco,James Franco,1.0,1.0,1,1,5,5,0.582,12.6,4806.1
+5ab9debb55429955dce3ed97,DI Humphrey Goodman,"Kris Marshall played the character Dave in the first series of ""Death in Paradise"". He later played Matt in the series.",0.0,0.0,0,1,5,27,0.857,37.7,4758.8
+5ae791ef55429952e35ea979,February,February,1.0,1.0,1,3,9,30,1.729,2.6,4882.9
+5ab8f7535542991b5579f0a7,Sacred Planet,Sacred Planet,1.0,1.0,1,2,6,23,1.746,7.3,4835.8
+5ac119335542992a796dede4,Hanna,Hanna,1.0,1.0,1,3,8,28,1.502,6.3,4732.4
+5a7d2afd5542995f4f402221,Ferdi Taygan,yes,0.0,0.0,1,3,9,28,1.534,3.0,4869.1
+5a8dd5f955429917b4a5bcc7,paracyclist,paracycling,0.0,0.0,1,3,11,28,1.81,6.3,4873.0
+5a83a532554299334474606f,The Dragon School in Oxford,The Dragon School in Oxford and Haileybury,0.0,0.8,1,3,10,34,1.719,18.2,4887.6
+5a90692f5542990a98493625,Suicide Kings,Suicide Kings,1.0,1.0,1,1,5,5,0.491,12.7,4806.1
+5a7555215542996c70cfaee1,Hey Pa! There's a Goat on the Roof,Poleconomy,0.0,0.0,1,3,8,27,1.491,10.4,4716.6
+5a90580655429933b8a204ef,a record of 13–3,"The Super Bowl XXXIV champions, the St. Louis Rams, finished the regular-season with a record of 13–3.",0.0,0.375,0,1,5,30,0.887,38.5,4839.6
+5a88e605554299206df2b39c,"8,211 at the 2010 census","8,211",0.0,0.4,0,2,8,23,1.488,12.7,4840.3
+5add67915542992200553af8,The Crowned Prince of the Philadelphia Mob,The Crowned Prince of the Philadelphia Mob,1.0,1.0,1,1,5,11,0.605,22.5,4808.1
+5a8463545542990548d0b2a3,supervisor of the royal works,"Jean Baptiste Androuet du Cerceau was the supervisor of the royal works under Henri III, who was King of the Polish-Lithuanian Commonwealth from 1573 to 1575.",0.0,0.2963,1,1,5,48,1.239,43.7,4814.2
+5a74684655429929fddd8410,Janet Damita Jo Jackson,Janet Jackson,0.0,0.6667,1,3,7,45,1.857,9.0,4769.3
+5a835c9f5542992ef85e228a,Continental Army,Continental Army,1.0,1.0,1,3,9,37,2.126,6.3,4874.4
+5ae7edee554299540e5a56ad,Macaronesia,Canary Islands,0.0,0.0,1,3,8,30,1.717,8.2,4856.5
+5a8ee4315542990e94052ba7,Treaty of Gandamak,The Treaty of Gandamak officially ended the first phase of the Second Anglo-Afghan War.,0.0,0.4286,1,1,5,23,0.801,34.3,4818.7
+5a8cb288554299585d9e3726,Oregon,yes,0.0,0.0,0,3,7,43,1.885,3.3,4801.2
+5adfbca255429942ec259b2c,early 1970s,"The rock band that sang ""All Join Hands"" rose to prominence during the early 1970s.",0.0,0.2667,1,1,5,26,0.805,38.1,4748.8
+5ae24abc5542994d89d5b3c3,"Bury St Edmunds,",Greene King Brewery is based in England.,0.0,0.0,0,1,5,11,0.508,26.7,4652.0
+5ab802085542990e739ec7ca,early 20s,18,0.0,0.0,1,3,7,30,1.593,6.2,4822.5
+5adfa3da554299025d62a317,23 November 1946,Diana Quick,0.0,0.0,1,3,8,17,1.729,6.8,4883.1
+5a76e88555429972597f13f4,The Soloist,The Soloist,1.0,1.0,1,3,7,41,1.718,9.1,4734.7
+5ac3ae475542995ef918c1e5,no,no,1.0,1.0,1,2,9,27,1.592,3.0,4887.6
+5abffc41554299012d1db551,1901,1901,1.0,1.0,1,2,8,20,1.52,9.4,4817.9
+5ae4c39f5542995dadf243fb,Bolton,Rivington,0.0,0.0,1,3,10,35,1.688,8.0,4882.9
+5a79c6a55542994bb9457091,George Cayley,Sir George Cayley contributed to the advent of the hot air engine by way of their open cycle devices.,0.0,0.2105,1,1,5,24,0.753,36.9,4747.7
+5a7be5bd5542997c3ec972ba,The Leonberger is a giant dog breed.,The Leonberger is considered a giant dog breed.,0.0,0.9091,1,1,5,13,0.638,29.4,4620.0
+5a7ec61a55429934daa2fc5f,yes,yes,1.0,1.0,1,3,8,27,1.619,3.2,4819.7
+5a7cb9b95542990527d55515,2013,2013,1.0,1.0,1,3,9,18,1.854,9.4,4820.3
+5a867089554299211dda2b30,Rolling Stone,Shonen Jump,0.0,0.0,1,3,10,22,1.598,7.4,4883.6
+5ae1801955429901ffe4aec4,"Battle Creek, Michigan","The Kellogg Company, located in Battle Creek, Michigan, United States, is the producer of Cocoa Krispies and was the sponsor of the first Superman television series.",0.0,0.24,1,2,8,52,1.707,39.4,4852.7
+5a76387d554299109176e6ba,Am Rong,Am Rong,1.0,1.0,1,3,6,41,1.879,8.2,4856.5
+5abd0d635542992ac4f381b8,29,42 days,0.0,0.0,1,3,8,57,2.157,8.2,4886.9
+5ae68fcb5542992ae0d1635b,"Bay Ridge, Brooklyn",New York City,0.0,0.0,1,3,11,22,1.4,8.1,4864.0
+5ab28b12554299449642c8ee,Northumbrian,Northumbrian,1.0,1.0,1,3,9,39,1.987,7.4,4803.4
+5a7133565542994082a3e65c,Oldham County,Oldham County,1.0,1.0,0,3,6,37,1.583,10.3,4690.3
+5abbd3ac55429931dba1458b,no,no,1.0,1.0,1,2,8,17,1.317,3.3,4826.7
+5a85ab905542994c784ddb35,The Saturdays,The Saturdays,1.0,1.0,1,3,9,28,1.507,6.2,4792.3
+5a8d93ad554299653c1aa13d,Serri,"Serri was a South Korean singer, songwriter, and actress, but there is no information about John Fogerty being an actor.",0.0,0.1053,1,1,5,29,0.848,39.7,4771.3
+5a886886554299206df2b258,international football competition,The FIFA Women's World Cup,0.0,0.0,1,1,5,9,0.543,20.9,4778.3
+5a7c6bcc55429935c91b519c,1944,1944,1.0,1.0,1,2,7,18,1.52,9.4,4821.9
+5a825bb455429940e5e1a874,Wilmette,Wilmette,1.0,1.0,1,1,5,6,0.493,15.9,4751.5
+5a72a0be5542992359bc3143,Oedipus Rex,no,0.0,0.0,1,3,10,54,2.36,2.1,4917.7
+5ade15f35542997545bbbe47,Steve Jobs,mother-daughter relationship,0.0,0.0,1,2,7,34,1.637,10.5,4832.9
+5a77cb5e55429967ab1052a7,Kodos,Vincent Kosmos,0.0,0.0,1,3,9,34,1.79,9.5,4882.2
+5a83aaeb5542996488c2e483,My Beautiful Dark Twisted Fantasy,Watch the Throne,0.0,0.0,1,3,8,48,1.912,8.3,4831.8
+5ac4392e5542997ea680ca32,yes,yes,1.0,1.0,1,3,7,38,1.837,2.9,4869.8
+5a7f5c9f55429969796c1a0f,Spring city,The Sparkling Pearl Embedded in a Highland,0.0,0.0,1,3,10,26,1.67,16.4,4819.4
+5a8b770f5542995d1e6f13a7,Philadelphia,Philadelphia,1.0,1.0,1,2,8,13,1.021,9.5,4798.2
+5ae3dc205542992f92d823a1,a minor basilica,a minor basilica,1.0,1.0,1,1,5,7,0.515,17.5,4788.3
+5a7cf29255429909bec768b8,150 million copies,150 million,0.0,0.8,1,3,10,31,1.837,8.7,4861.2
+5a79f6ca554299029c4b5f90,Aqua,Aqua,1.0,1.0,0,1,5,4,0.475,11.5,4754.6
+5a8e3dc05542995085b37401,1964,Reynolds v. Sims,0.0,0.0,1,3,8,31,2.215,11.5,4876.6
+5ade24e35542992fa25da6e6,CBS,W Network,0.0,0.0,1,3,10,20,1.648,4.6,4862.7
+5ab5f854554299637185c64e,Pakistani,Pakistan,0.0,0.0,1,1,5,4,0.472,11.5,4716.6
+5ab5b6c1554299637185c5e5,The Four Seasons,The Four Seasons,1.0,1.0,1,3,8,36,1.79,8.0,4882.9
+5ae25ed15542992decbdccd2,no,no,1.0,1.0,1,2,8,33,1.542,3.2,4822.5
+5ab808ea5542991d3222380e,"76,416","76,416",1.0,1.0,1,3,9,35,1.687,14.4,4872.9
+5ae5072e55429960a22e0246,Matt Flynn,Matt Flynn,1.0,1.0,1,3,10,34,1.912,4.7,4880.1
+5ac01bca5542992a796dec8d,Happy Death Day,Happy Death Day,1.0,1.0,0,1,5,6,0.444,17.8,4667.4
+5adf34d35542993a75d26425,"Gerard ""Gerry"" Adams",Gerry Adams,0.0,0.8,1,3,7,41,1.936,7.4,4835.6
+5add67555542992ae4cec54e,The Battle of Belleau Wood,Battle of Belleau Wood,1.0,1.0,1,2,9,31,1.795,10.6,4869.1
+5a8085705542992bc0c4a74b,Australian Defence Force,the Royal Australian Navy (RAN),0.0,0.2857,1,1,5,11,0.645,23.7,4787.5
+5a756fa15542996c70cfaefb,"about 450,000","450,000",0.0,0.6667,1,3,10,29,1.731,13.9,4878.2
+5a7f6eab5542992097ad2f66,West Point Iron and Cannon Foundry,"The West Point Foundry, located in Cold Spring, New York, was the 19th century foundry which was situated directly across the Hudson River from West Point in Putnam County, New York.",0.0,0.1765,1,1,5,45,1.096,46.4,4751.5
+5ae5e1345542996de7b71a50,Jack Ryan,Jack Ryan Sr.,0.0,0.8,1,3,7,42,1.833,10.4,4869.8
+5a72c6f65542994cef4bc402,tomato,no,0.0,0.0,1,2,6,25,1.478,3.2,4806.1
+5a80ad7c5542992097ad3018,2009,2009,1.0,1.0,1,2,6,32,1.67,10.4,4864.0
+5a77a65b5542992a6e59df57,"September 8, 2017","February 17, 2017",0.0,0.3333,0,3,12,55,1.995,19.6,4821.8
+5a78b209554299148911f93e,Edward Franklin Albee III,Edward Albee,0.0,0.6667,1,3,10,24,1.743,6.8,4844.2
+5ab85a1155429934fafe6d7c,yes,yes,1.0,1.0,1,2,6,19,1.41,3.3,4796.1
+5a8da81e554299068b959d7e,impresario,no,0.0,0.0,1,3,6,36,1.603,3.7,4731.3
+5ab8f57b5542991b5579f097,no,no,1.0,1.0,1,2,9,15,1.418,2.7,4815.8
+5ab6bf6d55429953192ad372,no,"No, Phlebodium is a genus of ferns and Pieris is a genus of shrubs.",0.0,0.0,0,1,5,25,0.797,37.4,4734.7
+5ae7385d5542992ae0d163da,Worcester County,Worcester,0.0,0.6667,1,3,9,27,1.637,8.1,4872.2
+5a7dd9445542997cc2c474ac,Farrell,J. G. Farrell,0.0,0.5,0,3,10,27,2.0,9.3,4947.0
+5ab446d455429942dd415f07,modern-day New York City,New York City,0.0,0.8571,1,1,5,6,0.549,14.5,4826.7
+5ac497025542997ea680ca8d,"Dan Lin, Roy Lee, Phil Lord and Christopher Miller","Dan Lin, Roy Lee, Phil Lord and Christopher Miller",1.0,1.0,1,3,9,32,1.942,18.4,4876.6
+5a7b7bed5542997c3ec971bc,reigning monarch of the United Kingdom,Buckingham Palace,0.0,0.0,1,1,5,5,0.498,15.4,4641.1
+5a89706055429951533612f9,Saint Louis County,Saint Louis,0.0,0.8,1,3,8,32,1.664,6.3,4782.4
+5ac02edb554299294b218f41,Phil Collins,Phil Collins,1.0,1.0,1,3,8,31,1.76,5.1,4839.6
+5ab67772554299110f219a12,video game,video game,1.0,1.0,1,2,6,48,1.743,7.1,4724.4
+5a7b65ab5542997c3ec97144,Cambridge University,Cambridge University,1.0,1.0,1,1,5,5,0.443,15.5,4669.8
+5a760faa5542994ccc9186a8,Love Streams,Love Streams,1.0,1.0,0,1,5,5,0.492,12.5,4853.4
+5adbe1a7554299438c868cc3,Lowe's,"Lowe's Companies, Inc.",0.0,0.5,1,2,7,22,1.115,19.7,4811.9
+5a80aeff5542996402f6a5eb,first freshman to finish as the runner-up,first freshman,0.0,0.5,0,2,6,28,1.741,5.1,4816.4
+5ae74890554299572ea547af,1987,1987,1.0,1.0,1,3,9,29,1.872,8.6,4883.6
+5ac3d9c9554299204fd21ea3,James Packer,James Douglas Packer,0.0,0.8,1,2,7,25,1.189,16.2,4874.0
+5abc8620554299700f9d78e2,documentary,documentary,1.0,1.0,1,2,5,32,1.417,7.2,4669.8
+5a7b4bc35542992d025e67e0,England,England,1.0,1.0,1,2,8,13,0.989,10.3,4867.1
+5a85dfcc5542994775f60673,Jung Yun-ho,U-Know Yunho,0.0,0.5,1,3,8,36,2.039,10.0,4883.4
+5a7b76735542997c3ec9719f,Hot toddy,"Hot toddy is traditionally drunk before retiring for the night, or in wet or cold weather.",0.0,0.2353,1,1,5,22,0.69,37.8,4674.4
+5a8c66db554299585d9e3683,2017,2017,1.0,1.0,1,3,7,41,2.004,10.3,4877.1
+5a7e05ba5542995f4f402392,The Late Late Show,Gay Byrne hosted The Late Late Show from 1962 until 1999.,0.0,0.4615,1,1,5,23,0.72,38.4,4680.6
+5a88a4245542997e5c09a668,Hudson Bay Mining and Smelting Company,no,0.0,0.0,0,2,8,43,1.853,2.9,4858.5
+5a8799c55542996e4f308877,Scandinavian design,Scandinavian design,1.0,1.0,1,2,6,22,1.393,11.5,4745.7
+5ac038db554299294b218f57,Constantine,Constantine,1.0,1.0,1,3,8,37,1.941,5.1,4804.0
+5a764c0b55429976ec32bd89,comparable to the seven Wonders of the World,"It served as a groundbreaking structure being the world's first multi-purpose, domed sports stadium.",0.0,0.0,1,3,8,54,2.165,29.1,4829.0
+5a77309d55429972597f1487,José Echegaray y Eizaguirre,José Echegaray y Eizaguirre,1.0,1.0,1,2,6,65,2.151,25.1,4883.6
+5ab7bae95542993667793ff4,Knowsley United Women,The Doncaster Belles played Knowsley United Women in the 1994 FA Women's Cup Final held at Glanford Park.,0.0,0.3158,1,2,6,64,1.767,39.8,4801.9
+5a7c9f325542990527d554e6,Blue,Blue,1.0,1.0,1,3,7,39,1.672,3.3,4700.4
+5a8f69b55542997ba9cb324f,Valhalla Highlands Historic District,Valhalla Highlands Historic District,1.0,1.0,1,3,9,34,1.785,14.5,4821.8
+5adbda2755429944faac2385,Philip K. Dick,Philip K. Dick,1.0,1.0,1,1,5,7,0.545,17.5,4782.4
+5ab67bd355429954757d32f2,New York Giants,the New York Giants,1.0,1.0,1,1,5,7,0.545,16.5,4792.3
+5a90843c5542995651fb517e,1961,1961,1.0,1.0,1,2,7,26,1.788,8.8,4869.1
+5a8324815542990548d0b184,Copenhagen,Copenhagen,1.0,1.0,1,1,5,4,0.387,15.0,4601.5
+5adf4a275542993a75d26498,middle America,yes,0.0,0.0,1,3,11,41,2.079,2.4,4839.3
+5ae4c5595542990ba0bbb123,Soha Ali Khan,Soha Ali Khan Khemu,0.0,0.8571,1,3,8,38,2.181,11.6,4856.9
+5ab5057b5542991779162d56,South Korean horror film,Wishing Stairs and Voice are both horror films.,0.0,0.1667,1,1,5,14,0.644,26.4,4798.1
+5a837d9a554299123d8c213e,Lucas Stephen Grabeel,no,0.0,0.0,0,3,6,32,1.604,3.3,4774.4
+5a81ebee554299676cceb16d,American supernatural psychological horror film,"Rings, a 2017 American supernatural psychological horror film directed by F. Javier Gutiérrez, starred Matilda Lutz, who is an Italian actress.",0.0,0.4167,1,1,5,38,1.001,43.7,4774.4
+5ab48c325542996a3a969f93,Essex,Essex,1.0,1.0,1,3,8,25,1.724,5.0,4867.1
+5a8488f45542992a431d1a47,Peter Hall,"John Whiting wrote The Devils, and Sir Peter Hall was an eminent English theater, opera and film director.",0.0,0.2222,1,2,6,43,1.553,35.4,4866.0
+5abe689a55429976d4830b16,French Open,2002 French Open,0.0,0.8,0,2,6,42,1.786,14.7,4836.3
+5a7a014a5542996c55b2dccf,Bismarck,Bismarck,1.0,1.0,0,2,9,20,1.265,13.2,4860.5
+5a895d305542993b751ca931,Premier League club Manchester United and the England national team,Manchester United,0.0,0.3636,1,1,5,5,0.482,13.8,4717.3
+5a85c3a15542992a431d1b97,Massive Entertainment,Snowdrop is a proprietary game engine first revealed with an online-only action role-playing video game developed by Massive Entertainment.,0.0,0.2105,1,2,7,41,1.416,36.2,4845.4
+5ae32b6755429928c4239644,Portal A Interactive,Portal A Interactive,1.0,1.0,1,1,5,6,0.479,15.9,4708.4
+5a8d02cc554299441c6b9fb6,King George IV,Nostell Priory,0.0,0.0,0,3,10,24,1.767,10.5,4835.7
+5a78daf855429970f5fffdae,Icehouse pieces,"Icehouse pieces were released in 1982, while Kill Doctor Lucky was released in 1996. Therefore, Icehouse pieces were released first.",0.0,0.1818,1,2,7,46,1.478,41.6,4876.4
+5adc094a55429947ff1738c0,ZZ Top,American Blues,0.0,0.0,0,3,8,23,1.728,4.7,4879.7
+5ae77c245542997b22f6a795,1977,1985,0.0,0.0,0,2,8,32,1.616,10.6,4836.3
+5a88f9555542995153361214,1963 to 1991,1974-1983,0.0,0.0,0,2,7,39,1.71,21.0,4806.1
+5a874ce15542996432c57256,"Laurel, Mississippi",Mississippi,0.0,0.6667,1,3,9,27,1.898,4.3,4850.9
+5a7e7ed05542991319bc94c2,"arose on the ""Playboy"" magazine pattern in the 1970s.",Gallery,0.0,0.0,0,3,10,18,1.575,2.7,4882.2
+5abf44025542993fe9a41def,Langston Hughes,Langston Hughes,1.0,1.0,1,3,7,42,2.178,6.7,4867.5
+5ab531cc5542990594ba9d23,"728,000 ft²",930000 sqft,0.0,0.0,0,3,10,45,2.013,15.4,4850.6
+5a90605d5542995651fb514d,"Royce da 5'9"" (Bad) and Eminem (Evil)",no,0.0,0.0,0,2,7,29,1.652,2.7,4800.8
+5ac45b58554299076e296dad,Shanghai,Shanghai has the larger population.,0.0,0.4,1,1,5,9,0.665,19.6,4826.7
+5a8eb4d65542990e94052b82,Terry Gilliam,no,0.0,0.0,0,3,6,44,1.826,3.3,4782.4
+5a8038b55542996402f6a485,Lithuanian-born French,Lithuanian-born French actor,0.0,0.8,1,1,5,9,0.632,18.1,4801.0
+5ab83d595542990e739ec886,a family member,family member,1.0,1.0,1,3,8,32,1.761,5.7,4834.9
+5ae0d52e554299603e418469,Douglas Jackson,Douglas Jackson,1.0,1.0,1,2,8,43,1.911,7.4,4801.4
+5a8f9b8c5542997ba9cb32e6,Dirty Pretty Things,Dirty Pretty Things,1.0,1.0,1,1,5,6,0.463,17.5,4684.1
+5ae75a4c5542997b22f6a6f1,The Itchy & Scratchy Show,Krusty the Clown,0.0,0.0,1,3,10,47,2.002,11.4,4872.2
+5ab45a0b5542991779162c7e,Viaport Rotterdam,Viaport Rotterdam,1.0,1.0,0,3,6,32,1.635,11.4,4801.2
+5a8b452655429971feec468e,signing free agent Chauncey Billups,Chauncey Billups,0.0,0.5714,1,2,7,41,1.779,12.5,4872.2
+5a8d7b1755429941ae14dfc6,"51,271","51,271",1.0,1.0,0,3,8,43,1.807,14.7,4840.3
+5ab6f0c25542995eadef00ea,no,no,1.0,1.0,1,3,7,32,1.82,2.9,4867.1
+5ab72a025542992aa3b8c7b8,documentary,documentary,1.0,1.0,1,2,6,32,1.591,6.2,4816.6
+5ade42b55542992fa25da717,fifteen,12,0.0,0.0,0,3,8,29,1.518,6.2,4774.4
+5ae4c2b95542995dadf243ef,defensive coordinator,defensive coordinator,1.0,1.0,0,3,9,30,1.532,9.0,4732.4
+5abf10b75542997719eab659,1.95 m,188cm,0.0,0.0,0,3,11,24,1.822,7.7,4922.2
+5add564a5542990dbb2f7e38,MGM Resorts International,MGM Resorts International,1.0,1.0,1,3,10,31,1.744,9.4,4858.5
+5a738225554299623ed4abc3,Bedknobs and Broomsticks,Bedknobs and Broomsticks is older.,0.0,0.75,1,1,5,13,0.651,25.1,4846.1
+5a729e7b5542992359bc313d,Holston River,Holston River Valley,0.0,0.8,1,3,11,40,1.941,8.6,4861.2
+5a811152554299260e20a22e,British Conservative Party,The House of Commons representative for Congleton belongs to the Conservative Party.,0.0,0.3077,1,1,5,17,0.671,30.7,4755.7
+5adddd075542992200553b71,Wes Archer,Bryan Newton,0.0,0.0,0,2,5,35,1.554,10.2,4714.6
+5ade9545554299728e26c740,Geelong Football Club,Fremantle,0.0,0.0,0,3,6,46,1.935,10.4,4859.2
+5ab25004554299722f9b4cd7,no,no,1.0,1.0,1,2,8,33,1.981,2.4,4884.0
+5ac1f4495542991316484bd2,Delmer Lawrence Daves,Delmer Daves,0.0,0.8,1,3,11,32,1.778,8.7,4866.7
+5ac0cf0f554299294b219018,X Ambassadors,Test Icicles,0.0,0.0,1,2,7,26,1.438,11.5,4788.3
+5ab3306a55429969a97a80fd,Walt Disney Productions,no,0.0,0.0,0,2,5,33,1.669,3.3,4795.0
+5ade0fb95542997545bbbe39,2844 km,2844 km,1.0,1.0,1,2,6,25,1.441,13.8,4745.0
+5ab78edc5542995dae37e95c,"located in Olathe, Kansas","Olathe, Kansas",0.0,0.6667,1,2,7,23,1.372,13.8,4741.0
+5ac056385542997d64295a08,"""The Ring"" magazine",The Ring magazine,1.0,1.0,1,3,6,59,2.741,8.2,4819.7
+5aba9e2455429939ce03dd3a,1909,1909,1.0,1.0,1,2,7,20,1.452,10.4,4866.0
+5a90b43455429916514e7523,"Sun Valley, Idaho","Sun Valley, Idaho hosts the annual media finance conference that has featured an Australian-born American media mogul.",0.0,0.3333,1,2,9,36,1.581,30.5,4867.5
+5abb30755542996cc5e49fd8,President of the United States,President and Vice President,0.0,0.25,0,1,5,7,0.557,16.3,4853.4
+5ae4ec1e5542990ba0bbb19b,The Bears and I,The Bears and I,1.0,1.0,1,3,9,37,2.047,8.0,4845.3
+5add405f5542992c1e3a2581,Patterns of Sexual Behavior,The book provided the foundation for Masters and Johnson's research team.,0.0,0.0,0,1,5,28,1.168,25.2,4785.5
+5a71717d5542994082a3e834,Larry Richard Drake,Larry Drake,0.0,0.8,1,2,5,28,1.921,5.0,4858.8
+5adf8fe55542993344016d0f,Bedknobs and Broomsticks,Bedknobs and Broomsticks,1.0,1.0,1,1,5,10,0.598,22.2,4788.3
+5a78f59755429970f5fffdf7,"46 Albert Square, Walford, London E20","46 Albert Square, Walford, London E20",1.0,1.0,1,3,9,33,1.91,22.1,4832.1
+5a8099935542996402f6a58b,Darkroom,Darkroom,1.0,1.0,0,3,7,54,2.867,3.6,4921.7
+5ab6aaff55429953192ad35b,Phoenix Television,Phoenix Satellite Television Holdings Ltd,0.0,0.5714,1,2,6,39,1.765,12.6,4763.9
+5abcc96c5542996583600492,Planet Terror,Planet Terror,1.0,1.0,1,3,11,28,1.823,4.3,4836.4
+5a8b78775542997f31a41d3d,"""Peshwa"" (Prime Minister)",Bajirao Peshwa,0.0,0.4,1,2,7,65,2.429,15.8,4883.6
+5a7252db5542990c210a4104,Donald Trump Jr.,Donald John Trump Jr.,0.0,0.8571,1,3,9,46,2.6,9.5,4881.1
+5ae2ee5e5542991a06ce990a,Royal Governor Lord Dunmore,Lord Dunmore,0.0,0.6667,0,3,10,37,1.914,7.0,4789.2
+5abc5951554299114383a116,Graduados,Graduados starred Isabel Macedo as Jimena Benitez.,0.0,0.25,1,1,5,16,0.755,26.3,4822.5
+5ac1a3665542994ab5c67daf,Private Secretary and Treasurer,Captain Robert Neil Blair CVO RN served as Private Secretary and Treasurer to The Duke of York from 1990-2001.,0.0,0.3636,1,1,5,33,1.038,37.2,4849.2
+5adc0c2b55429947ff1738db,no,"No, To Shoot an Elephant is a documentary about the 2008-2009 Gaza War, while Agee is about the writer James Agee.",0.0,0.0,1,2,7,52,1.692,40.0,4832.9
+5a7634f155429976ec32bd6b,Ogallala Aquifer,"The Ogallala Aquifer is the shallow water table aquifer located near the county seat of Keith County, Nebraska.",0.0,0.2353,0,1,5,27,0.811,38.7,4667.4
+5a7574e25542996c70cfaf01,ibnʿArabī,Ibn Arabi,0.0,0.0,1,3,10,26,2.23,6.9,4930.5
+5adc8977554299438c868de2,"various deities, beings, and heroes","deities, beings, and heroes",0.0,0.8889,1,3,8,31,2.02,13.9,4851.2
+5a7dc2495542997cc2c4749a,1984 South Asian Games,"The Colombo South Asian Games held in Kathmandu, Nepal in 1984.",0.0,0.5714,0,1,5,23,0.773,33.8,4717.3
+5a8f05b1554299458435d517,Viscount Cranborne,prime minister,0.0,0.0,1,3,10,51,2.49,4.1,4878.5
+5ab7bbbf55429928e1fe38bf,Kansas City crime family,William Cammisano was part of the Kansas City Crime Family.,0.0,0.6154,1,1,5,16,0.688,26.8,4738.6
+5a8af28555429951533613b5,Albert Park,Albert Park,1.0,1.0,0,1,5,5,0.514,12.5,4724.4
+5ae1f596554299234fd04372,in 1896,1964,0.0,0.0,1,2,7,32,1.699,9.7,4882.9
+5a8b3af455429971feec467b,Unbreakable,Unbreakable,1.0,1.0,1,2,5,43,1.929,7.6,4872.2
+5add311b5542994ed6169cc5,Apatosaurus,Arlo,0.0,0.0,0,2,5,34,1.701,5.7,4750.8
+5ae60426554299546bf83019,BraveStarr,BraveStarr,1.0,1.0,1,1,5,6,0.593,13.7,4816.6
+5a8cfee555429941ae14df5c,Sanskrit,Elephants are connected to Gajabrishta as Gaja means Elephant and Brishta is the back portion of a sitting elephant.,0.0,0.0,1,2,6,59,1.852,39.2,4684.1
+5a71166d5542994082a3e576,Battle of Guam,The Battle of Guam,1.0,1.0,1,3,9,46,2.109,8.5,4838.8
+5ae789615542997ec2727695,Martha Coolidge,Martha Coolidge,1.0,1.0,1,2,7,32,1.678,10.1,4869.8
+5a7757215542993569682d58,Mr. Church,Frostbite,0.0,0.0,0,3,9,44,2.057,6.6,4886.9
+5a81ff62554299676cceb1c4,director,producer,0.0,0.0,1,3,9,46,2.094,2.5,4824.3
+5ae4890a5542995ad6573d60,"Executive Search, Board Consulting",Executive Search,0.0,0.6667,0,2,7,32,1.682,5.9,4775.2
+5a79c1335542994bb9457066,author,author,1.0,1.0,1,3,7,32,1.772,2.6,4848.5
+5ac52fc35542994611c8b403,The Catholic Church in Ireland,Catholic Church,0.0,0.6667,1,2,8,27,1.509,8.6,4795.0
+5adda7585542997dc790700c,"Edmonton, Alberta",No information provided in the context about where the telefilm was shot.,0.0,0.0,0,1,5,37,1.192,29.8,4642.5
+5adf043b5542993a75d263d4,Charles Joseph,Joe Scarborough,0.0,0.0,1,2,8,12,1.028,11.2,4858.5
+5abd6bf055429933744ab7c8,NCAA Division I FBS football,NCAA Division I FBS,0.0,0.8889,1,1,5,8,0.596,17.8,4760.8
+5ae0038655429925eb1afbe0,Tea Moderna,Tea Moderna,1.0,1.0,1,1,5,6,0.511,16.5,4674.4
+5a73977d554299623ed4ac08,Armenian,United States,0.0,0.0,1,3,10,32,1.779,5.2,4829.8
+5ac2a399554299218029dada,Kathleen O'Brien,Kathleen O'Brien,1.0,1.0,1,3,7,27,1.6,12.2,4788.3
+5ae0f6f5554299422ee99583,Warner Bros,Warner Bros.,1.0,1.0,0,3,7,35,1.721,11.3,4764.6
+5adc1ae5554299438c868d5c,Motörhead,Motörhead,1.0,1.0,1,3,7,35,1.699,8.7,4771.3
+5ae6860e5542991bbc976112,"commentary on Isaac Newton's book ""Principia""","Emilie du Châtelet contributed to the basic laws of physics by providing a translation and commentary on Isaac Newton's ""Principia,"" including a profound contribution to Newtonian mechanics with the postulate of an additional conservation law for total energy.",0.0,0.2564,1,2,6,69,1.98,44.0,4834.9
+5ae1316555429901ffe4adda,no,no,1.0,1.0,1,2,8,19,1.538,2.7,4849.2
+5adfeb0555429942ec259b88,four months in jail,four months in jail,1.0,1.0,1,3,9,40,2.207,8.2,4856.9
+5ab5499e5542992aa134a295,1963,1963,1.0,1.0,1,3,9,24,1.595,9.8,4866.0
+5adeffa85542992d7e9f926f,rock,rock,1.0,1.0,1,3,8,27,1.884,2.5,4846.0
+5adfd2f255429925eb1afaa5,Gateways,Gateways,1.0,1.0,0,3,7,40,1.758,5.9,4711.5
+5ae5b301554299546bf82f2d,zona glomerulosa,The zona glomerulosa of the adrenal gland produces the hormone that promotes sodium retention in the distal nephron.,0.0,0.25,1,1,5,27,0.902,36.3,4737.5
+5ab1eac95542993be8fa987f,33,33,1.0,1.0,1,3,9,40,1.851,5.4,4883.6
+5ae15e125542990adbacf773,Mississippi University for Women,"Mississippi University for Women v. Hogan, 458 U.S. 718 (1982), was a case decided 5-4 by the Supreme Court of the United States.",0.0,0.3333,1,1,5,45,1.299,40.0,4840.3
+5a77beae5542992a6e59dfae,Stacey Kent,Stacey Kent,1.0,1.0,1,1,5,6,0.589,14.2,4722.4
+5ae1f5a15542997f29b3c1b5,1966,1966,1.0,1.0,0,3,9,32,1.941,8.7,4829.7
+5ade908b55429975fa854f13,DTM,"Dario Franchitti competed in the DTM and its successor, the International Touring Car Championship.",0.0,0.1538,1,1,5,24,0.853,34.6,4777.5
+5ab47cd75542991751b4d78d,2002,2002,1.0,1.0,0,2,8,26,1.73,8.5,4829.7
+5a79b7f6554299029c4b5f6f,"4,613","4,613",1.0,1.0,0,3,8,27,1.708,11.8,4826.7
+5ab626d555429953192ad279,lower Manhattan,Newark,0.0,0.0,1,3,12,29,1.786,4.9,4869.8
+5a84873e5542997175ce1eec,137th,The 2017 US Open was the 137th edition of tennis' US Open when Petra Kvitova was a quarterfinalist.,0.0,0.125,1,1,5,35,1.195,33.9,4867.5
+5ac537975542996feb3fea3c,Ronald Wilson Reagan,Walt Zeboski photographed Ronald Reagan during his 1980 presidential campaign.,0.0,0.3077,1,1,5,21,0.839,29.3,4792.3
+5a8f45ca5542997ba9cb320e,documentary,documentary,1.0,1.0,1,2,5,34,1.815,5.8,4816.6

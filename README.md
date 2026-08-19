@@ -10,11 +10,10 @@ Two questions, one pipeline:
 2. What does that precision cost to serve? Sweep over quantization, context size
    and reranking on Apple Silicon, plotting accuracy vs throughput.
 
-Status: in progress. The HotpotQA and 2Wiki harnesses and the Metal serving sweep
-run end to end; numbers below are dev-set runs on an Apple M5 Pro. Still to come:
-per-hop breakdowns in the report output, larger-n reruns of the headline configs,
-an optional entity-graph retrieval arm over the 2Wiki evidence triples, and maybe
-a CUDA/vLLM comparison on a rented GPU.
+Status: in progress. The HotpotQA and 2Wiki evaluations and the Metal serving
+sweep run end to end; numbers below are dev-set runs on an Apple M5 Pro. Still to
+come: an optional entity-graph retrieval arm over the 2Wiki evidence triples, and
+maybe a CUDA/vLLM comparison on a rented GPU.
 
 ## Setup
 
@@ -50,32 +49,35 @@ a GPU at the end for the comparison run.
 ## Results so far
 
 Generator: Qwen2.5-7B-Instruct via MLX (4-bit unless noted), everything local on
-an M5 Pro. QA rows are n=200 dev subsets; at n=200 the 95% interval on these
-rates is roughly +/- 0.07, so treat single-point gaps under ~7 points as noise.
-Larger-n reruns of the headline configs are on the list.
+an M5 Pro. Hotpot QA rows are n=500 dev subsets (95% Wilson intervals in
+parentheses on the headline column); the 2wiki QA row is still n=200.
 
-Answer vs retrieval, HotpotQA distractor dev:
-
-| config                      | EM    | F1    | retrieval correct | answer right, evidence incomplete |
-|-----------------------------|-------|-------|-------------------|-----------------------------------|
-| bm25, single hop, k=10      | 0.420 | 0.552 | 0.475             | 0.160                             |
-| hybrid, ircot, k=10         | 0.425 | 0.555 | 0.750             | 0.070                             |
-| hybrid, ircot, rerank 20->5 | 0.450 | 0.568 | 0.680             | 0.080                             |
-
-2WikiMultihopQA dev (2-4 hops, harder):
+Answer vs retrieval, HotpotQA distractor dev (n=500):
 
 | config                      | EM    | F1    | retrieval correct | answer right, evidence incomplete |
 |-----------------------------|-------|-------|-------------------|-----------------------------------|
-| bm25, single hop, k=10      | 0.345 | 0.408 | 0.410             | 0.105                             |
+| bm25, single hop, k=10      | 0.428 | 0.559 | 0.512             | 0.148 (0.120-0.182)               |
+| hybrid, ircot, k=10         | 0.432 | 0.568 | 0.798             | 0.062 (0.044-0.087)               |
+| hybrid, ircot, rerank 20->5 | 0.436 | 0.576 | 0.718             | 0.084 (0.063-0.112)               |
+
+2WikiMultihopQA dev (2-4 hops, harder; n=200):
+
+| config                      | EM    | F1    | retrieval correct | answer right, evidence incomplete |
+|-----------------------------|-------|-------|-------------------|-----------------------------------|
+| bm25, single hop, k=10      | 0.345 | 0.408 | 0.410             | 0.105 (0.070-0.155)               |
 
 How to read this: "retrieval correct" means every annotated gold sentence made it
 into the context the model saw. The last column is the headline number, the share
 of all questions answered correctly without complete gold evidence in context.
-As a share of correct answers that is 38% (bm25 on hotpot), 30% (bm25 on 2wiki),
-and 16-18% even with the stronger retrieval stacks. Answer accuracy alone hides
-all of this: EM barely moves (0.42 to 0.45) while retrieval correctness swings
-from 48% to 75%. The two failure directions decouple, which is the point of
-measuring them separately.
+As a share of correct answers that is 35% (bm25 on hotpot), 30% (bm25 on 2wiki),
+and 14-19% even with the stronger retrieval stacks. Two things hold at n=500:
+the bm25 and ircot intervals on that column don't overlap, so better retrieval
+really does cut the illusion roughly in half; and the three EM values are
+statistically indistinguishable (0.428-0.436) while retrieval correctness swings
+from 51% to 80%. Answer accuracy alone would hide the entire difference. The two
+failure directions decouple, which is the point of measuring them separately.
+The ircot runs average 2.2 retrieval hops; per-hop precision/recall plots are in
+`results/*_per_hop.png`.
 
 First-stage retrieval, full dev sets (bm25, k=10, sentence-level):
 
@@ -112,8 +114,8 @@ Plots: `results/pareto.png`, `results/*_2x2.png`.
 - "Evidence incomplete" is measured against the annotated gold sentences. Some of
   those answers may rest on genuinely equivalent evidence from other retrieved
   sentences, so the illusion rate is an upper bound on unsupported answers.
-- QA numbers are n=100-200 dev subsets with ~+/-0.07 intervals; don't over-read
-  single-point differences.
+- QA numbers are dev subsets (n=500 hotpot, n=200 2wiki, n=100 sweep points)
+  with Wilson intervals reported; don't over-read single-point differences.
 - RAGAS (LLM-judge) metrics are planned as an indicative companion, not a
   replacement for the gold-label metrics.
 - The graph arm, if built, is plain retrieval over an entity graph, not graph
