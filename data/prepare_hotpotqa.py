@@ -13,8 +13,11 @@ from pathlib import Path
 
 from src.eval.gold_mapping import MappingReport, map_facts
 
-RAW = Path(__file__).resolve().parent / "raw" / "hotpot_dev_distractor_v1.json"
-OUT = Path(__file__).resolve().parent / "processed" / "hotpotqa_dev.jsonl"
+HERE = Path(__file__).resolve().parent
+RAW = {"dev": HERE / "raw" / "hotpot_dev_distractor_v1.json",
+       "train": HERE / "raw" / "hotpot_train_v1.1.json"}
+OUT = {"dev": HERE / "processed" / "hotpotqa_dev.jsonl",
+       "train": HERE / "processed" / "hotpotqa_train.jsonl"}
 
 
 def build_record(raw):
@@ -40,27 +43,30 @@ def build_record(raw):
     return record, unmapped
 
 
-def prepare(subset_size=None, seed=13):
-    with open(RAW) as f:
+def prepare(subset_size=None, seed=13, split="dev"):
+    raw, out = RAW[split], OUT[split]
+    with open(raw) as f:
         data = json.load(f)
     if subset_size:
         data = random.Random(seed).sample(data, subset_size)
 
     report = MappingReport()
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    with open(OUT, "w") as f:
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, "w") as f:
         for raw in data:
             record, unmapped = build_record(raw)
             report.add(record["gold_chunk_ids"], unmapped)
             f.write(json.dumps(record) + "\n")
 
-    print(f"wrote {len(data)} records to {OUT}")
+    print(f"wrote {len(data)} records to {out}")
     print(f"gold mapping: {report}")
     return report
 
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--n", type=int, default=None, help="subset size, default full dev")
+    p.add_argument("--n", type=int, default=None, help="subset size, default the full split")
+    p.add_argument("--split", default="dev", choices=["dev", "train"],
+                   help="train needs hotpot_train_v1.1.json in data/raw (the selector arm trains on it)")
     args = p.parse_args()
-    prepare(subset_size=args.n)
+    prepare(subset_size=args.n, split=args.split)

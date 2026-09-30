@@ -256,6 +256,31 @@ def test_paired_stats():
     assert d2 == 0.0 and lo2 == 0.0 and hi2 == 0.0
 
 
+def test_illusion_buckets():
+    from src.eval.analyze import answer_in, bucket
+
+    class Row:
+        def __init__(self, **kw):
+            self.__dict__.update(dict(em=1, retrieval_correct=0, cb_em=0, answer_type="span",
+                                      ans_in_gold_ctx=False, para_recall=0.0, gold_recall=0.0))
+            self.__dict__.update(kw)
+
+    assert bucket(Row(em=0)) == "" and bucket(Row(retrieval_correct=1)) == ""
+    assert bucket(Row(cb_em=1)) == "parametric"
+    assert bucket(Row(answer_type="yesno")) == "yesno"
+    assert bucket(Row(ans_in_gold_ctx=True, gold_recall=0.5)) == "shortcut"
+    assert bucket(Row(para_recall=1.0, gold_recall=0.5)) == "paragraph"
+    assert bucket(Row(para_recall=0.5, gold_recall=0.5)) == "partial"
+    assert bucket(Row()) == "none"
+
+    data = {"gold": {"A::0", "B::1"}, "answer": "Paris", "aliases": [],
+            "text": {"A::0": "The capital is Paris.", "B::1": "It is old.", "C::0": "Paris again."}}
+    assert answer_in({"A::0", "C::0"}, data, True) is True
+    assert answer_in({"B::1", "C::0"}, data, True) is False
+    assert answer_in({"B::1", "C::0"}, data, False) is True
+    assert answer_in({"A::0"}, dict(data, answer="yes"), True) is None
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
@@ -272,4 +297,5 @@ if __name__ == "__main__":
     test_score_row()
     test_paragraph_recall()
     test_paired_stats()
+    test_illusion_buckets()
     print("all good")

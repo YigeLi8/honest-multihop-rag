@@ -160,11 +160,16 @@ def main():
     print(f"{table}  illusion CI {il_lo:.3f}-{il_hi:.3f}")
 
     if cfg.pipeline.mode != "closed_book":
-        hop_stats = score(results)
+        hop_stats = score(results, {ex.id: ex for ex in examples})
         for hop, s in hop_stats.items():
+            aligned = (f" gold[hop]-seen={s['aligned_recall']:.3f}"
+                       if "aligned_recall" in s else "")
             print(f"hop {hop}: precision={s['precision']:.3f} recall={s['recall']:.3f} "
+                  f"cumulative={s['cumulative_recall']:.3f}{aligned} "
                   f"n={s['n']} retrieved/hop={s['retrieved_mean']:.1f} "
                   f"(var {s['retrieved_var']:.1f})")
+        with open(out_dir / f"{cfg.run.name}_per_hop.json", "w") as f:
+            json.dump(hop_stats, f, indent=1)
         if len(hop_stats) > 1:
             plot_per_hop(hop_stats, out_dir / f"{cfg.run.name}_per_hop.png")
 

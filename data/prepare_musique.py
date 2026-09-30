@@ -17,7 +17,7 @@ import json
 from pathlib import Path
 
 RAW_DIR = Path(__file__).resolve().parent / "raw" / "musique"
-OUT = Path(__file__).resolve().parent / "processed" / "musique_dev.jsonl"
+PROCESSED = Path(__file__).resolve().parent / "processed"
 
 
 def build_record(raw):
@@ -49,11 +49,12 @@ def build_record(raw):
     }
 
 
-def prepare(full=False):
-    src = RAW_DIR / ("musique_full_v1.0_dev.jsonl" if full else "musique_ans_v1.0_dev.jsonl")
+def prepare(full=False, split="dev"):
+    src = RAW_DIR / f"musique_{'full' if full else 'ans'}_v1.0_{split}.jsonl"
+    dest = PROCESSED / f"musique_{split}.jsonl"
     n, n_mismatch = 0, 0
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    with open(src) as f, open(OUT, "w") as out:
+    PROCESSED.mkdir(parents=True, exist_ok=True)
+    with open(src) as f, open(dest, "w") as out:
         for line in f:
             raw = json.loads(line)
             rec = build_record(raw)
@@ -63,7 +64,7 @@ def prepare(full=False):
                 n_mismatch += 1
             out.write(json.dumps(rec) + "\n")
             n += 1
-    print(f"wrote {n} records to {OUT}")
+    print(f"wrote {n} records to {dest}")
     print(f"decomposition gold vs is_supporting flags disagree on {n_mismatch} answerable questions")
 
 
@@ -71,5 +72,6 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--full", action="store_true",
                    help="use the full split (answerable + unanswerable) instead of answerable only")
+    p.add_argument("--split", default="dev", choices=["dev", "train"])
     args = p.parse_args()
-    prepare(full=args.full)
+    prepare(full=args.full, split=args.split)
