@@ -118,6 +118,17 @@ def test_score_hops():
     s = score([res])
     assert s[0]["precision"] == 0.5 and s[0]["recall"] == 1.0
     assert s[1]["recall"] == 0.5 and s[1]["retrieved_mean"] == 1.0
+    assert "aligned_recall" not in s[0]
+
+    # ordered gold: the second hop's gold chunk "c" is only seen at hop 1
+    from src.types import Example
+    ex = Example(id="x", question="q", answer="", hops=2, gold_chunk_ids=["a", "c"],
+                 reasoning_path=[{"gold_chunk_id": "a"}, {"gold_chunk_id": "c"}])
+    res.hops[0].gold_chunk_ids = ["a", "c"]
+    res.hops[1].gold_chunk_ids = ["a", "c"]
+    s = score([res], {"x": ex})
+    assert s[0]["cumulative_recall"] == 0.5 and s[1]["cumulative_recall"] == 1.0
+    assert s[0]["aligned_recall"] == 1.0 and s[1]["aligned_recall"] == 1.0
 
 
 def test_parse_step():
@@ -221,6 +232,17 @@ def test_score_row():
     assert row["answer_type"] == "yesno" and answer_type("Barack Obama") == "span"
 
 
+def test_paragraph_recall():
+    from src.eval.run_qa import paragraph_of, paragraph_recall
+    assert paragraph_of("Ed Wood (film)::3") == "Ed Wood (film)"
+    assert paragraph_of("p12::Some Title") == "p12"
+    assert paragraph_of("A::B::4") == "A::B"
+    # gold sentences 0 and 1 of X, sentence 2 of Y; we retrieved X::5 and nothing of Y
+    n, hit, rec = paragraph_recall({"X::5", "Z::0"}, {"X::0", "X::1", "Y::2"})
+    assert (n, hit, rec) == (2, 1, 0.5)
+    assert paragraph_recall(set(), set()) == (0, 0, 0.0)
+
+
 def test_paired_stats():
     from src.eval.stats import mcnemar, paired_bootstrap
     a = [1, 0, 0, 1, 0, 0, 1, 0]
@@ -248,5 +270,6 @@ if __name__ == "__main__":
     test_ircot_loop()
     test_closed_book()
     test_score_row()
+    test_paragraph_recall()
     test_paired_stats()
     print("all good")

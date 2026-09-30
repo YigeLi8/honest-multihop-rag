@@ -43,10 +43,31 @@ def best_em_f1(pred, ex):
     return max(em(pred, g) for g in golds), max(f1(pred, g) for g in golds)
 
 
+def paragraph_of(chunk_id):
+    """Chunk ids are "{title}::{sent_idx}" (hotpot, 2wiki) or "p{idx}::{title}"
+    (musique, paragraph chunks). Either way the paragraph is the prefix."""
+    return chunk_id.rsplit("::", 1)[0] if chunk_id.startswith("p") and "::" in chunk_id \
+        and chunk_id.split("::", 1)[0][1:].isdigit() else chunk_id.rsplit("::", 1)[0]
+
+
+def paragraph_recall(got_ids, gold_ids):
+    """Fraction of gold paragraphs with at least one retrieved sentence. The
+    sentence-level gold is strict; a neighbouring sentence of the same
+    paragraph often carries the same fact, and this tells those cases apart
+    from a paragraph that never reached the model."""
+    gold_paras = {paragraph_of(c) for c in gold_ids}
+    got_paras = {paragraph_of(c) for c in got_ids}
+    if not gold_paras:
+        return 0, 0, 0.0
+    hit = len(gold_paras & got_paras)
+    return len(gold_paras), hit, hit / len(gold_paras)
+
+
 def score_row(ex, res):
     got = {rc.chunk.chunk_id for h in res.hops for rc in h.retrieved}
     gold = set(ex.gold_chunk_ids)
     hit = len(gold & got)
+    n_para, para_hit, para_rec = paragraph_recall(got, gold)
     em_, f1_ = best_em_f1(res.answer, ex)
     return {
         "id": ex.id,
@@ -61,6 +82,9 @@ def score_row(ex, res):
         "n_gold": len(gold),
         "n_gold_hit": hit,
         "gold_recall": round(hit / len(gold), 4) if gold else 0.0,
+        "n_gold_para": n_para,
+        "n_gold_para_hit": para_hit,
+        "para_recall": round(para_rec, 4),
         "hops": len(res.hops),
         "n_context": len(got),
         "reasoning_tokens": res.reasoning_tokens,
