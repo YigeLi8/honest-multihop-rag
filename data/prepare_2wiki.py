@@ -5,8 +5,9 @@ segmentation). Same layout as hotpot: _id, question, answer,
 supporting_facts = [[title, sent_idx], ...], context = [[title, [sent, ...]]].
 On top of that, `evidences` holds (subject, relation, object) triples in
 reasoning order, which is what hotpot lacks: real per-hop gold. The
-supporting_facts come ordered along the same chain, so reasoning_path is just
-their title sequence.
+supporting_facts come ordered along the same chain, so reasoning_path is that
+sequence with the gold chunk id of every step (the same dict layout musique
+uses, which is what the hop-aligned recall in per_hop_precision reads).
 """
 import argparse
 import json
@@ -40,7 +41,8 @@ def build_record(raw):
         "evidence_triples": [
             {"subject": s, "relation": r, "object": o} for s, r, o in raw.get("evidences", [])
         ],
-        "reasoning_path": [t for t, _ in facts],
+        "reasoning_path": [{"title": t, "sent_idx": i, "gold_chunk_id": f"{t}::{i}"}
+                           for t, i in facts if f"{t}::{i}" in gold],
     }
     return record, unmapped
 

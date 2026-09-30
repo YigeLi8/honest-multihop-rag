@@ -11,9 +11,14 @@ Chunks are paragraphs here, chunk_id = "p{idx}::{title}". The reasoning_path
 carries one entry per hop with its gold chunk, which is what real per-hop
 precision needs. qtype is the composition shape encoded in the id
 (2hop, 3hop1, 3hop2, 4hop1, 4hop2, 4hop3).
+
+The raw file is sorted by that shape (all 2hop first), so records are
+shuffled with a fixed seed before writing; otherwise `--n 500` would be an
+all-2hop subset.
 """
 import argparse
 import json
+import random
 from pathlib import Path
 
 RAW_DIR = Path(__file__).resolve().parent / "raw" / "musique"
@@ -49,14 +54,16 @@ def build_record(raw):
     }
 
 
-def prepare(full=False, split="dev"):
+def prepare(full=False, split="dev", seed=13):
     src = RAW_DIR / f"musique_{'full' if full else 'ans'}_v1.0_{split}.jsonl"
     dest = PROCESSED / f"musique_{split}.jsonl"
+    with open(src) as f:
+        raws = [json.loads(line) for line in f]
+    random.Random(seed).shuffle(raws)
     n, n_mismatch = 0, 0
     PROCESSED.mkdir(parents=True, exist_ok=True)
-    with open(src) as f, open(dest, "w") as out:
-        for line in f:
-            raw = json.loads(line)
+    with open(dest, "w") as out:
+        for raw in raws:
             rec = build_record(raw)
             flagged = {c["chunk_id"] for c, p in zip(rec["chunks"], raw["paragraphs"])
                        if p["is_supporting"]}
@@ -64,7 +71,7 @@ def prepare(full=False, split="dev"):
                 n_mismatch += 1
             out.write(json.dumps(rec) + "\n")
             n += 1
-    print(f"wrote {n} records to {dest}")
+    print(f"wrote {n} records to {dest} (shuffled, seed {seed})")
     print(f"decomposition gold vs is_supporting flags disagree on {n_mismatch} answerable questions")
 
 
