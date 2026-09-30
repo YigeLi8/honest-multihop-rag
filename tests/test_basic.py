@@ -221,6 +221,19 @@ def test_score_row():
     assert row["answer_type"] == "yesno" and answer_type("Barack Obama") == "span"
 
 
+def test_paired_stats():
+    from src.eval.stats import mcnemar, paired_bootstrap
+    a = [1, 0, 0, 1, 0, 0, 1, 0]
+    b = [1, 1, 0, 1, 1, 0, 1, 1]
+    only_a, only_b, p = mcnemar(a, b)
+    assert (only_a, only_b) == (0, 3) and abs(p - 0.25) < 1e-9   # 2 * 0.5**3
+    assert mcnemar([1, 0], [1, 0]) == (0, 0, 1.0)
+    diff, lo, hi = paired_bootstrap(a, b, n_boot=2000)
+    assert abs(diff - 3 / 8) < 1e-9 and lo <= diff <= hi and lo >= 0.0
+    d2, lo2, hi2 = paired_bootstrap(a, a, n_boot=200)
+    assert d2 == 0.0 and lo2 == 0.0 and hi2 == 0.0
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
@@ -235,4 +248,5 @@ if __name__ == "__main__":
     test_ircot_loop()
     test_closed_book()
     test_score_row()
+    test_paired_stats()
     print("all good")

@@ -1,0 +1,8 @@
+run:
+  name: closed_book_musique_dev
+dataset:
+  name: musique
+pipeline:
+  mode: closed_book
+generation:
+  backend: mlx

@@ -1,0 +1,9 @@
+# musique chunks are paragraphs (20 per question), so k=5 is a quarter of the
+# pool, roughly the same share as k=10 sentences out of ~40 on hotpot
+run:
+  name: bm25_musique_dev
+dataset:
+  name: musique
+retrieval:
+  method: bm25
+  top_k: 5
