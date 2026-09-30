@@ -63,6 +63,7 @@ class PipelineResult:
     answer: str
     hops: list = field(default_factory=list)
     raw_outputs: list = field(default_factory=list)   # every model completion, in order
+    stop_reason: str = ""      # multihop only: done | max_hops | no_marker | repeated_query
     reasoning_tokens: int = 0
     latency_s: float = 0.0
     tokens_per_s: float = 0.0

@@ -133,9 +133,10 @@ def test_score_hops():
 
 def test_parse_step():
     from src.pipeline.multihop import parse_step
-    assert parse_step("thinking...\nSEARCH: who wrote book x") == (None, "who wrote book x")
-    assert parse_step("ANSWER: yes") == ("yes", None)
-    assert parse_step("no marker at all") == (None, None)
+    assert parse_step("thinking...\nSEARCH: who wrote book x") == (False, "who wrote book x")
+    assert parse_step("DONE") == (True, None)
+    assert parse_step("ANSWER: yes") == (True, None)     # old marker, still means stop
+    assert parse_step("no marker at all") == (False, None)
 
 
 def test_ircot_loop():
@@ -167,7 +168,10 @@ def test_ircot_loop():
                            completion_tokens=5)
             if self.calls == 1:
                 return "SEARCH: which university", m
-            return "ANSWER: some university", m
+            if self.calls == 2:
+                return "DONE", m
+            assert "Answer the question using only the context" in prompt
+            return "some university\n", m
 
     from src.types import Example
     ex = Example(id="q", question="where did the author study", answer="some university",
@@ -180,11 +184,12 @@ def test_ircot_loop():
 
     res = p.run_example(ex)
     assert res.answer == "some university"
-    assert len(res.hops) == 2                       # stopped once it answered
+    assert len(res.hops) == 2 and res.stop_reason == "done"
     assert res.hops[1].query == "which university"
     got = {rc.chunk.chunk_id for h in res.hops for rc in h.retrieved}
     assert got == {"hop1::0", "hop2::0"}            # both hops contributed
-    assert res.reasoning_tokens == 10
+    assert res.reasoning_tokens == 15               # two loop calls + the answer call
+    assert p.generator.calls == 3
 
 
 def test_closed_book():

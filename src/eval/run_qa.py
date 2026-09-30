@@ -104,6 +104,7 @@ def score_row(ex, res):
         "n_gold_para_hit": para_hit,
         "para_recall": round(para_rec, 4),
         "hops": len(res.hops),
+        "stop_reason": res.stop_reason,
         "n_context": len(got),
         "reasoning_tokens": res.reasoning_tokens,
         "latency_s": round(res.latency_s, 3),
@@ -116,6 +117,7 @@ def trace_record(ex, res):
     return {
         "id": ex.id,
         "answer_pred": res.answer,
+        "stop_reason": res.stop_reason,
         "hops": [{"hop": h.hop, "query": h.query,
                   "retrieved": [rc.chunk.chunk_id for rc in h.retrieved]}
                  for h in res.hops],

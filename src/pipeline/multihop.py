@@ -30,7 +30,8 @@ answer, no explanation. If it is a yes/no question, reply yes or no.
 Question: {question}
 Answer:"""
 
-IRCOT_PROMPT = """You are gathering evidence to answer a multi-hop question.
+IRCOT_PROMPT = """You are gathering evidence to answer a multi-hop question. \
+Do not answer it yet.
 
 Context so far:
 {context}
@@ -39,18 +40,21 @@ Question: {question}
 
 Think about what is still missing, then reply with exactly one line: either
 SEARCH: <short query for the missing fact>
-or, if the context is already enough,
-ANSWER: <the answer and nothing else>"""
+or, if the context already contains everything needed,
+DONE"""
 
 
 def parse_step(text):
+    """(done, search_query). The loop only ever gathers evidence; the answer is
+    produced afterwards by the same PROMPT every config uses, so answer
+    formatting never differs between single-hop and multi-hop runs."""
     for line in text.strip().splitlines():
         line = line.strip()
-        if line.upper().startswith("ANSWER:"):
-            return line[7:].strip(), None
+        if line.upper().startswith("DONE") or line.upper().startswith("ANSWER:"):
+            return True, None
         if line.upper().startswith("SEARCH:"):
-            return None, line[7:].strip()
-    return None, None
+            return False, line[7:].strip()
+    return False, None
 
 
 def first_line(text):
@@ -74,6 +78,7 @@ class MultiHopPipeline:
         t0 = time.perf_counter()
         mode = self.cfg.pipeline.mode
         self._raw = []
+        self.stop_reason = ""
         if mode == "closed_book":
             if self.generator is None:
                 raise ValueError("closed_book needs a generation backend")
@@ -92,6 +97,7 @@ class MultiHopPipeline:
         ntok, tps, peak = stats
         return PipelineResult(example_id=ex.id, answer=answer, hops=traces,
                               raw_outputs=list(self._raw),
+                              stop_reason=self.stop_reason,
                               reasoning_tokens=ntok,
                               latency_s=time.perf_counter() - t0,
                               tokens_per_s=tps, peak_memory_mb=peak)
@@ -121,12 +127,15 @@ class MultiHopPipeline:
 
     def _ircot(self, ex):
         # hotpot doesn't order its gold facts by hop, so every trace carries the
-        # full gold set; 2wiki's reasoning_path will give real per-hop gold
+        # full gold set; 2wiki and musique carry an ordered path for the scorer.
+        # The loop decides only whether to search again; the answer comes from
+        # PROMPT over the union of everything retrieved, like single_hop.
         seen = {}
         traces = []
         query = ex.question
-        answer = ""
         ntok, tps, peak = 0, 0.0, 0.0
+        asked = set()
+        self.stop_reason = "max_hops"
 
         for hop in range(self.cfg.pipeline.max_hops):
             hits = self._retrieve(query)
@@ -134,26 +143,30 @@ class MultiHopPipeline:
                 seen.setdefault(h.chunk.chunk_id, h)
             traces.append(HopTrace(hop=hop, query=query, retrieved=hits,
                                    gold_chunk_ids=list(ex.gold_chunk_ids)))
+            asked.add(query.lower())
             if hop == self.cfg.pipeline.max_hops - 1:
                 break
             ctx = "\n".join(f"- {h.chunk.text}" for h in seen.values())
             text, m = self._gen(IRCOT_PROMPT.format(context=ctx, question=ex.question))
             ntok += m.completion_tokens
             tps, peak = m.tokens_per_s, max(peak, m.peak_memory_mb)
-            ans, search = parse_step(text)
-            if ans is not None:
-                answer = ans
+            done, search = parse_step(text)
+            if done:
+                self.stop_reason = "done"
                 break
-            if not search or search.lower() == query.lower():
-                break   # model is stuck, stop retrieving
+            if not search:
+                self.stop_reason = "no_marker"
+                break
+            if search.lower() in asked:
+                self.stop_reason = "repeated_query"
+                break
             query = search
 
-        if not answer:
-            ctx = "\n".join(f"- {h.chunk.text}" for h in seen.values())
-            text, m = self._gen(PROMPT.format(context=ctx, question=ex.question))
-            answer = first_line(text)
-            ntok += m.completion_tokens
-            tps, peak = m.tokens_per_s, max(peak, m.peak_memory_mb)
+        ctx = "\n".join(f"- {h.chunk.text}" for h in seen.values())
+        text, m = self._gen(PROMPT.format(context=ctx, question=ex.question))
+        answer = first_line(text)
+        ntok += m.completion_tokens
+        tps, peak = m.tokens_per_s, max(peak, m.peak_memory_mb)
         return traces, answer, (ntok, tps, peak)
 
     def run(self, examples):

@@ -73,6 +73,21 @@ def download_2wiki():
               "and unzip into data/raw/2wiki/ (need dev.json)")
 
 
+def download_musique():
+    # StonyBrookNLP release, mirrored on the hf hub (answerable + full, dev + train)
+    from huggingface_hub import hf_hub_download
+    target = RAW / "musique"
+    target.mkdir(parents=True, exist_ok=True)
+    for fn in ["musique_ans_v1.0_dev.jsonl", "musique_full_v1.0_dev.jsonl",
+               "musique_ans_v1.0_train.jsonl"]:
+        dest = target / fn
+        if dest.exists():
+            print(f"{fn} already downloaded")
+            continue
+        shutil.copy(hf_hub_download("bdsaglam/musique", fn, repo_type="dataset"), dest)
+        print(f"wrote {dest.name}")
+
+
 def download_beir():
     for name in BEIR_SUBSETS:
         z = fetch(BEIR_URL.format(name), RAW / f"{name}.zip")
@@ -84,8 +99,9 @@ def download_beir():
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--datasets", nargs="+", default=["hotpotqa", "2wiki", "beir"])
+    p.add_argument("--datasets", nargs="+", default=["hotpotqa", "2wiki", "musique", "beir"])
     args = p.parse_args()
     RAW.mkdir(parents=True, exist_ok=True)
     for name in args.datasets:
-        {"hotpotqa": download_hotpotqa, "2wiki": download_2wiki, "beir": download_beir}[name]()
+        {"hotpotqa": download_hotpotqa, "2wiki": download_2wiki,
+         "musique": download_musique, "beir": download_beir}[name]()
