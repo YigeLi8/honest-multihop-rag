@@ -23,11 +23,14 @@ class Example:
     question: str
     answer: str
     hops: int
+    qtype: str = ""
+    level: str = ""
+    answer_aliases: list = field(default_factory=list)      # musique only
     chunks: list = field(default_factory=list)
     gold_chunk_ids: list = field(default_factory=list)
     gold_supporting_facts: list = field(default_factory=list)
     evidence_triples: list = field(default_factory=list)   # 2wiki only
-    reasoning_path: list = field(default_factory=list)     # 2wiki only
+    reasoning_path: list = field(default_factory=list)     # 2wiki, musique
 
 
 @dataclass
@@ -42,6 +45,8 @@ class HopTrace:
 def example_from_json(d):
     return Example(
         id=d["id"], question=d["question"], answer=d["answer"], hops=d.get("hops", 2),
+        qtype=d.get("qtype") or "", level=d.get("level") or "",
+        answer_aliases=d.get("answer_aliases", []),
         chunks=[Chunk(chunk_id=c["chunk_id"], text=c["text"],
                       title=c.get("title", ""), sent_idx=c.get("sent_idx", -1))
                 for c in d["chunks"]],
@@ -57,6 +62,7 @@ class PipelineResult:
     example_id: str
     answer: str
     hops: list = field(default_factory=list)
+    raw_outputs: list = field(default_factory=list)   # every model completion, in order
     reasoning_tokens: int = 0
     latency_s: float = 0.0
     tokens_per_s: float = 0.0

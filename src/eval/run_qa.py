@@ -2,8 +2,11 @@
 
     python -m src.eval.run_qa --config configs/bm25.yaml --backend mlx --n 200
 
-Writes results/<run>_qa.csv and results/<run>_2x2.png. retrieval_correct means
-all gold sentences were in the context handed to the model.
+Writes results/<run>_qa.csv (one row per question), results/<run>_trace.jsonl
+(what was retrieved at every hop plus the raw completions, so later audits
+don't need a re-run) and results/<run>_2x2.png. retrieval_correct means all
+gold sentences were in the context handed to the model; gold_recall is the
+fraction that were, which separates "partly there" from "not there at all".
 """
 import argparse
 import csv
@@ -11,7 +14,7 @@ import json
 from pathlib import Path
 
 from src.config import load_config
-from src.eval.answer_metrics import em, f1
+from src.eval.answer_metrics import em, f1, normalize
 from src.eval.decoupling import build_table, plot_table
 from src.eval.per_hop_precision import plot_per_hop, score
 from src.eval.stats import wilson_ci
@@ -19,51 +22,100 @@ from src.pipeline.multihop import MultiHopPipeline
 from src.types import example_from_json
 
 
+def load_examples(path, n=None):
+    out = []
+    with open(path) as f:
+        for line in f:
+            out.append(example_from_json(json.loads(line)))
+            if n and len(out) >= n:
+                break
+    return out
+
+
+def answer_type(gold):
+    return "yesno" if normalize(gold) in ("yes", "no") else "span"
+
+
+def best_em_f1(pred, ex):
+    """Max over the gold answer and its aliases (musique lists aliases; the
+    hotpot and 2wiki records have none, so this is plain em/f1 there)."""
+    golds = [ex.answer] + [a for a in ex.answer_aliases if a]
+    return max(em(pred, g) for g in golds), max(f1(pred, g) for g in golds)
+
+
+def score_row(ex, res):
+    got = {rc.chunk.chunk_id for h in res.hops for rc in h.retrieved}
+    gold = set(ex.gold_chunk_ids)
+    hit = len(gold & got)
+    em_, f1_ = best_em_f1(res.answer, ex)
+    return {
+        "id": ex.id,
+        "qtype": ex.qtype,
+        "level": ex.level,
+        "answer_type": answer_type(ex.answer),
+        "answer_gold": ex.answer,
+        "answer_pred": res.answer,
+        "em": em_,
+        "f1": round(f1_, 4),
+        "retrieval_correct": int(gold <= got),
+        "n_gold": len(gold),
+        "n_gold_hit": hit,
+        "gold_recall": round(hit / len(gold), 4) if gold else 0.0,
+        "hops": len(res.hops),
+        "n_context": len(got),
+        "reasoning_tokens": res.reasoning_tokens,
+        "latency_s": round(res.latency_s, 3),
+        "tokens_per_s": round(res.tokens_per_s, 1),
+        "peak_memory_mb": round(res.peak_memory_mb, 1),
+    }
+
+
+def trace_record(ex, res):
+    return {
+        "id": ex.id,
+        "answer_pred": res.answer,
+        "hops": [{"hop": h.hop, "query": h.query,
+                  "retrieved": [rc.chunk.chunk_id for rc in h.retrieved]}
+                 for h in res.hops],
+        "raw_outputs": res.raw_outputs,
+    }
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
     ap.add_argument("--n", type=int, default=None)
     ap.add_argument("--backend", default=None, help="override generation backend")
+    ap.add_argument("--model", default=None, help="override generation model")
+    ap.add_argument("--name", default=None, help="override run name")
     args = ap.parse_args()
     cfg = load_config(args.config)
     if args.backend:
         cfg.generation.backend = args.backend
+    if args.model:
+        cfg.generation.model = args.model
+    if args.name:
+        cfg.run.name = args.name
 
     data_file = Path(cfg.paths.data_dir) / f"{cfg.dataset.name}_dev.jsonl"
-    examples = []
-    with open(data_file) as f:
-        for line in f:
-            examples.append(example_from_json(json.loads(line)))
-            if args.n and len(examples) >= args.n:
-                break
+    examples = load_examples(data_file, args.n)
+
+    out_dir = Path(cfg.paths.results_dir)
+    out_dir.mkdir(exist_ok=True)
+    trace_path = out_dir / f"{cfg.run.name}_trace.jsonl"
 
     pipe = MultiHopPipeline(cfg)
     rows = []
     results = []
-    for i, ex in enumerate(examples):
-        res = pipe.run_example(ex)
-        results.append(res)
-        got = {rc.chunk.chunk_id for h in res.hops for rc in h.retrieved}
-        retr_ok = set(ex.gold_chunk_ids) <= got
-        rows.append({
-            "id": ex.id,
-            "answer_gold": ex.answer,
-            "answer_pred": res.answer,
-            "em": em(res.answer, ex.answer),
-            "f1": round(f1(res.answer, ex.answer), 4),
-            "retrieval_correct": int(retr_ok),
-            "hops": len(res.hops),
-            "n_context": len(got),
-            "reasoning_tokens": res.reasoning_tokens,
-            "latency_s": round(res.latency_s, 3),
-            "tokens_per_s": round(res.tokens_per_s, 1),
-            "peak_memory_mb": round(res.peak_memory_mb, 1),
-        })
-        if (i + 1) % 25 == 0:
-            print(f"{i + 1}/{len(examples)}")
+    with open(trace_path, "w") as tf:
+        for i, ex in enumerate(examples):
+            res = pipe.run_example(ex)
+            results.append(res)
+            rows.append(score_row(ex, res))
+            tf.write(json.dumps(trace_record(ex, res)) + "\n")
+            if (i + 1) % 25 == 0:
+                print(f"{i + 1}/{len(examples)}")
 
-    out_dir = Path(cfg.paths.results_dir)
-    out_dir.mkdir(exist_ok=True)
     out = out_dir / f"{cfg.run.name}_qa.csv"
     with open(out, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=rows[0].keys())
@@ -83,15 +135,16 @@ def main():
           f"(95% CI {em_lo:.3f}-{em_hi:.3f})  F1={mean_f1:.4f}")
     print(f"{table}  illusion CI {il_lo:.3f}-{il_hi:.3f}")
 
-    hop_stats = score(results)
-    for hop, s in hop_stats.items():
-        print(f"hop {hop}: precision={s['precision']:.3f} recall={s['recall']:.3f} "
-              f"n={s['n']} retrieved/hop={s['retrieved_mean']:.1f} "
-              f"(var {s['retrieved_var']:.1f})")
-    if len(hop_stats) > 1:
-        plot_per_hop(hop_stats, out_dir / f"{cfg.run.name}_per_hop.png")
+    if cfg.pipeline.mode != "closed_book":
+        hop_stats = score(results)
+        for hop, s in hop_stats.items():
+            print(f"hop {hop}: precision={s['precision']:.3f} recall={s['recall']:.3f} "
+                  f"n={s['n']} retrieved/hop={s['retrieved_mean']:.1f} "
+                  f"(var {s['retrieved_var']:.1f})")
+        if len(hop_stats) > 1:
+            plot_per_hop(hop_stats, out_dir / f"{cfg.run.name}_per_hop.png")
 
-    print(f"csv: {out}\nplot: {png}")
+    print(f"csv: {out}\ntrace: {trace_path}\nplot: {png}")
 
 
 if __name__ == "__main__":

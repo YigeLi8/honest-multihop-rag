@@ -176,6 +176,51 @@ def test_ircot_loop():
     assert res.reasoning_tokens == 10
 
 
+def test_closed_book():
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Example
+
+    class NS:
+        pass
+    cfg = NS(); cfg.pipeline = NS()
+    cfg.pipeline.mode = "closed_book"
+
+    class FakeGen:
+        def generate(self, prompt, max_tokens=None):
+            assert "Context" not in prompt
+            return "Paris\nbecause it is the capital", GenMetrics(
+                tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=3)
+
+    p = MultiHopPipeline.__new__(MultiHopPipeline)
+    p.cfg = cfg
+    p.retriever = None
+    p.reranker = None
+    p.generator = FakeGen()
+    ex = Example(id="q", question="capital of france", answer="Paris", hops=1,
+                 gold_chunk_ids=["x::0"])
+    res = p.run_example(ex)
+    assert res.answer == "Paris"
+    assert res.hops[0].retrieved == [] and res.hops[0].gold_chunk_ids == ["x::0"]
+    assert res.raw_outputs == ["Paris\nbecause it is the capital"]
+
+
+def test_score_row():
+    from src.eval.run_qa import answer_type, score_row
+    from src.types import Chunk, Example, HopTrace, PipelineResult, RetrievedChunk
+
+    def hit(cid):
+        return RetrievedChunk(chunk=Chunk(chunk_id=cid, text=""), score=1.0, rank=1)
+    ex = Example(id="q", question="?", answer="yes", hops=2, qtype="comparison",
+                 gold_chunk_ids=["a", "b"])
+    res = PipelineResult(example_id="q", answer="Yes.", hops=[
+        HopTrace(hop=0, query="?", retrieved=[hit("a"), hit("z")], gold_chunk_ids=["a", "b"])])
+    row = score_row(ex, res)
+    assert row["em"] == 1.0 and row["retrieval_correct"] == 0
+    assert row["n_gold"] == 2 and row["n_gold_hit"] == 1 and row["gold_recall"] == 0.5
+    assert row["answer_type"] == "yesno" and answer_type("Barack Obama") == "span"
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
@@ -188,4 +233,6 @@ if __name__ == "__main__":
     test_score_hops()
     test_parse_step()
     test_ircot_loop()
+    test_closed_book()
+    test_score_row()
     print("all good")

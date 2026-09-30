@@ -1,0 +1,8 @@
+# no retrieval: what the generator answers from memory alone. the control
+# behind the illusion cell -- a right answer here never needed the evidence
+run:
+  name: closed_book_hotpot_dev
+pipeline:
+  mode: closed_book
+generation:
+  backend: mlx
