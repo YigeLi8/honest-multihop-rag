@@ -17,7 +17,16 @@ from src.retrieval.base import get_retriever
 from src.types import Chunk
 
 
-def load_examples(path, n=None):
+def load_examples(path, n=None, ids=None):
+    if ids:
+        want = set(ids)
+        by_id = {}
+        with open(path) as f:
+            for line in f:
+                d = json.loads(line)
+                if d["id"] in want:
+                    by_id[d["id"]] = d
+        return [by_id[i] for i in ids if i in by_id]
     out = []
     with open(path) as f:
         for line in f:
@@ -31,11 +40,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
     ap.add_argument("--n", type=int, default=None, help="cap the number of questions")
+    ap.add_argument("--ids", default=None, help="fold file with one question id per line")
+    ap.add_argument("--name", default=None, help="override run name")
     args = ap.parse_args()
     cfg = load_config(args.config)
+    if args.name:
+        cfg.run.name = args.name
 
+    ids = None
+    if args.ids:
+        with open(args.ids) as f:
+            ids = [line.strip() for line in f if line.strip()]
     data_file = Path(cfg.paths.data_dir) / f"{cfg.dataset.name}_dev.jsonl"
-    examples = load_examples(data_file, args.n or cfg.dataset.subset_size)
+    examples = load_examples(data_file, args.n or cfg.dataset.subset_size, ids)
     retriever = get_retriever(cfg)
     k = cfg.retrieval.top_k
 

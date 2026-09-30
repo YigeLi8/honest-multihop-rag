@@ -22,7 +22,25 @@ from src.pipeline.multihop import MultiHopPipeline
 from src.types import example_from_json
 
 
-def load_examples(path, n=None):
+def read_ids(path):
+    with open(path) as f:
+        return [line.strip() for line in f if line.strip()]
+
+
+def load_examples(path, n=None, ids=None):
+    """First n records, or exactly the ids listed (in the list's order)."""
+    if ids:
+        want = set(ids)
+        by_id = {}
+        with open(path) as f:
+            for line in f:
+                d = json.loads(line)
+                if d["id"] in want:
+                    by_id[d["id"]] = example_from_json(d)
+        missing = [i for i in ids if i not in by_id]
+        if missing:
+            raise SystemExit(f"{len(missing)} ids not in {path}, e.g. {missing[:3]}")
+        return [by_id[i] for i in ids]
     out = []
     with open(path) as f:
         for line in f:
@@ -109,6 +127,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", required=True)
     ap.add_argument("--n", type=int, default=None)
+    ap.add_argument("--ids", default=None, help="fold file with one question id per line")
     ap.add_argument("--backend", default=None, help="override generation backend")
     ap.add_argument("--model", default=None, help="override generation model")
     ap.add_argument("--name", default=None, help="override run name")
@@ -122,7 +141,7 @@ def main():
         cfg.run.name = args.name
 
     data_file = Path(cfg.paths.data_dir) / f"{cfg.dataset.name}_dev.jsonl"
-    examples = load_examples(data_file, args.n)
+    examples = load_examples(data_file, args.n, read_ids(args.ids) if args.ids else None)
 
     out_dir = Path(cfg.paths.results_dir)
     out_dir.mkdir(exist_ok=True)
