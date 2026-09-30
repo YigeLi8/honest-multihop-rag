@@ -1,0 +1,4 @@
+run,n,em,f1,closed_book_em,retrieval_correct,para_complete,illusion,illusion_lo,illusion_hi,illusion_share_of_correct,parametric,parametric_rate,yesno,yesno_rate,shortcut,shortcut_rate,paragraph,paragraph_rate,partial,partial_rate,none,none_rate,unexplained,unexplained_rate,em_given_all_gold,n_all_gold,em_given_all_para,n_all_para,em_given_partial_gold,n_partial_gold,em_given_no_gold,n_no_gold
+bm25_hotpot_dev,500,0.428,0.5594,0.17,0.512,0.81,0.148,0.1196,0.1818,0.3458,19,0.038,2,0.004,46,0.092,2,0.004,5,0.01,0,0.0,7,0.014,0.5469,256,0.3087,149,0.3095,84,0.1667,12
+hybrid_ircot_hotpot_dev,500,0.432,0.5677,0.17,0.798,0.972,0.062,0.044,0.0867,0.1435,6,0.012,0,0.0,22,0.044,2,0.004,1,0.002,0,0.0,3,0.006,0.4637,399,0.2989,87,0.3571,14,,0
+hybrid_ircot_rerank_hotpot_dev,500,0.436,0.5755,0.17,0.718,0.944,0.084,0.0627,0.1116,0.1927,6,0.012,0,0.0,32,0.064,3,0.006,0,0.0,1,0.002,4,0.008,0.4903,359,0.3186,113,0.2174,23,0.125,8

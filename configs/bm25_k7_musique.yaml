@@ -1,0 +1,8 @@
+# matched-context reference at paragraph granularity (k=5 baseline + 2)
+run:
+  name: bm25_k7_musique_dev
+dataset:
+  name: musique
+retrieval:
+  method: bm25
+  top_k: 7

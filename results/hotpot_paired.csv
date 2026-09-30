@@ -1,0 +1,16 @@
+a,b,metric,mean_a,mean_b,diff,ci_lo,ci_hi,only_a,only_b,mcnemar_p
+bm25_hotpot_dev,hybrid_ircot_hotpot_dev,em,0.428,0.432,0.004,-0.036,0.044,52,54,0.92269
+bm25_hotpot_dev,hybrid_ircot_hotpot_dev,retrieval_correct,0.512,0.798,0.286,0.244,0.328,9,152,0.0
+bm25_hotpot_dev,hybrid_ircot_hotpot_dev,illusion,0.148,0.062,-0.086,-0.114,-0.058,50,7,0.0
+bm25_hotpot_dev,hybrid_ircot_hotpot_dev,unexplained,0.014,0.006,-0.008,-0.02,0.002,6,2,0.28906
+bm25_hotpot_dev,hybrid_ircot_hotpot_dev,f1,0.5594,0.5677,0.0083,-0.0284,0.0451,,,
+bm25_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,em,0.428,0.436,0.008,-0.034,0.05,60,64,0.78775
+bm25_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,retrieval_correct,0.512,0.718,0.206,0.16,0.254,30,133,0.0
+bm25_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,illusion,0.148,0.084,-0.064,-0.096,-0.032,52,20,0.00021
+bm25_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,unexplained,0.014,0.008,-0.006,-0.018,0.006,6,3,0.50781
+bm25_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,f1,0.5594,0.5755,0.0161,-0.024,0.0565,,,
+hybrid_ircot_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,em,0.432,0.436,0.004,-0.034,0.042,48,50,0.91961
+hybrid_ircot_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,retrieval_correct,0.798,0.718,-0.08,-0.116,-0.044,63,23,2e-05
+hybrid_ircot_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,illusion,0.062,0.084,0.022,-0.004,0.046,15,26,0.11728
+hybrid_ircot_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,unexplained,0.006,0.008,0.002,-0.008,0.012,3,4,1.0
+hybrid_ircot_hotpot_dev,hybrid_ircot_rerank_hotpot_dev,f1,0.5677,0.5755,0.0078,-0.027,0.0424,,,

@@ -78,6 +78,7 @@ class MultiHopPipeline:
         t0 = time.perf_counter()
         mode = self.cfg.pipeline.mode
         self._raw = []
+        self._prompt_tokens, self._ttft = 0, 0.0
         self.stop_reason = ""
         if mode == "closed_book":
             if self.generator is None:
@@ -99,12 +100,18 @@ class MultiHopPipeline:
                               raw_outputs=list(self._raw),
                               stop_reason=self.stop_reason,
                               reasoning_tokens=ntok,
+                              prompt_tokens=self._prompt_tokens,
+                              ttft_s=self._ttft,
+                              gen_calls=len(self._raw),
                               latency_s=time.perf_counter() - t0,
                               tokens_per_s=tps, peak_memory_mb=peak)
 
     def _gen(self, prompt):
         text, m = self.generator.generate(prompt)
         self._raw.append(text)
+        self._prompt_tokens += getattr(m, "prompt_tokens", 0)
+        if self._ttft == 0.0:
+            self._ttft = getattr(m, "ttft_s", 0.0)
         return text, m
 
     def _closed_book(self, ex):

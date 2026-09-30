@@ -1,0 +1,7 @@
+run:
+  name: bm25_k13_2wiki_dev
+dataset:
+  name: 2wiki
+retrieval:
+  method: bm25
+  top_k: 13

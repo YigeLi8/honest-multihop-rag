@@ -1,0 +1,2 @@
+run,n,em,f1,closed_book_em,retrieval_correct,para_complete,illusion,illusion_lo,illusion_hi,illusion_share_of_correct,parametric,parametric_rate,yesno,yesno_rate,shortcut,shortcut_rate,paragraph,paragraph_rate,partial,partial_rate,none,none_rate,unexplained,unexplained_rate,em_given_all_gold,n_all_gold,em_given_all_para,n_all_para,em_given_partial_gold,n_partial_gold,em_given_no_gold,n_no_gold
+bm25_musique_dev,500,0.134,0.2069,0.028,0.178,0.178,0.064,0.0457,0.089,0.4776,2,0.004,0,0.0,26,0.052,0,0.0,4,0.008,0,0.0,4,0.008,0.3933,89,,0,0.0928,345,0.0,66

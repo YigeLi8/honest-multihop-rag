@@ -1,0 +1,8 @@
+# matched-context reference for the ircot runs: their union context averages
+# ~13 sentences, so single-hop bm25 at k=13 separates "more context" from
+# "reasoning-guided retrieval"
+run:
+  name: bm25_k13_hotpot_dev
+retrieval:
+  method: bm25
+  top_k: 13

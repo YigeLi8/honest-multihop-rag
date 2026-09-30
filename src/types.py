@@ -65,6 +65,9 @@ class PipelineResult:
     raw_outputs: list = field(default_factory=list)   # every model completion, in order
     stop_reason: str = ""      # multihop only: done | max_hops | no_marker | repeated_query
     reasoning_tokens: int = 0
+    prompt_tokens: int = 0     # summed over every model call for the question
+    ttft_s: float = 0.0        # first call's time to first token (= its prefill)
+    gen_calls: int = 0
     latency_s: float = 0.0
-    tokens_per_s: float = 0.0
+    tokens_per_s: float = 0.0  # decode-only, from the last call
     peak_memory_mb: float = 0.0

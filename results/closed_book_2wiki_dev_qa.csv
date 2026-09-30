@@ -1,0 +1,501 @@
+id,qtype,level,answer_type,answer_gold,answer_pred,em,f1,retrieval_correct,n_gold,n_gold_hit,gold_recall,n_gold_para,n_gold_para_hit,para_recall,hops,n_context,reasoning_tokens,latency_s,tokens_per_s,peak_memory_mb
+8813f87c0bdd11eba7f7acde48001122,compositional,,span,Małgorzata Braunek,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,3.131,3.8,4469.2
+61a46987092f11ebbdaeac1f6bf848b6,comparison,,span,The Mask Of Fu Manchu,Blind Shaft,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.229,13.1,4471.9
+e2a3bf2a0bdd11eba7f7acde48001122,compositional,,span,12 June 1516,1728,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.248,16.2,4471.9
+0cd3bdea0bde11eba7f7acde48001122,compositional,,span,Myanmar Motion Picture Academy Awards,Best Director Award,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.25,12.0,4483.7
+f9dcb4a60bda11eba7f7acde48001122,compositional,,span,"Missoula, Montana",New Zealand,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.218,9.2,4458.1
+8981e1ce0bb011ebab90acde48001122,inference,,span,Charles Armand René de La Trémoille,"Henri I, Duke of Bourbon",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,7,0.301,23.2,4471.9
+019bed300bde11eba7f7acde48001122,compositional,,span,Galați,Transylvania,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.229,8.7,4476.7
+a7b9672009c311ebbdb0ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4478.2
+298f23b8088a11ebbd6eac1f6bf848b6,bridge_comparison,,span,El Extraño Viaje,El Extraño Viaje,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.265,18.9,4479.2
+2ec440560bb011ebab90acde48001122,inference,,span,Ptolemy IX Lathyros,Alexander I of Macedon,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.27,18.5,4469.2
+05f8a691087b11ebbd67ac1f6bf848b6,bridge_comparison,,span,The Working Class Goes To Heaven,Crimen A Las Tres,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,7,0.295,23.8,4484.7
+645c9a5a08c311ebbd8dac1f6bf848b6,bridge_comparison,,span,Once A Gentleman,Once A Gentleman,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,4,0.261,15.3,4476.7
+5bec3cd408a711ebbd7fac1f6bf848b6,bridge_comparison,,span,The Trial Of Joan Of Arc,The Trial Of Joan Of Arc,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,6,0.277,21.7,4483.7
+464cfa460bd911eba7f7acde48001122,compositional,,span,Brooklyn,Virginia,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4464.4
+c05e16a40bdd11eba7f7acde48001122,compositional,,span,stroke,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.214,4.7,4474.0
+2935f1640bda11eba7f7acde48001122,compositional,,span,Nice,Japan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.211,4.8,4467.7
+ada1b358085211ebbd58ac1f6bf848b6,comparison,,span,Fleetwood Sheppard,Fleetwood Sheppard,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.269,18.6,4467.7
+3f857208086c11ebbd61ac1f6bf848b6,bridge_comparison,,span,The Raven'S Dance,Keïta! L'Héritage Du Griot,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,12,0.373,32.2,4493.8
+dfe93efe0bdd11eba7f7acde48001122,compositional,,span,1983,2016,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.245,16.3,4462.9
+1d890623088711ebbd6dac1f6bf848b6,bridge_comparison,,span,Tangled Destinies,Tangled Destinies,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.264,19.0,4483.7
+d8c36503097411ebbdb0ac1f6bf848b6,comparison,,span,Moment Of Danger,Moment Of Danger,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.243,12.4,4474.0
+2207e9060bda11eba7f7acde48001122,compositional,,span,United States,American,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.225,4.5,4462.9
+7abc1e3008d511ebbd98ac1f6bf848b6,bridge_comparison,,span,The Machine To Kill Bad People,The Machine To Kill Bad People,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,6,0.276,21.7,4478.2
+ae331827088b11ebbd6fac1f6bf848b6,bridge_comparison,,span,"Heads I Win, Tails You Lose","Heads I Win, Tails You Lose",1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,9,0.324,27.8,4479.2
+2002bf0c0bb011ebab90acde48001122,inference,,span,Rupert,Electoral Prince George of Saxony,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,7,0.287,24.4,4488.0
+c531e7560baf11ebab90acde48001122,inference,,span,Marie Leszczyńska,Marie Thérèse of Spain,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,0,8,0.3,26.7,4467.7
+4d982dc308c111ebbd8bac1f6bf848b6,bridge_comparison,,span,Condemned Women,Faces In The Dark,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.24,16.7,4476.7
+a9cc5f240bdb11eba7f7acde48001122,compositional,,span,Catherine Robbe-Grillet,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.195,5.1,4464.4
+6ebe05740bde11eba7f7acde48001122,compositional,,span,Hilandar,Belgrade,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.209,9.6,4467.7
+a0065fe9085f11ebbd5dac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.193,5.2,4476.7
+7c490349090311ebbdadac1f6bf848b6,comparison,,span,Placer Sangriento,Placer Sangriento,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.256,19.5,4476.7
+8d2382e0085811ebbd5aac1f6bf848b6,comparison,,span,Gwenc'Hlan Le Scouëzec,Şemsettin Baş,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.265,18.9,4483.7
+1a114c5e088f11ebbd71ac1f6bf848b6,bridge_comparison,,span,Bhoomiyude Avakashikal,Bhoomiyude Avakashikal,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,8,0.311,25.8,4484.7
+7a1d9d7c0bb011ebab90acde48001122,inference,,span,Pompey,Julia Caesar,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.223,13.5,4469.2
+0bedb7e80bdc11eba7f7acde48001122,compositional,,span,tuberculosis,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.195,5.1,4458.1
+1869092c0bb011ebab90acde48001122,inference,,span,Rukn al-Dawla,Qutb al-Din Masud Shah,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,9,0.32,28.1,4462.9
+9980b1ed089d11ebbd78ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.197,5.1,4479.2
+c19b72520bdb11eba7f7acde48001122,compositional,,span,Xi'an,Beijing,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.211,9.5,4471.9
+3a84baaf088311ebbd6dac1f6bf848b6,comparison,,span,Madame Pasca,Madame Pasca,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,4,0.24,16.7,4469.2
+633132f008b711ebbd88ac1f6bf848b6,comparison,,span,D'Arcy Coulson,D'Arcy Coulson,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,6,0.274,21.9,4471.9
+9aee006a09c211ebbdb0ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.197,5.1,4483.7
+b3110a5e0bda11eba7f7acde48001122,compositional,,span,German,Germany,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4467.7
+5b6b8c02089711ebbd77ac1f6bf848b6,bridge_comparison,,span,45 Fathers,The Intended,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.233,12.9,4474.0
+3705552a0bb011ebab90acde48001122,inference,,span,Louis-Alexandre Berthier,Karl August von Wied-Neuwied,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,10,0.344,29.1,4479.2
+07e964920bde11eba7f7acde48001122,compositional,,span,Pavia,Milan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.214,9.4,4461.9
+f7c4fdf2087611ebbd67ac1f6bf848b6,bridge_comparison,,span,A Quiet Place In The Country,A Quiet Place In The Country,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,6,0.287,20.9,4484.7
+db19bf4c086e11ebbd62ac1f6bf848b6,comparison,,span,John Beach,John Beach,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,2,0.216,9.3,4461.9
+9e6d7bdc08a111ebbd79ac1f6bf848b6,bridge_comparison,,span,Charlie Chan In Honolulu,The House By The Cemetery,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,5,0.265,18.9,4478.2
+c3c94d0a0bdc11eba7f7acde48001122,compositional,,span,Víctor Bó,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4469.2
+96fb4aee0baf11ebab90acde48001122,inference,,span,Urraca of Castile,Isabella of France,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,0,4,0.251,16.0,4483.7
+e618b2c608c911ebbd92ac1f6bf848b6,comparison,,span,Giuseppe Cesari,Giuseppe Cesari,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,4,0.247,16.2,4471.9
+d71f453b085811ebbd5bac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.2,5.0,4489.5
+f7eb7e31088c11ebbd70ac1f6bf848b6,comparison,,span,Aryeh Ben-Eliezer,Aryeh Ben-Eliezer,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,8,0.31,25.8,4474.0
+e41c14820bd911eba7f7acde48001122,compositional,,span,Cahiers du cinéma,Alibaba Cloud,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.228,13.2,4462.9
+27e835ee0bb011ebab90acde48001122,inference,,span,"Sir Arthur Gore, 2nd Baronet","Robert II, King of Scots",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.279,21.5,4471.9
+3f635554096511ebbdafac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4469.2
+b69ad95c08ad11ebbd83ac1f6bf848b6,comparison,,span,Heroes Of The Street,Aanaval Mothiram,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.28,21.4,4476.7
+931a85420bdd11eba7f7acde48001122,compositional,,span,London,Scotland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4467.7
+0bbded440bda11eba7f7acde48001122,compositional,,span,Pakistan,India,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4464.4
+258867240bdd11eba7f7acde48001122,compositional,,span,"Winnipeg, Manitoba",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4461.9
+3cbd107e0bde11eba7f7acde48001122,compositional,,span,Fukuoka,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4467.7
+5e8240ea0bdd11eba7f7acde48001122,compositional,,span,Roma,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.202,5.0,4479.2
+6638110e0bdb11eba7f7acde48001122,compositional,,span,"Moscow, USSR",Ukraine,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.22,9.1,4461.9
+7de9188c088b11ebbd6fac1f6bf848b6,bridge_comparison,,span,Toen 'T Licht Verdween,Toen 'T Licht Verdween,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,7,0.295,23.8,4484.7
+3972d2b60baf11ebab90acde48001122,inference,,span,Jeanne d'Albret,Margaret of Anjou,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.278,21.6,4469.2
+a8cbc4c40bdc11eba7f7acde48001122,compositional,,span,New York,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.228,8.8,4464.4
+32e50df00bb011ebab90acde48001122,inference,,span,Louis II,Prince Albert II of Monaco,0.0,0.2857,0,2,0,0.0,2,0,0.0,1,0,5,0.271,18.5,4464.4
+deb907f80bdd11eba7f7acde48001122,compositional,,span,Bohemia,Brabant,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.219,9.2,4476.7
+b81fbe620bdc11eba7f7acde48001122,compositional,,span,Gura Humorului,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.215,9.3,4461.9
+3717c0600bde11eba7f7acde48001122,compositional,,span,Meran,Vienna,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.233,8.6,4493.8
+0f1ac1a00bdb11eba7f7acde48001122,compositional,,span,Grammy,Grammy Award,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,3,0.266,11.3,4464.4
+f420d4a008a311ebbd7cac1f6bf848b6,bridge_comparison,,span,Dodging The Dole,Antonieta,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.251,12.0,4476.7
+6638a0f0084e11ebbd56ac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.213,4.7,4476.7
+07388c7c0bb011ebab90acde48001122,inference,,span,Peter I,"Ferdinand II, Duke of Mantua",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,9,0.339,26.5,4474.0
+83ff07cd096711ebbdafac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4476.7
+7a57c5d2089111ebbd73ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,6,0,0.0,4,0,0.0,1,0,1,0.216,4.6,4498.5
+42f6d3b208b911ebbd88ac1f6bf848b6,comparison,,span,Gene Watson,Gene Watson,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,2,0.228,8.8,4462.9
+f1ff478c089011ebbd72ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.217,4.6,4488.0
+6b55ac320bdb11eba7f7acde48001122,compositional,,span,24 March 1927,1883,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.263,15.2,4467.7
+424d56700bde11eba7f7acde48001122,compositional,,span,Ostrogothic Kingdom,Sweden,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.213,4.7,4461.9
+5c0c69f80bdd11eba7f7acde48001122,compositional,,span,Kurdish,Northern Ireland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.229,8.7,4471.9
+ac786909087411ebbd67ac1f6bf848b6,comparison,,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.214,4.7,4479.2
+29427eea0bdd11eba7f7acde48001122,compositional,,span,Liverpool,Liverpool,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.203,4.9,4467.7
+d370f0b0085711ebbd5aac1f6bf848b6,bridge_comparison,,span,Captain Kidd And The Slave Girl,Captain Kidd And The Slave Girl,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,6,0.299,20.1,4478.2
+a9f9985a09a211ebbdb0ac1f6bf848b6,comparison,,span,Go Ahead And Break My Heart,Knee Deep In My Heart,0.0,0.3636,0,2,0,0.0,2,0,0.0,1,0,6,0.309,19.4,4479.2
+53ab316c08b911ebbd88ac1f6bf848b6,bridge_comparison,,span,The Devil'S Hairpin,The Devil's Hairpin,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.28,17.9,4479.2
+bc633e2c0baf11ebab90acde48001122,inference,,span,"Louis, Grand Dauphin","Ferdinand I, Emperor of Austria",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,8,0.356,22.5,4464.4
+2b4bd5020baf11ebab90acde48001122,inference,,span,Kujō Michiie,Kujō Yoritsugu's paternal grandfather was Kujō Yorimichi.,0.0,0.2222,0,2,0,0.0,2,0,0.0,1,0,19,0.53,35.9,4467.7
+3647118c0bdd11eba7f7acde48001122,compositional,,span,Madrid,Argentina,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.22,4.6,4479.2
+d6074911090011ebbdadac1f6bf848b6,comparison,,span,She Wore A Yellow Ribbon,She Wore A Yellow Ribbon,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,6,0.321,18.7,4476.7
+146b7443086611ebbd5eac1f6bf848b6,comparison,,span,Edward Dearle,Edward Dearle,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.251,11.9,4464.4
+ea1fc06c0bda11eba7f7acde48001122,compositional,,span,United Nations,Norwegian Ministry of Foreign Affairs,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.296,20.3,4464.4
+00c75ffc0bde11eba7f7acde48001122,compositional,,span,Paris,France,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.213,4.7,4462.9
+94198d580bb011ebab90acde48001122,inference,,span,Mathilde of Bourbon,Adelaide of France,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,0,4,0.26,15.4,4467.7
+71d8e20e0bdb11eba7f7acde48001122,compositional,,span,London,Italy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.211,4.7,4464.4
+0323cdea090d11ebbdadac1f6bf848b6,comparison,,span,Emmy Of Stork'S Nest,Emmy Of Stork'S Nest,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,7,0.306,22.9,4478.2
+f7c153ce092e11ebbdaeac1f6bf848b6,comparison,,span,Celine: Through The Eyes Of The World,Dilan 1991,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,7,0.318,22.0,4489.5
+0f44750808e411ebbda4ac1f6bf848b6,comparison,,span,Lee Mantle,Silas Hardy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.235,12.8,4464.4
+e701105e0bdd11eba7f7acde48001122,compositional,,span,Königsberg,Hofkirche in Dresden,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.281,21.3,4474.0
+b5e9ef2c0bdd11eba7f7acde48001122,compositional,,span,Homs,"Madrid, Spain",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.252,15.9,4469.2
+48c8f7f80bdd11eba7f7acde48001122,compositional,,span,Alain Poiré,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.21,4.8,4471.9
+aa0370860bdb11eba7f7acde48001122,compositional,,span,"Naha, Okinawa",Japan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.212,4.7,4478.2
+a5bed06e0bdc11eba7f7acde48001122,compositional,,span,Byzantine,Lebanese,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.234,12.8,4484.7
+d13381ae08da11ebbd9cac1f6bf848b6,comparison,,span,Viktoriya Zeynep Güneş,Joseph J. Magliocco,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.302,19.9,4484.7
+2294ccfc0bdc11eba7f7acde48001122,compositional,,span,"August 8, 1975",No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.213,4.7,4478.2
+e8d8f7200bdd11eba7f7acde48001122,compositional,,span,Chuck Schumer,Columbia University,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.233,12.9,4461.9
+c2ccbd23087811ebbd67ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4492.8
+cf06000e094611ebbdaeac1f6bf848b6,comparison,,span,Les Résultats Du Féminisme,Out Of The Rain,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.246,16.3,4483.7
+844fe30c0bda11eba7f7acde48001122,compositional,,span,Florence,Venice,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.213,9.4,4461.9
+c32ac4ca0bda11eba7f7acde48001122,compositional,,span,Helsingfors,Stockholm,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.213,9.4,4471.9
+6021e2d80bde11eba7f7acde48001122,compositional,,span,Dutch,Netherlands,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.216,9.3,4469.2
+8eaa7497095c11ebbdaeac1f6bf848b6,comparison,,span,Kids Of The Round Table,Sathyavan Savithri,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.299,20.1,4478.2
+b5b63b160bdb11eba7f7acde48001122,compositional,,span,Tisch,Princeton University,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.241,12.5,4461.9
+4b1b91720bde11eba7f7acde48001122,compositional,,span,India,Korean,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.235,8.5,4471.9
+5bf96996085111ebbd58ac1f6bf848b6,comparison,,span,Xenoa,Divorce Invitation,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.259,11.6,4467.7
+0458640a0bdd11eba7f7acde48001122,compositional,,span,leukemia,suicide,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.251,8.0,4467.7
+94dd39d80bdd11eba7f7acde48001122,compositional,,span,Herstal,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.212,4.7,4471.9
+abc68a180bd911eba7f7acde48001122,compositional,,span,22 January 1794,1955,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.259,15.5,4464.4
+363279db08d011ebbd95ac1f6bf848b6,bridge_comparison,,span,"It'S A Joke, Son!","It's a Joke, Son!",1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,8,0.356,22.5,4503.3
+bbccb00a08c211ebbd8cac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.23,4.3,4476.7
+5c77f7ed08ac11ebbd82ac1f6bf848b6,comparison,,span,Sabawoon Rehabilitation Centre,Whitehorse Manor Junior School,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.3,16.7,4476.7
+b4e780a5088f11ebbd72ac1f6bf848b6,comparison,,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.218,4.6,4467.7
+97ce0ec00baf11ebab90acde48001122,inference,,span,Stanisław Leszczyński,Louis XV of France,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.302,13.2,4483.7
+69a7e9ca08e011ebbda1ac1f6bf848b6,bridge_comparison,,span,Leave It To Henry,Leave It To Henry,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,4,0.312,12.8,4484.7
+04a544a40bde11eba7f7acde48001122,compositional,,span,3 August 979,1039,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.326,12.3,4489.5
+4f49c369098d11ebbdb0ac1f6bf848b6,comparison,,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.263,3.8,4483.7
+a982212e08a311ebbd7bac1f6bf848b6,comparison,,span,Ulti Ganga,Ulti Ganga,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,4,0.314,12.7,4471.9
+c30b9f8108b211ebbd85ac1f6bf848b6,comparison,,span,Charlotte Spurkeland,Charlotte Spurkeland,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.303,16.5,4476.7
+a08505d20bdc11eba7f7acde48001122,compositional,,span,Aldo Parisot,Arnold Schwarzenegger,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.325,18.5,4469.2
+982f8e440bdb11eba7f7acde48001122,compositional,,span,1886,1913,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.286,14.0,4458.1
+5142f59e0bda11eba7f7acde48001122,compositional,,span,Nevele,Belgium,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.261,7.7,4467.7
+041581680bdc11eba7f7acde48001122,compositional,,span,Manchester,Wales,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.254,7.9,4471.9
+ad43c9300bdb11eba7f7acde48001122,compositional,,span,Tantallon Castle,Scotland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.228,4.4,4479.2
+5839dbac0bde11eba7f7acde48001122,compositional,,span,American,American,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.246,4.1,4462.9
+22d296de0bde11eba7f7acde48001122,compositional,,span,Sochi,Moscow,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.257,7.8,4471.9
+ae85fcce089411ebbd75ac1f6bf848b6,bridge_comparison,,span,Trainer And Temptress,Santa Fe Uprising,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.28,14.3,4478.2
+c01a2fa8087111ebbd63ac1f6bf848b6,bridge_comparison,,span,Adam'S Rib,Adam's Rib,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,3,0.268,11.2,4483.7
+9c3ff1040bdb11eba7f7acde48001122,compositional,,span,French,India,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.238,4.2,4469.2
+81ca57e60bdc11eba7f7acde48001122,compositional,,span,"Winnipeg, Manitoba",China,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.227,4.4,4462.9
+dc6985ea096211ebbdafac1f6bf848b6,comparison,,span,Noerr,Noerr,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,2,0.269,7.5,4464.4
+30ee74680bde11eba7f7acde48001122,compositional,,span,Villafranca del Bierzo,Italy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.24,4.2,4469.2
+f491b33e0bda11eba7f7acde48001122,compositional,,span,Jean Hersholt Humanitarian Award,Academy Award for Best Director,0.0,0.2222,0,2,0,0.0,2,0,0.0,1,0,7,0.312,22.5,4478.2
+5b637e060bb011ebab90acde48001122,inference,,span,"Princess Madeleine, Duchess of Hälsingland and Gästrikland",Dagmar of Finland,0.0,0.2,0,2,0,0.0,2,0,0.0,1,0,5,0.279,17.9,4467.7
+1a2188840bb011ebab90acde48001122,inference,,span,Princess Augusta of Schwarzburg-Sondershausen,Princess Augusta of Prussia,0.0,0.75,0,2,0,0.0,2,0,0.0,1,0,6,0.314,19.1,4471.9
+d1fd9cbe0bdc11eba7f7acde48001122,compositional,,span,Cahiers du cinéma,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.221,4.5,4476.7
+909aa544086411ebbd5eac1f6bf848b6,bridge_comparison,,span,"Figaro-Ci, Figaro-Là",Joe Palooka In Fighting Mad,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,7,0.305,23.0,4492.8
+47806bc308c411ebbd8eac1f6bf848b6,comparison,,span,Farber'S Nerve,Ekam – Son Of Soil,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.282,21.3,4478.2
+f6e2b9280bdd11eba7f7acde48001122,compositional,,span,China,Yemen,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.226,8.9,4464.4
+ce5bfc90086c11ebbd61ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.205,4.9,4492.8
+e6688a7e0baf11ebab90acde48001122,inference,,span,Charles I of Naples,Ferdinand II of Aragon,0.0,0.25,0,2,0,0.0,2,0,0.0,1,0,7,0.303,23.1,4457.1
+3e3cd62a086211ebbd5dac1f6bf848b6,comparison,,span,Holm Jølsen,Holm Jølsen,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.288,17.4,4471.9
+9b2ccd4e088b11ebbd6fac1f6bf848b6,bridge_comparison,,span,The Crime Doctor'S Courage,The Crime Doctor's Courage,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.289,17.3,4497.5
+49ec1ade0bdd11eba7f7acde48001122,compositional,,span,Argentina,Berlin,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.208,4.8,4474.0
+beda709d090e11ebbdadac1f6bf848b6,comparison,,span,My Wife'S Lodger,Tiger Of The Seven Seas,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.299,20.0,4476.7
+7d94382208d011ebbd95ac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.215,4.6,4469.2
+e4e02a240bda11eba7f7acde48001122,compositional,,span,Jacques Cousteau,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.218,4.6,4476.7
+49a5c36b086111ebbd5dac1f6bf848b6,bridge_comparison,,span,Knights Of The Range,Le Guignolo,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.281,14.3,4476.7
+fa58491e084b11ebbd56ac1f6bf848b6,comparison,,span,Narcís Ventalló,Narcís Ventalló,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,6,0.289,20.8,4471.9
+8223ad8e097811ebbdb0ac1f6bf848b6,comparison,,span,The Beginning Or The End,The Beginning Or The End,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.288,17.4,4474.0
+8f8aaf0b088711ebbd6dac1f6bf848b6,comparison,,span,Aneta Hladíková,René Poupardin,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.285,17.5,4476.7
+c9b515020bda11eba7f7acde48001122,compositional,,span,Thessaloniki,Athens,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.247,8.1,4471.9
+652d7dac0bdc11eba7f7acde48001122,compositional,,span,New York,Beijing,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.238,8.4,4474.0
+2b7db0200bde11eba7f7acde48001122,compositional,,span,University of Paris,Oxford University,0.0,0.4,0,2,0,0.0,2,0,0.0,1,0,3,0.239,12.5,4474.0
+437f3b9a0bdd11eba7f7acde48001122,compositional,,span,Hackney,United Kingdom,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.225,8.9,4478.2
+37c6703a0bdc11eba7f7acde48001122,compositional,,span,1969,1976,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.281,14.3,4458.1
+e7f8e98808a311ebbd7cac1f6bf848b6,bridge_comparison,,span,A Couch In New York,Kalippava,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.257,11.7,4474.0
+618527ff089911ebbd77ac1f6bf848b6,bridge_comparison,,span,The Constant Woman,The Constant Woman,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,3,0.248,12.1,4474.0
+86b7e74808e211ebbda4ac1f6bf848b6,comparison,,span,Dis-Moi Qui Tuer,Dis-Moi Qui Tuer,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,6,0.303,19.8,4483.7
+68cb7bc00bdd11eba7f7acde48001122,compositional,,span,Huahine,Tahiti,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.252,11.9,4467.7
+74207b920bdd11eba7f7acde48001122,compositional,,span,Brighton,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.229,4.4,4469.2
+00c727580bde11eba7f7acde48001122,compositional,,span,10 May 1912,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.205,4.9,4492.8
+4e84cd2d08bb11ebbd88ac1f6bf848b6,comparison,,span,Helly Shah,Helly Shah,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.24,12.5,4461.9
+dc68effd08d811ebbd9cac1f6bf848b6,comparison,,span,Marco De Luigi,Marco De Luigi,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.262,11.5,4469.2
+c21fb3ab08a711ebbd7fac1f6bf848b6,bridge_comparison,,span,Guns And Guitars,To The Victor,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.253,11.8,4478.2
+33b0c274087211ebbd64ac1f6bf848b6,bridge_comparison,,span,The Falcon In San Francisco,His Last Haul,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.25,16.0,4479.2
+77f41ab20bb011ebab90acde48001122,inference,,span,"John de Vere, 15th Earl of Oxford","William De Vere, 16th Earl of Oxford",0.0,0.7143,0,2,0,0.0,2,0,0.0,1,0,11,0.361,30.5,4474.0
+b1b78c480bdd11eba7f7acde48001122,compositional,,span,Kreuzlingen,"Toledo, Ohio",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.252,15.9,4471.9
+09762e08087311ebbd66ac1f6bf848b6,bridge_comparison,,span,Bulldog Drummond'S Revenge,Jayam Manade,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.25,16.0,4479.2
+f1145dc6084f11ebbd56ac1f6bf848b6,bridge_comparison,,span,Monster A Go-Go,The Gamecock (Film),0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,6,0.28,21.5,4484.7
+3c68e44c0bdc11eba7f7acde48001122,compositional,,span,Florence,Rome,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.218,9.2,4467.7
+027970120bdc11eba7f7acde48001122,compositional,,span,Århus,Denmark,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.217,9.2,4461.9
+eebc066c08c411ebbd8eac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.204,4.9,4483.7
+94873b220bd911eba7f7acde48001122,compositional,,span,Florence,Scotland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4462.9
+20ddd33208ca11ebbd92ac1f6bf848b6,comparison,,span,Wiesław Perszke,Marc De Clerck,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.248,16.2,4474.0
+26b866e6085c11ebbd5cac1f6bf848b6,bridge_comparison,,span,Ride Lonesome,Ride Lonesome,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.264,18.9,4476.7
+ece1bdae0bdb11eba7f7acde48001122,compositional,,span,British,French,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4471.9
+0a630db408c211ebbd8bac1f6bf848b6,bridge_comparison,,span,A Mother'S Secret,Edge Of Doom,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.232,12.9,4474.0
+6e5e9de109af11ebbdb0ac1f6bf848b6,comparison,,span,1990-Sick (Get 'Em All),1990-Sick (Get 'Em All),1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,12,0.383,31.3,4498.5
+2fd031c00bde11eba7f7acde48001122,compositional,,span,State University of New York at Purchase,New York University Tisch School of the Arts,0.0,0.5714,0,2,0,0.0,2,0,0.0,1,0,9,0.329,27.3,4478.2
+09b7d46a0bda11eba7f7acde48001122,compositional,,span,2 September 1770,1628,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.25,16.0,4476.7
+c5601df108a411ebbd7dac1f6bf848b6,bridge_comparison,,span,Bountiful Summer,Lemonade Joe,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.247,16.2,4474.0
+61d1f6900bde11eba7f7acde48001122,compositional,,span,1080,10 July 1152,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,8,0.31,25.8,4474.0
+c3c76b780bd911eba7f7acde48001122,compositional,,span,30 June 1963,1964,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.247,16.2,4471.9
+2e13ff240bde11eba7f7acde48001122,compositional,,span,Wales,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4469.2
+c40d35580bda11eba7f7acde48001122,compositional,,span,Rosario,Italy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4467.7
+2cf578340bde11eba7f7acde48001122,compositional,,span,1701,1233,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.251,15.9,4467.7
+79675c6e0bd911eba7f7acde48001122,compositional,,span,German,Kazakhstan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.232,12.9,4462.9
+30885e540bb011ebab90acde48001122,inference,,span,Franz Joseph I,Prince Anton I of Liechtenstein,0.0,0.25,0,2,0,0.0,2,0,0.0,1,0,7,0.296,23.7,4467.7
+6e4854a00bde11eba7f7acde48001122,compositional,,span,Amman,Lebanon,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.232,13.0,4467.7
+421b26d80bb011ebab90acde48001122,inference,,span,Princess Maria Immaculata of Bourbon-Two Sicilies,"Sophie, Duchess of Hohenberg",0.0,0.2,0,2,0,0.0,2,0,0.0,1,0,8,0.311,25.7,4469.2
+140fbeda08c611ebbd90ac1f6bf848b6,bridge_comparison,,span,Two For Tonight,Light Over Russia,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.231,13.0,4471.9
+43eb7b380bde11eba7f7acde48001122,compositional,,span,Belfast,Dublin,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.214,9.3,4469.2
+e5d895ee0bdd11eba7f7acde48001122,compositional,,span,Tamil,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.231,13.0,4469.2
+286321f00bb011ebab90acde48001122,inference,,span,"Íñigo Vélez de Guevara, 7th Count of Oñate",Pedro de Alvarado,0.0,0.1818,0,2,0,0.0,2,0,0.0,1,0,6,0.281,21.4,4484.7
+5d000d7908be11ebbd8aac1f6bf848b6,bridge_comparison,,span,Jeedar,Jeedar,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,3,0.253,11.8,4469.2
+5e60d12e0bda11eba7f7acde48001122,compositional,,span,Jerez de la Frontera,Dominican Republic,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.234,12.8,4457.1
+d133120e0bdd11eba7f7acde48001122,compositional,,span,Queens,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.247,12.2,4471.9
+5eff3f9a0bd911eba7f7acde48001122,compositional,,span,Nanjing,Nanjing,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.247,12.2,4476.7
+27987581093611ebbdaeac1f6bf848b6,comparison,,span,Niyoti,Niyoti,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.248,12.1,4469.2
+87154f1e0bda11eba7f7acde48001122,compositional,,span,Polish–Lithuanian Commonwealth,Poland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.242,8.3,4474.0
+a6d861000bdb11eba7f7acde48001122,compositional,,span,Maurya dynasty,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.214,4.7,4458.1
+5d8037920bb011ebab90acde48001122,inference,,span,Yi Jiang,Queen Shen,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.223,9.0,4461.9
+6e5f2a2e085d11ebbd5cac1f6bf848b6,bridge_comparison,,span,The Hidden One,The Face Of Fu Manchu,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,6,0.28,21.4,4479.2
+1d4139960bde11eba7f7acde48001122,compositional,,span,"New Brunswick, New Jersey",United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.218,9.2,4483.7
+eec16bb008c011ebbd8aac1f6bf848b6,bridge_comparison,,span,The Great Flamarion,The Great Flamarion,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.265,18.9,4476.7
+4039b1be08d511ebbd98ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.201,5.0,4476.7
+8ba63ce8098f11ebbdb0ac1f6bf848b6,comparison,,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.205,4.9,4489.5
+5a5718140bde11eba7f7acde48001122,compositional,,span,Bombay,New Delhi,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.218,9.2,4483.7
+ce4f63cc0bdc11eba7f7acde48001122,compositional,,span,National Film School in Łódź,Warsaw Film School,0.0,0.5,0,2,0,0.0,2,0,0.0,1,0,4,0.254,15.7,4467.7
+671322a00bde11eba7f7acde48001122,compositional,,span,London,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.231,13.0,4464.4
+231d667c0bda11eba7f7acde48001122,compositional,,span,Swedish,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4461.9
+9f62be2008ac11ebbd83ac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.203,4.9,4464.4
+f86dd5180bdb11eba7f7acde48001122,compositional,,span,Davao,Russia,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.204,4.9,4478.2
+c9eb430908c311ebbd8dac1f6bf848b6,bridge_comparison,,span,Befikre,American Sniper,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,2,0.254,7.9,4471.9
+39ca32a80bdd11eba7f7acde48001122,compositional,,span,15 November 1784,"October 15, 1768",0.0,0.3333,0,2,0,0.0,2,0,0.0,1,0,10,0.379,26.4,4469.2
+a02009fa085c11ebbd5cac1f6bf848b6,comparison,,span,Toolbox Murders,Toolbox Murders,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,4,0.254,15.7,4474.0
+047992200bdc11eba7f7acde48001122,compositional,,span,Hollywood,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.256,11.7,4479.2
+a5f0b646088b11ebbd6fac1f6bf848b6,bridge_comparison,,span,Crook'S Tour,Youngblood Hawke (Film),0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,7,0.326,21.5,4483.7
+befbd60c0bdd11eba7f7acde48001122,compositional,,span,Harvard,Yale University,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.319,9.4,4467.7
+ca4b497d08c511ebbd8fac1f6bf848b6,bridge_comparison,,span,Circus Beely,Circus Beely,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.359,13.9,4484.7
+4c070b620bb011ebab90acde48001122,inference,,span,Queen Sofía of Spain,Queen Sofía,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,3,0.313,9.6,4471.9
+18d4a1f8085611ebbd59ac1f6bf848b6,bridge_comparison,,yesno,no,no,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,1,0.279,3.6,4478.2
+43208df60bde11eba7f7acde48001122,compositional,,span,French,Israel,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.252,4.0,4458.1
+987e4ee80baf11ebab90acde48001122,inference,,span,Ndvungunye,Zelizwe Ndwandwe,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,8,0.35,22.9,4471.9
+cfb486e208b311ebbd86ac1f6bf848b6,bridge_comparison,,span,Mister Scarface,Mister Scarface,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,4,0.298,13.4,4474.0
+44e72de60bdb11eba7f7acde48001122,compositional,,span,Reykjavík,Reykjavík,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.309,16.2,4478.2
+2ec36c440bb011ebab90acde48001122,inference,,span,Thomas de Beauchamp,John Beauchamp,0.0,0.4,0,2,0,0.0,2,0,0.0,1,0,4,0.282,14.2,4476.7
+b035afca0bd911eba7f7acde48001122,compositional,,span,María Barranco,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.207,4.8,4464.4
+0856e5d4085b11ebbd5cac1f6bf848b6,bridge_comparison,,span,Return Of The Hero,Diary Of A Maniac,0.0,0.3333,0,4,0,0.0,4,0,0.0,1,0,6,0.285,21.1,4478.2
+051f62de0bde11eba7f7acde48001122,compositional,,span,Osterholz,Brunswick,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.216,9.3,4474.0
+1734c9b60baf11ebab90acde48001122,inference,,span,Agrippina the Elder,Agrippina,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,3,0.229,13.1,4464.4
+9893834c092711ebbdaeac1f6bf848b6,comparison,,span,Kull The Conqueror,Gaza Ghetto,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.258,15.5,4476.7
+0a71ec9f08e511ebbda4ac1f6bf848b6,comparison,,span,James B. Harris,Raúl Osorio,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.283,17.7,4471.9
+1187c9080bde11eba7f7acde48001122,compositional,,span,"October 27, 1893",1902,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.245,16.4,4461.9
+7de481100baf11ebab90acde48001122,inference,,span,Lady Frances Manners,Lady Henrietta Maria Howard,0.0,0.2857,0,2,0,0.0,2,0,0.0,1,0,5,0.261,19.1,4484.7
+e95acdbc085f11ebbd5dac1f6bf848b6,bridge_comparison,,span,The King Is The Best Mayor,Deuce High,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.23,13.0,4479.2
+d3949a8e08c111ebbd8bac1f6bf848b6,comparison,,span,Week-End With Father,Week-End With Father,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.263,19.0,4474.0
+c51148bc0bdb11eba7f7acde48001122,compositional,,span,Ottoman Empire,Ottoman,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,3,0.23,13.0,4479.2
+6e9a0d6a08eb11ebbda7ac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4476.7
+aa9aee6908f011ebbda8ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4476.7
+be0a16240baf11ebab90acde48001122,inference,,span,Princess Mary of Great Britain,"Princess Alice, Duchess of Hesse-Kassel",0.0,0.4,0,2,0,0.0,2,0,0.0,1,0,10,0.345,29.0,4467.7
+2b81511c0bde11eba7f7acde48001122,compositional,,span,Washington,"Washington, D.C.",0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,5,0.262,19.1,4467.7
+e1228e9f08ca11ebbd92ac1f6bf848b6,bridge_comparison,,span,A Little Sister Of Everybody,11 Harrowhouse,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,5,0.263,19.0,4484.7
+ea9832140bd911eba7f7acde48001122,compositional,,span,Newport,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.216,9.3,4471.9
+e3385f6c084b11ebbd56ac1f6bf848b6,bridge_comparison,,span,The Woman In The Fifth,The Woman In The Fifth,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.266,18.8,4478.2
+b677b1f8089611ebbd76ac1f6bf848b6,bridge_comparison,,span,Happy As The Grass Was Green,The Girl King,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.233,12.9,4479.2
+772c5c660bb011ebab90acde48001122,inference,,span,Catherine of Braganza,"Mary, Queen of Scots",0.0,0.2857,0,2,0,0.0,2,0,0.0,1,0,5,0.277,18.1,4474.0
+0ac40d780bdb11eba7f7acde48001122,compositional,,span,University of British Columbia,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.205,4.9,4471.9
+2684ee04099411ebbdb0ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4488.0
+122b64480baf11ebab90acde48001122,inference,,span,Gerberge of Lorraine,Helène von Liphart,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.285,21.1,4464.4
+e1f0c38c0bda11eba7f7acde48001122,compositional,,span,France,Dutch,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.227,8.8,4458.1
+1dd18a37086a11ebbd5fac1f6bf848b6,bridge_comparison,,span,The Crowning Touch,The Crowning Touch,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,4,0.266,15.1,4484.7
+e5bdd71f08d011ebbd95ac1f6bf848b6,comparison,,span,Henry Scheffé,Csaba Pálinkás,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.28,21.4,4471.9
+44da8153093011ebbdaeac1f6bf848b6,comparison,,span,Alien Origin,Alien Origin,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.244,12.3,4469.2
+ddacf7580baf11ebab90acde48001122,inference,,span,Eleanor of Provence,Eleanor of Castile,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,5,0.272,18.4,4458.1
+d9b00ab80bdd11eba7f7acde48001122,compositional,,span,2 August 1288,1445-03-25,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,10,0.353,28.4,4474.0
+6f8bb027090811ebbdadac1f6bf848b6,comparison,,span,3.2.1.,Issa Album,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.238,12.6,4476.7
+700dfeea0baf11ebab90acde48001122,inference,,span,"Bernard-Roger, Count of Bigorre",Fruin I of Pallars,0.0,0.25,0,2,0,0.0,2,0,0.0,1,0,7,0.322,21.8,4461.9
+4216f41a08df11ebbda0ac1f6bf848b6,comparison,,span,It Happened At The World'S Fair,New Jersey Drive,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.245,12.3,4478.2
+c370b4540bd911eba7f7acde48001122,compositional,,span,Rasual Butler,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.208,4.8,4476.7
+880e5d0c088d11ebbd70ac1f6bf848b6,bridge_comparison,,yesno,no,no,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,1,0.208,4.8,4478.2
+b3d918160bdd11eba7f7acde48001122,compositional,,span,Nine Network,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.206,4.9,4469.2
+142afa360bde11eba7f7acde48001122,compositional,,span,Stampede Wrestling,King's College London,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.252,15.9,4462.9
+b8ef144a0bdd11eba7f7acde48001122,compositional,,span,British,Scotland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.202,5.0,4471.9
+8c82acb20bda11eba7f7acde48001122,compositional,,span,United Kingdom,British,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.208,4.8,4471.9
+b7e9eb98085311ebbd59ac1f6bf848b6,bridge_comparison,,span,Dallas 362,Dallas 362,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.266,18.8,4478.2
+ef7aac32088511ebbd6dac1f6bf848b6,bridge_comparison,,span,Fun In The Barracks,Spring Storms,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.232,12.9,4476.7
+6ae076e40bde11eba7f7acde48001122,compositional,,span,US,England,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.202,5.0,4458.1
+69e2bbe0094411ebbdaeac1f6bf848b6,comparison,,span,Anna-Liisa,Anna-Liisa,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,4,0.247,16.2,4467.7
+09945977084d11ebbd56ac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4479.2
+6b5393240bdc11eba7f7acde48001122,compositional,,span,National Film Award for Best Music Direction,National Film Award,0.0,0.6,0,2,0,0.0,2,0,0.0,1,0,3,0.23,13.0,4462.9
+3d3bc0720bde11eba7f7acde48001122,compositional,,span,Queens,Berlin,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.203,4.9,4483.7
+b411910a0bdd11eba7f7acde48001122,compositional,,span,Bowdoin College,Harvard College,0.0,0.5,0,2,0,0.0,2,0,0.0,1,0,3,0.229,13.1,4461.9
+cf6f5bbe08cf11ebbd95ac1f6bf848b6,bridge_comparison,,span,Something Of Value,Uncharted Seas,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.23,13.1,4469.2
+015d47a908a811ebbd7fac1f6bf848b6,bridge_comparison,,span,Lucignolo,My Own Private Idaho,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.246,16.3,4474.0
+d9e3f4aa0bdc11eba7f7acde48001122,compositional,,span,"April 30, 1939","June 15, 1905",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,10,0.349,28.7,4489.5
+6d79d267087211ebbd65ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.202,5.0,4471.9
+3068a40c0baf11ebab90acde48001122,inference,,span,Sigrid the Haughty,Dagmar of Germany,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.28,17.9,4476.7
+b0b7f3700bdb11eba7f7acde48001122,compositional,,span,Cross Plains,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.249,12.1,4484.7
+203b441208db11ebbd9cac1f6bf848b6,bridge_comparison,,yesno,no,no,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,1,0.21,4.8,4488.0
+47c32ef1089511ebbd75ac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.212,4.7,4492.8
+6900298c0bde11eba7f7acde48001122,compositional,,span,"Sydney, Australia",Norway,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.229,8.8,4471.9
+ac1b9ee108b911ebbd88ac1f6bf848b6,comparison,,span,Princess Raiyah Bint Hussein,Lisbeth Cathrine Amalie Rose,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,8,0.33,24.3,4479.2
+215f53a00bde11eba7f7acde48001122,compositional,,span,California,Taiwan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.233,8.6,4474.0
+9c24e2900bdd11eba7f7acde48001122,compositional,,span,Norwegian,Ireland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.224,8.9,4471.9
+2c0d754e0bb011ebab90acde48001122,inference,,span,Conrad II,"Louis II, Duke of Upper and Lower Saxony",0.0,0.2,0,2,0,0.0,2,0,0.0,1,0,10,0.347,28.8,4476.7
+08de5d000baf11ebab90acde48001122,inference,,span,Elizabeth of Nevers,Dorothea of Cleves,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,0,7,0.312,22.4,4469.2
+096e14a20bde11eba7f7acde48001122,compositional,,span,Weston Park,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.238,12.6,4471.9
+d4a23f020bdb11eba7f7acde48001122,compositional,,span,Qing dynasty,Chinese,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4462.9
+68de4616088a11ebbd6fac1f6bf848b6,bridge_comparison,,span,Boot Hill Bandits,Say It With Flowers,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.248,16.1,4478.2
+22ea14cd08ef11ebbda8ac1f6bf848b6,comparison,,span,Nicolas Görtler,Nicolas Görtler,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.263,19.1,4469.2
+96d29e2c0bdd11eba7f7acde48001122,compositional,,span,Roman Empire,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4461.9
+5c2a37a20bd911eba7f7acde48001122,compositional,,span,Arizona,Fort Worth Cemetery,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.231,13.0,4478.2
+534cb9fe0baf11ebab90acde48001122,inference,,span,"Louis Philippe II, Duke of Orléans","Charles I, Duke of Brittany",0.0,0.3636,0,2,0,0.0,2,0,0.0,1,0,6,0.289,20.8,4478.2
+c933c15308c711ebbd91ac1f6bf848b6,bridge_comparison,,span,Tonight At Twelve,Judy Berlin,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.231,13.0,4479.2
+73c0065c0bda11eba7f7acde48001122,compositional,,span,Spanish,Spanish,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4467.7
+88adf4ed089511ebbd75ac1f6bf848b6,comparison,,yesno,yes,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4478.2
+575babe4087711ebbd67ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.201,5.0,4479.2
+3712624a08dd11ebbd9dac1f6bf848b6,bridge_comparison,,span,Ghost-Town Gold,Ghost-Town Gold,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,4,0.249,16.1,4479.2
+62ce8c8e0bde11eba7f7acde48001122,compositional,,span,Chinese,"Xianyang, Shaanxi, China",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,9,0.332,27.1,4464.4
+bb8e4d040bda11eba7f7acde48001122,compositional,,span,Ashgabat,in a car accident,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.246,16.3,4462.9
+b8d121ba099d11ebbdb0ac1f6bf848b6,comparison,,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.202,5.0,4489.5
+ad437572089811ebbd77ac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.216,4.6,4467.7
+d670b0ac08b111ebbd85ac1f6bf848b6,comparison,,span,Bernard Chambaz,Bernard Chambaz,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.267,18.8,4469.2
+ea29ce5a0bd911eba7f7acde48001122,compositional,,span,Sangeet Natak Akademi Award,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4476.7
+4c61cd2c088111ebbd6dac1f6bf848b6,bridge_comparison,,span,The Ballad Of Gregorio Cortez,The Ballad Of Gregorio Cortez,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,8,0.34,23.5,4489.5
+184e352008db11ebbd9cac1f6bf848b6,bridge_comparison,,span,A Strange Adventure,The Boy Turns Man,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.271,14.7,4476.7
+1f3ea3b00bb011ebab90acde48001122,inference,,span,"Louis III, Count of Chiny",Henry II of England,0.0,0.2222,0,2,0,0.0,2,0,0.0,1,0,4,0.271,14.8,4464.4
+253e36700bda11eba7f7acde48001122,compositional,,span,Rabat,Prussia,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.242,8.3,4469.2
+3641d5c60bda11eba7f7acde48001122,compositional,,span,Coventry,Bury St Edmunds,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.322,15.5,4479.2
+6e3e70200bde11eba7f7acde48001122,compositional,,span,China,Jamaica,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.277,10.9,4457.1
+967b39ca0bdd11eba7f7acde48001122,compositional,,span,Efva Attling,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.247,4.1,4471.9
+3b9299900bdd11eba7f7acde48001122,compositional,,span,La Trinité,France,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.242,4.1,4467.7
+1900f7600baf11ebab90acde48001122,inference,,span,"Hugh de Stafford, 2nd Earl of Stafford","John Stafford, 2nd Earl of Stafford",0.0,0.7692,0,2,0,0.0,2,0,0.0,1,0,9,0.356,25.3,4469.2
+859991680bda11eba7f7acde48001122,compositional,,span,Västerås,Sweden,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.218,4.6,4489.5
+6fbdeee60bdc11eba7f7acde48001122,compositional,,span,Leopoldo Torre Nilsson,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.219,4.6,4476.7
+28ad4ad0092a11ebbdaeac1f6bf848b6,comparison,,span,The Kiss Of Evil,Circus Of Love,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,0,5,0.288,17.4,4471.9
+95d37580085b11ebbd5cac1f6bf848b6,bridge_comparison,,span,"One Down, Two To Go",Andrei Svislotskiy,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,7,0.324,21.6,4498.5
+a0ae26f60baf11ebab90acde48001122,inference,,span,Jules Lederer,John Howard,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.262,7.6,4458.1
+450019aa08b111ebbd85ac1f6bf848b6,bridge_comparison,,span,Under The Lantern,Under The Lantern,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,3,0.284,10.6,4474.0
+b051c536089e11ebbd78ac1f6bf848b6,bridge_comparison,,span,Thendral Veesum,Slim Carter,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,2,0.269,7.5,4479.2
+df25946e08b211ebbd85ac1f6bf848b6,bridge_comparison,,span,A Dream Or Two Ago,A Dream Or Two Ago,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.28,17.9,4479.2
+1d0cd6e80bdd11eba7f7acde48001122,compositional,,span,Paris,Rome,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.23,8.7,4467.7
+f88912f008da11ebbd9cac1f6bf848b6,bridge_comparison,,span,Kamakalawa,John Jaffer Janardhanan,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,7,0.306,22.9,4483.7
+33b51db508af11ebbd83ac1f6bf848b6,bridge_comparison,,span,A Mother Of Men,The Story Of Anastasia,0.0,0.3333,0,4,0,0.0,4,0,0.0,1,0,5,0.275,18.2,4478.2
+9cdd635f093911ebbdaeac1f6bf848b6,comparison,,span,Occupation: Dreamland,Occupation: Dreamland,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.269,18.6,4476.7
+c818d9480baf11ebab90acde48001122,inference,,span,Wigeric of Lotharingia,"Henry VII, Holy Roman Emperor",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.282,21.3,4457.1
+b26e04e80bdb11eba7f7acde48001122,compositional,,span,Daniel Alomía Robles,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.206,4.9,4474.0
+eb7ece320bdd11eba7f7acde48001122,compositional,,span,Stony Brook University,Columbia University,0.0,0.4,0,2,0,0.0,2,0,0.0,1,0,3,0.234,12.8,4467.7
+f9c02a8c085d11ebbd5cac1f6bf848b6,bridge_comparison,,span,Five Million Look For An Heir,Spione,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,2,0.218,9.2,4478.2
+5affe63d08f311ebbdaaac1f6bf848b6,comparison,,span,Man'S Search For Happiness,Tell It To The Bees,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.281,21.4,4478.2
+ec8167b208a011ebbd78ac1f6bf848b6,bridge_comparison,,span,"La Mazurka Del Barone, Della Santa E Del Fico Fiorone",La Mazurka Del Barone,0.0,0.5714,0,4,0,0.0,4,0,0.0,1,0,7,0.3,23.3,4512.3
+fb823a6f08f711ebbdaaac1f6bf848b6,comparison,,span,Antonio Caggiano,Antonio Caggiano,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.263,19.0,4464.4
+747175620bdb11eba7f7acde48001122,compositional,,span,Helsingfors,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.216,9.3,4484.7
+9766cddc0bdc11eba7f7acde48001122,compositional,,span,Studio City,New York City,0.0,0.4,0,2,0,0.0,2,0,0.0,1,0,3,0.233,12.9,4464.4
+f13a163908b311ebbd86ac1f6bf848b6,comparison,,span,"Chopasni Senior Secondary School, Jodhpur","Chopasni Senior Secondary School, Jodhpur",1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,12,0.375,32.0,4492.8
+36a3fe2a0baf11ebab90acde48001122,inference,,span,"Richard Burke, 2nd Earl of Clanricarde","Richard Burke, 3rd Earl of Clanricarde",0.0,0.8333,0,2,0,0.0,2,0,0.0,1,0,11,0.357,30.8,4474.0
+12c631c1088b11ebbd6fac1f6bf848b6,bridge_comparison,,span,Retalhos Da Vida De Um Médico,Retalhos Da Vida De Um Médico,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,10,0.342,29.3,4489.5
+b96acba808f911ebbdaaac1f6bf848b6,comparison,,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4483.7
+c5315db80baf11ebab90acde48001122,inference,,span,"Bernard I, Margrave of Baden-Baden",Frederick I of Baden,0.0,0.4444,0,2,0,0.0,2,0,0.0,1,0,7,0.297,23.6,4464.4
+3c44771e08b211ebbd85ac1f6bf848b6,comparison,,span,Hood Of The Living Dead,Ami Neta Hobo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.28,21.5,4478.2
+200e7a01087611ebbd67ac1f6bf848b6,bridge_comparison,,span,Buffet Froid,Buffet Froid,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,4,0.25,16.0,4478.2
+8e07f1f00bda11eba7f7acde48001122,compositional,,span,Mapy Cortés,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.202,5.0,4469.2
+d6be0cee0bdb11eba7f7acde48001122,compositional,,span,Akhetaten,in Heliopolis,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.264,19.0,4457.1
+4aa187080baf11ebab90acde48001122,inference,,span,Isabella of Angoulême,Bertha of Holland,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,0,4,0.248,16.1,4461.9
+11963eee0bb011ebab90acde48001122,inference,,span,Henry Styleman,Sir Walter Besant,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.248,16.2,4458.1
+77f3d9300bb011ebab90acde48001122,inference,,span,Gaston IV of Foix,Charles of Anjou,0.0,0.2857,0,2,0,0.0,2,0,0.0,1,0,5,0.263,19.1,4462.9
+feea4eb5086411ebbd5eac1f6bf848b6,bridge_comparison,,span,Heinz In The Moon,Gold For The Caesars,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,6,0.281,21.4,4484.7
+a9a4b633089c11ebbd78ac1f6bf848b6,bridge_comparison,,span,A Yiddish World Remembered,Monsieur Taxi,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.247,16.2,4479.2
+f64be57a0bdd11eba7f7acde48001122,compositional,,span,"August 7, 2004",No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4476.7
+6c2aa97108d711ebbd9aac1f6bf848b6,bridge_comparison,,span,Trouble With Jolanthe,Trouble With Jolanthe,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,6,0.278,21.6,4476.7
+a5b095c00bdd11eba7f7acde48001122,compositional,,span,California,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.23,13.1,4467.7
+8471ae5808d111ebbd95ac1f6bf848b6,bridge_comparison,,span,Graves Without A Name,Graves Without A Name,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.262,19.1,4471.9
+769106c40bda11eba7f7acde48001122,compositional,,span,laryngeal cancer,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4479.2
+5a83ed2f086611ebbd5eac1f6bf848b6,bridge_comparison,,span,Vzdušné Torpédo 48,When You'Re Strange,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.248,16.1,4493.8
+3a3c2efe0bdc11eba7f7acde48001122,compositional,,span,Germany,Dutch,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.216,9.3,4469.2
+b25687fa090011ebbdadac1f6bf848b6,comparison,,span,Saajan Bina Suhagan,Taxi Zum Klo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.247,16.2,4476.7
+b8e9d716088411ebbd6dac1f6bf848b6,bridge_comparison,,span,"Şaban, Son Of Şaban","Şaban, Son Of Şaban",1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,7,0.296,23.7,4479.2
+3d03e0260bde11eba7f7acde48001122,compositional,,span,"Christ's College, Cambridge",Oxford,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.263,7.6,4464.4
+8ac9de5608e011ebbda1ac1f6bf848b6,bridge_comparison,,span,Don Juan In A Girls' School,Stella'S Oorlog,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,6,0.284,21.1,4484.7
+04b5e0320bdb11eba7f7acde48001122,compositional,,span,Weimar,West Berlin,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.231,8.7,4469.2
+eded9bbf08de11ebbd9fac1f6bf848b6,bridge_comparison,,span,Rhythm And Weep,Dialogues Of Exiles,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,5,0.292,17.1,4479.2
+f872fe92096c11ebbdafac1f6bf848b6,comparison,,span,My Wife'S Lodger,My Wife'S Lodger,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.268,18.6,4471.9
+4ce1d27b08bc11ebbd88ac1f6bf848b6,bridge_comparison,,span,Elvira'S Haunted Hills,Allos Gia To Ekatommyrio,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,9,0.334,26.9,4493.8
+4a9acefe0baf11ebab90acde48001122,inference,,span,Marc Allégret,Henri Alleg,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.248,12.1,4458.1
+c8c9313a0baf11ebab90acde48001122,inference,,span,"Jerome, 4th Count de Salis-Soglio",Frederick De Salis,0.0,0.25,0,2,0,0.0,2,0,0.0,1,0,6,0.308,19.5,4461.9
+c1b9c0ac0bdd11eba7f7acde48001122,compositional,,span,23 February 1473,1437,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.291,13.8,4469.2
+ab18549a0bdc11eba7f7acde48001122,compositional,,span,Billy Ray Cyrus,Scott Westerfeld,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.265,15.1,4476.7
+2d907ba60bdc11eba7f7acde48001122,compositional,,span,New York,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.226,4.4,4467.7
+8c26eb3b087f11ebbd6cac1f6bf848b6,comparison,,span,Wanderley Oliveira,Alexey Volkonsky,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.29,17.3,4471.9
+1efc66b60bde11eba7f7acde48001122,compositional,,span,Forlì,Italy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.213,4.7,4458.1
+5f5002360bd911eba7f7acde48001122,compositional,,span,Hyderabad,London,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.205,4.9,4458.1
+f7b1002b099a11ebbdb0ac1f6bf848b6,comparison,,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.244,4.1,4479.2
+363d81df08d211ebbd95ac1f6bf848b6,bridge_comparison,,span,Idols Of The Radio,Idols Of The Radio,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.315,15.9,4484.7
+9e68cdc20bd911eba7f7acde48001122,compositional,,span,Gloria Loring,Tameka Foster,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.278,14.4,4476.7
+1655fd7a0bdd11eba7f7acde48001122,compositional,,span,Lancing College,Harvard University,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.25,12.0,4464.4
+1b91365c08a311ebbd7bac1f6bf848b6,comparison,,span,Louis-René De Caradeuc De La Chalotais,Louis-René De Caradeuc De La Chalotais,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,14,0.431,32.5,4493.8
+eeb017fa0bdd11eba7f7acde48001122,compositional,,span,Edinburgh,Edinburgh,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,2,0.225,8.9,4471.9
+565f05fc0bdc11eba7f7acde48001122,compositional,,span,St John's College,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.204,4.9,4474.0
+7cc68442092811ebbdaeac1f6bf848b6,comparison,,span,Aami,Aami,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,2,0.218,9.2,4469.2
+ef4907cc0baf11ebab90acde48001122,inference,,span,Kitiyakara Voralaksana,Busra Kitiyakara,0.0,0.5,0,2,0,0.0,2,0,0.0,1,0,7,0.315,22.3,4464.4
+ba773ad00bd911eba7f7acde48001122,compositional,,span,Yash Johar,Imtiaz Ali,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.251,15.9,4469.2
+31bfa49208e711ebbda5ac1f6bf848b6,comparison,,span,Ramsay Anderson,Ramsay Anderson,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,4,0.26,15.4,4471.9
+8f2b2975088a11ebbd6fac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.219,4.6,4484.7
+90bad89e0bdb11eba7f7acde48001122,compositional,,span,"San Juan, Puerto Rico",China,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.231,4.3,4469.2
+6c7f03240bdb11eba7f7acde48001122,compositional,,span,Évreux,France,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.235,4.3,4462.9
+bf06c94208a711ebbd7fac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.218,4.6,4489.5
+e61479860bda11eba7f7acde48001122,compositional,,span,Reykjavík,China,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.206,4.9,4469.2
+dea2ea800bd911eba7f7acde48001122,compositional,,span,Munich,Coburg,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.237,12.7,4474.0
+b7de2a860bd911eba7f7acde48001122,compositional,,span,Maureen O'Sullivan,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.204,4.9,4464.4
+bf9d9ad008a611ebbd7fac1f6bf848b6,bridge_comparison,,yesno,no,no,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,1,0.206,4.9,4478.2
+5674c972095311ebbdaeac1f6bf848b6,comparison,,span,Amelie Or The Time To Love,Amelie Or The Time To Love,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,8,0.316,25.3,4474.0
+dbcd3f5e0bd911eba7f7acde48001122,compositional,,span,shot,mass shooting,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.22,9.1,4483.7
+c789bc3b087211ebbd66ac1f6bf848b6,comparison,,span,Natürlich Die Nelli,Natürlich Die Nelli,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.275,18.2,4471.9
+0c0830a00baf11ebab90acde48001122,inference,,span,Elizabeth the Cuman,Theodora Komnena,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.327,18.3,4484.7
+960b5ec00bdd11eba7f7acde48001122,compositional,,span,Abilene,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.233,8.6,4464.4
+077b294e0bdb11eba7f7acde48001122,compositional,,span,Tehran,Hangzhou,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.243,8.2,4467.7
+9e506db00bdc11eba7f7acde48001122,compositional,,span,Käbi Laretei,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.203,4.9,4462.9
+bac99ab40bd911eba7f7acde48001122,compositional,,span,Great Pyramid of Giza,Amarna,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.223,9.0,4467.7
+ab94845c0baf11ebab90acde48001122,inference,,span,Theuderic I,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.204,4.9,4458.1
+6b3de52e0bdc11eba7f7acde48001122,compositional,,span,Kirchheim unter Teck,Stuttgart,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.223,9.0,4484.7
+1bd49ae00bdd11eba7f7acde48001122,compositional,,span,Colorado,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.221,9.1,4471.9
+1837ca440bdb11eba7f7acde48001122,compositional,,span,Viennese,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.222,9.0,4467.7
+2dba81d80bde11eba7f7acde48001122,compositional,,span,"hanged, drawn and quartered",slain in a tournament accident,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.299,20.1,4464.4
+9977d29c0bdc11eba7f7acde48001122,compositional,,span,illness,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.204,4.9,4469.2
+ed27bca208ac11ebbd83ac1f6bf848b6,bridge_comparison,,span,Rocking Moon,Resan Till Dej,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,5,0.266,18.8,4476.7
+9aa8008408de11ebbd9eac1f6bf848b6,bridge_comparison,,span,45 Fathers,45 Fathers,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,3,0.242,12.4,4478.2
+ebea9324087c11ebbd6aac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.213,4.7,4488.0
+445f3df708b511ebbd88ac1f6bf848b6,comparison,,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4479.2
+774fa4e20bdc11eba7f7acde48001122,compositional,,span,21 June 1483,1373,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.248,16.2,4464.4
+480b4ea408ba11ebbd88ac1f6bf848b6,bridge_comparison,,span,Bad Day At Black Rock,Excursion Train,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.234,12.8,4476.7
+a902a9b8089311ebbd75ac1f6bf848b6,bridge_comparison,,span,Emanuelle And The Last Cannibals,Emanuelle And The Last Cannibals,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,9,0.327,27.5,4488.0
+3a2ab74c087f11ebbd6bac1f6bf848b6,bridge_comparison,,span,Madigan'S Millions,Madigan's Millions,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,4,0.246,16.3,4492.8
+c9c3137e0bd911eba7f7acde48001122,compositional,,span,Huntington's disease,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.198,5.1,4469.2
+3cf8c6e0084c11ebbd56ac1f6bf848b6,bridge_comparison,,span,Sweepings,Cooee And The Echo,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,6,0.278,21.6,4478.2
+1822cbb4089111ebbd72ac1f6bf848b6,bridge_comparison,,span,Más Allá De La Aventura,The Newest Pledge,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,4,0.248,16.1,4484.7
+0c585dbc0bde11eba7f7acde48001122,compositional,,span,"Suffield, Connecticut",China,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4467.7
+6a215c4808df11ebbda0ac1f6bf848b6,bridge_comparison,,span,A Question Of Attribution,I Come With The Rain,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,5,0.264,18.9,4483.7
+7534fd16096e11ebbdb0ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4478.2
+ad6e5c1c0baf11ebab90acde48001122,inference,,span,Ragnild Magnusdotter,Ragnhild Teige,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.28,21.5,4469.2
+b3f0c5ce0bdd11eba7f7acde48001122,compositional,,span,Germany,French,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.212,4.7,4462.9
+bc69662a0bdd11eba7f7acde48001122,compositional,,span,Poznań,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.235,8.5,4462.9
+42228c2008cc11ebbd93ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.214,4.7,4476.7
+b65877e20bda11eba7f7acde48001122,compositional,,span,Alena Mihulová,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.218,4.6,4469.2
+f8819f3308a011ebbd78ac1f6bf848b6,bridge_comparison,,span,Her Luck In London,The Death Kiss,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.235,12.8,4476.7
+87724861086d11ebbd62ac1f6bf848b6,bridge_comparison,,span,La Bella Di Lodi,The Devil's Pass Key,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,5,0.274,18.3,4478.2
+2c43f3d40bde11eba7f7acde48001122,compositional,,span,Ischia,London,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.207,4.8,4474.0
+9397dcc008dd11ebbd9dac1f6bf848b6,bridge_comparison,,span,One Minute To Twelve,Johnny Concho,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.264,11.4,4476.7
+5c7fbb01091a11ebbdaeac1f6bf848b6,comparison,,span,Was I The Wave?,Was I The Wave?,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.275,18.2,4471.9
+1f77cec108ad11ebbd83ac1f6bf848b6,bridge_comparison,,span,Blind Corner,Blind Corner,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,3,0.238,12.6,4476.7
+f97bacb20bdd11eba7f7acde48001122,compositional,,span,Paris,"Los Angeles, California",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.253,15.8,4476.7
+2a13a676090111ebbdadac1f6bf848b6,comparison,,span,It'S Our Life!,It'S Our Life!,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.268,18.6,4474.0
+3ccbcad20bda11eba7f7acde48001122,compositional,,span,Palos Verdes,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.236,12.7,4484.7
+70ec660c0bdd11eba7f7acde48001122,compositional,,span,France,Argentina,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.201,5.0,4464.4
+7b52cb9e0bd911eba7f7acde48001122,compositional,,span,"Naha, Okinawa",Japan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.22,4.5,4474.0
+4a053eb00bb011ebab90acde48001122,inference,,span,Lady Anne Campbell,Lady Anne Murray,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,3,0.267,11.2,4474.0
+850c2ecc0bda11eba7f7acde48001122,compositional,,span,Theni,Madurai,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.225,8.9,4467.7
+20a118cc0bde11eba7f7acde48001122,compositional,,span,"Johannesburg, South Africa",New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.252,11.9,4462.9
+a703e1160bdd11eba7f7acde48001122,compositional,,span,Rimini,Ferrara,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.235,12.8,4474.0
+7e73e6560bdd11eba7f7acde48001122,compositional,,span,Prostějov,Prague,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.22,9.1,4488.0
+a6f0c6ec089c11ebbd78ac1f6bf848b6,comparison,,span,Abdul Wahab Khan Tarzi,Olaf Everson died first.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,7,0.297,23.6,4471.9
+fbf191f3086611ebbd5eac1f6bf848b6,bridge_comparison,,span,Vogue La Galère,"Good Morning, Little Countess",0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,6,0.281,21.4,4483.7
+d0cadba7088f11ebbd72ac1f6bf848b6,comparison,,span,Stephen De Staebler,Stephen De Staebler,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.264,18.9,4469.2
+cff878c20bdb11eba7f7acde48001122,compositional,,span,Cebu,Philippines,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.236,8.5,4462.9
+133b785c0bda11eba7f7acde48001122,compositional,,span,Rome,Rome,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,2,0.232,8.6,4474.0
+f12995e108ab11ebbd82ac1f6bf848b6,bridge_comparison,,span,The Daughter Of Rosie O'Grady,The Whistle (Film),0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,6,0.286,21.0,4492.8
+59054cad08b311ebbd86ac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.206,4.9,4489.5
+2a667a5808c511ebbd8eac1f6bf848b6,bridge_comparison,,span,Nene Raju Nene Mantri,Invasion 1897,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,7,0.311,22.6,4493.8
+81c9a46c0bb011ebab90acde48001122,inference,,span,Joana de Prades,Eleanor of Portugal,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.259,15.4,4467.7
+c81d185a0baf11ebab90acde48001122,inference,,span,Henrietta Susanna Tracy,Lady Louisa Anne Anne Seymour,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.325,18.5,4488.0
+00ea5297094a11ebbdaeac1f6bf848b6,comparison,,span,Because The Internet,Because The Internet,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.265,11.3,4474.0
+f7ed995308d611ebbd99ac1f6bf848b6,comparison,,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.227,4.4,4492.8
+61cc91aa088c11ebbd6fac1f6bf848b6,bridge_comparison,,span,Dirty Dancing,Torments Of The Night,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,5,0.276,18.1,4471.9
+171e51c60bdd11eba7f7acde48001122,compositional,,span,Fårö,Bangkok,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.223,9.0,4461.9
+1c0dd3b00bdc11eba7f7acde48001122,compositional,,span,Polish-Lithuanian Commonwealth,Poland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,2,0.227,8.8,4492.8
+c77037480baf11ebab90acde48001122,inference,,span,"Archibald Acheson, 2nd Earl of Gosford","Archibald Acheson, 3rd Earl of Gosford",0.0,0.8333,0,2,0,0.0,2,0,0.0,1,0,14,0.412,34.0,4479.2
+4e8195fa095b11ebbdaeac1f6bf848b6,comparison,,span,Cinesound Varieties,Cinesound Varieties,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,5,0.266,18.8,4476.7
+d15be72e0bdd11eba7f7acde48001122,compositional,,span,Lewes,Dover Castle,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.233,12.9,4484.7
+5db7e2d80bdc11eba7f7acde48001122,compositional,,span,Bratislava,Italy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.205,4.9,4474.0
+7eb8d29a08c511ebbd8eac1f6bf848b6,bridge_comparison,,yesno,yes,no,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.214,4.7,4489.5
+49eb87280bdc11eba7f7acde48001122,compositional,,span,Westerland,"Venice, Italy",0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.249,16.1,4474.0
+5e418da00bda11eba7f7acde48001122,compositional,,span,London,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.233,12.9,4471.9
+d6b470160baf11ebab90acde48001122,inference,,span,Infanta Maria Antonia of Portugal,Princess Marie of Teck,0.0,0.2222,0,2,0,0.0,2,0,0.0,1,0,6,0.281,21.3,4492.8
+00ce250d095f11ebbdafac1f6bf848b6,comparison,,span,Royal Treasure,When Love Begins,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.244,12.3,4467.7
+32ebe13e0bb011ebab90acde48001122,inference,,span,"Albert II, Prince of Anhalt-Zerbst","Frederick, Duke of Anhalt-Köthen",0.0,0.2222,0,2,0,0.0,2,0,0.0,1,0,11,0.412,26.7,4471.9
+b0ac0fc8087b11ebbd68ac1f6bf848b6,bridge_comparison,,span,The Blue Collar Worker And The Hairdresser In A Whirl Of Sex And Politics,Henry Goes Arizona,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.268,11.2,4509.6
+a022d8580bdc11eba7f7acde48001122,compositional,,span,Ridley Scott,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.218,4.6,4474.0
+e0036a5d086a11ebbd5fac1f6bf848b6,comparison,,span,Ela Gandhi,Ela Gandhi,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,3,0.269,11.2,4476.7
+8cb79c16085a11ebbd5cac1f6bf848b6,bridge_comparison,,span,The Flying Liftboy,Red Sparrow,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.244,12.3,4478.2
+95b5b8da08bd11ebbd8aac1f6bf848b6,comparison,,span,Uzhaikkum Karangal,The Cemetery Club,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,3,0.242,12.4,4478.2
+962889100baf11ebab90acde48001122,inference,,span,Longqing,Wang Xie'en's father-in-law is Li Xi.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,13,0.401,32.5,4461.9
+314f72c20bde11eba7f7acde48001122,compositional,,span,United States,American,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.216,4.6,4471.9
+29edeea4084c11ebbd56ac1f6bf848b6,comparison,,span,Overill Dwyer-Brown,Dragan Načevski,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,6,0.31,19.4,4483.7
+702515e80bdd11eba7f7acde48001122,compositional,,span,India,France,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.211,4.7,4478.2
+8cd3fe6c0baf11ebab90acde48001122,inference,,span,Fíngen mac Áedo Duib,Flann mac Eochada mac Néill,0.0,0.2222,0,2,0,0.0,2,0,0.0,1,0,10,0.353,28.3,4471.9
+93dec34e0bdd11eba7f7acde48001122,compositional,,span,France,France,1.0,1.0,0,2,0,0.0,2,0,0.0,1,0,1,0.214,4.7,4469.2
+5d71855608e711ebbda6ac1f6bf848b6,bridge_comparison,,span,Neal Of The Navy,yes,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,1,0.205,4.9,4492.8
+0ebf83cc08b511ebbd88ac1f6bf848b6,bridge_comparison,,span,Panique,Feel My Pulse,0.0,0.0,0,4,0,0.0,4,0,0.0,1,0,3,0.237,12.7,4469.2
+5d18eb8408e311ebbda4ac1f6bf848b6,bridge_comparison,,span,Hanuman Patal Vijay,Hanuman Patal Vijay,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,6,0.284,21.1,4492.8
+a26599ea097011ebbdb0ac1f6bf848b6,comparison,,span,Ghar Ki Rani,Heaven Help Us,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,4,0.247,16.2,4471.9
+f2287f32089311ebbd75ac1f6bf848b6,bridge_comparison,,span,The Boss And The Worker,The Boss And The Worker,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,5,0.264,19.0,4478.2
+4f0d28fb088b11ebbd6fac1f6bf848b6,comparison,,span,Adalberto Pereira Dos Santos,Louis-Armand-Constantin De Rohan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,10,0.343,29.1,4489.5
+475b89f80bb011ebab90acde48001122,inference,,span,Thyra,Gyrid's mother-in-law would be Ingrid of Sweden.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,14,0.403,34.8,4462.9
+86ae8b920baf11ebab90acde48001122,inference,,span,Alexander III of Russia,Prince Alexander Mikhailovich of Russia,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,0,6,0.277,21.7,4469.2
+9997225c0bda11eba7f7acde48001122,compositional,,span,Forest Lawn Memorial Park,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.199,5.0,4469.2
+076f8ece08d211ebbd95ac1f6bf848b6,bridge_comparison,,yesno,no,no,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,1,0.2,5.0,4484.7
+8b590cea087011ebbd63ac1f6bf848b6,bridge_comparison,,span,Road To Singapore,Road To Singapore,1.0,1.0,0,4,0,0.0,4,0,0.0,1,0,3,0.233,12.9,4478.2
+3f5194f00bb011ebab90acde48001122,inference,,span,Prince Harald of Denmark,"Prince George, Duke of Kent",0.0,0.4444,0,2,0,0.0,2,0,0.0,1,0,6,0.278,21.6,4471.9
+ae741c140bdc11eba7f7acde48001122,compositional,,span,Lezhë,Kastrioti Castle,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,5,0.265,18.9,4476.7
+85dd56440baf11ebab90acde48001122,inference,,span,Mark Hanna,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,0,1,0.2,5.0,4462.9
