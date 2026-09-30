@@ -1,0 +1,9 @@
+# single-hop first-stage retrieval, no generation: one row per question, used
+# to compare retrievers on identical questions
+run:
+  name: hybrid_musique_dev
+dataset:
+  name: musique
+retrieval:
+  method: hybrid
+  top_k: 5

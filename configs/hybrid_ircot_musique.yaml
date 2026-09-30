@@ -1,0 +1,13 @@
+# musique goes to 4 hops, so the loop gets one more retrieval than on hotpot
+run:
+  name: hybrid_ircot_musique_dev
+dataset:
+  name: musique
+retrieval:
+  method: hybrid
+  top_k: 5
+pipeline:
+  mode: multihop_ircot
+  max_hops: 4
+generation:
+  backend: mlx

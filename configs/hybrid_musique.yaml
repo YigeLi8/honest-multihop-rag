@@ -1,0 +1,9 @@
+run:
+  name: hybrid_musique_dev
+dataset:
+  name: musique
+retrieval:
+  method: hybrid
+  top_k: 5
+generation:
+  backend: mlx

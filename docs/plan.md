@@ -1,114 +1,157 @@
 # Plan
 
-Working notes for the `illusion-analysis` branch. Items get ticked as they land;
-anything cut goes to FUTURE_WORK.md with a reason.
+Working notes. Two branches:
 
-## Ground rules
+- `illusion-analysis`: the measurement study (what the "answer right, gold
+  evidence incomplete" cell is made of). Being finished, then frozen.
+- `experience-memory`: forks from it. Uses the harness's gold per-hop labels
+  to study experience memory for retrieval: when does a past retrieval
+  success or failure actually apply to the question in front of me.
 
-- Measurement study. No new algorithm, no SOTA claim, no generator training.
-- Every claimed difference is a paired comparison on identical question ids
-  (McNemar exact + paired bootstrap), Holm-corrected across the primary tests.
-- Positions 0-499 of each dev file are the exploration fold (everything looked
-  at while building). Claims are tested once on the confirmation folds in
-  `results/folds/` with the criteria in `docs/preregistration.md` written first.
-- Nothing is tuned on any dev file. Graph knobs are frozen on train slices; the
-  selector trains on hotpot train only and is a pure transfer test elsewhere.
+Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason.
+
+## Ground rules (both branches)
+
+- No new-algorithm or SOTA language. Every claimed difference is a paired
+  comparison on identical question ids (McNemar exact + paired bootstrap),
+  Holm-corrected across the primary tests.
+- Positions 0-499 of each dev file are the exploration fold. Claims are tested
+  once on the confirmation folds in `results/folds/`, with the criteria in
+  `docs/preregistration.md` written first.
+- Nothing is tuned on a dev file. Anything learned (graph knobs, memories,
+  boundaries) is built from train splits or from a held-out half.
 - Gold-derived fields (`gold_chunk_ids`, `reasoning_path`, `evidence_triples`,
-  musique `is_supporting`) never enter `src/graph/` or a selector. A leakage
-  test greps for them.
-- Local runs are the only place generation happens (Metal). Retrieval-only
-  experiments, code, tests and notes can be done anywhere.
+  musique `is_supporting`) are outcomes, never inputs: they do not enter a
+  retriever, a graph or a memory feature. A leakage test greps for them.
+- Generation only runs locally (Metal). Retrieval-only experiments, code,
+  tests and notes can be done anywhere.
 
-## Phase 1: controls and the partition (in progress)
+## Part A: measurement study (`illusion-analysis`), finish and freeze
 
 - [x] closed-book control, per-run traces, gold recall / paragraph recall
-- [x] partition of the "answer right, evidence incomplete" cell:
-      parametric / yes-no / shortcut / paragraph / partial / none
+- [x] partition of the illusion cell: parametric / yes-no / shortcut /
+      paragraph / partial / none
 - [x] paired statistics; cumulative and hop-aligned per-hop recall
 - [x] one answer prompt for every config; loop stop reason logged
 - [x] folds; `--ids` in the evals; musique shuffled at prep
+- [x] runner on `stream_generate`: prompt tokens, TTFT, decode throughput
 - [ ] `docs/preregistration.md`: hypotheses, assignment order and one
       alternative order, correctness criteria, n, tests, pass/fail rules
-- [ ] runner on `stream_generate`: prompt tokens, TTFT, prefill vs decode
-      throughput, peak memory; ratio-of-sums aggregation; warm-up excluded
-- [ ] confirmation-fold baselines (hotpot_confirm n=1000): closed-book, bm25
-      k=10, bm25 k=13 (matched context), hybrid ircot, hybrid ircot + rerank
-- [ ] evidence-criterion ladder (all gold sentences / answer-bearing gold /
-      all gold paragraphs / any gold / answer string in context) reported side
-      by side; partition under the alternative order
-- [ ] intervention arms on the exploration fold: gold-only, gold minus bridge,
-      gold minus answer sentence, distractors only, drop-one over retrieved gold
-- [ ] correctness criteria beyond EM: F1 >= 0.5, capped containment with
-      aliases; a local judge on a 100-item hand-checked subset with kappa
-- [ ] entity-substitution counterfactual on the illusion cell
-- [ ] illusion-vs-k curve for single-hop bm25/hybrid (k = 5, 10, 13, 15, 20)
-
-## Phase 2: breadth
-
-- [ ] musique_confirm (stratified n=1000): closed-book, bm25 k=5, k=7, hybrid,
-      ircot max_hops 4; per-hop new-gold recall against the decomposition
-- [ ] 2wiki_confirm (n=1000): closed-book, bm25 k=10, k=13, hybrid ircot;
-      per-type tables; hop-aligned recall from the reasoning path
-- [ ] stop-criterion audit from traces: hop at which each gold sentence first
-      entered context, hop of the stop, correctness; one forced-continuation run
-- [ ] full-dev bm25 single-hop on hotpot and 2wiki overnight
-- [ ] model-size sweep, Qwen2.5-Instruct 1.5B / 3B / 7B / 14B (4-bit) plus one
-      other family: closed-book EM, illusion, parametric share vs size
-- [ ] three sampled repeats (T=0.7) of the headline configs on n=200
-
-## Phase 3: two retrieval arms on the harness
-
-Graph arm (retrieval-only, zero model calls):
-- [ ] `src/graph/pool_graph.py`: paragraph nodes from chunk titles; title-mention
-      edges (directed, hub-penalised, reverse weight), optional multi-word
-      entity edges; anchors = titles named in the query; degree; link coverage
-- [ ] `src/graph/graph_retriever.py`: seed retriever (bm25 | hybrid) + anchors
-      + one-hop expansion + in-paragraph sentence ranking at equal sentence
-      budget; controls `none | degree_only | random | anchor_only |
-      para_complete`; `expansion: none` must reproduce bm25 to four decimals
-- [ ] delete `src/graph/graph_index.py` (planned a graph over 2wiki evidence
-      triples, which is gold)
-- [ ] `tests/test_graph.py`, `tests/test_leakage.py`; configs per dataset and
-      per control; matched-context `bm25 k=13` / `k=7 (musique)` references
-- [ ] freeze knobs on 2000 hotpot-train + 1000 2wiki-train questions
-- [ ] retrieval-only table on full dev, three datasets, with controls and the
-      artifact share = (degree_only - bm25) / (graph - bm25)
-- [ ] QA on the confirmation folds: graph vs bm25 and vs the controls; does the
-      shortcut bucket move while the parametric bucket stays
-
-Selector arm (one small cross-encoder):
-- [ ] `src/retrieval/selector.py`: MiniLM-L6 sentence selector over the whole
-      pool, pointwise and anchor-conditioned; usable as a reranker too
-- [ ] `src/retrieval/selector_train.py`: pairs from hotpot train with bm25 hard
-      negatives, 20k questions, 1k held out; train/dev disjointness assertion;
-      checkpoint hash in the run name
-- [ ] baselines: zero-shot MiniLM, zero-shot bge-reranker; retained gain on
-      2wiki and musique; seen/unseen split; title-disjoint retrain
-- [ ] QA on the confirmation folds; graph -> selector stack
-
-## Phase 4: serving cost on one device
-
-- [ ] corner configs at n=500 with the full 2x2 per point: {8-bit, 4-bit,
-      4-bit + 4-bit KV} x {k=5, k=20, k=20 -> 5}; no-retrieval and gold-only
-      anchors; EM and illusion vs TTFT and vs decode tok/s
-- [ ] prefix-cache reuse across ircot hops: tokens prefilled vs recomputed,
-      per-hop TTFT, identical outputs under greedy
-- [ ] concurrency ladder via `mlx_lm.server` (c = 1, 2, 4, 8), reported as a
-      separate runtime
-- [ ] retrieval-stage time and memory for graph and selector on the frontier
-
-## Phase 5: writing
-
-- [ ] results tables per fold with controls and adjusted p; partition bars per
-      dataset; decoupling plot; frontier with illusion as colour
+- [ ] confirmation-fold baselines: hotpot_confirm (closed-book, bm25 k=10,
+      bm25 k=13 matched context, hybrid ircot, + rerank), 2wiki_confirm and
+      musique_confirm (closed-book, bm25, matched context); musique hybrid
+      single-hop and ircot max_hops 4
+- [ ] partition tables and bars per dataset on the confirmation folds, with
+      the alternative assignment order and the evidence-criterion ladder (all
+      gold sentences / answer-bearing gold / all gold paragraphs / any gold /
+      answer string in context)
+- [ ] correctness beyond EM: F1 >= 0.5 and capped containment with aliases,
+      reported beside EM in every 2x2
+- [ ] stop audit from the ircot traces: hop at which each gold sentence first
+      entered context, stop reason, correctness
 - [ ] README rewrite: scope in paragraph one (distractor pools, one model, one
-      device), results, ablations, limitations, reproduction from a fresh clone
-- [ ] short paper draft; related work from `docs/paper_log.md`
+      device), confirmation-fold tables, limitations, reproduction steps
+- [ ] intervention arms on the exploration fold (gold-only, gold minus bridge,
+      gold minus answer sentence, distractors only), if time
+
+Cut from this branch: the selector arm, the model-size sweep, the concurrency
+ladder, energy, the CUDA leg. The serving sweep stays as it is in the README,
+relabelled with the corrected throughput definition once one corner re-run is
+in. A small graph arm moves to Part B as one of the retrieval strategies.
+
+## Part B: experience memory (`experience-memory`)
+
+The question: can a system learn from previous retrieval successes and
+failures, and decide when those experiences should influence a new retrieval?
+Not "bm25 failed before, avoid bm25", and not nearest-neighbour recall of past
+failures. An experience generates a hypothesis; later experiences support or
+contradict it; the thing to learn is where the hypothesis applies.
+
+What is already published, so I do not claim it: online case-utility learning
+on HotpotQA/2Wiki (Memento, CASCADE), per-query retriever routing with bandits
+(MBA-RAG), failure-aware revisable graph memory (EvoGraph-Mem), boundary fields
+and reliability lifecycles (MSCE, GSEM), static applicability text (BASM,
+AutoGuide), and the classical machinery (version spaces, ripple-down rules,
+drift-aware trees). Logging, similarity memory, failure memory and static
+conditions are baselines here, not contributions.
+
+What is left to test, stated narrowly: with gold per-hop hit/miss as the
+supervision (no model judging itself), an explicit, interpretable applicability
+model per retrieval lesson over retrieval-process features, maintained online
+with logged narrow / expand / exception / split / retire steps, gives lower
+false-application and repeated-failure rates at matched retrieval cost on
+look-alike question pairs than: similarity memory, static conditions, a scalar
+per-memory utility, one shared online router over the same features, and
+always running both retrievers. If the shared router matches it, the memory
+structure is not doing any work and I say so.
+
+Outcomes are retrieval-level (all gold in top-k, paragraph recall, hop-aligned
+hit), so every arm can be run on every question in seconds, the best arm per
+question is known, and regret is exact. EM is secondary: it does not move with
+retrieval in this harness.
+
+### Stage 1: experience logging (no behaviour change)
+
+- [ ] `memory:` block in `configs/base.yaml`, off by default
+- [ ] `src/memory/experience.py`: one record per (question, hop): strategy,
+      retrieved ids/scores/ranks, gold hit/miss, hop / cumulative / aligned
+      recall, features, final outcome row; run header with git sha and config
+- [ ] `src/memory/features.py`: model-free features only, schema versioned and
+      frozen (query length, hop, rare-token ratio, titles named in the query,
+      top-1 score, margin, score entropy, bm25-dense disagreement, new chunks
+      this hop, previous-hop top score)
+- [ ] `src/memory/backfill.py`: rebuild the same records from committed traces
+      by re-indexing each pool; assert recomputed top-k equals the trace
+- [ ] hooks in the pipeline and `run_qa`, guarded by `memory.enabled`
+- [ ] `scripts/check_baseline.py`: memory off vs memory logging must give
+      identical traces and csvs (timing columns aside); tests for all of it
+
+### Stage 1b: what is there to learn (no model calls)
+
+- [ ] bm25 / dense / hybrid first-stage outcomes per question on full dev,
+      three datasets; discordance table; best-arm-per-question ceiling
+- [ ] how predictable is the best arm from the frozen features (held-out AUC),
+      and how much is just the question template (2wiki)
+- [ ] look-alike pairs: within-template pairs on 2wiki with discordant
+      outcomes; natural pairs on hotpot by question similarity (expected
+      sparse, reported as such); constructed twins (`data/make_twins.py`):
+      distractor sentences sharing bridge-entity tokens, alias substitution
+
+### Stages 2-4: the baselines
+
+- [ ] 2. similarity memory over past experiences (top-k neighbours vote)
+- [ ] 3. failure memory: failure type + what recovered it; rule-based failure
+      typing with a 50-case hand audit
+- [ ] 4. static conditions: a fixed predicate per lesson, and the same as
+      prose read by the generator; if a fixed rule captures most of the
+      best-arm ceiling, stop here and report that
+
+### Stage 5: boundaries that revise themselves (the claim under test)
+
+- [ ] per-lesson applicability model (predicate, then logistic / small tree),
+      decide-then-reveal online protocol, K=5 seeded stream orders
+- [ ] operators narrow / expand / exception / split / retire with a revision
+      log; never overwrite silently
+- [ ] baselines on the same stream: shared online router, scalar utility,
+      always-probe, fixed hybrid; induced drift (switch dataset mid-stream)
+- [ ] metrics: repeated-failure rate, false application, false rejection,
+      boundary precision / recall against the known best arm, adaptation
+      speed, revision rate, regret, retrieval cost
+- [ ] ablation: remove the operators and the log, keep the features; if
+      nothing changes, the structure is decoration
+
+### Stage 6-7, only if Stage 5 shows something
+
+- [ ] active probing when applicability is uncertain, on the cost-regret curve
+- [ ] answer-level confirmation at n=2000 with the closed-book control
+- [ ] a small evidence graph (title links over the pool, with the query-free
+      degree control) as one more strategy the memory can choose
+
+## Writing
+
+- [ ] measurement study: short paper draft from Part A; related work from
+      `docs/paper_log.md`
+- [ ] memory study: results notes per stage as they land, negative results
+      included; decide on a write-up after Stage 5
 - [ ] pin versions and model revisions; run manifest per results file;
       `scripts/run_all.sh` end to end with a short smoke path
-
-## Cut list, in order, if time runs out
-
-2wiki graph ircot; entity-edge ablation grid; title-disjoint selector retrain;
-graph -> selector stack; concurrency ladder; sampled repeats. Never the
-controls, the folds, or the closed-book runs.
