@@ -36,8 +36,8 @@ it depends on the primary arm's trajectory).
         --dataset hotpot [--ids results/folds/hotpot_explore.txt] \\
         [--train-ids results/folds/hotpot_explore.txt --eval-ids results/folds/hotpot_confirm.txt]
 
-Writes results/<dataset>_arms_discordance.csv, _ceiling.csv and
-_predictability.csv.
+Writes results/<dataset>_arms_discordance.csv, _ceiling.csv, _predictability.csv
+and _routed.csv (what a shared router over the same features gets, held out).
 """
 import argparse
 import json
@@ -225,30 +225,85 @@ def fold_splits(ids: Sequence[str], train_ids: Sequence[str],
     return [(fit, score)]
 
 
-def held_out_auc(X: np.ndarray, y: np.ndarray,
-                 splits: Sequence[tuple[np.ndarray, np.ndarray]]) -> tuple[float, float, int]:
-    """Mean and sd of the ROC AUC of a standardised logistic regression over
-    the (fit, score) splits, and how many splits could be scored. A split
-    whose fit half is too small or one-class, or whose score half is
-    one-class, is skipped (AUC is undefined there)."""
+def fit_predict(X: np.ndarray, y: np.ndarray, fit: np.ndarray,
+                score: np.ndarray) -> Optional[np.ndarray]:
+    """P(y = 1) on the score rows from a standardised logistic regression fit
+    on the fit rows, or None when the fit half is too small or one-class."""
     from sklearn.linear_model import LogisticRegression
-    from sklearn.metrics import roc_auc_score
     from sklearn.pipeline import make_pipeline
     from sklearn.preprocessing import StandardScaler
+    yf = y[fit]
+    if len(fit) < MIN_FIT or min(yf.sum(), len(yf) - yf.sum()) < MIN_CLASS:
+        return None
+    model = make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000, C=1.0))
+    model.fit(X[fit], yf)
+    return model.predict_proba(X[score])[:, 1]
 
+
+def held_out_auc(X: np.ndarray, y: np.ndarray,
+                 splits: Sequence[tuple[np.ndarray, np.ndarray]]) -> tuple[float, float, int]:
+    """Mean and sd of the ROC AUC over the (fit, score) splits, and how many
+    splits could be scored. A split whose fit half is too small or
+    one-class, or whose score half is one-class, is skipped (AUC is
+    undefined there)."""
+    from sklearn.metrics import roc_auc_score
     aucs = []
     for fit, score in splits:
-        yf, ys = y[fit], y[score]
-        if len(fit) < MIN_FIT or min(yf.sum(), len(yf) - yf.sum()) < MIN_CLASS:
-            continue
+        ys = y[score]
         if ys.sum() == 0 or ys.sum() == len(ys):
             continue
-        model = make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000, C=1.0))
-        model.fit(X[fit], yf)
-        aucs.append(roc_auc_score(ys, model.predict_proba(X[score])[:, 1]))
+        prob = fit_predict(X, y, fit, score)
+        if prob is not None:
+            aucs.append(roc_auc_score(ys, prob))
     if not aucs:
         return math.nan, math.nan, 0
     return float(np.mean(aucs)), float(np.std(aucs)), len(aucs)
+
+
+def routed_rate(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29),
+                splits: Optional[Sequence[tuple[np.ndarray, np.ndarray]]] = None,
+                stages: Sequence[str] = ("size", "qtype", "query", "pool", "primary_hits",
+                                         "probe")) -> pd.DataFrame:
+    """What a shared router over the frozen features gets: per stage, one
+    hit model per arm is fit on the fit half, the arm with the highest
+    predicted hit probability is chosen on the score half, and the chosen
+    arm's actual outcome is averaged there. Compared on the same score half
+    with the best single arm (chosen on the fit half) and the oracle, so the
+    gain column is the share of the ceiling a router at this stage recovers.
+    AUC says whether the features carry signal; this says what the signal
+    buys at retrieval level.
+    """
+    table = with_qtype_columns(table)
+    arms = arms_of(table)
+    hit = {a: hits(table, a).to_numpy(dtype=float) for a in arms}
+    oracle = np.max(np.stack([hit[a] for a in arms]), axis=0)
+    sub_splits = splits if splits is not None else seeded_halves(len(table), seeds)
+    rows = []
+    for stage in stages:
+        cols = stage_columns(table, stage)
+        if not cols:
+            continue
+        X = table[cols].to_numpy(dtype=float)
+        routed, single, ceiling_ = [], [], []
+        for fit, score in sub_splits:
+            probs = [fit_predict(X, hit[a], fit, score) for a in arms]
+            if any(p is None for p in probs):
+                continue
+            chosen = np.argmax(np.stack(probs), axis=0)
+            actual = np.stack([hit[a][score] for a in arms])
+            routed.append(float(actual[chosen, np.arange(len(score))].mean()))
+            best = max(arms, key=lambda a: hit[a][fit].mean())
+            single.append(float(hit[best][score].mean()))
+            ceiling_.append(float(oracle[score].mean()))
+        if not routed:
+            continue
+        gains = np.array(routed) - np.array(single)
+        rows.append({"stage": stage, "n_features": len(cols), "routed": round(np.mean(routed), 4),
+                     "best_single": round(np.mean(single), 4),
+                     "oracle": round(np.mean(ceiling_), 4),
+                     "gain": round(float(gains.mean()), 4), "gain_sd": round(float(gains.std()), 4),
+                     "n_splits": len(routed)})
+    return pd.DataFrame(rows)
 
 
 def predictability(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29),
@@ -328,7 +383,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
     tables = {"discordance": discordance(table), "ceiling": ceiling(table, seed=args.seeds[0]),
-              "predictability": predictability(table, seeds=args.seeds, splits=splits)}
+              "predictability": predictability(table, seeds=args.seeds, splits=splits),
+              "routed": routed_rate(table, seeds=args.seeds, splits=splits)}
     for name, df in tables.items():
         path = out / f"{args.dataset}_arms_{name}.csv"
         df.to_csv(path, index=False)

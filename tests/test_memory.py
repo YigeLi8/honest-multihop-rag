@@ -874,6 +874,14 @@ def test_predictability_is_held_out():
     except ValueError:
         pass
 
+    # a router over the stage that carries the signal gets a's hits where a
+    # hits and b's elsewhere; the size control routes no better than the best arm
+    from src.memory.arms import routed_rate
+    r = routed_rate(table, seeds=[13, 17]).set_index("stage")
+    assert r.loc["query"]["gain"] > 0.2 and r.loc["query"]["routed"] > 0.7
+    assert abs(r.loc["size"]["gain"]) < 0.05 and r.loc["query"]["n_splits"] == 4
+    assert r.loc["query"]["oracle"] >= r.loc["query"]["routed"] >= r.loc["query"]["best_single"] - 0.05
+
     # too small, one-class: no AUC rather than a made-up one
     X, y = table[["f:hop"]].to_numpy(), np.zeros(n)
     assert held_out_auc(X, y, seeded_halves(n, [13]))[2] == 0
@@ -889,7 +897,7 @@ def test_arms_cli():
         ids = Path(tmp) / "ids.txt"
         ids.write_text("\n".join(f"q{i}" for i in range(0, 60, 2)) + "\n")
         main(["--records", str(path), "--dataset", "stub", "--out-dir", tmp, "--seeds", "13"])
-        for name in ("discordance", "ceiling", "predictability"):
+        for name in ("discordance", "ceiling", "predictability", "routed"):
             assert (Path(tmp) / f"stub_arms_{name}.csv").exists()
         main(["--records", str(path), "--dataset", "half", "--out-dir", tmp, "--ids", str(ids)])
         import pandas as pd

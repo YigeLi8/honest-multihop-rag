@@ -135,24 +135,40 @@ retrieval in this harness.
 
 ### Stage 1b: what is there to learn (no model calls)
 
-- [ ] bm25 / dense / hybrid first-stage outcomes per question on full dev,
-      three datasets; discordance table; best-arm-per-question ceiling.
-      Code is in: `configs/bm25_arms_{hotpot,2wiki,musique}.yaml` log dense
-      and hybrid in the shadow of a bm25 single-hop run with no generation,
-      and `src/memory/arms.py` turns the log into the pairwise discordance
-      table (McNemar), each arm's exact regret against the oracle (paired
-      bootstrap) and the all-arms floor. Waiting on the runs: the cloud
-      session cannot reach huggingface.co or the hotpot host, so the dev
-      files were not available there; bm25 runs anywhere, dense needs the
-      Mac or a session with the data.
-- [ ] how predictable is the best arm from the frozen features (held-out AUC),
-      and how much is just the question template (2wiki). Same module: a
-      standardised logistic regression per target (each arm's hit; which arm
-      hits where two disagree) and per feature stage (size control, qtype,
-      query, pool, primary hits, probe), fit on one seeded half and scored
-      on the other, both ways, or fit on one fold file and scored on
-      another. The size control (hop, pool size, n_hits) is the count
-      shortcut MemSafe found; qtype alone is the template control.
+- [x] bm25 / dense / hybrid first-stage outcomes per question; discordance
+      table; best-arm-per-question ceiling. `configs/bm25_arms_*.yaml` log
+      dense and hybrid in the shadow of a bm25 single-hop run with no
+      generation; `src/memory/arms.py` turns the log into the pairwise
+      discordance table (McNemar), each arm's exact regret against the
+      oracle (paired bootstrap) and the all-arms floor
+      (`results/<dataset>_arms_*.csv`). Hotpot, positions 0-1499 (both
+      folds), all gold in top-10: bm25 0.505, dense 0.617, hybrid 0.634,
+      oracle 0.735, every arm 0.407. The oracle is 10.1 points above hybrid
+      (paired bootstrap 8.5-11.6); bm25 and hybrid disagree on 20% of
+      questions, dense and hybrid on 15% (McNemar p = 0.10, so dense and
+      hybrid are close to interchangeable). At paragraph level there is
+      almost nothing left: hybrid 0.967 mean paragraph recall, oracle 0.986.
+      2wiki needs the manual zip; musique below once its run is in.
+- [x] how predictable is the best arm from the frozen features (held-out
+      AUC), and how much is just the question template. Same module: a
+      standardised logistic regression per target (each arm's hit; which
+      arm hits where two disagree) and per feature stage (size control,
+      qtype, query, pool, primary hits, probe), fit on one seeded half and
+      scored on the other, both ways over five seeds, or fit on the
+      exploration fold and scored on the confirmation fold. Hotpot: barely.
+      Each arm's hit is predicted at AUC 0.50-0.63 (the top value needs the
+      probe features, i.e. both retrievals), and which of two arms hits
+      where they disagree at 0.56-0.66; the size control sits at 0.50 and
+      qtype at 0.49-0.57; the fold split gives the same picture. The
+      `_routed.csv` table says what that buys: a shared router over the
+      same features, one hit model per arm and argmax on the held-out half,
+      lands at 0.632-0.638 against always-hybrid 0.634 and the oracle
+      0.735, a gain of 0.004 +- 0.007 at the best stage. So the ceiling is
+      real and the frozen process features do not reach it: a fixed rule or
+      a shared router over them captures none of it. Whatever Stages 2-5
+      find must come from somewhere else (the question itself, or past
+      questions that look like it), and that is now the thing to test
+      first, not the operators.
 - [ ] look-alike pairs: within-template pairs on 2wiki with discordant
       outcomes; natural pairs on hotpot by question similarity (expected
       sparse, reported as such); constructed twins (`data/make_twins.py`):
