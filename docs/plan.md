@@ -177,7 +177,10 @@ retrieval in this harness.
       always-probe, fixed hybrid; induced drift (switch dataset mid-stream);
       a query-only router (the same router on the query-stage features
       alone), since matched query-only controls have erased retrieval-signal
-      gains elsewhere (paper log, 2026-10-01)
+      gains elsewhere; and a no-persistence control (decide each question
+      from the current features with nothing kept across questions), which
+      beat every persisted-skill method in the held-out skill study (paper
+      log, 2026-10-01)
 - [ ] metrics: repeated-failure rate, false application, false rejection,
       boundary precision / recall against the known best arm, adaptation
       speed, revision rate, regret, retrieval cost
