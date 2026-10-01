@@ -1,0 +1,7 @@
+run,criterion,n,answer_correct,ans_ok_retr_ok,ans_ok_retr_wrong,ans_wrong_retr_ok,ans_wrong_retr_wrong,illusion_rate,illusion_lo,illusion_hi,illusion_share_of_correct,vs_em_added,vs_em_dropped,vs_em_mcnemar_p
+closed_book_musique_dev,em,500,0.028,0,14,0,486,0.028,0.0168,0.0464,1.0,0,0,1.0
+closed_book_musique_dev,f1_50,500,0.086,0,43,0,457,0.086,0.0645,0.1138,1.0,29,0,0.0
+closed_book_musique_dev,contain,500,0.02,0,10,0,490,0.02,0.0109,0.0364,1.0,1,5,0.2188
+bm25_musique_dev,em,500,0.134,35,32,54,379,0.064,0.0457,0.089,0.4776,0,0,1.0
+bm25_musique_dev,f1_50,500,0.224,47,65,42,346,0.13,0.1033,0.1623,0.5804,45,0,0.0
+bm25_musique_dev,contain,500,0.128,35,29,54,382,0.058,0.0407,0.0821,0.4531,7,10,0.6291
