@@ -125,7 +125,13 @@ retrieval in this harness.
       generation on hotpot and musique bm25
 - [ ] the same identity check with real generation on an ircot config, and
       with hybrid and reranked primaries (needs the Mac's GPU)
-- [ ] backfill the hybrid and ircot traces with bm25 and dense shadow arms
+- [ ] backfill the hybrid and ircot traces with bm25 and dense shadow arms.
+      Backfill the Mac's traces on the Mac: on linux with bm25s 0.3.11 the
+      replay of bm25_hotpot_dev differs from the trace on 89 of 500 hops and
+      bm25_musique_dev on 11, every one a different order inside a run of
+      equal scores (16 of them at the top-k boundary, so the id set differs
+      too); all-gold-in-top-k never flips. Pin bm25s in requirements.txt to
+      the Mac's version once that is checked.
 
 ### Stage 1b: what is there to learn (no model calls)
 
