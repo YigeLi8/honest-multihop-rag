@@ -1,501 +1,501 @@
-id,qtype,level,answer_type,answer_gold,answer_pred,em,f1,retrieval_correct,n_gold,n_gold_hit,gold_recall,hops,n_context,reasoning_tokens,latency_s,tokens_per_s,peak_memory_mb
-5a8b57f25542995d1e6f1371,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,11,25,8.015,2.3,4865.1
-5a8c7595554299585d9e36b6,bridge,hard,span,Chief of Protocol,Secretary of State for Constitutional Affairs,0.0,0.2222,0,3,1,0.3333,2,11,50,2.281,11.6,4860.5
-5a85ea095542994775f606a8,bridge,hard,span,Animorphs,The Hork-Bajir Chronicles,0.0,0.0,0,5,4,0.8,3,16,39,2.29,10.9,4960.3
-5adbf0a255429947ff17385a,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,12,17,2.086,2.1,4897.6
-5a8e3ea95542995a26add48d,bridge,hard,span,"Greenwich Village, New York City","Greenwich Village, New York City",1.0,1.0,1,2,2,1.0,1,10,9,0.76,15.6,4859.4
-5abd94525542992ac4f382d2,bridge,hard,span,YG Entertainment,YG Entertainment,1.0,1.0,1,2,2,1.0,3,12,44,2.116,4.3,4880.3
-5a85b2d95542997b5ce40028,bridge,hard,span,Eenasul Fateh,"Eenasul Fateh, also known by his stage name Aladin, is a Bangladeshi-British cultural practitioner, magician, live artist and former international management consultant who helped organizations improve their performance.",0.0,0.1379,1,2,2,1.0,1,10,46,1.284,38.0,4898.9
-5a87ab905542996e4f3088c1,bridge,hard,span,"3,677 seated","1,400",0.0,0.0,0,2,1,0.5,2,13,25,2.161,9.3,4922.2
-5a7bbb64554299042af8f7cc,bridge,hard,span,Terry Richardson,Annie Morton,0.0,0.0,1,3,3,1.0,2,14,17,1.965,4.8,4908.4
-5a8db19d5542994ba4e3dd00,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,3,16,16,1.726,2.0,4965.2
-5a7166395542994082a3e814,bridge,hard,span,Kansas Song,Kansas Song (We’re From Kansas),0.0,0.5714,1,3,3,1.0,1,10,11,0.652,19.8,4804.0
-5a877e5d5542993e715abf7d,bridge,hard,span,David Weissman,David Diamond,0.0,0.5,1,3,3,1.0,3,17,40,2.157,3.6,4978.5
-5ab3b0bf5542992ade7c6e39,bridge,hard,span,1999,1999,1.0,1.0,1,3,3,1.0,3,19,37,2.377,5.8,4957.3
-5ab56e32554299637185c594,comparison,hard,yesno,no,no,1.0,1.0,0,2,1,0.5,2,12,41,2.338,1.9,4960.3
-5ab6d09255429954757d337d,bridge,hard,span,from 1986 to 2013,1996 to 2013,0.0,0.5714,0,3,1,0.3333,2,13,34,2.183,14.4,4926.1
-5a75e05c55429976ec32bc5f,bridge,hard,span,"9,984",no,0.0,0.0,1,2,2,1.0,3,18,22,1.832,2.2,4883.4
-5ab3e45655429976abd1bcd4,bridge,hard,span,the North Atlantic Conference,Eastern College Athletic Conference-North,0.0,0.0,0,3,2,0.6667,1,10,9,0.632,15.7,4835.7
-5ab29c24554299449642c932,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,10,33,2.036,2.1,4872.5
-5ae0d4c9554299603e418468,bridge,hard,span,1969 until 1974,1969-1974,0.0,0.0,1,2,2,1.0,2,16,21,2.291,11.5,4979.1
-5a8133725542995ce29dcbdb,comparison,hard,span,Robert Erskine Childers DSC,Robert Erskine Childers was from England.,0.0,0.6,1,2,2,1.0,1,10,13,0.696,20.5,4870.3
-5ae7a8175542993210983ed8,bridge,hard,span,Pedro Rodríguez,Sergio Pérez,0.0,0.0,1,3,3,1.0,3,15,42,2.125,9.2,4902.1
-5ae6050f55429929b0807a5e,bridge,hard,span,Sonic,"Miles ""Tails"" Prower",0.0,0.0,0,2,1,0.5,2,17,47,2.39,13.1,4874.6
-5adddccd5542997dc7907069,bridge,hard,span,keyboard function keys,iSight iMac G5,0.0,0.0,0,4,3,0.75,3,14,34,2.006,12.2,4890.9
-5ae2070a5542994d89d5b313,comparison,hard,span,Badly Drawn Boy,Badly Drawn Boy,1.0,1.0,0,2,1,0.5,2,10,39,2.032,9.7,4885.1
-5ae22b8d554299234fd0440f,bridge,hard,span,World's Best Goalkeeper,World Player of the Century,0.0,0.0,1,3,3,1.0,2,13,47,2.271,8.6,4940.8
-5a722b8655429971e9dc9329,bridge,hard,span,Barton Lee Hazlewood,"Lee Hazlewood was the writer of ""These Boots Are Made for Walkin' and he died in 2007.",0.0,0.2105,1,2,2,1.0,1,10,30,1.006,31.6,4855.0
-5adf37a95542995ec70e8f97,bridge,hard,span,1838,1838,1.0,1.0,1,2,2,1.0,3,15,20,1.936,7.0,4976.3
-5abd259d55429924427fcf1a,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,10,51,2.212,2.4,4844.2
-5a828c8355429966c78a6a50,bridge,hard,span,Henry J. Kaiser,"Kaiser Ventures corporation was founded by Henry J. Kaiser, who became known as the father of modern American shipbuilding.",0.0,0.2857,1,3,3,1.0,2,14,37,1.737,25.5,4888.2
-5a8a3e745542996c9b8d5e70,bridge,hard,span,Arena of Khazan,Arena of Khazan is a 1979 role-playing game adventure for Tunnels & Trolls.,0.0,0.4286,1,2,2,1.0,1,10,27,0.997,29.6,4848.7
-5ac23ff0554299636651994d,bridge,hard,span,2000,2000,1.0,1.0,1,2,2,1.0,2,13,40,2.031,8.0,4854.4
-5ae4a3265542995ad6573de5,comparison,hard,span,"Fujioka, Gunma","Buck-Tick hails from Fujioka, Gunma, Japan.",0.0,0.5,1,2,2,1.0,1,10,17,0.727,25.6,4792.5
-5ae0361155429925eb1afc2c,bridge,hard,span,Charles Eugène,Charles Nungesser and François Coli flew L'Oiseau Blanc.,0.0,0.2,0,2,1,0.5,1,10,18,0.859,22.6,4933.1
-5abc0a5d5542993f40c73c64,comparison,hard,yesno,no,yes,0.0,0.0,1,2,2,1.0,3,19,23,2.123,1.5,4989.4
-5a7cc50e554299452d57ba3e,comparison,hard,span,Letters to Cleo,Screaming Trees,0.0,0.0,0,4,2,0.5,3,11,37,2.048,7.5,4881.6
-5abf63f15542997ec76fd3ea,bridge,hard,span,October 1922,October 1922,1.0,1.0,1,2,2,1.0,2,15,26,2.31,8.1,4957.7
-5a8ef2a75542995a26add583,bridge,hard,span,2000,2000,1.0,1.0,1,2,2,1.0,2,14,34,2.303,6.0,4856.9
-5a80721b554299485f5985ef,bridge,hard,span,World War II,World War II,1.0,1.0,1,2,2,1.0,2,12,43,2.11,6.2,4861.8
-5ab51dae5542991779162d82,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,13,17,2.117,1.5,4904.9
-5a7571135542992d0ec05f98,bridge,hard,span,New York City,New York City,1.0,1.0,1,2,2,1.0,2,13,14,1.325,9.9,4898.9
-5a7a0e1e5542990783324e1a,comparison,hard,span,Scotch Collie,Manchester Terrier,0.0,0.0,1,3,3,1.0,3,14,33,2.002,5.6,4850.6
-5a74106b55429979e288289e,bridge,hard,span,Mumbai,Mumbai,1.0,1.0,1,2,2,1.0,2,16,22,1.832,3.8,4861.5
-5a79311755429970f5fffe67,bridge,hard,span,1962,1962,1.0,1.0,1,2,2,1.0,3,19,30,2.41,5.1,4945.4
-5ab2d3df554299194fa9352c,bridge,hard,span,sovereignty,Ethiopian sovereignty,0.0,0.6667,0,2,1,0.5,1,10,5,0.809,7.4,4831.3
-5a760ab65542994ccc918697,bridge,hard,span,Nelson Rockefeller,Nelson Rockefeller,1.0,1.0,0,3,2,0.6667,2,15,29,2.603,4.1,4937.2
-5a7d54165542995f4f402256,bridge,hard,span,Yellowcraig,Yellowcraig,1.0,1.0,0,4,3,0.75,3,12,28,2.076,5.3,4867.5
-5ab859a955429934fafe6d7b,bridge,hard,span,Phil Spector,Phil Spector,1.0,1.0,1,3,3,1.0,2,16,21,1.619,7.9,4962.4
-5add61d65542995b365fab21,bridge,hard,span,Organizations could come together to address global issues,"The World Summit of Nobel Peace Laureates was initiated by Mikhail Gorbachev, a former Soviet statesman.",0.0,0.0,1,2,2,1.0,1,10,26,1.168,26.0,4829.2
-5a8e068b5542995085b37384,comparison,hard,yesno,yes,"Yes, Ferocactus and Silene are both types of plant.",0.0,0.0,1,2,2,1.0,1,10,17,0.756,24.7,4818.1
-5abbf698554299114383a0b5,bridge,hard,span,English Electric Canberra,The English Electric Canberra was used in the South West Pacific theatre of World War II.,0.0,0.3529,1,2,2,1.0,1,10,20,0.801,26.7,4817.9
-5a8e1027554299653c1aa15f,bridge,hard,span,2009 Big 12 Conference,2009 Big 12 Conference,1.0,1.0,1,3,3,1.0,3,16,55,2.622,11.7,4969.7
-5ab84bf555429916710eb01f,bridge,hard,span,"1,462","1,462",1.0,1.0,0,2,1,0.5,3,14,48,2.339,8.5,4902.1
-5a77724455429972597f153e,bridge,hard,span,Indianapolis Motor Speedway,Indianapolis Motor Speedway,1.0,1.0,1,2,2,1.0,3,17,23,2.33,5.4,4905.7
-5a87c13f5542996e4f30890c,bridge,hard,span,Rome,Turin,0.0,0.0,0,2,1,0.5,3,14,55,2.819,2.9,4918.2
-5ab96ab755429970cfb8eacd,bridge,hard,span,"Max Martin, Savan Kotecha and Ilya Salmanzadeh",Starsmith,0.0,0.0,0,4,2,0.5,3,12,34,2.006,4.0,4861.8
-5a8a43eb5542996c9b8d5e82,bridge,hard,span,"Marion, South Australia",Adelaide,0.0,0.0,0,4,2,0.5,1,10,37,1.685,3.9,4870.3
-5ae73acb5542991e8301cc07,bridge,hard,span,Drifting,Car drifting,0.0,0.6667,1,2,2,1.0,2,14,20,1.889,3.5,4876.6
-5a7320565542991f9a20c61d,bridge,hard,span,Keith Bostic,Keith Bostic is younger than Jerry Glanville.,0.0,0.4444,1,2,2,1.0,2,16,23,1.362,20.7,4883.1
-5ae32e125542991a06ce9946,bridge,hard,span,"35,124","6,825",0.0,0.0,0,2,1,0.5,3,15,42,2.512,7.2,4976.3
-5adc53f75542996e6852530a,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,3,13,31,2.292,1.7,4933.1
-5a8b20335542996c9b8d5fb3,bridge,hard,span,shortest player ever to play in the National Basketball Association,Alonzo Mourning,0.0,0.0,0,3,1,0.3333,2,12,65,2.611,8.8,4883.1
-5a85fb085542994775f606de,bridge,hard,span,Ronald Shusett,Shusett,0.0,0.6667,0,3,2,0.6667,2,12,37,2.055,5.9,4856.4
-5a7be2595542997c3ec972ac,comparison,hard,span,Adeline Virginia Woolf,Virginia Woolf,0.0,0.8,1,2,2,1.0,3,14,16,1.791,5.6,4852.8
-5a77152355429966f1a36c2e,bridge,hard,span,821,19800,0.0,0.0,1,3,3,1.0,2,13,37,1.813,10.8,4839.6
-5a8f4c8d554299458435d5a3,bridge,hard,span,more than 70 countries,70,0.0,0.4,1,2,2,1.0,3,15,28,2.078,3.6,4872.5
-5a80840f554299485f59863b,bridge,hard,span,Charmed,Charmed,1.0,1.0,1,3,3,1.0,3,15,31,2.329,3.0,4861.0
-5a8361b65542992ef85e22a0,bridge,hard,span,International Boxing Hall of Fame,International Boxing Hall of Fame,1.0,1.0,1,2,2,1.0,3,13,36,4.709,3.4,5258.6
-5ae7ba7a5542993210983f12,bridge,hard,span,Usher,Usher,1.0,1.0,1,2,2,1.0,2,14,44,2.7,3.0,4898.5
-5ac2acff55429921a00ab02b,bridge,hard,span,Bill Murray,Dwight's nephew,0.0,0.0,0,2,1,0.5,3,14,41,2.087,9.0,4880.1
-5aba7cfe554299232ef4a2fd,bridge,hard,span,Carabao Cup,Carabao Cup,1.0,1.0,1,2,2,1.0,2,15,36,2.479,5.5,4950.1
-5ae5aba0554299546bf82f17,bridge,hard,span,Teen Titans Go!,Teen Titans,0.0,0.8,1,2,2,1.0,2,17,19,1.435,7.9,4965.2
-5ae1f4cb554299234fd0436d,bridge,hard,span,"276,170 inhabitants","276,170",0.0,0.6667,1,2,2,1.0,3,16,33,2.236,10.6,4970.3
-5ae7e1fc55429952e35ea9cc,bridge,hard,span,orange,"People of the Netherlands wear orange clothing such as T-shirts, caps, and scarfs during Oranjegekte or to celebrate the national holiday Koningsdag.",0.0,0.0952,1,2,2,1.0,1,10,35,1.165,33.0,4830.9
-5ae37c765542992f92d822d4,bridge,hard,span,Tromeo and Juliet,Tromeo and Juliet,1.0,1.0,0,2,1,0.5,1,10,36,1.747,8.1,4895.4
-5ae33c4d5542992f92d82262,bridge,hard,span,William Jefferson Clinton,Bill Clinton,0.0,0.4,1,3,3,1.0,2,13,38,2.349,3.4,4908.1
-5a77cb335542997042120b3a,bridge,hard,span,John John Florence,"John ""John"" Alexander Florence",0.0,0.8571,0,4,3,0.75,3,13,54,2.853,8.1,4967.8
-5a8979f4554299669944a52e,bridge,hard,span,Ann,Hussein,0.0,0.0,1,2,2,1.0,3,14,25,2.299,4.6,4967.1
-5a713ea95542994082a3e6e4,bridge,hard,span,Apalachees,The Ais native population.,0.0,0.0,0,3,2,0.6667,1,10,9,0.701,14.4,4813.1
-5a78bd9b554299078472774a,bridge,hard,span,British,Alfred Gell and Edmund Leach were both British.,0.0,0.2222,1,2,2,1.0,1,10,14,0.798,19.2,4839.3
-5a7625e8554299109176e66a,bridge,hard,span,1865,1865,1.0,1.0,1,2,2,1.0,2,15,20,2.243,5.3,4913.9
-5ae2dd2055429928c423950d,bridge,hard,span,Newport,Lempster is the county seat of Sullivan County.,0.0,0.0,1,2,2,1.0,2,13,28,1.482,19.6,4884.0
-5abdf12255429976d4830a2f,bridge,hard,span,Bob Seger,Bob Seger,1.0,1.0,1,2,2,1.0,2,14,17,1.309,9.5,4898.9
-5a88658955429938390d3f47,bridge,hard,span,Conscription,requiring only men to register for the draft,0.0,0.0,1,3,3,1.0,3,15,33,2.287,12.7,4922.2
-5a86ebac55429960ec39b6d6,bridge,hard,span,"Mondelez International, Inc.",Mondelez International,0.0,0.8,1,2,2,1.0,1,10,7,0.659,11.7,4859.4
-5aba5d2e55429901930fa799,bridge,hard,span,Monica Lewinsky,Monica Lewinsky,1.0,1.0,1,3,3,1.0,3,12,53,2.83,5.9,4972.2
-5ae5736e5542990ba0bbb2b3,bridge,hard,span,"April 1, 1949","April 1, 1949",1.0,1.0,1,2,2,1.0,2,13,25,2.264,11.9,4978.5
-5ae005b555429942ec259bec,bridge,hard,span,1866,1866,1.0,1.0,1,2,2,1.0,3,15,40,2.428,5.8,4852.1
-5a7759fc5542993569682d60,comparison,hard,span,"Canary Islands, Spain","Teide National Park is located in Tenerife (Canary Islands, Spain), and Garajonay National Park is located in the center and north of the island of La Gomera, one of the Canary Islands (Spain).",0.0,0.1818,1,2,2,1.0,1,10,51,1.355,39.0,4798.8
-5a835478554299123d8c20ed,bridge,hard,span,250 million,250 million,1.0,1.0,1,2,2,1.0,2,11,40,2.174,7.3,4838.8
-5aba749055429901930fa7d8,comparison,hard,span,director,director,1.0,1.0,1,2,2,1.0,2,10,41,2.137,2.1,4830.6
-5abfb3425542990832d3a1c0,bridge,hard,span,The Conversation,The Conversation,1.0,1.0,1,2,2,1.0,1,10,5,0.608,9.3,4805.8
-5ac3165c5542995ef918c10a,bridge,hard,span,John Waters,no,0.0,0.0,1,3,3,1.0,2,11,39,2.135,2.1,4858.8
-5ae53b545542990ba0bbb23c,bridge,hard,span,Las Vegas Strip in Paradise,Las Vegas Strip,0.0,0.75,0,4,3,0.75,2,12,25,1.853,5.9,4874.0
-5ae224da554299234fd043ee,comparison,hard,yesno,no,no,1.0,1.0,0,2,1,0.5,2,12,23,2.014,1.9,4883.4
-5ae2b770554299495565db0f,bridge,hard,span,March and April,June,0.0,0.0,1,4,4,1.0,3,16,36,2.205,1.7,4937.2
-5a80b3a9554299485f5986cc,bridge,hard,span,Fairfax County,Fairfax County,1.0,1.0,0,2,1,0.5,1,10,5,0.635,8.7,4840.9
-5a8e0a005542995085b373a1,bridge,hard,span,IT products and services,IT products and services,1.0,1.0,1,2,2,1.0,3,15,25,2.281,5.5,4873.2
-5ac1b8ee5542994d76dccedc,comparison,hard,span,Levni Yilmaz,Lev Yilmaz,0.0,0.5,1,2,2,1.0,3,16,22,2.69,6.9,4898.9
-5adccd795542990d50227d2c,bridge,hard,span,Beijing,Rabat,0.0,0.0,1,3,3,1.0,2,15,16,1.613,6.6,4976.8
-5a84c4135542994c784dda31,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,3,11,24,1.801,2.2,4867.5
-5a85eed75542996432c5713b,bridge,hard,span,"Coahuila, Mexico",The descendants of the Black Seminoles settled in Oklahoma and Florida.,0.0,0.0,0,2,1,0.5,1,10,17,0.745,24.8,4817.3
-5a774e9c55429972597f14f3,bridge,hard,span,Larnelle Harris,yes,0.0,0.0,1,2,2,1.0,2,12,31,2.11,1.9,4931.5
-5ae738f75542991bbc9761c4,bridge,hard,span,2003,1999,0.0,0.0,1,4,4,1.0,3,14,33,1.938,7.9,4882.5
-5ac32b565542995ef918c154,bridge,hard,span,North Avenue at Techwood Drive,"The stadium at which the 1964 Georgia Tech Yellow Jackets football team played their home games is located at the corner of North Avenue at Techwood Drive on the campus of the Georgia Institute of Technology in Atlanta, Georgia.",0.0,0.2564,1,2,2,1.0,1,10,49,1.284,39.8,4861.8
-5abc8d75554299700f9d7900,bridge,hard,span,Leo Varadkar,Leo Eric Varadkar,0.0,0.8,1,2,2,1.0,2,12,45,3.081,5.8,5038.6
-5a8bb29b554299240d9c2089,bridge,hard,span,George Raft,George Raft,1.0,1.0,0,2,1,0.5,2,11,33,1.876,6.7,4861.8
-5ab659e355429954757d324e,bridge,hard,span,1887,1887,1.0,1.0,1,2,2,1.0,3,13,32,1.964,7.3,4886.2
-5a8b8b3155429949d91db5d7,bridge,hard,span,business,valuation,0.0,0.0,1,2,2,1.0,2,10,29,1.63,2.6,4867.4
-5ae7eaf65542994a481bbe1d,bridge,hard,span,7 October 1978,1978,0.0,0.5,1,2,2,1.0,3,16,39,2.125,6.8,4949.7
-5a8c4c625542995e66a475a1,bridge,hard,span,B-17 Flying Fortress bomber,B-17 Flying Fortress,0.0,0.8571,1,2,2,1.0,3,14,40,2.2,9.6,4958.9
-5a818387554299260e20a291,bridge,hard,span,Blake Shelton,Blake Shelton,1.0,1.0,1,2,2,1.0,2,15,43,2.234,5.1,4949.1
-5ab978855542996be2020512,bridge,hard,span,three centuries,three,0.0,0.6667,0,4,3,0.75,3,17,28,2.204,1.7,4858.3
-5ae63dad55429929b0807afe,bridge,hard,span,7 January 1936,7 January 1936,1.0,1.0,1,2,2,1.0,1,10,11,0.717,17.4,4859.4
-5a7a455c5542994f819ef1a7,comparison,hard,span,George Archainbaud,"George Archainbaud died first. George Archainbaud died on February 20, 1959, while Ralph Murphy died on February 10, 1967.",0.0,0.1905,1,2,2,1.0,2,15,53,1.996,33.5,4886.8
-5a7dcc775542990b8f503ab5,bridge,hard,span,picric acid,Picric acid,1.0,1.0,0,3,2,0.6667,1,10,6,0.561,12.3,4817.9
-5a887bc0554299206df2b2b6,bridge,hard,span,230,16,0.0,0.0,1,2,2,1.0,3,15,31,1.931,3.8,4882.4
-5a83880e554299123d8c214e,bridge,hard,span,Marvel,Ghost Rider,0.0,0.0,1,4,4,1.0,2,14,32,1.958,4.0,4874.0
-5a879adb5542996e4f30887f,bridge,hard,span,United States Senator,no,0.0,0.0,0,2,1,0.5,3,13,34,2.567,1.4,4886.8
-5add11935542994734353827,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,16,21,2.196,1.6,4879.0
-5a8c5569554299240d9c2126,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,3,13,39,2.058,2.2,4882.3
-5a75f0ea5542994ccc91866c,bridge,hard,span,The A41,A41,1.0,1.0,1,2,2,1.0,2,11,21,1.699,6.5,4836.4
-5a89f5815542993b751ca9c5,bridge,hard,span,Princess Jessica,Princess Jessica,1.0,1.0,1,2,2,1.0,1,10,5,0.596,9.3,4880.1
-5a8d5fc6554299585d9e37c6,bridge,hard,span,The Spiderwick Chronicles,The Spiderwick Chronicles,1.0,1.0,1,3,3,1.0,3,12,35,2.271,6.1,4933.1
-5ac120c55542992a796dedfc,bridge,hard,span,KKR & Co,Kohlberg Kravis Roberts & Co.,0.0,0.3333,0,3,2,0.6667,1,10,12,0.744,18.5,4799.4
-5ab7c1a955429928e1fe38c8,bridge,hard,span,The Bye Bye Man,Bottom of the World,0.0,0.0,1,3,3,1.0,2,14,48,2.572,6.1,4881.7
-5abd01205542992ac4f3819b,bridge,hard,span,Richmond,Richmond River,0.0,0.6667,1,2,2,1.0,2,15,17,1.304,8.0,4919.8
-5ab69c25554299110f219a39,bridge,hard,span,Owsley Stanley,"Owsley Stanley recorded the album ""Old and in the Way.""",0.0,0.4,1,3,3,1.0,1,10,17,0.897,20.6,4956.8
-5a7b12a355429927d897bf2a,bridge,hard,span,the late 12th Century,late 12th Century,1.0,1.0,1,2,2,1.0,2,16,26,2.355,7.7,4976.1
-5ae0006755429925eb1afbd3,bridge,hard,span,"San Luis Obispo, California","San Luis Obispo, California",1.0,1.0,1,3,3,1.0,1,10,10,0.702,16.1,4846.6
-5ae305df5542992decbdcdc3,bridge,hard,span,Mercedes-Benz Superdome,University of Phoenix Stadium,0.0,0.0,1,2,2,1.0,3,15,46,2.437,6.2,4942.9
-5a8574945542997b5ce3fffb,comparison,hard,span,LaLee's Kin: The Legacy of Cotton,"Gimme Shelter, the 1970 Rolling Stones documentary.",0.0,0.0,0,3,2,0.6667,1,10,17,0.83,21.8,4848.2
-5a7332935542991f9a20c67d,comparison,hard,span,Pirate's Cove,Pirate's Cove,1.0,1.0,1,2,2,1.0,3,16,28,2.223,6.1,4951.8
-5a80071f5542992bc0c4a684,bridge,hard,span,Crystal Dynamics,no,0.0,0.0,1,2,2,1.0,2,12,31,2.094,1.9,4919.0
-5ae73c065542991e8301cc18,bridge,hard,span,"""The Marshall Mathers LP 2""",The Marshall Mathers LP 2,1.0,1.0,1,2,2,1.0,3,16,33,2.258,10.3,4958.1
-5a87d8215542994775f60800,bridge,hard,span,Suicide Squad,Training Day,0.0,0.0,1,4,4,1.0,2,12,66,2.677,3.6,4879.7
-5ac2ffbd554299677310267b,bridge,hard,span,Jillian Belk,Jillian Leigh Bell,0.0,0.4,1,2,2,1.0,2,14,32,2.735,4.8,4902.1
-5a7c960655429935c91b5244,bridge,hard,span,Texas Tech University,Texas Tech University,1.0,1.0,1,2,2,1.0,1,10,6,0.762,9.1,4832.9
-5a7d61775542991319bc93b9,bridge,hard,span,Lord Combermere,He,0.0,0.0,0,2,1,0.5,2,11,39,2.427,1.7,4883.8
-5ac1c6805542994ab5c67e11,bridge,hard,span,"seasonal television specials, particularly its work in stop motion animation","Rankin/Bass Productions is best known for its seasonal television specials, particularly its work in stop motion animation.",0.0,0.7407,1,2,2,1.0,1,10,25,1.143,25.3,4870.3
-5a7a230e5542996a35c170ee,bridge,hard,span,2014,2007,0.0,0.0,0,3,1,0.3333,3,14,35,2.328,6.2,4867.6
-5ae4627d5542991a06ce9a4d,bridge,hard,span,Oxford,Oxford University,0.0,0.6667,1,3,3,1.0,3,18,22,2.274,4.3,4953.7
-5ac2d1d755429921a00ab053,comparison,hard,span,Roberta Vinci,Roberta Vinci,1.0,1.0,1,3,3,1.0,3,18,24,2.252,4.1,4874.6
-5ab4e3065542990594ba9cb4,bridge,hard,span,"""Teach the Controversy"" campaign",Teach the Controversy,0.0,0.8,1,2,2,1.0,3,14,37,2.334,9.4,4921.2
-5ac298f9554299657fa28fc9,comparison,hard,span,Lostprophets disbanded in 2013 after Watkins was charged with sexual offences in late 2012.,Ian Watkins,0.0,0.125,1,2,2,1.0,3,14,21,2.003,3.5,4892.2
-5ab6a2be554299710c8d1f08,bridge,hard,span,Nebo Zovyot,Mechte Navstrechu,0.0,0.0,1,2,2,1.0,2,12,45,2.315,8.8,4904.1
-5a738d27554299623ed4abf3,bridge,hard,span,Erika Jayne,Erika Jayne,1.0,1.0,1,2,2,1.0,2,18,20,2.419,4.8,4956.9
-5ab2a186554299295394677b,bridge,hard,span,2009,2009,1.0,1.0,1,2,2,1.0,2,16,28,2.12,6.6,4902.1
-5a8704f8554299211dda2ba4,bridge,hard,span,Kingdom of the Isles,The Kingdom of the Isles,1.0,1.0,1,3,3,1.0,2,16,34,1.771,10.4,4861.4
-5ab5ed505542997d4ad1f255,bridge,hard,span,The Beatles,"Bruce Spizer is an expert on The Beatles, who are known as one of the most influential acts of the rock era.",0.0,0.1053,1,2,2,1.0,1,10,28,1.173,26.1,4906.0
-5a77c1505542997042120b1b,bridge,hard,span,"""We'll Burn That Bridge""",Chattahoochee,0.0,0.0,0,3,2,0.6667,2,10,75,3.101,8.3,4931.5
-5a88d745554299206df2b378,comparison,hard,span,director,director,1.0,1.0,1,2,2,1.0,2,10,31,2.075,2.0,4865.1
-5ae748d1554299572ea547b0,bridge,hard,span,1901,1901,1.0,1.0,1,3,3,1.0,2,16,22,2.083,6.5,4954.3
-5a7a8a9c554299042af8f666,bridge,hard,span,Argand lamp,Argand lamp,1.0,1.0,1,2,2,1.0,2,12,31,2.01,5.7,4861.8
-5adffe7155429906c02daa9e,bridge,hard,span,seven,7,0.0,0.0,1,2,2,1.0,2,16,37,2.516,1.4,4888.4
-5ab642845542995eadeeff8e,comparison,hard,yesno,yes,"Yes, both Broughtonia and Laeliocattleya are orchids.",0.0,0.0,1,2,2,1.0,1,10,20,0.981,23.0,4854.3
-5a906a685542990a9849362e,bridge,hard,span,Brazil,Brazil,1.0,1.0,1,2,2,1.0,2,15,19,1.504,6.0,4856.3
-5a7633ad5542992db9473741,comparison,hard,span,The Seven Days Battles,Seven Days Battles,1.0,1.0,1,2,2,1.0,2,16,25,2.374,4.2,4939.9
-5a74ce9655429974ef308c6c,bridge,hard,span,Lush Ltd.,Lush Ltd.,1.0,1.0,1,2,2,1.0,3,15,31,1.904,8.1,4831.8
-5a713a5a5542994082a3e6a9,bridge,hard,span,Manchester United,Manchester United Football Club plays in the area between the old toll gates: Brook's Bar and Trafford Bar.,0.0,0.2222,1,3,3,1.0,1,10,24,0.935,27.7,4840.9
-5ab341f755429969a97a8114,bridge,hard,span,1989,"The song ""Chim Chim Cher-ee"" can be heard in the ""Mary Poppins"" scene of The Great Movie Ride at Disney's Hollywood Studios, which debuted in 1989.",0.0,0.0833,1,2,2,1.0,2,13,59,2.023,35.5,4881.7
-5a8325b35542990548d0b18f,bridge,hard,span,Kathryn Jean Martin,"Dorothy Tangney held the record for the longest service in the Australian Parliament for a woman, which was surpassed by Bronwyn Kathleen Bishop, the 29th Speaker of the House of Representatives.",0.0,0.0,0,2,1,0.5,2,13,64,2.261,32.1,4928.3
-5ab9374b554299131ca422c6,bridge,hard,span,Frank Lowy,"Sir Frank P. Lowy was born on October 22, 1930.",0.0,0.3333,1,2,2,1.0,2,18,39,1.954,20.5,4943.0
-5ae52c0f5542992663a4f12e,bridge,hard,span,Las Vegas,Las Vegas,1.0,1.0,0,2,1,0.5,1,10,5,0.677,8.7,4851.2
-5adbfbd555429947ff173893,bridge,hard,span,Kelly Lee Osbourne,Rosie O'Donnell,0.0,0.0,0,3,2,0.6667,2,12,34,2.06,10.3,4858.8
-5ab7f0015542992aa3b8c88b,bridge,hard,span,Sean Yseult.,No,0.0,0.0,1,2,2,1.0,2,12,33,2.046,2.0,4869.7
-5ac547525542993e66e822a3,bridge,hard,span,Prescription Drug User Fee Act,approximately $700 million,0.0,0.0,0,4,2,0.5,3,14,55,3.073,7.6,4950.1
-5a7cbf8c554299452d57b9f4,comparison,hard,span,Dinosaur,Dinosaur,1.0,1.0,1,2,2,1.0,3,14,25,2.109,3.3,4877.3
-5a7ddc5a5542995f4f4022da,bridge,hard,span,Wichita,Wichita,1.0,1.0,1,3,3,1.0,1,10,4,0.576,7.7,4844.2
-5a7a1cd85542990783324e65,bridge,hard,span,United States presidential election of 2016,The United States presidential election of 2016 was the 58th quadrennial American presidential election held after the 2016 Michigan Democratic primary.,0.0,0.5,1,2,2,1.0,1,10,39,1.124,36.5,4835.1
-5ae0a59a55429945ae9593e2,bridge,hard,span,Roman,Togodumnus ruled southeastern Britain prior to the Roman conquest.,0.0,0.2222,1,2,2,1.0,3,13,48,2.466,17.1,4864.1
-5a8b987f5542997f31a41d7a,bridge,hard,span,C. W. Grafton,C. W. Grafton,1.0,1.0,1,2,2,1.0,3,15,39,2.203,10.4,4897.6
-5a8739a05542994775f607ab,bridge,hard,span,"Brooklyn, New York","Brooklyn, New York",1.0,1.0,0,3,2,0.6667,2,12,41,2.221,9.2,4872.7
-5ae67dba55429908198fa5f0,bridge,hard,span,"48,982","10,176",0.0,0.0,1,4,4,1.0,3,19,32,2.022,9.4,4969.2
-5a7b3f4d5542992d025e67bb,bridge,hard,span,Pasek & Paul,Pasek and Paul,0.0,0.8,1,4,4,1.0,3,18,36,2.212,7.8,4935.0
-5ae2dfd155429928c423951b,bridge,hard,span,City of Newcastle,Newcastle,0.0,0.5,0,2,1,0.5,2,11,44,2.102,4.5,4861.2
-5ab6ba245542995eadef007f,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,11,37,2.062,2.1,4884.9
-5ab8854555429934fafe6e0c,bridge,hard,span,drawings,drawings,1.0,1.0,1,4,4,1.0,3,15,30,2.232,3.1,4917.7
-5a8eea4a5542990e94052bb7,bridge,hard,span,between the 8th and 16th centuries,8th century,0.0,0.2857,1,2,2,1.0,3,20,34,2.693,3.5,5014.8
-5a74c85055429916b0164218,bridge,hard,span,Alistair Grant,Sir Matthew Alistair Grant,0.0,0.6667,1,2,2,1.0,2,11,52,2.247,11.4,4858.8
-5a88dcf9554299206df2b383,bridge,hard,span,Scotland,Scotland,1.0,1.0,1,2,2,1.0,1,10,4,0.507,9.1,4882.2
-5a7625c7554299109176e668,bridge,hard,span,Comedy Film Nerds,The Nerdist Podcast,0.0,0.0,0,3,2,0.6667,2,11,48,2.241,7.6,4883.4
-5ac0d83a554299294b219038,bridge,hard,span,Summerlin,Las Vegas,0.0,0.0,1,2,2,1.0,3,17,27,1.942,3.8,4874.4
-5a790d8f554299029c4b5eec,bridge,hard,span,George Harrison,George Harrison,1.0,1.0,1,2,2,1.0,2,11,28,1.826,4.3,4833.3
-5ab2c5e255429916697740ba,bridge,hard,span,Canadian professional ice hockey centre,centre,0.0,0.3333,1,2,2,1.0,2,15,29,2.427,1.5,4914.4
-5abcfc365542993a06baf9d6,bridge,hard,span,1952,1952,1.0,1.0,0,3,2,0.6667,2,19,26,2.139,6.2,4864.1
-5a8ee6915542990e94052bad,bridge,hard,span,third,third,1.0,1.0,1,4,4,1.0,3,17,36,2.421,1.6,4898.9
-5abba4855542993f40c73b68,bridge,hard,span,Mark Neveldine and Brian Taylor,Mark Neveldine and Brian Taylor,1.0,1.0,1,2,2,1.0,3,20,39,2.531,8.3,4984.1
-5ae0bae555429906c02dab08,bridge,hard,span,Hidden America with Jonah Ray,Hidden America with Jonah Ray,1.0,1.0,0,3,2,0.6667,2,14,31,2.333,6.7,4944.8
-5ab271fe554299449642c8a6,comparison,hard,yesno,no,yes,0.0,0.0,1,2,2,1.0,2,11,35,2.608,1.7,4869.1
-5a7997a2554299029c4b5f59,bridge,hard,span,1943,1943,1.0,1.0,1,2,2,1.0,3,14,31,2.855,4.9,4952.6
-5add673e5542992ae4cec54d,bridge,hard,span,Oregon Ducks football,no,0.0,0.0,0,4,2,0.5,2,11,31,2.169,1.9,4912.8
-5ae819ac55429952e35eaa16,bridge,hard,span,National Broadcasting Company,NBC,0.0,0.0,1,2,2,1.0,3,18,35,2.251,1.6,4972.8
-5aba65a055429939ce03dcd2,bridge,hard,span,North African Arab,Arab,0.0,0.5,1,2,2,1.0,2,15,26,2.248,3.2,4874.6
-5a87bada5542994846c1cddc,bridge,hard,span,Murray Hill,Murray Hill,1.0,1.0,1,3,3,1.0,2,14,27,1.991,5.6,4914.4
-5ae74fc45542997b22f6a6b4,bridge,hard,span,severe acute respiratory syndrome,Severe acute respiratory syndrome,1.0,1.0,1,2,2,1.0,2,11,47,2.163,10.2,4858.8
-5adf65555542992d7e9f9334,bridge,hard,span,Wendell Berry,Jonathan Greene,0.0,0.0,1,2,2,1.0,3,20,36,2.583,2.7,4977.5
-5ade69e455429975fa854ec5,bridge,hard,span,Tinu Suresh Desai,Vikram Bhatt,0.0,0.0,0,5,4,0.8,3,12,48,2.402,8.2,4940.2
-5ae057fd55429945ae959328,bridge,hard,span,"Golden Valley, Minnesota,",no,0.0,0.0,0,2,1,0.5,2,13,23,1.672,2.3,4835.8
-5ab28019554299722f9b4d51,bridge,hard,span,$10.5 million,10.5 million (USD 8 million),0.0,0.5714,1,2,2,1.0,3,15,58,2.621,14.8,4974.1
-5a75f79555429976ec32bcca,bridge,hard,span,1999 Odisha cyclone,The 1999 Odisha cyclone,1.0,1.0,1,2,2,1.0,3,15,46,2.603,12.5,4881.1
-5adef80b5542993a75d263c4,bridge,hard,span,Crackle,Crackle,1.0,1.0,1,2,2,1.0,2,12,32,1.943,4.1,4877.6
-5ae0aaf455429945ae959401,bridge,hard,span,Salford City Football Club,Salford City,0.0,0.6667,1,2,2,1.0,1,10,7,0.635,12.1,4864.5
-5ab47d765542991751b4d78f,bridge,hard,span,architect Michael Graves,Michael Graves,0.0,0.8,1,2,2,1.0,2,14,24,2.424,2.9,4960.7
-5a7ed2c655429930675135e5,bridge,hard,span,multiple awards,awards nomination,0.0,0.5,1,2,2,1.0,3,13,65,2.772,4.5,4919.0
-5ac3e0f7554299194317388b,bridge,hard,span,Kevin Spacey,Kevin Spacey,1.0,1.0,1,2,2,1.0,3,16,29,2.337,4.5,4963.0
-5a7bae20554299294a54aa96,bridge,hard,span,Ryan Seacrest,"Nicki Minaj is a judge on American Idol, which is hosted by Randy Jackson, Mariah Carey, Nicki Minaj, and Keith Urban.",0.0,0.0,1,2,2,1.0,3,16,59,2.644,29.5,4919.0
-5ab8ee035542991b5579f04b,comparison,hard,yesno,yes,no,0.0,0.0,1,2,2,1.0,2,16,29,2.014,1.9,4897.6
-5a7a276d5542996c55b2dd27,bridge,hard,span,Colonel Charles Hastings Judd,Colonel Charles Hastings Judd,1.0,1.0,1,3,3,1.0,2,12,52,2.46,10.1,4919.8
-5a717d4c5542994082a3e854,comparison,hard,span,Pavel Sergeyevich Alexandrov,Pavel Alexandrov,0.0,0.8,1,3,3,1.0,2,12,28,1.577,9.4,4928.3
-5ac02e31554299294b218f3f,bridge,hard,span,Gal Gadot,Gadot,0.0,0.6667,0,4,2,0.5,2,10,41,2.02,6.8,4887.6
-5a79ea435542996c55b2dc9e,bridge,hard,span,Rear Adm. J. Edward Snyder,"(October 23, 1924 – November 4, 2007) was the captain of the battleship USS ""New Jersey"" during that ship's deployment to the Vietnam War in 1968, and ""New Jersey"" was the only US battleship providing gunfire support during the Vietnam War.",0.0,0.0,0,2,1,0.5,2,15,88,2.821,37.4,4955.3
-5ab7e4dc5542995dae37e9df,bridge,hard,span,Jackson Storm,Jackson Storm,1.0,1.0,1,2,2,1.0,2,14,24,2.245,3.1,4902.1
-5a834ed95542990548d0b1ca,comparison,hard,span,712 5th Avenue,712 Fifth Avenue,0.0,0.6667,1,2,2,1.0,2,10,35,2.097,9.2,4859.1
-5ab41d855542996a3a969f4b,bridge,hard,span,right-hand,right-hand,1.0,1.0,1,2,2,1.0,3,16,38,2.267,3.3,4958.1
-5a7b7ff75542995eb53be93d,comparison,hard,span,Arthur Ignatius Conan Doyle,Arthur Conan Doyle,0.0,0.8571,1,2,2,1.0,2,14,23,1.884,5.4,4897.6
-5a7d19d85542995ed0d165e8,bridge,hard,span,"Birmingham, Alabama",Birmingham,0.0,0.6667,1,2,2,1.0,3,18,17,1.977,3.3,4847.3
-5ae7ed17554299540e5a56a3,bridge,hard,span,44,126,0.0,0.0,1,2,2,1.0,2,12,23,1.868,5.9,4866.2
-5ab2659e554299340b5254b2,bridge,hard,span,the Parthian Empire,the Parthian Empire,1.0,1.0,1,2,2,1.0,1,10,8,0.691,12.4,4874.4
-5abd2eab5542992ac4f38210,bridge,hard,span,Erinsborough,Erinsborough,1.0,1.0,1,3,3,1.0,1,10,6,0.536,12.6,4883.6
-5abaf3195542996cc5e49f2c,bridge,hard,span,Samoa,Samoa,1.0,1.0,1,2,2,1.0,3,19,19,2.309,2.7,4948.5
-5a791a97554299148911f9f2,bridge,hard,span,"Kimberly Couger ""Kimmy"" Schmidt","Elizabeth Claire Kemper is known for playing the character Kimmy Schmidt in the Netflix series ""Unbreakable Kimmy Schmidt"".",0.0,0.2,1,3,3,1.0,1,10,28,0.981,30.4,4817.9
-5adf58f15542993a75d264d2,bridge,hard,span,"""The Comic Strip Presents...""",The Young Ones,0.0,0.0,0,4,1,0.25,2,10,31,2.082,5.6,4837.9
-5adc65e85542996e68525350,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,11,23,1.758,2.2,4867.1
-5a87ab9b5542996e4f3088c2,bridge,hard,span,nineteenth,19th century,0.0,0.0,1,2,2,1.0,2,13,34,2.821,4.8,4945.8
-5a738fe855429908901be2fb,bridge,hard,span,Awake,Awake,1.0,1.0,1,2,2,1.0,3,13,37,2.078,4.2,4886.9
-5a8c65a1554299585d9e3680,bridge,hard,span,French Canadians,French Canadians,1.0,1.0,1,2,2,1.0,1,10,5,0.654,8.9,4884.9
-5ac2bbd0554299218029db09,bridge,hard,span,American,American,1.0,1.0,1,2,2,1.0,2,16,11,2.12,1.5,4915.1
-5adf3e355542993a75d26440,bridge,hard,span,8 km,"The bridge in the Öresund Region that connects Copenhagen, Denmark and Malmö, Sweden is approximately 8 km long.",0.0,0.2222,1,3,3,1.0,2,15,37,1.98,24.2,4956.2
-5ae82ae555429952e35eaa71,bridge,hard,span,Rawhide,Rawhide,1.0,1.0,0,4,3,0.75,2,15,30,2.444,2.8,4962.4
-5ac289ff5542996366519a02,comparison,hard,span,Marsilea,Marsilea,1.0,1.0,1,2,2,1.0,2,15,32,2.033,7.2,4928.3
-5a7a5b3a5542996c55b2dd71,bridge,hard,span,Mark Masons' Hall,St James's Palace is opposite the ceremonial meeting place of the Accession Council in the United Kingdom.,0.0,0.0,0,5,4,0.8,1,10,23,0.92,27.0,4867.5
-5ab8688b55429934fafe6daa,bridge,hard,span,Starlite,"The material invented by the hairdresser from Yorkshire, England, that was named by his granddaughter is Starlite.",0.0,0.125,1,3,3,1.0,1,10,26,0.939,29.6,4869.7
-5a7a3a945542996a35c17147,bridge,hard,span,Hong Kong,Bank of China Tower,0.0,0.0,1,2,2,1.0,3,17,32,2.25,6.0,4979.0
-5ab9b29c554299743d22ebae,comparison,hard,span,Craig v. Boren,"United States v. Paramount Pictures, Inc. came first.",0.0,0.1818,1,2,2,1.0,1,10,15,1.278,12.9,5014.8
-5a8b63fa55429950cd6afcd7,bridge,hard,span,"""Queen City""","Bangor is known as the ""Queen City"" of Maine.",0.0,0.4,1,2,2,1.0,2,16,28,1.497,20.8,4890.9
-5ade51b45542997c77adedf4,bridge,hard,span,Arrowhead Stadium,Arrowhead Stadium,1.0,1.0,1,3,3,1.0,2,11,43,2.159,5.8,4859.4
-5ae4c49a5542995dadf24400,bridge,hard,span,acidic,"Cranberries, Cranberry bog",0.0,0.0,1,2,2,1.0,3,16,42,2.681,8.1,4969.6
-5a7d3470554299452d57bb56,bridge,hard,span,Compliance,The Plot,0.0,0.0,0,4,3,0.75,2,15,30,2.227,3.3,4974.9
-5ae4f2c75542993aec5ec0fb,bridge,hard,span,Logan International Airport,Logan International Airport,1.0,1.0,1,2,2,1.0,1,10,6,0.637,10.9,4837.1
-5ab1d7ac554299449642c7e6,comparison,hard,span,Ehretia,Ehretia,1.0,1.0,1,3,3,1.0,2,6,30,1.541,10.4,4734.7
-5a85cead5542991dd0999ea9,bridge,hard,span,a pinball machine,Frank Thomas' Big Hurt,0.0,0.0,1,2,2,1.0,2,16,19,1.674,9.4,4988.4
-5a73a7c755429978a71e9068,bridge,hard,span,Donna Paige Helmintoller,"Paige O'Hara recorded the song ""Something There"" for Beauty and the Beast.",0.0,0.1538,1,2,2,1.0,1,10,20,0.937,23.1,4928.8
-5a7f113d55429934daa2fcbe,bridge,hard,span,"Reginald Martinez ""Reggie"" Jackson",Jackson,0.0,0.4,0,4,2,0.5,2,11,53,2.199,2.3,4856.4
-5ae6828f5542996d980e7bb9,bridge,hard,span,Thomas Mawson,Thomas Mawson,1.0,1.0,1,3,3,1.0,1,10,7,0.642,12.2,4869.1
-5ab31864554299233954ff06,bridge,hard,span,strings,Sarod,0.0,0.0,0,3,1,0.3333,3,15,38,2.094,5.6,4855.0
-5abe239355429976d4830a7d,bridge,hard,span,Brad Silberling,Brad Silberling,1.0,1.0,1,3,3,1.0,2,17,36,2.365,5.5,4898.8
-5ac2659b55429963665199a1,bridge,hard,span,25 laps,25 laps,1.0,1.0,1,2,2,1.0,1,10,7,0.708,11.3,4843.4
-5ae058e855429945ae959331,comparison,hard,yesno,yes,no,0.0,0.0,1,2,2,1.0,2,13,29,1.937,2.0,4869.7
-5a7b8749554299294a54a9db,comparison,hard,span,Thomas Loren Friedman,no,0.0,0.0,1,3,3,1.0,3,18,29,2.268,1.6,4935.8
-5a864ff7554299211dda2af2,bridge,hard,span,Taylor Swift,Taylor Swift,1.0,1.0,1,3,3,1.0,2,12,56,2.423,3.9,4880.1
-5ae4d3c95542990ba0bbb165,comparison,hard,span,"Istanbul, Turkey",Istanbul,0.0,0.6667,1,2,2,1.0,2,16,15,1.521,5.4,4887.4
-5ab7f97a5542991d322237ef,bridge,hard,span,super-regional shopping mall,"Opry Mills is a super-regional shopping mall in Nashville, Tennessee, formerly owned by Mills Corporation and Gaylord Entertainment, and now by Simon Property Group.",0.0,0.2308,1,2,2,1.0,1,10,35,1.223,31.6,4873.3
-5a7b46e55542995eb53be8e5,bridge,hard,span,Ordos City,"Ordos City China Science Flying Universe Science and Technology Co., Ltd.",0.0,0.3077,1,2,2,1.0,3,13,52,2.517,17.2,4882.3
-5a879ba55542993e715abfc3,comparison,hard,span,Scott Sidney,Alain Resnais,0.0,0.0,1,3,3,1.0,3,19,26,2.465,5.9,4977.5
-5ae4563e5542996836b02c7f,bridge,hard,span,over 600 stores,600,0.0,0.5,1,2,2,1.0,2,13,37,2.636,4.5,4886.9
-5ab6ff3a5542991d3222372a,bridge,hard,span,Berea College,Berea College,1.0,1.0,1,3,3,1.0,3,14,28,2.091,5.3,4882.9
-5a7a46605542994f819ef1ad,bridge,hard,span,1945,1946,0.0,0.0,1,2,2,1.0,2,12,42,1.961,8.3,4873.3
-5ade7a435542997c77adee3a,bridge,hard,span,Mountbatten family,Mountbatten-Windsor,0.0,0.0,1,2,2,1.0,3,13,40,2.378,8.8,4974.1
-5ac1795f5542994ab5c67d5f,bridge,hard,span,James Burke,James Burke is known for producing the documentary television series based on the book by science historian James Burke.,0.0,0.2105,1,2,2,1.0,1,10,23,0.9,27.4,4840.9
-5ab1e984554299340b525428,comparison,hard,span,Gulangyu,Gulangyu,1.0,1.0,1,2,2,1.0,3,12,29,1.918,7.7,4857.3
-5a86769c5542994775f60776,bridge,hard,span,Slaughterhouse-Five,"Armageddon in Retrospect was written by the author who was best known for his 1969 satire novel ""Slaughterhouse-Five"".",0.0,0.1111,1,2,2,1.0,3,14,71,2.821,30.0,4979.0
-5ab7da6f55429928e1fe3928,bridge,hard,span,the east of Ireland,east,0.0,0.5,1,4,4,1.0,3,16,36,2.212,1.8,4951.8
-5ae497f15542995ad6573db8,bridge,hard,span,Distillery,No,0.0,0.0,0,3,2,0.6667,1,10,17,1.17,2.3,4824.9
-5ae6f2a7554299572ea5464a,bridge,hard,span,Tybalt,Romeo,0.0,0.0,0,4,3,0.75,3,11,37,2.062,6.1,4866.7
-5adea9ea55429939a52fe934,bridge,hard,span,SKUM,no,0.0,0.0,1,3,3,1.0,3,13,41,2.412,1.6,4894.4
-5a7caae75542996dd594b971,bridge,hard,span,Anabolic steroids,Anabolic-androgenic steroids (AAS) are commonly used in bodybuilding.,0.0,0.2,0,3,2,0.6667,2,13,32,1.633,23.5,4915.5
-5ac01bb8554299012d1db5a6,bridge,hard,span,Don S. Davis,Don S. Davis,1.0,1.0,1,3,3,1.0,3,19,43,2.813,4.4,5064.0
-5abc3a65554299700f9d782d,bridge,hard,span,Charles Kelley,Highspeed Hayride,0.0,0.0,1,3,3,1.0,3,16,43,2.346,6.1,4882.4
-5ae3ff575542995dadf242aa,bridge,hard,span,"3,384,569","3,384,569",1.0,1.0,1,2,2,1.0,2,14,43,2.402,13.0,4974.1
-5a89fb525542993b751ca9d6,bridge,hard,span,Anna Clyne,Anna Clyne created Night Ferry first performed in 2012 at Symphony Center in Chicago.,0.0,0.25,1,3,3,1.0,1,10,23,0.86,29.2,4798.8
-5ab3d69255429969a97a81c9,bridge,hard,span,USS Essex,USS Essex (CV-9),0.0,0.8,1,3,3,1.0,2,12,42,2.258,12.2,4924.7
-5ac5199a5542994611c8b38a,comparison,hard,yesno,yes,yes,1.0,1.0,0,5,4,0.8,3,14,39,2.085,2.1,4842.8
-5ae048a255429924de1b708e,bridge,hard,span,Catwoman,Catwoman (2004 film),0.0,0.5,1,2,2,1.0,1,10,12,0.711,18.3,4846.6
-5a9068a95542990a98493621,bridge,hard,span,7 miles,20 miles,0.0,0.5,1,3,3,1.0,3,16,25,1.978,5.5,4914.4
-5adf9dc3554299025d62a2e6,bridge,hard,span,Laura Ann Osnes,Laura Osnes,0.0,0.8,1,3,3,1.0,2,13,49,2.516,4.8,4976.3
-5ae406245542995dadf242e2,bridge,hard,span,20,more than 20,0.0,0.5,1,2,2,1.0,2,15,33,2.352,7.1,4898.5
-5ab6369655429953192ad2a1,comparison,hard,span,Eucryphia,Eucryphia,1.0,1.0,1,4,4,1.0,2,8,36,1.647,10.6,4760.8
-5ae628f55542995703ce8b32,bridge,hard,span,Venice,Venice,1.0,1.0,1,3,3,1.0,3,14,20,2.137,3.1,4899.7
-5adccdd55542992c1e3a2408,bridge,hard,span,Waimea Bay,Waimea Bay,1.0,1.0,1,2,2,1.0,3,18,32,2.173,6.2,4978.5
-5abd1529554299114383a1e3,bridge,hard,span,evangelical Christian periodical,Christianity Today is an evangelical Christian periodical that Eugene B. Habecker is the chairman of.,0.0,0.375,1,2,2,1.0,1,10,23,0.903,27.5,4843.4
-5a78db8055429970f5fffdb2,bridge,hard,span,James Franco,James Franco,1.0,1.0,1,2,2,1.0,2,10,48,2.314,3.9,4881.7
-5ab9debb55429955dce3ed97,bridge,hard,span,DI Humphrey Goodman,DI Humphrey Goodman,1.0,1.0,1,2,2,1.0,2,13,17,1.392,10.8,4890.1
-5ae791ef55429952e35ea979,bridge,hard,span,February,October,0.0,0.0,1,2,2,1.0,3,18,38,2.515,1.5,4972.8
-5ab8f7535542991b5579f0a7,comparison,hard,span,Sacred Planet,Sacred Planet,1.0,1.0,1,2,2,1.0,1,10,5,0.756,7.5,4960.8
-5ac119335542992a796dede4,bridge,hard,span,Hanna,Hanna,1.0,1.0,1,2,2,1.0,3,12,22,1.776,3.7,4887.6
-5a7d2afd5542995f4f402221,comparison,hard,span,Ferdi Taygan,yes,0.0,0.0,1,2,2,1.0,3,15,29,3.382,1.2,4842.3
-5a8dd5f955429917b4a5bcc7,bridge,hard,span,paracyclist,paracycling,0.0,0.0,0,2,1,0.5,3,19,28,4.644,2.5,5017.1
-5a83a532554299334474606f,bridge,hard,span,The Dragon School in Oxford,The Dragon School in Oxford,1.0,1.0,1,3,3,1.0,2,14,29,3.758,5.0,4881.6
-5a90692f5542990a98493625,bridge,hard,span,Suicide Kings,Suicide Kings,1.0,1.0,1,3,3,1.0,3,15,29,2.673,3.4,4867.9
-5a7555215542996c70cfaee1,comparison,hard,span,Hey Pa! There's a Goat on the Roof,There's a Goat on the Roof,0.0,0.8,1,2,2,1.0,3,18,31,2.595,9.4,4902.1
-5a90580655429933b8a204ef,bridge,hard,span,a record of 13–3,"The Super Bowl XXXIV champions, the St. Louis Rams, finished the regular-season with a record of 13–3 in 1999.",0.0,0.3333,1,2,2,1.0,1,10,36,1.181,31.8,4869.8
-5a88e605554299206df2b39c,bridge,hard,span,"8,211 at the 2010 census",8211,0.0,0.4,0,4,3,0.75,3,16,39,2.241,6.6,4960.3
-5add67915542992200553af8,bridge,hard,span,The Crowned Prince of the Philadelphia Mob,The Crowned Prince of the Philadelphia Mob,1.0,1.0,1,2,2,1.0,3,17,36,2.224,11.3,4978.5
-5a8463545542990548d0b2a3,bridge,hard,span,supervisor of the royal works,supervisor of the royal works,1.0,1.0,1,2,2,1.0,2,11,62,2.93,8.3,4907.0
-5a74684655429929fddd8410,bridge,hard,span,Janet Damita Jo Jackson,"Janet Jackson appeared as a guest in the Will & Grace episode called ""Back Up, Dancer"".",0.0,0.2353,1,2,2,1.0,2,14,41,1.737,24.9,4919.8
-5a835c9f5542992ef85e228a,bridge,hard,span,Continental Army,Continental Army,1.0,1.0,1,2,2,1.0,2,16,43,2.897,3.8,4973.8
-5ae7edee554299540e5a56ad,bridge,hard,span,Macaronesia,Canary Islands,0.0,0.0,1,2,2,1.0,3,17,27,2.091,5.1,4960.8
-5a8ee4315542990e94052ba7,bridge,hard,span,Treaty of Gandamak,The Treaty of Gandamak officially ended the first phase of the Second Anglo-Afghan War.,0.0,0.4286,1,2,2,1.0,1,10,23,0.979,25.0,4921.2
-5a8cb288554299585d9e3726,bridge,hard,span,Oregon,yes,0.0,0.0,1,4,4,1.0,2,16,33,2.304,1.8,4963.0
-5adfbca255429942ec259b2c,bridge,hard,span,early 1970s,Slade rose to prominence during the early 1970s with 17 consecutive top 20 hits and six number ones on the UK Singles Chart.,0.0,0.1739,1,2,2,1.0,2,16,47,1.835,31.8,4949.1
-5ae24abc5542994d89d5b3c3,bridge,hard,span,"Bury St Edmunds,",Greene King is the UK's largest pub retailer and brewer.,0.0,0.0,0,2,1,0.5,1,10,16,0.721,24.5,4793.0
-5ab802085542990e739ec7ca,bridge,hard,span,early 20s,25-60,0.0,0.0,1,3,3,1.0,3,15,35,2.094,8.1,4862.7
-5adfa3da554299025d62a317,bridge,hard,span,23 November 1946,Diana Marilyn Quick (born 23 November 1946),0.0,0.6,1,3,3,1.0,3,19,43,2.456,16.4,4958.9
-5a76e88555429972597f13f4,bridge,hard,span,The Soloist,Third and Indiana,0.0,0.0,0,3,2,0.6667,3,13,39,2.382,5.1,4906.7
-5ac3ae475542995ef918c1e5,comparison,hard,yesno,no,No,1.0,1.0,1,2,2,1.0,2,14,27,2.113,1.8,4894.4
-5abffc41554299012d1db551,bridge,hard,span,1901,1901,1.0,1.0,1,2,2,1.0,3,17,21,2.087,6.0,4849.0
-5ae4c39f5542995dadf243fb,bridge,hard,span,Bolton,Rivington,0.0,0.0,1,2,2,1.0,3,14,41,2.235,5.3,4883.8
-5a79c6a55542994bb9457091,bridge,hard,span,George Cayley,"Sir George Cayley, 6th Baronet contributed to the advent of the hot air engine by way of their open cycle devices.",0.0,0.1905,1,2,2,1.0,1,10,30,0.988,32.0,4824.9
-5a7be5bd5542997c3ec972ba,comparison,hard,span,The Leonberger is a giant dog breed.,Leonberger,0.0,0.3333,1,2,2,1.0,2,10,34,1.873,4.3,4872.9
-5a7ec61a55429934daa2fc5f,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,11,27,1.933,2.2,4810.2
-5a7cb9b95542990527d55515,bridge,hard,span,2013,2013,1.0,1.0,1,3,3,1.0,2,14,26,2.218,6.3,4967.8
-5a867089554299211dda2b30,comparison,hard,span,Rolling Stone,Shonen Jump,0.0,0.0,1,2,2,1.0,2,12,25,2.045,5.2,4904.1
-5ae1801955429901ffe4aec4,bridge,hard,span,"Battle Creek, Michigan","Battle Creek, Michigan, United States",0.0,0.75,1,3,3,1.0,3,20,24,2.415,8.3,4950.8
-5a76387d554299109176e6ba,comparison,hard,span,Am Rong,Am Rong,1.0,1.0,1,2,2,1.0,2,12,39,2.233,5.3,4860.5
-5abd0d635542992ac4f381b8,bridge,hard,span,29,42,0.0,0.0,1,2,2,1.0,3,16,55,2.974,3.1,4859.8
-5ae68fcb5542992ae0d1635b,bridge,hard,span,"Bay Ridge, Brooklyn","Bay Ridge, Brooklyn",1.0,1.0,1,4,4,1.0,3,16,19,1.776,7.3,4853.4
-5ab28b12554299449642c8ee,bridge,hard,span,Northumbrian,Northumbrian,1.0,1.0,1,3,3,1.0,2,14,35,2.149,5.5,4879.5
-5a7133565542994082a3e65c,bridge,hard,span,Oldham County,Oldham County,1.0,1.0,1,5,5,1.0,2,13,25,1.996,5.2,4888.2
-5abbd3ac55429931dba1458b,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,15,17,1.773,2.0,4881.7
-5a85ab905542994c784ddb35,bridge,hard,span,The Saturdays,The Saturdays,1.0,1.0,1,2,2,1.0,2,14,48,2.199,4.0,4880.1
-5a8d93ad554299653c1aa13d,comparison,hard,span,Serri,"Serri, as she is described as a South Korean singer, songwriter and actress.",0.0,0.1538,1,2,2,1.0,1,10,20,0.914,23.7,4849.2
-5a886886554299206df2b258,bridge,hard,span,international football competition,The FIFA Women's World Cup,0.0,0.0,1,2,2,1.0,1,10,9,0.705,13.7,4864.1
-5a7c6bcc55429935c91b519c,bridge,hard,span,1944,1944,1.0,1.0,1,2,2,1.0,1,10,8,0.671,13.1,4840.9
-5a825bb455429940e5e1a874,bridge,hard,span,Wilmette,Wilmette,1.0,1.0,1,2,2,1.0,1,10,6,0.627,10.7,4882.5
-5a72a0be5542992359bc3143,bridge,hard,span,Oedipus Rex,no,0.0,0.0,1,2,2,1.0,3,16,46,2.81,1.3,4953.7
-5ade15f35542997545bbbe47,bridge,hard,span,Steve Jobs,mother,0.0,0.0,1,2,2,1.0,2,12,31,1.996,2.0,4881.7
-5a77cb5e55429967ab1052a7,bridge,hard,span,Kodos,Vincent Kosmos,0.0,0.0,1,2,2,1.0,3,14,33,2.249,6.1,4906.7
-5a83aaeb5542996488c2e483,bridge,hard,span,My Beautiful Dark Twisted Fantasy,Watch the Throne,0.0,0.0,1,2,2,1.0,3,14,44,2.249,5.2,4877.6
-5ac4392e5542997ea680ca32,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,11,41,2.297,1.9,4880.1
-5a7f5c9f55429969796c1a0f,bridge,hard,span,Spring city,Spring city,1.0,1.0,1,2,2,1.0,3,15,18,2.064,3.3,4970.3
-5a8b770f5542995d1e6f13a7,bridge,hard,span,Philadelphia,Philadelphia,1.0,1.0,0,3,2,0.6667,1,10,4,0.585,7.7,4803.4
-5ae3dc205542992f92d823a1,bridge,hard,span,a minor basilica,minor basilica,1.0,1.0,1,2,2,1.0,1,10,6,0.674,9.7,4850.6
-5a7cf29255429909bec768b8,bridge,hard,span,150 million copies,150 million copies,1.0,1.0,1,2,2,1.0,1,10,9,0.682,14.2,4835.2
-5a79f6ca554299029c4b5f90,bridge,hard,span,Aqua,Aqua,1.0,1.0,0,3,2,0.6667,1,10,4,0.6,7.4,4837.9
-5a8e3dc05542995085b37401,comparison,hard,span,1964,Reynolds v. Sims,0.0,0.0,0,3,2,0.6667,3,14,39,2.899,6.5,5066.0
-5ade24e35542992fa25da6e6,bridge,hard,span,CBS,"The Good Wife, CBS",0.0,0.5,1,2,2,1.0,2,17,23,2.198,6.9,4888.4
-5ab5f854554299637185c64e,bridge,hard,span,Pakistani,Pakistan,0.0,0.0,1,2,2,1.0,1,10,4,0.621,7.2,4855.0
-5ab5b6c1554299637185c5e5,comparison,hard,span,The Four Seasons,The Four Seasons,1.0,1.0,1,3,3,1.0,3,14,39,2.236,5.1,4949.1
-5ae25ed15542992decbdccd2,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,11,33,1.913,2.2,4824.3
-5ab808ea5542991d3222380e,bridge,hard,span,"76,416","76,416",1.0,1.0,1,2,2,1.0,3,16,35,2.148,9.8,4938.2
-5ae5072e55429960a22e0246,bridge,hard,span,Matt Flynn,Matt Flynn,1.0,1.0,1,2,2,1.0,3,19,33,2.306,3.0,4960.7
-5ac01bca5542992a796dec8d,bridge,hard,span,Happy Death Day,Happy Death Day,1.0,1.0,1,2,2,1.0,3,11,51,2.076,6.9,4843.4
-5adf34d35542993a75d26425,bridge,hard,span,"Gerard ""Gerry"" Adams",Gerry Adams,0.0,0.8,1,2,2,1.0,3,19,45,2.428,4.0,4982.7
-5add67555542992ae4cec54e,comparison,hard,span,The Battle of Belleau Wood,The Battle of Belleau Wood occurred earlier than the Battle of Peleliu.,0.0,0.5714,1,2,2,1.0,1,10,20,0.864,24.7,4863.5
-5a8085705542992bc0c4a74b,bridge,hard,span,Australian Defence Force,Royal Australian Navy (RAN),0.0,0.2857,1,2,2,1.0,1,10,10,0.646,16.9,4848.2
-5a756fa15542996c70cfaefb,bridge,hard,span,"about 450,000","450,000",0.0,0.6667,1,2,2,1.0,2,15,25,1.919,11.3,4965.2
-5a7f6eab5542992097ad2f66,bridge,hard,span,West Point Iron and Cannon Foundry,"The West Point Foundry was located in the village of Cold Spring, which is directly across the Hudson River from West Point in Putnam County, New York.",0.0,0.2,0,3,2,0.6667,1,10,35,1.052,35.5,4854.9
-5ae5e1345542996de7b71a50,bridge,hard,span,Jack Ryan,Jack Ryan,1.0,1.0,1,2,2,1.0,2,11,40,2.141,3.7,4904.6
-5a72c6f65542994cef4bc402,bridge,hard,span,tomato,"The fruit is bright red, 1.5 in in diameter.",0.0,0.0,1,2,2,1.0,3,14,37,2.151,18.7,4937.7
-5a80ad7c5542992097ad3018,bridge,hard,span,2009,2009,1.0,1.0,1,2,2,1.0,2,14,22,1.397,11.9,4837.1
-5a77a65b5542992a6e59df57,bridge,hard,span,"September 8, 2017","February 17, 2017",0.0,0.3333,0,3,2,0.6667,3,19,51,2.222,15.2,4956.8
-5a78b209554299148911f93e,comparison,hard,span,Edward Franklin Albee III,Edward Albee,0.0,0.6667,1,2,2,1.0,3,17,32,2.23,4.6,4880.6
-5ab85a1155429934fafe6d7c,comparison,hard,yesno,yes,Both Rutgers University and Carnegie Mellon University are located in America.,0.0,0.0,1,2,2,1.0,1,10,15,0.7,23.8,4806.4
-5a8da81e554299068b959d7e,bridge,hard,span,impresario,no,0.0,0.0,1,2,2,1.0,2,10,33,1.782,2.3,4830.6
-5ab8f57b5542991b5579f097,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,13,15,1.782,2.0,4906.0
-5ab6bf6d55429953192ad372,comparison,hard,yesno,no,no,1.0,1.0,0,3,2,0.6667,3,12,22,1.59,2.5,4830.6
-5ae7385d5542992ae0d163da,bridge,hard,span,Worcester County,no,0.0,0.0,1,2,2,1.0,3,19,28,1.952,1.8,4972.8
-5a7dd9445542997cc2c474ac,comparison,hard,span,Farrell,J. G. Farrell,0.0,0.5,0,3,2,0.6667,3,17,27,2.419,6.1,5015.2
-5ab446d455429942dd415f07,bridge,hard,span,modern-day New York City,New York City,0.0,0.8571,1,2,2,1.0,1,10,6,0.642,10.5,4855.5
-5ac497025542997ea680ca8d,bridge,hard,span,"Dan Lin, Roy Lee, Phil Lord and Christopher Miller","Dan Lin, Roy Lee, Phil Lord, and Christopher Miller",1.0,1.0,1,2,2,1.0,3,17,34,2.1,16.2,4947.0
-5a7b7bed5542997c3ec971bc,bridge,hard,span,reigning monarch of the United Kingdom,Buckingham Palace,0.0,0.0,1,3,3,1.0,3,13,22,1.589,8.9,4828.1
-5a89706055429951533612f9,bridge,hard,span,Saint Louis County,"Hibbing, Minnesota county.",0.0,0.3333,1,2,2,1.0,1,10,9,0.617,16.9,4824.3
-5ac02edb554299294b218f41,bridge,hard,span,Phil Collins,Phil Collins,1.0,1.0,1,2,2,1.0,1,10,5,0.582,9.3,4850.9
-5ab67772554299110f219a12,bridge,hard,span,video game,horror,0.0,0.0,1,2,2,1.0,3,13,31,1.819,4.4,4864.5
-5a7b65ab5542997c3ec97144,bridge,hard,span,Cambridge University,Cambridge University,1.0,1.0,1,2,2,1.0,2,10,49,1.97,7.7,4883.6
-5a760faa5542994ccc9186a8,bridge,hard,span,Love Streams,Love Streams,1.0,1.0,0,2,1,0.5,1,10,5,0.553,9.8,4885.8
-5adbe1a7554299438c868cc3,bridge,hard,span,Lowe's,"Lowe's Companies, Inc.",0.0,0.5,1,3,3,1.0,1,10,9,0.591,16.7,4822.4
-5a80aeff5542996402f6a5eb,bridge,hard,span,first freshman to finish as the runner-up,third,0.0,0.0,1,4,4,1.0,3,13,29,2.028,1.9,4924.7
-5ae74890554299572ea547af,bridge,hard,span,1987,1987,1.0,1.0,1,2,2,1.0,2,11,30,2.051,7.1,4951.8
-5ac3d9c9554299204fd21ea3,bridge,hard,span,James Packer,James Packer,1.0,1.0,1,2,2,1.0,1,10,6,0.599,11.4,4861.2
-5abc8620554299700f9d78e2,comparison,hard,span,documentary,documentary,1.0,1.0,1,2,2,1.0,1,10,4,0.538,8.1,4840.9
-5a7b4bc35542992d025e67e0,bridge,hard,span,England,England,1.0,1.0,1,2,2,1.0,1,10,4,0.523,8.7,4805.8
-5a85dfcc5542994775f60673,bridge,hard,span,Jung Yun-ho,Yunho,0.0,0.6667,1,2,2,1.0,3,18,45,2.726,3.8,5023.7
-5a7b76735542997c3ec9719f,comparison,hard,span,Hot toddy,"Hot toddy is traditionally drunk before retiring to bed, or in wet or cold weather.",0.0,0.2353,1,2,2,1.0,1,10,21,0.794,27.8,4832.7
-5a8c66db554299585d9e3683,bridge,hard,span,2017,2017,1.0,1.0,1,2,2,1.0,1,10,8,0.68,13.7,4881.1
-5a7e05ba5542995f4f402392,bridge,hard,span,The Late Late Show,The Late Late Show,1.0,1.0,1,2,2,1.0,1,10,7,0.565,13.9,4792.5
-5a88a4245542997e5c09a668,bridge,hard,span,Hudson Bay Mining and Smelting Company,Hudson Bay Mining and Smelting Company,1.0,1.0,1,3,3,1.0,3,16,47,2.117,14.9,4877.7
-5a8799c55542996e4f308877,bridge,hard,span,Scandinavian design,"Jens Risom introduced Scandinavian design, characterized by minimalism and functionality.",0.0,0.3333,1,2,2,1.0,1,10,17,0.736,25.7,4799.1
-5ac038db554299294b218f57,bridge,hard,span,Constantine,Constantine,1.0,1.0,0,2,1,0.5,2,10,44,1.787,5.4,4843.4
-5a764c0b55429976ec32bd89,bridge,hard,span,comparable to the seven Wonders of the World,"unofficial title given to new buildings, structures, projects, or even designs that are deemed to be comparable to the seven Wonders of the World",0.0,0.4286,1,2,2,1.0,2,14,57,2.359,31.1,4885.7
-5a77309d55429972597f1487,comparison,hard,span,José Echegaray y Eizaguirre,José Echegaray y Eizaguirre,1.0,1.0,1,2,2,1.0,3,13,68,2.525,19.1,4885.7
-5ab7bae95542993667793ff4,bridge,hard,span,Knowsley United Women,Knowsley United Women,1.0,1.0,1,3,3,1.0,3,15,48,2.357,8.1,4979.0
-5a7c9f325542990527d554e6,bridge,hard,span,Blue,Take That,0.0,0.0,0,2,1,0.5,1,10,27,1.32,4.4,4813.1
-5a8f69b55542997ba9cb324f,bridge,hard,span,Valhalla Highlands Historic District,Valhalla Highlands Historic District,1.0,1.0,1,2,2,1.0,1,10,9,0.634,18.1,4872.2
-5adbda2755429944faac2385,bridge,hard,span,Philip K. Dick,Philip K. Dick,1.0,1.0,1,2,2,1.0,1,10,7,0.637,12.2,4874.4
-5ab67bd355429954757d32f2,bridge,hard,span,New York Giants,New York Giants,1.0,1.0,1,2,2,1.0,1,10,6,0.584,11.4,4851.8
-5a90843c5542995651fb517e,bridge,hard,span,1961,1961,1.0,1.0,1,2,2,1.0,3,12,28,2.205,6.1,4871.9
-5a8324815542990548d0b184,bridge,hard,span,Copenhagen,Copenhagen,1.0,1.0,1,2,2,1.0,1,10,4,0.524,8.6,4812.1
-5adf4a275542993a75d26498,bridge,hard,span,middle America,no,0.0,0.0,1,3,3,1.0,3,15,27,1.936,1.9,4940.2
-5ae4c5595542990ba0bbb123,bridge,hard,span,Soha Ali Khan,Soha Ali Khan Khemu,0.0,0.8571,1,2,2,1.0,3,17,48,2.509,8.1,4958.9
-5ab5057b5542991779162d56,bridge,hard,span,South Korean horror film,"Wishing Stairs and Voice are both horror films in the ""Whispering Corridors"" film series.",0.0,0.2353,1,2,2,1.0,1,10,26,0.917,30.2,4851.8
-5a837d9a554299123d8c213e,bridge,hard,span,Lucas Stephen Grabeel,no,0.0,0.0,0,3,1,0.3333,3,13,32,1.926,2.1,4883.8
-5a81ebee554299676cceb16d,bridge,hard,span,American supernatural psychological horror film,"Rings, directed by F. Javier Gutiérrez, starred Matilda Lutz, who is an Italian model and actress.",0.0,0.0,1,2,2,1.0,1,10,29,0.994,30.8,4869.1
-5ab48c325542996a3a969f93,bridge,hard,span,Essex,Essex,1.0,1.0,0,2,1,0.5,2,11,24,2.066,3.6,4972.8
-5a8488f45542992a431d1a47,bridge,hard,span,Peter Hall,Sir Peter Hall CBE,0.0,0.6667,1,2,2,1.0,3,18,32,2.526,6.3,5033.3
-5abe689a55429976d4830b16,comparison,hard,span,French Open,No,0.0,0.0,0,3,1,0.3333,2,14,37,2.211,1.8,4855.7
-5a7a014a5542996c55b2dccf,bridge,hard,span,Bismarck,Bismarck,1.0,1.0,0,2,1,0.5,1,10,7,0.636,12.1,4885.2
-5a895d305542993b751ca931,bridge,hard,span,Premier League club Manchester United and the England national team,Manchester United,0.0,0.3636,1,2,2,1.0,1,10,5,0.563,9.7,4862.7
-5a85c3a15542992a431d1b97,bridge,hard,span,Massive Entertainment,Massive Entertainment,1.0,1.0,1,3,3,1.0,3,13,32,1.821,6.2,4878.5
-5ae32b6755429928c4239644,bridge,hard,span,Portal A Interactive,Portal A Interactive,1.0,1.0,1,2,2,1.0,2,11,27,1.732,6.7,4848.2
-5a8d02cc554299441c6b9fb6,bridge,hard,span,King George IV,King David I,0.0,0.3333,1,2,2,1.0,3,15,22,2.033,4.7,4880.0
-5a78daf855429970f5fffdae,comparison,hard,span,Icehouse pieces,Icehouse pieces,1.0,1.0,1,3,3,1.0,3,15,21,1.752,5.5,4947.5
-5adc094a55429947ff1738c0,bridge,hard,span,ZZ Top,ZZ Top,1.0,1.0,0,2,1,0.5,2,12,26,1.774,4.1,4901.1
-5ae77c245542997b22f6a795,bridge,hard,span,1977,1985,0.0,0.0,0,3,2,0.6667,3,18,31,2.153,6.5,4866.8
-5a88f9555542995153361214,bridge,hard,span,1963 to 1991,1963-1991,0.0,0.0,1,2,2,1.0,2,12,29,1.825,15.2,4878.1
-5a874ce15542996432c57256,bridge,hard,span,"Laurel, Mississippi",Mississippi,0.0,0.6667,0,2,1,0.5,2,12,32,2.157,3.7,4924.2
-5a7e7ed05542991319bc94c2,comparison,hard,span,"arose on the ""Playboy"" magazine pattern in the 1970s.",Gallery,0.0,0.0,1,2,2,1.0,2,15,17,1.839,2.0,4931.5
-5abf44025542993fe9a41def,comparison,hard,span,Langston Hughes,Langston Hughes,1.0,1.0,1,2,2,1.0,3,11,40,2.93,3.7,4962.5
-5ab531cc5542990594ba9d23,bridge,hard,span,"728,000 ft²","728,000 ft²",1.0,1.0,1,2,2,1.0,3,14,50,3.196,9.3,4947.0
-5a90605d5542995651fb514d,bridge,hard,span,"Royce da 5'9"" (Bad) and Eminem (Evil)",Bad Meets Evil,0.0,0.4,1,3,3,1.0,3,12,39,3.139,5.0,4904.6
-5ac45b58554299076e296dad,comparison,hard,span,Shanghai,Shanghai,1.0,1.0,1,2,2,1.0,2,11,18,3.178,2.2,4983.1
-5a8eb4d65542990e94052b82,bridge,hard,span,Terry Gilliam,no,0.0,0.0,0,3,1,0.3333,3,14,32,2.821,1.5,4880.6
-5a8038b55542996402f6a485,bridge,hard,span,Lithuanian-born French,Lithuanian-born French actor,0.0,0.8,1,2,2,1.0,1,10,9,0.971,9.9,4942.1
-5ab83d595542990e739ec886,bridge,hard,span,a family member,The VMAQT-1 logo is a female spirit in Irish mythology who heralds the death of a family member.,0.0,0.25,1,2,2,1.0,1,10,27,1.451,19.8,4840.3
-5ae0d52e554299603e418469,bridge,hard,span,Douglas Jackson,"Barbara Niven (born February 26, 1953) also stars with John Bregar in the 2008 film ""Dead at 17"" directed by Douglas Jackson.",0.0,0.1739,1,3,3,1.0,3,13,82,4.492,22.5,4953.2
-5a8f9b8c5542997ba9cb32e6,comparison,hard,span,Dirty Pretty Things,Dirty Pretty Things,1.0,1.0,1,2,2,1.0,1,10,6,0.744,9.1,4863.6
-5ae75a4c5542997b22f6a6f1,bridge,hard,span,The Itchy & Scratchy Show,Krusty the Clown,0.0,0.0,1,2,2,1.0,3,19,53,4.055,4.7,4967.2
-5ab45a0b5542991779162c7e,bridge,hard,span,Viaport Rotterdam,Viaport Rotterdam,1.0,1.0,0,4,2,0.5,3,13,32,2.754,5.2,4865.1
-5a8b452655429971feec468e,bridge,hard,span,signing free agent Chauncey Billups,Chauncey Billups,0.0,0.5714,1,2,2,1.0,2,15,39,3.4,5.4,4863.0
-5a8d7b1755429941ae14dfc6,bridge,hard,span,"51,271","51,271",1.0,1.0,0,4,3,0.75,3,11,64,3.748,8.2,4842.8
-5ab6f0c25542995eadef00ea,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,3,12,31,3.115,1.4,4962.5
-5ab72a025542992aa3b8c7b8,comparison,hard,span,documentary,documentary,1.0,1.0,1,2,2,1.0,2,11,32,2.781,3.4,4840.9
-5ade42b55542992fa25da717,bridge,hard,span,fifteen,10,0.0,0.0,1,2,2,1.0,3,17,36,3.094,2.5,4942.1
-5ae4c2b95542995dadf243ef,bridge,hard,span,defensive coordinator,defensive coordinator,1.0,1.0,0,4,3,0.75,3,17,46,3.409,3.7,4854.7
-5abf10b75542997719eab659,bridge,hard,span,1.95 m,No,0.0,0.0,0,2,1,0.5,2,10,41,2.893,1.9,4877.6
-5add564a5542990dbb2f7e38,bridge,hard,span,MGM Resorts International,MGM Resorts International,1.0,1.0,1,2,2,1.0,3,13,28,2.205,6.4,4940.8
-5a738225554299623ed4abc3,comparison,hard,span,Bedknobs and Broomsticks,Bedknobs and Broomsticks is older.,0.0,0.75,1,2,2,1.0,1,10,13,0.805,17.3,4947.0
-5a729e7b5542992359bc313d,bridge,hard,span,Holston River,Holston River,1.0,1.0,1,3,3,1.0,3,14,35,2.056,5.8,4931.5
-5a811152554299260e20a22e,bridge,hard,span,British Conservative Party,The House of Commons representative for Congleton belongs to the Conservative Party.,0.0,0.3077,1,2,2,1.0,1,10,17,0.78,23.3,4869.1
-5adddd075542992200553b71,bridge,hard,span,Wes Archer,Dominic Polcino,0.0,0.0,1,2,2,1.0,2,13,37,2.005,9.3,4885.1
-5ade9545554299728e26c740,bridge,hard,span,Geelong Football Club,Geelong Football Club,1.0,1.0,0,2,1,0.5,1,10,7,0.654,11.7,4850.9
-5ab25004554299722f9b4cd7,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,12,33,2.425,1.7,4880.0
-5ac1f4495542991316484bd2,comparison,hard,span,Delmer Lawrence Daves,Delmer Daves,0.0,0.8,1,2,2,1.0,3,15,31,1.997,7.2,4904.6
-5ac0cf0f554299294b219018,comparison,hard,span,X Ambassadors,Test Icicles,0.0,0.0,1,3,3,1.0,3,17,31,1.949,6.8,4958.9
-5ab3306a55429969a97a80fd,comparison,hard,span,Walt Disney Productions,no,0.0,0.0,0,2,1,0.5,2,10,33,2.164,1.9,4933.1
-5ade0fb95542997545bbbe39,bridge,hard,span,2844 km,7.51 km,0.0,0.5,1,2,2,1.0,3,16,31,1.983,8.9,4892.2
-5ab78edc5542995dae37e95c,bridge,hard,span,"located in Olathe, Kansas","Olathe, Kansas",0.0,0.6667,1,2,2,1.0,3,17,25,1.821,8.8,4901.1
-5ac056385542997d64295a08,bridge,hard,span,"""The Ring"" magazine",The Ring magazine,1.0,1.0,1,4,4,1.0,3,14,59,5.331,2.0,5222.6
-5aba9e2455429939ce03dd3a,bridge,hard,span,1909,1909,1.0,1.0,1,2,2,1.0,2,16,20,1.916,7.1,4924.7
-5a90b43455429916514e7523,bridge,hard,span,"Sun Valley, Idaho",Sun Valley,0.0,0.8,1,2,2,1.0,3,17,29,2.371,2.9,4938.2
-5abb30755542996cc5e49fd8,bridge,hard,span,President of the United States,President,0.0,0.4,0,2,1,0.5,3,14,34,2.416,1.6,4969.2
-5ae4ec1e5542990ba0bbb19b,comparison,hard,span,The Bears and I,The Bears and I,1.0,1.0,1,3,3,1.0,3,11,51,2.341,7.5,4901.6
-5add405f5542992c1e3a2581,bridge,hard,span,Patterns of Sexual Behavior,The book,0.0,0.0,0,3,2,0.6667,1,10,17,1.246,4.0,4866.7
-5a71717d5542994082a3e834,bridge,hard,span,Larry Richard Drake,Amber Benson,0.0,0.0,1,2,2,1.0,2,13,31,2.411,4.3,4952.2
-5adf8fe55542993344016d0f,bridge,hard,span,Bedknobs and Broomsticks,Bedknobs and Broomsticks,1.0,1.0,1,2,2,1.0,1,10,10,0.718,15.9,4837.6
-5a78f59755429970f5fffdf7,bridge,hard,span,"46 Albert Square, Walford, London E20","46 Albert Square, Walford, London E20",1.0,1.0,1,3,3,1.0,2,15,37,2.133,18.5,4922.2
-5a8099935542996402f6a58b,bridge,hard,span,Darkroom,Darkroom,1.0,1.0,0,4,2,0.5,2,14,54,3.255,2.4,5074.3
-5ab6aaff55429953192ad35b,bridge,hard,span,Phoenix Television,Phoenix Satellite Television Holdings Ltd,0.0,0.5714,1,3,3,1.0,2,13,43,2.059,10.3,4861.8
-5abcc96c5542996583600492,bridge,hard,span,Planet Terror,Planet Terror,1.0,1.0,1,3,3,1.0,3,18,36,2.111,3.2,4859.4
-5a8b78775542997f31a41d3d,bridge,hard,span,"""Peshwa"" (Prime Minister)",yes,0.0,0.0,1,3,3,1.0,3,14,54,2.767,1.6,4904.6
-5a7252db5542990c210a4104,bridge,hard,span,Donald Trump Jr.,Donald John Trump Jr.,0.0,0.8571,1,2,2,1.0,3,11,40,2.351,8.2,4942.1
-5ae2ee5e5542991a06ce990a,bridge,hard,span,Royal Governor Lord Dunmore,Lord Dunmore,0.0,0.6667,1,2,2,1.0,3,17,37,2.313,4.8,4874.6
-5abc5951554299114383a116,bridge,hard,span,Graduados,no,0.0,0.0,0,3,2,0.6667,3,12,54,2.482,1.9,4953.2
-5ac1a3665542994ab5c67daf,bridge,hard,span,Private Secretary and Treasurer,Private Secretary and Treasurer,1.0,1.0,1,2,2,1.0,3,18,45,2.783,4.8,5014.8
-5adc0c2b55429947ff1738db,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,16,29,2.045,1.8,4958.9
-5a7634f155429976ec32bd6b,bridge,hard,span,Ogallala Aquifer,"The Ogallala Aquifer is located near the county seat of Keith County, Nebraska.",0.0,0.3077,1,4,4,1.0,2,16,39,1.553,25.6,4878.5
-5a7574e25542996c70cfaf01,comparison,hard,span,ibnʿArabī,Ibn Arabi,0.0,0.0,1,2,2,1.0,2,11,42,2.527,6.1,4963.5
-5adc8977554299438c868de2,bridge,hard,span,"various deities, beings, and heroes","The tales associated with the goddesses linked to Frigg include Fensalir as Frigg's residence, Fulla tending to Frigg's ashen box and footwear, Sága running errands for Frigg, and Nanna being a goddess associated with the god Baldr. Additionally, Eir and Gná are also linked to Frigg in various capacities.",0.0,0.08,1,2,2,1.0,2,13,91,2.511,45.1,4902.1
-5a7dc2495542997cc2c4749a,bridge,hard,span,1984 South Asian Games,1984 South Asian Games,1.0,1.0,1,3,3,1.0,3,15,60,2.518,10.5,4937.2
-5a8f05b1554299458435d517,bridge,hard,span,Viscount Cranborne,Viscount Cranborne,1.0,1.0,1,2,2,1.0,3,17,46,2.93,4.7,5027.1
-5ab7bbbf55429928e1fe38bf,bridge,hard,span,Kansas City crime family,Kansas City Crime Family,1.0,1.0,1,2,2,1.0,2,10,30,1.742,8.8,4809.2
-5a8af28555429951533613b5,bridge,hard,span,Albert Park,Albert Park,1.0,1.0,1,2,2,1.0,1,10,5,0.524,10.5,4833.3
-5ae1f596554299234fd04372,bridge,hard,span,in 1896,1964,0.0,0.0,1,2,2,1.0,3,15,32,2.082,6.8,4970.3
-5a8b3af455429971feec467b,bridge,hard,span,Unbreakable,Unbreakable,1.0,1.0,1,2,2,1.0,2,10,43,2.211,5.6,4877.7
-5add311b5542994ed6169cc5,bridge,hard,span,Apatosaurus,Arlo,0.0,0.0,0,2,1,0.5,2,10,34,2.142,3.7,4877.1
-5ae60426554299546bf83019,bridge,hard,span,BraveStarr,BraveStarr,1.0,1.0,1,2,2,1.0,2,10,34,2.054,7.9,4851.8
-5a8cfee555429941ae14df5c,bridge,hard,span,Sanskrit,"Gaja means elephant in Sanskrit, and Brishta refers to the back portion of a sitting elephant. Therefore, elephants are connected to Gajabrishta as this term describes a part of an elephant. Answer: elephants.",0.0,0.0667,1,3,3,1.0,2,7,78,2.372,42.9,4745.7
-5a71166d5542994082a3e576,comparison,hard,span,Battle of Guam,The Second Battle of Guam,0.0,0.8571,1,2,2,1.0,2,14,23,2.102,7.7,4921.7
-5ae789615542997ec2727695,bridge,hard,span,Martha Coolidge,Martha Coolidge,1.0,1.0,1,2,2,1.0,2,14,32,2.225,6.2,4944.3
-5a7757215542993569682d58,bridge,hard,span,Mr. Church,yes,0.0,0.0,0,3,2,0.6667,3,18,39,2.624,1.4,4861.4
-5a81ff62554299676cceb1c4,bridge,hard,span,director,producer,0.0,0.0,1,2,2,1.0,2,11,49,2.717,1.7,4915.0
-5ae4890a5542995ad6573d60,bridge,hard,span,"Executive Search, Board Consulting","executive search, Board Consulting and Leadership Strategy Services",0.0,0.6667,1,2,2,1.0,1,10,12,0.834,16.7,4798.8
-5a79c1335542994bb9457066,comparison,hard,span,author,Eric Ambler and Carol Shields are both best known for their work as writers.,0.0,0.0,1,2,2,1.0,1,10,19,0.932,21.5,4879.7
-5ac52fc35542994611c8b403,bridge,hard,span,The Catholic Church in Ireland,Catholic Church in Ireland,1.0,1.0,1,3,3,1.0,3,14,34,2.121,8.1,4856.5
-5adda7585542997dc790700c,bridge,hard,span,"Edmonton, Alberta",No,0.0,0.0,0,4,2,0.5,1,10,24,1.293,2.4,4811.2
-5adf043b5542993a75d263d4,bridge,hard,span,Charles Joseph,Joe Scarborough,0.0,0.0,1,2,2,1.0,3,18,37,2.453,2.8,4902.1
-5abd6bf055429933744ab7c8,bridge,hard,span,NCAA Division I FBS football,Division I FBS,0.0,0.75,1,2,2,1.0,1,10,7,0.725,11.3,4812.5
-5ae0038655429925eb1afbe0,comparison,hard,span,Tea Moderna,Tea Moderna,1.0,1.0,1,2,2,1.0,1,10,6,0.68,10.0,4812.1
-5a73977d554299623ed4ac08,comparison,hard,span,Armenian,Armenia,0.0,0.0,1,2,2,1.0,3,17,31,2.205,4.8,4876.6
-5ac2a399554299218029dada,bridge,hard,span,Kathleen O'Brien,no,0.0,0.0,1,2,2,1.0,3,13,31,2.173,1.8,4865.1
-5ae0f6f5554299422ee99583,bridge,hard,span,Warner Bros,Unknown,0.0,0.0,0,2,1,0.5,2,12,39,2.353,1.9,4876.6
-5adc1ae5554299438c868d5c,bridge,hard,span,Motörhead,Darkthrone,0.0,0.0,1,3,3,1.0,3,19,34,2.007,5.2,4924.2
-5ae6860e5542991bbc976112,bridge,hard,span,"commentary on Isaac Newton's book ""Principia""","Emilie du Chatelet contributed to the basic laws of physics by providing a translation and commentary on Isaac Newton's ""Principia,"" including a profound contribution to Newtonian mechanics with the postulate of an additional conservation law for total energy.",0.0,0.2564,1,2,2,1.0,2,11,69,2.129,39.9,4881.1
-5ae1316555429901ffe4adda,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,14,19,1.796,2.0,4877.7
-5adfeb0555429942ec259b88,bridge,hard,span,four months in jail,four months in jail,1.0,1.0,1,3,3,1.0,3,20,33,2.435,5.2,4964.6
-5ab5499e5542992aa134a295,bridge,hard,span,1963,1963,1.0,1.0,1,3,3,1.0,3,22,22,1.908,5.7,4958.9
-5adeffa85542992d7e9f926f,comparison,hard,span,rock,rock,1.0,1.0,1,2,2,1.0,3,15,31,2.215,1.7,4880.2
-5adfd2f255429925eb1afaa5,bridge,hard,span,Gateways,Gateways,1.0,1.0,0,3,2,0.6667,2,10,56,2.037,5.3,4879.1
-5ae5b301554299546bf82f2d,bridge,hard,span,zona glomerulosa,Aldosterone produces the hormone that promotes sodium retention in the distal nephron.,0.0,0.0,0,2,1,0.5,1,10,19,0.761,27.0,4810.2
-5ab1eac95542993be8fa987f,bridge,hard,span,33,33 or 34,0.0,0.5,1,2,2,1.0,3,16,47,2.451,8.6,4972.8
-5ae15e125542990adbacf773,comparison,hard,span,Mississippi University for Women,"Mississippi University for Women v. Hogan, 458 U.S. 718 (1982), was a case decided 5-4 by the Supreme Court of the United States.",0.0,0.3333,1,2,2,1.0,1,10,45,1.43,33.0,4880.6
-5a77beae5542992a6e59dfae,bridge,hard,span,Stacey Kent,Stacey Kent,1.0,1.0,1,2,2,1.0,1,10,6,0.584,11.6,4807.6
-5ae1f5a15542997f29b3c1b5,bridge,hard,span,1966,1969,0.0,0.0,1,3,3,1.0,3,14,28,2.25,5.7,4942.9
-5ade908b55429975fa854f13,bridge,hard,span,DTM,DTM and its successor — the International Touring Car Championship,0.0,0.2,1,2,2,1.0,3,12,54,2.609,16.8,4885.7
-5ab47cd75542991751b4d78d,bridge,hard,span,2002,2002,1.0,1.0,1,2,2,1.0,3,14,32,2.321,6.0,4880.3
-5a79b7f6554299029c4b5f6f,bridge,hard,span,"4,613","4,613",1.0,1.0,0,3,2,0.6667,2,15,33,2.049,8.5,4928.3
-5ab626d555429953192ad279,bridge,hard,span,lower Manhattan,Newark,0.0,0.0,1,4,4,1.0,2,17,34,2.402,3.2,4967.1
-5a84873e5542997175ce1eec,bridge,hard,span,137th,The 2017 US Open was the 137th edition of tennis' US Open when Petra Kvitova was a quarterfinalist.,0.0,0.125,1,2,2,1.0,1,10,35,1.312,28.6,4976.8
-5ac537975542996feb3fea3c,bridge,hard,span,Ronald Wilson Reagan,Ronald Wilson Reagan,1.0,1.0,1,2,2,1.0,2,14,27,1.706,8.1,4878.5
-5a8f45ca5542997ba9cb320e,comparison,hard,span,documentary,documentary,1.0,1.0,1,2,2,1.0,3,16,30,2.286,3.3,4883.6
+id,qtype,level,answer_type,answer_gold,answer_pred,em,f1,retrieval_correct,n_gold,n_gold_hit,gold_recall,n_gold_para,n_gold_para_hit,para_recall,hops,stop_reason,n_context,reasoning_tokens,prompt_tokens,gen_calls,ttft_s,latency_s,tokens_per_s,peak_memory_mb
+5a8b57f25542995d1e6f1371,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,28,1509,3,0.44,6.109,207.1,4862.7
+5a8c7595554299585d9e36b6,bridge,hard,span,Chief of Protocol,Secretary of State for Constitutional Affairs,0.0,0.2222,0,3,1,0.3333,2,1,0.5,2,repeated_query,11,53,1491,3,0.392,2.064,76.9,4858.3
+5a85ea095542994775f606a8,bridge,hard,span,Animorphs,The Divide trilogy,0.0,0.0,0,5,2,0.4,2,1,0.5,3,max_hops,12,47,1390,3,0.359,1.931,88.3,4883.1
+5adbf0a255429947ff17385a,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,20,1651,3,0.411,1.604,132.4,4895.4
+5a8e3ea95542995a26add48d,bridge,hard,span,"Greenwich Village, New York City",New York City,0.0,0.75,1,2,2,1.0,2,2,1.0,3,max_hops,18,38,1712,3,0.398,1.956,86.3,4951.8
+5abd94525542992ac4f382d2,bridge,hard,span,YG Entertainment,YG Entertainment,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,49,1423,3,0.356,1.929,99.5,4880.9
+5a85b2d95542997b5ce40028,bridge,hard,span,Eenasul Fateh,Eenasul Fateh,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,8,1119,2,0.415,1.009,79.4,4897.0
+5a87ab905542996e4f3088c1,bridge,hard,span,"3,677 seated",4000,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,13,42,1607,3,0.386,2.068,80.5,4894.4
+5a7bbb64554299042af8f7cc,bridge,hard,span,Terry Richardson,Annie Morton,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,15,30,1860,3,0.419,1.969,85.1,4854.2
+5a8db19d5542994ba4e3dd00,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,18,1660,3,0.365,1.681,125.4,4963.0
+5a7166395542994082a3e814,bridge,hard,span,Kansas Song,Kansas Song (We’re From Kansas),0.0,0.5714,1,3,3,1.0,2,2,1.0,1,done,10,11,819,2,0.38,1.007,72.0,4810.2
+5a877e5d5542993e715abf7d,bridge,hard,span,David Weissman,David Diamond,0.0,0.5,1,3,3,1.0,2,2,1.0,3,max_hops,17,43,1600,3,0.407,2.09,95.2,4978.5
+5ab3b0bf5542992ade7c6e39,bridge,hard,span,1999,1999,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,17,36,1973,3,0.447,2.177,78.6,4908.3
+5ab56e32554299637185c594,comparison,hard,yesno,no,no,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,12,46,1817,3,0.457,2.352,128.2,4960.3
+5ab6d09255429954757d337d,bridge,hard,span,from 1986 to 2013,1996 to 2013,0.0,0.5714,0,3,1,0.3333,2,2,1.0,2,repeated_query,13,37,1929,3,0.492,2.172,70.2,4924.2
+5a75e05c55429976ec32bc5f,bridge,hard,span,"9,984",United States,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,5,723,2,0.331,0.831,95.6,4867.4
+5ab3e45655429976abd1bcd4,bridge,hard,span,the North Atlantic Conference,North Atlantic Conference,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,10,6,971,2,0.417,0.965,84.8,4862.7
+5ab29c24554299449642c932,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,13,17,2112,3,0.442,2.032,125.0,4956.9
+5ae0d4c9554299603e418468,bridge,hard,span,1969 until 1974,1969-1974,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,24,2382,3,0.534,2.258,69.9,4977.5
+5a8133725542995ce29dcbdb,comparison,hard,span,Robert Erskine Childers DSC,Robert Erskine Childers,0.0,0.8571,1,2,2,1.0,2,2,1.0,2,repeated_query,15,23,1792,3,0.416,1.878,74.4,4974.9
+5ae7a8175542993210983ed8,bridge,hard,span,Pedro Rodríguez,Eduardo Troconis,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,14,45,1553,3,0.407,2.052,75.0,4888.7
+5ae6050f55429929b0807a5e,bridge,hard,span,Sonic,"Miles ""Tails"" Prower",0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,17,51,1906,3,0.421,2.39,70.1,4873.2
+5adddccd5542997dc7907069,bridge,hard,span,keyboard function keys,iSight iMac G5,0.0,0.0,0,4,3,0.75,2,2,1.0,2,repeated_query,13,38,1491,3,0.418,1.95,72.7,4865.5
+5ae2070a5542994d89d5b313,comparison,hard,span,Badly Drawn Boy,Badly Drawn Boy,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,11,48,1571,3,0.438,2.128,76.4,4872.5
+5ae22b8d554299234fd0440f,bridge,hard,span,World's Best Goalkeeper,World Player of the Century,0.0,0.0,1,3,3,1.0,2,2,1.0,2,repeated_query,13,50,1698,3,0.419,2.222,76.4,4938.3
+5a722b8655429971e9dc9329,bridge,hard,span,Barton Lee Hazlewood,Lee Hazlewood,0.0,0.8,1,2,2,1.0,2,2,1.0,1,done,10,7,1015,2,0.453,1.041,80.2,4852.8
+5adf37a95542995ec70e8f97,bridge,hard,span,1838,1838,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,25,1661,3,0.431,1.87,79.4,4935.0
+5abd259d55429924427fcf1a,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,46,1345,3,0.417,1.949,128.3,4842.8
+5a828c8355429966c78a6a50,bridge,hard,span,Henry J. Kaiser,yes,0.0,0.0,1,3,3,1.0,2,2,1.0,2,done,14,16,1951,3,0.439,1.849,126.2,4885.7
+5a8a3e745542996c9b8d5e70,bridge,hard,span,Arena of Khazan,Arena of Khazan,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,40,1595,3,0.432,2.003,77.3,4879.0
+5ac23ff0554299636651994d,bridge,hard,span,2000,2000,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,43,1464,3,0.406,1.993,80.3,4852.3
+5ae4a3265542995ad6573de5,comparison,hard,span,"Fujioka, Gunma",Japan,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,4,797,2,0.376,0.862,129.2,4887.6
+5ae0361155429925eb1afc2c,bridge,hard,span,Charles Eugène,Charles Nungesser,0.0,0.5,1,2,2,1.0,2,2,1.0,2,done,15,23,2352,3,0.489,2.217,78.5,5003.3
+5abc0a5d5542993f40c73c64,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,19,29,2050,3,0.379,2.123,126.3,4989.4
+5a7cc50e554299452d57ba3e,comparison,hard,span,Letters to Cleo,Screaming Trees,0.0,0.0,0,4,2,0.5,2,2,1.0,1,done,10,7,935,2,0.422,0.997,80.1,4869.1
+5abf63f15542997ec76fd3ea,bridge,hard,span,October 1922,October 1922,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,29,2238,3,0.482,2.222,73.4,4957.7
+5a8ef2a75542995a26add583,bridge,hard,span,2000,2000,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,37,1857,3,0.421,2.099,79.9,4855.2
+5a80721b554299485f5985ef,bridge,hard,span,World War II,World War II,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,30,1440,3,0.38,1.757,85.2,4855.5
+5ab51dae5542991779162d82,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,27,2078,3,0.453,2.09,126.7,4913.9
+5a7571135542992d0ec05f98,bridge,hard,span,New York City,New York City,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,13,15,1626,3,0.427,1.618,85.2,4897.0
+5a7a0e1e5542990783324e1a,comparison,hard,span,Scotch Collie,Manchester Terrier,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,15,37,1425,3,0.373,1.866,85.0,4883.4
+5a74106b55429979e288289e,bridge,hard,span,Mumbai,Mumbai,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,25,1396,3,0.334,1.634,95.8,4860.5
+5a79311755429970f5fffe67,bridge,hard,span,1962,1985,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,13,35,1602,3,0.412,1.941,80.1,4892.2
+5ab2d3df554299194fa9352c,bridge,hard,span,sovereignty,Ethiopian sovereignty,0.0,0.6667,0,2,1,0.5,2,2,1.0,1,done,10,7,1281,2,0.522,1.234,79.6,4958.9
+5a760ab65542994ccc918697,bridge,hard,span,Nelson Rockefeller,Nelson Rockefeller,1.0,1.0,0,3,2,0.6667,2,1,0.5,3,max_hops,17,41,2198,3,0.486,2.407,83.7,4956.9
+5a7d54165542995f4f402256,bridge,hard,span,Yellowcraig,Yellowcraig,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,12,35,1530,3,0.421,1.902,85.9,4865.1
+5ab859a955429934fafe6d7b,bridge,hard,span,Phil Spector,Phil Spector,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,13,36,1840,3,0.446,2.15,84.7,4976.8
+5add61d65542995b365fab21,bridge,hard,span,Organizations could come together to address global issues,The World Summit of Nobel Peace Laureates,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,11,1275,2,0.527,1.285,71.8,4979.0
+5a8e068b5542995085b37384,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,4,781,2,0.379,0.832,129.5,4876.4
+5abbf698554299114383a0b5,bridge,hard,span,English Electric Canberra,English Electric Canberra,1.0,1.0,1,2,2,1.0,2,2,1.0,1,repeated_query,10,28,843,2,0.368,1.212,86.2,4814.8
+5a8e1027554299653c1aa15f,bridge,hard,span,2009 Big 12 Conference,2009 Big 12 Conference,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,16,58,1834,3,0.411,2.405,69.7,4967.8
+5ab84bf555429916710eb01f,bridge,hard,span,"1,462","1,462",1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,64,1619,3,0.393,2.412,76.1,4928.8
+5a77724455429972597f153e,bridge,hard,span,Indianapolis Motor Speedway,Indianapolis Motor Speedway,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,15,22,1950,3,0.456,2.033,78.1,4881.7
+5a87c13f5542996e4f30890c,bridge,hard,span,Rome,Rome,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,17,37,2190,3,0.469,2.387,94.4,4966.2
+5ab96ab755429970cfb8eacd,bridge,hard,span,"Max Martin, Savan Kotecha and Ilya Salmanzadeh",No,0.0,0.0,0,4,2,0.5,2,2,1.0,1,done,10,4,859,2,0.39,0.874,128.9,4824.9
+5a8a43eb5542996c9b8d5e82,bridge,hard,span,"Marion, South Australia",Adelaide,0.0,0.0,0,4,2,0.5,2,1,0.5,1,repeated_query,10,39,985,2,0.418,1.516,96.1,4870.3
+5ae73acb5542991e8301cc07,bridge,hard,span,Drifting,Car drifting,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,15,31,1557,3,0.364,1.808,96.0,4895.4
+5a7320565542991f9a20c61d,bridge,hard,span,Keith Bostic,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,18,28,1402,3,0.338,1.714,127.6,4901.6
+5ae32e125542991a06ce9946,bridge,hard,span,"35,124","6,825",0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,10,46,1675,3,0.456,2.178,75.8,4892.2
+5adc53f75542996e6852530a,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,43,1691,3,0.45,2.165,128.9,4931.0
+5a8b20335542996c9b8d5fb3,bridge,hard,span,shortest player ever to play in the National Basketball Association,Michael Jordan,0.0,0.0,0,3,1,0.3333,2,2,1.0,1,done,10,5,839,2,0.376,0.894,97.0,4822.3
+5a85fb085542994775f606de,bridge,hard,span,Ronald Shusett,Shusett,0.0,0.6667,0,3,2,0.6667,2,2,1.0,2,repeated_query,12,40,1269,3,0.329,1.798,86.0,4854.3
+5a7be2595542997c3ec972ac,comparison,hard,span,Adeline Virginia Woolf,Virginia Woolf,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,14,20,1397,3,0.371,1.583,85.5,4886.9
+5a77152355429966f1a36c2e,bridge,hard,span,821,19800,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,13,41,979,3,0.302,1.629,77.6,4835.6
+5a8f4c8d554299458435d5a3,bridge,hard,span,more than 70 countries,70,0.0,0.4,1,2,2,1.0,2,2,1.0,2,repeated_query,13,31,1382,3,0.375,1.73,96.3,4885.8
+5a80840f554299485f59863b,bridge,hard,span,Charmed,Charmed,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,15,34,1878,3,0.422,2.067,95.3,4861.0
+5a8361b65542992ef85e22a0,bridge,hard,span,International Boxing Hall of Fame,International Boxing Hall of Fame,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,39,4626,3,0.97,4.065,73.6,5257.3
+5ae7ba7a5542993210983f12,bridge,hard,span,Usher,Usher,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,43,2229,3,0.458,2.461,94.6,4969.2
+5ac2acff55429921a00ab02b,bridge,hard,span,Bill Murray,Steve,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,10,36,1075,3,0.338,1.615,128.2,4856.5
+5aba7cfe554299232ef4a2fd,bridge,hard,span,Carabao Cup,Carabao Cup,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,39,2064,3,0.421,2.273,76.6,4948.5
+5ae5aba0554299546bf82f17,bridge,hard,span,Teen Titans Go!,Teen Titans,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,17,34,1730,3,0.425,2.012,95.6,4963.0
+5ae1f4cb554299234fd0436d,bridge,hard,span,"276,170 inhabitants","276,170",0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,16,34,1788,3,0.421,2.009,72.9,4970.3
+5ae7e1fc55429952e35ea9cc,bridge,hard,span,orange,orange,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,4,961,2,0.417,0.999,127.1,4883.6
+5ae37c765542992f92d822d4,bridge,hard,span,Tromeo and Juliet,Tromeo and Juliet,1.0,1.0,0,2,1,0.5,2,2,1.0,1,repeated_query,10,38,1113,2,0.451,1.521,76.9,4894.4
+5ae33c4d5542992f92d82262,bridge,hard,span,William Jefferson Clinton,Bill Clinton,0.0,0.4,1,3,3,1.0,2,2,1.0,2,repeated_query,13,41,1617,3,0.429,2.043,118.1,4906.0
+5a77cb335542997042120b3a,bridge,hard,span,John John Florence,John John Florence,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,18,46,1917,3,0.45,2.293,84.6,4965.7
+5a8979f4554299669944a52e,bridge,hard,span,Ann,Ward,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,5,915,2,0.434,0.939,96.3,4857.3
+5a713ea95542994082a3e6e4,bridge,hard,span,Apalachees,Ais,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,10,5,775,2,0.379,0.845,96.9,4872.2
+5a78bd9b554299078472774a,bridge,hard,span,British,British,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,28,1604,3,0.415,1.787,127.8,4888.7
+5a7625e8554299109176e66a,bridge,hard,span,1865,1865,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,7,901,2,0.418,0.941,80.5,4849.1
+5ae2dd2055429928c423950d,bridge,hard,span,Newport,Sullivan County,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,13,17,1363,3,0.377,1.519,85.6,4882.5
+5abdf12255429976d4830a2f,bridge,hard,span,Bob Seger,Bob Seger,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,837,2,0.373,0.891,85.8,4820.3
+5a88658955429938390d3f47,bridge,hard,span,Conscription,draft,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,16,41,1691,3,0.412,2.084,127.8,4949.1
+5a86ebac55429960ec39b6d6,bridge,hard,span,"Mondelez International, Inc.",Mondelez International,0.0,0.8,1,2,2,1.0,2,2,1.0,1,done,10,7,915,2,0.426,0.974,80.1,4857.3
+5aba5d2e55429901930fa799,bridge,hard,span,Monica Lewinsky,Monica Lewinsky,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,12,55,1969,3,0.488,2.446,79.4,4937.7
+5ae5736e5542990ba0bbb2b3,bridge,hard,span,"April 1, 1949","April 1, 1949",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,28,2178,3,0.454,2.209,69.8,4960.7
+5ae005b555429942ec259bec,bridge,hard,span,1866,1866,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,14,37,1778,3,0.421,2.058,79.4,4976.8
+5a7759fc5542993569682d60,comparison,hard,span,"Canary Islands, Spain","Teide National Park is located in Tenerife, Canary Islands, Spain. Garajonay National Park is located in La Gomera, Canary Islands, Spain.",0.0,0.25,1,2,2,1.0,2,2,1.0,1,done,10,38,809,2,0.388,1.391,66.6,4804.0
+5a835478554299123d8c20ed,bridge,hard,span,250 million,250 million,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,43,1314,3,0.36,1.863,80.3,4836.4
+5aba749055429901930fa7d8,comparison,hard,span,director,director,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,38,1309,3,0.397,1.815,128.1,4828.1
+5abfb3425542990832d3a1c0,bridge,hard,span,The Conversation,The Conversation,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,5,821,2,0.388,0.897,93.9,4811.8
+5ac3165c5542995ef918c10a,bridge,hard,span,John Waters,no,0.0,0.0,1,3,3,1.0,2,2,1.0,2,repeated_query,11,42,1372,3,0.438,1.907,128.4,4856.4
+5ae53b545542990ba0bbb23c,bridge,hard,span,Las Vegas Strip in Paradise,Las Vegas Strip,0.0,0.75,0,4,3,0.75,2,2,1.0,2,repeated_query,12,28,1121,3,0.332,1.506,86.3,4874.0
+5ae224da554299234fd043ee,comparison,hard,yesno,no,no,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,12,26,1388,3,0.375,1.671,129.7,4883.4
+5ae2b770554299495565db0f,bridge,hard,span,March and April,June,0.0,0.0,1,4,4,1.0,2,2,1.0,3,max_hops,15,32,1409,3,0.329,1.75,127.5,4870.9
+5a80b3a9554299485f5986cc,bridge,hard,span,Fairfax County,Fairfax,0.0,0.6667,0,2,1,0.5,2,2,1.0,1,done,10,5,981,2,0.42,0.971,96.0,4869.1
+5a8e0a005542995085b373a1,bridge,hard,span,IT products and services,IT products and services,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,27,1931,3,0.415,2.051,79.0,4893.7
+5ac1b8ee5542994d76dccedc,comparison,hard,span,Levni Yilmaz,Lev Yilmaz,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,17,32,1966,3,0.442,2.15,75.0,4901.6
+5adccd795542990d50227d2c,bridge,hard,span,Beijing,Rabat,0.0,0.0,1,3,3,1.0,2,2,1.0,2,done,15,16,2152,3,0.544,2.008,84.2,4974.9
+5a84c4135542994c784dda31,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,31,1488,3,0.418,1.791,127.8,4859.4
+5a85eed75542996432c5713b,bridge,hard,span,"Coahuila, Mexico",Florida and Oklahoma,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,6,841,2,0.371,0.888,85.9,4814.2
+5a774e9c55429972597f14f3,bridge,hard,span,Larnelle Harris,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,34,1707,3,0.445,1.942,127.7,4930.5
+5ae738f75542991bbc9761c4,bridge,hard,span,2003,2003,1.0,1.0,0,4,3,0.75,2,2,1.0,1,done,10,7,739,2,0.34,0.88,81.2,4879.1
+5ac32b565542995ef918c154,bridge,hard,span,North Avenue at Techwood Drive,"Atlanta, Georgia",0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,6,919,2,0.422,0.944,85.7,4859.4
+5abc8d75554299700f9d7900,bridge,hard,span,Leo Varadkar,Leo Eric Varadkar,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,13,52,2781,3,0.647,2.981,75.0,5069.0
+5a8bb29b554299240d9c2089,bridge,hard,span,George Raft,George Raft,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,11,38,1362,3,0.386,1.82,85.7,4859.4
+5ab659e355429954757d324e,bridge,hard,span,1887,1887,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,18,31,1776,3,0.381,1.958,79.2,4965.7
+5a8b8b3155429949d91db5d7,bridge,hard,span,business,valuation,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,36,1090,3,0.343,1.609,127.9,4864.3
+5ae7eaf65542994a481bbe1d,bridge,hard,span,7 October 1978,1978,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,10,7,901,2,0.414,0.955,80.3,4849.1
+5a8c4c625542995e66a475a1,bridge,hard,span,B-17 Flying Fortress bomber,B-17 Flying Fortress,0.0,0.8571,1,2,2,1.0,2,2,1.0,3,max_hops,15,43,1734,3,0.418,2.145,74.2,4912.8
+5a818387554299260e20a291,bridge,hard,span,Blake Shelton,Blake Shelton,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,37,1454,3,0.376,1.872,85.3,4879.0
+5ab978855542996be2020512,bridge,hard,span,three centuries,three,0.0,0.6667,0,4,3,0.75,2,2,1.0,2,repeated_query,13,50,1770,3,0.451,2.262,128.5,4965.2
+5ae63dad55429929b0807afe,bridge,hard,span,7 January 1936,7 January 1936,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,17,28,2078,3,0.422,2.18,72.2,4952.2
+5a7a455c5542994f819ef1a7,comparison,hard,span,George Archainbaud,George Archainbaud,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,8,975,2,0.422,1.04,77.2,4865.1
+5a7dcc775542990b8f503ab5,bridge,hard,span,picric acid,Picric acid,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,13,32,1426,3,0.377,1.741,85.8,4879.0
+5a887bc0554299206df2b2b6,bridge,hard,span,230,16,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,30,1574,3,0.378,1.835,95.7,4915.0
+5a83880e554299123d8c214e,bridge,hard,span,Marvel,Ghost Rider,0.0,0.0,1,4,4,1.0,2,2,1.0,2,repeated_query,14,35,1295,3,0.345,1.746,96.1,4872.5
+5a879adb5542996e4f30887f,bridge,hard,span,United States Senator,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,12,38,1869,3,0.445,2.159,126.0,4976.8
+5add11935542994734353827,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,24,1946,3,0.454,2.004,126.3,4877.0
+5a8c5569554299240d9c2126,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,52,1493,3,0.386,2.122,127.7,4884.3
+5a75f0ea5542994ccc91866c,bridge,hard,span,The A41,A41,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,24,1301,3,0.382,1.562,85.9,4833.3
+5a89f5815542993b751ca9c5,bridge,hard,span,Princess Jessica,Princess Jessica,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,54,1724,3,0.417,2.262,84.7,4962.5
+5a8d5fc6554299585d9e37c6,bridge,hard,span,The Spiderwick Chronicles,The Spiderwick Chronicles,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,13,41,1757,3,0.429,2.129,79.1,4969.2
+5ac120c55542992a796dedfc,bridge,hard,span,KKR & Co,Kohlberg Kravis Roberts & Co.,0.0,0.3333,0,3,2,0.6667,2,2,1.0,1,done,10,12,811,2,0.377,1.009,71.2,4804.9
+5ab7c1a955429928e1fe38c8,bridge,hard,span,The Bye Bye Man,Bottom of the World,0.0,0.0,1,3,3,1.0,2,2,1.0,2,repeated_query,10,69,1534,3,0.439,2.413,80.3,4852.8
+5abd01205542992ac4f3819b,bridge,hard,span,Richmond,Richmond River,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,15,36,1524,3,0.374,1.898,85.0,4899.7
+5ab69c25554299110f219a39,bridge,hard,span,Owsley Stanley,Owsley Stanley,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,13,31,2034,3,0.503,2.155,79.5,4954.3
+5a7b12a355429927d897bf2a,bridge,hard,span,the late 12th Century,late 12th Century,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,29,2218,3,0.447,2.217,73.3,4974.2
+5ae0006755429925eb1afbd3,bridge,hard,span,"San Luis Obispo, California",San Luis Obispo,0.0,0.8571,1,3,3,1.0,2,2,1.0,2,done,13,25,1569,3,0.413,1.749,77.0,4892.7
+5ae305df5542992decbdcdc3,bridge,hard,span,Mercedes-Benz Superdome,University of Phoenix Stadium,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,55,1677,3,0.417,2.285,79.4,4942.9
+5a8574945542997b5ce3fffb,comparison,hard,span,LaLee's Kin: The Legacy of Cotton,"Gimme Shelter, the 1970 Rolling Stones documentary",0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,10,17,895,2,0.426,1.123,68.6,4846.0
+5a7332935542991f9a20c67d,comparison,hard,span,Pirate's Cove,Pirate's Cove,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,33,1734,3,0.442,1.979,79.9,4946.5
+5a80071f5542992bc0c4a684,bridge,hard,span,Crystal Dynamics,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,35,1629,3,0.42,1.953,128.1,4917.1
+5ae73c065542991e8301cc18,bridge,hard,span,"""The Marshall Mathers LP 2""",The Marshall Mathers LP 2,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,37,1675,3,0.421,2.038,72.8,4938.2
+5a87d8215542994775f60800,bridge,hard,span,Suicide Squad,Training Day,0.0,0.0,1,4,4,1.0,2,2,1.0,2,repeated_query,12,79,1557,3,0.423,2.59,96.2,4883.6
+5ac2ffbd554299677310267b,bridge,hard,span,Jillian Belk,Jillian Leigh Bell on Workaholics,0.0,0.2857,1,2,2,1.0,2,2,1.0,3,max_hops,16,43,2154,3,0.473,2.453,70.6,4947.0
+5a7c960655429935c91b5244,bridge,hard,span,Texas Tech University,Texas Tech University,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,965,2,0.425,0.997,85.5,4859.4
+5a7d61775542991319bc93b9,bridge,hard,span,Lord Combermere,no,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,11,46,1672,3,0.448,2.118,127.3,4914.4
+5ac1c6805542994ab5c67e11,bridge,hard,span,"seasonal television specials, particularly its work in stop motion animation","seasonal television specials, particularly its work in stop motion animation",1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,14,32,1960,3,0.45,2.186,68.4,4880.0
+5a7a230e5542996a35c170ee,bridge,hard,span,2014,2008,0.0,0.0,0,3,1,0.3333,2,1,0.5,3,max_hops,16,40,1513,3,0.38,1.983,79.6,4922.2
+5ae4627d5542991a06ce9a4d,bridge,hard,span,Oxford,Oxford University,0.0,0.6667,1,3,3,1.0,2,2,1.0,3,max_hops,18,25,1802,3,0.42,1.919,84.6,4861.8
+5ac2d1d755429921a00ab053,comparison,hard,span,Roberta Vinci,Roberta Vinci,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,18,27,1758,3,0.347,1.927,84.3,4874.6
+5ab4e3065542990594ba9cb4,bridge,hard,span,"""Teach the Controversy"" campaign",Teach the Controversy,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,18,36,1772,3,0.386,2.024,74.6,4970.3
+5ac298f9554299657fa28fc9,comparison,hard,span,Lostprophets disbanded in 2013 after Watkins was charged with sexual offences in late 2012.,Ian Watkins,0.0,0.125,1,2,2,1.0,2,2,1.0,3,max_hops,14,24,1549,3,0.388,1.706,96.4,4890.1
+5ab6a2be554299710c8d1f08,bridge,hard,span,Nebo Zovyot,Mechte Navstrechu,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,53,1644,3,0.423,2.222,76.9,4928.8
+5a738d27554299623ed4abf3,bridge,hard,span,Erika Jayne,Erika Jayne,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,18,24,2077,3,0.427,2.125,79.0,4955.3
+5ab2a186554299295394677b,bridge,hard,span,2009,2009,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,7,775,2,0.391,0.886,80.8,4872.2
+5a8704f8554299211dda2ba4,bridge,hard,span,Kingdom of the Isles,The Isles,0.0,0.5,0,3,2,0.6667,2,2,1.0,1,done,10,5,895,2,0.416,0.91,96.5,4846.0
+5ab5ed505542997d4ad1f255,bridge,hard,span,The Beatles,The Beatles,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,55,2215,3,0.47,2.605,94.1,4962.8
+5a77c1505542997042120b1b,bridge,hard,span,"""We'll Burn That Bridge""",Chattahoochee,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,10,78,1777,3,0.503,2.714,76.5,4930.5
+5a88d745554299206df2b378,comparison,hard,span,director,director,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,32,1474,3,0.43,1.827,127.3,4865.1
+5ae748d1554299572ea547b0,bridge,hard,span,1901,1901,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,16,25,1701,3,0.431,1.878,79.9,4953.2
+5a7a8a9c554299042af8f666,bridge,hard,span,Argand lamp,Argand lamp,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,40,1509,3,0.417,1.982,85.5,4859.4
+5adffe7155429906c02daa9e,bridge,hard,span,seven,7,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,40,1919,3,0.417,2.244,127.6,4886.8
+5ab642845542995eadeeff8e,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,4,905,2,0.43,0.961,128.7,4851.2
+5a906a685542990a9849362e,bridge,hard,span,Brazil,It was not specified in the context where the World Cup was hosted that Algeria qualified for the first time into the round of 16.,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,10,31,991,2,0.418,1.368,66.6,4878.1
+5a7633ad5542992db9473741,comparison,hard,span,The Seven Days Battles,Seven Days Battles,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,18,27,2044,3,0.423,2.087,83.8,4976.3
+5a74ce9655429974ef308c6c,bridge,hard,span,Lush Ltd.,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,38,1163,3,0.347,1.765,129.4,4829.0
+5a713a5a5542994082a3e6a9,bridge,hard,span,Manchester United,Manchester United Football Club,0.0,0.6667,1,3,3,1.0,2,2,1.0,1,done,10,7,883,2,0.409,0.949,80.3,4838.8
+5ab341f755429969a97a8114,bridge,hard,span,1989,1989,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,27,1602,3,0.376,1.778,79.5,4917.7
+5a8325b35542990548d0b18f,bridge,hard,span,Kathryn Jean Martin,Dorothy Tangney,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,13,56,1705,3,0.451,2.321,76.4,4926.1
+5ab9374b554299131ca422c6,bridge,hard,span,Frank Lowy,Sir Frank P. Lowy,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,done,15,33,1712,3,0.414,1.977,74.2,4956.8
+5ae52c0f5542992663a4f12e,bridge,hard,span,Las Vegas,Las Vegas,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,11,23,1395,3,0.429,1.697,95.9,4867.5
+5adbfbd555429947ff173893,bridge,hard,span,Kelly Lee Osbourne,Rosie O'Donnell,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,12,37,1377,3,0.379,1.84,75.1,4884.9
+5ab7f0015542992aa3b8c88b,bridge,hard,span,Sean Yseult.,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,30,1297,3,0.366,1.688,128.6,4849.1
+5ac547525542993e66e822a3,bridge,hard,span,Prescription Drug User Fee Act,approximately $700 million,0.0,0.0,0,4,2,0.5,2,2,1.0,3,max_hops,14,58,2271,3,0.536,2.754,73.5,4950.1
+5a7cbf8c554299452d57b9f4,comparison,hard,span,Dinosaur,Dinosaur,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,46,1805,3,0.429,2.277,95.2,4874.9
+5a7ddc5a5542995f4f4022da,bridge,hard,span,Wichita,Wichita,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,11,52,1383,3,0.419,2.11,85.2,4864.5
+5a7a1cd85542990783324e65,bridge,hard,span,United States presidential election of 2016,The United States presidential election of 2020,0.0,0.8333,1,2,2,1.0,2,2,1.0,1,done,10,14,963,2,0.417,1.107,70.1,4884.9
+5ae0a59a55429945ae9593e2,bridge,hard,span,Roman,T Roman,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,12,43,1852,3,0.44,2.211,95.4,4861.5
+5a8b987f5542997f31a41d7a,bridge,hard,span,C. W. Grafton,C. W. Grafton,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,35,1555,3,0.38,1.89,73.2,4897.6
+5a8739a05542994775f607ab,bridge,hard,span,"Brooklyn, New York","Brooklyn, New York",1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,12,48,1499,3,0.421,2.078,77.1,4869.7
+5ae67dba55429908198fa5f0,bridge,hard,span,"48,982","10,176",0.0,0.0,1,4,4,1.0,2,2,1.0,3,max_hops,19,36,1606,3,0.374,1.931,74.3,4969.2
+5a7b3f4d5542992d025e67bb,bridge,hard,span,Pasek & Paul,Pasek and Paul,0.0,0.8,1,4,4,1.0,2,2,1.0,3,max_hops,17,36,1587,3,0.38,1.984,76.5,4931.0
+5ae2dfd155429928c423951b,bridge,hard,span,City of Newcastle,Newcastle,0.0,0.5,0,2,1,0.5,2,2,1.0,2,repeated_query,11,47,1358,3,0.38,1.939,96.7,4858.8
+5ab6ba245542995eadef007f,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,4,895,2,0.418,0.903,129.1,4846.0
+5ab8854555429934fafe6e0c,bridge,hard,span,drawings,drawings,1.0,1.0,1,4,4,1.0,2,2,1.0,2,repeated_query,14,33,1589,3,0.386,1.883,95.3,4915.5
+5a8eea4a5542990e94052bb7,bridge,hard,span,between the 8th and 16th centuries,8th century,0.0,0.2857,1,2,2,1.0,2,2,1.0,3,max_hops,18,32,2106,3,0.417,2.199,82.6,4956.9
+5a74c85055429916b0164218,bridge,hard,span,Alistair Grant,Sir Matthew Alistair Grant,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,11,55,1342,3,0.389,2.059,75.3,4856.4
+5a88dcf9554299206df2b383,bridge,hard,span,Scotland,Scotland,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,4,739,2,0.346,0.794,128.5,4879.1
+5a7625c7554299109176e668,bridge,hard,span,Comedy Film Nerds,The Nerdist Podcast,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,11,51,1404,3,0.384,2.094,78.7,4883.4
+5ac0d83a554299294b219038,bridge,hard,span,Summerlin,Las Vegas,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,20,29,1606,3,0.378,1.882,95.4,4875.2
+5a790d8f554299029c4b5eec,bridge,hard,span,George Harrison,George Harrison,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,39,1202,3,0.389,1.811,95.6,4886.9
+5ab2c5e255429916697740ba,bridge,hard,span,Canadian professional ice hockey centre,Centre,0.0,0.3333,1,2,2,1.0,2,2,1.0,2,repeated_query,17,24,2167,3,0.481,2.154,125.8,4960.7
+5abcfc365542993a06baf9d6,bridge,hard,span,1952,1952,1.0,1.0,0,3,2,0.6667,2,1,0.5,2,repeated_query,19,29,1826,3,0.386,1.982,79.6,4862.5
+5a8ee6915542990e94052bad,bridge,hard,span,third,third,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,17,39,2007,3,0.445,2.248,127.8,4898.9
+5abba4855542993f40c73b68,bridge,hard,span,Mark Neveldine and Brian Taylor,Mark Neveldine and Brian Taylor,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,48,2068,3,0.45,2.441,71.1,4938.2
+5ae0bae555429906c02dab08,bridge,hard,span,Hidden America with Jonah Ray,Hidden America with Jonah Ray,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,16,32,2094,3,0.46,2.253,75.7,4954.2
+5ab271fe554299449642c8a6,comparison,hard,yesno,no,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,38,1450,3,0.42,1.88,127.2,4869.1
+5a7997a2554299029c4b5f59,bridge,hard,span,1943,1943,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,34,2173,3,0.487,2.28,78.4,4951.8
+5add673e5542992ae4cec54d,bridge,hard,span,Oregon Ducks football,no,0.0,0.0,0,4,2,0.5,2,2,1.0,3,max_hops,12,37,1738,3,0.452,2.047,127.9,4926.9
+5ae819ac55429952e35eaa16,bridge,hard,span,National Broadcasting Company,NBC,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,18,38,1695,3,0.382,2.038,125.3,4972.8
+5aba65a055429939ce03dcd2,bridge,hard,span,North African Arab,Arab,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,16,27,2051,3,0.456,2.128,94.9,4918.6
+5a87bada5542994846c1cddc,bridge,hard,span,Murray Hill,Murray Hill,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,14,26,1620,3,0.424,1.805,85.7,4908.1
+5ae74fc45542997b22f6a6b4,bridge,hard,span,severe acute respiratory syndrome,Severe acute respiratory syndrome,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,49,1363,3,0.414,2.009,77.1,4856.4
+5adf65555542992d7e9f9334,bridge,hard,span,Wendell Berry,no,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,12,42,1640,3,0.436,2.051,125.7,4897.6
+5ade69e455429975fa854ec5,bridge,hard,span,Tinu Suresh Desai,Chandrakant Singh,0.0,0.0,0,5,3,0.6,2,2,1.0,2,repeated_query,11,54,1667,3,0.452,2.294,75.7,4912.8
+5ae057fd55429945ae959328,bridge,hard,span,"Golden Valley, Minnesota,",no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,12,30,1130,3,0.336,1.573,129.9,4882.9
+5ab28019554299722f9b4d51,bridge,hard,span,$10.5 million,10.5 million (USD 8 million),0.0,0.5714,1,2,2,1.0,2,2,1.0,2,repeated_query,15,60,1689,3,0.382,2.341,69.4,4962.5
+5a75f79555429976ec32bcca,bridge,hard,span,1999 Odisha cyclone,Cyclone Gonu,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,16,53,1989,3,0.453,2.526,74.5,4936.2
+5adef80b5542993a75d263c4,bridge,hard,span,Crackle,Crackle,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,47,1272,3,0.392,1.928,96.8,4824.9
+5ae0aaf455429945ae959401,bridge,hard,span,Salford City Football Club,Salford City,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,10,7,923,2,0.414,0.988,80.4,4861.8
+5ab47d765542991751b4d78f,bridge,hard,span,architect Michael Graves,Michael Graves,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,14,27,2283,3,0.533,2.217,94.5,4960.7
+5a7ed2c655429930675135e5,bridge,hard,span,multiple awards,awarded multiple awards,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,12,63,1616,3,0.423,2.341,80.1,4894.4
+5ac3e0f7554299194317388b,bridge,hard,span,Kevin Spacey,Kevin Spacey,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,12,30,1364,3,0.391,1.751,85.9,4870.3
+5a7bae20554299294a54aa96,bridge,hard,span,Ryan Seacrest,Nicki Minaj is a judge on a television show hosted by Randy Jackson.,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,13,45,1600,3,0.422,2.075,67.3,4902.1
+5ab8ee035542991b5579f04b,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,20,26,1787,3,0.413,1.943,126.1,4846.9
+5a7a276d5542996c55b2dd27,bridge,hard,span,Colonel Charles Hastings Judd,Colonel Charles Hastings Judd,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,12,55,1670,3,0.454,2.29,74.3,4917.7
+5a717d4c5542994082a3e854,comparison,hard,span,Pavel Sergeyevich Alexandrov,Pavel Alexandrov,0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,17,39,1948,3,0.452,2.191,76.0,4949.1
+5ac02e31554299294b218f3f,bridge,hard,span,Gal Gadot,Gal Gadot,1.0,1.0,0,4,3,0.75,2,2,1.0,2,repeated_query,11,52,1210,3,0.338,1.968,85.1,4883.6
+5a79ea435542996c55b2dc9e,bridge,hard,span,Rear Adm. J. Edward Snyder,New Jersey,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,5,1149,2,0.488,1.076,94.6,4915.5
+5ab7e4dc5542995dae37e9df,bridge,hard,span,Jackson Storm,Jackson Storm,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,27,1968,3,0.459,2.058,95.5,4901.1
+5a834ed95542990548d0b1ca,comparison,hard,span,712 5th Avenue,712 Fifth Avenue,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,10,42,1549,3,0.445,2.006,75.1,4856.9
+5ab41d855542996a3a969f4b,bridge,hard,span,right-hand,right-hand,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,59,1709,3,0.417,2.406,95.0,4962.5
+5a7b7ff75542995eb53be93d,comparison,hard,span,Arthur Ignatius Conan Doyle,Arthur Conan Doyle,0.0,0.8571,1,2,2,1.0,2,2,1.0,2,repeated_query,14,26,1556,3,0.406,1.804,84.8,4895.4
+5a7d19d85542995ed0d165e8,bridge,hard,span,"Birmingham, Alabama",Birmingham,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,18,24,1753,3,0.405,1.899,94.7,4847.3
+5ae7ed17554299540e5a56a3,bridge,hard,span,44,126,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,26,1547,3,0.426,1.746,84.7,4864.1
+5ab2659e554299340b5254b2,bridge,hard,span,the Parthian Empire,Parthian Empire,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,29,2038,3,0.449,2.077,78.0,4913.5
+5abd2eab5542992ac4f38210,bridge,hard,span,Erinsborough,Erinsborough,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,13,16,1300,3,0.348,1.471,85.9,4882.2
+5abaf3195542996cc5e49f2c,bridge,hard,span,Samoa,Samoa,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,18,33,2144,3,0.437,2.238,93.7,4945.8
+5a791a97554299148911f9f2,bridge,hard,span,"Kimberly Couger ""Kimmy"" Schmidt",Kimmy Schmidt,0.0,0.6667,1,3,3,1.0,2,2,1.0,1,done,10,6,843,2,0.394,0.929,84.6,4814.8
+5adf58f15542993a75d264d2,bridge,hard,span,"""The Comic Strip Presents...""",The Young Ones,0.0,0.0,0,4,1,0.25,2,1,0.5,1,done,10,6,878,2,0.424,0.951,85.9,4835.8
+5adc65e85542996e68525350,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,26,1137,3,0.333,1.453,128.9,4867.1
+5a87ab9b5542996e4f3088c2,bridge,hard,span,nineteenth,19th,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,6,1343,2,0.516,1.192,84.7,4853.8
+5a738fe855429908901be2fb,bridge,hard,span,Awake,Awake,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,43,1203,3,0.34,1.795,95.6,4882.9
+5a8c65a1554299585d9e3680,bridge,hard,span,French Canadians,French Canadians,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,51,1626,3,0.417,2.206,95.6,4958.1
+5ac2bbd0554299218029db09,bridge,hard,span,American,American,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,14,2016,3,0.46,1.906,124.4,4913.5
+5adf3e355542993a75d26440,bridge,hard,span,8 km,8 km,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,15,15,2163,3,0.496,1.985,94.9,4953.7
+5ae82ae555429952e35eaa71,bridge,hard,span,Rawhide,Rawhide,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,15,33,2126,3,0.447,2.251,94.6,4960.7
+5ac289ff5542996366519a02,comparison,hard,span,Marsilea,Marsilea,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,35,1591,3,0.381,1.912,79.8,4926.1
+5a7a5b3a5542996c55b2dd71,bridge,hard,span,Mark Masons' Hall,St James's Palace,0.0,0.0,0,5,4,0.8,2,2,1.0,1,done,10,7,929,2,0.423,1.005,80.4,4865.1
+5ab8688b55429934fafe6daa,bridge,hard,span,Starlite,Starlite,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,10,5,933,2,0.417,0.962,95.0,4867.5
+5a7a3a945542996a35c17147,bridge,hard,span,Hong Kong,Bank of China Tower,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,12,45,1535,3,0.417,2.024,80.6,4881.9
+5ab9b29c554299743d22ebae,comparison,hard,span,Craig v. Boren,"United States v. Paramount Pictures, Inc.",0.0,0.2222,1,2,2,1.0,2,2,1.0,1,done,10,12,1777,2,0.696,1.65,69.7,5013.2
+5a8b63fa55429950cd6afcd7,bridge,hard,span,"""Queen City""",Bangor,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,10,5,833,2,0.376,0.89,96.8,4819.0
+5ade51b45542997c77adedf4,bridge,hard,span,Arrowhead Stadium,Arrowhead Stadium,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,12,39,1504,3,0.372,1.886,85.6,4872.5
+5ae4c49a5542995dadf24400,bridge,hard,span,acidic,Cranberries found in blanket bogs.,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,44,1877,3,0.412,2.241,70.5,4881.2
+5a7d3470554299452d57bb56,bridge,hard,span,Compliance,The Plot,0.0,0.0,0,4,3,0.75,2,2,1.0,1,done,10,5,959,2,0.421,0.996,95.7,4883.0
+5ae4f2c75542993aec5ec0fb,bridge,hard,span,Logan International Airport,Logan International Airport,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,41,1759,3,0.421,2.122,79.9,4972.2
+5ab1d7ac554299449642c7e6,comparison,hard,span,Ehretia,Ehretia,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,6,33,820,3,0.307,1.436,80.8,4731.3
+5a85cead5542991dd0999ea9,bridge,hard,span,a pinball machine,Frank Thomas,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,5,1215,2,0.472,1.143,95.9,4949.1
+5a73a7c755429978a71e9068,bridge,hard,span,Donna Paige Helmintoller,Paige O'Hara,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,18,45,2488,3,0.496,2.709,74.6,5067.9
+5a7f113d55429934daa2fcbe,bridge,hard,span,"Reginald Martinez ""Reggie"" Jackson",Jackson,0.0,0.4,0,4,2,0.5,2,2,1.0,2,repeated_query,11,62,1347,3,0.384,2.184,127.8,4854.3
+5ae6828f5542996d980e7bb9,bridge,hard,span,Thomas Mawson,Thomas Mawson,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,10,7,931,2,0.421,1.011,79.2,4866.7
+5ab31864554299233954ff06,bridge,hard,span,strings,Sarod,0.0,0.0,0,3,1,0.3333,2,2,1.0,3,max_hops,15,41,1437,3,0.382,1.944,85.4,4855.0
+5abe239355429976d4830a7d,bridge,hard,span,Brad Silberling,Brad Silberling,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,17,39,1904,3,0.384,2.184,79.3,4897.3
+5ac2659b55429963665199a1,bridge,hard,span,25 laps,25,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,14,43,1900,3,0.443,2.271,95.1,4868.5
+5ae058e855429945ae959331,comparison,hard,yesno,yes,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,34,1329,3,0.334,1.794,129.0,4883.4
+5a7b8749554299294a54a9db,comparison,hard,span,Thomas Loren Friedman,no,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,18,32,1838,3,0.452,2.043,127.5,4933.7
+5a864ff7554299211dda2af2,bridge,hard,span,Taylor Swift,Taylor Swift,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,18,43,1724,3,0.423,2.144,95.8,4940.2
+5ae4d3c95542990ba0bbb165,comparison,hard,span,"Istanbul, Turkey",Istanbul,0.0,0.6667,0,2,1,0.5,2,2,1.0,3,max_hops,12,44,1591,3,0.429,2.077,96.0,4879.0
+5ab7f97a5542991d322237ef,bridge,hard,span,super-regional shopping mall,super-regional shopping mall,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,8,939,2,0.416,1.055,74.8,4870.3
+5a7b46e55542995eb53be8e5,bridge,hard,span,Ordos City,"Ordos City China Science Flying Universe Science and Technology Co., Ltd.",0.0,0.3077,1,2,2,1.0,2,2,1.0,3,max_hops,14,42,1719,3,0.455,2.188,67.9,4960.8
+5a879ba55542993e715abfc3,comparison,hard,span,Scott Sidney,Alain Resnais,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,10,8,1119,2,0.447,1.059,77.0,4897.0
+5ae4563e5542996836b02c7f,bridge,hard,span,over 600 stores,600,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,13,40,1247,3,0.33,1.773,86.7,4882.9
+5ab6ff3a5542991d3222372a,bridge,hard,span,Berea College,Berea College,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,13,24,1373,3,0.336,1.615,85.0,4880.2
+5a7a46605542994f819ef1ad,bridge,hard,span,1945,1946,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,51,1293,3,0.336,1.974,79.7,4869.8
+5ade7a435542997c77adee3a,bridge,hard,span,Mountbatten family,Mountbatten-Windsor,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,43,1950,3,0.457,2.297,73.7,4972.2
+5ac1795f5542994ab5c67d5f,bridge,hard,span,James Burke,James Burke,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,5,883,2,0.419,0.932,95.4,4838.8
+5ab1e984554299340b525428,comparison,hard,span,Gulangyu,Gulangyu,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,34,1392,3,0.377,1.785,79.3,4862.7
+5a86769c5542994775f60776,bridge,hard,span,Slaughterhouse-Five,"Armageddon in Retrospect was written by the author who was best known for his 1969 satire novel ""Slaughterhouse-Five"".",0.0,0.1111,1,2,2,1.0,2,2,1.0,2,repeated_query,14,73,1775,3,0.424,2.608,65.8,4976.8
+5ab7da6f55429928e1fe3928,bridge,hard,span,the east of Ireland,east,0.0,0.5,1,4,4,1.0,2,2,1.0,3,max_hops,17,31,1788,3,0.418,1.992,126.6,4942.9
+5ae497f15542995ad6573db8,bridge,hard,span,Distillery,No,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,10,4,855,2,0.393,0.884,127.3,4822.4
+5ae6f2a7554299572ea5464a,bridge,hard,span,Tybalt,Romeo,0.0,0.0,1,4,4,1.0,2,2,1.0,3,max_hops,15,41,1646,3,0.417,2.087,84.3,4931.0
+5adea9ea55429939a52fe934,bridge,hard,span,SKUM,no,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,13,44,1923,3,0.45,2.251,126.2,4892.2
+5a7caae75542996dd594b971,bridge,hard,span,Anabolic steroids,Anabolic steroids,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,10,6,987,2,0.427,1.014,85.2,4877.0
+5ac01bb8554299012d1db5a6,bridge,hard,span,Don S. Davis,Don S. Davis,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,19,46,2343,3,0.486,2.614,77.5,5064.0
+5abc3a65554299700f9d782d,bridge,hard,span,Charles Kelley,Hillary Scott,0.0,0.0,1,3,3,1.0,2,2,1.0,1,done,10,5,997,2,0.431,0.984,95.3,4881.2
+5ae3ff575542995dadf242aa,bridge,hard,span,"3,384,569","3,384,569",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,46,1789,3,0.443,2.197,71.0,4972.2
+5a89fb525542993b751ca9d6,bridge,hard,span,Anna Clyne,Anna Clyne,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,10,6,809,2,0.374,0.902,85.7,4804.0
+5ab3d69255429969a97a81c9,bridge,hard,span,USS Essex,USS Essex (CV-9),0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,12,43,1642,3,0.429,2.048,71.2,4895.4
+5ac5199a5542994611c8b38a,comparison,hard,yesno,yes,yes,1.0,1.0,0,5,4,0.8,2,2,1.0,2,repeated_query,13,44,1271,3,0.376,1.92,126.7,4836.4
+5ae048a255429924de1b708e,bridge,hard,span,Catwoman,Catwoman,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,44,1629,3,0.416,2.118,95.6,4926.9
+5a9068a95542990a98493621,bridge,hard,span,7 miles,20 miles,0.0,0.5,1,3,3,1.0,2,2,1.0,3,max_hops,16,28,1583,3,0.421,1.817,85.7,4899.7
+5adf9dc3554299025d62a2e6,bridge,hard,span,Laura Ann Osnes,Laura Osnes,0.0,0.8,1,3,3,1.0,2,2,1.0,2,repeated_query,13,52,1880,3,0.45,2.356,84.8,4976.3
+5ae406245542995dadf242e2,bridge,hard,span,20,more than 20,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,15,36,1955,3,0.431,2.228,75.1,4893.3
+5ab6369655429953192ad2a1,comparison,hard,span,Eucryphia,Eucryphia,1.0,1.0,1,4,4,1.0,2,2,1.0,2,repeated_query,8,39,874,3,0.313,1.533,80.2,4758.1
+5ae628f55542995703ce8b32,bridge,hard,span,Venice,Venice,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,15,24,2016,3,0.442,2.03,93.7,4897.6
+5adccdd55542992c1e3a2408,bridge,hard,span,Waimea Bay,Waimea Bay,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,45,1646,3,0.437,2.128,79.2,4928.8
+5abd1529554299114383a1e3,bridge,hard,span,evangelical Christian periodical,Christianity Today,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,32,1438,3,0.41,1.82,84.5,4869.7
+5a78db8055429970f5fffdb2,bridge,hard,span,James Franco,James Franco,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,39,1572,3,0.419,2.024,94.5,4876.6
+5ab9debb55429955dce3ed97,bridge,hard,span,DI Humphrey Goodman,DI Humphrey Goodman,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,27,1650,3,0.42,1.851,80.0,4922.2
+5ae791ef55429952e35ea979,bridge,hard,span,February,October,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,4,975,2,0.418,0.982,127.6,4865.1
+5ab8f7535542991b5579f0a7,comparison,hard,span,Sacred Planet,Sacred Planet,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,32,2002,3,0.489,2.113,83.9,4958.9
+5ac119335542992a796dede4,bridge,hard,span,Hanna,Hanna,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,27,1108,3,0.331,1.496,97.3,4886.9
+5a7d2afd5542995f4f402221,comparison,hard,span,Ferdi Taygan,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,32,1209,3,0.327,1.639,127.0,4840.9
+5a8dd5f955429917b4a5bcc7,bridge,hard,span,paracyclist,no,0.0,0.0,0,2,0,0.0,2,1,0.5,1,done,10,4,1205,2,0.49,1.095,127.0,4944.3
+5a83a532554299334474606f,bridge,hard,span,The Dragon School in Oxford,The Dragon School in Oxford,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,14,32,1449,3,0.34,1.797,77.0,4879.7
+5a90692f5542990a98493625,bridge,hard,span,Suicide Kings,Suicide Kings,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,15,34,1903,3,0.442,2.097,84.6,4866.4
+5a7555215542996c70cfaee1,comparison,hard,span,Hey Pa! There's a Goat on the Roof,There's a Goat on the Roof,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,19,30,1670,3,0.341,1.896,72.9,4958.1
+5a90580655429933b8a204ef,bridge,hard,span,a record of 13–3,13–3,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,10,7,1045,2,0.445,1.018,78.8,4867.6
+5a88e605554299206df2b39c,bridge,hard,span,"8,211 at the 2010 census","8,211",0.0,0.4,1,4,4,1.0,2,2,1.0,3,max_hops,18,39,1668,3,0.379,2.023,76.4,4967.8
+5add67915542992200553af8,bridge,hard,span,The Crowned Prince of the Philadelphia Mob,The Crowned Prince of the Philadelphia Mob,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,41,1463,3,0.418,1.949,72.4,4872.7
+5a8463545542990548d0b2a3,bridge,hard,span,supervisor of the royal works,supervisor of the royal works,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,65,2157,3,0.532,2.751,73.8,4905.3
+5a74684655429929fddd8410,bridge,hard,span,Janet Damita Jo Jackson,Janet Jackson,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,14,44,1580,3,0.389,2.077,84.9,4917.7
+5a835c9f5542992ef85e228a,bridge,hard,span,Continental Army,Continental Army,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,46,2268,3,0.494,2.538,84.0,4972.2
+5ae7edee554299540e5a56ad,bridge,hard,span,Macaronesia,Canary Islands,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,42,1578,3,0.424,2.03,84.7,4897.0
+5a8ee4315542990e94052ba7,bridge,hard,span,Treaty of Gandamak,The Treaty of Gandamak,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,9,1155,2,0.491,1.144,74.0,4919.0
+5a8cb288554299585d9e3726,bridge,hard,span,Oregon,yes,0.0,0.0,1,4,4,1.0,2,2,1.0,3,max_hops,15,40,1746,3,0.444,2.128,127.7,4947.5
+5adfbca255429942ec259b2c,bridge,hard,span,early 1970s,1984,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,7,815,2,0.376,0.915,80.1,4807.6
+5ae24abc5542994d89d5b3c3,bridge,hard,span,"Bury St Edmunds,",England,0.0,0.0,0,2,1,0.5,2,2,1.0,2,done,12,19,1092,3,0.299,1.333,127.9,4869.1
+5ab802085542990e739ec7ca,bridge,hard,span,early 20s,18,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,15,33,1187,3,0.326,1.61,96.5,4863.2
+5adfa3da554299025d62a317,bridge,hard,span,23 November 1946,Diana Marilyn Quick,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,14,49,1414,3,0.336,2.014,78.5,4872.2
+5a76e88555429972597f13f4,bridge,hard,span,The Soloist,Third and Indiana,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,10,40,1405,3,0.421,1.927,85.4,4865.1
+5ac3ae475542995ef918c1e5,comparison,hard,yesno,no,No,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,22,1576,3,0.418,1.75,114.2,4892.2
+5abffc41554299012d1db551,bridge,hard,span,1901,1901,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,23,1781,3,0.409,1.9,80.2,4852.1
+5ae4c39f5542995dadf243fb,bridge,hard,span,Bolton,Rivington,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,45,1475,3,0.376,1.997,85.1,4881.6
+5a79c6a55542994bb9457091,bridge,hard,span,George Cayley,Sir George Cayley,0.0,0.8,1,2,2,1.0,2,2,1.0,2,done,14,23,1504,3,0.381,1.679,80.1,4877.1
+5a7be5bd5542997c3ec972ba,comparison,hard,span,The Leonberger is a giant dog breed.,Leonberger,0.0,0.3333,1,2,2,1.0,2,2,1.0,1,done,10,5,727,2,0.336,0.826,96.9,4870.2
+5a7ec61a55429934daa2fc5f,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,28,1162,3,0.373,1.564,129.2,4866.0
+5a7cb9b95542990527d55515,bridge,hard,span,2013,2013,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,14,25,1784,3,0.435,1.88,79.9,4970.3
+5a867089554299211dda2b30,comparison,hard,span,Rolling Stone,Shonen Jump,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,6,949,2,0.418,0.986,85.5,4877.3
+5ae1801955429901ffe4aec4,bridge,hard,span,"Battle Creek, Michigan","Battle Creek, Michigan, United States",0.0,0.75,1,3,3,1.0,2,2,1.0,3,max_hops,20,26,2127,3,0.452,2.095,71.7,4950.8
+5a76387d554299109176e6ba,comparison,hard,span,Am Rong,Am Rong,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,42,1480,3,0.42,1.969,85.5,4858.3
+5abd0d635542992ac4f381b8,bridge,hard,span,29,42,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,17,59,1926,3,0.426,2.558,94.5,4876.3
+5ae68fcb5542992ae0d1635b,bridge,hard,span,"Bay Ridge, Brooklyn","Bay Ridge, Brooklyn",1.0,1.0,1,4,4,1.0,2,2,1.0,2,repeated_query,14,23,1313,3,0.345,1.586,80.4,4881.2
+5ab28b12554299449642c8ee,bridge,hard,span,Northumbrian,Northumbrian,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,14,38,1544,3,0.419,1.953,85.3,4878.5
+5a7133565542994082a3e65c,bridge,hard,span,Oldham County,Oldham County,1.0,1.0,1,5,5,1.0,2,2,1.0,2,repeated_query,13,28,1507,3,0.388,1.771,85.4,4885.7
+5abbd3ac55429931dba1458b,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,22,1310,3,0.386,1.554,129.6,4850.6
+5a85ab905542994c784ddb35,bridge,hard,span,The Saturdays,The Saturdays,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,17,38,1418,3,0.33,1.857,96.5,4865.5
+5a8d93ad554299653c1aa13d,comparison,hard,span,Serri,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,19,20,1952,3,0.419,1.934,127.2,4885.3
+5a886886554299206df2b258,bridge,hard,span,international football competition,FIFA Women's World Cup,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,9,1035,2,0.453,1.07,73.6,4861.5
+5a7c6bcc55429935c91b519c,bridge,hard,span,1944,1944,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,21,1799,3,0.412,1.801,79.6,4967.1
+5a825bb455429940e5e1a874,bridge,hard,span,Wilmette,Wilmette,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,949,2,0.414,0.986,85.6,4877.3
+5a72a0be5542992359bc3143,bridge,hard,span,Oedipus Rex,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,44,2144,3,0.486,2.394,125.6,4951.8
+5ade15f35542997545bbbe47,bridge,hard,span,Steve Jobs,mother,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,34,1343,3,0.38,1.78,128.0,4879.3
+5a77cb5e55429967ab1052a7,bridge,hard,span,Kodos,Vincent Kosmos,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,35,1660,3,0.415,1.955,79.8,4931.5
+5a83aaeb5542996488c2e483,bridge,hard,span,My Beautiful Dark Twisted Fantasy,My Beautiful Dark Twisted Fantasy,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,59,1114,3,0.339,2.011,74.9,4887.6
+5ac4392e5542997ea680ca32,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,34,1914,3,0.414,2.132,127.4,4882.1
+5a7f5c9f55429969796c1a0f,bridge,hard,span,Spring city,Spring city,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,5,861,2,0.392,0.907,96.4,4825.7
+5a8b770f5542995d1e6f13a7,bridge,hard,span,Philadelphia,Philadelphia,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,10,4,817,2,0.372,0.853,127.1,4809.2
+5ae3dc205542992f92d823a1,bridge,hard,span,a minor basilica,minor basilica,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,1005,2,0.449,0.999,85.1,4883.0
+5a7cf29255429909bec768b8,bridge,hard,span,150 million copies,over 150 million,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,10,9,969,2,0.409,1.004,74.3,4861.8
+5a79f6ca554299029c4b5f90,bridge,hard,span,Aqua,Aqua,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,10,5,877,2,0.406,0.905,96.2,4835.8
+5a8e3dc05542995085b37401,comparison,hard,span,1964,Reynolds v. Sims,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,14,41,2529,3,0.485,2.635,72.0,5066.0
+5ade24e35542992fa25da6e6,bridge,hard,span,CBS,"The Good Wife, CBS",0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,18,28,1942,3,0.42,2.058,76.2,4898.5
+5ab5f854554299637185c64e,bridge,hard,span,Pakistani,Pakistan,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,4,1015,2,0.446,0.981,128.9,4852.8
+5ab5b6c1554299637185c5e5,comparison,hard,span,The Four Seasons,The Four Seasons,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,16,43,1734,3,0.415,2.133,85.4,4979.0
+5ae25ed15542992decbdccd2,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,32,1216,3,0.384,1.665,128.3,4800.8
+5ab808ea5542991d3222380e,bridge,hard,span,"76,416","76,416",1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,38,1667,3,0.418,2.029,73.8,4938.2
+5ae5072e55429960a22e0246,bridge,hard,span,Matt Flynn,Peter is,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,17,29,1992,3,0.444,2.094,95.3,4908.4
+5ac01bca5542992a796dec8d,bridge,hard,span,Happy Death Day,Happy Death Day,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,54,1324,3,0.389,2.052,85.1,4840.9
+5adf34d35542993a75d26425,bridge,hard,span,"Gerard ""Gerry"" Adams",Gerry Adams,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,18,39,1935,3,0.417,2.232,82.0,4980.7
+5add67555542992ae4cec54e,comparison,hard,span,The Battle of Belleau Wood,Battle of Belleau Wood,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,8,1033,2,0.463,1.071,77.0,4861.0
+5a8085705542992bc0c4a74b,bridge,hard,span,Australian Defence Force,Royal Australian Navy,0.0,0.3333,1,2,2,1.0,2,2,1.0,1,done,10,6,895,2,0.414,0.94,85.1,4846.0
+5a756fa15542996c70cfaefb,bridge,hard,span,"about 450,000","450,000",0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,15,28,1716,3,0.409,1.87,72.4,4963.0
+5a7f6eab5542992097ad2f66,bridge,hard,span,West Point Iron and Cannon Foundry,West Point Foundry,0.0,0.6667,0,3,2,0.6667,2,1,0.5,1,done,10,7,907,2,0.407,0.955,80.6,4851.8
+5ae5e1345542996de7b71a50,bridge,hard,span,Jack Ryan,Jack Ryan,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,49,1807,3,0.443,2.204,94.4,4902.1
+5a72c6f65542994cef4bc402,bridge,hard,span,tomato,da hong guo,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,38,1689,3,0.423,2.053,75.4,4944.8
+5a80ad7c5542992097ad3018,bridge,hard,span,2009,2009,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,38,1723,3,0.421,2.04,78.9,4953.7
+5a77a65b5542992a6e59df57,bridge,hard,span,"September 8, 2017","February 17, 2017",0.0,0.3333,0,3,2,0.6667,2,2,1.0,3,max_hops,19,66,1549,3,0.338,2.398,69.4,4942.1
+5a78b209554299148911f93e,comparison,hard,span,Edward Franklin Albee III,Edward Albee,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,12,33,1613,3,0.43,1.914,85.3,4890.1
+5ab85a1155429934fafe6d7c,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,4,823,2,0.383,0.893,127.2,4812.5
+5a8da81e554299068b959d7e,bridge,hard,span,impresario,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,40,1417,3,0.383,1.878,190.8,4864.5
+5ab8f57b5542991b5579f097,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,18,1653,3,0.436,1.701,128.9,4904.1
+5ab6bf6d55429953192ad372,comparison,hard,yesno,no,no,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,12,26,1261,3,0.379,1.586,129.9,4828.1
+5ae7385d5542992ae0d163da,bridge,hard,span,Worcester County,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,17,32,1549,3,0.373,1.908,126.3,4928.8
+5a7dd9445542997cc2c474ac,comparison,hard,span,Farrell,J. G. Farrell,0.0,0.5,0,3,2,0.6667,2,2,1.0,3,max_hops,19,48,2316,3,0.49,2.62,74.5,5069.7
+5ab446d455429942dd415f07,bridge,hard,span,modern-day New York City,New York City,0.0,0.8571,1,2,2,1.0,2,2,1.0,1,done,10,6,1017,2,0.453,1.032,84.6,4854.4
+5ac497025542997ea680ca8d,bridge,hard,span,"Dan Lin, Roy Lee, Phil Lord and Christopher Miller","Dan Lin, Roy Lee, Phil Lord, and Christopher Miller",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,17,33,1895,3,0.418,2.065,69.0,4878.1
+5a7b7bed5542997c3ec971bc,bridge,hard,span,reigning monarch of the United Kingdom,Buckingham Palace,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,13,26,1249,3,0.374,1.602,79.8,4825.7
+5a89706055429951533612f9,bridge,hard,span,Saint Louis County,"Hibbing, which is in Saint Louis County.",0.0,0.6,1,2,2,1.0,2,2,1.0,1,done,10,14,853,2,0.372,1.053,69.5,4821.9
+5ac02edb554299294b218f41,bridge,hard,span,Phil Collins,Phil Collins,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,37,1689,3,0.443,2.024,95.7,4921.2
+5ab67772554299110f219a12,bridge,hard,span,video game,horror,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,38,1345,3,0.376,1.871,96.0,4869.7
+5a7b65ab5542997c3ec97144,bridge,hard,span,Cambridge University,Cambridge University,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,793,2,0.372,0.856,85.0,4883.6
+5a760faa5542994ccc9186a8,bridge,hard,span,Love Streams,Love Streams,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,10,5,955,2,0.413,0.949,95.1,4883.1
+5adbe1a7554299438c868cc3,bridge,hard,span,Lowe's,"Lowe's Companies, Inc.",0.0,0.5,1,3,3,1.0,2,2,1.0,1,done,10,10,851,2,0.375,0.952,73.9,4820.3
+5a80aeff5542996402f6a5eb,bridge,hard,span,first freshman to finish as the runner-up,second,0.0,0.0,0,4,3,0.75,2,2,1.0,1,done,10,4,1031,2,0.432,0.986,126.4,4860.5
+5ae74890554299572ea547af,bridge,hard,span,1987,1987,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,34,1799,3,0.481,2.03,78.7,4949.1
+5ac3d9c9554299204fd21ea3,bridge,hard,span,James Packer,James Packer,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,917,2,0.419,0.949,85.8,4858.8
+5abc8620554299700f9d78e2,comparison,hard,span,documentary,documentary,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,5,883,2,0.415,0.908,96.0,4838.8
+5a7b4bc35542992d025e67e0,bridge,hard,span,England,England,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,4,821,2,0.37,0.87,128.3,4811.8
+5a85dfcc5542994775f60673,bridge,hard,span,Jung Yun-ho,Yunho,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,18,42,2278,3,0.476,2.44,83.5,5047.8
+5a7b76735542997c3ec9719f,comparison,hard,span,Hot toddy,Hot toddy,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,24,1407,3,0.394,1.649,84.6,4883.4
+5a8c66db554299585d9e3683,bridge,hard,span,2017,2017,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,12,25,1714,3,0.44,1.849,79.9,4921.7
+5a7e05ba5542995f4f402392,bridge,hard,span,The Late Late Show,Gay Byrne,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,5,797,2,0.376,0.888,95.4,4887.6
+5a88a4245542997e5c09a668,bridge,hard,span,Hudson Bay Mining and Smelting Company,Hudson Bay Mining and Smelting Company,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,15,58,1498,3,0.378,2.194,71.4,4870.9
+5a8799c55542996e4f308877,bridge,hard,span,Scandinavian design,Scandinavian design,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,7,751,2,0.371,0.882,80.7,4887.6
+5ac038db554299294b218f57,bridge,hard,span,Constantine,Constantine,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,14,40,1548,3,0.335,1.999,94.8,4937.7
+5a764c0b55429976ec32bd89,bridge,hard,span,comparable to the seven Wonders of the World,"unofficial title given to new buildings, structures, projects, or even designs that are deemed to be comparable to the seven Wonders of the World",0.0,0.4286,1,2,2,1.0,2,2,1.0,1,done,10,32,913,2,0.426,1.371,65.9,4856.4
+5a77309d55429972597f1487,comparison,hard,span,José Echegaray y Eizaguirre,José Echegaray y Eizaguirre,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,74,1567,3,0.41,2.5,68.2,4873.0
+5ab7bae95542993667793ff4,bridge,hard,span,Knowsley United Women,Knowsley United Women,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,11,60,1428,3,0.424,2.254,76.2,4861.8
+5a7c9f325542990527d554e6,bridge,hard,span,Blue,Take That,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,10,55,1249,3,0.38,2.048,95.4,4813.1
+5a8f69b55542997ba9cb324f,bridge,hard,span,Valhalla Highlands Historic District,Valhalla Highlands Historic District,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,17,32,1362,3,0.332,1.8,73.8,4874.4
+5adbda2755429944faac2385,bridge,hard,span,Philip K. Dick,Philip K. Dick,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,43,1838,3,0.452,2.204,79.6,4967.8
+5ab67bd355429954757d32f2,bridge,hard,span,New York Giants,New York Giants,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,17,35,1830,3,0.417,2.092,83.5,4958.9
+5a90843c5542995651fb517e,bridge,hard,span,1961,1961,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,33,2101,3,0.53,2.24,79.0,4893.7
+5a8324815542990548d0b184,bridge,hard,span,Copenhagen,Copenhagen,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,33,1587,3,0.376,1.876,95.1,4921.2
+5adf4a275542993a75d26498,bridge,hard,span,middle America,no,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,13,51,1459,3,0.382,2.173,126.4,4878.2
+5ae4c5595542990ba0bbb123,bridge,hard,span,Soha Ali Khan,Soha Ali Khan Khemu,0.0,0.8571,1,2,2,1.0,2,2,1.0,3,max_hops,17,44,1895,3,0.454,2.368,73.8,4911.8
+5ab5057b5542991779162d56,bridge,hard,span,South Korean horror film,horror,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,10,5,903,2,0.421,0.934,95.4,4850.6
+5a837d9a554299123d8c213e,bridge,hard,span,Lucas Stephen Grabeel,no,0.0,0.0,0,3,1,0.3333,2,2,1.0,3,max_hops,13,35,1539,3,0.414,1.897,128.8,4881.6
+5a81ebee554299676cceb16d,bridge,hard,span,American supernatural psychological horror film,Rings,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,11,32,1446,3,0.416,1.804,96.0,4866.7
+5ab48c325542996a3a969f93,bridge,hard,span,Essex,Essex,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,11,27,1871,3,0.494,1.997,94.8,4970.3
+5a8488f45542992a431d1a47,bridge,hard,span,Peter Hall,Sir Peter Hall CBE,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,20,33,2286,3,0.465,2.434,75.0,5033.7
+5abe689a55429976d4830b16,comparison,hard,span,French Open,No,0.0,0.0,0,3,1,0.3333,2,2,1.0,2,repeated_query,13,60,1767,3,0.445,2.402,127.4,4965.7
+5a7a014a5542996c55b2dccf,bridge,hard,span,Bismarck,Bismarck,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,41,1949,3,0.452,2.288,78.5,4883.0
+5a895d305542993b751ca931,bridge,hard,span,Premier League club Manchester United and the England national team,Manchester United,0.0,0.3636,1,2,2,1.0,2,2,1.0,1,done,10,5,921,2,0.436,0.955,95.1,4861.2
+5a85c3a15542992a431d1b97,bridge,hard,span,Massive Entertainment,Massive Entertainment,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,17,31,1603,3,0.334,1.868,85.1,4979.0
+5ae32b6755429928c4239644,bridge,hard,span,Portal A Interactive,Portal A Interactive,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,13,37,1445,3,0.377,1.856,85.5,4885.1
+5a8d02cc554299441c6b9fb6,bridge,hard,span,King George IV,King David I,0.0,0.3333,1,2,2,1.0,2,2,1.0,2,repeated_query,14,24,1915,3,0.441,1.938,85.0,4865.5
+5a78daf855429970f5fffdae,comparison,hard,span,Icehouse pieces,Icehouse pieces,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,15,28,1508,3,0.386,1.774,85.1,4933.7
+5adc094a55429947ff1738c0,bridge,hard,span,ZZ Top,ZZ Top,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,13,25,1649,3,0.382,1.792,94.4,4954.3
+5ae77c245542997b22f6a795,bridge,hard,span,1977,1985,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,23,33,2136,3,0.417,2.243,78.3,4988.0
+5a88f9555542995153361214,bridge,hard,span,1963 to 1991,1963-1991,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,38,1422,3,0.389,1.876,70.7,4878.1
+5a874ce15542996432c57256,bridge,hard,span,"Laurel, Mississippi",Mississippi,0.0,0.6667,0,2,1,0.5,2,2,1.0,2,repeated_query,12,35,1666,3,0.415,2.0,95.2,4921.7
+5a7e7ed05542991319bc94c2,comparison,hard,span,"arose on the ""Playboy"" magazine pattern in the 1970s.",Gallery,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,20,1601,3,0.378,1.71,156.4,4930.5
+5abf44025542993fe9a41def,comparison,hard,span,Langston Hughes,Langston Hughes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,54,1839,3,0.496,2.381,84.5,4960.3
+5ab531cc5542990594ba9d23,bridge,hard,span,"728,000 ft²","728,000 ft²",1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,17,39,1798,3,0.42,2.154,69.8,4856.9
+5a90605d5542995651fb514d,bridge,hard,span,"Royce da 5'9"" (Bad) and Eminem (Evil)",Bad Meets Evil,0.0,0.4,1,3,3,1.0,2,2,1.0,3,max_hops,13,33,1730,3,0.447,1.987,80.2,4935.0
+5ac45b58554299076e296dad,comparison,hard,span,Shanghai,Shanghai,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,21,2521,3,0.617,2.364,93.3,4981.5
+5a8eb4d65542990e94052b82,bridge,hard,span,Terry Gilliam,no,0.0,0.0,0,3,1,0.3333,2,2,1.0,3,max_hops,14,44,1572,3,0.419,2.05,126.0,4879.5
+5a8038b55542996402f6a485,bridge,hard,span,Lithuanian-born French,Lithuanian-born French,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,9,1197,2,0.482,1.154,74.1,4940.2
+5ab83d595542990e739ec886,bridge,hard,span,a family member,a family member,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,881,2,0.414,0.948,86.4,4837.9
+5ae0d52e554299603e418469,bridge,hard,span,Douglas Jackson,"Barbara Niven (born February 26, 1953) also stars with John Bregar in the 2008 film ""Dead at 17"" directed by Douglas Jackson.",0.0,0.1739,1,3,3,1.0,2,2,1.0,3,max_hops,13,85,1733,3,0.437,2.804,65.1,4951.0
+5a8f9b8c5542997ba9cb32e6,comparison,hard,span,Dirty Pretty Things,Dirty Pretty Things,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,713,2,0.325,0.81,85.3,4859.2
+5ae75a4c5542997b22f6a6f1,bridge,hard,span,The Itchy & Scratchy Show,Krusty the Clown,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,8,927,2,0.419,1.03,76.0,4864.5
+5ab45a0b5542991779162c7e,bridge,hard,span,Viaport Rotterdam,Viaport Rotterdam,1.0,1.0,0,4,2,0.5,2,2,1.0,2,repeated_query,13,35,1392,3,0.381,1.806,79.5,4865.1
+5a8b452655429971feec468e,bridge,hard,span,signing free agent Chauncey Billups,Chauncey Billups,0.0,0.5714,1,2,2,1.0,2,2,1.0,2,repeated_query,15,42,1888,3,0.419,2.175,76.4,4861.4
+5a8d7b1755429941ae14dfc6,bridge,hard,span,"51,271","51,271",1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,15,42,1388,3,0.381,1.912,74.6,4850.9
+5ab6f0c25542995eadef00ea,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,15,30,1851,3,0.44,1.979,127.1,4970.3
+5ab72a025542992aa3b8c7b8,comparison,hard,span,documentary,documentary,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,5,829,2,0.389,0.908,96.0,4816.4
+5ade42b55542992fa25da717,bridge,hard,span,fifteen,10,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,5,707,2,0.334,0.783,96.3,4855.4
+5ae4c2b95542995dadf243ef,bridge,hard,span,defensive coordinator,defensive coordinator,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,17,40,1853,3,0.407,2.182,83.0,4871.5
+5abf10b75542997719eab659,bridge,hard,span,1.95 m,No,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,10,44,1495,3,0.476,2.061,129.3,4877.6
+5add564a5542990dbb2f7e38,bridge,hard,span,MGM Resorts International,MGM Resorts International,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,32,1778,3,0.425,2.035,79.4,4972.2
+5a738225554299623ed4abc3,comparison,hard,span,Bedknobs and Broomsticks,Bedknobs and Broomsticks,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,10,1207,2,0.487,1.185,72.8,4944.8
+5a729e7b5542992359bc313d,bridge,hard,span,Holston River,Holston River,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,14,42,1738,3,0.418,2.115,84.3,4978.5
+5a811152554299260e20a22e,bridge,hard,span,British Conservative Party,Conservative Party,0.0,0.8,1,2,2,1.0,2,2,1.0,1,done,10,6,931,2,0.418,0.975,85.1,4866.7
+5adddd075542992200553b71,bridge,hard,span,Wes Archer,Dan Harmon,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,10,49,1216,3,0.374,1.931,96.3,4800.8
+5ade9545554299728e26c740,bridge,hard,span,Geelong Football Club,Geelong Football Club,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,10,7,1007,2,0.441,1.023,79.6,4883.6
+5ab25004554299722f9b4cd7,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,12,36,2086,3,0.534,2.301,125.6,4878.6
+5ac1f4495542991316484bd2,comparison,hard,span,Delmer Lawrence Daves,Delmer Daves,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,16,32,1579,3,0.39,1.867,79.4,4922.2
+5ac0cf0f554299294b219018,comparison,hard,span,X Ambassadors,Test Icicles,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,17,34,1496,3,0.369,1.841,79.9,4958.9
+5ab3306a55429969a97a80fd,comparison,hard,span,Walt Disney Productions,no,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,11,28,1874,3,0.491,2.005,127.5,4978.5
+5ade0fb95542997545bbbe39,bridge,hard,span,2844 km,7.51 km,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,15,32,1482,3,0.383,1.841,76.0,4874.4
+5ab78edc5542995dae37e95c,bridge,hard,span,"located in Olathe, Kansas","Antwerp, Belgium",0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,33,1344,3,0.334,1.744,80.0,4884.9
+5ac056385542997d64295a08,bridge,hard,span,"""The Ring"" magazine",The Ring magazine,1.0,1.0,0,4,3,0.75,2,2,1.0,2,repeated_query,12,58,5445,3,1.172,4.948,81.0,5221.4
+5aba9e2455429939ce03dd3a,bridge,hard,span,1909,1909,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,16,23,1612,3,0.385,1.73,79.8,4922.2
+5a90b43455429916514e7523,bridge,hard,span,"Sun Valley, Idaho",Sun Valley,0.0,0.8,1,2,2,1.0,2,2,1.0,2,done,16,19,1924,3,0.372,1.887,95.4,4910.3
+5abb30755542996cc5e49fd8,bridge,hard,span,President of the United States,Vice President,0.0,0.3333,0,2,1,0.5,2,2,1.0,1,done,10,6,1251,2,0.494,1.135,83.7,4967.1
+5ae4ec1e5542990ba0bbb19b,comparison,hard,span,The Bears and I,The Bears and I,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,11,55,1680,3,0.442,2.237,79.0,4899.7
+5add405f5542992c1e3a2581,bridge,hard,span,Patterns of Sexual Behavior,The book,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,repeated_query,10,19,977,2,0.42,1.182,95.5,4866.7
+5a71717d5542994082a3e834,bridge,hard,span,Larry Richard Drake,Amber Benson,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,13,34,2098,3,0.453,2.271,82.7,4950.5
+5adf8fe55542993344016d0f,bridge,hard,span,Bedknobs and Broomsticks,Bedknobs and Broomsticks,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,10,976,2,0.422,1.072,73.6,4866.7
+5a78f59755429970f5fffdf7,bridge,hard,span,"46 Albert Square, Walford, London E20","46 Albert Square, Walford, London E20",1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,15,40,1616,3,0.405,2.013,68.6,4921.2
+5a8099935542996402f6a58b,bridge,hard,span,Darkroom,Darkroom,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,18,43,2919,3,0.596,3.001,92.2,5122.5
+5ab6aaff55429953192ad35b,bridge,hard,span,Phoenix Television,Phoenix Satellite Television Holdings Ltd,0.0,0.5714,1,3,3,1.0,2,2,1.0,2,repeated_query,13,46,1320,3,0.385,1.914,77.2,4859.4
+5abcc96c5542996583600492,bridge,hard,span,Planet Terror,Planet Terror,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,13,29,1382,3,0.373,1.713,95.1,4884.9
+5a8b78775542997f31a41d3d,bridge,hard,span,"""Peshwa"" (Prime Minister)",Bajirao Peshwa,0.0,0.4,1,3,3,1.0,2,2,1.0,3,max_hops,15,61,1963,3,0.442,2.582,72.3,4902.1
+5a7252db5542990c210a4104,bridge,hard,span,Donald Trump Jr.,Donald John Trump Jr.,0.0,0.8571,1,2,2,1.0,2,2,1.0,3,max_hops,11,43,1740,3,0.457,2.217,76.7,4940.2
+5ae2ee5e5542991a06ce990a,bridge,hard,span,Royal Governor Lord Dunmore,Lord Dunmore,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,17,38,1902,3,0.42,2.16,84.2,4873.2
+5abc5951554299114383a116,bridge,hard,span,Graduados,Graduados,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,14,77,2055,3,0.45,2.845,83.6,4909.8
+5ac1a3665542994ab5c67daf,bridge,hard,span,Private Secretary and Treasurer,Private Secretary and Treasurer,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,17,51,2208,3,0.456,2.606,78.8,4965.6
+5adc0c2b55429947ff1738db,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,32,1646,3,0.426,1.923,127.2,4960.3
+5a7634f155429976ec32bd6b,bridge,hard,span,Ogallala Aquifer,Ogallala Aquifer,1.0,1.0,1,4,4,1.0,2,2,1.0,2,done,13,27,1220,3,0.34,1.561,74.5,4864.3
+5a7574e25542996c70cfaf01,comparison,hard,span,ibnʿArabī,Ibn Arabi,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,11,45,2041,3,0.488,2.38,78.7,4962.5
+5adc8977554299438c868de2,bridge,hard,span,"various deities, beings, and heroes","deities, beings, and heroes",0.0,0.8889,1,2,2,1.0,2,2,1.0,1,done,10,10,893,2,0.423,1.039,73.0,4844.2
+5a7dc2495542997cc2c4749a,bridge,hard,span,1984 South Asian Games,1984 South Asian Games,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,12,57,1455,3,0.383,2.152,72.6,4883.4
+5a8f05b1554299458435d517,bridge,hard,span,Viscount Cranborne,Viscount Cranborne,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,16,47,2344,3,0.489,2.641,78.3,5001.9
+5ab7bbbf55429928e1fe38bf,bridge,hard,span,Kansas City crime family,Kansas City Crime Family,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,43,1237,3,0.387,1.825,87.7,4809.2
+5a8af28555429951533613b5,bridge,hard,span,Albert Park,Albert Park,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,5,871,2,0.379,0.888,96.6,4832.1
+5ae1f596554299234fd04372,bridge,hard,span,in 1896,1964,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,35,1775,3,0.438,2.019,79.6,4969.2
+5a8b3af455429971feec467b,bridge,hard,span,Unbreakable,Unbreakable,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,46,1606,3,0.451,2.109,85.0,4876.6
+5add311b5542994ed6169cc5,bridge,hard,span,Apatosaurus,Arlo,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,12,39,1744,3,0.453,2.122,94.9,4942.1
+5ae60426554299546bf83019,bridge,hard,span,BraveStarr,BraveStarr,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,37,1366,3,0.422,1.851,79.9,4850.6
+5a8cfee555429941ae14df5c,bridge,hard,span,Sanskrit,"Gaja means elephant in Sanskrit, and Brishta refers to the back portion of a sitting elephant. Therefore, elephants are connected to Gajabrishta as this term describes a part of an elephant. Answer: elephants.",0.0,0.0667,1,3,3,1.0,2,2,1.0,1,done,7,49,555,2,0.288,1.363,66.5,4741.7
+5a71166d5542994082a3e576,comparison,hard,span,Battle of Guam,The Second Battle of Guam,0.0,0.8571,1,2,2,1.0,2,2,1.0,3,max_hops,16,31,1676,3,0.406,1.939,76.3,4935.8
+5ae789615542997ec2727695,bridge,hard,span,Martha Coolidge,Martha Coolidge,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,36,1619,3,0.392,1.987,79.0,4921.7
+5a7757215542993569682d58,bridge,hard,span,Mr. Church,yes,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,10,66,1355,3,0.418,2.261,124.6,4846.0
+5a81ff62554299676cceb1c4,bridge,hard,span,director,producer,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,51,1700,3,0.486,2.327,127.9,4912.8
+5ae4890a5542995ad6573d60,bridge,hard,span,"Executive Search, Board Consulting",Executive Search,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,10,5,809,2,0.385,0.904,96.2,4804.0
+5a79c1335542994bb9457066,comparison,hard,span,author,writer,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,4,1065,2,0.457,0.994,126.8,4877.1
+5ac52fc35542994611c8b403,bridge,hard,span,The Catholic Church in Ireland,Catholic Church in Ireland,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,14,37,1253,3,0.345,1.741,76.3,4853.4
+5adda7585542997dc790700c,bridge,hard,span,"Edmonton, Alberta","Edmonton, Alberta",1.0,1.0,0,4,3,0.75,2,2,1.0,2,repeated_query,11,50,996,3,0.321,1.745,80.7,4822.5
+5adf043b5542993a75d263d4,bridge,hard,span,Charles Joseph,Joe Scarborough,0.0,0.0,1,2,2,1.0,2,2,1.0,1,repeated_query,10,19,829,2,0.37,1.072,93.5,4816.4
+5abd6bf055429933744ab7c8,bridge,hard,span,NCAA Division I FBS football,Iowa,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,5,773,2,0.386,0.925,94.9,4869.8
+5ae0038655429925eb1afbe0,comparison,hard,span,Tea Moderna,Tea Moderna,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,16,15,1779,3,0.406,1.8,79.0,4856.9
+5a73977d554299623ed4ac08,comparison,hard,span,Armenian,Armenian,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,15,20,1387,3,0.381,1.6,82.6,4880.1
+5ac2a399554299218029dada,bridge,hard,span,Kathleen O'Brien,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,36,1326,3,0.382,1.766,128.1,4854.9
+5ae0f6f5554299422ee99583,bridge,hard,span,Warner Bros,Unknown,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,4,920,2,0.415,0.906,128.1,4859.4
+5adc1ae5554299438c868d5c,bridge,hard,span,Motörhead,Darkthrone,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,10,6,583,2,0.301,0.745,86.4,4763.9
+5ae6860e5542991bbc976112,bridge,hard,span,"commentary on Isaac Newton's book ""Principia""",She contributed to the understanding of Newtonian mechanics by postulating an additional conservation law for total energy.,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,10,23,1009,2,0.436,1.254,66.8,4885.1
+5ae1316555429901ffe4adda,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,22,1476,3,0.366,1.686,127.0,4876.6
+5adfeb0555429942ec259b88,bridge,hard,span,four months in jail,four months in jail,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,15,59,1822,3,0.451,2.481,78.6,4954.3
+5ab5499e5542992aa134a295,bridge,hard,span,1963,1963,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,21,27,1637,3,0.305,1.876,78.9,4956.8
+5adeffa85542992d7e9f926f,comparison,hard,span,rock,rock,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,15,34,1896,3,0.449,2.08,126.8,4877.7
+5adfd2f255429925eb1afaa5,bridge,hard,span,Gateways,Gateways,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,10,59,1114,3,0.341,1.964,96.8,4876.4
+5ae5b301554299546bf82f2d,bridge,hard,span,zona glomerulosa,Aldosterone,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,10,6,769,2,0.397,0.894,85.0,4867.1
+5ab1eac95542993be8fa987f,bridge,hard,span,33,33 or 34,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,14,49,1668,3,0.424,2.197,74.2,4928.8
+5ae15e125542990adbacf773,comparison,hard,span,Mississippi University for Women,Mississippi University for Women v. Hogan,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,14,45,2466,3,0.579,2.669,70.6,5000.2
+5a77beae5542992a6e59dfae,bridge,hard,span,Stacey Kent,Stacey Kent,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,6,765,2,0.382,0.876,86.1,4864.0
+5ae1f5a15542997f29b3c1b5,bridge,hard,span,1966,1969,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,13,42,1572,3,0.419,2.073,79.7,4895.4
+5ade908b55429975fa854f13,bridge,hard,span,DTM,DTM and its successor — the International Touring Car Championship,0.0,0.2,1,2,2,1.0,2,2,1.0,2,repeated_query,11,57,1564,3,0.468,2.275,69.6,4869.8
+5ab47cd75542991751b4d78d,bridge,hard,span,2002,2002,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,14,35,1848,3,0.413,2.099,79.5,4877.9
+5a79b7f6554299029c4b5f6f,bridge,hard,span,"4,613","4,613",1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,15,37,1568,3,0.379,1.948,76.6,4926.1
+5ab626d555429953192ad279,bridge,hard,span,lower Manhattan,Newark,0.0,0.0,0,4,3,0.75,2,2,1.0,2,repeated_query,16,27,1641,3,0.375,1.836,94.9,4962.5
+5a84873e5542997175ce1eec,bridge,hard,span,137th,137th,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,10,7,1267,2,0.53,1.198,79.9,4974.9
+5ac537975542996feb3fea3c,bridge,hard,span,Ronald Wilson Reagan,Ronald Reagan,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,16,43,1984,3,0.442,2.243,84.6,4905.7
+5a8f45ca5542997ba9cb320e,comparison,hard,span,documentary,documentary,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,16,15,1890,3,0.427,1.826,94.7,4881.2

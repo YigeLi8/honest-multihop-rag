@@ -35,8 +35,10 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
 - [x] one answer prompt for every config; loop stop reason logged
 - [x] folds; `--ids` in the evals; musique shuffled at prep
 - [x] runner on `stream_generate`: prompt tokens, TTFT, decode throughput
-- [ ] `docs/preregistration.md`: hypotheses, assignment order and one
-      alternative order, correctness criteria, n, tests, pass/fail rules
+- [x] `docs/preregistration.md`: hypotheses, assignment order and one
+      alternative order, correctness criteria, n, tests, pass/fail rules.
+      Written on 1 Oct, after the confirmation runs and before their
+      analysis; the file says so
 - [ ] confirmation-fold baselines: hotpot_confirm (closed-book, bm25 k=10,
       bm25 k=13 matched context, hybrid ircot, + rerank), 2wiki_confirm and
       musique_confirm (closed-book, bm25, matched context); musique hybrid
