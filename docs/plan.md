@@ -130,9 +130,23 @@ retrieval in this harness.
 ### Stage 1b: what is there to learn (no model calls)
 
 - [ ] bm25 / dense / hybrid first-stage outcomes per question on full dev,
-      three datasets; discordance table; best-arm-per-question ceiling
+      three datasets; discordance table; best-arm-per-question ceiling.
+      Code is in: `configs/bm25_arms_{hotpot,2wiki,musique}.yaml` log dense
+      and hybrid in the shadow of a bm25 single-hop run with no generation,
+      and `src/memory/arms.py` turns the log into the pairwise discordance
+      table (McNemar), each arm's exact regret against the oracle (paired
+      bootstrap) and the all-arms floor. Waiting on the runs: the cloud
+      session cannot reach huggingface.co or the hotpot host, so the dev
+      files were not available there; bm25 runs anywhere, dense needs the
+      Mac or a session with the data.
 - [ ] how predictable is the best arm from the frozen features (held-out AUC),
-      and how much is just the question template (2wiki)
+      and how much is just the question template (2wiki). Same module: a
+      standardised logistic regression per target (each arm's hit; which arm
+      hits where two disagree) and per feature stage (size control, qtype,
+      query, pool, primary hits, probe), fit on one seeded half and scored
+      on the other, both ways, or fit on one fold file and scored on
+      another. The size control (hop, pool size, n_hits) is the count
+      shortcut MemSafe found; qtype alone is the template control.
 - [ ] look-alike pairs: within-template pairs on 2wiki with discordant
       outcomes; natural pairs on hotpot by question similarity (expected
       sparse, reported as such); constructed twins (`data/make_twins.py`):
@@ -154,7 +168,10 @@ retrieval in this harness.
 - [ ] operators narrow / expand / exception / split / retire with a revision
       log; never overwrite silently
 - [ ] baselines on the same stream: shared online router, scalar utility,
-      always-probe, fixed hybrid; induced drift (switch dataset mid-stream)
+      always-probe, fixed hybrid; induced drift (switch dataset mid-stream);
+      a query-only router (the same router on the query-stage features
+      alone), since matched query-only controls have erased retrieval-signal
+      gains elsewhere (paper log, 2026-10-01)
 - [ ] metrics: repeated-failure rate, false application, false rejection,
       boundary precision / recall against the known best arm, adaptation
       speed, revision rate, regret, retrieval cost

@@ -1,0 +1,15 @@
+# Stage 1b arm logging (src/memory/arms.py): bm25 single hop, no generation,
+# with dense and hybrid run in the shadow on every question. Retrieval and
+# the csv are those of bm25_musique_dev; the experience log carries all
+# three arms scored on the same question at the same depth.
+#   python -m src.eval.run_qa --config configs/bm25_arms_musique.yaml --backend none
+run:
+  name: bm25_arms_musique_dev
+dataset:
+  name: musique
+retrieval:
+  method: bm25
+  top_k: 5
+memory:
+  enabled: true
+  log_arms: [dense, hybrid]

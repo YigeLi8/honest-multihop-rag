@@ -730,9 +730,14 @@ def test_config_memory_block():
     from src.pipeline.multihop import MultiHopPipeline
     for path in sorted((ROOT / "configs").glob("*.yaml")):
         cfg = load_config(path)
-        assert cfg.memory.enabled is (path.name == "bm25_memlog.yaml"), path.name
-        assert cfg.memory.mode == "log" and cfg.memory.log_arms == []
+        arms = path.name.startswith("bm25_arms_")
+        assert cfg.memory.enabled is (path.name == "bm25_memlog.yaml" or arms), path.name
+        assert cfg.memory.mode == "log"
+        assert cfg.memory.log_arms == (["dense", "hybrid"] if arms else []), path.name
         assert cfg.memory.store == "results/memory" and cfg.memory.seed == 13
+        if arms:        # retrieval only, bm25 first stage, nothing generated
+            assert cfg.pipeline.mode == "single_hop" and cfg.retrieval.method == "bm25"
+            assert cfg.generation.backend == "none" and not cfg.rerank.enabled
 
     plain, logged = as_dict(load_config(ROOT / "configs" / "bm25.yaml")), \
         as_dict(load_config(ROOT / "configs" / "bm25_memlog.yaml"))
@@ -755,6 +760,142 @@ def test_config_memory_block():
     assert str(p.memory.path) == "results/memory/bm25_hotpot_dev_memlog_experience.jsonl"
 
 
+def arms_log(tmp, outcomes):
+    """A hop-0 log with a primary arm and two shadow arms whose hits are set
+    by hand. outcomes: per question, {arm: hit (True) or miss (False)} for
+    "primary", "other" and "third"; a hit retrieves both gold chunks, a miss
+    retrieves none. Features vary with the question index."""
+    from src.memory.experience import ExperienceLogger
+    log = ExperienceLogger(stub_cfg("single_hop", tmp, top_k=2), "arms")
+    hit = hits_of(("Book X::0", 3.0), ("Author Y::1", 2.0))
+    miss = hits_of(("Distractor::0", 1.0), ("Book X::1", 0.5))
+    for n, want in enumerate(outcomes):
+        ex = example(id=f"q{n}", qtype="bridge" if n % 2 else "comparison",
+                     question=QUESTION + " x" * n)      # query length grows with n
+        log.on_hop(ex, 0, ex.question, hit if want["primary"] else miss,
+                   {"other": hit if want["other"] else miss,
+                    "third": hit if want["third"] else miss})
+        log.on_outcome(ex, SimpleNamespace(hops=[None], raw_outputs=[], stop_reason=""),
+                       {"em": None, "f1": None, "retrieval_correct": int(want["primary"]),
+                        "gold_recall": None, "para_recall": None, "stop_reason": "",
+                        "hops": 1})
+    return log.close()
+
+
+def test_arm_table_and_ceiling():
+    from src.memory.arms import (arm_table, arms_of, ceiling, discordance, hits, read_records,
+                                 stage_columns)
+    outcomes = [dict(primary=True, other=True, third=False),
+                dict(primary=True, other=False, third=False),
+                dict(primary=False, other=True, third=False),
+                dict(primary=False, other=True, third=True),
+                dict(primary=False, other=False, third=False),
+                dict(primary=False, other=False, third=True)]
+    with tempfile.TemporaryDirectory() as tmp:
+        header, records = read_records(arms_log(tmp, outcomes))
+        assert header["run"] == "arms" and len(records) == 6
+        table = arm_table(records)
+        assert arms_of(table) == ["overlap", "other", "third"]     # primary first
+        assert table["arm:overlap"].tolist() == [1, 1, 0, 0, 0, 0]
+        assert table["arm:other"].tolist() == [1, 0, 1, 1, 0, 0]
+        assert table["arm:third"].tolist() == [0, 0, 0, 1, 0, 1]
+        assert table["f:query_len_tokens"].tolist() == [9, 10, 11, 12, 13, 14]
+        assert table["probe:other:topk_jaccard"].tolist() == [1, 0, 0, 0, 1, 1]
+        assert "f:hop" in stage_columns(table, "size") and len(stage_columns(table, "size")) == 3
+        assert stage_columns(table, "query") == ["f:query_len_tokens", "f:query_is_question",
+                                                 "f:hop", "f:query_cap_spans"]
+        assert len(stage_columns(table, "pool")) == 9 and len(stage_columns(table, "history")) == 10
+        assert len(stage_columns(table, "primary_hits")) == len(FEATURES)
+        assert len(stage_columns(table, "probe")) == len(FEATURES) + 2 * len(PROBE_FEATURES)
+        # ids select and order the rows; a secondary outcome works the same way
+        sub = arm_table(records, ids=["q3", "q0"])
+        assert sub["id"].tolist() == ["q3", "q0"]
+        para = arm_table(records, outcome="hop_para_recall")      # a miss still has Book X::1
+        assert para["arm:third"].tolist() == [0.5, 0.5, 0.5, 1, 0.5, 1]
+        assert hits(para, "third").tolist() == [0, 0, 0, 1, 0, 1]   # graded value, binary hit
+        assert discordance(para).set_index(["arm_a", "arm_b"]).loc[("overlap", "third")]["only_b"] == 2
+        assert ceiling(para).set_index("arm").loc["all_arms"]["rate"] == 0.5
+
+        d = discordance(table).set_index(["arm_a", "arm_b"])
+        row = d.loc[("overlap", "other")]
+        assert (row["both"], row["only_a"], row["only_b"], row["neither"]) == (1, 1, 2, 2)
+        assert row["discordant"] == 0.5 and row["mcnemar_p"] == 1.0
+        assert d.loc[("overlap", "third")]["only_b"] == 2 and len(d) == 3
+
+        c = ceiling(table).set_index("arm")
+        assert c.loc["overlap"]["rate"] == round(2 / 6, 4)
+        assert c.loc["other"]["rate"] == 0.5 and bool(c.loc["other"]["best_single"])
+        assert c.loc["oracle"]["rate"] == round(5 / 6, 4)        # q4 is lost by every arm
+        assert c.loc["all_arms"]["rate"] == 0.0
+        assert c.loc["other"]["regret"] == round(2 / 6, 4)        # q1 and q5 go to other arms
+        assert c.loc["oracle"]["regret"] == 0.0
+        assert c.loc["other"]["regret_lo"] <= c.loc["other"]["regret"] <= c.loc["other"]["regret_hi"]
+
+
+def test_predictability_is_held_out():
+    import numpy as np
+    import pandas as pd
+    from src.memory.arms import (fold_splits, held_out_auc, predictability, seeded_halves,
+                                 with_qtype_columns)
+    rng = np.random.RandomState(0)
+    n = 400
+    table = pd.DataFrame({f"f:{name}": rng.rand(n) for name in FEATURES})
+    table["id"] = [f"q{i}" for i in range(n)]
+    table["qtype"] = ["bridge" if i % 3 else "comparison" for i in range(n)]
+    table["probe:b:topk_jaccard"] = rng.rand(n)
+    table["probe:b:top1_same"] = rng.randint(0, 2, n).astype(float)
+    # arm a hits iff the query is long (a query-stage feature); arm b at random
+    table["arm:a"] = (table["f:query_len_tokens"] > 0.5).astype(float)
+    table["arm:b"] = rng.randint(0, 2, n).astype(float)
+
+    for fit, score in seeded_halves(n, [13]):
+        assert len(fit) + len(score) == n and not set(fit) & set(score)
+    a, b = seeded_halves(n, [13])
+    assert set(a[0]) == set(b[1]) and set(a[1]) == set(b[0])     # both directions
+    assert list(seeded_halves(n, [13])[0][0]) == list(seeded_halves(n, [13])[0][0])
+
+    p = predictability(table, seeds=[13, 17]).set_index(["target", "stage"])
+    assert p.loc[("hit:a", "query")]["auc"] == 1.0 and p.loc[("hit:a", "size")]["auc"] < 0.7
+    assert p.loc[("hit:a", "probe")]["auc"] > 0.98             # later stages keep the feature
+    assert abs(p.loc[("hit:b", "primary_hits")]["auc"] - 0.5) < 0.12
+    assert p.loc[("hit:a", "qtype")]["n_features"] == 2
+    assert p.loc[("a>b", "query")]["n"] == int((table["arm:a"] != table["arm:b"]).sum())
+    assert p.loc[("a>b", "query")]["auc"] > 0.99 and p.loc[("a>b", "query")]["n_splits"] == 4
+
+    # a fold split fits on one fold and scores on the other, once
+    ids = table["id"].tolist()
+    splits = fold_splits(ids, ids[:200], ids[200:])
+    assert len(splits) == 1 and len(splits[0][0]) == 200 and not set(splits[0][0]) & set(splits[0][1])
+    q = predictability(table, splits=splits).set_index(["target", "stage"])
+    assert q.loc[("hit:a", "query")]["n_splits"] == 1 and q.loc[("hit:a", "query")]["auc"] > 0.99
+    try:
+        fold_splits(ids, ids[:200], ids[100:])
+        raise AssertionError("overlapping folds should be refused")
+    except ValueError:
+        pass
+
+    # too small, one-class: no AUC rather than a made-up one
+    X, y = table[["f:hop"]].to_numpy(), np.zeros(n)
+    assert held_out_auc(X, y, seeded_halves(n, [13]))[2] == 0
+    assert held_out_auc(X[:10], table["arm:b"].to_numpy()[:10], seeded_halves(10, [13]))[2] == 0
+    assert "qtype:bridge" in with_qtype_columns(table).columns
+
+
+def test_arms_cli():
+    from src.memory.arms import main
+    outcomes = [dict(primary=i % 2 == 0, other=i % 3 == 0, third=i % 5 == 0) for i in range(60)]
+    with tempfile.TemporaryDirectory() as tmp:
+        path = arms_log(tmp, outcomes)
+        ids = Path(tmp) / "ids.txt"
+        ids.write_text("\n".join(f"q{i}" for i in range(0, 60, 2)) + "\n")
+        main(["--records", str(path), "--dataset", "stub", "--out-dir", tmp, "--seeds", "13"])
+        for name in ("discordance", "ceiling", "predictability"):
+            assert (Path(tmp) / f"stub_arms_{name}.csv").exists()
+        main(["--records", str(path), "--dataset", "half", "--out-dir", tmp, "--ids", str(ids)])
+        import pandas as pd
+        assert pd.read_csv(Path(tmp) / "half_arms_ceiling.csv")["n"].iloc[0] == 30
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -775,4 +916,7 @@ if __name__ == "__main__":
     test_failing_log_keeps_run_artefacts()
     test_close_is_all_or_nothing()
     test_config_memory_block()
+    test_arm_table_and_ceiling()
+    test_predictability_is_held_out()
+    test_arms_cli()
     print("all good")

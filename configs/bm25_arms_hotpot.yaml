@@ -1,0 +1,15 @@
+# Stage 1b arm logging (src/memory/arms.py): bm25 single hop, no generation,
+# with dense and hybrid run in the shadow on every question. Retrieval and
+# the csv are those of bm25_hotpot_dev; the experience log carries all
+# three arms scored on the same question at the same depth.
+#   python -m src.eval.run_qa --config configs/bm25_arms_hotpot.yaml --backend none
+run:
+  name: bm25_arms_hotpot_dev
+dataset:
+  name: hotpotqa
+retrieval:
+  method: bm25
+  top_k: 10
+memory:
+  enabled: true
+  log_arms: [dense, hybrid]
