@@ -5,83 +5,127 @@ first. Short: what it does, what it means here.
 
 ## 2026-10-01
 
-arXiv was unreachable from today's session (listings and abstract pages
-both), so these come from search-result excerpts of the 18-29 September
-listings, not from the abstracts. Check each id and claim before citing or
-acting on it; the two plan changes at the end are the ones to confirm first.
+Listings read in full (cs.IR 41, cs.CL 269, cs.AI 613 entries); the
+September ids below were checked against their abstract pages and the three
+closest read in full.
 
 - Pu, Tang and Zhang 2026, CounterMem (arXiv 2609.31874). After a failed
-  action the agent tests local alternatives against an executable checker;
-  verified fixes are stored as {situation, bad action, better action, check
-  result, applicability condition}, later records are filtered by that
-  condition and a shared offline-trained selector picks one or skips memory.
-  The nearest per-lesson applicability condition on this scan, but the
-  condition is free text written once and matched by wording, with no
-  revision from later outcomes: my static-conditions + shared-router pair,
-  on coding and proof tasks, not retrieval. Cite.
-- Guo 2026, SkillApt (arXiv 2609.26863). Load/abstain controller for
-  retrieved skills from matched with/without executions, decided by a vote
-  over similar past states. Per-lesson evidence by nearest neighbour, no
-  boundary, no operators: my similarity-memory baseline with paired
-  counterfactual labels. The with/without pairing is the right way to label
-  applicability; gold per-hop hit/miss is the analogue here.
-- Cheng et al. 2026, Scope Before You Persist (arXiv 2609.29144). Persisting
-  a skill edit needs two decisions, is it supported and where does it apply;
-  scoping each accepted skill to its originating task family raises held-out
-  utility and removes harmful deployments on a code-repair stream. The
-  cleanest statement of the motivating claim (evidence from one family does
-  not justify global deployment). The scope is fixed at acceptance, never
-  revised: static conditions with a result behind them. Cite.
-- Liang et al. 2026, UpliftMem (arXiv 2609.36805). Learns memory retrieval
-  from set-level execution uplift against the same executor without memory,
-  with probe rollouts chosen by a value-of-information criterion. Already
-  does the Stage 6 active-probing item as VOI over a per-set utility; if
-  that item stays, frame it as VOI over per-lesson boundaries.
+  action the agent tests local alternatives against an executable checker
+  (tests, proof checkers, solvers); verified fixes are stored as {situation,
+  bad action, better action, evidence, condition, reuse statistic}. The
+  condition is a free-text field matched by similarity plus a compatibility
+  rule, the reuse statistic is an EMA frozen after construction, and a DQN
+  over per-record statistics decides whether to use a record; nothing is
+  revised at evaluation time. Baselines ExpeL, Voyager, MemGPT, ReasoningBank
+  and a compute-matched best-of-N; proof, repair and SQL tasks, no retrieval.
+  The nearest per-lesson condition on this scan, and it is my
+  static-conditions + shared-router pair. Cite.
+- Guo 2026, SkillApt (arXiv 2609.26863). Load/abstain for retrieved skills:
+  k=5 nearest past states by hashed bag of words, vote over paired
+  with/without outcomes, fixed threshold, offline. Similarity memory with
+  counterfactual labels, no condition stored. The with/without pairing is the
+  right way to label a lesson; gold per-hop hit/miss is the analogue here.
+- Cheng et al. 2026, Scope Before You Persist (arXiv 2609.29144). Two
+  decisions for a persistent skill edit: is it supported (a conjunction of
+  one-sided paired-bootstrap bounds over three test channels) and where does
+  it apply (one of nine code-repair families, given with the task, never
+  learned, never revised). Scoped retrieval raises hidden-test utility and
+  removes harmful deployments against seven baselines. The cleanest
+  statement of the motivating claim, with a fixed label as the scope; cite,
+  and keep the conjunction-of-lower-bounds acceptance rule in mind for the
+  operators.
+- Liang et al. 2026, UpliftMem (arXiv 2609.36805). Memory retrieval trained
+  on set-level execution uplift over the same executor without memory, probe
+  rollouts picked by a value-of-information criterion; scorer frozen at test,
+  no conditions stored. Already does the Stage 6 probing item as VOI over a
+  set utility; if that item stays, frame it as VOI over per-lesson
+  boundaries.
 - Bacellar 2026, Per-Query Gating of LLM Rerankers (arXiv 2609.22880). A
-  learned gate skips the reranker on multi-hop retrieval from pre-call
-  features (score and lexical statistics of two retrieval lists plus a query
-  embedding), evaluated on last-hop@k with gold hops on 2wiki, musique and
-  hotpot under a pre-registered non-inferiority rule. A shared per-query
-  router over retrieval-process features with gold per-hop labels, trained
-  offline: my shared-router baseline in published form. Reuse the feature
-  list and the non-inferiority framing.
+  per-(dataset, k) classifier over 27 pre-call features (score statistics of
+  two retrieval lists, their agreement at several depths, query shape, an
+  optional query-embedding PCA) decides whether to run the reranker, trained
+  once per fold and frozen; evaluated on last-hop@k with one gold target
+  passage per question on 2wiki, musique and hotpot under a pre-registered
+  non-inferiority rule, against a score-gap gate, the best fixed action, a
+  random gate at matched skip rate and the oracle. My shared router in
+  published form, offline, with a single-target label; per-query-type gating
+  is named as untested. Reuse the feature list and the non-inferiority
+  framing; mine is online, per lesson and scored on full per-hop gold.
 - Bacellar 2026, Predictable Failure in Multi-Hop Retrieval (arXiv
-  2609.22056). Logistic confidence score over query-time structural
+  2609.22056). Logistic confidence score over query-time score-distribution
   features gives calibrated abstention on musique, 2wiki and hover. The
   premise that process features predict hit/miss, with a feature set; cite.
 - Li, Zhang and Ming 2026, Beyond the Query (arXiv 2609.12437). Matched
-  query-only vs query-plus-retrieval-signal routers for adaptive RAG actions:
-  retrieval-state features give no reliable gain over the query-only
+  query-only vs query-plus-retrieval-signal run/skip routers for adaptive
+  multimodal RAG: the retrieval-state features do not beat the query-only
   control. Plan change: every Stage 5 comparison needs a matched query-only
-  control (the same router on the query-stage features alone).
-- Mondal et al. 2026, MemSafe (arXiv 2609.32269). A classifier that only
-  counts paragraphs reaches 0.98 AUROC on musique sufficiency, so they build
-  a size-matched set before training the real estimator. Plan change: any
-  applicability or sufficiency model here gets a size-matched check (hop
-  count, pool size and n_hits are trivial predictors).
+  router on the query-stage features alone.
+- Mondal et al. 2026, Before Answering (arXiv 2609.32269). A classifier that
+  only counts paragraphs reaches 0.98 AUROC on musique evidence sufficiency,
+  so they build a size-matched set before training the estimator (MemSafe).
+  Plan change: any applicability or sufficiency model here gets a
+  size-matched check (hop count, pool size and n_hits are trivial predictors).
 - Anand et al. 2026, DRAG (arXiv 2609.17709). Per-query retriever and
-  generator configuration selection, offline, no feedback loop. Cite only.
+  generator configuration selection from query-performance-prediction
+  signals or a fine-tuned router, offline. Cite only.
 - Sato et al. 2026, Evidence Sufficiency Boundaries (arXiv 2609.01687).
   Trains a small model to abstain under partial evidence and answer once the
   ordered chain is sufficient. Same object as the gold-completeness
   partition; cite next to Sufficient Context, I measure rather than train.
-- Tian, Ganguly and Macdonald 2026 (arXiv 2609.16453). Intermediate answers
-  after each agentic-RAG iteration plateau before natural termination and
-  predicted utility drives early stopping. Prediction-side complement to the
-  stop audit and HALT.
+- Tian, Ganguly and Macdonald 2026 (arXiv 2609.16453). Partial answers after
+  each agentic-RAG iteration plateau before natural termination; predicted
+  utility drives early stopping. Prediction-side complement to the stop
+  audit and HALT.
 - Ye et al. 2026, CoEvo-Mem (arXiv 2608.01739). A residual router corrected
-  online from task outcomes plus per-memory values updated by trajectory
-  feedback: my shared online router and scalar utility baselines in one
-  loop. The strongest combined baseline; it has no per-memory applicability
-  model and no revision log. Also 2604.27283 (risk-sensitive bandit deciding
-  whether to inject a memory from a feature state) and 2602.22406 (Thompson
-  sampling over per-memory utility posteriors): scalar utility with online
+  online from task outcomes plus per-memory values updated from trajectory
+  feedback, alternating updates: my shared online router and scalar utility
+  baselines in one loop, no per-memory condition, no revision log. The
+  strongest combined baseline. Also Iscan 2026 (arXiv 2604.27283, contextual
+  bandit with abstention over a 16-feature retrieval-evidence state, updated
+  after every decision, but evaluated on synthetic artefacts only) and Wu et
+  al. 2026, U-Mem (arXiv 2602.22406, Thompson sampling over memory utility,
+  +14.6 on HotpotQA over memory baselines): scalar utility with online
   feedback, published.
-- Not entries, noted: 2609.11060 (memory curator with scope checks, scopes
-  are curator-written text), 2609.32511 ShareMem (declared scopes),
-  2609.32521 MemAgent (routing over providers), 2609.35808 MATE (misleading
-  successful trajectories, embodied), 2609.32313 MemTransfer (mismatched
-  experience hurts, embodied).
+- Pu 2026, BeliefRAG (arXiv 2609.39139). Adaptive-RAG controller with an
+  explicit per-episode belief state (sufficiency, reliability, conflict,
+  uncertainty, gap, cost) from one verifier call and calibrated retrieval
+  scores; only an answerability calibrator and a state-flip predictor are
+  fitted. Hotpot, 2wiki, musique and three single-hop sets at n=100 each.
+  Within-episode only, no cross-question memory, so the gap stays open; cite
+  as the controller baseline. Two results to reuse: calibrated answerability
+  dominates the other belief dimensions, and the same calibrator falls from
+  0.78 to 0.65 AUC under source shift, which is the case for revising
+  conditions online rather than fitting them once.
+- Piao, Wang and Chen 2026, Do Self-Evolving Skills Generalize to Held-Out
+  Tasks? (arXiv 2609.39148). Six skill-learning methods on six benchmarks
+  with a fixed split: of 21 skills that improve on train, 5 keep the gain on
+  test, 13 part of it, 3 none; the failures are rules written for one task
+  and skills that never say when they apply. A no-persistence control
+  (regenerate a skill per task from a meta-skill) wins all six. The cleanest
+  external evidence that persisted lessons without an applicability boundary
+  over-generalise; cite in the motivation, and add the no-persistence
+  control to the Stage 5 baselines.
+- Meng et al. 2026, U-Fuzz (arXiv 2609.38275). Memory-use failures as
+  fuzzing: mutate the query or the memory state under stated obligations,
+  validate the mutant, steer the next mutation by observed memory behaviour;
+  finds "correct memory used wrongly" cases from final answers alone. A
+  ready-made way to construct the contradicting probes the boundary tests
+  need; cite in the evaluation and consider its mutation-obligation framing
+  for the twins.
+- Mao et al. 2026, TIDE (arXiv 2609.37544). Memory evolution from delayed,
+  confounded feedback: responsibility credit spreads an outcome over the
+  memories used, memories are reinforced, crossed, mutated or evicted, and
+  memory evolution gain is utility over a no-memory baseline on strictly
+  future tasks. Credit assignment to the lessons applied is the same problem
+  here, and the prospective no-memory-relative metric is the one to report.
+- Not entries, noted: 2607.05712 Scoring a Set (set-level evidence scorer,
+  a candidate arm), 2609.39075 RAGScope (leakage-controlled gate evaluation,
+  calibration collapses leave-source-out), 2609.39957 HiSentinel and
+  2609.38822 SkillSeek (hindsight-trained gates, offline), 2609.38353
+  TAGGraph (bm25 beats graph retrieval over agent histories), 2609.39578
+  Box2-Bench (selective reliance on fallible guidance), 2609.11060 (memory
+  curator with scope checks, scopes are text), 2609.32511 ShareMem,
+  2609.32521 MemAgent, 2609.35808 MATE, 2609.32313 MemTransfer.
 
 ## 2026-09-30
 
