@@ -148,7 +148,11 @@ retrieval in this harness.
       questions, dense and hybrid on 15% (McNemar p = 0.10, so dense and
       hybrid are close to interchangeable). At paragraph level there is
       almost nothing left: hybrid 0.967 mean paragraph recall, oracle 0.986.
-      2wiki needs the manual zip; musique below once its run is in.
+      Musique, full dev (2417), all gold in top-5 of 20 paragraphs: bm25
+      0.177, dense 0.326, hybrid 0.281, oracle 0.411, every arm 0.117; the
+      oracle is 8.5 points above dense (7.5-9.6) and every pair disagrees on
+      15-27% of questions. Hop-aligned (the first gold paragraph in top-5):
+      hybrid 0.825, oracle 0.891. 2wiki needs the manual zip.
 - [x] how predictable is the best arm from the frozen features (held-out
       AUC), and how much is just the question template. Same module: a
       standardised logistic regression per target (each arm's hit; which
@@ -168,7 +172,13 @@ retrieval in this harness.
       a shared router over them captures none of it. Whatever Stages 2-5
       find must come from somewhere else than these features; the first
       thing tried, past questions that look like it (Stage 2 below), gets
-      nothing either.
+      nothing either. Musique says the same: the router over the frozen
+      features gains at most 0.004 over always-dense (0.326 vs oracle
+      0.411). One caution the size control was for: on musique each arm's
+      hit is predicted at AUC 0.69-0.71 from qtype alone, which is the
+      composition shape, i.e. how many gold paragraphs must fit in top-5;
+      the pairwise routing AUC stays at 0.46-0.62, so that is difficulty,
+      not a routing signal.
 - [ ] look-alike pairs: within-template pairs on 2wiki with discordant
       outcomes; natural pairs on hotpot by question similarity (expected
       sparse, reported as such); constructed twins (`data/make_twins.py`):
@@ -184,7 +194,10 @@ retrieval in this harness.
       held-out half. k=5 lands at 0.625 and k=20 at 0.628 against
       always-hybrid 0.634 (gain -0.009 +- 0.007 and -0.006 +- 0.010), the
       same nothing as the feature router. On hotpot, look-alike questions
-      by surface text do not say which retriever to use. Left to try before
+      by surface text do not say which retriever to use. Musique: k=5 gets
+      0.334 against always-dense 0.326 (gain 0.008 +- 0.005 over ten
+      halves, oracle 0.411), the only positive number in either table and
+      too small to claim without the confirmation fold. Left to try before
       calling the stage: dense question neighbours, and the vote restricted
       to neighbours with a discordant outcome.
 - [ ] 3. failure memory: failure type + what recovered it; rule-based failure
