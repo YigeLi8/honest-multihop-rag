@@ -217,3 +217,5 @@ data/processed/
 *.gguf
 *.faiss
 *.safetensors
+# experience logs: rebuilt from the committed traces by src.memory.backfill
+results/memory/

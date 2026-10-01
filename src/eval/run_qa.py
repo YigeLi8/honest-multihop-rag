@@ -7,6 +7,8 @@ Writes results/<run>_qa.csv (one row per question), results/<run>_trace.jsonl
 don't need a re-run) and results/<run>_2x2.png. retrieval_correct means all
 gold sentences were in the context handed to the model; gold_recall is the
 fraction that were, which separates "partly there" from "not there at all".
+With memory.enabled in the config it also writes the experience log
+(src/memory); the three files above come out the same either way.
 """
 import argparse
 import csv
@@ -153,14 +155,19 @@ def main():
     trace_path = out_dir / f"{cfg.run.name}_trace.jsonl"
 
     pipe = MultiHopPipeline(cfg)
+    if pipe.memory is not None:
+        pipe.memory.describe_data(data_file, len(examples), ids_file=args.ids, n=args.n)
     rows = []
     results = []
     with open(trace_path, "w") as tf:
         for i, ex in enumerate(examples):
             res = pipe.run_example(ex)
             results.append(res)
-            rows.append(score_row(ex, res))
+            row = score_row(ex, res)
+            rows.append(row)
             tf.write(json.dumps(trace_record(ex, res)) + "\n")
+            if pipe.memory is not None:
+                pipe.memory.on_outcome(ex, res, row)
             if (i + 1) % 25 == 0:
                 print(f"{i + 1}/{len(examples)}")
 
@@ -198,6 +205,9 @@ def main():
             plot_per_hop(hop_stats, out_dir / f"{cfg.run.name}_per_hop.png")
 
     print(f"csv: {out}\ntrace: {trace_path}\nplot: {png}")
+    # the experience log goes last: whatever happens to it, the files above are written
+    if pipe.memory is not None:
+        print(f"experience: {pipe.memory.close()}")
 
 
 if __name__ == "__main__":

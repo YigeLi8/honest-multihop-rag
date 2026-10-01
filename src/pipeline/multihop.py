@@ -7,6 +7,13 @@ apart from answers that actually came from the context.
 
 Every hop gets logged as a HopTrace so per-hop precision can be scored
 afterwards, and every raw completion is kept on the result for later audits.
+
+With memory.enabled and memory.mode == log in the config, every retrieval step
+is also handed to an ExperienceLogger (src/memory), together with the hits of
+any shadow retrievers listed in memory.log_arms. That path only reads: the
+hits, the context, the prompts and the answer are the same with it on or off.
+The time it takes (shadow indexing and retrieval, the full-pool rankings, the
+features) is measured and left out of latency_s.
 """
 import time
 
@@ -62,35 +69,73 @@ def first_line(text):
 
 
 class MultiHopPipeline:
+    memory = None    # ExperienceLogger when the config asks for logging
+    shadow = None    # {arm: retriever} run beside the primary one, logged and never used
+    _memory_s = 0.0  # seconds the current question spent in the logging path
+
     def __init__(self, cfg):
         self.cfg = cfg
         self.retriever = get_retriever(cfg) if cfg.pipeline.mode != "closed_book" else None
         self.reranker = Reranker(cfg) if cfg.rerank.enabled else None
         self.generator = Generator(cfg) if cfg.generation.backend != "none" else None
+        mem = getattr(cfg, "memory", None)
+        if (self.retriever is not None and getattr(mem, "enabled", False)
+                and getattr(mem, "mode", "none") == "log"):
+            from src.memory.experience import ExperienceLogger, shadow_retrievers
+            self.memory = ExperienceLogger(cfg, cfg.run.name)
+            self.shadow = shadow_retrievers(cfg)
 
-    def _retrieve(self, query):
-        hits = self.retriever.retrieve(query, self.cfg.retrieval.top_k)
+    def _index(self, ex):
+        self.retriever.index(ex.chunks)
+        if self.shadow:
+            t = time.perf_counter()
+            for r in self.shadow.values():
+                r.index(ex.chunks)
+            self._memory_s += time.perf_counter() - t
+
+    def _retrieve(self, query, hop=0, ex=None):
+        first = hits = self.retriever.retrieve(query, self.cfg.retrieval.top_k)
         if self.reranker:
             hits = self.reranker.rerank(query, hits)
+        if self.memory is not None and ex is not None:
+            t = time.perf_counter()
+            self._log_hop(ex, hop, query, hits, first)
+            self._memory_s += time.perf_counter() - t
         return hits
+
+    def _log_hop(self, ex, hop, query, hits, first):
+        """Everything the log needs beyond the hits themselves. It runs after
+        the primary hits are final and feeds only the logger: the shadow arms
+        at the same top_k, and every arm's ranking of the whole pool (a second
+        call to the primary retriever included) so that a missed gold chunk
+        still gets a rank."""
+        k, pool = self.cfg.retrieval.top_k, len(ex.chunks)
+        shadow = self.shadow or {}
+        self.memory.on_hop(
+            ex, hop, query, hits,
+            {arm: r.retrieve(query, k) for arm, r in shadow.items()},
+            first_stage=first if self.reranker else None,
+            primary_full=self.retriever.retrieve(query, pool),
+            shadow_full={arm: r.retrieve(query, pool) for arm, r in shadow.items()})
 
     def run_example(self, ex):
         t0 = time.perf_counter()
         mode = self.cfg.pipeline.mode
         self._raw = []
         self._prompt_tokens, self._ttft = 0, 0.0
+        self._memory_s = 0.0
         self.stop_reason = ""
         if mode == "closed_book":
             if self.generator is None:
                 raise ValueError("closed_book needs a generation backend")
             traces, answer, stats = self._closed_book(ex)
         elif mode == "single_hop":
-            self.retriever.index(ex.chunks)
+            self._index(ex)
             traces, answer, stats = self._single_hop(ex)
         elif mode == "multihop_ircot":
             if self.generator is None:
                 raise ValueError("multihop_ircot needs a generation backend")
-            self.retriever.index(ex.chunks)
+            self._index(ex)
             traces, answer, stats = self._ircot(ex)
         else:
             raise ValueError(f"unknown pipeline mode {mode!r}")
@@ -103,7 +148,7 @@ class MultiHopPipeline:
                               prompt_tokens=self._prompt_tokens,
                               ttft_s=self._ttft,
                               gen_calls=len(self._raw),
-                              latency_s=time.perf_counter() - t0,
+                              latency_s=time.perf_counter() - t0 - self._memory_s,
                               tokens_per_s=tps, peak_memory_mb=peak)
 
     def _gen(self, prompt):
@@ -121,7 +166,7 @@ class MultiHopPipeline:
         return [trace], first_line(text), (m.completion_tokens, m.tokens_per_s, m.peak_memory_mb)
 
     def _single_hop(self, ex):
-        hits = self._retrieve(ex.question)
+        hits = self._retrieve(ex.question, hop=0, ex=ex)
         trace = HopTrace(hop=0, query=ex.question, retrieved=hits,
                          gold_chunk_ids=list(ex.gold_chunk_ids))
         answer, ntok, tps, peak = "", 0, 0.0, 0.0
@@ -145,7 +190,7 @@ class MultiHopPipeline:
         self.stop_reason = "max_hops"
 
         for hop in range(self.cfg.pipeline.max_hops):
-            hits = self._retrieve(query)
+            hits = self._retrieve(query, hop=hop, ex=ex)
             for h in hits:
                 seen.setdefault(h.chunk.chunk_id, h)
             traces.append(HopTrace(hop=hop, query=query, retrieved=hits,

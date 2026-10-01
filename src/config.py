@@ -23,6 +23,15 @@ def _ns(x):
     return x
 
 
+def as_dict(cfg):
+    """The resolved config back as plain dicts, to write next to results."""
+    if hasattr(cfg, "__dict__"):
+        return {k: as_dict(v) for k, v in vars(cfg).items()}
+    if isinstance(cfg, (list, tuple)):
+        return [as_dict(v) for v in cfg]
+    return cfg
+
+
 def load_config(path):
     with open(BASE) as f:
         cfg = yaml.safe_load(f)

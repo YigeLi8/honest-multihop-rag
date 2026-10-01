@@ -1,0 +1,8 @@
+# bm25.yaml with experience logging on: same retrieval and answers, plus
+# results/memory/bm25_hotpot_dev_memlog_experience.jsonl
+run:
+  name: bm25_hotpot_dev_memlog
+retrieval:
+  method: bm25
+memory:
+  enabled: true

@@ -92,19 +92,28 @@ retrieval in this harness.
 
 ### Stage 1: experience logging (no behaviour change)
 
-- [ ] `memory:` block in `configs/base.yaml`, off by default
-- [ ] `src/memory/experience.py`: one record per (question, hop): strategy,
+- [x] `memory:` block in `configs/base.yaml`, off by default
+- [x] `src/memory/experience.py`: one record per (question, hop): strategy,
       retrieved ids/scores/ranks, gold hit/miss, hop / cumulative / aligned
-      recall, features, final outcome row; run header with git sha and config
-- [ ] `src/memory/features.py`: model-free features only, schema versioned and
-      frozen (query length, hop, rare-token ratio, titles named in the query,
-      top-1 score, margin, score entropy, bm25-dense disagreement, new chunks
-      this hop, previous-hop top score)
-- [ ] `src/memory/backfill.py`: rebuild the same records from committed traces
-      by re-indexing each pool; assert recomputed top-k equals the trace
-- [ ] hooks in the pipeline and `run_qa`, guarded by `memory.enabled`
-- [ ] `scripts/check_baseline.py`: memory off vs memory logging must give
-      identical traces and csvs (timing columns aside); tests for all of it
+      recall, the rank of every gold chunk in the full pool, features, final
+      outcome row; shadow arms scored the same way; run header with git sha,
+      config, data file hash and schema versions
+- [x] `src/memory/features.py`: model-free, gold-free features, schema
+      versioned and frozen (19 of them, each tagged by what it costs: query /
+      pool / history / primary hits). Arm disagreement (top-k overlap with
+      another retriever) is kept apart as a probe feature, because knowing it
+      already costs the second retrieval
+- [x] `src/memory/backfill.py`: rebuild the same records from committed traces
+      by re-indexing each pool; the recomputed top-k must equal the trace
+      (bm25_hotpot_dev: 500/500 hops identical)
+- [x] hooks in the pipeline and `run_qa`, guarded by `memory.enabled`; time
+      spent logging is kept out of latency
+- [x] `scripts/check_baseline.py`: memory off vs logging on gives identical
+      traces, csvs (timing columns aside) and per-hop stats; passes without
+      generation on hotpot and musique bm25
+- [ ] the same identity check with real generation on an ircot config, and
+      with hybrid and reranked primaries (needs the Mac's GPU)
+- [ ] backfill the hybrid and ircot traces with bm25 and dense shadow arms
 
 ### Stage 1b: what is there to learn (no model calls)
 

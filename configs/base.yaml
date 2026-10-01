@@ -50,6 +50,15 @@ eval:
   gold: true
   ragas: false
 
+# experience logging (docs/plan.md, Part B). Off by default; when on it only
+# writes <store>/<run>_experience.jsonl and changes nothing the pipeline does.
+memory:
+  enabled: false
+  mode: log             # none | log  (later stages add similarity, failure, static_boundary, dynamic_boundary, active_boundary)
+  log_arms: []          # other retrievers to run in the shadow at every hop, e.g. [bm25, dense]; logged, never used
+  store: results/memory
+  seed: 13
+
 paths:
   data_dir: data/processed
   index_dir: data/processed/index
