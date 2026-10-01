@@ -46,7 +46,19 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       gold sentences / answer-bearing gold / all gold paragraphs / any gold /
       answer string in context)
 - [ ] correctness beyond EM: F1 >= 0.5 and capped containment with aliases,
-      reported beside EM in every 2x2
+      reported beside EM in every 2x2. The criteria are in
+      `src/eval/answer_metrics.py` (containment allows at most four tokens
+      beyond the gold span: the ircot readers answer in sentences a third of
+      the time, and uncapped containment would credit those) and
+      `src/eval/criteria.py` reports them beside retrieval_correct for runs
+      already scored (`results/<dataset>_criteria.csv`, exploration fold). On
+      hotpot the cell moves in step with the answer rate: bm25 0.148 EM /
+      0.162 contain / 0.214 F1>=0.5, hybrid ircot 0.062 / 0.066 / 0.082, and
+      the cell's share of accepted answers stays within two points of its EM
+      value on hotpot and 2wiki, so the cell is not a string-matching
+      artefact. musique is the exception: F1>=0.5 adds 45 answers to bm25 and
+      the share goes from 0.48 to 0.58. Still open: the columns in run_qa's
+      own 2x2 (Mac), and musique with its aliases (the csv has none).
 - [ ] stop audit from the ircot traces: hop at which each gold sentence first
       entered context, stop reason, correctness
 - [ ] README rewrite: scope in paragraph one (distractor pools, one model, one

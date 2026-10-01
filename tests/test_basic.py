@@ -79,6 +79,50 @@ def test_answer_metrics():
     assert f1("yes", "no") == 0.0          # yes/no disagreement zeroes f1
     assert 0.0 < f1("the red car", "red bicycle") < 1.0
 
+def test_capped_containment():
+    from src.eval.answer_metrics import CRITERIA, contains, correct_by
+    assert contains("Mumbai, Maharashtra", "Mumbai") == 1.0
+    assert contains("Kansas Song (We're From Kansas)", "Kansas Song") == 1.0
+    assert contains("Boston Logan International Airport", "Logan International Airport") == 1.0
+    # a sentence that mentions the answer is not an answer
+    assert contains("Edward G. Robinson played Dathan in The Ten Commandments.", "Dathan") == 0.0
+    assert contains("Mumbai, Maharashtra", "Mumbai", max_extra=0) == 0.0
+    # tokens must be contiguous and in order
+    assert contains("Hall of International Boxing Fame", "International Boxing Hall of Fame") == 0.0
+    # yes/no is EM only
+    assert contains("no, it was yes", "yes") == 0.0 and contains("Yes.", "yes") == 1.0
+    assert contains("anything", "") == 0.0 and contains("", "") == 1.0
+    assert list(CRITERIA) == ["em", "f1_50", "contain"]
+    assert correct_by("Kaiser Ventures", ["Henry J. Kaiser", "Kaiser Ventures"], "em")
+    assert correct_by("Barack Obama", ["Obama, Barack"], "f1_50")
+    assert not correct_by("Obama", ["Barack Obama"], "contain")   # gold must be inside pred
+    assert not correct_by("x", [], "contain")
+
+
+def test_criteria_ladder():
+    import pandas as pd
+    from src.eval.criteria import criteria_rows, score_criteria
+    df = pd.DataFrame([
+        # id, pred, gold, em, f1, retrieval_correct
+        ("a", "Mumbai", "Mumbai", 1.0, 1.0, 1),
+        ("b", "Mumbai, Maharashtra", "Mumbai", 0.0, 0.6667, 0),   # contain and f1 add it
+        ("c", "the red car", "red bicycle", 0.0, 0.4, 0),          # nothing adds it
+        ("d", "Dathan played by Robinson in the film", "Dathan", 0.0, 0.25, 1),
+        ("e", "alias form", "gold form", 0.0, 0.0, 0),              # only the alias matches
+    ], columns=["id", "answer_pred", "answer_gold", "em", "f1", "retrieval_correct"])
+    scored = score_criteria(df, aliases={"e": ["alias form"]})
+    assert scored["em"].tolist() == [True, False, False, False, False]
+    assert scored["f1_50"].tolist() == [True, True, False, False, False]
+    assert scored["contain"].tolist() == [True, True, False, False, True]
+    rows = {r["criterion"]: r for r in criteria_rows("stub", scored)}
+    assert rows["em"]["answer_correct"] == 0.2 and rows["em"]["ans_ok_retr_wrong"] == 0
+    assert rows["em"]["vs_em_added"] == 0 and rows["em"]["vs_em_mcnemar_p"] == 1.0
+    assert rows["contain"]["ans_ok_retr_wrong"] == 2 and rows["contain"]["illusion_rate"] == 0.4
+    assert rows["contain"]["vs_em_added"] == 2 and rows["contain"]["vs_em_dropped"] == 0
+    assert rows["contain"]["illusion_share_of_correct"] == round(2 / 3, 4)
+    assert rows["f1_50"]["ans_ok_retr_ok"] == 1 and rows["f1_50"]["ans_wrong_retr_ok"] == 1
+    assert rows["f1_50"]["illusion_lo"] <= rows["f1_50"]["illusion_rate"] <= rows["f1_50"]["illusion_hi"]
+
 
 def test_precision_recall():
     from src.eval.per_hop_precision import precision_recall
@@ -292,6 +336,8 @@ if __name__ == "__main__":
     test_minmax()
     test_hybrid_fusion()
     test_answer_metrics()
+    test_capped_containment()
+    test_criteria_ladder()
     test_precision_recall()
     test_decoupling_table()
     test_wilson_ci()
