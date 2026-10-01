@@ -166,9 +166,9 @@ retrieval in this harness.
       0.735, a gain of 0.004 +- 0.007 at the best stage. So the ceiling is
       real and the frozen process features do not reach it: a fixed rule or
       a shared router over them captures none of it. Whatever Stages 2-5
-      find must come from somewhere else (the question itself, or past
-      questions that look like it), and that is now the thing to test
-      first, not the operators.
+      find must come from somewhere else than these features; the first
+      thing tried, past questions that look like it (Stage 2 below), gets
+      nothing either.
 - [ ] look-alike pairs: within-template pairs on 2wiki with discordant
       outcomes; natural pairs on hotpot by question similarity (expected
       sparse, reported as such); constructed twins (`data/make_twins.py`):
@@ -176,7 +176,17 @@ retrieval in this harness.
 
 ### Stages 2-4: the baselines
 
-- [ ] 2. similarity memory over past experiences (top-k neighbours vote)
+- [ ] 2. similarity memory over past experiences (top-k neighbours vote).
+      At retrieval level on hotpot it is already in `src/memory/arms.py`
+      (`question_knn` rows of `results/hotpot_arms_routed.csv`): the k
+      nearest fit-half questions by tf-idf cosine vote with their own
+      outcomes, and the arm with the most neighbour hits is chosen on the
+      held-out half. k=5 lands at 0.625 and k=20 at 0.628 against
+      always-hybrid 0.634 (gain -0.009 +- 0.007 and -0.006 +- 0.010), the
+      same nothing as the feature router. On hotpot, look-alike questions
+      by surface text do not say which retriever to use. Left to try before
+      calling the stage: dense question neighbours, and the vote restricted
+      to neighbours with a discordant outcome.
 - [ ] 3. failure memory: failure type + what recovered it; rule-based failure
       typing with a 50-case hand audit
 - [ ] 4. static conditions: a fixed predicate per lesson, and the same as

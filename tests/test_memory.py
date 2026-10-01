@@ -800,6 +800,7 @@ def test_arm_table_and_ceiling():
         assert table["arm:other"].tolist() == [1, 0, 1, 1, 0, 0]
         assert table["arm:third"].tolist() == [0, 0, 0, 1, 0, 1]
         assert table["f:query_len_tokens"].tolist() == [9, 10, 11, 12, 13, 14]
+        assert table["question"].tolist()[1] == QUESTION + " x"
         assert table["probe:other:topk_jaccard"].tolist() == [1, 0, 0, 0, 1, 1]
         assert "f:hop" in stage_columns(table, "size") and len(stage_columns(table, "size")) == 3
         assert stage_columns(table, "query") == ["f:query_len_tokens", "f:query_is_question",
@@ -881,6 +882,18 @@ def test_predictability_is_held_out():
     assert r.loc["query"]["gain"] > 0.2 and r.loc["query"]["routed"] > 0.7
     assert abs(r.loc["size"]["gain"]) < 0.05 and r.loc["query"]["n_splits"] == 4
     assert r.loc["query"]["oracle"] >= r.loc["query"]["routed"] >= r.loc["query"]["best_single"] - 0.05
+
+    # similarity memory: when the arm that hits is a function of the question
+    # text, the nearest past questions route it; random text does not
+    from src.memory.arms import neighbour_routed_rate
+    table["question"] = ["long query %d" % i if table["arm:a"][i] else "short one %d" % i
+                         for i in range(n)]
+    nn = neighbour_routed_rate(table, ks=[5], seeds=[13, 17]).set_index("stage")
+    assert nn.loc["question_knn5"]["gain"] > 0.15 and nn.loc["question_knn5"]["n_splits"] == 4
+    table["question"] = ["word%d other%d" % (i * 7 % 11, i * 3 % 13) for i in range(n)]
+    nn = neighbour_routed_rate(table, ks=[5], seeds=[13, 17]).set_index("stage")
+    assert abs(nn.loc["question_knn5"]["gain"]) < 0.1
+    assert neighbour_routed_rate(table.iloc[:10], ks=[5], seeds=[13]).empty   # too small to fit
 
     # too small, one-class: no AUC rather than a made-up one
     X, y = table[["f:hop"]].to_numpy(), np.zeros(n)

@@ -37,7 +37,8 @@ it depends on the primary arm's trajectory).
         [--train-ids results/folds/hotpot_explore.txt --eval-ids results/folds/hotpot_confirm.txt]
 
 Writes results/<dataset>_arms_discordance.csv, _ceiling.csv, _predictability.csv
-and _routed.csv (what a shared router over the same features gets, held out).
+and _routed.csv (what a shared router over the same features gets, held out,
+and what nearest past questions get: the similarity-memory baseline).
 """
 import argparse
 import json
@@ -103,7 +104,8 @@ def arm_table(records: Sequence[dict], outcome: str = "all_gold_in_topk",
                 values[arm] = block.get(outcome)
         if any(v is None for v in values.values()):
             continue
-        row = {"id": r["id"], "qtype": r["qtype"], "n_gold": r["hop_outcome"]["n_gold"]}
+        row = {"id": r["id"], "qtype": r["qtype"], "question": r["query"],
+               "n_gold": r["hop_outcome"]["n_gold"]}
         row.update({f"arm:{a}": float(v) for a, v in values.items()})
         row.update({f"f:{k}": float(v) for k, v in r["features"].items()})
         for arm, probe in r["probe_features"].items():
@@ -347,6 +349,52 @@ def predictability(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 
     return pd.DataFrame(rows)
 
 
+def neighbour_routed_rate(table: pd.DataFrame, ks: Sequence[int] = (5, 20),
+                          seeds: Sequence[int] = (13, 17, 19, 23, 29),
+                          splits: Optional[Sequence[tuple[np.ndarray, np.ndarray]]] = None,
+                          ) -> pd.DataFrame:
+    """The Stage 2 baseline at retrieval level: similarity memory over past
+    questions. For a held-out question, the k nearest fit-half questions by
+    tf-idf cosine over the question text vote with their own outcomes, one
+    vote per arm, and the arm with the highest neighbour hit rate is chosen
+    (ties go to the arm that is better on the fit half). Scored like
+    routed_rate, so the two tables say whether look-alike questions carry
+    what the process features do not. The question text is the only input;
+    outcomes enter only as the neighbours' votes, from the fit half.
+    """
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    arms = arms_of(table)
+    hit = {a: hits(table, a).to_numpy(dtype=float) for a in arms}
+    oracle = np.max(np.stack([hit[a] for a in arms]), axis=0)
+    text = table["question"].fillna("").tolist()
+    sub_splits = splits if splits is not None else seeded_halves(len(table), seeds)
+    rows = []
+    for k in ks:
+        routed, single, ceiling_ = [], [], []
+        for fit, score in sub_splits:
+            if len(fit) < max(MIN_FIT, k):
+                continue
+            vec = TfidfVectorizer(sublinear_tf=True).fit([text[i] for i in fit])
+            sims = (vec.transform([text[i] for i in score]) @ vec.transform([text[i] for i in fit]).T).toarray()
+            nearest = np.argsort(-sims, axis=1)[:, :k]            # positions within fit
+            order = sorted(arms, key=lambda a: -hit[a][fit].mean())  # tie-break: fit-half best
+            votes = np.stack([hit[a][fit][nearest].mean(axis=1) for a in order])
+            chosen = np.argmax(votes, axis=0)                     # first max wins the tie
+            actual = np.stack([hit[a][score] for a in order])
+            routed.append(float(actual[chosen, np.arange(len(score))].mean()))
+            single.append(float(hit[order[0]][score].mean()))
+            ceiling_.append(float(oracle[score].mean()))
+        if not routed:
+            continue
+        gains = np.array(routed) - np.array(single)
+        rows.append({"stage": f"question_knn{k}", "n_features": k, "routed": round(np.mean(routed), 4),
+                     "best_single": round(np.mean(single), 4),
+                     "oracle": round(np.mean(ceiling_), 4),
+                     "gain": round(float(gains.mean()), 4), "gain_sd": round(float(gains.std()), 4),
+                     "n_splits": len(routed)})
+    return pd.DataFrame(rows)
+
+
 def read_ids(path) -> list[str]:
     with open(path) as f:
         return [line.strip() for line in f if line.strip()]
@@ -384,7 +432,9 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     out.mkdir(parents=True, exist_ok=True)
     tables = {"discordance": discordance(table), "ceiling": ceiling(table, seed=args.seeds[0]),
               "predictability": predictability(table, seeds=args.seeds, splits=splits),
-              "routed": routed_rate(table, seeds=args.seeds, splits=splits)}
+              "routed": pd.concat([routed_rate(table, seeds=args.seeds, splits=splits),
+                                   neighbour_routed_rate(table, seeds=args.seeds, splits=splits)],
+                                  ignore_index=True)}
     for name, df in tables.items():
         path = out / f"{args.dataset}_arms_{name}.csv"
         df.to_csv(path, index=False)
