@@ -1,0 +1,4 @@
+arm_a,arm_b,n,both,only_a,only_b,neither,discordant,mcnemar_p
+bm25,dense,2417,286,141,501,1489,0.2656,0.0
+bm25,hybrid,2417,368,59,311,1679,0.1531,0.0
+dense,hybrid,2417,529,258,150,1480,0.1688,0.0
