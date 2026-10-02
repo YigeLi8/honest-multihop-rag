@@ -184,3 +184,20 @@ Anything that departs from the above, with date and reason.
   alternative order and the evidence ladder get reported once they are
   implemented as defined above; until then the confirmation tables carry the
   primary order.
+- 2026-10-01, what was visible. Two things the Status line does not spell
+  out. The exploration re-runs the hypotheses cite (k=13, ircot, rerank with
+  the one answer prompt) were generated in the same queue as the hotpot
+  confirmation runs and after them, so they are not earlier evidence in time,
+  only a different set of questions. And the one-line summaries I had seen
+  include the 2x2 counts, so the confirmation cell rates behind H1 and H4, and
+  the EM values behind H2 and H3b, were visible before the rules were written.
+  The margins and pass rules were still taken from the exploration tables, but
+  this is weaker than a preregistration written before the runs.
+- 2026-10-01, stale sentence. The Hypotheses preamble says the committed
+  exploration tables still carry old-prompt ircot rows; the commit that added
+  this file replaced them.
+- 2026-10-01, H4 scope. bm25 k=13 matches the mean context size of the ircot
+  runs, not the retriever: ircot also swaps bm25 for bm25 + bge-small. H4
+  passing says the smaller cell is not context size alone; it does not
+  separate the loop from the hybrid retriever (no hybrid single-hop run on
+  hotpot).

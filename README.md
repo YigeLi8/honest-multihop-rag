@@ -52,6 +52,16 @@ Generator: Qwen2.5-7B-Instruct via MLX (4-bit unless noted), everything local on
 an M5 Pro. Hotpot QA rows are n=500 dev subsets (95% Wilson intervals in
 parentheses on the headline column); the 2wiki QA row is still n=200.
 
+Note, 1 Oct 2026: the two ircot rows below and the paragraph under the tables
+are from before every config shared one answer prompt, and they are superseded.
+With one prompt EM is not flat: on the confirmation fold (n=1000) bm25 k=10 to
+hybrid ircot is +0.051 EM (paired bootstrap CI 0.027 to 0.075) beside +0.27
+retrieval correct, and the cell goes 0.131 -> 0.060. The 2wiki row is still the
+first 200 questions (at n=1000 the cell is 0.133). Current tables:
+`results/*_confirm_decomposition.csv`, `results/*_confirm_paired.csv` and
+`results/confirm_prereg.csv`, with the rules in `docs/preregistration.md`. This
+section gets rewritten from those.
+
 Answer vs retrieval, HotpotQA distractor dev (n=500):
 
 | config                      | EM    | F1    | retrieval correct | answer right, evidence incomplete |
