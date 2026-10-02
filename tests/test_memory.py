@@ -895,6 +895,43 @@ def test_predictability_is_held_out():
     assert abs(nn.loc["question_knn5"]["gain"]) < 0.1
     assert neighbour_routed_rate(table.iloc[:10], ks=[5], seeds=[13]).empty   # too small to fit
 
+    # dense neighbours: the same vote over question vectors; vectors that
+    # separate the two kinds of question route them, random vectors do not
+    from src.memory.arms import question_similarity, similarity_memory_tables
+    kind = table["arm:a"].to_numpy()
+    vectors = np.stack([kind * 3 + rng.rand(n) * 0.1, (1 - kind) * 3 + rng.rand(n) * 0.1], axis=1)
+    dn = neighbour_routed_rate(table, ks=[5], seeds=[13, 17], vectors=vectors,
+                               label="question_dense_knn").set_index("stage")
+    assert dn.loc["question_dense_knn5"]["gain"] > 0.15
+    dn = neighbour_routed_rate(table, ks=[5], seeds=[13], vectors=rng.rand(n, 4),
+                               label="question_dense_knn").set_index("stage")
+    assert abs(dn.loc["question_dense_knn5"]["gain"]) < 0.1
+    fit, score = seeded_halves(n, [13])[0]
+    sims = question_similarity(table["question"].tolist(), fit, score, vectors)
+    assert sims.shape == (len(score), len(fit)) and sims.max() <= 1.0 + 1e-9
+    try:
+        neighbour_routed_rate(table, ks=[5], seeds=[13], vectors=vectors[:-1])
+        raise AssertionError("a vector per question is required")
+    except ValueError:
+        pass
+
+    # the discordant-only vote: only past questions on which the arms disagree
+    # may vote. With b random, the informative half still carries a's signal
+    table["question"] = ["long query %03d" % i if table["arm:a"][i] else "short one %03d" % i
+                         for i in range(n)]
+    dv = neighbour_routed_rate(table, ks=[5], seeds=[13, 17], discordant_only=True).set_index("stage")
+    assert dv.loc["question_knn5_discordant"]["gain"] > 0.15
+    # when every past question is concordant there is nothing to vote with
+    table["arm:b"] = table["arm:a"]
+    assert neighbour_routed_rate(table, ks=[5], seeds=[13], discordant_only=True).empty
+    assert not neighbour_routed_rate(table, ks=[5], seeds=[13]).empty
+    table["arm:b"] = rng.randint(0, 2, n).astype(float)
+    every = similarity_memory_tables(table, seeds=[13], vectors=vectors, ks=[5])
+    assert every["stage"].tolist() == ["question_knn5", "question_knn5_discordant",
+                                       "question_dense_knn5", "question_dense_knn5_discordant"]
+    assert similarity_memory_tables(table, seeds=[13], ks=[5])["stage"].tolist() == [
+        "question_knn5", "question_knn5_discordant"]
+
     # too small, one-class: no AUC rather than a made-up one
     X, y = table[["f:hop"]].to_numpy(), np.zeros(n)
     assert held_out_auc(X, y, seeded_halves(n, [13]))[2] == 0
@@ -915,6 +952,131 @@ def test_arms_cli():
         main(["--records", str(path), "--dataset", "half", "--out-dir", tmp, "--ids", str(ids)])
         import pandas as pd
         assert pd.read_csv(Path(tmp) / "half_arms_ceiling.csv")["n"].iloc[0] == 30
+
+
+def test_make_twins():
+    from data.make_twins import (alias_of, alias_twin, bridge_titles, distractor_twin, make_twins,
+                                 mention)
+    def record(id, question, chunks, gold):
+        return {"id": id, "question": question, "answer": "x", "hops": 2,
+                "chunks": [{"chunk_id": f"{t}::{i}", "title": t, "sent_idx": i, "text": s}
+                           for t, i, s in chunks], "gold_chunk_ids": gold}
+    scott = record("q0", "Were Scott Derrickson and Ed Wood of the same nationality?",
+                   [("Scott Derrickson", 0, "Scott Derrickson (born July 16, 1966) is an American director."),
+                    ("Ed Wood", 0, "Edward Davis Wood Jr. (1924 - 1978) was an American filmmaker."),
+                    ("Big Stone", 0, "Big Stone is a lake.")],
+                   ["Scott Derrickson::0", "Ed Wood::0"])
+    shellite = record("q1", "Which component of Shellite has the formula X?",
+                      [("Shellite (explosive)", 0, "Shellite, also known as Tridite, is an explosive."),
+                       ("Shellite (explosive)", 1, "It was used in shells."),
+                       ("Picric acid", 0, "Picric acid is a component of Shellite.")],
+                      ["Shellite (explosive)::0", "Picric acid::0"])
+    laleli = record("q2", "Are the Laleli Mosque and Esma Sultan Mansion in the same city?",
+                    [("Laleli Mosque", 0, "The Laleli Mosque is an 18th-century mosque in Istanbul."),
+                     ("Esma Sultan Mansion", 0, "The Esma Sultan Mansion is a mansion in Istanbul."),
+                     ("Blue Mosque", 0, "The Blue Mosque is a mosque in Istanbul with Derrickson tiles."),
+                     ("Acid Lake", 0, "Acid Lake is a lake whose water is picric."),
+                     ("Acid Lake", 1, "Acid rain feeds it.")],
+                    ["Laleli Mosque::0", "Esma Sultan Mansion::0"])
+
+    # mentions are found without the disambiguator, case-insensitive
+    assert mention(shellite["question"], "Shellite (explosive)") == (19, 8)
+    assert mention(scott["question"], "Big Stone") is None
+    assert bridge_titles(shellite) == ["Picric acid"] and bridge_titles(laleli) == []
+    # the surname rule needs a biography; a mosque does not get one
+    assert alias_of(scott, "Scott Derrickson") == ("Derrickson", "surname")
+    assert alias_of(laleli, "Laleli Mosque") is None
+    assert alias_of(shellite, "Shellite (explosive)") == ("Tridite", "known_as")
+    twin = alias_twin(shellite)
+    assert twin["id"] == "q1::twin:alias" and twin["twin_of"] == "q1"
+    assert twin["question"] == "Which component of Tridite has the formula X?"
+    assert twin["gold_chunk_ids"] == shellite["gold_chunk_ids"]     # gold unchanged
+    assert twin["chunks"] == shellite["chunks"]                     # pool unchanged
+    assert alias_twin(laleli) is None
+    assert shellite["question"].startswith("Which component of Shellite")   # original untouched
+
+    twins, counts = make_twins([scott, shellite, laleli], n_distractors=2, seed=1)
+    kinds = {t["id"]: t for t in twins}
+    # q0 names both gold titles: no bridge, no distractor twin; q1 has one
+    assert "q0::twin:distractor" not in kinds and "q1::twin:distractor" in kinds
+    d = kinds["q1::twin:distractor"]
+    added = d["twin_change"]["added"]
+    assert d["twin_change"]["bridge_titles"] == ["Picric acid"]
+    # the added sentences share a bridge token and come from other pools, never gold
+    assert added and all(a not in {c["chunk_id"] for c in shellite["chunks"]} for a in added)
+    assert all("acid" in next(c["text"] for c in d["chunks"] if c["chunk_id"] == a).lower()
+               or "picric" in next(c["text"] for c in d["chunks"] if c["chunk_id"] == a).lower()
+               for a in added)
+    assert d["question"] == shellite["question"] and len(d["chunks"]) == 3 + len(added)
+    assert counts[("alias", "surname")] == 1 and counts[("alias", "known_as")] == 1
+    assert counts[("distractor", "bridge_token")] == 1    # q0 and q2 name every gold title
+    assert added[0] == "Acid Lake::0"                      # shares two bridge tokens, not one
+    # the same seed gives the same twins
+    again, _ = make_twins([scott, shellite, laleli], n_distractors=2, seed=1)
+    assert [t["id"] for t in again] == [t["id"] for t in twins]
+    assert again[[t["id"] for t in again].index("q1::twin:distractor")]["twin_change"]["added"] == added
+
+
+def test_lookalike_pairs_and_twins():
+    import numpy as np
+    import pandas as pd
+    from src.memory.lookalike import (best_arm, natural_pairs, pair_summary, random_pairs,
+                                      twin_of, twin_table)
+    n = 40
+    rng = np.random.RandomState(1)
+    table = pd.DataFrame({"id": [f"q{i}" for i in range(n)]})
+    # two families of questions: arm a hits the long family, arm b the short one
+    fam = np.array([i % 2 for i in range(n)])
+    table["question"] = ["long query about %s %03d" % ("rivers" if i % 4 < 2 else "rivers", i)
+                         if fam[i] else "short one on %s %03d" % ("kings", i) for i in range(n)]
+    table["arm:a"] = fam.astype(float)
+    table["arm:b"] = (1 - fam).astype(float)
+    assert best_arm(np.array([[1, 1], [0, 0], [1, 0]]), ["a", "b"]) == ["all", "none", "a"]
+
+    pairs = natural_pairs(table)
+    assert len(pairs) <= n and (pairs["similarity"].diff().dropna() <= 1e-9).all()
+    assert set(pairs.columns) >= {"id_a", "id_b", "similarity", "a_same", "b_same", "best_same"}
+    # the nearest neighbour is from the same family, so every pair agrees
+    assert pairs["a_same"].all() and pairs["best_same"].all()
+    rnd = random_pairs(table, 400, seed=3)
+    assert 0.35 < rnd["a_same"].mean() < 0.65 and len(rnd) == 400
+    summary = pair_summary(pairs, table, n_random=400)
+    nearest = summary[summary["pairs"] == "nearest_all"].set_index("agreement")
+    random_ = summary[summary["pairs"] == "random"].set_index("agreement")
+    assert nearest.loc["a"]["rate"] == 1.0 and random_.loc["a"]["rate"] < 0.7
+    assert (summary["lo"] <= summary["rate"]).all() and (summary["rate"] <= summary["hi"]).all()
+    # vectors instead of text: the same families, the same answer
+    vec = np.stack([fam * 2.0 + rng.rand(n) * 0.1, (1 - fam) * 2.0], axis=1)
+    assert natural_pairs(table, vec)["a_same"].all()
+
+    assert twin_of("abc::twin:alias") == ("abc", "alias")
+    try:
+        twin_of("abc")
+        raise AssertionError("not a twin id")
+    except ValueError:
+        pass
+    # twins: alias twins keep every outcome, distractor twins lose arm a on
+    # the long family
+    twins = pd.DataFrame({"id": [f"q{i}::twin:alias" for i in range(n)] +
+                                [f"q{i}::twin:distractor" for i in range(n)]})
+    twins["question"] = list(table["question"]) * 2
+    twins["arm:a"] = list(table["arm:a"]) + [0.0] * n
+    twins["arm:b"] = list(table["arm:b"]) * 2
+    t = twin_table(table, twins).set_index(["kind", "arm"])
+    assert t.loc[("alias", "a")]["changed"] == 0.0 and t.loc[("alias", "any")]["best_moved"] == 0.0
+    assert t.loc[("distractor", "a")]["hit_to_miss"] == n // 2
+    assert t.loc[("distractor", "a")]["miss_to_hit"] == 0 and t.loc[("distractor", "a")]["mcnemar_p"] < 0.001
+    assert t.loc[("distractor", "b")]["changed"] == 0.0
+    assert t.loc[("distractor", "any")]["changed"] == 0.5 and t.loc[("distractor", "any")]["best_moved"] == 0.5
+    assert t.loc[("alias", "a")]["n"] == n
+    # twins whose original is not in the table are left out; mismatched arms refused
+    sub = twin_table(table.iloc[:10], twins).set_index(["kind", "arm"])
+    assert sub.loc[("alias", "a")]["n"] == 10
+    try:
+        twin_table(table, twins.rename(columns={"arm:b": "arm:c"}))
+        raise AssertionError("arms must match")
+    except ValueError:
+        pass
 
 
 if __name__ == "__main__":
@@ -940,4 +1102,6 @@ if __name__ == "__main__":
     test_arm_table_and_ceiling()
     test_predictability_is_held_out()
     test_arms_cli()
+    test_make_twins()
+    test_lookalike_pairs_and_twins()
     print("all good")

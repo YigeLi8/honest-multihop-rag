@@ -38,7 +38,10 @@ it depends on the primary arm's trajectory).
 
 Writes results/<dataset>_arms_discordance.csv, _ceiling.csv, _predictability.csv
 and _routed.csv (what a shared router over the same features gets, held out,
-and what nearest past questions get: the similarity-memory baseline).
+and what nearest past questions get: the similarity-memory baseline, by
+tf-idf and, with --dense-neighbours, by the dense retriever's question
+embedding, each voting over every past question or only over the past
+questions on which the arms disagreed).
 """
 import argparse
 import json
@@ -349,37 +352,68 @@ def predictability(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 
     return pd.DataFrame(rows)
 
 
+def question_similarity(text: Sequence[str], fit: np.ndarray, score: np.ndarray,
+                        vectors: Optional[np.ndarray] = None) -> np.ndarray:
+    """Cosine similarity of every score-half question to every fit-half
+    question: over tf-idf of the question text, fit on the fit half only, or
+    over the given question vectors (one row per question, e.g. the dense
+    retriever's query embedding), which are L2-normalised here. Nothing from
+    the score half enters the vocabulary."""
+    if vectors is not None:
+        v = np.asarray(vectors, dtype=float)
+        v = v / np.maximum(np.linalg.norm(v, axis=1, keepdims=True), 1e-12)
+        return v[score] @ v[fit].T
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    vec = TfidfVectorizer(sublinear_tf=True).fit([text[i] for i in fit])
+    return (vec.transform([text[i] for i in score]) @ vec.transform([text[i] for i in fit]).T).toarray()
+
+
 def neighbour_routed_rate(table: pd.DataFrame, ks: Sequence[int] = (5, 20),
                           seeds: Sequence[int] = (13, 17, 19, 23, 29),
                           splits: Optional[Sequence[tuple[np.ndarray, np.ndarray]]] = None,
-                          ) -> pd.DataFrame:
+                          vectors: Optional[np.ndarray] = None, label: str = "question_knn",
+                          discordant_only: bool = False) -> pd.DataFrame:
     """The Stage 2 baseline at retrieval level: similarity memory over past
     questions. For a held-out question, the k nearest fit-half questions by
-    tf-idf cosine over the question text vote with their own outcomes, one
-    vote per arm, and the arm with the highest neighbour hit rate is chosen
-    (ties go to the arm that is better on the fit half). Scored like
-    routed_rate, so the two tables say whether look-alike questions carry
-    what the process features do not. The question text is the only input;
-    outcomes enter only as the neighbours' votes, from the fit half.
+    cosine over the question text (tf-idf, or the given question vectors)
+    vote with their own outcomes, one vote per arm, and the arm with the
+    highest neighbour hit rate is chosen (ties go to the arm that is better
+    on the fit half). Scored like routed_rate, so the two tables say whether
+    look-alike questions carry what the process features do not. The
+    question text is the only input; outcomes enter only as the neighbours'
+    votes, from the fit half.
+
+    discordant_only keeps as neighbours only the fit-half questions on which
+    the arms disagree (not every arm hit, not every arm missed): a past
+    question that every arm got, or none did, says nothing about which arm
+    to pick, and a memory that stores only the informative experiences is
+    the natural second version of this baseline. Hypothesis: if look-alike
+    questions carry a routing signal that the all-questions vote dilutes,
+    this vote recovers some of the ceiling. The row label gets the suffix
+    "_discordant".
     """
-    from sklearn.feature_extraction.text import TfidfVectorizer
     arms = arms_of(table)
     hit = {a: hits(table, a).to_numpy(dtype=float) for a in arms}
-    oracle = np.max(np.stack([hit[a] for a in arms]), axis=0)
+    stacked = np.stack([hit[a] for a in arms])
+    oracle = np.max(stacked, axis=0)
+    informative = oracle != np.min(stacked, axis=0)   # the arms disagree here
     text = table["question"].fillna("").tolist()
+    if vectors is not None and len(vectors) != len(table):
+        raise ValueError("one vector per question is needed")
     sub_splits = splits if splits is not None else seeded_halves(len(table), seeds)
+    suffix = "_discordant" if discordant_only else ""
     rows = []
     for k in ks:
         routed, single, ceiling_ = [], [], []
         for fit, score in sub_splits:
-            if len(fit) < max(MIN_FIT, k):
+            memory = fit[informative[fit]] if discordant_only else fit    # who may vote
+            if len(fit) < MIN_FIT or len(memory) < max(MIN_FIT, k):
                 continue
-            vec = TfidfVectorizer(sublinear_tf=True).fit([text[i] for i in fit])
-            sims = (vec.transform([text[i] for i in score]) @ vec.transform([text[i] for i in fit]).T).toarray()
+            sims = question_similarity(text, memory, score, vectors)
             # stable: equal similarities go to the earlier fit position on every platform
-            nearest = np.argsort(-sims, axis=1, kind="stable")[:, :k]   # positions within fit
+            nearest = np.argsort(-sims, axis=1, kind="stable")[:, :k]   # positions within memory
             order = sorted(arms, key=lambda a: -hit[a][fit].mean())  # tie-break: fit-half best
-            votes = np.stack([hit[a][fit][nearest].mean(axis=1) for a in order])
+            votes = np.stack([hit[a][memory][nearest].mean(axis=1) for a in order])
             chosen = np.argmax(votes, axis=0)                     # first max wins the tie
             actual = np.stack([hit[a][score] for a in order])
             routed.append(float(actual[chosen, np.arange(len(score))].mean()))
@@ -388,12 +422,42 @@ def neighbour_routed_rate(table: pd.DataFrame, ks: Sequence[int] = (5, 20),
         if not routed:
             continue
         gains = np.array(routed) - np.array(single)
-        rows.append({"stage": f"question_knn{k}", "n_features": k, "routed": round(np.mean(routed), 4),
+        rows.append({"stage": f"{label}{k}{suffix}", "n_features": k,
+                     "routed": round(np.mean(routed), 4),
                      "best_single": round(np.mean(single), 4),
                      "oracle": round(np.mean(ceiling_), 4),
                      "gain": round(float(gains.mean()), 4), "gain_sd": round(float(gains.std()), 4),
                      "n_splits": len(routed)})
     return pd.DataFrame(rows)
+
+
+def similarity_memory_tables(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29),
+                             splits: Optional[Sequence[tuple[np.ndarray, np.ndarray]]] = None,
+                             vectors: Optional[np.ndarray] = None,
+                             ks: Sequence[int] = (5, 20)) -> pd.DataFrame:
+    """Every version of the Stage 2 baseline in one table: tf-idf neighbours
+    and, with question vectors, dense neighbours, each with the all-questions
+    vote and the discordant-only vote."""
+    parts = []
+    for name, vec in (("question_knn", None), ("question_dense_knn", vectors)):
+        if name != "question_knn" and vec is None:
+            continue
+        for discordant in (False, True):
+            parts.append(neighbour_routed_rate(table, ks=ks, seeds=seeds, splits=splits,
+                                               vectors=vec, label=name,
+                                               discordant_only=discordant))
+    return pd.concat(parts, ignore_index=True)
+
+
+def question_vectors(questions: Sequence[str], model: str = "BAAI/bge-small-en-v1.5",
+                     batch_size: int = 64) -> np.ndarray:
+    """The dense retriever's own query embedding of each question (the model
+    of configs/base.yaml retrieval.dense), on cpu. Only the question text is
+    encoded."""
+    from sentence_transformers import SentenceTransformer
+    enc = SentenceTransformer(model, device="cpu")
+    return np.asarray(enc.encode(list(questions), batch_size=batch_size, normalize_embeddings=True,
+                                 convert_to_numpy=True, show_progress_bar=False), dtype=float)
 
 
 def read_ids(path) -> list[str]:
@@ -411,6 +475,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     ap.add_argument("--eval-ids", default=None, help="... and score on this one")
     ap.add_argument("--seeds", type=int, nargs="+", default=[13, 17, 19, 23, 29])
     ap.add_argument("--out-dir", default="results")
+    ap.add_argument("--dense-neighbours", action="store_true",
+                    help="also vote over bge-small question embeddings (cpu, a few seconds)")
     args = ap.parse_args(argv)
 
     header, records = read_records(args.records)
@@ -429,12 +495,18 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     else:
         print(f"seeded halves, {len(args.seeds)} seeds, both directions")
 
+    vectors = None
+    if args.dense_neighbours:
+        vectors = question_vectors(table["question"].fillna("").tolist())
+        print(f"question vectors: {vectors.shape}")
+
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
     tables = {"discordance": discordance(table), "ceiling": ceiling(table, seed=args.seeds[0]),
               "predictability": predictability(table, seeds=args.seeds, splits=splits),
               "routed": pd.concat([routed_rate(table, seeds=args.seeds, splits=splits),
-                                   neighbour_routed_rate(table, seeds=args.seeds, splits=splits)],
+                                   similarity_memory_tables(table, seeds=args.seeds, splits=splits,
+                                                            vectors=vectors)],
                                   ignore_index=True)}
     for name, df in tables.items():
         path = out / f"{args.dataset}_arms_{name}.csv"

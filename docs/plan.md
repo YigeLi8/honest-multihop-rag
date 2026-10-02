@@ -241,7 +241,11 @@ EM beside +27 retrieval_correct).
       typing with a 50-case hand audit
 - [ ] 4. static conditions: a fixed predicate per lesson, and the same as
       prose read by the generator; if a fixed rule captures most of the
-      best-arm ceiling, stop here and report that
+      best-arm ceiling, stop here and report that. CAVE-Mem (paper log,
+      2026-10-02) is this baseline in print with a cross-fitted utility veto
+      and abstention, so the arm gets both, and any per-lesson utility
+      reported anywhere here is cross-fitted (estimated from blocks that
+      exclude the question being scored)
 
 ### Stage 5: boundaries that revise themselves (the claim under test)
 
@@ -259,7 +263,11 @@ EM beside +27 retrieval_correct).
       log, 2026-10-01)
 - [ ] metrics: repeated-failure rate, false application, false rejection,
       boundary precision / recall against the known best arm, adaptation
-      speed, revision rate, regret, retrieval cost
+      speed, revision rate, regret, retrieval cost. Every rate that
+      conditions on a lesson firing is reported beside the unconditioned
+      contrast over the whole stream at matched retrieval cost (paper log,
+      2026-10-02: conditioning on the trigger does not identify the
+      invocation effect)
 - [ ] ablation: remove the operators and the log, keep the features; if
       nothing changes, the structure is decoration
 

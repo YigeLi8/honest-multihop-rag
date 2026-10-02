@@ -12,7 +12,11 @@ One record per question:
      "gold_chunk_ids": [...],
      "gold_supporting_facts": [{"title", "sent_idx"}, ...]}
 
-2Wiki records also carry "evidence_triples" and "reasoning_path". Gold chunk ids
+2Wiki records also carry "evidence_triples" and "reasoning_path".
+`python -m data.make_twins --dataset hotpotqa` writes `hotpotqa_twins_dev.jsonl`:
+copies of dev questions with the pool or one entity mention changed, ids
+`<id>::twin:<kind>` plus `twin_of`, `twin_kind`, `twin_rule` and `twin_change`
+(docs/plan.md, Part B, look-alike pairs). Gold chunk ids
 come from a heuristic mapping of the datasets' supporting facts onto chunks
 (src/eval/gold_mapping.py); the mapping error gets measured and reported, since
 every precision number downstream inherits it.
