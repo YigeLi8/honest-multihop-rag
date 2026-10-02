@@ -1079,6 +1079,76 @@ def test_lookalike_pairs_and_twins():
         pass
 
 
+def test_failure_typing():
+    import pandas as pd
+    from src.memory.failures import (audit_sample, failure_table, failure_type, named_in,
+                                     recovered_by, typed_rows)
+
+    def record(id, query, topk, hit, ranks, other_hit=False, third_hit=False, k=2):
+        gold = list(ranks)
+        return {"id": id, "hop": 0, "qtype": "bridge", "query": query,
+                "strategy": {"method": "bm25", "top_k": k, "rerank_enabled": False},
+                "retrieved": [{"chunk_id": c, "score": 1.0, "rank": r + 1} for r, c in enumerate(topk)],
+                "hop_outcome": {"all_gold_in_topk": set(gold) <= set(topk), "gold_hit_ids": hit,
+                                "gold_ranks": ranks, "n_gold": len(gold)},
+                "shadow": {"dense": {"all_gold_in_topk": other_hit},
+                           "hybrid": {"all_gold_in_topk": third_hit},
+                           "bm25": {"all_gold_in_topk": True}}}      # same arm as the primary: ignored
+
+    q = "Which university did the author of Book X attend?"
+    assert named_in(q, "Book X") and named_in(q, "Book X (novel)") and not named_in(q, "Author Y")
+    assert not named_in("the bookish author", "Book")                 # token match, not substring
+    full = record("ok", q, ["Book X::0", "Author Y::1"], ["Book X::0", "Author Y::1"],
+                  {"Book X::0": [1, 3.0], "Author Y::1": [2, 2.0]})
+    assert failure_type(full) == "none"
+    near = record("near", q, ["Book X::0", "D::0"], ["Book X::0"],
+                  {"Book X::0": [1, 3.0], "Author Y::1": [4, 1.0]})
+    assert failure_type(near) == "near_miss"                           # rank 4 <= 2k
+    deep = record("deep", q, ["Book X::0", "D::0"], ["Book X::0"],
+                  {"Book X::0": [1, 3.0], "Author Y::1": [5, 1.0]}, other_hit=True)
+    assert failure_type(deep) == "bridge_miss"                         # unnamed paragraph missed
+    named = record("named", q, ["Author Y::1", "D::0"], ["Author Y::1"],
+                   {"Book X::0": [9, 0.1], "Author Y::1": [1, 3.0]})
+    assert failure_type(named) == "named_miss"                         # Book X is in the query
+    nothing = record("nothing", q, ["D::0", "D::1"], [],
+                     {"Book X::0": [9, 0.1], "Author Y::1": [7, 0.2]})
+    assert failure_type(nothing) == "named_miss"                       # a named one is missed
+    nothing2 = record("nothing2", "who wrote it", ["D::0", "D::1"], [],
+                      {"Book X::0": [9, 0.1], "Author Y::1": [7, 0.2]}, third_hit=True)
+    assert failure_type(nothing2) == "total_miss"
+    unranked = record("unranked", "who wrote it", ["D::0", "D::1"], [],
+                      {"Book X::0": None, "Author Y::1": [7, 0.2]})
+    assert failure_type(unranked) == "total_miss"                      # None rank is never near
+    assert recovered_by(deep) == "dense" and recovered_by(nothing2) == "hybrid"
+    assert recovered_by(near) == "none"
+    both = record("both", q, ["D::0", "D::1"], [], {"Book X::0": [9, 0.1]}, True, True)
+    assert recovered_by(both) == "dense+hybrid"
+
+    records = [full, near, deep, named, nothing, nothing2, unranked, both,
+               dict(full, id="hop1", hop=1)]
+    typed = typed_rows(records)
+    assert len(typed) == 8 and "hit:bm25" not in typed.columns      # hop-1 and the primary's twin dropped
+    assert typed.set_index("id").loc["deep"]["failure_type"] == "bridge_miss"
+    table = failure_table(typed).set_index("failure_type")
+    assert table.loc["none"]["n"] == 1 and table.loc["named_miss"]["n"] == 3
+    assert table.loc["bridge_miss"]["recovered_by_dense"] == 1.0
+    assert table.loc["total_miss"]["recovered_by_hybrid"] == 0.5     # nothing2 yes, unranked no
+    assert table.loc["all_failures"]["n"] == 7
+    assert abs(table.loc["all_failures"]["recovered_by_any"] - 3 / 7) < 1e-3
+    assert abs(table.loc["all_failures"]["share"] - 7 / 8) < 1e-3
+    sub = typed_rows(records, ids=["deep", "near"])
+    assert sub["id"].tolist() == ["near", "deep"]                     # record order, filtered
+
+    audit = audit_sample(records, n=3, seed=1)
+    assert len(audit) == 3 and (audit["failure_type"] != "none").all()
+    assert set(audit.columns) >= {"query", "gold_missed_rank", "topk", "audit_ok"}
+    assert audit_sample(records, n=3, seed=1)["id"].tolist() == audit["id"].tolist()
+    assert len(audit_sample(records, n=50)) == 7                       # all the failures there are
+    # the stub record without gold_ranks still gets a type
+    stub = dict(deep, hop_outcome={"all_gold_in_topk": False, "gold_hit_ids": ["Book X::0"], "n_gold": 2})
+    assert failure_type(stub) == "bridge_miss"
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1104,4 +1174,5 @@ if __name__ == "__main__":
     test_arms_cli()
     test_make_twins()
     test_lookalike_pairs_and_twins()
+    test_failure_typing()
     print("all good")
