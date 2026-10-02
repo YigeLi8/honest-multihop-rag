@@ -3,6 +3,66 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-10-02
+
+Listings read in full (cs.IR 24, cs.CL 280, cs.AI 568 entries); twenty
+abstract pages checked, the two closest read in full.
+
+- Li 2026, CAVE-Mem (arXiv 2610.00238). A past search lesson is stored as a
+  typed operator with three hand-written predicates (memory substrate,
+  answer contract, failure boundary) and a cached utility; the operator may
+  change a base memory-search answer only if every predicate matches and its
+  utility, cross-fitted from diagnostic blocks that exclude the target
+  block, is positive, otherwise the system abstains. Training-free, nothing
+  revised after construction, no revision log. Baselines R2Mem
+  (relevance-only reuse), Mem0, A-Mem, MemoryOS, LightMem, Memory-R1, GAM
+  and plain RAG; LoCoMo +6.5 F1 over R2Mem with GPT-4o-mini, HotpotQA
+  128-question subsets +3.5 F1 at 56K context and about zero at 224K and
+  448K, NarrativeQA +2.1; operators fire on 2-16% of questions. This is my
+  Stage 4 static-conditions baseline in print, with a utility veto and
+  abstention added, so Stage 4 gets both. Copy the cross-fitting: any
+  per-lesson utility I report is estimated from blocks that exclude the
+  question being scored.
+- Behnam and Wang 2026, Causal Memory Policy (arXiv 2610.02070). A memory
+  that is never retrieved has no identified utility, however the store is
+  ablated; they reserve k of B=6 context slots for memories exposed with
+  known, balanced propensities and estimate per-memory utility by
+  self-normalised IPW, with a forget rule scaled by an irreversibility
+  ratio. On LongMemEval and LoCoMo 54% and 67% of required memories are
+  unidentified without the intervention; required-vs-not AUC 0.54
+  (store-level ablation) to 0.66 (exposure); per-query utility reaches
+  0.78 AUC on the query it was estimated for, and no query-independent
+  aggregate (mean 0.55 AUC, max, recency) correlates above r=0.10 with
+  contribution on unseen queries. Two things for me. The scalar per-memory
+  utility baseline is shown to be the wrong object even when identified,
+  which is the argument for conditions over features rather than a number
+  per lesson; cite in the motivation. And the positivity point is why the
+  retrieval-level outcome matters here: every arm is run on every
+  question, so the counterfactual for a lesson that did not fire is
+  observed, not estimated. Say that in the write-up, and use their
+  balanced-exposure design if Stage 6 probing happens.
+- Zhang 2026, What Does a Skill Actually Do? (arXiv 2609.33153). Critical
+  review of 135 papers' tool and skill evaluation designs by treatment
+  contrast, population, outcome, budget and identification assumption. The
+  point that bites: pairing with/without runs on the same task does not
+  identify the invocation effect when the comparison conditions on the
+  treated run having triggered, and paired gain/regression counts measure
+  discordance, not the share of tasks made worse. My false-application and
+  repeated-failure rates condition on the lesson firing. Report them, but
+  also the unconditioned contrast on the full stream at matched retrieval
+  cost (the no-memory-relative gain of TIDE), and use the checklist.
+
+Seen and set aside: 2610.01787 (lessons, locators, procedures and state
+facts routed to weights or context by two properties fixed in advance),
+2605.08386 SkillLens v2 (accept / decompose / rewrite / skip per skill
+unit), 2610.00366 (memory evaluations should hold history access fixed and
+report retention and selection apart), 2605.28009 MemGuard (typed memories
+so that episodes do not become rules), 2610.00094 (finite-sample
+certificate that a learned memory decision beats an incumbent), 2610.01161
+FAULT (per-error-type costs updated online), 2609.39022 (verification
+failures to reusable guidance, no conditions), 2610.01767 MatRAG
+(hierarchical multi-hop retriever, retrieval quality only).
+
 ## 2026-10-01
 
 Listings read in full (cs.IR 41, cs.CL 269, cs.AI 613 entries); the
