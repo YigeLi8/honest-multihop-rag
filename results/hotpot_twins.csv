@@ -1,0 +1,9 @@
+kind,arm,n,original_rate,twin_rate,hit_to_miss,miss_to_hit,mcnemar_p,changed,best_moved
+alias,bm25,159,0.5472,0.522,16,12,0.5716,0.1761,
+alias,dense,159,0.6667,0.6792,7,9,0.8036,0.1006,
+alias,hybrid,159,0.6918,0.7233,6,11,0.3323,0.1069,
+alias,any,159,,,29,32,,0.283,0.283
+distractor,bm25,641,0.4711,0.4493,14,0,0.0001,0.0218,
+distractor,dense,641,0.585,0.5772,5,0,0.0625,0.0078,
+distractor,hybrid,641,0.6006,0.5866,12,3,0.0352,0.0234,
+distractor,any,641,,,31,3,,0.0468,0.0468

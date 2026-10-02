@@ -168,7 +168,10 @@ EM beside +27 retrieval_correct).
       bm25_musique_dev on 11, every one a different order inside a run of
       equal scores (16 of them at the top-k boundary, so the id set differs
       too); all-gold-in-top-k never flips. Pin bm25s in requirements.txt to
-      the Mac's version once that is checked.
+      the Mac's version once that is checked. A fresh bm25_arms_hotpot_dev
+      run on linux (bm25s 0.3.12, bge-small on cpu) gives the same four
+      Stage 1b tables as the Mac's to the last digit, so the question-level
+      outcomes do not depend on the tie order.
 
 ### Stage 1b: what is there to learn (no model calls)
 
@@ -219,7 +222,31 @@ EM beside +27 retrieval_correct).
 - [ ] look-alike pairs: within-template pairs on 2wiki with discordant
       outcomes; natural pairs on hotpot by question similarity (expected
       sparse, reported as such); constructed twins (`data/make_twins.py`):
-      distractor sentences sharing bridge-entity tokens, alias substitution
+      distractor sentences sharing bridge-entity tokens, alias substitution.
+      Natural pairs, hotpot positions 0-1499 (`src/memory/lookalike.py`,
+      `results/hotpot_lookalike*_summary.csv`): each question's nearest
+      other question, by tf-idf and by the bge-small question embedding,
+      against random pairs. Sparse, as expected: by tf-idf only 28 of 1225
+      pairs sit above 0.4 cosine. Agreement on an arm's outcome (both hit
+      or both miss) is 0.54 / 0.53 / 0.57 (bm25 / dense / hybrid) over all
+      nearest pairs against 0.51 / 0.52 / 0.53 over random pairs, and the
+      best-arm label agrees on 0.29 against 0.26; the dense neighbours are
+      inside the random intervals everywhere (0.52-0.54 vs 0.51-0.53).
+      Look-alike questions on hotpot do share outcomes a little more than
+      random ones, by two to four points, and nothing about which arm.
+      Constructed twins (`results/hotpot_twins.csv`, first 800 twins, 641
+      distractor and 159 alias, arms run on each): the alias twin changes
+      some arm's outcome on 28% of pairs (bm25 18%, dense 10%, hybrid
+      11%), flips both ways and symmetric (McNemar p 0.33-0.80), so the
+      best arm moves on 28% of pairs: a surface change a text-keyed memory
+      would treat as a new question is also a change of retrieval
+      situation. The distractor twin as built (five sentences sharing a
+      bridge-title token) changes an outcome on only 4.7% of pairs (bm25
+      loses 14 of 641, p = 0.0001; hybrid 12 vs 3, p = 0.035; dense 5 vs
+      0), so it is too weak to make the "same surface, different
+      situation" pairs the boundary study needs. Next: a harder distractor
+      twin (sentences sharing tokens with the whole bridge paragraph, more
+      of them), then the 2wiki template pairs once the zip is here.
 
 ### Stages 2-4: the baselines
 
@@ -236,9 +263,37 @@ EM beside +27 retrieval_correct).
       halves, oracle 0.411), the only positive number in either table and
       too small to claim without the confirmation fold. Left to try before
       calling the stage: dense question neighbours, and the vote restricted
-      to neighbours with a discordant outcome.
+      to neighbours with a discordant outcome. Both tried on hotpot
+      (`question_dense_knn*` and `*_discordant` rows of
+      `results/hotpot_arms_routed.csv`): dense neighbours k=5 / 20 land at
+      0.628 / 0.634, the discordant-only vote at 0.628 / 0.632 by tf-idf and
+      0.633 / 0.637 by embedding, against always-hybrid 0.634; the best of
+      the eight is +0.003 +- 0.006. The same nothing. Stage 2 on hotpot is
+      closed: nearest past questions, by any key and with any vote, do not
+      say which retriever to use. Musique with the two new votes is the
+      remaining run before the tick.
 - [ ] 3. failure memory: failure type + what recovered it; rule-based failure
-      typing with a 50-case hand audit
+      typing with a 50-case hand audit. The typing half is in
+      `src/memory/failures.py`: five ordered rules on the primary arm's
+      hop-0 top-k against gold (none / near_miss, every missed gold within
+      2k of the full-pool ranking / named_miss, a missed gold paragraph is
+      named in the query / bridge_miss, something hit and every missed
+      paragraph is unnamed / total_miss), and the shadow arms that hit as
+      what recovered it. Hotpot bm25 k=10, positions 0-1499
+      (`results/hotpot_failure_types.csv`): 742 failures, of which 379 near
+      misses, 171 named, 187 bridge, 5 total. What recovers them differs by
+      type (chi-square over type x recovering arm, p < 1e-29): near misses
+      are recovered by dense or hybrid 62% of the time (hybrid alone 54%),
+      named misses 24% (dense 24%, hybrid 9%), bridge misses 36% (dense
+      33%, hybrid 15%). So "bm25 missed" is not one lesson: a near miss
+      wants the fused list, a named or bridge miss wants dense if anything,
+      and hybrid is close to useless there. What is not yet known is
+      whether any of this is visible before the outcome (the near / named /
+      bridge split uses gold); that is the memory's applicability question
+      for Stage 5. The audit sample is `results/hotpot_failure_audit.csv`
+      (50 failures, seed 13: 29 near, 13 bridge, 8 named) with empty
+      audit_ok / audit_note columns; the tick waits for it and its
+      disagreement rate.
 - [ ] 4. static conditions: a fixed predicate per lesson, and the same as
       prose read by the generator; if a fixed rule captures most of the
       best-arm ceiling, stop here and report that. CAVE-Mem (paper log,

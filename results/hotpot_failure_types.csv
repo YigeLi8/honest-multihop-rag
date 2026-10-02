@@ -1,0 +1,7 @@
+failure_type,n,share,recovered_by_dense,recovered_by_hybrid,recovered_by_any,recovered_by_none
+none,758,0.5053,0.8061,0.9274,0.9288,0.0712
+near_miss,379,0.2527,0.5567,0.5383,0.6174,0.3826
+named_miss,171,0.114,0.2398,0.0936,0.2398,0.7602
+bridge_miss,187,0.1247,0.3262,0.1497,0.3583,0.6417
+total_miss,5,0.0033,0.4,0.0,0.4,0.6
+all_failures,742,0.4947,0.4245,0.3342,0.4636,0.5364
