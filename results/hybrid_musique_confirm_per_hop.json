@@ -1,0 +1,12 @@
+{
+ "0": {
+  "precision": 0.3152,
+  "recall": 0.6175,
+  "cumulative_recall": 0.6175,
+  "n": 1000,
+  "retrieved_mean": 5.0,
+  "retrieved_var": 0.0,
+  "aligned_recall": 0.824,
+  "n_aligned": 1000
+ }
+}

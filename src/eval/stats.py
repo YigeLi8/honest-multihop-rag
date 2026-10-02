@@ -54,3 +54,14 @@ def mcnemar(a, b):
     k = min(only_a, only_b)
     tail = sum(math.comb(m, i) for i in range(k + 1)) / 2 ** m
     return only_a, only_b, min(1.0, 2 * tail)
+
+
+def holm(pvals):
+    """Holm step-down adjusted p-values, returned in the input order."""
+    m = len(pvals)
+    order = sorted(range(m), key=lambda i: pvals[i])
+    out, running = [0.0] * m, 0.0
+    for rank, i in enumerate(order):
+        running = max(running, min(1.0, (m - rank) * pvals[i]))
+        out[i] = running
+    return out

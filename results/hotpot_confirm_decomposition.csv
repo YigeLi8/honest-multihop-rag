@@ -1,0 +1,5 @@
+run,n,em,f1,closed_book_em,retrieval_correct,para_complete,illusion,illusion_lo,illusion_hi,illusion_share_of_correct,parametric,parametric_rate,yesno,yesno_rate,shortcut,shortcut_rate,paragraph,paragraph_rate,partial,partial_rate,none,none_rate,unexplained,unexplained_rate,em_given_all_gold,n_all_gold,em_given_all_para,n_all_para,em_given_partial_gold,n_partial_gold,em_given_no_gold,n_no_gold
+bm25_hotpot_confirm,1000,0.415,0.5397,0.173,0.502,0.828,0.131,0.1115,0.1533,0.3157,42,0.042,2,0.002,81,0.081,3,0.003,3,0.003,0,0.0,6,0.006,0.5657,502,0.3037,326,0.2027,148,0.0556,36
+bm25_k13_hotpot_confirm,1000,0.441,0.5708,0.173,0.61,0.901,0.106,0.0884,0.1266,0.2404,30,0.03,2,0.002,69,0.069,4,0.004,1,0.001,0,0.0,5,0.005,0.5492,610,0.3196,291,0.1395,86,0.0435,23
+hybrid_ircot_hotpot_confirm,1000,0.466,0.6055,0.173,0.774,0.963,0.06,0.0469,0.0765,0.1288,18,0.018,1,0.001,40,0.04,0,0.0,1,0.001,0,0.0,1,0.001,0.5245,774,0.2963,189,0.129,31,0.0,11
+hybrid_ircot_rerank_hotpot_confirm,1000,0.484,0.6198,0.173,0.657,0.929,0.106,0.0884,0.1266,0.219,24,0.024,1,0.001,76,0.076,2,0.002,3,0.003,0,0.0,5,0.005,0.5753,657,0.3493,272,0.1897,58,0.0,19

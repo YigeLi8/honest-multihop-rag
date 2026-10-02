@@ -1,0 +1,16 @@
+run,criterion,n,answer_correct,ans_ok_retr_ok,ans_ok_retr_wrong,ans_wrong_retr_ok,ans_wrong_retr_wrong,illusion_rate,illusion_lo,illusion_hi,illusion_share_of_correct,vs_em_added,vs_em_dropped,vs_em_mcnemar_p
+closed_book_musique_confirm,em,1000,0.032,0,32,0,968,0.032,0.0228,0.0448,1.0,0,0,1.0
+closed_book_musique_confirm,f1_50,1000,0.108,0,108,0,892,0.108,0.0902,0.1288,1.0,76,0,0.0
+closed_book_musique_confirm,contain,1000,0.037,0,37,0,963,0.037,0.027,0.0506,1.0,5,0,0.0625
+bm25_musique_confirm,em,1000,0.138,60,78,109,753,0.078,0.0629,0.0963,0.5652,0,0,1.0
+bm25_musique_confirm,f1_50,1000,0.247,91,156,78,675,0.156,0.1348,0.1798,0.6316,109,0,0.0
+bm25_musique_confirm,contain,1000,0.158,70,88,99,743,0.088,0.072,0.1072,0.557,20,0,0.0
+bm25_k7_musique_confirm,em,1000,0.152,79,73,164,684,0.073,0.0585,0.0908,0.4803,0,0,1.0
+bm25_k7_musique_confirm,f1_50,1000,0.275,123,152,120,605,0.152,0.1311,0.1756,0.5527,123,0,0.0
+bm25_k7_musique_confirm,contain,1000,0.173,92,81,151,676,0.081,0.0656,0.0996,0.4682,21,0,0.0
+hybrid_musique_confirm,em,1000,0.173,99,74,179,648,0.074,0.0594,0.0919,0.4277,0,0,1.0
+hybrid_musique_confirm,f1_50,1000,0.297,150,147,128,575,0.147,0.1264,0.1703,0.4949,124,0,0.0
+hybrid_musique_confirm,contain,1000,0.2,114,86,164,636,0.086,0.0702,0.105,0.43,27,0,0.0
+hybrid_ircot_musique_confirm,em,1000,0.223,172,51,381,396,0.051,0.039,0.0664,0.2287,0,0,1.0
+hybrid_ircot_musique_confirm,f1_50,1000,0.361,266,95,287,352,0.095,0.0783,0.1148,0.2632,138,0,0.0
+hybrid_ircot_musique_confirm,contain,1000,0.255,196,59,357,388,0.059,0.046,0.0754,0.2314,32,0,0.0

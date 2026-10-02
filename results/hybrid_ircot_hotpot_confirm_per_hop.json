@@ -1,0 +1,26 @@
+{
+ "0": {
+  "precision": 0.19938333333333333,
+  "recall": 0.8299904761904762,
+  "cumulative_recall": 0.8299904761904762,
+  "n": 1000,
+  "retrieved_mean": 9.988,
+  "retrieved_var": 0.055856
+ },
+ "1": {
+  "precision": 0.18890279516061745,
+  "recall": 0.7865754812563324,
+  "cumulative_recall": 0.8949639430240182,
+  "n": 799,
+  "retrieved_mean": 9.987484355444305,
+  "retrieved_var": 0.06492471033096753
+ },
+ "2": {
+  "precision": 0.19153439153439156,
+  "recall": 0.7839065255731922,
+  "cumulative_recall": 0.9287540942302848,
+  "n": 378,
+  "retrieved_mean": 10.0,
+  "retrieved_var": 0.0
+ }
+}

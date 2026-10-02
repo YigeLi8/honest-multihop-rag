@@ -113,6 +113,28 @@ def bucket(row):
     return "none"
 
 
+def bucket_alt(row):
+    """Evidence-first order (docs/preregistration.md): shortcut, yesno,
+    parametric, then the same tail. Closed-book-right cases leave parametric:
+    to shortcut if the answer sentence is in context, to yesno if the answer
+    is yes/no. What stays is "closed-book right, span answer, no answer-bearing
+    gold sentence in context", the lower bound on what memory has to explain.
+    bucket() gives the upper."""
+    if not (row.em == 1 and row.retrieval_correct == 0):
+        return ""
+    if row.ans_in_gold_ctx:
+        return "shortcut"
+    if row.answer_type == "yesno":
+        return "yesno"
+    if row.cb_em == 1:
+        return "parametric"
+    if row.para_recall >= 1.0:
+        return "paragraph"
+    if row.gold_recall > 0:
+        return "partial"
+    return "none"
+
+
 def decompose(df, name):
     n = len(df)
     ill = df[df.bucket != ""]

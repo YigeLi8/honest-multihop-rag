@@ -1,0 +1,10 @@
+run,criterion,n,answer_correct,ans_ok_retr_ok,ans_ok_retr_wrong,ans_wrong_retr_ok,ans_wrong_retr_wrong,illusion_rate,illusion_lo,illusion_hi,illusion_share_of_correct,vs_em_added,vs_em_dropped,vs_em_mcnemar_p
+closed_book_2wiki_confirm,em,1000,0.214,0,214,0,786,0.214,0.1897,0.2405,1.0,0,0,1.0
+closed_book_2wiki_confirm,f1_50,1000,0.238,0,238,0,762,0.238,0.2126,0.2654,1.0,24,0,0.0
+closed_book_2wiki_confirm,contain,1000,0.219,0,219,0,781,0.219,0.1945,0.2457,1.0,5,0,0.0625
+bm25_2wiki_confirm,em,1000,0.32,187,133,178,502,0.133,0.1134,0.1555,0.4156,0,0,1.0
+bm25_2wiki_confirm,f1_50,1000,0.377,218,159,147,476,0.159,0.1376,0.183,0.4218,57,0,0.0
+bm25_2wiki_confirm,contain,1000,0.345,207,138,158,497,0.138,0.118,0.1608,0.4,25,0,0.0
+bm25_k13_2wiki_confirm,em,1000,0.349,247,102,244,407,0.102,0.0847,0.1223,0.2923,0,0,1.0
+bm25_k13_2wiki_confirm,f1_50,1000,0.41,285,125,206,384,0.125,0.1059,0.1469,0.3049,61,0,0.0
+bm25_k13_2wiki_confirm,contain,1000,0.374,269,105,222,404,0.105,0.0875,0.1255,0.2807,25,0,0.0

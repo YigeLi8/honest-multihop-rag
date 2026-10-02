@@ -1,0 +1,19 @@
+hypothesis,a,b,metric,n,value_a,value_b,diff,ci_lo,ci_hi,only_a,only_b,mcnemar_p,holm_p,rule,verdict,detail
+H1,bm25_hotpot_confirm,hybrid_ircot_hotpot_confirm,illusion,1000,0.131,0.06,-0.071,-0.09,-0.052,88.0,17.0,9.952845271763166e-13,1.990569054352633e-12,"lower under b, holm p < 0.05, ci excludes 0",pass,
+H3a,hybrid_ircot_hotpot_confirm,hybrid_ircot_rerank_hotpot_confirm,retrieval_correct,1000,0.774,0.657,-0.117,-0.146,-0.088,178.0,61.0,1.828955606862126e-14,5.486866820586378e-14,"lower under b, holm p < 0.05, ci excludes 0",pass,
+H4,bm25_k13_hotpot_confirm,hybrid_ircot_hotpot_confirm,illusion,1000,0.106,0.06,-0.046,-0.063,-0.029,63.0,17.0,2.2661405044675457e-07,2.2661405044675457e-07,"lower under b, holm p < 0.05, ci excludes 0",pass,
+H2,bm25_k13_hotpot_confirm,hybrid_ircot_hotpot_confirm,em,1000,0.441,0.466,0.025,0.002,0.048,57.0,82.0,,,95% ci of the em difference inside +-0.05,"pass, small difference",
+H3b,hybrid_ircot_hotpot_confirm,hybrid_ircot_rerank_hotpot_confirm,em,1000,0.466,0.484,0.018,-0.005,0.041,62.0,80.0,,,95% ci of the em difference inside +-0.05,pass,
+H5 hotpot,bm25_hotpot_confirm,,"shortcut - parametric, share of n",1000,,,0.039,0.017,0.061,,,,,"shortcut largest, parametric second, ci excludes 0; shortcut largest under the alternative order",pass,cell 131; primary parametric=42 yesno=2 shortcut=81 paragraph=3 partial=3 none=0; alternative parametric=7 yesno=13 shortcut=105 paragraph=3 partial=3 none=0
+H5 hotpot residual,bm25_hotpot_confirm,,unexplained,1000,0.006,,,,,,,,,<= 0.03,pass,
+H6 share,bm25_hotpot_confirm,,cell / accepted answers,1000,0.3157,,0.0317,,,,,,,f1_50 and contain shares within 0.04 of the em share,pass,em=0.3157 f1_50=0.3474 contain=0.3275
+H6 share,bm25_k13_hotpot_confirm,,cell / accepted answers,1000,0.2404,,0.0294,,,,,,,f1_50 and contain shares within 0.04 of the em share,pass,em=0.2404 f1_50=0.2697 contain=0.2505
+H6 share,hybrid_ircot_hotpot_confirm,,cell / accepted answers,1000,0.1288,,0.0166,,,,,,,f1_50 and contain shares within 0.04 of the em share,pass,em=0.1288 f1_50=0.1453 contain=0.1304
+H6 share,hybrid_ircot_rerank_hotpot_confirm,,cell / accepted answers,1000,0.219,,0.0245,,,,,,,f1_50 and contain shares within 0.04 of the em share,pass,em=0.2190 f1_50=0.2435 contain=0.2210
+H6 direction (f1_50),bm25_hotpot_confirm,hybrid_ircot_hotpot_confirm,the cell under f1_50,1000,0.198,0.093,-0.105,,,132.0,27.0,8.287332064058848e-18,,"lower under b, p < 0.05 unadjusted",pass,
+H6 direction (contain),bm25_hotpot_confirm,hybrid_ircot_hotpot_confirm,the cell under contain,1000,0.149,0.067,-0.082,,,101.0,19.0,1.0754075870962743e-14,,"lower under b, p < 0.05 unadjusted",pass,
+H5 2wiki,bm25_2wiki_confirm,,"parametric + shortcut, share of the cell",1000,0.8496,,,,,,,,,>= 0.75 of the cell; shortcut largest under the alternative order,pass,cell 133; primary parametric=56 yesno=0 shortcut=57 paragraph=8 partial=9 none=3; alternative parametric=11 yesno=8 shortcut=94 paragraph=8 partial=9 none=3
+H5 2wiki residual,bm25_2wiki_confirm,,unexplained,1000,0.02,,,,,,,,,<= 0.03,pass,
+H6 share,bm25_2wiki_confirm,,cell / accepted answers,1000,0.4156,,0.0156,,,,,,,f1_50 and contain shares within 0.04 of the em share,pass,em=0.4156 f1_50=0.4218 contain=0.4000
+H5 musique,bm25_musique_confirm,,"parametric, share of the cell",1000,0.1154,,,,,,,,,shortcut largest under both orders; lowest parametric share of the three datasets (compare the H5 rows),pass,cell 78; primary parametric=9 yesno=0 shortcut=67 paragraph=0 partial=2 none=0; alternative parametric=5 yesno=0 shortcut=71 paragraph=0 partial=2 none=0; parametric share of the cell hotpot=0.321 2wiki=0.421 musique=0.115; under the alternative order hotpot=0.053 2wiki=0.083 musique=0.064
+H5 musique residual,bm25_musique_confirm,,unexplained,1000,0.002,,,,,,,,,<= 0.03,pass,
