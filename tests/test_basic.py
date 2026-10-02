@@ -303,6 +303,10 @@ def test_paired_stats():
     assert abs(diff - 3 / 8) < 1e-9 and lo <= diff <= hi and lo >= 0.0
     d2, lo2, hi2 = paired_bootstrap(a, a, n_boot=200)
     assert d2 == 0.0 and lo2 == 0.0 and hi2 == 0.0
+    from src.eval.stats import holm
+    adj = holm([0.04, 0.01, 0.03])
+    assert [round(x, 6) for x in adj] == [0.06, 0.03, 0.06]   # 3*0.01, 2*0.03, then monotone
+    assert holm([0.5, 0.9]) == [1.0, 1.0] and holm([]) == []
 
 
 def test_illusion_buckets():
@@ -321,6 +325,15 @@ def test_illusion_buckets():
     assert bucket(Row(para_recall=1.0, gold_recall=0.5)) == "paragraph"
     assert bucket(Row(para_recall=0.5, gold_recall=0.5)) == "partial"
     assert bucket(Row()) == "none"
+
+    # evidence-first order: only the closed-book-right cases can move
+    from src.eval.analyze import bucket_alt
+    both = Row(cb_em=1, ans_in_gold_ctx=True, gold_recall=0.5)
+    assert bucket(both) == "parametric" and bucket_alt(both) == "shortcut"
+    assert bucket_alt(Row(cb_em=1)) == "parametric"
+    assert bucket_alt(Row(cb_em=1, answer_type="yesno", ans_in_gold_ctx=None)) == "yesno"
+    assert bucket_alt(Row(em=0)) == "" and bucket_alt(Row()) == "none"
+    assert bucket_alt(Row(para_recall=1.0, gold_recall=0.5)) == "paragraph"
 
     data = {"gold": {"A::0", "B::1"}, "answer": "Paris", "aliases": [],
             "text": {"A::0": "The capital is Paris.", "B::1": "It is old.", "C::0": "Paris again."}}

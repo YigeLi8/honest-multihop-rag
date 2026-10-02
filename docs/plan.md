@@ -39,14 +39,43 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       alternative order, correctness criteria, n, tests, pass/fail rules.
       Written on 1 Oct, after the confirmation runs and before their
       analysis; the file says so
-- [ ] confirmation-fold baselines: hotpot_confirm (closed-book, bm25 k=10,
+- [x] confirmation-fold baselines: hotpot_confirm (closed-book, bm25 k=10,
       bm25 k=13 matched context, hybrid ircot, + rerank), 2wiki_confirm and
       musique_confirm (closed-book, bm25, matched context); musique hybrid
-      single-hop and ircot max_hops 4
+      single-hop and ircot max_hops 4. All in, n=1000 each. The preregistered
+      rules are computed by `src/eval/prereg.py` into
+      `results/confirm_prereg.csv` and all of them hold. Hotpot: the cell
+      goes 0.131 -> 0.060 from bm25 k=10 to hybrid ircot (McNemar 88 vs 17,
+      Holm p < 1e-11) and 0.106 -> 0.060 against the matched-context k=13
+      (63 vs 17, p < 1e-6). The reranker cuts retrieval_correct 0.774 ->
+      0.657 (178 vs 61) with EM inside the +-0.05 margin (+0.018, CI -0.005
+      to 0.041). EM at matched context is inside the margin too, but it is
+      not zero and the pass is thin: +0.025, CI 0.002 to 0.048. So I can say
+      "within five points", not "unchanged".
+      Not preregistered, and against what the old ircot prompt showed: EM is
+      not flat. With one answer prompt, bm25 k=10 -> ircot is +0.051 EM
+      (CI 0.027 to 0.075) on hotpot (+0.058 on the exploration fold) and
+      +0.085 on musique, beside +0.27 and +0.38 retrieval_correct. With the
+      reranker the cell is back at the k=13 level (0.106; 24 vs 70 against
+      plain ircot), which the exploration fold only hinted at (p = 0.15).
+      Musique (no hypotheses fixed): the cell is 0.078 bm25, 0.073 k=7,
+      0.074 hybrid, 0.051 hybrid ircot (54 vs 27 against bm25, p = 0.004),
+      and almost all of it is shortcut (67 of 78).
 - [ ] partition tables and bars per dataset on the confirmation folds, with
       the alternative assignment order and the evidence-criterion ladder (all
       gold sentences / answer-bearing gold / all gold paragraphs / any gold /
-      answer string in context)
+      answer string in context). Done: primary-order tables and bars
+      (`results/*_confirm_decomposition.*`) and the alternative order for the
+      bm25 cells (`bucket_alt`, counts in `confirm_prereg.csv`). bm25 cell,
+      primary -> alternative: hotpot parametric 42 -> 7, shortcut 81 -> 105,
+      yesno 2 -> 13 of 131; 2wiki parametric 56 -> 11, shortcut 57 -> 94 of
+      133; musique parametric 9 -> 5, shortcut 67 -> 71 of 78. The primary
+      parametric bucket includes closed-book-right yes/no questions (11 on
+      hotpot, 8 on 2wiki), so it is not all memory. Musique has the lowest
+      parametric share of the cell under the primary order only; under the
+      alternative order hotpot's is lower (0.053 against 0.064). Still open:
+      the alternative order for every run in the decomposition tables, and
+      the ladder.
 - [ ] correctness beyond EM: F1 >= 0.5 and capped containment with aliases,
       reported beside EM in every 2x2. The criteria are in
       `src/eval/answer_metrics.py` (containment allows at most four tokens
@@ -55,12 +84,17 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       `src/eval/criteria.py` reports them beside retrieval_correct for runs
       already scored (`results/<dataset>_criteria.csv`, exploration fold). On
       hotpot the cell moves in step with the answer rate: bm25 0.148 EM /
-      0.162 contain / 0.214 F1>=0.5, hybrid ircot 0.062 / 0.066 / 0.082, and
+      0.162 contain / 0.214 F1>=0.5, hybrid ircot 0.068 / 0.072 / 0.092
+      (re-run with the one answer prompt), and
       the cell's share of accepted answers stays within two points of its EM
       value on hotpot and 2wiki, so the cell is not a string-matching
       artefact. musique is the exception: F1>=0.5 adds 45 answers to bm25 and
-      the share goes from 0.48 to 0.58. Still open: the columns in run_qa's
-      own 2x2 (Mac), and musique with its aliases (the csv has none).
+      the share goes from 0.48 to 0.58. Confirmation folds
+      (`results/*_confirm_criteria.csv`, musique with its aliases): every
+      hotpot run and bm25 2wiki stay within the preregistered 0.04 band, the
+      largest gap being 3.2 points (bm25 hotpot under F1>=0.5, above the 2.3
+      seen on exploration); musique bm25 goes 0.565 -> 0.632 under F1>=0.5.
+      Still open: the columns in run_qa's own 2x2.
 - [ ] stop audit from the ircot traces: hop at which each gold sentence first
       entered context, stop reason, correctness
 - [ ] README rewrite: scope in paragraph one (distractor pools, one model, one
@@ -101,8 +135,9 @@ structure is not doing any work and I say so.
 
 Outcomes are retrieval-level (all gold in top-k, paragraph recall, hop-aligned
 hit), so every arm can be run on every question in seconds, the best arm per
-question is known, and regret is exact. EM is secondary: it does not move with
-retrieval in this harness.
+question is known, and regret is exact. EM is secondary: it moves far less
+than retrieval in this harness (hotpot confirmation fold, bm25 to ircot: +5
+EM beside +27 retrieval_correct).
 
 ### Stage 1: experience logging (no behaviour change)
 

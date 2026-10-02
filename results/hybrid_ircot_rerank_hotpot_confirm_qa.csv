@@ -1,0 +1,1001 @@
+id,qtype,level,answer_type,answer_gold,answer_pred,em,f1,retrieval_correct,n_gold,n_gold_hit,gold_recall,n_gold_para,n_gold_para_hit,para_recall,hops,stop_reason,n_context,reasoning_tokens,prompt_tokens,gen_calls,ttft_s,latency_s,tokens_per_s,peak_memory_mb
+5a8ac4085542992d82986f74,bridge,hard,span,a scholar,Love Is the Drug,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,36,1020,3,0.314,7.592,77.9,4840.3
+5a7b374c5542995eb53be8cc,bridge,hard,span,"New York City, New York",New York City,0.0,0.75,1,3,3,1.0,2,2,1.0,3,max_hops,9,24,992,3,0.28,1.625,82.1,4866.0
+5ab92e02554299753720f775,bridge,hard,span,219,382 passengers,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,7,543,2,0.283,0.771,79.0,4734.7
+5ab58f9a554299488d4d99da,bridge,hard,span,22 November,Dorothea Jordan,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,28,1315,3,0.316,1.752,75.1,4880.6
+5adf860e5542993344016cbc,bridge,hard,span,1964 to 1974,1964 to 1974,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,7,43,1126,3,0.283,1.966,69.6,4818.1
+5a7ad9865542995eb53be8aa,bridge,hard,span,Honda Ballade,The Ballade,0.0,0.6667,0,4,2,0.5,2,2,1.0,3,max_hops,9,37,1346,3,0.314,2.093,82.0,4869.7
+5a71443f5542994082a3e727,comparison,hard,span,It lies two kilometres WSW of Mount Everest.,yes,0.0,0.0,0,3,1,0.3333,2,2,1.0,1,done,5,4,841,2,0.356,0.906,117.8,4814.2
+5a7cbf93554299452d57b9f5,bridge,hard,span,Magdalen College,Magdalen College,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,7,579,2,0.285,0.841,78.4,4760.8
+5adf98215542993344016d19,bridge,hard,span,Kew Gardens,Kew Gardens,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,47,1080,3,0.29,2.082,82.1,4860.0
+5ae1fa2b5542997f29b3c1df,bridge,hard,span,Eminem,Eminem,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,30,888,3,0.301,1.735,82.2,4779.3
+5ae650fb55429929b0807b2e,bridge,hard,span,people working in film and the performing arts,"casting, job opportunities, and career advice",0.0,0.1538,1,3,3,1.0,2,2,1.0,3,max_hops,9,42,919,3,0.257,1.956,69.1,4825.6
+5a85597c5542997175ce1fba,bridge,hard,span,Canadian,Russian,0.0,0.0,1,3,3,1.0,2,2,1.0,2,repeated_query,6,36,893,3,0.336,1.817,123.1,4785.5
+5ac19d4c55429963665198bb,bridge,hard,span,May Revolution,May Revolution,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,31,1188,3,0.358,2.015,89.6,4825.6
+5ab611cc5542992aa134a411,comparison,hard,span,director and producer,director and producer,1.0,1.0,1,2,2,1.0,2,2,1.0,1,repeated_query,5,22,555,2,0.352,1.187,81.5,4741.7
+5ab7c87d55429928e1fe38de,bridge,hard,span,third,2,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,58,877,3,0.345,2.215,256.5,4758.8
+5ab4bea15542990594ba9cae,bridge,hard,span,Dublin,Dublin,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,515,2,0.327,0.876,93.8,4713.5
+5ade9c9c5542997c77adee8c,bridge,hard,span,Julius Caesar,The Bad and the Beautiful,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,44,1066,3,0.386,2.146,72.2,4852.7
+5ae0d7315542990adbacf678,bridge,hard,span,Toshi Ichiyanagi,Toshi Ichiyanagi,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,36,1201,3,0.358,2.312,70.8,4838.7
+5ae1ba55554299234fd042d9,bridge,hard,span,"Kings Point, New York","Kings Point, New York",1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,9,771,2,0.443,1.171,70.9,4869.1
+5a839c8b5542996488c2e479,bridge,hard,span,Lord Chancellor of England,Lord Chancellor,0.0,0.6667,0,3,2,0.6667,2,2,1.0,3,max_hops,9,33,839,3,0.287,1.802,91.7,4784.5
+5abdd08d5542991f6610604c,bridge,hard,span,Guardians of the Galaxy Vol. 2,Guardians of the Galaxy Vol. 2,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,45,1010,3,0.313,2.076,68.0,4864.0
+5ade190f55429975fa854e40,bridge,hard,span,The sponsorship scandal,"Sponsorship scandal, ""AdScam"" or Sponsorgate",0.0,0.5714,1,2,2,1.0,2,2,1.0,3,max_hops,6,47,988,3,0.312,2.192,65.2,4839.6
+5a8cd381554299653c1aa12b,comparison,hard,span,Sigmund Freud,Sigmund Freud,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,37,1127,3,0.313,1.986,75.1,4811.8
+5abd12bb55429933744ab703,bridge,hard,span,Mount Everest,Mount Everest,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,45,1419,3,0.416,2.526,86.8,4880.2
+5abb1e1b5542992ccd8e7f19,comparison,hard,span,Nobel Prize in Literature,Nobel Prize in Literature,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,25,1215,3,0.393,1.984,67.4,4848.5
+5adeb95d5542992fa25da827,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,34,841,3,0.389,2.06,110.3,4741.3
+5a8ba59a554299240d9c2058,bridge,hard,span,1999,1999,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,59,1033,3,0.503,3.183,74.3,4869.8
+5a7c53a855429935c91b515d,bridge,hard,span,The R-8 Human Rhythm Composer,R-8 Human Rhythm Composer,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,51,841,3,0.328,2.183,67.0,4785.5
+5ae54eea5542993aec5ec19d,comparison,hard,span,Social Code,Social Code,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,35,818,3,0.356,2.01,81.6,4735.5
+5a8026a05542992e7d278df8,bridge,hard,span,3 December,3 June 2016,0.0,0.4,0,2,1,0.5,2,2,1.0,2,done,7,32,879,3,0.383,2.057,63.5,4792.3
+5a7a27ce5542996c55b2dd28,comparison,hard,span,The Western Allied invasion of Germany,The Western Allied invasion of Germany,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,33,1459,3,0.463,2.586,68.4,4872.5
+5ab9812d554299753720f821,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,28,1152,3,0.342,1.96,120.2,4801.8
+5ac3b5d3554299741d48a2f3,bridge,hard,span,"September 30, 2017","September 30, 2017",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,45,1202,3,0.336,2.191,66.2,4838.8
+5ab811e95542995dae37ea22,bridge,hard,span,Wiz Khalifa,Wiz Khalifa,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,6,35,1090,3,0.382,2.219,69.4,4887.6
+5a80541d5542996402f6a4d2,bridge,hard,span,2016,2016,1.0,1.0,0,5,4,0.8,2,2,1.0,3,max_hops,10,33,1280,3,0.412,2.292,74.8,4877.0
+5ac2546a554299636651997b,comparison,hard,span,Motion City Soundtrack,Motion City Soundtrack,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,10,29,1052,3,0.346,1.989,75.8,4866.0
+5ab8f3235542991b5579f084,bridge,hard,span,45th,45,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,6,36,1105,3,0.379,2.117,90.4,4869.1
+5ac31066554299741d48a19d,bridge,hard,span,Melbourne,Melbourne,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,579,2,0.333,0.882,91.6,4760.8
+5ac279345542990b17b153b0,bridge,hard,span,28 January 1864,1864,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,8,29,999,3,0.339,1.827,72.7,4845.4
+5adfc50355429942ec259b43,bridge,hard,span,"Alice Springs, Northern Territory",TIO Traeger Park,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,44,1142,3,0.35,3.035,69.6,4822.4
+5ae5e1985542996de7b71a54,bridge,hard,span,Archbishop of Canterbury,Archbishop of Canterbury,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,45,905,3,0.358,2.241,72.5,4785.5
+5a87411d5542994846c1cd37,bridge,hard,span,member of the Executive Council of the General Anthroposophical Society,Teacher,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,36,1113,3,0.381,2.47,105.4,4822.3
+5ab4107a554299753aec5a2f,bridge,hard,span,1961,2000,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,9,31,1385,3,0.526,2.796,70.4,4883.6
+5ae3d8415542992f92d8239a,bridge,hard,span,high school diploma or GED,high school diploma or GED,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,9,37,1023,3,0.352,2.393,69.9,4835.6
+5a88a19a5542997e5c09a64b,bridge,hard,span,moth,Phyllocnistis liquidambarisella,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,7,43,1172,3,0.443,2.619,63.6,4834.9
+5a7e1ad155429965cec5ea66,bridge,hard,span,"Nebula Award, the Philip K. Dick Award, and the Hugo Award","Nebula Award, the Philip K. Dick Award, and the Hugo Award",1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,6,36,987,3,0.371,2.067,61.6,4832.9
+5a745e1455429929fddd83fd,bridge,hard,span,Ephedrine,Ephedrine,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,24,774,3,0.312,1.701,68.1,4721.6
+5a8ca7d4554299240d9c21b8,bridge,hard,span,"""Currer Bell""",Currer Bell,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,8,20,1060,3,0.37,1.764,80.5,4883.6
+5a7ec90055429934daa2fc66,bridge,hard,span,Scottish Premiership club Hearts,Hearts,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,9,58,1066,3,0.33,2.384,91.4,4803.4
+5a82112955429926c1cdae25,bridge,hard,span,"Southaven, Mississippi",Southaven,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,5,419,2,0.273,0.731,90.8,4638.0
+5a85a3005542991dd0999e72,bridge,hard,span,World War II,World War II,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,8,62,1283,3,0.366,2.583,77.4,4865.1
+5ab4475c5542996a3a969f6c,bridge,hard,span,Eddie Izzard,Eddie Izzard,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,44,1166,3,0.385,2.499,63.6,4820.3
+5ac1a04e5542991316484b63,comparison,hard,yesno,no,No,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,20,946,3,0.406,2.111,106.3,4845.4
+5ae09ce855429924de1b7113,bridge,hard,span,25,25,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,repeated_query,5,27,615,2,0.423,1.524,88.3,4787.5
+5a78bc6b554299148911f979,comparison,hard,span,fortnightly women interest magazine,fortnightly women interest magazines,0.0,0.75,1,2,2,1.0,2,2,1.0,2,repeated_query,6,35,838,3,0.359,2.181,62.9,4771.3
+5ab2a8b655429929539467ab,bridge,hard,span,Nikhil Banerjee,Nikhil Banerjee,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,51,876,3,0.48,2.824,64.4,4778.3
+5a8a7d2b55429930ff3c0dfc,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,32,1300,3,0.466,2.705,114.5,4861.0
+5ae3f2395542995ad6573cc6,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,511,2,0.399,1.004,115.6,4710.7
+5a90bd7b55429916514e7547,comparison,hard,span,Polypodium,Polypodium,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,31,1004,3,0.401,2.084,76.4,4863.2
+5ae20e265542994d89d5b325,bridge,hard,span,James G. Kiernan,James G. Kiernan,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,9,532,2,0.387,1.04,67.6,4725.5
+5abc039a5542993f40c73c49,bridge,hard,span,Clinton,Clinton,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,649,2,0.419,1.089,114.8,4811.9
+5a77c74155429967ab105291,comparison,hard,span,"Vib Gyor was a band that was formed in Leeds, England.",Vib Gyor,0.0,0.3333,1,2,2,1.0,2,2,1.0,3,max_hops,10,27,761,3,0.338,1.936,73.1,4745.7
+5ae48e7e55429913cc20449d,bridge,hard,span,Europe,Europe,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,877,2,0.529,1.478,123.7,4835.8
+5abaf4535542996cc5e49f35,bridge,hard,span,Boulder High School,"Boulder, Colorado",0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,8,53,824,3,0.381,2.626,74.9,4777.5
+5a901e5c55429933b8a2047c,bridge,hard,span,Euripides,Peter Myers and Ronald Cass,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,8,42,1225,3,0.432,2.446,72.4,4842.8
+5ab528a3554299637185c4e5,comparison,hard,span,"musician, singer, and songwriter",musicians,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,6,36,973,3,0.358,2.137,85.2,4835.6
+5a88fc4255429938390d4019,bridge,hard,span,"September 25, 2017","September 25, 2017",1.0,1.0,1,5,5,1.0,2,2,1.0,3,max_hops,11,40,1255,3,0.37,2.661,64.3,4836.4
+5ae0345855429924de1b705f,bridge,hard,span,Las Vegas Sands company.,"The Venetian Macao's owner, the American Las Vegas Sands company.",0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,19,613,2,0.403,1.252,63.0,4785.5
+5ac1b5de5542994d76dccec6,bridge,hard,span,My Beautiful Dark Twisted Fantasy,My Beautiful Dark Twisted Fantasy,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,39,1098,3,0.374,2.36,67.5,4883.6
+5a82fe5055429966c78a6ad3,bridge,hard,span,evangelical Christian,evangelical Christian,1.0,1.0,1,4,4,1.0,2,2,1.0,2,repeated_query,8,37,1407,3,0.514,2.673,73.0,4885.1
+5a798f8c5542994bb9457023,bridge,hard,span,"Port Moresby, Papua New Guinea","Port Moresby, Papua New Guinea",1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,11,591,2,0.414,1.183,65.7,4769.3
+5add63845542992ae4cec541,bridge,hard,span,"April 29, 2005 for US$129.95","April 29, 2005",0.0,0.75,0,4,2,0.5,2,2,1.0,3,max_hops,9,50,1084,3,0.403,2.609,64.1,4879.1
+5ababbe9554299232ef4a38a,bridge,hard,span,Margery Williams,Gabrielle-Suzanne Barbot de Villeneuve,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,8,49,1112,3,0.397,2.581,63.8,4876.4
+5ae3205c55429928c423961e,bridge,hard,span,Leslie Knope,Leslie Knope,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,711,2,0.44,1.273,71.9,4858.5
+5abcf2b4554299700f9d7937,bridge,hard,span,Giotto,Giotto di Bondone,0.0,0.5,1,2,2,1.0,2,2,1.0,2,done,8,21,1162,3,0.363,1.994,69.4,4824.9
+5a8b4a5f55429949d91db531,bridge,hard,span,IK Start,IK Start,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,10,51,1116,3,0.422,2.598,84.5,4872.2
+5a79be0e5542994f819ef084,bridge,hard,span,"March 13, 2013","March 13, 2013",1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,31,962,3,0.396,2.126,66.5,4856.5
+5ae69e3f5542996d980e7c61,bridge,hard,span,University of New York Upstate,State University of New York Upstate Medical University,0.0,0.7692,1,2,2,1.0,2,2,1.0,3,max_hops,6,57,1154,3,0.413,2.667,66.8,4872.9
+5a8a495055429930ff3c0d6a,bridge,hard,span,"Tumwater, Washington",no,0.0,0.0,0,2,0,0.0,2,1,0.5,2,repeated_query,6,34,953,3,0.37,1.986,120.8,4805.4
+5a8c5c6f554299653c1aa04d,bridge,hard,span,Coyote Ugly,Coyote Ugly,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,48,1193,3,0.409,2.892,65.8,4839.6
+5a80ecea55429938b6142254,bridge,hard,span,Queen In-hyun's Man,Queen In-hyun's Man,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,6,49,1277,3,0.536,2.928,68.4,4825.7
+5a8242c155429940e5e1a81d,bridge,hard,span,Germany,Germany,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,26,1200,3,0.378,2.199,114.6,4849.1
+5a7cef5d55429909bec768ac,bridge,hard,span,"September 13, 1994",Ready to Die,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,50,844,3,0.366,2.434,71.7,4741.7
+5a7319e755429901807daf86,bridge,hard,span,most total touchdowns in NCAA history,total passing touchdowns,0.0,0.4444,1,2,2,1.0,2,2,1.0,3,max_hops,9,44,960,3,0.433,2.605,71.5,4835.6
+5ae1d0e8554299234fd0430a,bridge,hard,span,Guthred or Guthfrith,Guthred,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,6,65,1269,3,0.551,3.469,80.1,4880.2
+5ade99295542992fa25da7d8,bridge,hard,span,linguistic analysis,"Scholars have long surmised that Shakespeare might have collaborated with another playwright based on the quality and style of the work, the complexity of the plot, and the historical context of collaboration among playwrights of his period.",0.0,0.0,0,3,1,0.3333,2,2,1.0,1,done,5,47,613,2,0.378,1.73,61.0,4785.5
+5a734bb65542994cef4bc50f,bridge,hard,span,Vincent Anthony Guaraldi,Vince Guaraldi,0.0,0.4,1,2,2,1.0,2,2,1.0,2,repeated_query,7,43,1202,3,0.404,2.615,70.9,4864.0
+5abe7eb05542993f32c2a12c,bridge,hard,span,1 September 1864,10 July 1873,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,33,1260,3,0.461,2.356,65.7,4850.6
+5a84f7255542991dd0999e33,bridge,hard,span,Republic of Chad,Sudan,0.0,0.0,0,4,3,0.75,2,2,1.0,1,repeated_query,5,24,581,2,0.37,1.329,78.1,4761.9
+5a70f1685542994082a3e40f,bridge,hard,span,Symphony No. 7,"The Violin Sonata No. 4 in A minor, Opus 23",0.0,0.1818,0,3,2,0.6667,2,2,1.0,2,done,6,42,1061,3,0.406,2.264,61.6,4879.1
+5ae0de1455429924de1b71b4,bridge,hard,span,orange juice,Orange Julius,0.0,0.5,1,3,3,1.0,2,2,1.0,2,repeated_query,7,41,995,3,0.39,2.284,87.9,4842.3
+5ae4a2b25542995ad6573de0,bridge,hard,span,pro-Confederate,Quantrill's Raiders,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,5,43,835,3,0.383,2.163,68.3,4738.6
+5abd9c2355429924427fd06c,bridge,hard,span,2005,2005,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,37,1195,3,0.378,2.417,71.3,4897.6
+5a74701655429979e2882952,comparison,hard,span,Blonde Redhead,Blonde Redhead,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,9,37,1062,3,0.403,2.331,75.1,4886.9
+5ab7f7465542993667794071,bridge,hard,span,British Bristol Olympus turbojet,jet-powered,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,5,41,952,3,0.405,2.087,88.8,4796.1
+5a7a6ee75542996c55b2ddac,comparison,hard,span,Krzysztof Zanussi,Krzysztof Zanussi,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,8,26,1196,3,0.361,2.163,59.7,4833.3
+5a85fa815542996432c57155,bridge,hard,span,Western Europe,Western Europe,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,7,27,845,3,0.358,1.967,85.0,4775.2
+5ae27f555542992decbdcd30,bridge,hard,span,Hermione Baddeley,Hermione Baddeley,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,7,55,1545,3,0.614,3.481,63.9,4884.3
+5ade3d75554299728e26c68b,bridge,hard,span,Finding Nemo,Finding Nemo,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,9,37,1166,3,0.427,2.526,74.5,4824.9
+5ae236da5542994d89d5b397,bridge,hard,span,"July 26, 1959",1973,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,25,1040,3,0.397,2.361,69.8,4809.2
+5adfad2b554299603e41835c,bridge,hard,span,Kenny Young,Kenny Young,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,23,1277,3,0.446,2.412,73.0,4869.1
+5abbc58455429931dba14502,bridge,hard,span,Sam Raimi,Sam Raimi,1.0,1.0,0,2,1,0.5,2,1,0.5,3,max_hops,6,40,1170,3,0.457,2.624,67.7,4852.7
+5a861fa75542994775f60706,bridge,hard,span,North American Aviation T-6 Texan,T-6 Texan,0.0,0.5714,1,2,2,1.0,2,2,1.0,1,done,5,8,763,2,0.535,1.376,70.9,4863.2
+5a888fe6554299206df2b2f7,bridge,hard,span,T. R. M. Howard,T. R. M. Howard,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,10,773,2,0.517,1.432,64.0,4869.8
+5ab865235542992aa3b8c8db,bridge,hard,span,500 metres,500 metres,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,12,48,1304,3,0.407,2.808,68.6,4870.9
+5ae064985542993d6555eb47,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,26,1065,3,0.444,2.351,111.6,4880.2
+5ae531a95542990ba0bbb1fc,bridge,hard,span,1986,1986,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,22,1177,3,0.392,2.192,72.5,4837.9
+5ae533535542993aec5ec173,bridge,hard,span,political correctness,political correctness,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,8,40,1133,3,0.378,2.474,85.1,4813.1
+5adebea1554299728e26c7b6,bridge,hard,span,Prof Media,Muz-TV was launched before the 24-hour music channel that was operated by Viacom International Media Networks (TMF).,0.0,0.1111,0,2,0,0.0,2,2,1.0,1,done,5,29,787,2,0.513,1.842,59.4,4880.2
+5adfdc7d55429942ec259b64,bridge,hard,span,Andrew Johnson,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,26,1080,3,0.387,2.129,217.8,4859.2
+5adbe9fa55429944faac23ba,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,479,2,0.363,0.902,118.5,4684.1
+5ae31bbd55429928c42395fc,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,34,947,3,0.335,2.127,118.4,4858.5
+5ae2120e5542997283cd23ad,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,451,2,0.343,0.898,114.2,4662.5
+5a9052765542995651fb513d,comparison,hard,span,Prof Bhabananda Deka,Bhabananda Deka,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,11,46,1565,3,0.491,3.221,64.8,4940.8
+5ae6795855429908198fa5e4,bridge,hard,span,16th Street and Georgetown Road,16th Street and Georgetown Road,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,10,43,1162,3,0.418,2.463,66.1,4814.8
+5a84e61b5542997b5ce3ff86,bridge,hard,span,show's 500th episode,500th episode,0.0,0.8,0,3,2,0.6667,2,2,1.0,1,done,5,8,547,2,0.41,1.116,70.2,4737.5
+5ab266b5554299340b5254b4,bridge,hard,span,Citizens for a Sound Economy,Citizens for a Sound Economy,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,33,1307,3,0.422,2.448,65.9,4869.7
+5ab5ec0a5542997d4ad1f250,bridge,hard,span,650 locations,650,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,34,942,3,0.388,2.052,78.0,4801.2
+5a72a9ab5542992359bc315a,bridge,hard,span,the Pennacook people,Winnipesaukee sub-tribe of the Pennacook people,0.0,0.5714,0,3,2,0.6667,2,2,1.0,2,done,7,41,1089,3,0.378,2.403,63.8,4886.9
+5a848b5c5542997175ce1ef2,bridge,hard,span,Glam metal,glam metal,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,40,904,3,0.37,2.221,78.6,4801.2
+5ab467975542991751b4d75f,bridge,hard,span,1992,1992,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,462,2,0.363,0.99,74.4,4670.6
+5a75ebfc5542992d0ec06018,bridge,hard,span,Odawa,Odawa,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,55,907,3,0.398,2.37,84.6,4774.4
+5a7cdd6b55429909bec76858,comparison,hard,span,Louis XIV,Edward Sharpe and the Magnetic Zeros,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,6,51,842,3,0.371,2.327,67.2,4754.6
+5a8209845542990a1d231f1f,bridge,hard,span,Ducks,Peabody Ducks,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,done,7,26,974,3,0.367,1.884,74.6,4852.7
+5a726b0f5542997f827839be,comparison,hard,span,Jean-Loup Jacques Marie Chrétien,Jean-Loup Chrétien,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,5,49,787,3,0.358,2.052,70.8,4714.6
+5ac2616b5542996366519997,bridge,hard,span,Ghana,Jamaica,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,765,2,0.462,1.231,78.2,4864.0
+5ae4f3c455429960a22e0221,bridge,hard,span,575 acres (2.08 km²),New York,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,11,34,1021,3,0.305,2.008,91.1,4860.0
+5a8b4ec155429949d91db53f,bridge,hard,span,Zachary Levi,Zachary Levi,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,7,865,2,0.474,1.391,74.8,4828.1
+5ac52f455542996feb3fea12,bridge,hard,span,1950,1950,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,26,966,3,0.303,2.07,76.3,4821.8
+5ab438395542990594ba9bb9,bridge,hard,span,Michael Seater,Michael Seater,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,8,24,854,3,0.437,2.343,77.5,4798.1
+5a81a7f75542995ce29dcc25,bridge,hard,span,Carrefour,Carrefour,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,6,557,2,0.48,1.343,78.6,4745.0
+5add98985542990dbb2f7e82,bridge,hard,span,American schoolteacher and publisher,publisher,0.0,0.4,0,2,1,0.5,2,1,0.5,3,max_hops,7,23,942,3,0.494,2.472,128.1,4805.4
+5ae1465855429920d5234373,bridge,hard,span,New York Yankees,New York Yankees,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,12,34,1081,3,0.454,2.53,78.5,4855.4
+5a721d5a55429971e9dc9283,bridge,hard,span,Ballarat Bitter is a 4.9% (abv) Australian beer,Ballarat Bitter,0.0,0.4444,1,3,3,1.0,2,2,1.0,2,done,7,26,1019,3,0.491,2.626,73.7,4866.0
+5ae7ea695542994a481bbe17,bridge,hard,span,Apsley George Benet Cherry-Garrard,Apsley George Benet Cherry-Garrard,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,8,26,1121,3,0.474,2.371,64.1,4820.3
+5ae7eb3c5542994a481bbe20,bridge,hard,span,Babylon,Babylon,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,33,1283,3,0.475,2.891,80.1,4863.5
+5adf69055542995534e8c7a4,bridge,hard,span,"St Andrews, Fife, Scotland",Fife,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,5,5,567,2,0.52,1.388,89.3,4751.5
+5a806cdf5542996402f6a508,bridge,hard,span,University of Vienna,Cornell University,0.0,0.4,0,4,3,0.75,2,2,1.0,3,max_hops,11,29,1142,3,0.514,2.576,73.8,4883.6
+5a78d01d55429974737f78b3,bridge,hard,span,SBS,SABC3,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,68,1141,3,0.474,3.287,77.2,4809.2
+5adf62d05542992d7e9f932d,bridge,hard,span,"""Walk Like an Egyptian""",no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,29,1308,3,0.522,2.79,116.4,4872.9
+5a8b3fe85542995d1e6f1323,bridge,hard,span,Johnson Press,Johnson Press,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,5,429,2,0.399,1.03,87.6,4645.8
+5a7dedef5542995f4f40231a,bridge,hard,span,Michael Patrick Smith,Michael Crawford,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,9,26,1038,3,0.42,2.357,87.0,4807.6
+5a88c68d55429938390d3fba,bridge,hard,span,Irish,American,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,24,946,3,0.452,2.366,114.8,4826.7
+5abc0bea554299658360040d,bridge,hard,span,Prince of Denmark,Denmark,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,9,49,1169,3,0.498,3.512,61.1,4832.1
+5abb2f245542996cc5e49fd2,bridge,hard,span,natural-ingredients-only personal care products,personal care products,0.0,0.8571,1,2,2,1.0,2,2,1.0,2,done,8,18,1182,3,0.626,2.812,57.1,4817.3
+5a72f74a55429901807daf59,bridge,hard,span,Rosie O'Donnell,Roseann O'Donnell,0.0,0.5,1,3,3,1.0,2,2,1.0,2,repeated_query,6,65,889,3,0.583,3.596,45.6,4775.2
+5ae0a54e5542993d6555ebdd,bridge,hard,span,Urijah Christopher Faber,Urijah Faber,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,10,38,1142,3,0.645,4.716,40.9,4807.2
+5a866e7e554299211dda2b29,bridge,hard,span,Peer,Peer,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,7,38,1199,3,0.641,3.39,85.3,4850.3
+5abaf6865542996cc5e49f3c,bridge,hard,span,Sean,Sean,1.0,1.0,0,2,1,0.5,2,2,1.0,2,done,6,21,1051,3,0.561,2.787,84.7,4872.2
+5ae534bb5542990ba0bbb21d,comparison,hard,span,Liberty,MIT Technology Review,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,29,875,3,0.513,2.688,59.9,4798.1
+5ae327e05542992f92d82220,bridge,hard,span,13,No,0.0,0.0,0,2,0,0.0,2,1,0.5,2,repeated_query,5,34,781,3,0.568,2.555,108.8,4711.5
+5abebbe65542997719eab59d,bridge,hard,span,"February 20, 1978","February 20, 1978",1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,7,31,1429,3,0.581,3.137,53.6,4884.3
+5ab5e9865542992aa134a3db,bridge,hard,span,Greek mythology,Mother goddess,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,43,1321,3,0.707,3.47,72.4,4851.2
+5a7a112a5542990783324e2b,bridge,hard,span,drummer,metal musicians,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,5,483,2,0.503,1.312,70.2,4686.8
+5adf430e5542993a75d2645e,comparison,hard,span,Dundee Canal,Miami Canal,0.0,0.5,1,3,3,1.0,2,2,1.0,3,max_hops,10,28,1018,3,0.496,2.779,76.8,4867.1
+5a779be75542995d83181215,bridge,hard,span,England,England,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,5,4,841,2,0.653,1.614,90.0,4814.2
+5a809b575542996402f6a59c,bridge,hard,span,Dusty Dvoracek,Dusty Dvoracek,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,43,907,3,0.552,2.861,52.2,4805.4
+5abed9435542994516f45457,comparison,hard,span,Tron,Tron,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,6,30,1103,3,0.545,2.864,77.7,4886.9
+5adf4ba65542992d7e9f931c,bridge,hard,span,Beauty and the Beast,Beauty and the Beast,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,46,1468,3,0.609,3.758,61.4,4866.2
+5ae491155542995ad6573da3,bridge,hard,span,"June 6, 1959","June 6, 1959",1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,5,56,958,3,0.587,3.323,53.6,4798.8
+5ac440385542997ea680ca4e,bridge,hard,span,Hessians,Hessian,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,53,915,3,0.551,3.439,72.2,4798.8
+5a84d80c5542992a431d1ab5,comparison,hard,span,MiMA,MiMA,1.0,1.0,0,5,2,0.4,2,2,1.0,2,repeated_query,7,41,1029,3,0.556,3.142,75.3,4866.0
+5ae7945d5542997b22f6a7ba,bridge,hard,span,Big 12,Big 12 Conference,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,7,42,953,3,0.502,3.059,57.0,4856.5
+5ab98608554299131ca42362,bridge,hard,span,1926 Paris,Paris,0.0,0.6667,0,2,1,0.5,2,1,0.5,1,done,5,4,529,2,0.572,1.418,93.6,4724.4
+5ab3eeb5554299233954fff4,bridge,hard,span,2011,2011,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,46,1615,3,0.608,3.845,58.7,4969.7
+5a7ce50f55429909bec76869,bridge,hard,span,1974,1974,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,40,1196,3,0.617,3.438,57.6,4851.8
+5a8fa4d95542995b4424207b,comparison,hard,span,Trenton–Mercer Airport,Palm Springs International Airport,0.0,0.3333,0,3,2,0.6667,2,2,1.0,3,max_hops,8,34,1082,3,0.542,3.024,55.5,4835.6
+5a72ba165542992359bc318a,bridge,hard,span,Wikimedia Foundation,Baidu,0.0,0.0,0,3,0,0.0,2,1,0.5,1,done,5,5,517,2,0.525,1.351,71.2,4714.6
+5a85ae455542997175ce1ff0,bridge,hard,span,stunt performances,stunt performer,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,7,42,931,3,0.537,2.946,64.2,4819.7
+5a8bbfb15542995e66a474f6,comparison,hard,span,former tennis player,no,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,4,441,2,0.49,1.367,64.8,4655.5
+5ac240ef55429951e9e684ef,bridge,hard,span,2006,2005,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,6,41,764,3,0.483,2.795,53.9,4716.6
+5ab72b5c5542993667793f63,bridge,hard,span,American,United States,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,5,433,2,0.492,1.459,73.8,4651.9
+5ab3af70554299233954ff81,bridge,hard,span,Orson Welles,Orson Welles,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,63,1520,3,0.598,4.078,56.9,4919.0
+5ae320a95542991a06ce992e,bridge,hard,span,"about 26,000.","26,000",0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,9,569,2,0.581,1.659,54.3,4753.9
+5ae28b76554299495565daa8,bridge,hard,span,"""personal earnings"" (such as salary and wages), ""business income"" and ""capital gains""","personal earnings, business income, capital gains",0.0,0.6667,0,4,2,0.5,2,2,1.0,1,done,5,11,483,2,0.491,1.498,55.7,4686.8
+5ab6a8b5554299710c8d1f30,bridge,hard,span,the National Society of Daughters of the American Revolution,The National Society of Daughters of the American Revolution (NSDAR),0.0,0.9333,1,3,3,1.0,2,2,1.0,2,repeated_query,7,55,1208,3,0.58,3.462,50.2,4832.7
+5a8b8f5b55429949d91db5e1,bridge,hard,span,video game,music rhythm games,0.0,0.0,0,2,0,0.0,2,0,0.0,2,repeated_query,8,48,1090,3,0.561,3.467,60.4,4803.4
+5ae829ea5542997ec2727738,bridge,hard,span,"city of Springfield, Massachusetts","Springfield, Massachusetts",0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,7,519,2,0.563,1.525,59.2,4716.6
+5aba14195542994dbf0198a9,bridge,hard,span,15,15,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,5,563,2,0.534,1.477,73.6,4748.8
+5ae370295542992e3233c402,comparison,hard,span,American,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,14,1030,3,0.561,2.48,102.4,4863.2
+5abdba405542993f32c2a023,bridge,hard,span,Perfect Strangers,Family Matters,0.0,0.0,1,4,4,1.0,2,2,1.0,2,repeated_query,10,41,1666,3,0.653,3.669,61.6,4976.3
+5a855b5c5542997b5ce3ffeb,bridge,hard,span,papermaking industry,papermaking industry,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,7,30,810,3,0.54,2.851,59.8,4747.7
+5adf734b5542995ec70e9016,bridge,hard,span,Chelsea Does,Chelsea Does,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,457,2,0.477,1.364,67.0,4666.6
+5a81ca835542990a1d231ebd,bridge,hard,span,Yarrow and Stookey,Paul,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,4,515,2,0.551,1.424,91.5,4713.5
+5abba581554299642a094af9,bridge,hard,span,four,4,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,10,33,1193,3,0.55,3.369,88.3,4864.0
+5a887f5c554299206df2b2c0,bridge,hard,span,Eric Clapton,Al Stewart,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,93,1129,3,0.636,4.724,69.8,4872.9
+5a80956e5542996402f6a579,bridge,hard,span,Gaius Julius Caesar Augustus Germanicus,Caligula,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,6,601,2,0.57,1.463,63.2,4777.5
+5ac2efd65542990b17b154c7,bridge,hard,span,the tenth season,No,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,6,42,1126,3,0.624,3.283,95.3,4863.2
+5a7af32e55429931da12c99c,bridge,hard,span,"Brooklyn, New York",Brooklyn,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,7,37,978,3,0.57,3.186,64.0,4826.7
+5a7c9d2e55429935c91b5261,bridge,hard,span,Wendigo,Wendigo,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,36,907,3,0.466,2.902,67.5,4798.8
+5a8752955542994775f607d1,bridge,hard,span,Arizona State Sun Devils,Arizona State Sun Devils,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,46,1296,3,0.57,3.578,55.0,4865.1
+5ae3e2455542994393b9e78c,comparison,hard,span,Armenian–American,Armenian-American,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,45,994,3,0.568,2.954,62.7,4816.6
+5abd552555429933744ab776,bridge,hard,span,PPG Paints Arena,"PPG Paints Arena in Pittsburgh, Pennsylvania",0.0,0.6667,0,2,1,0.5,2,1,0.5,2,repeated_query,6,48,827,3,0.502,2.888,55.2,4755.7
+5ac048cc554299294b218f73,bridge,hard,span,John D Rockefeller's Standard Oil Company,John D Rockefeller,0.0,0.4444,1,2,2,1.0,2,2,1.0,1,done,5,6,591,2,0.546,1.465,63.4,4769.3
+5ac048ea554299294b218f74,bridge,hard,span,Michael Swango,Joseph Michael Swango,0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,9,49,1224,3,0.625,3.701,60.5,4859.4
+5ab474135542991751b4d77b,bridge,hard,span,Best Alternative Music Album,Best Alternative Music Album,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,7,655,2,0.608,1.527,62.2,4816.6
+5a711cb45542994082a3e59f,comparison,hard,span,Liezel Huber,Lisa Raymond,0.0,0.0,1,3,3,1.0,2,2,1.0,1,done,5,5,495,2,0.536,1.415,75.6,4698.4
+5ae60db1554299546bf83041,bridge,hard,span,German,German,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,16,1035,3,0.527,2.415,96.3,4858.5
+5a8b81bc55429949d91db5b8,comparison,hard,span,magazine,magazine,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,35,996,3,0.553,2.965,72.7,4832.9
+5a73bcf055429978a71e909c,comparison,hard,span,Howard Melvin Fast,Howard Fast,0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,8,44,1215,3,0.603,3.413,66.6,4824.9
+5ae1436e55429901ffe4ae31,bridge,hard,span,gull-wing doors,gull-wing doors,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,7,617,2,0.542,1.455,59.7,4788.3
+5ab207f65542993be8fa98b8,bridge,hard,span,Preston,Preston,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,599,2,0.532,1.412,66.0,4775.2
+5a7766b15542993569682d7e,bridge,hard,span,Casement's Fort,London,0.0,0.0,0,3,1,0.3333,2,2,1.0,1,done,5,4,733,2,0.596,1.574,92.3,4874.0
+5ac1a3fa5542991316484b7d,bridge,hard,span,the flags,a territory without a separate flag other than that of its controlling country,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,16,513,2,0.569,1.664,52.7,4711.5
+5a790f5e55429970f5fffe40,bridge,hard,span,"November 15, 1903","November 15, 1903",1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,53,1230,3,0.602,3.515,52.5,4849.1
+5add10ca5542994ed6169c59,comparison,hard,yesno,yes,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,24,1043,3,0.562,2.674,93.8,4876.4
+5ae1b2b9554299422ee99684,bridge,hard,span,Robert Digges Wimberly Connor,Connor,0.0,0.4,0,2,1,0.5,2,2,1.0,3,max_hops,8,37,1239,3,0.579,3.292,91.4,4846.6
+5a7f81425542992097ad2f8e,bridge,hard,span,Mean Girls,Mean Girls,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,617,2,0.567,1.632,70.0,4788.3
+5a817f6655429938b6142349,comparison,hard,span,Tori Amos,Tori Amos,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,done,8,16,979,3,0.553,2.514,58.6,4852.7
+5ab6ddb655429953192ad39e,bridge,hard,span,Montreal,Montreal,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,29,1087,3,0.553,3.011,66.2,4867.5
+5a76cb9b55429966f1a36bf2,bridge,hard,span,Adam Silver,Adam Silver,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,25,891,3,0.542,2.536,72.4,4774.4
+5ae4808455429970de88d990,bridge,hard,span,32 people,32,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,8,53,1515,3,0.717,3.807,68.3,4868.2
+5ab7f6d35542993667794070,bridge,hard,span,Cyclic Defrost,Cyclic Defrost,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,7,455,2,0.507,1.681,67.8,4666.8
+5abe86365542993f32c2a14d,bridge,hard,span,"""The Wonder Years""","Robert Cohen has also written for ""The Ben Stiller Show"".",0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,38,1012,3,0.546,3.168,49.0,4849.2
+5a7571095542992d0ec05f97,bridge,hard,span,Paula Maxine Patton,Paula Patton,0.0,0.8,0,2,1,0.5,2,2,1.0,2,repeated_query,6,50,859,3,0.577,3.163,60.9,4763.9
+5adcfbf45542990d50227d86,bridge,hard,span,"Santa Monica, California",Santa Monica,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,6,32,1035,3,0.602,3.185,71.4,4846.1
+5ab30d1155429976abd1bc3d,bridge,hard,span,Tim Allen,Charlotte Ross,0.0,0.0,0,4,2,0.5,2,1,0.5,3,max_hops,7,37,1233,3,0.616,3.458,64.5,4853.4
+5ae6069c55429929b0807a67,bridge,hard,span,Fomento Económico Mexicano,Coca-Cola FEMSA,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,43,1034,3,0.568,3.169,58.9,4872.2
+5a711c535542994082a3e59b,bridge,hard,span,Albanian political party in Montenegro,political party,0.0,0.5714,1,2,2,1.0,2,2,1.0,1,done,5,5,553,2,0.555,1.452,71.2,4741.3
+5adf85e05542993344016cba,bridge,hard,span,Championship,Division One,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,47,1063,3,0.522,3.257,64.8,4856.5
+5a77897f55429949eeb29edc,bridge,hard,span,an organ,piano,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,35,938,3,0.596,3.033,72.3,4819.7
+5ae10a5b55429920d52342a0,bridge,hard,span,Todd Phillips,Todd Phillips,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,11,46,1311,3,0.556,3.505,73.9,4859.1
+5ab639e65542995eadeeff7f,comparison,hard,span,Helen Elizabeth Hunt,Helen Hunt,0.0,0.8,0,7,3,0.4286,2,2,1.0,2,repeated_query,9,26,1138,3,0.507,2.719,63.9,4837.9
+5a8bae135542996e8ac889b6,bridge,hard,span,Roy Richard Scheider,Roy Scheider,0.0,0.8,1,2,2,1.0,2,2,1.0,1,done,5,6,493,2,0.542,1.426,68.1,4697.6
+5a75e33855429976ec32bc74,bridge,hard,span,the Phoenix Suns,no,0.0,0.0,0,4,1,0.25,2,1,0.5,2,repeated_query,6,56,748,3,0.492,3.076,87.2,4703.5
+5ae363ff5542992f92d822bc,bridge,hard,span,Schutzstaffel,Schutzstaffel (SS),0.0,0.6667,0,2,1,0.5,2,2,1.0,2,repeated_query,6,36,1125,3,0.629,3.212,53.0,4867.1
+5ac0e6fa5542996f0d89cc35,comparison,hard,span,Mad Hot Ballroom,Mad Hot Ballroom,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,17,1210,3,0.605,2.759,56.6,4837.9
+5ade6b67554299728e26c71c,bridge,hard,span,Royal Navy,Senior Service,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,7,17,1025,3,0.605,2.705,58.1,4850.3
+5ae0c7e755429945ae95944c,bridge,hard,span,Orange County,Highlands,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,37,920,3,0.52,3.356,60.4,4831.8
+5a78f753554299078472776e,comparison,hard,span,Philip Steven Labonte,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,22,1115,3,0.659,2.83,90.2,4877.1
+5adcde255542992c1e3a243f,bridge,hard,span,Randy Orton,Randy Orton,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,36,1049,3,0.562,3.124,56.9,4864.0
+5ae73d505542991e8301cc2c,bridge,hard,span,Mathieu Kassovitz,Mathieu Kassovitz,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,10,40,1131,3,0.599,3.283,50.8,4877.1
+5ae18d615542997283cd2229,bridge,hard,span,mixed martial arts,combat sports,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,5,433,2,0.517,1.398,70.3,4648.5
+5ac3ad7f5542995ef918c1de,bridge,hard,span,Bergen,Bergen,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,33,1036,3,0.516,3.177,59.2,4863.2
+5ab9d44255429939ce03dc36,bridge,hard,span,Miller Brewing,Miller Brewing Company,0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,10,49,948,3,0.47,2.972,63.8,4867.1
+5a863b27554299211dda2ab6,comparison,hard,yesno,no,no,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,23,870,3,0.554,2.633,94.1,4779.3
+5a79118755429974737f7962,comparison,hard,span,Foo Fighters,Foo Fighters,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,5,529,2,0.512,1.253,71.8,4724.4
+5abfa9745542997ec76fd426,bridge,hard,span,"""The Big Bang Theory""",The Big Bang Theory,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,6,34,1062,3,0.507,3.085,55.3,4872.9
+5abfc8675542993fe9a41e52,bridge,hard,span,McLaren Vale,McLaren Vale,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,7,45,1155,3,0.627,3.35,58.3,4818.7
+5a866c04554299211dda2b25,comparison,hard,yesno,yes,yes,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,4,525,2,0.551,1.456,66.0,4721.6
+5a80c74f554299260e20a158,bridge,hard,span,"Dennis Hull, as well as painter Manley MacDonald.",Bobby Hull and Dennis Hull,0.0,0.3077,1,3,3,1.0,2,2,1.0,1,done,5,9,475,2,0.484,1.422,52.5,4680.6
+5ae5691055429960a22e02f3,bridge,hard,span,"1,800","1,800",1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,46,756,3,0.505,3.025,56.3,4728.2
+5ab1d983554299340b52540a,bridge,hard,span,Ghostbusters Spooktacular,Waterworld,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,5,45,955,3,0.614,3.12,70.9,4798.1
+5ab28e2a5542993be8fa9947,bridge,hard,span,"Eddie ""The Eagle"" Edwards","Eddie ""The Eagle"" Edwards",1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,43,985,3,0.553,3.243,55.4,4867.1
+5ab9547755429970cfb8ea6c,bridge,hard,span,87,88,0.0,0.0,0,4,3,0.75,2,2,1.0,3,max_hops,7,39,893,3,0.575,3.054,70.8,4792.3
+5a7ce0bc55429909bec76863,bridge,hard,span,Friends,Friends,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,808,2,0.661,1.661,96.6,4804.0
+5ae17daa55429901ffe4aea9,bridge,hard,span,James Tinling,James Tinling,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,50,1163,3,0.586,3.467,64.9,4821.8
+5ae7c5ef5542993210983f44,bridge,hard,span,"Gainesville, Florida",Gainesville,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,6,447,2,0.51,1.38,78.6,4659.7
+5a7313865542994cef4bc442,bridge,hard,span,Regional Rural Bank,Regional Rural Bank,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,28,976,3,0.485,2.821,61.3,4818.7
+5adccf645542990d50227d32,bridge,hard,span,Oklahoma City,Oklahoma City,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,69,1057,3,0.622,3.802,56.8,4848.5
+5ac176555542994d76dcce47,comparison,hard,span,journalist,journalist,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,39,991,3,0.598,3.051,68.4,4831.8
+5abbf3845542993f40c73c2e,bridge,hard,span,"The Go-Go's,",Mucopus,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,11,40,1096,3,0.573,3.38,57.2,4846.1
+5a8781b65542993e715abf8f,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,32,1007,3,0.577,2.858,88.0,4849.2
+5a807ea1554299485f598624,bridge,hard,span,Presbyterian Church,Presbyterian Church (USA),0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,8,26,684,3,0.53,2.572,57.0,4673.4
+5a8ec7cc5542995a26add518,comparison,hard,span,Girlfriends,Popular Science,0.0,0.0,0,4,2,0.5,2,2,1.0,2,repeated_query,6,25,820,3,0.538,2.572,73.4,4740.6
+5a7a978555429941d65f26db,bridge,hard,span,Paper Trail,Paper Trail,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,9,23,1199,3,0.559,2.86,69.8,4840.9
+5a7fc70155429969796c1b59,bridge,hard,span,AngloGold Ashanti,AngloGold Ashanti,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,8,533,2,0.548,1.496,57.3,4727.5
+5ab84d5a55429916710eb028,bridge,hard,span,Dallas Cowboys,Dallas Cowboys,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,45,1140,3,0.562,3.656,63.9,4838.8
+5a7f392b55429934daa2fd26,bridge,hard,span,Tel Aviv,Maccabi Tel Aviv,0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,7,41,1016,3,0.609,3.187,57.8,4836.3
+5a877dd65542993e715abf79,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,18,1138,3,0.551,2.571,100.8,4819.6
+5a8b99c355429950cd6afd28,bridge,hard,span,Columbus,Columbus,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,665,2,0.611,1.673,64.2,4824.9
+5a8e2ba05542995085b373b8,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,46,1075,3,0.558,3.156,105.4,4867.1
+5a74581555429979e2882912,bridge,hard,span,Mitsubishi,Mitsubishi,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,32,1083,3,0.561,3.21,55.9,4822.3
+5ac1d40c5542994d76dccef5,bridge,hard,span,"143,372",22 miles north of downtown Traverse City,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,10,35,1161,3,0.584,3.189,51.7,4811.2
+5a7c6b6655429935c91b519a,bridge,hard,span,town meeting legislative body,town meeting legislative body,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,7,439,2,0.502,1.576,55.8,4652.7
+5a73522d5542994cef4bc541,bridge,hard,span,526,478,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,657,2,0.629,1.616,62.8,4818.7
+5a822a5e55429926c1cdae43,comparison,hard,span,"film director, film producer, writer","film director, writer, producer",0.0,0.8889,1,2,2,1.0,2,2,1.0,1,done,5,9,617,2,0.563,1.561,56.4,4788.3
+5a7b1023554299042af8f6c2,comparison,hard,span,Ride a Wild Pony,Ride a Wild Pony,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,36,1078,3,0.57,3.15,48.8,4864.0
+5a84574455429933447460e6,bridge,hard,span,2015,2015,1.0,1.0,0,5,4,0.8,2,2,1.0,3,max_hops,9,57,1129,3,0.579,3.922,57.7,4817.3
+5a89a02955429946c8d6e975,comparison,hard,span,Voices of Iraq,Voices of Iraq,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,31,933,3,0.565,3.094,58.9,4811.9
+5abdf1fe55429976d4830a31,bridge,hard,span,media for the 65.8 million,"It reflects the worldview of those who voted for Clinton and the slogan was ""media for the 65.8 million"".",0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,7,67,1045,3,0.568,3.748,50.6,4855.4
+5ae1e9fd5542997f29b3c1a1,bridge,hard,span,John Francis Kelly,John Francis Kelly,1.0,1.0,0,4,3,0.75,2,2,1.0,2,done,6,30,1061,3,0.599,2.928,65.5,4869.1
+5a77b0395542997042120ae1,bridge,hard,span,Jessica Lange,Jessica Lange,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,18,1123,3,0.53,2.51,69.7,4804.0
+5a79c8fa5542994bb94570a1,bridge,hard,span,technical director,no,0.0,0.0,0,3,1,0.3333,2,2,1.0,3,max_hops,9,67,855,3,0.468,3.621,104.0,4805.4
+5ae21937554299234fd043d3,bridge,hard,span,Philip Livingston,Philip Livingston,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,535,2,0.559,1.364,68.9,4728.2
+5a7cdcbf55429907fabef04f,comparison,hard,span,Still Kicking: Six Artistic Women of Project Arts & Longevity,Still Kicking: Six Artistic Women of Project Arts & Longevity,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,17,525,2,0.505,1.477,54.9,4721.6
+5ac51a055542994611c8b390,bridge,hard,span,Mossad,Mossad,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,40,1386,3,0.595,3.516,60.1,4861.2
+5a78c7db55429974737f7882,bridge,hard,span,Christina Ricci,Christina Ricci,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,36,1183,3,0.663,3.281,62.7,4886.9
+5a82e25555429954d2e2ebbf,bridge,hard,span,Eva Ibbotson,no,0.0,0.0,0,4,2,0.5,2,2,1.0,2,repeated_query,5,72,709,3,0.508,3.32,91.8,4673.4
+5ab42b8955429942dd415ea6,bridge,hard,span,Bourbon County,Woodson County,0.0,0.5,0,3,2,0.6667,2,2,1.0,3,max_hops,8,32,986,3,0.57,3.008,66.4,4834.9
+5a8db916554299441c6ba057,bridge,hard,span,Hindi,Tamil,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,6,40,930,3,0.546,3.001,70.5,4798.1
+5a79ca585542996c55b2dc71,bridge,hard,span,John Gielgud,"Nicol Williamson, John Gielgud",0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,5,50,979,3,0.61,3.258,50.0,4809.2
+5abd6cb955429933744ab7cd,bridge,hard,span,Norse,Norse mythology,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,6,629,2,0.628,1.642,61.7,4798.1
+5a7642f7554299109176e6e8,comparison,hard,span,Luca Parmitano,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,34,1001,3,0.558,2.921,85.3,4864.0
+5a88a42f554299206df2b317,bridge,hard,span,the growing literary style called New Journalism,New Journalism,0.0,0.5,1,4,4,1.0,2,2,1.0,1,done,5,5,631,2,0.628,1.574,72.0,4798.8
+5a8c90db554299653c1aa0bf,comparison,hard,yesno,yes,no,0.0,0.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,30,987,3,0.568,2.893,78.5,4859.2
+5a763986554299109176e6bd,bridge,hard,span,Pierre Nlend Womé,Pierre Womé,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,5,40,1042,3,0.618,3.275,46.1,4840.3
+5a7cc0d4554299452d57ba07,bridge,hard,span,215th,215th,1.0,1.0,0,3,1,0.3333,2,2,1.0,3,max_hops,8,50,941,3,0.548,3.508,56.7,4798.2
+5a86113355429960ec39b618,bridge,hard,span,Jānis Strazdiņš,no,0.0,0.0,0,3,1,0.3333,2,1,0.5,2,done,7,23,967,3,0.575,2.675,92.7,4856.5
+5a722fae55429971e9dc9343,bridge,hard,span,Chloë Alexandra Adele Emily Agnew,Naomi,0.0,0.0,0,3,1,0.3333,2,2,1.0,1,done,5,5,653,2,0.613,1.529,74.9,4815.9
+5a7af4cd55429931da12c9a6,bridge,hard,span,"Karachi, Pakistan",Karachi,0.0,0.6667,1,3,3,1.0,2,2,1.0,3,max_hops,9,36,1145,3,0.558,3.228,62.3,4828.1
+5a7d9bc65542990b8f5039cb,bridge,hard,span,Big 12 Conference,Big 12 Conference,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,32,1141,3,0.555,2.894,58.3,4822.3
+5adbd70c55429947ff173843,bridge,hard,span,Personal History,Personal History,1.0,1.0,0,4,3,0.75,2,2,1.0,1,done,5,5,523,2,0.54,1.402,81.4,4718.0
+5a7e04b05542995f4f40238a,bridge,hard,span,Vanarama,Vanarama,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,23,836,3,0.487,2.386,67.5,4774.4
+5a90b6985542990a984936c2,bridge,hard,span,"""The Royal Family""",My Summer of Love,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,8,42,1196,3,0.577,3.306,62.0,4824.3
+5ae164685542997b2ef7d1cb,bridge,hard,span,Thomas Warburton,Tom Warburton,0.0,0.5,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,69,1016,3,0.563,3.649,60.4,4826.7
+5a86fde6554299211dda2b7f,bridge,hard,span,IT,business process outsourcing (BPO) services,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,44,977,3,0.557,3.206,52.5,4846.1
+5a802e135542992bc0c4a6c7,bridge,hard,span,play-by-post role-playing game,"The context provided does not contain information about Blue Dwarf. Therefore, no answer can be given based on the provided context.",0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,51,943,3,0.564,3.165,50.8,4811.9
+5ac31456554299741d48a1b4,comparison,hard,span,Lawson,Lawson,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,31,1007,3,0.575,2.875,70.7,4867.1
+5ae0a6ea5542993d6555ebe9,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,23,979,3,0.506,2.735,95.6,4850.3
+5a872e8e5542991e7718170c,bridge,hard,span,portrait,portraits,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,12,32,1450,3,0.607,3.264,71.8,4904.1
+5a7265825542997f827839a3,bridge,hard,span,a silver medal,silver,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,7,52,3011,3,0.856,5.604,95.6,4979.2
+5abe2b0155429976d4830a83,bridge,hard,span,26–30 August 1914,August 1914,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,9,33,1149,3,0.548,3.054,56.5,4818.1
+5ae135fb55429920d523431f,bridge,hard,span,WB Television Network,WB Television Network,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,8,47,1229,3,0.626,4.25,62.5,4858.5
+5a8f0a01554299458435d539,bridge,hard,span,Indianapolis,Indianapolis,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,21,864,3,0.502,2.69,70.7,4849.2
+5ab40e1c5542996a3a969f00,bridge,hard,span,1988,1988,1.0,1.0,0,7,3,0.4286,2,2,1.0,2,repeated_query,8,27,1239,3,0.599,2.932,62.0,4851.2
+5ab28c89554299340b525513,bridge,hard,span,Reichsführer-SS,Gruppenführer,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,6,765,2,0.657,1.644,65.1,4864.0
+5a87e3d65542993e715abff8,bridge,hard,span,Game of Thrones,Game of Thrones,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,571,2,0.543,1.478,67.3,4754.6
+5addfc425542997dc7907101,bridge,hard,span,Esteban Ocon,Esteban Ocon,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,10,47,1105,3,0.53,3.191,56.9,4882.9
+5ab576dc5542997d4ad1f13d,bridge,hard,span,Carnatic music,Carnatic music,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,7,775,2,0.678,1.695,59.8,4872.2
+5a8d8eb5554299068b959d3a,comparison,hard,span,Parsifal,Parsifal,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,42,1593,3,0.672,3.99,58.8,4924.7
+5ac5101455429924173fb592,bridge,hard,span,Every Rose Has Its Thorn,Every Rose Has Its Thorn,1.0,1.0,0,4,2,0.5,2,2,1.0,3,max_hops,7,51,905,3,0.567,3.391,55.0,4774.4
+5ab91f98554299753720f70d,bridge,hard,span,Gangsta's Paradise,Fantastic Voyage,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,7,43,848,3,0.587,3.255,66.0,4765.3
+5ae6371155429929b0807af1,bridge,hard,span,Polka,No,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,4,553,2,0.587,1.421,94.1,4741.3
+5ac1bff05542994ab5c67dfc,bridge,hard,span,Francisco Rafael Arellano Félix,Benjamín Arellano Félix,0.0,0.5714,0,4,2,0.5,2,2,1.0,1,done,5,11,697,2,0.627,1.693,54.6,4848.5
+5a7c2f145542996dd594b8b4,bridge,hard,span,McG,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,46,849,3,0.529,2.897,98.9,4765.3
+5a81e4e8554299676cceb140,bridge,hard,span,Campbellsville University,Campbellsville University,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,7,635,2,0.603,1.707,57.9,4801.9
+5a83041355429966c78a6ae8,comparison,hard,span,film director,director,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,8,34,952,3,0.502,2.732,101.0,4832.9
+5ab7fa7b5542992aa3b8c897,comparison,hard,span,punk rock,punk rock,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,5,529,2,0.487,1.357,69.2,4724.4
+5a8cee9b554299441c6b9f87,bridge,hard,span,GE Appliances,Hotpoint,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,40,1095,3,0.496,3.366,60.5,4804.9
+5ab67bf255429954757d32f5,bridge,hard,span,"McLean, Virginia",McLean,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,8,29,1092,3,0.541,2.841,64.0,4877.1
+5a77d65055429949eeb29f7b,bridge,hard,span,250,5,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,8,36,1344,3,0.592,3.509,82.8,4869.7
+5a7f3f7c55429934daa2fd45,comparison,hard,span,The Futureheads,Marcy Playground,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,5,6,499,2,0.532,1.38,67.5,4701.5
+5ade811e5542992fa25da7a0,bridge,hard,span,1851,1851,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,41,865,3,0.529,2.892,63.7,4753.9
+5a7633ff5542994ccc918712,bridge,hard,span,1932,1932,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,8,17,1270,3,0.587,2.812,59.9,4877.6
+5a88a1475542997e5c09a646,comparison,hard,span,Salvia,Salvia,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,27,1029,3,0.619,2.784,68.5,4855.4
+5a8887a055429938390d3f72,bridge,hard,span,Rocky Boy's Indian Reservation,Rocky Boy Reservation,0.0,0.5714,0,3,2,0.6667,2,2,1.0,3,max_hops,7,73,1157,3,0.609,4.14,56.9,4879.1
+5a86399e5542994775f60733,bridge,hard,span,Punjabi/Pashtun,Punjabi/Pashtun,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,28,1075,3,0.615,3.122,53.2,4882.9
+5a84c0765542991dd0999dd9,bridge,hard,span,Gary Lightbody,Martha Wainwright,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,45,1208,3,0.597,3.574,53.0,4836.4
+5adf17f95542995ec70e8f6c,bridge,hard,span,Australian,Australia,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,9,18,1458,3,0.644,3.235,83.9,4894.9
+5a7f5ab65542995d8a8dde43,bridge,hard,span,Cosmopolitan of Las Vegas,The Cosmopolitan of Las Vegas,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,44,1032,3,0.591,3.588,47.9,4872.9
+5a8cec13554299441c6b9f7d,comparison,hard,yesno,yes,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,30,1098,3,0.637,3.074,80.2,4883.6
+5abce9ca554299114383a193,bridge,hard,span,racehorse breeder and owner,former England international striker,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,7,451,2,0.467,1.31,58.1,4662.5
+5a7a1b845542990783324e5f,bridge,hard,span,Stadio Olimpico,Camp Nou,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,44,1038,3,0.487,3.306,66.8,4842.3
+5a7363ec5542991f29ee2dd7,bridge,hard,span,Key West,Key West,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,32,1057,3,0.593,3.064,67.5,4877.1
+5a77321355429972597f1493,comparison,hard,span,The Agronomist,The Agronomist,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,501,2,0.522,1.286,60.3,4703.5
+5ab5cd4f554299488d4d9a31,bridge,hard,span,In Pursuit,In Pursuit,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,6,68,757,3,0.489,3.54,62.5,4710.7
+5a83411655429966c78a6b5d,bridge,hard,span,Justin Spitzer,Justin Spitzer,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,29,994,3,0.514,3.017,62.0,4816.4
+5a8d50fb55429941ae14dfa2,bridge,hard,span,75 mi,75,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,9,27,962,3,0.504,2.743,71.4,4864.0
+5ae80919554299540e5a56f6,bridge,hard,span,The Changing Scottish Landscape,no,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,8,40,1160,3,0.555,3.024,90.9,4840.3
+5ab2b8fe5542991669774070,bridge,hard,span,Budget Rent a Car,Hertz,0.0,0.0,1,3,3,1.0,2,2,1.0,2,done,6,21,1082,3,0.621,2.63,72.6,4874.0
+5a8d0efd5542994ba4e3dbc6,bridge,hard,span,"Warsaw, Poland",Warsaw,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,7,35,996,3,0.555,3.019,74.0,4822.5
+5a7125b95542994082a3e5d5,bridge,hard,span,Gardnerville,"Minden, Nevada",0.0,0.0,0,4,3,0.75,2,2,1.0,3,max_hops,11,43,795,3,0.488,2.936,57.7,4784.5
+5a8a6a2155429930ff3c0dd0,comparison,hard,span,Kenneth Eliot Flach,Ken Flach,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,10,30,1163,3,0.58,3.086,62.3,4850.6
+5ae834e95542997ec272776a,bridge,hard,span,Highwayman,The Highwayman,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,52,1051,3,0.625,3.642,56.3,4864.0
+5a7ab51055429927d897bef6,bridge,hard,span,1961,1961,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,21,1104,3,0.584,2.918,53.6,4882.2
+5ae250b45542996483e64977,bridge,hard,span,former Speaker of the U.S. House of Representatives,executive director of the National Republican Congressional Committee,0.0,0.1429,0,2,1,0.5,2,2,1.0,2,repeated_query,6,44,921,3,0.514,2.903,55.1,4789.0
+5a733c925542991f9a20c6b7,comparison,hard,span,cocktails,cocktails,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,27,1062,3,0.53,2.773,74.7,4867.1
+5a7e5ec25542991319bc947a,comparison,hard,span,Květa Peschke,Květa Peschke,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,36,1159,3,0.599,3.122,55.1,4852.6
+5adbf2805542994650320c15,bridge,hard,span,The High Sheriff changes every March.,March,0.0,0.3333,1,2,2,1.0,2,2,1.0,3,max_hops,9,33,1069,3,0.495,3.001,87.9,4887.6
+5a845e9055429933447460ec,bridge,hard,span,Sacramento Kings,No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,52,772,3,0.448,2.846,91.6,4713.5
+5a820c0c554299676cceb1fc,bridge,hard,span,All Nippon,"Nippon Cargo Airlines Company, Limited (NCA)",0.0,0.25,0,3,1,0.3333,2,2,1.0,2,repeated_query,6,55,913,3,0.461,3.046,53.8,4821.8
+5a88bd1d554299206df2b357,bridge,hard,span,"season six, episode 5, ""Invasion""",2010,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,7,639,2,0.558,1.52,55.6,4805.4
+5a79332555429907847277e7,comparison,hard,span,Juan Carlos Onetti,Juan Carlos Onetti,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,513,2,0.511,1.327,63.1,4711.5
+5abd516a5542992ac4f3825c,bridge,hard,span,Hindi,No,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,8,35,873,3,0.475,2.632,95.0,4801.9
+5add26075542994ed6169c9c,bridge,hard,span,WAMC,WAMC,1.0,1.0,1,4,4,1.0,2,2,1.0,1,done,5,6,493,2,0.502,1.279,73.1,4697.6
+5a901f735542990a98493591,bridge,hard,span,second,no,0.0,0.0,0,3,1,0.3333,2,1,0.5,2,repeated_query,7,44,1368,3,0.636,3.293,86.0,4866.7
+5ab840e255429934fafe6d3b,bridge,hard,span,New Jewel Movement,New Jewel Movement,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,38,1538,3,0.695,3.716,60.8,4915.0
+5ac3d4b6554299204fd21e93,comparison,hard,span,Paper,Paper,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,27,1015,3,0.524,2.875,93.8,4880.2
+5a73b2cb55429908901be31a,bridge,hard,span,Maria von Trapp,Maria Augusta von Trapp,0.0,0.8571,0,2,1,0.5,2,2,1.0,2,done,6,24,1202,3,0.564,2.707,53.2,4863.2
+5ac29cf8554299218029dac2,bridge,hard,span,Rowan Blanchard,Rowan Blanchard,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,613,2,0.516,1.516,63.4,4785.5
+5ae686535542996d980e7bdc,bridge,hard,span,Ringo Starr,Barbara Bach,0.0,0.0,0,4,3,0.75,2,2,1.0,3,max_hops,10,40,1073,3,0.482,3.227,64.2,4820.3
+5a8aa1685542992d82986f32,bridge,hard,span,Beijing Dance Academy,Beijing Dance Academy,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,25,841,3,0.538,2.489,61.9,4754.6
+5a7d7deb5542995f4f402282,bridge,hard,span,Shifty Shellshock,John Hodgson,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,11,38,1202,3,0.6,3.297,62.6,4882.0
+5a8c622a554299240d9c2142,bridge,hard,span,Ursula Kroeber Le Guin,Ursula K. Le Guin,0.0,0.75,1,2,2,1.0,2,2,1.0,1,done,5,11,631,2,0.601,1.582,55.4,4798.8
+5a7b81715542997c3ec971d4,bridge,hard,span,Hugo Award,Best Series Hugo Award,0.0,0.6667,1,4,4,1.0,2,2,1.0,2,repeated_query,7,59,1066,3,0.535,3.398,59.4,4860.0
+5ae0c29c5542993d6555ec46,bridge,hard,span,"professional wrestler, actor, and hip hop musician",professional wrestler,0.0,0.4444,1,3,3,1.0,2,2,1.0,1,done,5,5,611,2,0.523,1.462,72.9,4784.5
+5a7c290c5542990527d55468,bridge,hard,span,Oklahoma,Oklahoma,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,519,2,0.537,1.401,65.5,4716.6
+5a876f785542993e715abf42,comparison,hard,span,"musician, editor and composer.",William Blake Herron,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,47,796,3,0.496,3.125,58.0,4750.8
+5ae1e6d95542997283cd22c3,bridge,hard,span,Jordan Peele,Jordan Peele and Alex Rubens,0.0,0.5714,1,2,2,1.0,2,2,1.0,2,repeated_query,5,60,748,3,0.514,3.092,56.2,4686.0
+5ae10df355429920d52342ac,bridge,hard,span,"Warrnambool, Victoria","Warrnambool, Victoria",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,25,1016,3,0.552,2.63,55.5,4869.1
+5ae4d8475542993aec5ec0e0,bridge,hard,span,Giuseppe Verdi,Giuseppe Verdi,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,10,43,1402,3,0.538,3.735,56.1,4892.2
+5ab94cf0554299743d22eade,bridge,hard,span,Warrington,Pensacola,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,37,1303,3,0.718,3.425,58.5,4825.7
+5ae479745542996836b02cb1,bridge,hard,span,Sex Drive,no,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,6,34,1161,3,0.621,3.011,91.2,4883.6
+5a852cd05542997b5ce3ffb0,bridge,hard,span,Bay of Fundy,Bay of Fundy,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,27,1252,3,0.594,2.905,58.0,4846.1
+5a8babf05542996e8ac8899e,comparison,hard,span,Daviesia,Daviesia,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,10,26,1089,3,0.503,2.835,56.7,4804.0
+5a82fcbd55429954d2e2ebe8,bridge,hard,span,Maria Szraiber,Maria Szraiber,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,45,1222,3,0.531,3.305,58.5,4859.1
+5a77c60255429967ab105285,bridge,hard,span,theory of direct scattering and inverse scattering,"Emil Wolf's advancements in physical optics, including diffraction and coherence properties of optical fields.",0.0,0.1905,1,2,2,1.0,2,2,1.0,2,repeated_query,6,60,921,3,0.556,3.304,47.6,4803.0
+5adf39ce5542995534e8c76d,bridge,hard,span,Shakespeare performances,7,0.0,0.0,0,2,1,0.5,2,1,0.5,1,repeated_query,5,15,551,2,0.539,1.684,88.3,4740.3
+5ae694a15542991bbc976141,bridge,hard,span,defence of the Cathedral,historically has been important to the defence of the Cathedral Close.,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,8,43,986,3,0.509,3.052,48.2,4860.0
+5ae13bca55429901ffe4ae17,bridge,hard,span,Debbie Harry,Debbie Harry,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,62,1014,3,0.527,3.412,60.0,4855.4
+5a8a265b5542992d82986ecc,comparison,hard,span,Frederick King Keller,Frederick King Keller,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,34,976,3,0.557,2.946,60.8,4791.9
+5a77121a5542994aec3b71db,comparison,hard,span,"The Boatniks is a 1970 American comedy film starring Robert Morse, Stefanie Powers, Don Ameche and Phil Silvers.",The Boatniks,0.0,0.1176,1,2,2,1.0,2,2,1.0,3,max_hops,9,37,1210,3,0.593,3.144,60.2,4826.7
+5ae6911955429908198fa626,bridge,hard,span,Mrs. Eastwood & Company,Mrs. Eastwood & Company,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,38,1042,3,0.546,3.155,51.8,4869.8
+5ae53de455429908b6326599,bridge,hard,span,Delaware River,Brodhead Creek,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,7,17,1084,3,0.58,2.663,57.5,4869.1
+5a813b6f55429903bc27b951,bridge,hard,span,Oryzomyini,Oryzomyini,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,8,32,1024,3,0.525,2.83,57.0,4860.0
+5a84b4005542991dd0999d99,bridge,hard,span,"October 16, 2015","September 25, 2015",0.0,0.3333,0,3,2,0.6667,2,1,0.5,1,done,5,13,499,2,0.545,1.61,53.9,4701.5
+5a8cca64554299653c1aa125,bridge,hard,span,British Army,British Army,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,54,1178,3,0.573,3.626,71.4,4882.9
+5ab8ed305542991b5579f046,bridge,hard,span,The United States of America,United States,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,5,529,2,0.566,1.361,73.2,4724.4
+5ae0b2f25542993d6555ec1c,bridge,hard,span,hamburgers,fried chicken,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,29,1156,3,0.549,2.996,75.2,4817.3
+5ae207a65542994d89d5b317,comparison,hard,span,Oplismenus,Lavatera,0.0,0.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,35,1027,3,0.562,2.918,61.2,4859.2
+5a75383a5542996c70cfaeb3,comparison,hard,span,Ulf Dietrich Merbold,Mirosław Hermaszewski,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,31,1161,3,0.538,3.0,55.4,4886.9
+5ae3fd2c5542995dadf2428f,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,28,970,3,0.545,2.881,94.9,4835.6
+5abffd10554299012d1db556,bridge,hard,span,Lombardy,"Valtellina, in the Italian Alps, which is in the Lombardy region.",0.0,0.2,1,2,2,1.0,2,2,1.0,1,done,5,20,477,2,0.497,1.619,50.9,4681.7
+5a8f812755429918e830d245,bridge,hard,span,a governor,Governor of the New York Stock Exchange,0.0,0.2857,1,2,2,1.0,2,2,1.0,1,done,5,11,761,2,0.63,1.761,56.4,4860.0
+5ae520315542993aec5ec152,bridge,hard,span,Taylor Swift,Taylor Swift,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,5,474,2,0.493,1.379,75.7,4679.9
+5a7631cd5542994ccc91870c,bridge,hard,span,"Franconia, New Hampshire","Franconia, New Hampshire",1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,38,1232,3,0.59,3.234,56.0,4848.2
+5ac26eed55429951e9e685bf,bridge,hard,span,the U.S. state of Kansas,Doniphan County,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,7,369,2,0.498,1.36,60.2,4607.6
+5a7e37095542995ed0d166d5,comparison,hard,span,Sinclair Hill,Sinclair Hill,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,32,915,3,0.531,2.876,63.5,4819.7
+5adf72d35542992d7e9f9369,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,32,1203,3,0.546,3.064,91.4,4835.7
+5a876b265542993e715abf33,comparison,hard,span,and lead guitarist,Joe Gooch,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,36,1125,3,0.553,2.99,62.3,4856.5
+5a77ddb855429967ab1052d8,bridge,hard,span,"Cynthia Ann Stephanie ""Cyndi"" Lauper",Cyndi Lauper,0.0,0.5714,0,3,2,0.6667,2,2,1.0,3,max_hops,9,42,1040,3,0.572,3.31,57.8,4818.7
+5adcc3ed5542994d58a2f6c4,bridge,hard,span,"the ""First Family of Competitive Eating""",no,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,4,537,2,0.581,1.411,96.6,4730.6
+5a76f5b155429972597f1400,bridge,hard,span,Philip Morris Glass,Philip Glass,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,7,57,853,3,0.48,3.123,75.7,4781.7
+5ae2c696554299495565db32,bridge,hard,span,Keeper of the Privy Seal of Scotland,Keeper of the Great Seal of Scotland,0.0,0.8333,0,3,2,0.6667,2,2,1.0,2,repeated_query,7,66,1240,3,0.594,4.013,53.8,4840.3
+5a875154554299211dda2be7,bridge,hard,span,Mickey Gilley,Mickey Gilley,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,43,1180,3,0.607,3.493,60.0,4813.6
+5a84cf175542992a431d1aa2,comparison,hard,span,Ratatat,Ratatat,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,6,28,1021,3,0.599,2.835,62.9,4842.3
+5ae675245542991bbc9760dc,bridge,hard,span,Merovech,Merovech,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,28,1366,3,0.848,4.565,57.2,4859.4
+5a80b0565542996402f6a5f0,comparison,hard,span,Adorable,Adorable,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,24,1151,3,0.537,2.965,69.4,4840.9
+5adde3a45542997545bbbdc2,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,553,2,0.55,1.351,93.9,4741.3
+5ac26b7f55429951e9e685ae,bridge,hard,span,hardcore,"Johann Sebastian Bach, Karlheinz Stockhausen, Terry Riley, Philip Glass, Moondog",0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,50,1097,3,0.543,3.308,49.8,4812.5
+5adf39295542992d7e9f92df,comparison,hard,span,Apium,Apium,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,31,1170,3,0.612,3.216,69.8,4852.7
+5abc19705542993a06baf86e,bridge,hard,span,Dutch,Dutch,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,25,1093,3,0.513,3.465,66.5,4835.6
+5ae6914755429908198fa627,bridge,hard,span,January 2001,January,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,8,26,915,3,0.599,2.901,83.5,4816.6
+5adc9b7a5542994d58a2f679,bridge,hard,span,American,United States,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,25,843,3,0.508,2.739,67.6,4856.5
+5a721dfd55429971e9dc928b,bridge,hard,span,Thorgan Ganael Francis Hazard,Thorgan,0.0,0.4,1,3,3,1.0,2,2,1.0,2,repeated_query,6,53,946,3,0.546,3.105,71.3,4801.2
+5a8b50475542997f31a41cd4,bridge,hard,span,world wushu tournament,world wushu tournament,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,647,2,0.588,1.602,58.1,4811.2
+5a860aa6554299211dda2a45,comparison,hard,span,The New York Enterprise Report,The New York Enterprise Report,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,26,1369,3,0.606,3.125,56.9,4881.2
+5ae4585c5542996836b02c89,comparison,hard,span,Live,Band of Skulls,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,7,655,2,0.584,1.588,60.9,4816.6
+5adfcb5455429906c02daa48,bridge,hard,span,Father Dougal McGuire,Father Dougal McGuire,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,34,1178,3,0.601,2.919,55.3,4829.0
+5a77a41a5542997042120ab9,bridge,hard,span,2006,2006,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,35,1426,3,0.617,3.454,60.3,4878.2
+5a8759395542994775f607e0,bridge,hard,span,Joel David Coen,Ethan Jesse Coen,0.0,0.3333,1,2,2,1.0,2,2,1.0,3,max_hops,7,47,1018,3,0.513,3.235,53.5,4842.3
+5a84992e5542992a431d1a6d,bridge,hard,span,Boyd Gaming,Boyd Gaming,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,8,19,809,3,0.486,2.369,60.6,4755.7
+5ac1bce45542994ab5c67def,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,23,867,3,0.521,2.627,105.2,4886.9
+5ac0641f554299294b218fbe,bridge,hard,span,2.1 million,2.1 million,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,7,463,2,0.489,1.303,65.5,4671.4
+5a87954f5542996e4f308856,comparison,hard,span,Bactris,no,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,6,38,724,3,0.489,2.602,101.5,4697.7
+5a8bc03d5542996e8ac88a0b,bridge,hard,span,Operation Neptune,LBK,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,5,613,2,0.548,1.462,67.0,4785.5
+5ab8869155429916710eb081,bridge,hard,span,Boeing EA-18G Growler,EA-18G Growler,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,6,66,1150,3,0.567,3.829,50.8,4876.4
+5adde17f5542992200553b87,bridge,hard,span,Orlando Magic,Orlando Magic,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,42,1168,3,0.535,2.759,74.9,4814.2
+5a776ac75542993569682d9b,bridge,hard,span,"Daniel Patrick ""Pat"" Moynihan",Daniel Patrick Moynihan,0.0,0.8571,1,3,3,1.0,2,2,1.0,3,max_hops,10,39,1143,3,0.463,2.769,66.3,4796.3
+5ae70ed7554299572ea546a1,bridge,hard,span,Charlie Murphy,no,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,11,29,952,3,0.395,2.125,117.6,4789.2
+5ae1fbf05542997f29b3c1e7,bridge,hard,span,1944,1944,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,471,2,0.328,0.931,70.5,4677.5
+5ac1c9a15542994ab5c67e1c,bridge,hard,span,more than 10 million,10 million,0.0,0.6667,1,4,4,1.0,2,2,1.0,2,done,7,12,1138,3,0.386,1.813,76.6,4816.4
+5a77c8905542995d831812ce,bridge,hard,span,Levi Weeks,Levi Weeks,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,8,35,1070,3,0.419,2.266,75.8,4859.2
+5a89f68f5542992e4fca84b6,bridge,hard,span,officer,military officer,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,10,50,1221,3,0.426,2.757,78.0,4856.4
+5a7f62405542992e7d278cf0,bridge,hard,span,Teriade,Harcourt Brace & Company,0.0,0.0,0,3,1,0.3333,2,1,0.5,2,repeated_query,8,39,1170,3,0.38,2.314,68.6,4819.4
+5a7ca4485542990527d554f1,bridge,hard,span,2027 Fairmount Avenue,"2027 Fairmount Avenue between Corinthian Avenue and North 22nd Street in the Fairmount section of Philadelphia, Pennsylvania.",0.0,0.3158,1,2,2,1.0,2,2,1.0,3,max_hops,9,53,1084,3,0.375,2.622,60.6,4804.9
+5a8347d65542996488c2e3f6,bridge,hard,span,Kurt Russell,no,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,9,48,947,3,0.375,2.37,120.3,4819.7
+5ab8634e5542990e739ec8de,bridge,hard,span,The Vanguard Group,Fama and French's research is period dependent.,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,8,51,1018,3,0.393,2.551,59.4,4867.1
+5ab85e9e55429934fafe6d8b,bridge,hard,span,1614,1968,0.0,0.0,1,4,4,1.0,2,2,1.0,2,repeated_query,7,23,1146,3,0.487,2.243,71.1,4880.2
+5a79c9c05542994bb94570a5,bridge,hard,span,"Robert ""Bobby"" Bunda",yes,0.0,0.0,1,3,3,1.0,2,2,1.0,2,done,7,25,940,3,0.392,1.911,118.3,4819.7
+5a8c616f5542995e66a475de,bridge,hard,span,Steeles Avenue,Steeles Avenue,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,30,1004,3,0.363,2.044,73.2,4872.2
+5ab90fdd55429916710eb0fc,bridge,hard,span,"London, England",England,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,4,473,2,0.315,0.851,116.7,4679.9
+5abe7f695542993f32c2a12d,bridge,hard,span,focus on young superheroes,Young Justice,0.0,0.3333,1,2,2,1.0,2,2,1.0,3,max_hops,6,31,1034,3,0.376,2.138,87.3,4874.0
+5abeb0da5542997ec76fd34b,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,2,1.0,2,repeated_query,5,38,859,3,0.375,2.035,118.7,4750.8
+5a7521c55542993748c897c6,comparison,hard,span,Burwash Mine,Burwash Mine,1.0,1.0,0,5,4,0.8,2,2,1.0,2,repeated_query,8,46,1109,3,0.385,2.37,77.7,4883.6
+5adfda5255429942ec259b5e,bridge,hard,span,Douglas,Douglas County,0.0,0.6667,1,3,3,1.0,2,2,1.0,3,max_hops,7,34,852,3,0.379,2.077,77.1,4768.6
+5abaeda95542992ccd8e7e5d,bridge,hard,span,Twin Pines/Lone Pine Mall,Twin Pines Mall,0.0,0.5714,1,2,2,1.0,2,2,1.0,2,repeated_query,5,58,844,3,0.401,2.643,67.4,4741.7
+5ae68e0055429908198fa607,bridge,hard,span,Hindi,Hindi films,0.0,0.6667,0,3,2,0.6667,2,2,1.0,2,repeated_query,9,36,1115,3,0.364,2.477,73.3,4842.8
+5a7577785542992d0ec05fa0,bridge,hard,span,Tatton Park,Heritage Centre,0.0,0.0,0,4,3,0.75,2,2,1.0,2,repeated_query,6,42,841,3,0.401,2.272,71.3,4760.8
+5a7d147955429909bec76942,bridge,hard,span,Felicity Rose Hadley Jones,Felicity Jones,0.0,0.6667,0,3,2,0.6667,2,2,1.0,3,max_hops,8,30,1107,3,0.458,2.491,74.0,4809.2
+5a83a2a15542993344746063,bridge,hard,span,June 1925,1925,0.0,0.6667,0,3,2,0.6667,2,2,1.0,2,repeated_query,7,35,826,3,0.307,1.893,75.4,4764.6
+5ac079e9554299294b218fff,bridge,hard,span,Navy,Royal Navy,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,5,505,2,0.356,0.91,85.2,4706.6
+5adca8375542990d50227cd4,bridge,hard,span,2008,2006,0.0,0.0,0,2,0,0.0,2,1,0.5,1,done,5,7,531,2,0.38,1.002,73.9,4725.5
+5add4f3a5542997545bbbd2c,bridge,hard,span,United Holy Salvation Army and Uganda Christian Army/Movement,Tigers and Oxen,0.0,0.1818,1,3,3,1.0,2,2,1.0,3,max_hops,6,51,923,3,0.372,2.65,65.7,4788.3
+5ae26cb15542994d89d5b421,bridge,hard,span,"September 30, 2009",6 November 2011,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,44,886,3,0.409,2.444,66.0,4763.9
+5a73cad5554299623ed4ac5e,bridge,hard,span,"Wesley ""Wes"" Studi",Amanda Wyss,0.0,0.0,0,3,1,0.3333,2,2,1.0,2,repeated_query,6,39,1044,3,0.453,2.356,79.8,4864.0
+5ae0d5335542990adbacf674,bridge,hard,span,"Robert Smigel, Michael Koman and David Feldman",Robert Smigel,0.0,0.4444,1,2,2,1.0,2,2,1.0,1,done,5,6,545,2,0.429,1.157,72.5,4735.5
+5ab344fc55429969a97a811e,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,24,898,3,0.424,1.957,117.9,4788.3
+5ae1319c55429920d5234301,bridge,hard,span,"""An All-Colored Vaudeville Show""",An All-Colored Vaudeville Show,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,7,45,1082,3,0.434,2.344,63.9,4858.5
+5abee41a5542993fe9a41d79,bridge,hard,span,Dirt track racing,Dirt track racing,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,405,2,0.327,0.908,66.3,4638.1
+5a7daad55542995f4f4022b7,bridge,hard,span,1599,1599,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,9,22,1115,3,0.434,2.204,67.8,4809.2
+5a8ff6635542995651fb5086,comparison,hard,span,Bearno's Pizza,Bearno's Pizza,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,40,780,3,0.367,2.301,70.3,4731.3
+5ae3c0cc5542992f92d82369,bridge,hard,span,1957,1957,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,24,1205,3,0.415,2.34,73.0,4867.5
+5a8485fa5542992a431d1a41,bridge,hard,span,Cuyler Reynolds,Cuyler Reynolds,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,31,1037,3,0.371,2.122,72.1,4879.1
+5ae1389655429901ffe4ae05,bridge,hard,span,Southern State Parkway,Southern State Parkway,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,40,1078,3,0.386,2.412,74.8,4858.5
+5a7b73ad5542997c3ec9718c,bridge,hard,span,martial arts action films,"Jean-Claude Van Damme, who is best known for his martial arts action films.",0.0,0.4706,1,2,2,1.0,2,2,1.0,2,repeated_query,5,58,1825,3,0.685,3.627,59.5,4946.5
+5a7a68d25542996c55b2dd98,bridge,hard,span,second cousin once removed,uncle,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,38,1424,3,0.493,2.71,82.6,4857.1
+5ae2bb545542992decbdcd88,bridge,hard,span,fortnightly,fortnightly,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,done,7,16,859,3,0.422,1.844,77.0,4772.4
+5a8f47a55542997ba9cb3219,bridge,hard,span,Spam,Spam,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,29,1007,3,0.378,2.027,84.3,4840.3
+5ab1ebff5542993be8fa9882,comparison,hard,span,Eustoma,Eustoma,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,36,658,3,0.335,1.898,76.1,4649.9
+5a7fd7305542992e7d278dc2,bridge,hard,span,The Life of Larry and Larry & Steve,The Life of Larry and Larry & Steve,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,43,1007,3,0.42,2.534,65.6,4815.9
+5abb8aaf5542993f40c73b1c,bridge,hard,span,Los Angeles,Los Angeles,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,33,1191,3,0.437,2.314,88.1,4825.7
+5abba584554299642a094afa,bridge,hard,span,"1,925 yards","1,925",0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,9,55,1192,3,0.415,2.708,70.2,4814.2
+5a804510554299485f5985af,bridge,hard,span,Nicolas Vanier,Nicolas Vanier,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,45,959,3,0.377,2.223,69.1,4835.6
+5abb11c15542992ccd8e7ef8,bridge,hard,span,"March 30, 2025","March 30, 2025",1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,44,1498,3,0.545,2.909,63.7,4863.5
+5ae376a35542990afbd1e163,comparison,hard,yesno,yes,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,38,1071,3,0.422,2.387,117.4,4886.9
+5adc5b875542996e68525328,bridge,hard,span,2006 season,2007,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,41,1199,3,0.448,2.534,74.2,4828.1
+5ae6b6065542991bbc976168,bridge,hard,span,Scott Adkins,Scott Adkins,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,80,1006,3,0.362,3.02,76.6,4859.2
+5a79d2fe5542994f819ef0c3,comparison,hard,span,Aleksandr Ivanovsky,Aleksandr Ivanovsky,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,42,1223,3,0.448,2.435,71.1,4848.5
+5ab38cdd5542992ade7c6de2,bridge,hard,span,John Lennon,John Lennon,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,31,1165,3,0.415,2.381,87.2,4809.1
+5ae73d235542991e8301cc29,bridge,hard,span,Free Range Films,no,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,31,1075,3,0.37,2.181,116.8,4877.1
+5a7a33205542996a35c1712f,bridge,hard,span,Province of New York,Province of New York,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,53,1079,3,0.418,2.5,73.3,4883.6
+5a799dfb5542994bb9457029,bridge,hard,span,Caesars Palace Grand Prix,Caesars Palace Grand Prix,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,48,931,3,0.382,2.397,68.0,4818.7
+5a71095e5542994082a3e4f3,bridge,hard,span,David Dunn,Frank Moses,0.0,0.0,0,2,1,0.5,2,2,1.0,1,repeated_query,5,20,817,2,0.478,1.611,87.9,4809.2
+5aba77be55429955dce3ee44,bridge,hard,span,7°56',7°56' South,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,9,703,2,0.413,1.352,69.6,4852.7
+5a8af94455429971feec45b6,bridge,hard,span,since 2007,2007,0.0,0.6667,0,2,1,0.5,2,1,0.5,3,max_hops,9,32,1142,3,0.367,2.191,73.7,4822.4
+5abcedb355429959677d6b4f,bridge,hard,span,Scott Paul Carson,Scott Carson,0.0,0.8,1,3,3,1.0,2,2,1.0,3,max_hops,8,43,948,3,0.383,2.313,88.1,4821.8
+5a713dcb5542994082a3e6d9,comparison,hard,span,"American educator, writer,",literary,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,39,1068,3,0.378,2.507,88.3,4882.9
+5ae383e15542992f92d822fb,comparison,hard,span,Heavyweights,Heavyweights,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,637,2,0.418,1.08,88.3,4803.0
+5a85df525542994c784ddb9f,bridge,hard,span,Robert A. Iger,Robert Allen Iger,0.0,0.8,1,4,4,1.0,2,2,1.0,3,max_hops,10,48,1012,3,0.306,2.369,72.5,4843.4
+5a9030ef5542995651fb50e4,bridge,hard,span,American football,American football,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,29,941,3,0.319,1.861,87.1,4845.4
+5a8a2d2155429930ff3c0cdc,bridge,hard,span,Academy Award for Best Animated Feature,no,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,8,58,941,3,0.377,2.438,120.6,4822.5
+5a88fa9e5542993b751ca8de,bridge,hard,span,the Bears,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,47,1185,3,0.383,2.652,114.1,4835.6
+5ae7882b554299540e5a55dd,bridge,hard,span,great-grandfather,no,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,8,50,1055,3,0.389,2.328,116.6,4867.1
+5a81dacc55429926c1cdada0,bridge,hard,span,William Shakespeare,William Shakespeare,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,503,2,0.375,0.944,89.3,4704.2
+5ab322b1554299194fa93570,bridge,hard,span,fictional character,fairy tale character,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,5,7,539,2,0.373,1.039,73.9,4731.3
+5a8a764555429930ff3c0de1,bridge,hard,span,American-born,American-born,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,10,40,1342,3,0.429,2.621,85.8,4859.1
+5a8d93bf554299068b959d46,comparison,hard,yesno,no,no,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,6,26,835,3,0.391,2.002,109.6,4750.8
+5abf04ae5542993fe9a41dbf,bridge,hard,span,played,clapping of hands,0.0,0.0,0,2,0,0.0,2,2,1.0,2,repeated_query,7,41,966,3,0.419,2.212,72.3,4821.8
+5ab55b0c554299488d4d995e,bridge,hard,span,the Big 12 Conference,Big 12 Conference,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,40,877,3,0.391,2.308,70.2,4785.5
+5ae4a1875542995ad6573dd2,bridge,hard,span,Hero,Betano,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,37,808,3,0.398,2.062,86.5,4734.7
+5abae3205542996cc5e49edc,bridge,hard,span,Man Booker Prize for Fiction,Man Booker Prize for Fiction,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,7,54,980,3,0.421,2.594,71.2,4831.8
+5ab5a4555542997d4ad1f19c,bridge,hard,span,AMC Theatres,AMC Theatres,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,45,1069,3,0.373,2.43,70.0,4876.4
+5abbd85a5542993f40c73be1,bridge,hard,span,"Christopher ""Chris"" Tarbell",Sabu (of Anonymous),0.0,0.0,0,4,2,0.5,2,2,1.0,1,done,5,9,617,2,0.38,1.036,69.6,4788.3
+5abe731255429965af743f0e,comparison,hard,span,musician,musician,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,547,2,0.4,1.009,86.7,4737.5
+5a77bef05542992a6e59dfaf,bridge,hard,span,Katherine Harris,no,0.0,0.0,0,3,1,0.3333,2,1,0.5,3,max_hops,10,37,1098,3,0.387,3.031,113.7,4883.6
+5a9064d05542990a9849360f,bridge,hard,span,Tariq Khan,Aamir Khan,0.0,0.5,0,5,4,0.8,2,2,1.0,3,max_hops,7,67,1147,3,0.441,2.96,68.9,4814.2
+5a8c30f6554299240d9c20d1,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,623,2,0.48,1.213,111.4,4793.0
+5ae5ffbb5542996de7b71ad4,bridge,hard,span,Argentinian,Argentinian,1.0,1.0,0,2,1,0.5,2,2,1.0,2,done,7,20,1112,3,0.431,2.155,78.9,4809.2
+5ae213de5542997283cd23b9,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,28,1106,3,0.399,2.147,117.3,4864.0
+5a81cb2c5542990a1d231ec4,bridge,hard,span,Player of the Year,Crystal Palace Football Club Player of the Year,0.0,0.6,1,4,4,1.0,2,2,1.0,2,done,7,34,908,3,0.379,2.018,66.6,4798.8
+5a7605f85542994ccc91868d,comparison,hard,span,Battle of Hürtgen Forest,Battle of Hürtgen Forest,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,8,21,1201,3,0.44,2.142,65.7,4835.8
+5ae07b0155429945ae95935d,comparison,hard,span,Paul Thomas Mann,Thomas Mann,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,6,27,912,3,0.395,1.909,86.0,4785.5
+5abcf17655429959677d6b5c,bridge,hard,span,UDC,Cheyney University,0.0,0.0,0,2,1,0.5,2,2,1.0,2,done,9,19,1041,3,0.333,1.895,72.1,4799.1
+5ae1b1aa5542997283cd223f,bridge,hard,span,Los Angeles Lakers,Los Angeles Lakers,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,55,1219,3,0.426,2.921,76.8,4857.3
+5ab9587d55429970cfb8ea7e,bridge,hard,span,Reinhard Heydrich,Reinhard Heydrich,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,5,9,671,2,0.444,1.244,65.4,4829.0
+5ab81cd955429916710eaff7,bridge,hard,span,electromagnetic field,High thermal damage and kinetic energy.,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,10,707,2,0.438,1.285,67.3,4855.4
+5a77a9df55429967ab10521c,bridge,hard,span,Clive Staples Lewis,C. S. Lewis,0.0,0.3333,1,2,2,1.0,2,2,1.0,1,done,5,8,631,2,0.412,1.076,70.6,4798.8
+5a85a2845542997175ce1fe1,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,34,762,3,0.328,2.106,114.0,4728.2
+5a800ca555429969796c1bac,bridge,hard,span,Plato,Plato,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,8,25,1244,3,0.451,2.308,86.3,4872.2
+5a73c958554299623ed4ac5c,bridge,hard,span,the autonomous community of Madrid,Madrid,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,8,38,831,3,0.317,2.003,86.4,4775.2
+5ae528ed5542993aec5ec16e,bridge,hard,span,Revengers Tragedy,Revengers Tragedy,1.0,1.0,0,3,2,0.6667,2,1,0.5,2,done,7,23,1235,3,0.419,2.115,71.0,4848.5
+5a8aee2c55429970aeb70338,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,28,966,3,0.369,2.019,113.8,4842.3
+5ae7ef625542994a481bbe40,bridge,hard,span,"Umina Beach, New South Wales",Tessa Townsville,0.0,0.0,0,3,0,0.0,2,0,0.0,2,repeated_query,5,37,529,3,0.286,1.742,74.4,4589.4
+5ae2cda55542992decbdcdb7,bridge,hard,span,Bryan Shelton White,Bryan White,0.0,0.8,0,3,2,0.6667,2,2,1.0,3,max_hops,10,28,989,3,0.327,2.107,70.8,4863.2
+5a7af1a955429931da12c98f,comparison,hard,span,Distaghil Sar,Distaghil Sar,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,24,1020,3,0.355,2.097,70.5,4863.2
+5a8b017155429949d91db463,bridge,hard,span,Obafemi Martins,Obafemi Martins,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,751,2,0.493,1.254,70.8,4887.6
+5abe535055429976d4830aea,bridge,hard,span,Montreal,"Montreal, Quebec, Canada",0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,9,25,1063,3,0.401,2.019,63.6,4882.2
+5ae3f2d25542995ad6573ccc,bridge,hard,span,U.S. Bancorp,U.S. Bancorp,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,27,791,3,0.308,1.819,71.3,4741.7
+5a74122f55429929fddd83da,bridge,hard,span,Love Drunk,Love Drunk,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,6,591,2,0.397,1.027,76.8,4769.3
+5ae803915542994a481bbe80,bridge,hard,span,Dubai International Stadium,Dubai International Cricket Stadium,0.0,0.8571,1,2,2,1.0,2,2,1.0,2,done,6,21,930,3,0.381,1.753,71.7,4798.8
+5a734e6d5542994cef4bc528,comparison,hard,span,The Beaver and Erie Canal,Beaver and Erie Canal,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,30,1235,3,0.425,2.335,68.1,4854.9
+5ae3bb0d5542992f92d82357,bridge,hard,span,Nikolai Morozov,Maxim Bolotin,0.0,0.0,0,3,1,0.3333,2,2,1.0,3,max_hops,9,54,1010,3,0.383,2.588,69.6,4803.4
+5a7624b85542992db947372c,bridge,hard,span,"January 18, 1813","January 18, 1813",1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,8,23,1007,3,0.38,1.923,64.3,4877.1
+5a8091515542996402f6a563,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,22,1224,3,0.425,2.087,116.1,4872.9
+5a7a1b165542996c55b2dd10,comparison,hard,span,Margaret Landon,Margaret Landon,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,25,1162,3,0.419,2.248,83.0,4822.5
+5ac38bf355429939154137ba,bridge,hard,span,united Ireland,supporting a united Ireland,0.0,0.8,1,2,2,1.0,2,2,1.0,2,done,7,25,1088,3,0.381,2.002,71.0,4867.1
+5a7502715542996c70cfae74,bridge,hard,span,Thon Marial Maker,Thon Marial Maker,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,8,741,2,0.418,1.201,71.1,4880.2
+5a724ba25542990c210a40c7,bridge,hard,span,grand assembly,Marmakhel Tribe,0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,7,28,1035,3,0.364,1.996,70.2,4882.9
+5abd0b6b5542996e802b46b4,bridge,hard,span,number five,5,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,4,739,2,0.426,1.138,112.1,4879.1
+5ac00f795542996f0d89cb16,bridge,hard,span,Alan Young,Jim Carrey,0.0,0.0,0,4,1,0.25,2,1,0.5,2,repeated_query,5,44,835,3,0.379,2.171,95.8,4738.6
+5ac3af895542995ef918c1f0,bridge,hard,span,Stedelijk Museum Amsterdam,Stedelijk Museum,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,7,36,1332,3,0.428,2.589,72.7,4869.1
+5ac3bab155429939154138fb,bridge,hard,span,Ernestine,House of Saxe-Coburg and Gotha,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,55,1042,3,0.424,2.494,64.7,4859.2
+5ab1f13e554299449642c81c,bridge,hard,span,aired on PBS stations,PBS,0.0,0.4,0,3,2,0.6667,2,2,1.0,2,done,8,19,1287,3,0.428,2.148,104.6,4879.0
+5a7652435542992d0ec060a5,comparison,hard,span,Pyotr Ilyich Tchaikovsky,Pyotr Ilyich Tchaikovsky,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,9,46,1393,3,0.478,2.767,64.5,4851.2
+5ade881f5542992fa25da7af,bridge,hard,span,Alan Mathison Turing,Alan Turing,0.0,0.8,1,2,2,1.0,2,2,1.0,1,done,5,5,761,2,0.484,1.222,87.3,4860.0
+5a83e98e5542992ef85e2387,bridge,hard,span,Cuban,Cuban,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,12,29,1179,3,0.378,2.171,78.8,4846.6
+5a7b60605542995eb53be931,bridge,hard,span,1907,1907,1.0,1.0,1,4,4,1.0,2,2,1.0,2,repeated_query,8,31,1069,3,0.365,2.042,73.6,4872.9
+5a8df1a65542995085b3735f,bridge,hard,span,largest country,country,0.0,0.6667,0,4,2,0.5,2,2,1.0,3,max_hops,11,24,1464,3,0.427,2.384,116.5,4901.1
+5a7e0c045542995f4f4023c5,comparison,hard,span,"Douglas Eric ""Doug"" Liman",yes,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,20,1094,3,0.429,1.905,120.9,4858.5
+5a81711455429938b614233e,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,457,2,0.307,0.872,120.5,4666.6
+5ac275f155429921a00aaf82,bridge,hard,span,Viet Minh's base,capital,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,8,21,1276,3,0.405,2.083,116.8,4878.2
+5a7ed5af5542994959419a84,comparison,hard,span,Kitchens of Distinction,Kitchens of Distinction,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,539,2,0.374,1.08,71.9,4731.3
+5a83ed9b55429933447460b8,comparison,hard,span,flowering plants,genus,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,4,35,688,3,0.278,1.743,91.3,4665.6
+5ae648b955429929b0807b1d,bridge,hard,span,Nobel Prize,Nobel Prize in Physics,0.0,0.6667,1,3,3,1.0,2,2,1.0,3,max_hops,7,43,1142,3,0.369,2.47,69.9,4816.4
+5a8f24cc55429924144829e7,bridge,hard,span,Battle of Dresden,The Battle of Dresden,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,6,33,936,3,0.38,2.003,73.9,4798.8
+5addda9b5542992200553b5b,bridge,hard,span,Isla de Xativa,Isla de Xativa,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,40,975,3,0.369,2.244,70.4,4835.6
+5a77c4fe55429967ab10527b,bridge,hard,span,Remix,Remix,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,5,529,2,0.376,0.956,89.2,4724.4
+5adce36e5542990d50227d55,bridge,hard,span,Tufts College,Tufts College,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,36,1160,3,0.367,2.309,77.8,4830.6
+5a8f155e554299458435d54c,bridge,hard,span,21 years and 154 days,22 years,0.0,0.2857,1,2,2,1.0,2,2,1.0,3,max_hops,8,36,1389,3,0.486,2.673,76.0,4877.1
+5ac532335542994611c8b41c,bridge,hard,span,Marktown,Marktown,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,41,939,3,0.371,2.24,89.2,4832.9
+5a77ba6c55429967ab10524c,bridge,hard,span,"June 11, 1986","June 11, 1986",1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,13,523,2,0.37,1.069,65.4,4718.0
+5ac3b0885542995ef918c1f8,bridge,hard,span,20 October 1980,22 February 2009,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,6,33,734,3,0.31,1.755,67.6,4686.0
+5ab6006a554299110f2199b5,bridge,hard,span,The Wachowskis,Gerard Barrett,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,8,30,995,3,0.368,2.145,76.3,4856.5
+5ab53ad6554299488d4d9917,bridge,hard,span,Shep Meyers,Shep Meyers,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,10,45,1115,3,0.416,2.55,71.6,4882.9
+5a844fd35542990548d0b274,comparison,hard,span,author,film critic,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,23,1127,3,0.451,2.047,88.1,4799.1
+5ab2d1c45542992953946877,bridge,hard,span,The Campbell Soup Company,The Campbell Soup Company,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,7,451,2,0.327,0.959,74.4,4662.5
+5a71674f5542994082a3e819,bridge,hard,span,January 2004,January 2004,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,27,735,3,0.252,1.63,68.9,4754.6
+5a8f38fa55429924144829f5,bridge,hard,span,Javan leopard,volcanic organisms,0.0,0.0,0,2,0,0.0,2,1,0.5,1,done,5,7,391,2,0.309,0.842,73.5,4625.7
+5a7a651b5542990783324f40,bridge,hard,span,David Dobkin,David Dobkin,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,39,1091,3,0.381,2.426,75.5,4811.8
+5a76a0005542993569682c64,comparison,hard,span,John Alan Lasseter,John Lasseter,0.0,0.8,0,3,2,0.6667,2,2,1.0,2,done,7,19,832,3,0.343,1.743,71.8,4765.3
+5a8747915542994775f607bb,bridge,hard,span,Dame Eileen June Atkins,Eileen Atkins,0.0,0.6667,0,4,3,0.75,2,2,1.0,2,repeated_query,9,44,1208,3,0.396,2.526,77.7,4851.2
+5ae66b055542995703ce8b61,bridge,hard,span,Canadian comedian,Canadian comedian,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,26,1114,3,0.396,2.237,88.8,4807.6
+5ab5dc44554299494045f089,bridge,hard,span,Kansas–Nebraska Act,277) created the territories of Kansas and Nebraska and was combated by the Republican Party.,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,55,903,3,0.367,2.369,62.0,4795.0
+5ae0d9c555429924de1b719a,bridge,hard,span,Jay Van Andel,Jay Van Andel,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,669,2,0.457,1.241,68.3,4826.7
+5a7ec95b55429934daa2fc67,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,24,1355,3,0.474,2.486,116.7,4883.1
+5ac4ec9955429924173fb4da,bridge,hard,span,romantic comedy,Drama,0.0,0.0,0,3,0,0.0,2,1,0.5,3,max_hops,6,44,847,3,0.374,2.175,84.8,4758.8
+5ac097b05542996f0d89cc18,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,607,2,0.389,1.13,115.5,4781.7
+5ac270025542990b17b15390,bridge,hard,span,9 venues,9,0.0,0.6667,0,2,1,0.5,2,2,1.0,2,repeated_query,8,34,1042,3,0.325,2.149,115.7,4886.9
+5a863d2d5542991e771815d2,bridge,hard,span,Xcel Energy Inc.,3M,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,26,1293,3,0.43,2.415,88.2,4854.3
+5ab1e76c554299449642c800,bridge,hard,span,Dupont Plaza Hotel,"The Dupont Plaza Hotel, San Juan, Puerto Rico fire on December 31, 1986.",0.0,0.4,1,3,3,1.0,2,2,1.0,1,done,5,27,723,2,0.42,1.474,62.1,4867.1
+5a8a9bc15542996c9b8d5f36,bridge,hard,span,musical,musical,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,35,1054,3,0.407,2.121,88.3,4866.0
+5a84f5195542994c784dda9d,bridge,hard,span,Israeli Ambassador,"book co-author, not a current position holder",0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,9,28,1257,3,0.379,2.303,62.3,4864.5
+5a8b515e55429971feec46bb,bridge,hard,span,Red Dead Redemption,Red Dead Redemption,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,44,1005,3,0.374,2.39,77.8,4806.1
+5ab44ab25542991779162c58,comparison,hard,span,board game,board game and album,0.0,0.6667,0,2,1,0.5,2,2,1.0,3,max_hops,6,41,549,3,0.264,2.006,73.8,4610.6
+5ab701395542991d3222373a,bridge,hard,span,Beatty,Beatty,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,49,853,3,0.402,2.668,81.2,4747.7
+5ae5305b5542990ba0bbb1f5,bridge,hard,span,"October 17, 2017",2018,0.0,0.0,0,4,2,0.5,2,2,1.0,1,done,5,7,708,2,0.472,1.374,70.3,4855.4
+5ae0b60655429945ae959437,bridge,hard,span,"the Borough of Allerdale in Cumbria, England",Allerdale,0.0,0.2857,1,2,2,1.0,2,2,1.0,3,max_hops,11,26,1151,3,0.409,2.219,85.2,4857.3
+5a8fc0065542997ba9cb3318,bridge,hard,span,The Future,The Artist,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,29,1215,3,0.443,2.266,84.8,4859.2
+5ac036b95542992a796deccd,bridge,hard,span,EN World web site,EN World,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,9,41,1044,3,0.403,2.471,86.9,4830.6
+5ac1a2f755429964131be258,bridge,hard,span,Shut Up,Shut Up,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,7,32,972,3,0.398,2.105,73.9,4842.3
+5ac41379554299204fd21ef1,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,40,1196,3,0.424,2.69,114.9,4835.8
+5ac2ba4855429921a00ab048,bridge,hard,span,Sven Magnus,Magnus Carlsen,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,5,7,549,2,0.4,1.052,70.0,4738.6
+5a7119f75542994082a3e58e,bridge,hard,span,"June 24, 1935","June 24, 1935",1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,13,739,2,0.446,1.324,63.2,4879.1
+5ac55c135542993e66e82345,bridge,hard,span,Hordaland,Bergen,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,651,2,0.444,1.125,74.4,4812.6
+5ae7fde25542994a481bbe66,bridge,hard,span,Theo James Walcott,Theo Walcott,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,8,41,1094,3,0.383,2.454,67.1,4806.9
+5ac54ca45542993e66e822d5,bridge,hard,span,The Blue Album,The Blue Album,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,5,6,779,2,0.515,1.338,76.0,4874.0
+5a8da1815542994ba4e3dcd7,bridge,hard,span,1970s,1970s,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,32,1396,3,0.457,2.751,66.0,4881.6
+5ae2075f5542994d89d5b315,bridge,hard,span,"the Hanna-Barbera show ""Birdman and the Galaxy Trio.""",General Custer,0.0,0.0,0,2,0,0.0,2,1,0.5,1,done,5,6,541,2,0.41,1.093,74.4,4732.4
+5abe953b5542993f32c2a170,bridge,hard,span,superhero roles as the Marvel Comics,Christopher McCoy,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,5,461,2,0.347,0.917,87.4,4670.6
+5abff0645542994516f45539,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,23,846,3,0.31,1.683,101.2,4792.3
+5a7199725542994082a3e88f,comparison,hard,span,Texas Highways,Texas Highways,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,25,1043,3,0.329,2.209,71.8,4831.8
+5abbd7985542992ccd8e7fb8,bridge,hard,span,artists' lofts,trendy upscale boutiques,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,9,579,2,0.405,1.181,66.1,4760.8
+5a80ae105542992bc0c4a7a2,comparison,hard,span,poet,writer,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,31,1015,3,0.366,2.341,116.8,4859.2
+5ab9cfb455429970cfb8ebae,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,25,1032,3,0.39,2.181,109.3,4880.2
+5ae4c01e55429913cc2044f3,bridge,hard,span,Captain John Underhill,Captain John Underhill,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,7,621,2,0.443,1.209,70.6,4792.3
+5ae7922f5542994a481bbdac,bridge,hard,span,"Prince George's County, Maryland",Maryland,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,10,34,963,3,0.322,2.094,80.8,4879.1
+5ac2f1d1554299218029dba4,comparison,hard,span,trees,nothing,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,6,36,942,3,0.416,2.343,115.3,4798.8
+5ac09da45542996f0d89cc1d,comparison,hard,span,orange,orange,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,461,2,0.353,1.012,116.7,4670.6
+5ab42d5755429942dd415eaf,bridge,hard,span,1996,2013,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,11,39,982,3,0.322,2.329,71.7,4859.2
+5ae5d7b755429929b08079cd,bridge,hard,span,last seen in 1933,1933,0.0,0.4,1,2,2,1.0,2,2,1.0,3,max_hops,8,37,1429,3,0.531,3.014,67.0,4882.5
+5a8198565542995ce29dcc13,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,28,818,3,0.362,1.935,112.7,4771.3
+5ac3271e554299218029dbd3,bridge,hard,span,Chelmsford,Chelmsford,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,37,1011,3,0.398,2.398,67.2,4869.8
+5a8baf775542996e8ac889c8,bridge,hard,span,Wale,Ice Prince,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,47,1153,3,0.396,2.82,76.7,4840.9
+5abbdb195542993f40c73bf1,comparison,hard,span,Sierra de Guadarrama National Park,Guadarrama National Park,0.0,0.75,0,2,1,0.5,2,2,1.0,2,repeated_query,7,47,1046,3,0.436,2.437,68.2,4874.0
+5ac46cb85542991943173987,bridge,hard,span,Götene in Sweden,Pasvalys,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,23,1079,3,0.319,2.093,76.4,4836.4
+5ab69e8755429954757d3334,bridge,hard,span,Big Machine Records,Big Machine Records,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,37,824,3,0.331,2.138,76.8,4750.8
+5adfd22255429906c02daa4f,bridge,hard,span,Tamzin Outhwaite,Emily Watson,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,45,1390,3,0.498,2.824,86.4,4870.3
+5add2b435542990d50227e11,bridge,hard,span,Saoirse Ronan,Saoirse Ronan,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,47,829,3,0.322,2.231,71.0,4765.3
+5a8d0d7b55429941ae14df79,bridge,hard,span,"5,124 rooms","5,124",0.0,0.6667,0,2,1,0.5,2,1,0.5,1,done,5,8,391,2,0.327,0.929,68.3,4625.7
+5a874e9b554299211dda2bd3,bridge,hard,span,fashion model,worked as a fashion model,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,10,31,1338,3,0.447,2.75,68.1,4870.3
+5a7c3178554299683c1c62e1,bridge,hard,span,Manhattan Project,Los Alamos National Laboratory,0.0,0.0,0,4,3,0.75,2,2,1.0,1,done,5,8,673,2,0.435,1.218,69.1,4829.8
+5a8ee6145542990e94052bab,bridge,hard,span,Comeng and Clyde Engineering,Comeng and Clyde Engineering,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,8,541,2,0.379,1.001,69.6,4732.4
+5a8b7e9c5542995d1e6f13c1,comparison,hard,span,flowering plants,orchids and flowering plants,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,36,812,3,0.313,1.983,69.7,4745.0
+5ae020f5554299025d62a41b,bridge,hard,span,867,867 feet,0.0,0.6667,1,4,4,1.0,2,2,1.0,3,max_hops,8,29,1173,3,0.431,2.666,67.8,4805.8
+5a7cc28f554299452d57ba1c,bridge,hard,span,50 best cities to live in,50 best cities to live in,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,11,43,1096,3,0.457,2.667,61.0,4820.3
+5a7e08305542995f4f4023ab,comparison,hard,span,Abū Bakr ibn Muḥammad ibn al Ḥusayn al-Karajī,Al-Karajī,0.0,0.2222,1,2,2,1.0,2,2,1.0,2,repeated_query,7,36,1314,3,0.499,2.76,66.3,4876.4
+5adf0ae45542992d7e9f9286,bridge,hard,span,Orissa,rural Orissa,0.0,0.6667,0,5,3,0.6,2,2,1.0,3,max_hops,11,57,1067,3,0.416,2.835,70.5,4835.8
+5a82efe355429966c78a6aa1,bridge,hard,span,Winter Haven Mall,Lakeland,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,42,712,3,0.347,2.078,75.6,4674.4
+5a86204d5542994775f60709,bridge,hard,span,Exeter College,"Exeter College, Oxford",0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,10,29,1010,3,0.336,2.176,68.9,4876.4
+5ab930655542991b5579f12a,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,893,2,0.579,1.389,109.0,4844.2
+5abc32cb55429959677d6a40,bridge,hard,span,Karen O,Karen O,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,43,1116,3,0.419,2.731,81.9,4820.3
+5a8dee2455429917b4a5bce1,bridge,hard,span,Pineapple Express,Milk,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,37,1372,3,0.426,2.996,81.0,4917.7
+5a75e7b255429976ec32bc95,comparison,hard,span,Strange Synergy,Strange Synergy,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,33,966,3,0.383,2.231,77.0,4810.2
+5a8c8502554299585d9e36d0,bridge,hard,span,Ed Lee,Jeff Sheehy,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,39,981,3,0.405,2.253,70.0,4859.2
+5ae3de615542992f92d823a5,bridge,hard,span,every aspect of public and private life,Totalitarianism,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,7,43,1006,3,0.428,2.575,74.1,4858.5
+5abee75f5542993fe9a41d8e,bridge,hard,span,HBO World Championship Boxing,HBO World Championship Boxing,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,489,2,0.354,0.96,68.0,4691.0
+5a8f73455542997ba9cb3269,bridge,hard,span,University of Texas at Austin,University of Texas at Austin,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,11,41,1863,3,0.567,3.544,64.3,4876.6
+5a7a9b9a5542990198eaf160,bridge,hard,span,1989,1989,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,21,1066,3,0.442,2.009,72.5,4887.6
+5ab66b63554299110f219a0a,comparison,hard,span,hunting,hunting,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,47,1066,3,0.41,2.42,84.8,4876.4
+5ae457a95542996836b02c85,bridge,hard,span,Garth Jennings,Garth Jennings,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,44,1568,3,0.541,3.34,73.3,4906.0
+5ac1c73e55429964131be28a,bridge,hard,span,Country Thuggin,Country Thuggin,1.0,1.0,0,4,2,0.5,2,2,1.0,3,max_hops,8,39,1297,3,0.467,2.721,70.3,4874.0
+5adef1b35542993a75d263af,bridge,hard,span,Salma Hayek Pinault,Salma Hayek,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,8,54,1022,3,0.4,2.654,70.7,4880.2
+5ab29956554299194fa9342d,bridge,hard,span,Mandalay Entertainment,Mandalay Entertainment,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,29,966,3,0.414,2.17,73.7,4849.2
+5a7b1d3b5542992d025e677a,bridge,hard,span,Dodge Memorial Park,N.P. Dodge Memorial Park,0.0,0.8571,1,2,2,1.0,2,2,1.0,2,repeated_query,6,57,860,3,0.392,2.385,70.7,4764.6
+5ac373195542995ef918c199,bridge,hard,span,"Hoffman Estates, Illinois","Hoffman Estates, Illinois",1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,6,41,709,3,0.3,2.072,71.0,4686.8
+5a7e052d5542995f4f40238e,bridge,hard,span,Hirsch index rating,Hirsch index rating,1.0,1.0,1,5,5,1.0,2,2,1.0,3,max_hops,11,49,1061,3,0.31,2.426,73.9,4872.9
+5ac41850554299194317390b,bridge,hard,span,Dissection,Dissection,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,609,2,0.38,1.017,90.4,4782.4
+5a8c06bb5542995e66a47530,bridge,hard,span,"""Rich Girl""",Rich Girl,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,10,43,1099,3,0.356,2.525,90.5,4820.3
+5a8fc3b155429933b8a20454,bridge,hard,span,Paleo-Indians,Paleo-Indians,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,39,1331,3,0.369,2.589,70.7,4864.1
+5ab94acd554299743d22eac6,bridge,hard,span,28th,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,32,1067,3,0.366,2.009,120.0,4869.8
+5ac1b1345542994ab5c67dd0,bridge,hard,span,1736,1736,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,39,879,3,0.364,2.385,74.3,4774.4
+5ac3b04f55429939154138b7,bridge,hard,span,East Lancashire Railway,East Lancashire Railway,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,6,46,907,3,0.507,2.77,71.8,4798.1
+5adf0cbd5542993a75d263e0,bridge,hard,span,6 April 1830,1830,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,8,27,1185,3,0.554,2.441,73.3,4822.4
+5ae3790f5542992e3233c415,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,42,1017,3,0.509,2.613,113.2,4879.1
+5a7b820c5542997c3ec971d8,bridge,hard,span,NYPD's 83rd Precinct,NYPD's 83rd Precinct,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,6,49,849,3,0.475,2.744,64.5,4760.8
+5a90b1a15542990a984936ab,bridge,hard,span,the Netherlands,Netherlands,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,23,1136,3,0.477,2.24,88.8,4820.3
+5a7cdc1b55429907fabef04d,bridge,hard,span,"Calgary, Alberta",Calgary,0.0,0.6667,0,2,1,0.5,2,2,1.0,3,max_hops,10,30,1006,3,0.4,2.402,88.6,4840.9
+5a8e08d35542995085b37395,bridge,hard,span,Bayern Munich,Bayern Munich,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,26,935,3,0.48,2.392,78.6,4793.0
+5a7a9a2255429941d65f26eb,bridge,hard,span,119 minutes,119,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,9,32,1285,3,0.505,2.878,43.9,4880.6
+5a87ee7b55429938390d3eb6,bridge,hard,span,Louisville RiverBats,Louisville Bats,0.0,0.5,0,2,1,0.5,2,2,1.0,3,max_hops,7,45,959,3,0.587,3.418,62.3,4822.5
+5a8ba92c554299240d9c2071,bridge,hard,span,North Carolina,North Carolina,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,521,2,0.559,1.464,73.4,4717.3
+5a8b036d55429971feec45fe,comparison,hard,span,Daron Vartan Malakian,Daron Malakian,0.0,0.8,0,2,1,0.5,2,2,1.0,3,max_hops,12,28,1332,3,0.627,3.261,40.2,4883.8
+5adfed45554299603e4183c5,comparison,hard,span,screenwriter,screenwriter and director,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,10,30,1248,3,0.53,3.094,61.9,4881.8
+5adbf84555429947ff17387c,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,20,1120,3,0.552,2.569,99.1,4810.2
+5ac2dfac554299657fa290b3,bridge,hard,span,Ernst & Young,EY,0.0,0.0,1,4,4,1.0,2,2,1.0,3,max_hops,8,43,1100,3,0.548,3.408,75.0,4804.0
+5ae0cddc55429945ae959459,bridge,hard,span,35 people,35,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,done,6,19,1396,3,0.612,2.743,64.1,4862.7
+5abb02fe554299232ef4a39f,bridge,hard,span,Bolshoi Theatre,Bolshoi Theatre,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,721,2,0.568,1.611,56.9,4866.0
+5ac43d575542997ea680ca39,bridge,hard,span,Kal Ho Naa Ho,Joggers' Park,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,8,46,1091,3,0.491,3.077,57.2,4879.1
+5a82817555429954d2e2eb5a,bridge,hard,span,"""Naked Killer""",Naked Killer,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,38,1085,3,0.58,3.078,63.5,4876.4
+5adce0f455429947343537bd,bridge,hard,span,CBS Corporation,CBS Corporation,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,8,18,1200,3,0.642,2.767,70.8,4824.9
+5ac21bac5542991316484bf2,bridge,hard,span,Excalibur Hotel and Casino,Sahara Hotel and Casino,0.0,0.75,0,3,1,0.3333,2,2,1.0,3,max_hops,12,42,1052,3,0.477,3.246,56.9,4849.2
+5a84fea85542994c784ddabf,comparison,hard,span,tennis,Tennis,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,6,22,751,3,0.514,2.325,70.8,4713.5
+5ae7690c5542995703ce8c22,bridge,hard,span,"Indianapolis, Indiana","Greg Phillips is vice president of Gabriel Entertainment, which is based in Indianapolis, Indiana, USA.",0.0,0.2353,1,3,3,1.0,2,2,1.0,3,max_hops,10,47,1258,3,0.579,3.419,51.7,4853.4
+5a7e7c725542991319bc94be,bridge,hard,span,"(foaled February 1, 1999)",No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,34,1020,3,0.554,2.738,93.1,4853.4
+5a70f39c5542994082a3e429,bridge,hard,span,Eliot Cutler,Eliot Cutler,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,50,1058,3,0.553,3.285,57.8,4880.2
+5a8332815542993344745fe9,bridge,hard,span,Dave Thomas,Dave Thomas,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,31,967,3,0.553,2.763,77.9,4845.4
+5adf227a5542992d7e9f92a6,bridge,hard,span,Hamlet,Hamlet,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,5,27,1123,3,0.598,2.95,70.0,4880.2
+5ae6143f5542996de7b71b2d,bridge,hard,span,The Chamber,The Firm,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,7,43,1135,3,0.586,3.434,72.4,4876.4
+5ae6368a5542992ae0d16284,bridge,hard,span,"January 11, 1755 or 1757July",1755 or 1757,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,8,29,910,3,0.504,2.625,52.7,4836.3
+5ae759b25542991e8301cc6b,bridge,hard,span,1994,1994,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,31,1060,3,0.548,2.799,58.8,4886.9
+5ac4d2cd5542995c82c4ad73,bridge,hard,span,Tampa Bay Lightning,Tampa Bay Lightning,1.0,1.0,0,4,2,0.5,2,2,1.0,1,done,5,7,485,2,0.49,1.528,63.0,4688.3
+5adf4b335542993a75d264a5,bridge,hard,span,Rockstar San Diego,Rockstar Games,0.0,0.4,0,2,1,0.5,2,2,1.0,2,repeated_query,6,30,886,3,0.545,2.596,62.9,4782.4
+5a8b04df55429950cd6afc49,bridge,hard,span,The Bomb Factory,yes,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,41,1092,3,0.561,3.395,94.0,4819.0
+5ae7da705542993210983f96,bridge,hard,span,Renaissance Technologies,Renaissance Technologies LLC,0.0,0.8,1,2,2,1.0,2,2,1.0,3,max_hops,9,54,1002,3,0.558,3.459,59.5,4806.9
+5a8ec4875542995a26add508,bridge,hard,span,"Ravalli County, Montana",Ravalli,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,6,22,840,3,0.53,2.401,67.9,4761.9
+5ae7d0675542994a481bbdf2,bridge,hard,span,Apalachee,Apalachee,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,9,21,1063,3,0.531,2.689,60.2,4864.0
+5ab209ec554299722f9b4ca2,bridge,hard,span,"Kairi in the video game series ""Kingdom Hearts"".",Doctor Wily,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,49,1245,3,0.553,3.556,69.5,4886.2
+5a7a4a1d5542990198eaf108,bridge,hard,span,Marshal Pietro Badoglio,Pietro Badoglio,0.0,0.8,0,3,2,0.6667,2,2,1.0,3,max_hops,9,44,1277,3,0.564,3.599,55.7,4882.5
+5a7ce6bf55429909bec7686c,bridge,hard,span,Ryan Guno Babel,Demy de Zeeuw,0.0,0.0,1,3,3,1.0,2,2,1.0,2,done,8,30,1124,3,0.565,2.854,57.5,4803.4
+5a732aa055429901807daf9f,bridge,hard,span,1976,1976,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,29,876,3,0.548,2.638,60.4,4784.5
+5abec2ca5542997719eab5b9,comparison,hard,span,Carondelet Canal,Carondelet Canal,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,31,1295,3,0.594,3.165,56.9,4884.9
+5a7f3bcd55429930675136c3,bridge,hard,span,Arthur Russell,Arthur Russell,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,51,1024,3,0.562,3.408,70.1,4863.2
+5ab3e577554299233954ffe3,comparison,hard,span,writer,writer,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,505,2,0.612,1.406,92.2,4706.6
+5a90c8165542995651fb51ee,bridge,hard,span,Easter Rising of 1916,1916 Easter Rising,0.0,0.8571,1,3,3,1.0,2,2,1.0,2,done,8,28,1335,3,0.604,3.054,52.6,4861.8
+5ab27389554299722f9b4d2f,bridge,hard,span,Peter 'Drago' Sell,Matt Ricehouse,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,10,55,1206,3,0.57,3.774,60.1,4881.8
+5abe19895542991f661060c2,comparison,hard,span,China,China,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,39,849,3,0.541,3.351,101.0,4760.8
+5ab3c05d55429969a97a81aa,bridge,hard,span,five times,5,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,38,1108,3,0.578,3.018,82.0,4882.9
+5ab9ccef55429955dce3ed86,bridge,hard,span,Buddha's delight,Buddha's delight,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,64,666,3,0.473,3.403,58.4,4660.5
+5a72c6565542992359bc31a7,bridge,hard,span,Belladonna,Belladonna,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,605,2,0.557,1.507,68.7,4779.3
+5a72908f5542994cef4bc33b,comparison,hard,span,Brett Allen Scallions,Brett Scallions,0.0,0.8,1,3,3,1.0,2,2,1.0,1,done,5,8,487,2,0.498,1.336,60.4,4690.3
+5a73830d55429908901be2da,bridge,hard,span,Bea Arthur,Bea Arthur,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,583,2,0.532,1.405,61.0,4763.9
+5a7982435542994bb945701f,bridge,hard,span,Folkets,Folkets Hus,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,7,39,1058,3,0.54,3.271,59.1,4856.5
+5ae5c8cf554299546bf82f5f,bridge,hard,span,Rockland,Rockland,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,10,40,844,3,0.507,2.816,76.8,4792.3
+5ae0132d55429925eb1afc00,bridge,hard,span,the George Washington Bridge,George Washington Bridge,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,8,31,1102,3,0.554,2.933,64.5,4819.6
+5adf9d135542995534e8c817,comparison,hard,yesno,no,no,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,38,841,3,0.55,2.754,89.5,4751.5
+5abbc2245542992ccd8e7f8a,bridge,hard,span,northeastern,northeastern part,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,7,787,2,0.676,1.742,57.4,4880.2
+5a83c56d5542996488c2e4c3,bridge,hard,span,Mayfair,Mayfair,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,5,39,877,3,0.533,2.811,77.6,4758.8
+5ab870ed55429934fafe6db9,bridge,hard,span,an album,album,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,39,1014,3,0.529,3.074,93.2,4863.2
+5abb76fa5542992ccd8e7f48,bridge,hard,span,Nicole Kidman,Nicole Kidman,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,42,836,3,0.5,2.897,60.1,4775.2
+5a7b55bc55429927d897bf98,bridge,hard,span,20 assists,20,0.0,0.6667,0,3,2,0.6667,2,2,1.0,2,repeated_query,7,75,1112,3,0.549,3.835,67.6,4883.6
+5ae518ae5542993aec5ec13c,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,34,1065,3,0.627,3.028,96.4,4863.2
+5ac1c18855429964131be279,bridge,hard,span,American,American,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,22,900,3,0.552,2.933,84.0,4801.2
+5ac199955542994ab5c67d8c,bridge,hard,span,Harper's Bazaar,Harper's Bazaar,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,517,2,0.546,1.45,59.7,4714.6
+5ae27f22554299495565da8d,bridge,hard,span,1926,1926,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,589,2,0.538,1.472,61.4,4768.6
+5ac2680055429963665199a8,bridge,hard,span,Chaplain,no,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,4,537,2,0.541,1.478,86.2,4730.6
+5ae351405542994393b9e67f,bridge,hard,span,Hee Haw,Roy Clark,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,6,31,1059,3,0.595,2.93,67.9,4858.5
+5ae1da385542997283cd2297,bridge,hard,span,"Katharine Hepburn, Joan Bennett, Frances Dee","Katharine Hepburn, Joan Bennett, Frances Dee, Jean Parker",0.0,0.8571,0,2,1,0.5,2,2,1.0,1,done,5,17,518,2,0.553,1.77,51.4,4714.6
+5adc69ef554299438c868daf,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,565,2,0.53,1.458,98.3,4750.8
+5a7a954855429941d65f26cd,bridge,hard,span,John Lennon/Plastic Ono Band,Double Fantasy,0.0,0.0,0,2,0,0.0,2,0,0.0,2,repeated_query,5,37,778,3,0.561,2.745,71.3,4710.7
+5ab9ddaa5542994dbf019873,bridge,hard,span,Lord Gort,no,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,8,48,1504,3,0.67,3.737,93.3,4877.1
+5abbdd565542993f40c73bfb,bridge,hard,span,"IATA: VNO, ICAO: EYVI",VNO,0.0,0.4,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,41,877,3,0.543,2.895,73.5,4758.8
+5a8b544855429950cd6afcae,comparison,hard,span,The Country Bears,The Country Bears,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,26,1699,3,0.658,3.645,64.9,4938.2
+5aba480c55429939ce03dc77,bridge,hard,span,Hong Kong,Hong Kong,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,41,962,3,0.554,3.037,75.1,4822.5
+5a8518a75542994c784ddaf7,comparison,hard,span,building,office building,0.0,0.6667,0,2,1,0.5,2,2,1.0,3,max_hops,6,50,881,3,0.535,3.153,72.7,4785.5
+5a81b43d5542995ce29dcc39,bridge,hard,span,aging issues,aging issues,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,7,38,846,3,0.55,2.944,71.7,4758.8
+5a79e3925542994bb9457130,comparison,hard,span,"Hotel"" (1965), ""Airport"" (1968), ""Wheels"" (1971)",Hotel,0.0,0.2857,1,2,2,1.0,2,2,1.0,2,repeated_query,7,37,1299,3,0.577,3.016,55.8,4872.2
+5adbf34955429947ff173862,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,519,2,0.542,1.411,97.2,4716.6
+5ac5275755429924173fb617,bridge,hard,span,Argentine Americans,Argentinian American,0.0,0.0,0,3,1,0.3333,2,1,0.5,3,max_hops,8,28,1036,3,0.537,2.959,61.8,4887.6
+5a77519c55429972597f14fa,bridge,hard,span,Tom Hiddleston,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,60,1364,3,0.616,4.063,86.0,4854.3
+5a7a05485542990783324def,bridge,hard,span,Na Na,Hero,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,8,35,1000,3,0.573,3.153,95.2,4867.1
+5ae3fd195542995dadf2428d,comparison,hard,yesno,no,yes,0.0,0.0,0,2,1,0.5,2,2,1.0,1,done,5,4,707,2,0.623,1.56,92.4,4855.4
+5ab3b2c4554299233954ff8a,bridge,hard,span,The Catcher in the Rye,The Catcher in the Rye,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,10,539,2,0.527,1.556,51.6,4731.3
+5a74f7f15542993748c89765,bridge,hard,span,11 November 1869,11 November 1869,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,11,683,2,0.625,1.678,55.0,4836.3
+5abaad5855429901930fa88f,comparison,hard,span,three singles titles,35,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,27,1095,3,0.544,2.776,74.0,4819.0
+5a770eb65542994aec3b71d4,bridge,hard,span,The Ninth Gate,The Ninth Gate,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,6,567,2,0.537,1.498,63.4,4751.5
+5a7a845755429941d65f2684,comparison,hard,span,Old Dogs,Old Dogs,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,24,1066,3,0.52,2.816,66.2,4829.8
+5ab42b24554299753aec5a43,bridge,hard,span,1895,1919,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,25,1204,3,0.609,2.728,56.8,4833.3
+5a8141cc55429938b6142316,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,17,1342,3,0.585,3.017,90.6,4881.8
+5abdb8ba5542993f32c2a015,bridge,hard,span,sailor,a homeward bounder,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,8,533,2,0.512,1.378,59.2,4727.5
+5ab90f5755429934fafe6e57,bridge,hard,span,Ireland,Republic of Ireland,0.0,0.5,0,2,1,0.5,2,2,1.0,2,repeated_query,8,28,1022,3,0.54,2.62,62.0,4874.0
+5a8492ab5542992a431d1a5b,bridge,hard,span,The Northrop P-61 Black Widow,Northrop P-61 Black Widow,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,53,841,3,0.552,3.242,48.5,4741.3
+5a83c3275542996488c2e4be,bridge,hard,span,Red and Assiniboine Rivers,Red and Assiniboine Rivers,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,29,854,3,0.484,2.904,53.5,4774.4
+5a8bde565542995d1e6f1454,comparison,hard,span,El Paso International Airport,El Paso International Airport,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,45,1122,3,0.546,3.274,62.2,4858.5
+5ac249bd55429951e9e68528,bridge,hard,span,"blood, platelets, and plasma","blood, platelets, and plasma",1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,10,551,2,0.548,1.516,56.9,4740.3
+5a80f4c2554299260e20a1da,bridge,hard,span,Big Mamie,Big Mamie,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,6,615,2,0.55,1.434,66.8,4787.5
+5ae12fcf5542990adbacf72c,comparison,hard,span,Animation,no,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,7,29,1178,3,0.584,2.958,105.0,4822.3
+5a898872554299669944a540,bridge,hard,span,Anandji Virji Shah,Anandji Virji Shah,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,5,9,727,2,0.606,1.636,57.3,4869.8
+5ade858a55429975fa854eea,comparison,hard,span,tennis,Tennis,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,513,2,0.531,1.326,74.9,4711.5
+5a8f54165542992414482a52,bridge,hard,span,"12,272","12,272",1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,9,495,2,0.533,1.406,56.6,4698.4
+5a8b448255429971feec468c,bridge,hard,span,directed by Shane Meadows,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,6,29,1435,3,0.712,3.402,89.7,4869.1
+5a8f18d555429918e830d189,bridge,hard,span,Caistor is a town,Grimsby,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,5,6,561,2,0.555,1.489,64.8,4747.7
+5ae7308d5542991e8301cbb8,bridge,hard,span,Caligula,Augustus,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,done,7,20,1492,3,0.695,3.365,71.7,4863.5
+5ae305355542992decbdcdc2,bridge,hard,span,Leona Lewis,Lewis,0.0,0.6667,0,2,1,0.5,2,2,1.0,3,max_hops,6,38,1209,3,0.614,3.387,94.1,4866.0
+5a8530cc5542992a431d1aeb,bridge,hard,span,Orono,Orono,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,32,1132,3,0.541,3.095,71.5,4863.2
+5adc459255429944faac24ad,bridge,hard,span,Russell Humphreys,Russell Humphreys,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,42,1254,3,0.596,3.248,59.2,4861.8
+5a866fed554299211dda2b2e,bridge,hard,span,his most brilliant student,his most brilliant student,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,10,51,1588,3,0.549,3.967,61.0,4967.8
+5abeafbb5542997ec76fd347,comparison,hard,span,"Frida, en trotjänarinna","Frida, en trotjänarinna",1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,47,907,3,0.542,3.17,55.2,4801.2
+5ab6391755429953192ad2a7,bridge,hard,span,Gauteng province,Gauteng,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,6,557,2,0.538,1.401,67.9,4745.0
+5a7c68575542996dd594b91c,bridge,hard,span,Fade to Black,Flashback: The Quest for Identity,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,7,49,1028,3,0.535,3.233,51.8,4850.3
+5ac524e55542994611c8b3d0,bridge,hard,span,Final Fantasy XII,Dissidia Final Fantasy NT,0.0,0.5714,1,2,2,1.0,2,2,1.0,3,max_hops,10,50,1472,3,0.606,3.764,55.3,4933.1
+5abed6905542990832d3a0ed,bridge,hard,span,"Domingo ""Sam"" Samudio",Sam the Sham,0.0,0.4,0,3,1,0.3333,2,2,1.0,3,max_hops,11,54,1223,3,0.516,3.797,61.4,4879.5
+5a7bd791554299683c1c62c2,bridge,hard,span,Vic Chesnutt,James Victor Chesnutt,0.0,0.4,0,2,1,0.5,2,2,1.0,2,repeated_query,7,52,839,3,0.567,3.17,58.3,4754.6
+5ae75a5a5542991bbc9761f3,bridge,hard,span,Agent Vinod,Heropanti,0.0,0.0,0,3,1,0.3333,2,2,1.0,1,done,5,6,551,2,0.556,1.426,66.6,4740.6
+5a7741775542994aec3b724f,bridge,hard,span,Aubrey Posen,Anna,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,7,32,1327,3,0.631,3.355,97.9,4861.8
+5a80d2c6554299260e20a17c,bridge,hard,span,London,London Heathrow Airport,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,8,23,856,3,0.491,2.401,62.0,4785.5
+5a8a1b7a5542992d82986ec0,bridge,hard,span,Boston,Boston,1.0,1.0,0,4,3,0.75,2,2,1.0,2,repeated_query,8,32,1348,3,0.57,3.151,96.5,4878.7
+5a8638945542994775f6072d,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,10,26,1092,3,0.544,2.751,97.0,4799.1
+5adc2e3d554299438c868d6b,bridge,hard,span,28 June 1945,28 June 1945,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,10,28,1087,3,0.481,2.831,52.2,4818.1
+5ae5f3bb5542996de7b71a7e,bridge,hard,span,Anthony Hopkins,Anthony Hopkins,1.0,1.0,0,2,1,0.5,2,1,0.5,3,max_hops,7,40,1132,3,0.61,3.41,61.2,4886.9
+5a85d25b5542996432c570ee,bridge,hard,span,BC Dzūkija,Dzūkija Alytus,0.0,0.5,1,2,2,1.0,2,2,1.0,2,done,9,29,962,3,0.558,2.71,49.6,4842.3
+5ab66fd355429954757d32b7,bridge,hard,span,Syracuse University.,Syracuse University,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,47,1010,3,0.497,3.303,53.5,4886.9
+5a7153d05542994082a3e7dc,comparison,hard,span,Nusretiye Mosque,Beyazid II Mosque,0.0,0.4,1,2,2,1.0,2,2,1.0,2,repeated_query,9,31,1141,3,0.563,2.988,55.3,4816.4
+5ae249925542994d89d5b3c1,comparison,hard,span,Jim Pugh,Richard Gasquet,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,done,7,26,863,3,0.498,2.556,65.1,4785.5
+5ac170af5542994d76dcce20,comparison,hard,span,"Gregory John ""Greg"" Puciato",Greg Puciato,0.0,0.6667,0,3,1,0.3333,2,2,1.0,3,max_hops,9,39,1506,3,0.63,3.471,59.8,4894.9
+5a80cddd554299260e20a169,bridge,hard,span,Stephen King,Stephen King,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,8,30,1230,3,0.61,3.21,73.2,4843.4
+5a89ab1355429946c8d6e996,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,26,820,3,0.481,2.649,91.6,4758.8
+5a7319bc5542992359bc3235,comparison,hard,span,Nikolai Ivanovich Lobachevsky,Nikolai Lobachevsky,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,7,35,1270,3,0.635,3.323,51.6,4835.8
+5ae638865542992ae0d1628c,bridge,hard,span,Adam Dawes,Adam Dawes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,36,1386,3,0.603,3.307,60.8,4861.0
+5a72af155542992359bc316c,bridge,hard,span,Dead Poets Society,Dead Poets Society,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,43,921,3,0.564,3.335,59.4,4822.5
+5abd09585542996e802b469b,bridge,hard,span,2011,2007,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,5,7,521,2,0.541,1.36,62.3,4717.3
+5a71214d5542994082a3e5b9,bridge,hard,span,The Los Angeles Dance Theater,The Los Angeles Dance Theater,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,36,1126,3,0.51,3.019,51.2,4813.1
+5a8a0cb75542992d82986e7d,bridge,hard,span,110 miles,8 mi,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,41,811,3,0.55,2.764,69.0,4727.5
+5a79c7ac5542994bb9457097,bridge,hard,span,nine girls and 10 boys,17,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,5,589,2,0.506,1.429,68.3,4768.6
+5abbc96755429931dba1452c,bridge,hard,span,three million copies worldwide,3 million,0.0,0.3333,0,2,1,0.5,2,2,1.0,3,max_hops,8,52,889,3,0.525,3.17,72.2,4812.6
+5ade664555429939a52fe89c,bridge,hard,span,"Miami Gardens, Florida,",north Miami-Dade County,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,34,1028,3,0.545,2.952,59.0,4876.4
+5a8a06c35542992d82986e57,bridge,hard,span,Double Crossed,Double Crossed,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,543,2,0.533,1.419,62.5,4734.7
+5ae2cbc9554299495565db36,bridge,hard,span,Melanie Owen,"Melanie Owen (""EastEnders"")",0.0,0.8,0,4,2,0.5,2,2,1.0,3,max_hops,8,50,1302,3,0.584,3.532,53.2,4879.1
+5abf16965542993fe9a41dd3,bridge,hard,span,the world,Blackstone,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,6,47,876,3,0.565,3.167,70.5,4774.4
+5ab7ccf455429928e1fe3910,bridge,hard,span,"5,042","5,042",1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,7,25,725,3,0.558,2.5,57.4,4706.6
+5abd0b685542996583600501,bridge,hard,span,private,private,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,26,822,3,0.488,2.628,99.7,4801.2
+5a7fa08d55429969796c1af7,comparison,hard,span,Drunter und Drüber is a multiplayer board game invented by Klaus Teuber,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,24,991,3,0.512,2.509,85.6,4876.4
+5a7306a655429901807daf67,bridge,hard,span,Umaro Mokhtar Sissoco Embaló,Umaro Mokhtar Sissoco Embaló,1.0,1.0,1,3,3,1.0,2,2,1.0,1,done,5,15,549,2,0.545,1.626,53.5,4738.6
+5adce2ee5542992c1e3a2461,bridge,hard,span,Tampa,Tampa,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,8,20,820,3,0.462,2.325,71.6,4779.3
+5ab4f7fc5542991779162d43,bridge,hard,span,Volta,Volta Region,0.0,0.6667,0,2,1,0.5,2,2,1.0,1,done,5,6,417,2,0.5,1.36,67.5,4636.0
+5ae0d3da5542990adbacf66d,bridge,hard,span,Otto Eduard Leopold,"Otto Eduard Leopold, Prince of Bismarck",0.0,0.6667,1,3,3,1.0,2,2,1.0,1,done,5,17,853,2,0.634,1.982,51.7,4821.9
+5a81d19b55429926c1cdad90,bridge,hard,span,Ector County,Ector County,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,30,1079,3,0.551,2.834,67.7,4799.1
+5ab4fd0b55429942dd415fbb,bridge,hard,span,Mexico City,Mexico City,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,5,663,2,0.601,1.552,82.1,4822.5
+5ae5d0b5554299546bf82f80,bridge,hard,span,Autopia,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,max_hops,8,49,1122,3,0.542,3.527,88.7,4817.3
+5a78e9d155429970f5fffdcc,comparison,hard,span,"Robert ""Rob"" Parissi",yes,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,40,1261,3,0.669,3.228,96.2,4819.0
+5a8adc935542992d82986fb0,comparison,hard,span,Chuck E. Cheese's,Jet's Pizza,0.0,0.0,0,4,2,0.5,2,2,1.0,2,repeated_query,6,34,724,3,0.459,2.629,63.2,4697.7
+5a8763475542996e4f3087c0,bridge,hard,span,Australian Supercars Championship,Australian Supercars Championship,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,62,1123,3,0.552,3.787,59.2,4804.0
+5a8c7232554299585d9e36a6,bridge,hard,span,Malta,Malta,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,9,61,1150,3,0.59,3.667,68.7,4805.4
+5ac156d05542994ab5c67ce9,comparison,hard,yesno,yes,yes,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,11,31,1105,3,0.549,3.063,91.0,4829.7
+5adcc9f35542990d50227d20,comparison,hard,span,Montejo v. Louisiana,Montejo v. Louisiana,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,46,1383,3,0.65,4.008,53.9,4869.7
+5ae1d656554299234fd04322,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,451,2,0.499,1.284,104.4,4662.5
+5ae788fa55429952e35ea964,bridge,hard,span,extensive use of segues,blues rock,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,10,35,1193,3,0.494,3.094,63.9,4832.1
+5adf39d45542992d7e9f92e5,comparison,hard,span,Disney,Walt Disney Productions,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,6,51,972,3,0.555,3.142,61.2,4819.7
+5ab503db5542990594ba9cc8,bridge,hard,span,American,Swiss,0.0,0.0,0,3,1,0.3333,2,2,1.0,2,done,6,18,1123,3,0.598,2.608,77.1,4866.0
+5ae617285542996de7b71b4c,bridge,hard,span,South African-born,Canadian,0.0,0.0,0,2,0,0.0,2,1,0.5,2,repeated_query,8,18,1073,3,0.543,2.616,84.3,4856.5
+5aba9e545542994dbf019986,bridge,hard,span,A Bug's Life,no,0.0,0.0,0,2,0,0.0,2,1,0.5,3,max_hops,11,32,1056,3,0.574,3.27,97.0,4851.2
+5a8841195542994846c1ce65,bridge,hard,span,Matthew Vaughn,Matthew Vaughn,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,8,32,1061,3,0.534,2.692,66.3,4858.5
+5a80b8845542992bc0c4a7de,bridge,hard,span,Stargate,Rihanna,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,5,5,555,2,0.531,1.472,76.3,4741.7
+5add92885542990dbb2f7e72,bridge,hard,span,one of Lithuania's most talented actors,"he was one of Lithuania's most talented actors, both in comedy and drama.",0.0,0.6316,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,57,832,3,0.523,3.238,50.7,4737.5
+5a8b595855429949d91db563,bridge,hard,span,1992,1993,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,23,967,3,0.548,2.637,61.5,4821.8
+5a88e3cc5542997e5c09a6c2,bridge,hard,span,"New York, United States","Great Neck, New York",0.0,0.5,0,4,3,0.75,2,2,1.0,3,max_hops,6,37,806,3,0.491,3.173,55.7,4741.3
+5ac294b955429921a00aafd0,comparison,hard,span,Macworld,Soaps In Depth,0.0,0.0,0,4,3,0.75,2,2,1.0,2,repeated_query,9,27,1168,3,0.559,2.83,58.5,4829.7
+5a75fa14554299109176e5dc,bridge,hard,span,2018 Unibet Premier League Darts,The Betway Premier League Darts,0.0,0.6667,0,3,2,0.6667,2,2,1.0,3,max_hops,11,64,1276,3,0.621,4.117,51.6,4868.2
+5adf88995542993344016cd4,bridge,hard,span,Baltimore,Baltimore,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,9,44,1056,3,0.585,3.47,72.9,4876.4
+5ae0850055429945ae959396,bridge,hard,span,James Taylor,James Taylor,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,7,21,922,3,0.541,2.506,73.6,4808.1
+5ae835f25542997ec272776f,bridge,hard,span,1959,1959,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,31,1002,3,0.553,2.876,56.7,4877.1
+5a8d7a8d55429941ae14dfc2,bridge,hard,span,Restoration Hardware,RH,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,8,30,882,3,0.52,2.725,89.9,4803.0
+5a8555ea5542992a431d1b07,bridge,hard,span,The Big Lebowski,Sexy Beast,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,41,1005,3,0.525,3.223,70.8,4855.4
+5a7a8d15554299042af8f669,bridge,hard,span,Azeroth,Azeroth,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,11,46,1443,3,0.639,3.822,60.7,4897.6
+5a7bcbc8554299294a54aae2,comparison,hard,span,Sir Syed University of Engineering and Technology,Sir Syed University of Engineering and Technology,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,11,511,2,0.547,1.604,55.3,4710.7
+5a84807d554299123d8c2278,bridge,hard,span,Philosophy professor,no,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,4,880,2,0.687,1.703,96.8,4836.4
+5a7a030c5542996a35c17077,bridge,hard,span,State Street,State Street,1.0,1.0,1,3,3,1.0,2,2,1.0,2,repeated_query,8,43,1158,3,0.54,3.363,74.1,4819.4
+5ae1388e5542997b2ef7d13a,bridge,hard,span,more than two decades,more than two decades,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,6,25,864,3,0.521,2.64,63.5,4765.3
+5ae5a4e5554299546bf82f01,bridge,hard,span,Pasek and Paul,Pasek and Paul,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,43,1149,3,0.554,3.344,52.7,4810.2
+5a87c19a5542994846c1cde6,bridge,hard,span,Firth of Clyde,eastern,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,7,19,1012,3,0.531,2.508,83.7,4850.3
+5a74af7e55429916b01641d2,bridge,hard,span,Johan Leysen,Johan Leysen,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,26,965,3,0.544,2.623,55.1,4829.0
+5a7c8ae855429935c91b5207,bridge,hard,span,Alexander Porfiryevich Borodin,Alexander Porfiryevich Borodin,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,6,28,1345,3,0.664,3.097,54.8,4864.5
+5ab808b85542991d3222380d,bridge,hard,span,belief in many deities and spirits,religion,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,42,979,3,0.551,3.478,61.4,4835.6
+5a7d158155429909bec76947,bridge,hard,span,1916,1916,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,39,941,3,0.56,2.91,62.5,4816.6
+5abad70d5542996606241631,bridge,hard,span,number 5,7,0.0,0.0,0,5,3,0.6,2,2,1.0,3,max_hops,8,46,1287,3,0.592,3.449,97.4,4865.1
+5a75092b55429916b0164242,bridge,hard,span,Transporter 3,Transporter 3,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,47,886,3,0.527,2.893,60.9,4763.9
+5ae7766455429952e35ea920,bridge,hard,span,Australian actor and film producer,Australia,0.0,0.0,1,4,4,1.0,2,2,1.0,2,done,7,11,1138,3,0.543,2.477,89.4,4809.2
+5a840e395542992ef85e239d,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,30,1081,3,0.611,3.017,89.2,4859.2
+5ac023045542996f0d89cb32,bridge,hard,span,New York,a college of magic,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,11,45,1269,3,0.565,3.979,58.2,4879.6
+5ac0b6b15542996f0d89cc1e,bridge,hard,span,Ogier the Dane,Ogier the Dane,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,677,2,0.615,1.662,57.7,4832.9
+5a7b24fe55429931da12c9f7,comparison,hard,span,German Spitz,German Spitz,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,6,42,824,3,0.545,3.0,65.3,4747.7
+5abf8ae85542990832d3a14b,bridge,hard,span,Russian Empire,Russian Empire,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,27,1565,3,0.607,3.467,69.7,4951.8
+5a77e2095542995d8318131d,bridge,hard,span,Jesper Myrfors,Jesper Myrfors,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,64,958,3,0.616,3.436,59.3,4798.8
+5a775f615542993735360250,bridge,hard,span,Green Chair,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,32,1357,3,0.59,3.478,96.8,4898.9
+5ade15a45542997545bbbe46,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,39,811,3,0.501,2.862,97.7,4806.1
+5abf2e605542993fe9a41de4,comparison,hard,span,Atsushi Ogata,Ralph Smart,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,33,935,3,0.547,2.815,65.7,4798.8
+5ab5744e554299494045efdf,bridge,hard,span,Herbert Ross,Herbert Ross,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,8,22,796,3,0.501,2.355,66.1,4771.3
+5a7c6d98554299683c1c6304,bridge,hard,span,Agent Carter,Agent Carter,1.0,1.0,1,2,2,1.0,2,2,1.0,1,repeated_query,5,29,591,2,0.547,1.9,67.8,4769.3
+5ab864945542990e739ec8e1,bridge,hard,span,Nobel Prize,Kristian Birkeland,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,8,499,2,0.53,1.543,58.3,4701.5
+5adcb4ae5542994734353774,bridge,hard,span,VH1,Logo TV,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,39,1011,3,0.536,3.099,71.0,4879.1
+5a8675b1554299211dda2b44,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,22,1125,3,0.571,2.964,82.7,4824.3
+5ac11201554299294b21908c,bridge,hard,span,Oakland County,Oakland County,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,33,929,3,0.51,2.971,63.0,4834.9
+5ae663b05542992ae0d16316,bridge,hard,span,"Melbourne, Australia",Melbourne,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,5,517,2,0.549,1.418,72.0,4714.6
+5a9057795542990a984935f7,bridge,hard,span,massively multiplayer online role-playing video game,The Secret World,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,441,2,0.469,1.312,66.3,4658.7
+5a8d0e4e5542994ba4e3dbbf,bridge,hard,span,Gary Earl Johnson,Rand Paul,0.0,0.0,0,4,1,0.25,2,2,1.0,2,done,6,24,986,3,0.534,2.516,75.3,4832.9
+5ab4313a554299233955004c,bridge,hard,span,saint,royal,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,55,1128,3,0.594,3.704,69.7,4886.9
+5abaee665542992ccd8e7e5f,bridge,hard,span,Benedict of Nursia,Saint Benedict,0.0,0.4,0,3,2,0.6667,2,2,1.0,3,max_hops,8,37,942,3,0.569,3.733,62.6,4867.1
+5ae16b925542997b2ef7d1e7,bridge,hard,span,"Queens, New York",Queens,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,7,25,1459,3,0.637,3.276,66.8,4883.0
+5a7faa215542995d8a8ddee8,bridge,hard,span,Princess Elizabeth,Queen Elizabeth II,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,5,6,533,2,0.526,1.421,64.4,4727.5
+5a8add4c5542992d82986fb4,bridge,hard,span,Daniel Sturridge,Daniel Sturridge,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,39,872,3,0.535,2.889,61.1,4784.5
+5ab9ba6855429970cfb8eb87,bridge,hard,span,Ready Player One,Ready Player One,1.0,1.0,1,3,3,1.0,2,2,1.0,3,max_hops,7,49,1054,3,0.568,3.448,66.5,4876.4
+5abb7ea4554299642a094a96,comparison,hard,span,1968,1968,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,8,31,846,3,0.514,2.852,62.6,4764.6
+5ab94cca554299753720f7dd,bridge,hard,span,2006,2006,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,25,1167,3,0.537,2.743,59.3,4832.7
+5a83438955429966c78a6b61,bridge,hard,span,Bill McCutcheon,Bill,0.0,0.6667,1,3,3,1.0,2,2,1.0,3,max_hops,10,35,1162,3,0.596,3.441,96.9,4880.2
+5a7dff595542997cc2c474eb,bridge,hard,span,Charles Reed Bishop,Charles Reed Bishop,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,9,20,1344,3,0.595,2.854,59.2,4885.1
+5ac401bb55429919431738f4,bridge,hard,span,Ub Iwerks,Ubbe Iwerks,0.0,0.5,0,2,1,0.5,2,1,0.5,1,done,5,8,677,2,0.567,1.585,53.6,4832.9
+5a77846f5542995d83181187,bridge,hard,span,Duke Cunningham,Duke Cunningham,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,37,1001,3,0.522,2.99,66.2,4864.0
+5aba6d4b5542994dbf019906,bridge,hard,span,English-language,English,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,43,897,3,0.5,3.092,67.9,4788.3
+5a7da0915542990b8f5039d4,bridge,hard,span,Wilderness Road,exploration and settlement of Kentucky,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,5,9,527,2,0.546,1.529,42.9,4722.0
+5a7499eb55429929fddd8470,bridge,hard,span,2004 Nokia Sugar Bowl,Sugar Bowl,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,5,825,2,0.662,1.794,72.3,4813.1
+5a7331705542991f9a20c67a,bridge,hard,span,Emad Hashim,Emad Hashim,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,48,1014,3,0.524,3.266,60.1,4859.2
+5a7d7d895542995f4f402281,bridge,hard,span,"score 1,000 points with two different teams","score 1,000 points with two different teams",1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,54,991,3,0.575,3.334,52.9,4859.2
+5a873ec75542996432c57244,bridge,hard,span,"5,112 feet",2870,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,25,1068,3,0.529,2.93,57.4,4883.6
+5adf3ab95542992d7e9f92f3,bridge,hard,span,Boston Celtics,Boston Celtics,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,37,1065,3,0.534,3.0,70.6,4840.3
+5aba85335542994dbf01992d,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,24,885,3,0.545,2.467,91.8,4789.0
+5adbe1c5554299438c868cc4,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,40,922,3,0.498,2.793,87.1,4795.0
+5abd6a7455429933744ab7c5,bridge,hard,span,The Panther,Panther,1.0,1.0,0,3,2,0.6667,2,2,1.0,1,done,5,5,719,2,0.571,1.624,67.3,4864.0
+5adec62a55429975fa854f89,bridge,hard,span,"""Talk That Talk""",New Eyes,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,7,29,894,3,0.515,2.582,75.2,4789.0
+5abcf5ec55429959677d6b76,bridge,hard,span,"Cleveland, Ohio","Washington, D.C.",0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,30,1037,3,0.585,2.78,57.7,4860.0
+5a80a7f6554299485f598680,bridge,hard,span,Dallas,Dallas,1.0,1.0,0,5,3,0.6,2,2,1.0,1,done,5,4,685,2,0.6,1.616,96.4,4839.6
+5ab281ec554299449642c8d1,bridge,hard,span,"Forbes in the Central West region of New South Wales, Australia",Forbes,0.0,0.1818,1,4,4,1.0,2,2,1.0,3,max_hops,8,61,938,3,0.493,3.63,61.4,4815.9
+5a7643675542994ccc918747,comparison,hard,span,David Ross Lederman,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,24,1095,3,0.557,2.889,88.4,4856.5
+5a88696b554299206df2b25b,comparison,hard,span,musician,musician,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,41,946,3,0.556,2.878,69.1,4793.0
+5a712af15542994082a3e614,bridge,hard,span,My Cat from Hell,My Cat from Hell,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,31,1387,3,0.541,3.408,51.7,4919.8
+5a7b43735542992d025e67cb,bridge,hard,span,video game,video game,1.0,1.0,1,2,2,1.0,2,2,1.0,1,repeated_query,5,23,451,2,0.467,1.651,79.4,4662.5
+5ac25fa955429951e9e6858c,bridge,hard,span,"design, development, manufacture","The principal activity of the company which holds Jaguar Land Rover is the design, development, manufacture, and sale of vehicles.",0.0,0.3,1,3,3,1.0,2,2,1.0,3,max_hops,7,65,934,3,0.486,3.616,48.9,4883.6
+5a8077ca5542992bc0c4a729,bridge,hard,span,Scotland,mainland Scotland,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,6,775,2,0.612,1.696,63.3,4872.2
+5ac397fe554299218029dbe2,bridge,hard,span,Norman,Fargo,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,30,865,3,0.496,2.793,67.2,4796.1
+5ab9aed855429970cfb8eb6d,comparison,hard,yesno,no,No,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,30,1184,3,0.618,3.145,88.1,4869.1
+5ac23f9555429951e9e684db,bridge,hard,span,Seldom Jackson,"D.V.M. Kenneth Yarborough ""K.Y. or Kentucky"" Jones",0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,43,1545,3,0.726,3.806,49.3,4897.0
+5ae76c625542997ec272763e,bridge,hard,span,John Morgan,John Morgan,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,12,39,1236,3,0.557,3.163,70.7,4841.7
+5ac3e0ab554299204fd21eae,bridge,hard,span,Brad Wilk,Brad Wilk,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,8,29,1357,3,0.661,3.216,63.4,4847.5
+5a8e69565542990e94052afb,bridge,hard,span,5,5,1.0,1.0,0,5,2,0.4,2,1,0.5,1,done,5,4,473,2,0.518,1.527,103.1,4679.9
+5ae65c925542992ae0d162f9,bridge,hard,span,Don Hahn,Don Hahn,1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,7,44,938,3,0.528,2.96,61.3,4826.7
+5a9068f85542990a98493623,bridge,hard,span,The Process,The Process,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,14,1066,3,0.554,2.605,66.1,4869.8
+5ae238375542994d89d5b39a,bridge,hard,span,Terry Crews,Terry Crews,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,19,846,3,0.521,2.42,51.8,4777.5
+5a80e4b255429938b6142239,bridge,hard,span,100 Greatest Artists of Hard Rock,"VH1's ""100 Greatest Artists of Hard Rock""",0.0,0.9231,0,4,2,0.5,2,2,1.0,3,max_hops,11,62,1510,3,0.625,4.203,46.7,4937.2
+5a8e40f65542995a26add498,bridge,hard,span,mountain ranges,mountain ranges,1.0,1.0,0,4,3,0.75,2,2,1.0,3,max_hops,8,34,925,3,0.49,2.941,66.0,4829.8
+5a7e1cad55429965cec5ea75,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,621,2,0.616,1.548,95.0,4792.3
+5a7560585542992d0ec05f76,bridge,hard,span,Maurice Ravel,Maurice Ravel,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,64,984,3,0.569,3.675,56.1,4849.2
+5ae35e8c5542990afbd1e120,bridge,hard,span,"Don Jeffrey ""Jeff"" Meldrum (born May 24, 1958) is a Professor of Anatomy and Anthropology",Jeff Meldrum,0.0,0.25,1,2,2,1.0,2,2,1.0,2,repeated_query,7,47,1132,3,0.594,3.326,58.0,4803.4
+5a8210f355429926c1cdae24,bridge,hard,span,BAFTA TV Award Best Actor,CableACE Award for Best Actress in a Dramatic Series,0.0,0.3077,0,2,1,0.5,2,1,0.5,3,max_hops,7,59,1205,3,0.55,4.305,48.5,4854.3
+5a868ca055429960ec39b6be,bridge,hard,span,Tim Whelan,Tim Whelan,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,74,838,3,0.553,3.8,62.0,4740.6
+5abdaa0f55429965af743dad,bridge,hard,span,2nd Armored Division,2nd Armored Division,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,27,912,3,0.459,2.557,52.3,4816.6
+5ae0613d5542993d6555eb22,bridge,hard,span,Monticello,Monticello,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,32,1369,3,0.585,3.592,67.0,4919.0
+5add3b035542997545bbbcce,bridge,hard,span,November 2017,November,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,10,37,1048,3,0.477,2.962,89.4,4864.0
+5a85db6e5542994c784ddb96,bridge,hard,span,"37,776","37,776",1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,8,23,1089,3,0.526,2.815,58.1,4883.6
+5a7a88e455429941d65f268c,bridge,hard,span,First Street,"Beaux-Arts architecture is the style taught at the Ecole des Beaux-Arts, but the context does not specify a particular historic meeting venue. Therefore, no answer can be given based solely on the provided context.",0.0,0.0,0,3,1,0.3333,2,1,0.5,1,repeated_query,5,70,685,2,0.557,2.916,47.2,4839.6
+5a8b120755429949d91db4a4,bridge,hard,span,American,United States,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,30,1162,3,0.579,3.127,75.0,4818.1
+5ac4f9dc55429924173fb533,bridge,hard,span,Louisiana.,"New Orleans, Louisiana",0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,8,29,948,3,0.542,2.545,64.3,4829.8
+5a8eb51655429917b4a5bdb5,bridge,hard,span,Graffiti,Graffiti,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,5,6,491,2,0.471,1.337,74.2,4686.0
+5ae446fc5542995ad6573d24,bridge,hard,span,Gloria Trevi,Gloria Trevi,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,669,2,0.591,1.565,60.6,4826.7
+5a905d085542995651fb5147,bridge,hard,span,Over forty,0,0.0,0.0,0,2,0,0.0,2,0,0.0,1,repeated_query,5,29,573,2,0.545,1.969,100.8,4755.7
+5a8327fd5542990548d0b1a3,bridge,hard,span,Fort Worth,Fort Worth,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,483,2,0.496,1.32,79.0,4686.8
+5a80522b5542996402f6a4c1,bridge,hard,span,fifth-largest,no,0.0,0.0,0,5,3,0.6,2,2,1.0,3,max_hops,10,46,1062,3,0.535,3.154,87.3,4864.0
+5ab67c3f55429954757d32f9,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,42,1140,3,0.645,3.368,89.7,4872.9
+5a7da0de5542990b8f5039d7,comparison,hard,span,Robert Patrick Mulligan,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,10,21,1364,3,0.605,3.101,95.1,4876.6
+5ae2295c554299495565da13,bridge,hard,span,Edward Robert Martin Jr.,Ed Martin,0.0,0.3333,0,3,2,0.6667,2,2,1.0,3,max_hops,10,40,937,3,0.501,3.139,70.9,4810.2
+5adf24155542992d7e9f92af,bridge,hard,span,Oberkommando der Wehrmacht,Alfred Jodl served as the Chief of the Operations Staff of the Armed Forces High Command (Oberkommando der Wehrmacht).,0.0,0.3158,1,2,2,1.0,2,2,1.0,3,max_hops,8,77,1419,3,0.706,4.504,49.7,4854.4
+5ab2a54b554299295394678e,bridge,hard,span,400 MW,400 MW,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,26,919,3,0.507,2.751,62.0,4839.6
+5a7f85505542995d8a8dde95,bridge,hard,span,Point of Entry,Point of Entry,1.0,1.0,0,3,2,0.6667,2,2,1.0,2,done,8,30,1081,3,0.539,2.596,64.5,4858.5
+5ae60ea9554299546bf8304e,bridge,hard,span,August 2011,August,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,max_hops,11,31,1063,3,0.495,2.855,94.8,4882.9
+5a77253455429972597f1449,bridge,hard,span,Ian Paisley,Ivan Foster,0.0,0.0,0,4,3,0.75,2,2,1.0,2,repeated_query,7,20,1125,3,0.496,2.596,61.6,4803.4
+5abaee845542996606241696,bridge,hard,span,Maryland,Maryland,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,65,4105,3,1.192,6.908,69.1,5193.5
+5ac13e195542994ab5c67cc5,bridge,hard,span,Kramer's caddy Stan,Kramer's caddy Stan,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,37,1059,3,0.556,3.256,57.0,4829.8
+5a7e283655429965cec5eaab,bridge,hard,span,8-track,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,11,25,1144,3,0.6,2.926,84.0,4836.4
+5a8baf4b5542996e8ac889c5,comparison,hard,span,Multinational Monitor,In These Times,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,33,1073,3,0.586,3.17,61.0,4825.6
+5ae5b99a5542993aec5ec1ce,bridge,hard,span,Drowning Pool,Drowning Pool,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,22,965,3,0.548,2.767,57.6,4872.2
+5abf08985542997719eab625,comparison,hard,span,Magic Dirt,Circus Diablo,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,23,954,3,0.553,2.577,64.8,4831.8
+5a8bb7f95542996e8ac889ff,bridge,hard,span,Korea,"Chiba, Japan",0.0,0.0,0,2,0,0.0,2,2,1.0,1,repeated_query,5,26,581,2,0.536,1.889,61.0,4761.9
+5a7b1a225542992d025e6770,bridge,hard,span,"""Baa, Baa, Black Sheep""","Baa, Baa, Black Sheep",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,59,760,3,0.529,3.138,54.5,4701.5
+5ac0d5cf554299294b219026,bridge,hard,span,"David Naughton, Jenny Agutter and Griffin Dunne",David Naughton,0.0,0.4444,0,2,1,0.5,2,2,1.0,3,max_hops,8,31,1497,3,0.677,3.558,57.0,4877.1
+5a8a756555429970aeb702f2,bridge,hard,span,Wildwood,Wildwood,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,25,1054,3,0.505,2.766,73.0,4814.8
+5a77b5c255429967ab10523c,bridge,hard,span,Edward Trowbridge Collins Sr.,Eddie Collins,0.0,0.3333,1,2,2,1.0,2,2,1.0,2,repeated_query,7,50,987,3,0.557,2.959,67.2,4848.5
+5ab6c5be55429954757d336c,bridge,hard,span,1953,1946,0.0,0.0,0,2,0,0.0,2,2,1.0,2,repeated_query,5,29,1132,3,0.603,2.82,61.0,4883.6
+5a78f26055429970f5fffdeb,bridge,hard,span,Max Rufus Mosley,Max Mosley,0.0,0.8,1,2,2,1.0,2,2,1.0,2,repeated_query,8,32,1404,3,0.636,3.16,63.1,4852.3
+5ae5e8c85542996de7b71a69,bridge,hard,span,Jeremy Renner,Eddie Redmayne,0.0,0.0,0,3,2,0.6667,2,2,1.0,2,repeated_query,5,66,946,3,0.604,3.59,56.9,4793.0
+5adf27775542993344016c00,bridge,hard,span,281,281,1.0,1.0,0,3,1,0.3333,2,2,1.0,3,max_hops,10,43,1359,3,0.616,3.555,63.3,4840.9
+5ade450b5542997c77adedc5,bridge,hard,span,"Boston, Providence, Hartford, New York City, Philadelphia, Wilmington, Baltimore, and Washington, D.C.","Boston, Providence, Hartford, New York City, Philadelphia, Wilmington, Baltimore, and Washington, D.C.",1.0,1.0,0,2,1,0.5,2,2,1.0,2,repeated_query,5,63,919,3,0.578,3.476,49.8,4779.3
+5abbcba05542992ccd8e7fa3,bridge,hard,span,Margarine Unie,Margarine Unie,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,6,43,1076,3,0.612,3.214,59.4,4869.1
+5a75a0725542992d0ec05fc9,bridge,hard,span,"Edward Leonard ""Ed"" O'Neill",Ed O'Neill,0.0,0.6667,0,4,3,0.75,2,2,1.0,3,max_hops,9,29,1292,3,0.563,3.213,61.4,4878.7
+5ac2a23a55429967731025cc,bridge,hard,span,David Michael Bautista Jr.,Dave Bautista,0.0,0.3333,1,2,2,1.0,2,2,1.0,3,max_hops,9,30,1151,3,0.564,3.056,56.8,4832.7
+5a7b66135542997c3ec97145,comparison,hard,span,I.O.U.S.A.,I.O.U.S.A.,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,50,810,3,0.528,3.261,55.2,4760.8
+5a72a9ac5542991f9a20c55f,bridge,hard,span,the fourth hour of the TODAY Show,TODAY Show,0.0,0.5714,1,2,2,1.0,2,2,1.0,2,repeated_query,6,59,1074,3,0.612,3.533,56.3,4869.8
+5ae0819155429924de1b70ea,comparison,hard,span,The Memory of Justice,Hacking Democracy,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,32,717,3,0.5,2.605,63.4,4679.9
+5ab7ee895542995dae37e9f6,bridge,hard,span,Venice,No,0.0,0.0,0,2,0,0.0,2,2,1.0,2,repeated_query,6,24,661,3,0.468,2.369,64.8,4663.6
+5a8f791c5542992414482ad9,bridge,hard,span,death metal band,touring together,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,34,759,3,0.438,2.583,67.2,4711.5
+5a712e895542994082a3e636,bridge,hard,span,anabolic–androgenic steroid (AAS),Nandrolone,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,7,54,1203,3,0.604,3.577,63.5,4832.9
+5a8398405542993344746050,bridge,hard,span,Limerick,no,0.0,0.0,0,2,1,0.5,2,2,1.0,2,repeated_query,6,36,577,3,0.456,2.281,95.1,4619.4
+5ab5e8935542997d4ad1f23b,bridge,hard,span,Dr. Alberto Taquini,Dr. Alberto Taquini,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,9,503,2,0.518,1.438,61.6,4704.2
+5ae74818554299572ea547ad,bridge,hard,span,Boston and Maine Railroad's Southern Division,Boston and Maine Railroad's Southern Division,1.0,1.0,1,3,3,1.0,2,2,1.0,2,done,8,36,1290,3,0.551,3.113,57.3,4878.2
+5a739323554299623ed4abff,comparison,hard,span,Kanichee Mine,Kanichee Mine,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,35,988,3,0.488,2.848,58.8,4879.1
+5abc7bf75542993a06baf8f0,comparison,hard,span,Laurus,Liriodendron,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,8,32,817,3,0.444,2.579,53.5,4772.4
+5a72125055429971e9dc9241,bridge,hard,span,Eucritta melanolimnetes,Eucritta melanolimnetes,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,40,1601,3,0.669,3.88,43.4,4919.8
+5a7e1a5455429965cec5ea5f,bridge,hard,span,Steve McGarrett,Alex O'Loughlin,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,44,1234,3,0.569,3.151,52.6,4848.5
+5ab576c4554299637185c5a4,bridge,hard,span,Mako,Mako,1.0,1.0,0,4,2,0.5,2,2,1.0,1,done,5,5,415,2,0.423,1.206,79.8,4635.5
+5a8466a75542993344746108,bridge,hard,span,"""Alceste""",Alceste,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,37,1235,3,0.59,3.176,67.9,4840.9
+5a75f32055429976ec32bcb7,bridge,hard,span,Jim Davis,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,4,534,2,0.565,1.349,106.1,4728.2
+5a8762205542996e4f3087b8,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,38,981,3,0.527,3.038,98.8,4822.5
+5ac1d4ad5542994d76dccef7,bridge,hard,span,Figaro,Figaro,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,36,1469,3,0.658,3.461,81.4,4962.5
+5a7150c75542994082a3e7be,bridge,hard,span,"86,112","86,112",1.0,1.0,0,4,2,0.5,2,2,1.0,2,done,9,28,1329,3,0.486,2.609,62.8,4867.5
+5a9072dd5542990a98493656,comparison,hard,span,rock,rock,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,36,1184,3,0.481,2.459,108.3,4820.3
+5a8d0be85542994ba4e3dbb2,bridge,hard,span,Prince George's County,Prince George's,0.0,0.8,1,2,2,1.0,2,2,1.0,1,done,5,6,571,2,0.375,1.108,75.2,4754.6
+5a7f924c55429969796c1aba,bridge,hard,span,Eric Banadinović,Michael Veitch,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,10,58,1296,3,0.378,2.964,76.1,4874.4
+5adca5eb5542994d58a2f693,bridge,hard,span,Bishop's Stortford,no,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,11,42,1057,3,0.394,2.349,113.6,4866.0
+5a77474855429972597f14e4,comparison,hard,span,Daisy Chainsaw,Daisy Chainsaw,1.0,1.0,1,4,4,1.0,2,2,1.0,3,max_hops,10,47,1045,3,0.369,2.496,70.9,4853.4
+5a86edcc55429960ec39b6da,bridge,hard,span,Jennifer Aniston,Jennifer Aniston,1.0,1.0,0,2,1,0.5,2,2,1.0,1,done,5,6,656,2,0.446,1.158,78.4,4816.6
+5a80762a5542996402f6a536,bridge,hard,span,Scottish Premiership club Hibernian,Celtic,0.0,0.0,0,3,2,0.6667,2,1,0.5,2,repeated_query,7,48,1248,3,0.446,2.699,77.8,4869.8
+5a8bf6cf5542995e66a47525,bridge,hard,span,"""The Simpsons""' thirteenth season",Thirteenth,0.0,0.5,1,2,2,1.0,2,2,1.0,3,max_hops,7,30,809,3,0.318,1.947,80.1,4738.6
+5ae6545f5542991bbc9760c2,bridge,hard,span,Dylan O'Brien,Maurice Costello,0.0,0.0,0,4,3,0.75,2,2,1.0,3,max_hops,10,44,1386,3,0.416,2.679,68.4,4866.2
+5a736aa95542991f29ee2dfa,bridge,hard,span,Lismore,Lismore,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,8,44,889,3,0.334,2.431,78.5,4805.4
+5abeb1925542994516f453f0,bridge,hard,span,Osaka International Airport,Tokyo International Airport (Haneda Airport),0.0,0.5,0,2,1,0.5,2,2,1.0,2,done,8,23,1047,3,0.397,2.066,65.3,4886.9
+5a8b5b1c5542995d1e6f1387,comparison,hard,yesno,yes,No,0.0,0.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,28,1321,3,0.492,2.563,113.0,4864.5
+5adf076f5542992d7e9f9277,bridge,hard,span,John Faso,John Faso,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,50,1045,3,0.453,2.615,79.6,4856.5
+5abc091555429965836003f6,bridge,hard,span,Swan Lake,Black Swan,0.0,0.5,0,3,1,0.3333,2,1,0.5,2,repeated_query,8,39,1228,3,0.443,2.57,89.4,4840.3
+5a7f95685542995d8a8ddeaa,bridge,hard,span,German,American,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,7,24,1132,3,0.422,2.178,185.3,4803.4
+5ab8903555429916710eb08e,bridge,hard,span,Clark County,Las Vegas,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,done,5,5,583,2,0.414,1.06,87.2,4763.9
+5ae454355542996836b02c77,bridge,hard,span,4 albums,4,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,4,597,2,0.386,1.0,119.3,4774.4
+5abc095c5542993f40c73c5d,comparison,hard,span,Fazoli's,Fazoli's,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,505,2,0.372,1.032,74.8,4706.6
+5ade9545554299728e26c741,bridge,hard,span,Swiss made,"Through miniaturization, it can be used in wristwatches and requires very little power, making a battery last for many years.",0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,30,569,2,0.369,1.402,61.2,4753.9
+5ab8179f5542990e739ec817,bridge,hard,span,Dana Fox,Dana Fox,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,42,1166,3,0.439,2.563,72.5,4825.6
+5ae01fcf554299025d62a411,bridge,hard,span,girls aged 11 to 18,Youth with high intelligence.,0.0,0.0,1,3,3,1.0,2,2,1.0,3,max_hops,11,31,998,3,0.36,2.411,63.0,4876.4
+5ac1b8cd55429963665198fc,comparison,hard,span,Brothers Quay,Cannot determine,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,8,29,1082,3,0.465,2.434,89.0,4886.9
+5a83d0845542996488c2e4e6,bridge,hard,span,The Longest Yard,no,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,11,42,1461,3,0.466,2.679,114.6,4886.2
+5ae72b96554299572ea5474e,bridge,hard,span,Mezzanine,Mezzanine,1.0,1.0,0,3,2,0.6667,2,2,1.0,3,max_hops,9,31,1067,3,0.39,2.207,78.9,4887.6
+5ae4d15255429908b6326483,bridge,hard,span,Scribner,Scribner,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,7,43,827,3,0.322,2.209,74.1,4755.7
+5a7d2aa05542995f4f40221f,bridge,hard,span,The War of '04,UFC 50: The War of '04,0.0,0.75,1,2,2,1.0,2,2,1.0,1,done,5,15,633,2,0.439,1.254,63.9,4801.2
+5a906c795542990a98493640,bridge,hard,span,mastered recordings,mastered recordings,1.0,1.0,0,2,1,0.5,2,2,1.0,3,max_hops,7,30,929,3,0.329,2.074,77.0,4829.8
+5ade914b55429939a52fe8f9,bridge,hard,span,"""Discover Pure Energy""",Discover Pure Energy,1.0,1.0,0,3,1,0.3333,2,2,1.0,2,repeated_query,7,34,878,3,0.33,2.048,89.3,4801.2
+5aba6f3e55429955dce3ee21,bridge,hard,span,Dragon TV,ABC,0.0,0.0,0,4,1,0.25,2,2,1.0,3,max_hops,8,33,1050,3,0.384,2.246,115.6,4859.2
+5a8dad37554299068b959d94,comparison,hard,span,genus,genus,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,41,646,3,0.329,1.948,90.1,4641.1
+5ae00de055429906c02daab5,bridge,hard,span,Philip K. Dick,Ridley Scott,0.0,0.0,0,3,1,0.3333,2,2,1.0,2,repeated_query,8,35,1173,3,0.419,2.246,73.3,4822.3
+5aba902455429901930fa834,bridge,hard,span,Gene Serdena,No,0.0,0.0,0,3,2,0.6667,2,2,1.0,3,max_hops,6,50,1147,3,0.429,2.914,114.4,4887.6
+5adea83b55429975fa854f53,bridge,hard,span,Tharangambadi,Tranquebar,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,7,677,2,0.484,1.191,74.4,4832.9
+5abbe4c0554299642a094bc0,bridge,hard,span,65 mi,65 mi,1.0,1.0,1,2,2,1.0,2,2,1.0,3,max_hops,9,25,938,3,0.316,1.838,77.8,4831.8
+5a893f305542993b751ca91e,bridge,hard,span,St.George,no,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,44,921,3,0.327,2.426,115.0,4819.7
+5abef8fd5542990832d3a111,bridge,hard,span,seven,7,0.0,0.0,0,5,3,0.6,2,2,1.0,1,done,5,4,495,2,0.411,1.015,118.0,4698.4
+5adfc9a555429906c02daa42,bridge,hard,span,Yorgos Lanthimos,Yorgos Lanthimos,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,9,641,2,0.41,1.121,70.9,4806.1
+5ae7954b554299540e5a5620,bridge,hard,span,Piaggio,Standard-Triumph,0.0,0.0,0,2,1,0.5,2,2,1.0,3,max_hops,9,45,945,3,0.362,2.293,73.2,4863.2

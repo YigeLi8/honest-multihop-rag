@@ -1,0 +1,1001 @@
+id,qtype,level,answer_type,answer_gold,answer_pred,em,f1,retrieval_correct,n_gold,n_gold_hit,gold_recall,n_gold_para,n_gold_para_hit,para_recall,hops,stop_reason,n_context,reasoning_tokens,prompt_tokens,gen_calls,ttft_s,latency_s,tokens_per_s,peak_memory_mb
+5a8ac4085542992d82986f74,bridge,hard,span,a scholar,The Host,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.224,3.001,98.0,4471.9
+5a7b374c5542995eb53be8cc,bridge,hard,span,"New York City, New York",New York City,0.0,0.75,0,3,0,0.0,2,0,0.0,1,,0,4,89,1,0.173,0.231,88.5,4498.5
+5ab92e02554299753720f775,bridge,hard,span,219,101,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.164,0.221,89.2,4479.2
+5ab58f9a554299488d4d99da,bridge,hard,span,22 November,27 May 1773,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,92,1,0.173,0.312,71.5,4504.8
+5adf860e5542993344016cbc,bridge,hard,span,1964 to 1974,2010-2014,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,10,92,1,0.181,0.328,73.8,4504.8
+5a7ad9865542995eb53be8aa,bridge,hard,span,Honda Ballade,NSX,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,86,1,0.167,0.209,101.4,4492.8
+5a71443f5542994082a3e727,comparison,hard,span,It lies two kilometres WSW of Mount Everest.,Gasherbrum II,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,6,80,1,0.157,0.244,79.7,4478.2
+5a7cbf93554299452d57b9f5,bridge,hard,span,Magdalen College,Merton College,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,4,84,1,0.156,0.214,86.6,4488.0
+5adf98215542993344016d19,bridge,hard,span,Kew Gardens,Kew Gardens,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,87,1,0.175,0.231,89.4,4493.8
+5ae1fa2b5542997f29b3c1df,bridge,hard,span,Eminem,Ric Wake,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,74,1,0.155,0.212,88.0,4464.4
+5ae650fb55429929b0807b2e,bridge,hard,span,people working in film and the performing arts,acting,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,77,1,0.157,0.187,124.0,4471.9
+5a85597c5542997175ce1fba,bridge,hard,span,Canadian,Russian,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,83,1,0.175,0.202,132.6,4484.7
+5ac19d4c55429963665198bb,bridge,hard,span,May Revolution,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,93,1,0.159,0.186,134.3,4507.6
+5ab611cc5542992aa134a411,comparison,hard,span,director and producer,screenwriter,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.155,0.197,101.6,4469.2
+5ab7c87d55429928e1fe38de,bridge,hard,span,third,4,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,82,1,0.165,0.193,132.3,4483.7
+5ab4bea15542990594ba9cae,bridge,hard,span,Dublin,Dublin,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,84,1,0.174,0.217,98.0,4488.0
+5ade9c9c5542997c77adee8c,bridge,hard,span,Julius Caesar,King Kong,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.17,0.215,95.7,4476.7
+5ae0d7315542990adbacf678,bridge,hard,span,Toshi Ichiyanagi,Toshio Hosokawa,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,80,1,0.175,0.278,77.2,4478.2
+5ae1ba55554299234fd042d9,bridge,hard,span,"Kings Point, New York",Los Angeles,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.161,0.204,99.4,4474.0
+5a839c8b5542996488c2e479,bridge,hard,span,Lord Chancellor of England,Prime Minister,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,87,1,0.165,0.207,99.6,4493.8
+5abdd08d5542991f6610604c,bridge,hard,span,Guardians of the Galaxy Vol. 2,Guardians of the Galaxy Vol. 2,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,10,78,1,0.17,0.318,73.7,4474.0
+5ade190f55429975fa854e40,bridge,hard,span,The sponsorship scandal,Sponsorship scandal,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,85,1,0.158,0.23,82.8,4489.5
+5a8cd381554299653c1aa12b,comparison,hard,span,Sigmund Freud,Sigmund Freud,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,77,1,0.157,0.231,83.5,4471.9
+5abd12bb55429933744ab703,bridge,hard,span,Mount Everest,Everest,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,3,86,1,0.188,0.231,99.4,4492.8
+5abb1e1b5542992ccd8e7f19,comparison,hard,span,Nobel Prize in Literature,Nobel Prize,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.159,0.215,89.6,4476.7
+5adeb95d5542992fa25da827,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.157,0.188,114.0,4467.7
+5a8ba59a554299240d9c2058,bridge,hard,span,1999,2008,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,84,1,0.178,0.25,84.2,4488.0
+5a7c53a855429935c91b515d,bridge,hard,span,The R-8 Human Rhythm Composer,E-mu Emulator II,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,7,83,1,0.156,0.26,76.8,4484.7
+5ae54eea5542993aec5ec19d,comparison,hard,span,Social Code,Wavves,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,74,1,0.166,0.222,90.0,4464.4
+5a8026a05542992e7d278df8,bridge,hard,span,3 December,2022-03-18,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,11,75,1,0.155,0.318,73.1,4467.7
+5a7a27ce5542996c55b2dd28,comparison,hard,span,The Western Allied invasion of Germany,The Western Allied invasion of Germany took place first.,0.0,0.7692,0,3,0,0.0,2,0,0.0,1,,0,11,77,1,0.159,0.334,67.5,4471.9
+5ab9812d554299753720f821,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.191,0.218,132.0,4476.7
+5ac3b5d3554299741d48a2f3,bridge,hard,span,"September 30, 2017","September 14, 2019",0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,11,83,1,0.171,0.333,73.2,4484.7
+5ab811e95542995dae37ea22,bridge,hard,span,Wiz Khalifa,Snoop Dogg,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,104,1,0.166,0.238,84.3,4533.1
+5a80541d5542996402f6a4d2,bridge,hard,span,2016,2022,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,5,101,1,0.165,0.236,84.2,4525.1
+5ac2546a554299636651997b,comparison,hard,span,Motion City Soundtrack,Candlelight Red,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,77,1,0.155,0.226,84.4,4471.9
+5ab8f3235542991b5579f084,bridge,hard,span,45th,11th,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,80,1,0.17,0.228,88.3,4478.2
+5ac31066554299741d48a19d,bridge,hard,span,Melbourne,Sydney,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.168,0.209,101.1,4476.7
+5ac279345542990b17b153b0,bridge,hard,span,28 January 1864,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,84,1,0.166,0.194,132.2,4488.0
+5adfc50355429942ec259b43,bridge,hard,span,"Alice Springs, Northern Territory",Waverley Park,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,84,1,0.18,0.252,82.3,4488.0
+5ae5e1985542996de7b71a54,bridge,hard,span,Archbishop of Canterbury,Cardinal Archbishop of Canterbury,0.0,0.8571,0,2,0,0.0,2,0,0.0,1,,0,6,78,1,0.171,0.259,80.5,4474.0
+5a87411d5542994846c1cd37,bridge,hard,span,member of the Executive Council of the General Anthroposophical Society,Director of the Anthroposophical Society Headquarters in The Hague,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,12,87,1,0.17,0.351,71.1,4493.8
+5ab4107a554299753aec5a2f,bridge,hard,span,1961,1959,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,77,1,0.158,0.231,82.7,4471.9
+5ae3d8415542992f92d8239a,bridge,hard,span,high school diploma or GED,high school diploma,0.0,0.75,0,4,0,0.0,2,0,0.0,1,,0,4,80,1,0.185,0.244,86.4,4478.2
+5a88a19a5542997e5c09a64b,bridge,hard,span,moth,Loblolly Blueberry Moth,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,8,76,1,0.174,0.298,73.4,4469.2
+5a7e1ad155429965cec5ea66,bridge,hard,span,"Nebula Award, the Philip K. Dick Award, and the Hugo Award","The First Law won the Nebula Award, the Hugo Award, and the John W. Campbell Award.",0.0,0.5714,0,2,0,0.0,2,0,0.0,1,,0,22,74,1,0.193,0.524,69.1,4464.4
+5a745e1455429929fddd83fd,bridge,hard,span,Ephedrine,"Shooting up (referring to injection of drugs like heroin) is illegal in the Philippines, but the specific drug that can be taken by mouth or by injection and is illegal is not directly stated. However, if we consider the most common drug, it would be heroin, which can be taken by both methods. So, the answer would be:",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,73,83,1,0.168,1.253,68.1,4484.7
+5a8ca7d4554299240d9c21b8,bridge,hard,span,"""Currer Bell""",J.R. Ramírez,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,84,1,0.166,0.267,78.6,4488.0
+5a7ec90055429934daa2fc66,bridge,hard,span,Scottish Premiership club Hearts,Rangers,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,94,1,0.164,0.206,100.1,4509.6
+5a82112955429926c1cdae25,bridge,hard,span,"Southaven, Mississippi",Germantown,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,82,1,0.169,0.242,83.1,4483.7
+5a85a3005542991dd0999e72,bridge,hard,span,World War II,Second World War,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,99,1,0.176,0.234,88.9,4520.4
+5ab4475c5542996a3a969f6c,bridge,hard,span,Eddie Izzard,Alan Partridge,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.175,0.232,88.1,4479.2
+5ac1a04e5542991316484b63,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,71,1,0.161,0.189,130.8,4458.1
+5ae09ce855429924de1b7113,bridge,hard,span,25,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,82,1,0.157,0.184,131.4,4483.7
+5a78bc6b554299148911f979,comparison,hard,span,fortnightly women interest magazine,Women's interest magazines,0.0,0.2857,0,2,0,0.0,2,0,0.0,1,,0,5,72,1,0.157,0.229,83.6,4461.9
+5ab2a8b655429929539467ab,bridge,hard,span,Nikhil Banerjee,Ravi Shankar,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.156,0.227,84.5,4469.2
+5a8a7d2b55429930ff3c0dfc,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.166,0.193,134.4,4474.0
+5ae3f2395542995ad6573cc6,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.156,0.183,133.4,4464.4
+5a90bd7b55429916514e7547,comparison,hard,span,Polypodium,Polypodium,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,75,1,0.157,0.214,89.4,4467.7
+5ae20e265542994d89d5b325,bridge,hard,span,James G. Kiernan,Konrad Lorenz,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,84,1,0.169,0.24,84.3,4488.0
+5abc039a5542993f40c73c49,bridge,hard,span,Clinton,George H. W. Bush administration,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,83,1,0.166,0.283,76.6,4484.7
+5a77c74155429967ab105291,comparison,hard,span,"Vib Gyor was a band that was formed in Leeds, England.",Vib Gyor,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,5,74,1,0.167,0.24,82.7,4464.4
+5ae48e7e55429913cc20449d,bridge,hard,span,Europe,Europe,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,92,1,0.169,0.195,135.1,4504.8
+5abaf4535542996cc5e49f35,bridge,hard,span,Boulder High School,Tulsa,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,85,1,0.172,0.23,87.4,4489.5
+5a901e5c55429933b8a2047c,bridge,hard,span,Euripides,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.166,0.194,133.1,4476.7
+5ab528a3554299637185c4e5,comparison,hard,span,"musician, singer, and songwriter",Musicians,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,72,1,0.159,0.201,100.6,4461.9
+5a88fc4255429938390d4019,bridge,hard,span,"September 25, 2017",No,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,2,95,1,0.161,0.191,126.6,4512.3
+5ae0345855429924de1b705f,bridge,hard,span,Las Vegas Sands company.,Accor Hotels,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,76,1,0.179,0.238,85.2,4469.2
+5ac1b5de5542994d76dccec6,bridge,hard,span,My Beautiful Dark Twisted Fantasy,Graduation,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.157,0.2,98.6,4476.7
+5a82fe5055429966c78a6ad3,bridge,hard,span,evangelical Christian,Pentecostal,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,6,109,1,0.159,0.245,80.9,4527.9
+5a798f8c5542994bb9457023,bridge,hard,span,"Port Moresby, Papua New Guinea","Pohnpei, Micronesia",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,94,1,0.173,0.29,76.2,4509.6
+5add63845542992ae4cec541,bridge,hard,span,"April 29, 2005 for US$129.95",no,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,85,1,0.17,0.199,127.5,4489.5
+5ababbe9554299232ef4a38a,bridge,hard,span,Margery Williams,Dr. Seuss,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.168,0.244,80.6,4469.2
+5ae3205c55429928c423961e,bridge,hard,span,Leslie Knope,Patty Murphy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,88,1,0.17,0.227,88.7,4497.5
+5abcf2b4554299700f9d7937,bridge,hard,span,Giotto,Giotto di Bondone,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,7,72,1,0.166,0.268,78.3,4461.9
+5a8b4a5f55429949d91db531,bridge,hard,span,IK Start,Viking Fotball,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,113,1,0.165,0.238,82.5,4532.6
+5a79be0e5542994f819ef084,bridge,hard,span,"March 13, 2013","October 22, 2012",0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,11,84,1,0.163,0.334,69.8,4488.0
+5ae69e3f5542996d980e7c61,bridge,hard,span,University of New York Upstate,University of Chicago,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,4,88,1,0.201,0.261,89.1,4497.5
+5a8a495055429930ff3c0d6a,bridge,hard,span,"Tumwater, Washington",Bellevue,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,84,1,0.202,0.26,89.2,4488.0
+5a8c5c6f554299653c1aa04d,bridge,hard,span,Coyote Ugly,Titanic,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,92,1,0.17,0.211,101.0,4504.8
+5a80ecea55429938b6142254,bridge,hard,span,Queen In-hyun's Man,My Secret Story,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,84,1,0.159,0.217,87.4,4488.0
+5a8242c155429940e5e1a81d,bridge,hard,span,Germany,Florence,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,74,1,0.172,0.215,99.3,4464.4
+5a7cef5d55429909bec768ac,bridge,hard,span,"September 13, 1994",Life After Death,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,83,1,0.177,0.235,87.3,4484.7
+5a7319e755429901807daf86,bridge,hard,span,most total touchdowns in NCAA history,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.161,0.188,134.1,4462.9
+5ae1d0e8554299234fd0430a,bridge,hard,span,Guthred or Guthfrith,Ecgfrith,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,85,1,0.165,0.237,83.8,4489.5
+5ade99295542992fa25da7d8,bridge,hard,span,linguistic analysis,lack of concrete evidence for sole authorship,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,10,90,1,0.163,0.31,74.2,4500.0
+5a734bb65542994cef4bc50f,bridge,hard,span,Vincent Anthony Guaraldi,Herbie Hancock,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,105,1,0.168,0.224,89.4,4534.2
+5abe7eb05542993f32c2a12c,bridge,hard,span,1 September 1864,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.165,0.193,133.1,4471.9
+5a84f7255542991dd0999e33,bridge,hard,span,Republic of Chad,Chad,0.0,0.5,0,4,0,0.0,2,0,0.0,1,,0,3,78,1,0.167,0.208,101.3,4474.0
+5a70f1685542994082a3e40f,bridge,hard,span,Symphony No. 7,"Sonata No. 14 in C♯ minor, Op. 27, No. 2, commonly known as the ""Moonlight Sonata""",0.0,0.1111,0,3,0,0.0,2,0,0.0,1,,0,33,87,1,0.166,0.66,68.4,4493.8
+5ae0de1455429924de1b71b4,bridge,hard,span,orange juice,grape juice,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,4,95,1,0.169,0.226,89.8,4512.3
+5ae4a2b25542995ad6573de0,bridge,hard,span,pro-Confederate,Confederate,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,83,1,0.157,0.215,89.4,4484.7
+5abd9c2355429924427fd06c,bridge,hard,span,2005,2015,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,86,1,0.165,0.236,84.2,4492.8
+5a74701655429979e2882952,comparison,hard,span,Blonde Redhead,Rob Zombie's band White Zombie,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,7,81,1,0.17,0.271,78.6,4479.2
+5ab7f7465542993667794071,bridge,hard,span,British Bristol Olympus turbojet,turbojet,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.165,0.222,88.6,4476.7
+5a7a6ee75542996c55b2ddac,comparison,hard,span,Krzysztof Zanussi,Krzysztof Zanussi,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,10,79,1,0.157,0.307,72.9,4476.7
+5a85fa815542996432c57155,bridge,hard,span,Western Europe,Belgium,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,76,1,0.158,0.2,101.1,4469.2
+5ae27f555542992decbdcd30,bridge,hard,span,Hermione Baddeley,Helen Mirren,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,85,1,0.157,0.229,84.2,4489.5
+5ade3d75554299728e26c68b,bridge,hard,span,Finding Nemo,Zootopia,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,84,1,0.166,0.223,89.3,4488.0
+5ae236da5542994d89d5b397,bridge,hard,span,"July 26, 1959",No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.161,0.187,135.5,4483.7
+5adfad2b554299603e41835c,bridge,hard,span,Kenny Young,Paul Revere and Mark Lindsay wrote the song Arizona.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,12,79,1,0.157,0.335,72.5,4476.7
+5abbc58455429931dba14502,bridge,hard,span,Sam Raimi,Robert De Niro,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,74,1,0.157,0.229,84.3,4464.4
+5a861fa75542994775f60706,bridge,hard,span,North American Aviation T-6 Texan,T-2 Buckeye,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,76,1,0.165,0.251,80.9,4469.2
+5a888fe6554299206df2b2f7,bridge,hard,span,T. R. M. Howard,Malcolm X,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,85,1,0.166,0.222,90.0,4489.5
+5ab865235542992aa3b8c8db,bridge,hard,span,500 metres,200 meters,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,93,1,0.173,0.245,84.3,4507.6
+5ae064985542993d6555eb47,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.163,0.189,134.9,4471.9
+5ae531a95542990ba0bbb1fc,bridge,hard,span,1986,1984,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.162,0.233,84.5,4479.2
+5ae533535542993aec5ec173,bridge,hard,span,political correctness,Censorship,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,84,1,0.164,0.22,90.1,4488.0
+5adebea1554299728e26c7b6,bridge,hard,span,Prof Media,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,81,1,0.163,0.19,135.0,4479.2
+5adfdc7d55429942ec259b64,bridge,hard,span,Andrew Johnson,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.164,0.19,134.4,4464.4
+5adbe9fa55429944faac23ba,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.156,0.186,122.2,4462.9
+5ae31bbd55429928c42395fc,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.169,0.196,133.8,4467.7
+5ae2120e5542997283cd23ad,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.166,0.192,135.3,4464.4
+5a9052765542995651fb513d,comparison,hard,span,Prof Bhabananda Deka,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.166,0.193,135.0,4483.7
+5ae6795855429908198fa5e4,bridge,hard,span,16th Street and Georgetown Road,Warren and Miller,0.0,0.25,0,4,0,0.0,2,0,0.0,1,,0,5,90,1,0.177,0.249,84.3,4500.0
+5a84e61b5542997b5ce3ff86,bridge,hard,span,show's 500th episode,250th episode,0.0,0.4,0,3,0,0.0,2,0,0.0,1,,0,6,92,1,0.167,0.254,80.3,4504.8
+5ab266b5554299340b5254b4,bridge,hard,span,Citizens for a Sound Economy,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,94,1,0.179,0.207,130.8,4509.6
+5ab5ec0a5542997d4ad1f250,bridge,hard,span,650 locations,175 locations,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,5,82,1,0.173,0.244,84.3,4483.7
+5a72a9ab5542992359bc315a,bridge,hard,span,the Pennacook people,Pawtucket,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,85,1,0.158,0.229,84.4,4489.5
+5a848b5c5542997175ce1ef2,bridge,hard,span,Glam metal,Power metal,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.165,0.206,101.0,4471.9
+5ab467975542991751b4d75f,bridge,hard,span,1992,2009,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.171,0.242,84.4,4479.2
+5a75ebfc5542992d0ec06018,bridge,hard,span,Odawa,Ojibwe,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,88,1,0.165,0.238,82.8,4497.5
+5a7cdd6b55429909bec76858,comparison,hard,span,Louis XIV,Edward Sharpe and the Magnetic Zeros,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,9,78,1,0.167,0.301,73.8,4474.0
+5a8209845542990a1d231f1f,bridge,hard,span,Ducks,Peabody Ducks,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,5,86,1,0.185,0.259,82.1,4492.8
+5a726b0f5542997f827839be,comparison,hard,span,Jean-Loup Jacques Marie Chrétien,Jean-Loup Chrétien,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,7,79,1,0.169,0.272,77.7,4476.7
+5ac2616b5542996366519997,bridge,hard,span,Ghana,Ghana,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,73,1,0.177,0.22,98.8,4462.9
+5ae4f3c455429960a22e0221,bridge,hard,span,575 acres (2.08 km²),103.5 acres,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,7,79,1,0.17,0.274,76.1,4476.7
+5a8b4ec155429949d91db53f,bridge,hard,span,Zachary Levi,Zachary Edward Levi,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,6,83,1,0.169,0.257,78.5,4484.7
+5ac52f455542996feb3fea12,bridge,hard,span,1950,2005,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,79,1,0.184,0.257,82.0,4476.7
+5ab438395542990594ba9bb9,bridge,hard,span,Michael Seater,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,90,1,0.169,0.196,131.3,4500.0
+5a81a7f75542995ce29dcc25,bridge,hard,span,Carrefour,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,92,1,0.17,0.2,133.8,4504.8
+5add98985542990dbb2f7e82,bridge,hard,span,American schoolteacher and publisher,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.173,0.202,127.7,4469.2
+5ae1465855429920d5234373,bridge,hard,span,New York Yankees,Boston Red Sox,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,80,1,0.169,0.227,87.5,4478.2
+5a721d5a55429971e9dc9283,bridge,hard,span,Ballarat Bitter is a 4.9% (abv) Australian beer,Heineken,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,84,1,0.162,0.222,85.1,4488.0
+5ae7ea695542994a481bbe17,bridge,hard,span,Apsley George Benet Cherry-Garrard,Robert Falcon Scott,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.186,0.246,84.2,4474.0
+5ae7eb3c5542994a481bbe20,bridge,hard,span,Babylon,Hangzhou,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,88,1,0.174,0.217,98.0,4497.5
+5adf69055542995534e8c7a4,bridge,hard,span,"St Andrews, Fife, Scotland",Edinburgh,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,81,1,0.17,0.213,100.3,4479.2
+5a806cdf5542996402f6a508,bridge,hard,span,University of Vienna,Columbia University,0.0,0.4,0,4,0,0.0,2,0,0.0,1,,0,4,90,1,0.176,0.233,88.6,4500.0
+5a78d01d55429974737f78b3,bridge,hard,span,SBS,CCTV-3,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,100,1,0.169,0.256,80.6,4523.6
+5adf62d05542992d7e9f932d,bridge,hard,span,"""Walk Like an Egyptian""",No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,71,1,0.166,0.194,133.8,4458.1
+5a8b3fe85542995d1e6f1323,bridge,hard,span,Johnson Press,Blackpool Gazette,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,75,1,0.171,0.227,89.9,4467.7
+5a7dedef5542995f4f40231a,bridge,hard,span,Michael Patrick Smith,Timothy Spall,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.157,0.229,83.3,4469.2
+5a88c68d55429938390d3fba,bridge,hard,span,Irish,American,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.166,0.192,135.1,4469.2
+5abc0bea554299658360040d,bridge,hard,span,Prince of Denmark,Scotland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,85,1,0.167,0.195,133.0,4489.5
+5abb2f245542996cc5e49fd2,bridge,hard,span,natural-ingredients-only personal care products,Gardening products,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,5,85,1,0.168,0.24,83.5,4489.5
+5a72f74a55429901807daf59,bridge,hard,span,Rosie O'Donnell,"Comedians born on March 21, 1962, who appeared in ""Sleepless in Seattle"" include Tom Hanks. However, Tom Hanks is not an American comedian but an actor. The American comedian who appeared in the movie is Rosie O'Donnell. So, no.",0.0,0.1081,0,3,0,0.0,2,0,0.0,1,,0,64,87,1,0.165,1.149,65.9,4493.8
+5ae0a54e5542993d6555ebdd,bridge,hard,span,Urijah Christopher Faber,Conor McGregor,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,84,1,0.166,0.224,87.8,4488.0
+5a866e7e554299211dda2b29,bridge,hard,span,Peer,Baron,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,108,1,0.172,0.214,100.1,4540.4
+5abaf6865542996cc5e49f3c,bridge,hard,span,Sean,"Thomas Doherty played the role of Nathan Wexler in the American sitcom ""The Good Place,"" which was based on the Israeli series ""Moetzi,"" also known as ""North Star.""",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,41,81,1,0.182,0.802,67.5,4479.2
+5ae534bb5542990ba0bbb21d,comparison,hard,span,Liberty,MIT Technology Review,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,83,1,0.179,0.238,86.3,4484.7
+5ae327e05542992f92d82220,bridge,hard,span,13,4,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.164,0.193,130.0,4474.0
+5abebbe65542997719eab59d,bridge,hard,span,"February 20, 1978","October 22, 1977",0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,11,90,1,0.167,0.333,71.5,4500.0
+5ab5e9865542992aa134a3db,bridge,hard,span,Greek mythology,Mother goddess,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.173,0.216,99.4,4469.2
+5a7a112a5542990783324e2b,bridge,hard,span,drummer,Black metal musicians,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.172,0.229,88.9,4471.9
+5adf430e5542993a75d2645e,comparison,hard,span,Dundee Canal,Miami Canal,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,3,80,1,0.157,0.201,99.1,4478.2
+5a779be75542995d83181215,bridge,hard,span,England,Canada,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.168,0.197,128.1,4467.7
+5a809b575542996402f6a59c,bridge,hard,span,Dusty Dvoracek,Kevin Jones,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.167,0.21,99.5,4476.7
+5abed9435542994516f45457,comparison,hard,span,Tron,Tron,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,3,81,1,0.172,0.215,100.3,4479.2
+5adf4ba65542992d7e9f931c,bridge,hard,span,Beauty and the Beast,Beauty and the Beast,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,82,1,0.166,0.238,83.9,4483.7
+5ae491155542995ad6573da3,bridge,hard,span,"June 6, 1959",1979,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,83,1,0.167,0.24,82.9,4484.7
+5ac440385542997ea680ca4e,bridge,hard,span,Hessians,King's German Legion,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.169,0.24,84.0,4469.2
+5a84d80c5542992a431d1ab5,comparison,hard,span,MiMA,MiMA,1.0,1.0,0,5,0,0.0,2,0,0.0,1,,0,3,80,1,0.164,0.206,101.0,4478.2
+5ae7945d5542997b22f6a7ba,bridge,hard,span,Big 12,Big Ten Conference,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,82,1,0.172,0.228,89.4,4483.7
+5ab98608554299131ca42362,bridge,hard,span,1926 Paris,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.166,0.223,89.4,4474.0
+5ab3eeb5554299233954fff4,bridge,hard,span,2011,2005,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,92,1,0.17,0.242,83.4,4504.8
+5a7ce50f55429909bec76869,bridge,hard,span,1974,1942,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,88,1,0.167,0.238,84.1,4497.5
+5a8fa4d95542995b4424207b,comparison,hard,span,Trenton–Mercer Airport,Palm Springs International Airport,0.0,0.3333,0,3,0,0.0,2,0,0.0,1,,0,6,79,1,0.166,0.257,77.5,4476.7
+5a72ba165542992359bc318a,bridge,hard,span,Wikimedia Foundation,No,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,77,1,0.16,0.187,134.6,4471.9
+5a85ae455542997175ce1ff0,bridge,hard,span,stunt performances,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,84,1,0.166,0.195,129.5,4488.0
+5a8bbfb15542995e66a474f6,comparison,hard,span,former tennis player,actors,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,71,1,0.166,0.194,128.9,4458.1
+5ac240ef55429951e9e684ef,bridge,hard,span,2006,2005,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,85,1,0.17,0.242,84.1,4489.5
+5ab72b5c5542993667793f63,bridge,hard,span,American,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.157,0.2,99.5,4474.0
+5ab3af70554299233954ff81,bridge,hard,span,Orson Welles,Enzo Tarisio Di Vincenzo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,11,91,1,0.161,0.327,71.7,4503.3
+5ae320a95542991a06ce992e,bridge,hard,span,"about 26,000.",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.174,0.202,131.7,4478.2
+5ae28b76554299495565daa8,bridge,hard,span,"""personal earnings"" (such as salary and wages), ""business income"" and ""capital gains""","Assessable income, Exempt income, and Taxable income",0.0,0.2105,0,4,0,0.0,2,0,0.0,1,,0,14,78,1,0.176,0.387,70.7,4474.0
+5ab6a8b5554299710c8d1f30,bridge,hard,span,the National Society of Daughters of the American Revolution,The Women of the West Monument Society commissioned the series.,0.0,0.2857,0,3,0,0.0,2,0,0.0,1,,0,12,85,1,0.177,0.358,71.2,4489.5
+5a8b8f5b55429949d91db5e1,bridge,hard,span,video game,video games,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.171,0.214,99.8,4469.2
+5ae829ea5542997ec2727738,bridge,hard,span,"city of Springfield, Massachusetts",Harper's Ferry Armory,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,84,1,0.174,0.283,72.9,4488.0
+5aba14195542994dbf0198a9,bridge,hard,span,15,16,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,78,1,0.187,0.231,97.0,4474.0
+5ae370295542992e3233c402,comparison,hard,span,American,American,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,72,1,0.166,0.195,129.7,4461.9
+5abdba405542993f32c2a023,bridge,hard,span,Perfect Strangers,The Golden Girls,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,4,87,1,0.168,0.226,88.4,4493.8
+5a855b5c5542997b5ce3ffeb,bridge,hard,span,papermaking industry,Manufacturing,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,97,1,0.178,0.222,98.5,4514.9
+5adf734b5542995ec70e9016,bridge,hard,span,Chelsea Does,TheableViewers,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.167,0.226,87.2,4479.2
+5a81ca835542990a1d231ebd,bridge,hard,span,Yarrow and Stookey,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,83,1,0.167,0.194,134.2,4484.7
+5abba581554299642a094af9,bridge,hard,span,four,5,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,91,1,0.162,0.19,132.0,4503.3
+5a887f5c554299206df2b2c0,bridge,hard,span,Eric Clapton,Nick Drake,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,88,1,0.161,0.204,99.8,4497.5
+5a80956e5542996402f6a579,bridge,hard,span,Gaius Julius Caesar Augustus Germanicus,Gaius Julius Caesar Augustus Germanicus,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,10,77,1,0.157,0.304,74.2,4471.9
+5ac2efd65542990b17b154c7,bridge,hard,span,the tenth season,fourth,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,85,1,0.159,0.201,101.1,4489.5
+5a7af32e55429931da12c99c,bridge,hard,span,"Brooklyn, New York",New York City,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,84,1,0.167,0.224,89.8,4488.0
+5a7c9d2e55429935c91b5261,bridge,hard,span,Wendigo,Legend of the Flying Dutchman,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,7,83,1,0.17,0.273,77.6,4484.7
+5a8752955542994775f607d1,bridge,hard,span,Arizona State Sun Devils,Arizona State Sun Devils,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,97,1,0.171,0.245,81.2,4514.9
+5ae3e2455542994393b9e78c,comparison,hard,span,Armenian–American,musicians,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.159,0.201,98.6,4469.2
+5abd552555429933744ab776,bridge,hard,span,PPG Paints Arena,"St. Louis, Missouri",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,80,1,0.158,0.246,79.6,4478.2
+5ac048cc554299294b218f73,bridge,hard,span,John D Rockefeller's Standard Oil Company,Standard Oil Company of New Jersey (Esso),0.0,0.4615,0,2,0,0.0,2,0,0.0,1,,0,11,82,1,0.158,0.322,72.8,4483.7
+5ac048ea554299294b218f74,bridge,hard,span,Michael Swango,Charles Jeffrey Mason,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,95,1,0.16,0.218,88.3,4512.3
+5ab474135542991751b4d77b,bridge,hard,span,Best Alternative Music Album,Best Alternative Music Album,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,91,1,0.161,0.246,72.8,4503.3
+5a711cb45542994082a3e59f,comparison,hard,span,Liezel Huber,Lisa Raymond,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,80,1,0.3,0.35,85.1,4478.2
+5ae60db1554299546bf83041,bridge,hard,span,German,German,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,2,86,1,0.232,0.264,115.8,4492.8
+5a8b81bc55429949d91db5b8,comparison,hard,span,magazine,magazine,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.197,0.242,95.1,4471.9
+5a73bcf055429978a71e909c,comparison,hard,span,Howard Melvin Fast,Howard Fast,0.0,0.8,0,3,0,0.0,2,0,0.0,1,,0,3,80,1,0.212,0.255,97.8,4478.2
+5ae1436e55429901ffe4ae31,bridge,hard,span,gull-wing doors,gull-wing,0.0,0.6667,0,3,0,0.0,2,0,0.0,1,,0,4,76,1,0.186,0.245,87.1,4469.2
+5ab207f65542993be8fa98b8,bridge,hard,span,Preston,"New Haven, Connecticut",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,75,1,0.188,0.261,82.2,4467.7
+5a7766b15542993569682d7e,bridge,hard,span,Casement's Fort,London,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,107,1,0.184,0.211,135.5,4538.9
+5ac1a3fa5542991316484b7d,bridge,hard,span,the flags,population,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.163,0.191,131.5,4483.7
+5a790f5e55429970f5fffe40,bridge,hard,span,"November 15, 1903","January 1, 1900",0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,10,77,1,0.177,0.324,73.9,4471.9
+5add10ca5542994ed6169c59,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.157,0.184,134.5,4476.7
+5ae1b2b9554299422ee99684,bridge,hard,span,Robert Digges Wimberly Connor,Rufus C. Miles,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,80,1,0.176,0.279,77.6,4478.2
+5a7f81425542992097ad2f8e,bridge,hard,span,Mean Girls,Mean Girls,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,82,1,0.18,0.223,98.6,4483.7
+5a817f6655429938b6142349,comparison,hard,span,Tori Amos,Tori Amos,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,84,1,0.174,0.247,83.7,4488.0
+5ab6ddb655429953192ad39e,bridge,hard,span,Montreal,Montreal,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,82,1,0.168,0.211,100.1,4483.7
+5a76cb9b55429966f1a36bf2,bridge,hard,span,Adam Silver,Adam Silver,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,89,1,0.181,0.225,96.8,4498.5
+5ae4808455429970de88d990,bridge,hard,span,32 people,56,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,96,1,0.169,0.212,97.5,4513.8
+5ab7f6d35542993667794070,bridge,hard,span,Cyclic Defrost,Artichoke,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,86,1,0.173,0.231,88.8,4492.8
+5abe86365542993f32c2a14d,bridge,hard,span,"""The Wonder Years""",The Simpsons,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,83,1,0.172,0.215,100.1,4484.7
+5a7571095542992d0ec05f97,bridge,hard,span,Paula Maxine Patton,Scarlett Johansson,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,85,1,0.181,0.254,82.9,4489.5
+5adcfbf45542990d50227d86,bridge,hard,span,"Santa Monica, California",Seattle,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.172,0.198,134.9,4469.2
+5ab30d1155429976abd1bc3d,bridge,hard,span,Tim Allen,Tim Allen,1.0,1.0,0,4,0,0.0,2,0,0.0,1,,0,3,79,1,0.164,0.207,101.3,4476.7
+5ae6069c55429929b0807a67,bridge,hard,span,Fomento Económico Mexicano,Bodega Aurrera,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,78,1,0.173,0.264,77.0,4474.0
+5a711c535542994082a3e59b,bridge,hard,span,Albanian political party in Montenegro,political party,0.0,0.5714,0,2,0,0.0,2,0,0.0,1,,0,3,97,1,0.173,0.216,99.9,4514.9
+5adf85e05542993344016cba,bridge,hard,span,Championship,Championship,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,81,1,0.166,0.21,96.4,4479.2
+5a77897f55429949eeb29edc,bridge,hard,span,an organ,drum,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,85,1,0.176,0.218,100.6,4489.5
+5ae10a5b55429920d52342a0,bridge,hard,span,Todd Phillips,Amy Heckerling,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,102,1,0.175,0.25,80.1,4528.4
+5ab639e65542995eadeeff7f,comparison,hard,span,Helen Elizabeth Hunt,Dan Schneider,0.0,0.0,0,7,0,0.0,2,0,0.0,1,,0,3,73,1,0.17,0.212,99.9,4462.9
+5a8bae135542996e8ac889b6,bridge,hard,span,Roy Richard Scheider,Tom Hardy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.17,0.213,98.5,4467.7
+5a75e33855429976ec32bc74,bridge,hard,span,the Phoenix Suns,"Milan Jinping's 2013-2014 season was with the Zadar Orijent team in Croatia. However, there is no widely known Slovenian player who plays both point guard and shooting guard positions for a team during that specific season. The question might be based on a specific context or a lesser-known player. Without more context, I cannot definitively answer which team it was.",0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,84,93,1,0.179,1.472,65.5,4507.6
+5ae363ff5542992f92d822bc,bridge,hard,span,Schutzstaffel,SS,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.166,0.193,133.2,4467.7
+5ac0e6fa5542996f0d89cc35,comparison,hard,span,Mad Hot Ballroom,Mad Hot Ballroom,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.167,0.242,81.3,4479.2
+5ade6b67554299728e26c71c,bridge,hard,span,Royal Navy,Royal Navy,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,84,1,0.168,0.21,101.3,4488.0
+5ae0c7e755429945ae95944c,bridge,hard,span,Orange County,Orange County,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,82,1,0.167,0.209,100.7,4483.7
+5a78f753554299078472776e,comparison,hard,span,Philip Steven Labonte,Philip Labonte,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,4,76,1,0.165,0.222,90.0,4469.2
+5adcde255542992c1e3a243f,bridge,hard,span,Randy Orton,RKO,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,85,1,0.166,0.208,101.6,4489.5
+5ae73d505542991e8301cc2c,bridge,hard,span,Mathieu Kassovitz,Tim Burton,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,82,1,0.164,0.206,99.6,4483.7
+5ae18d615542997283cd2229,bridge,hard,span,mixed martial arts,MMA (Mixed Martial Arts),0.0,0.8571,0,2,0,0.0,2,0,0.0,1,,0,8,71,1,0.164,0.287,72.7,4458.1
+5ac3ad7f5542995ef918c1de,bridge,hard,span,Bergen,Essex County,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,82,1,0.177,0.235,88.0,4483.7
+5ab9d44255429939ce03dc36,bridge,hard,span,Miller Brewing,Miller Brewing Company,0.0,0.8,0,3,0,0.0,2,0,0.0,1,,0,4,93,1,0.167,0.224,89.0,4507.6
+5a863b27554299211dda2ab6,comparison,hard,yesno,no,No,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,2,72,1,0.165,0.192,134.7,4461.9
+5a79118755429974737f7962,comparison,hard,span,Foo Fighters,Foo Fighters,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,73,1,0.165,0.207,99.5,4462.9
+5abfa9745542997ec76fd426,bridge,hard,span,"""The Big Bang Theory""",The Big Bang Theory,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,89,1,0.168,0.239,84.0,4498.5
+5abfc8675542993fe9a41e52,bridge,hard,span,McLaren Vale,McLaren Vale,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,85,1,0.158,0.229,84.2,4489.5
+5a866c04554299211dda2b25,comparison,hard,yesno,yes,yes,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,2,76,1,0.156,0.183,134.7,4469.2
+5a80c74f554299260e20a158,bridge,hard,span,"Dennis Hull, as well as painter Manley MacDonald.",no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,77,1,0.164,0.191,133.7,4471.9
+5ae5691055429960a22e02f3,bridge,hard,span,"1,800",more than 100 games,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,8,83,1,0.165,0.281,77.0,4484.7
+5ab1d983554299340b52540a,bridge,hard,span,Ghostbusters Spooktacular,The Wizard of Oz,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,87,1,0.166,0.237,84.2,4493.8
+5ab28e2a5542993be8fa9947,bridge,hard,span,"Eddie ""The Eagle"" Edwards",yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,84,1,0.165,0.192,133.8,4488.0
+5ab9547755429970cfb8ea6c,bridge,hard,span,87,4,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,81,1,0.164,0.191,134.2,4479.2
+5a7ce0bc55429909bec76863,bridge,hard,span,Friends,Friends,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,108,1,0.165,0.192,134.4,4540.4
+5ae17daa55429901ffe4aea9,bridge,hard,span,James Tinling,John Ford,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,94,1,0.168,0.209,101.2,4509.6
+5ae7c5ef5542993210983f44,bridge,hard,span,"Gainesville, Florida",Cape Canaveral,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,78,1,0.165,0.252,80.4,4474.0
+5a7313865542994cef4bc442,bridge,hard,span,Regional Rural Bank,Rural Cooperative Bank,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,5,82,1,0.158,0.229,84.4,4483.7
+5adccf645542990d50227d32,bridge,hard,span,Oklahoma City,Tulsa,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,96,1,0.169,0.226,89.7,4513.8
+5ac176555542994d76dcce47,comparison,hard,span,journalist,journalist,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.166,0.208,101.3,4474.0
+5abbf3845542993f40c73c2e,bridge,hard,span,"The Go-Go's,",One Direction,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.164,0.206,100.2,4474.0
+5a8781b65542993e715abf8f,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.171,0.198,134.6,4469.2
+5a807ea1554299485f598624,bridge,hard,span,Presbyterian Church,Episcopal Church,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,4,82,1,0.157,0.213,90.1,4483.7
+5a8ec7cc5542995a26add518,comparison,hard,span,Girlfriends,Popular Science,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,73,1,0.163,0.205,101.1,4462.9
+5a7a978555429941d65f26db,bridge,hard,span,Paper Trail,If Tomorrow Comes...,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.171,0.243,84.2,4474.0
+5a7fc70155429969796c1b59,bridge,hard,span,AngloGold Ashanti,Grenade Ventures,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,82,1,0.167,0.238,84.2,4483.7
+5ab84d5a55429916710eb028,bridge,hard,span,Dallas Cowboys,Denver Broncos,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,93,1,0.168,0.209,101.0,4507.6
+5a7f392b55429934daa2fd26,bridge,hard,span,Tel Aviv,Ajax,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,84,1,0.157,0.184,133.8,4488.0
+5a877dd65542993e715abf79,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.157,0.183,134.3,4471.9
+5a8b99c355429950cd6afd28,bridge,hard,span,Columbus,Cincinnati,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.157,0.199,101.2,4476.7
+5a8e2ba05542995085b373b8,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,86,1,0.157,0.184,134.6,4492.8
+5a74581555429979e2882912,bridge,hard,span,Mitsubishi,Daikin,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,84,1,0.158,0.214,89.8,4488.0
+5ac1d40c5542994d76dccef5,bridge,hard,span,"143,372",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.165,0.192,134.3,4483.7
+5a7c6b6655429935c91b519a,bridge,hard,span,town meeting legislative body,Select Board,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,77,1,0.157,0.198,100.9,4471.9
+5a73522d5542994cef4bc541,bridge,hard,span,526,293,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,83,1,0.165,0.222,89.9,4484.7
+5a822a5e55429926c1cdae43,comparison,hard,span,"film director, film producer, writer",director,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.16,0.187,134.7,4469.2
+5a7b1023554299042af8f6c2,comparison,hard,span,Ride a Wild Pony,The Many Adventures of Winnie the Pooh,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,10,85,1,0.169,0.314,74.9,4489.5
+5a84574455429933447460e6,bridge,hard,span,2015,2015,1.0,1.0,0,5,0,0.0,2,0,0.0,1,,0,5,90,1,0.174,0.246,83.9,4500.0
+5a89a02955429946c8d6e975,comparison,hard,span,Voices of Iraq,The Climb,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,74,1,0.165,0.221,90.0,4464.4
+5abdf1fe55429976d4830a31,bridge,hard,span,media for the 65.8 million,Global Voices,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,83,1,0.166,0.209,99.8,4484.7
+5ae1e9fd5542997f29b3c1a1,bridge,hard,span,John Francis Kelly,Mark Meadows,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,99,1,0.167,0.209,100.1,4520.4
+5a77b0395542997042120ae1,bridge,hard,span,Jessica Lange,Kathy Bates,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.166,0.223,89.9,4479.2
+5a79c8fa5542994bb94570a1,bridge,hard,span,technical director,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,102,1,0.172,0.199,133.7,4528.4
+5ae21937554299234fd043d3,bridge,hard,span,Philip Livingston,Alexander Hamilton,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,83,1,0.157,0.2,97.8,4484.7
+5a7cdcbf55429907fabef04f,comparison,hard,span,Still Kicking: Six Artistic Women of Project Arts & Longevity,Still Kicking: Six Artistic Women of Project Arts & Longevity,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,15,86,1,0.173,0.393,72.2,4492.8
+5ac51a055542994611c8b390,bridge,hard,span,Mossad,Bill Gates,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.167,0.208,101.7,4469.2
+5a78c7db55429974737f7882,bridge,hard,span,Christina Ricci,Jackie Weaver,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,80,1,0.169,0.227,87.5,4478.2
+5a82e25555429954d2e2ebbf,bridge,hard,span,Eva Ibbotson,yes,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,94,1,0.172,0.2,131.0,4509.6
+5ab42b8955429942dd415ea6,bridge,hard,span,Bourbon County,Phillips County,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,4,97,1,0.16,0.22,85.4,4514.9
+5a8db916554299441c6ba057,bridge,hard,span,Hindi,Hindi,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,80,1,0.165,0.209,97.4,4478.2
+5a79ca585542996c55b2dc71,bridge,hard,span,John Gielgud,Felicity Kendal,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,89,1,0.165,0.255,77.5,4498.5
+5abd6cb955429933744ab7cd,bridge,hard,span,Norse,Norse mythology,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.164,0.222,88.0,4474.0
+5a7642f7554299109176e6e8,comparison,hard,span,Luca Parmitano,Ulrich Walter,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,74,1,0.168,0.226,89.1,4464.4
+5a88a42f554299206df2b317,bridge,hard,span,the growing literary style called New Journalism,Realism,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,86,1,0.167,0.209,99.8,4492.8
+5a8c90db554299653c1aa0bf,comparison,hard,yesno,yes,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,86,1,0.166,0.193,134.5,4492.8
+5a763986554299109176e6bd,bridge,hard,span,Pierre Nlend Womé,Pierre Womé,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,6,74,1,0.157,0.244,80.0,4464.4
+5a7cc0d4554299452d57ba07,bridge,hard,span,215th,139,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,88,1,0.168,0.225,89.0,4497.5
+5a86113355429960ec39b618,bridge,hard,span,Jānis Strazdiņš,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,70,1,0.164,0.191,134.3,4457.1
+5a722fae55429971e9dc9343,bridge,hard,span,Chloë Alexandra Adele Emily Agnew,Twink,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,85,1,0.166,0.208,99.8,4489.5
+5a7af4cd55429931da12c9a6,bridge,hard,span,"Karachi, Pakistan",Oslo,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,82,1,0.168,0.21,100.1,4483.7
+5a7d9bc65542990b8f5039cb,bridge,hard,span,Big 12 Conference,Big 12 Conference,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,6,89,1,0.167,0.255,79.8,4498.5
+5adbd70c55429947ff173843,bridge,hard,span,Personal History,State of Stripes: A Life in Blue and Gray,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,12,82,1,0.167,0.344,72.6,4483.7
+5a7e04b05542995f4f40238a,bridge,hard,span,Vanarama,Cheshire FA Premier League,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,77,1,0.167,0.254,80.0,4471.9
+5a90b6985542990a984936c2,bridge,hard,span,"""The Royal Family""",The Lion King,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,83,1,0.175,0.232,88.9,4484.7
+5ae164685542997b2ef7d1cb,bridge,hard,span,Thomas Warburton,Erica Suter,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,91,1,0.159,0.231,83.2,4503.3
+5a86fde6554299211dda2b7f,bridge,hard,span,IT,healthcare consulting and pharmacy benefit management services,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,82,1,0.168,0.3,75.0,4483.7
+5a802e135542992bc0c4a6c7,bridge,hard,span,play-by-post role-playing game,MUD (Multi-User Dungeon),0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,74,1,0.166,0.299,75.0,4464.4
+5ac31456554299741d48a1b4,comparison,hard,span,Lawson,Lawson,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,73,1,0.158,0.2,99.9,4462.9
+5ae0a6ea5542993d6555ebe9,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.165,0.192,132.4,4464.4
+5a872e8e5542991e7718170c,bridge,hard,span,portrait,voiceovers,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,94,1,0.167,0.209,100.1,4509.6
+5a7265825542997f827839a3,bridge,hard,span,a silver medal,gold,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,92,1,0.17,0.197,132.9,4504.8
+5abe2b0155429976d4830a83,bridge,hard,span,26–30 August 1914,1917,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,89,1,0.167,0.239,83.4,4498.5
+5ae135fb55429920d523431f,bridge,hard,span,WB Television Network,Bravo TV,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,82,1,0.174,0.231,88.9,4483.7
+5a8f0a01554299458435d539,bridge,hard,span,Indianapolis,New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,75,1,0.165,0.222,88.9,4467.7
+5ab40e1c5542996a3a969f00,bridge,hard,span,1988,1989,0.0,0.0,0,7,0,0.0,2,0,0.0,1,,0,5,91,1,0.16,0.232,83.2,4503.3
+5ab28c89554299340b525513,bridge,hard,span,Reichsführer-SS,SS-Oberstgruppenführer,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,80,1,0.167,0.284,76.1,4478.2
+5a87e3d65542993e715abff8,bridge,hard,span,Game of Thrones,Game of Thrones,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,73,1,0.156,0.213,89.0,4462.9
+5addfc425542997dc7907101,bridge,hard,span,Esteban Ocon,Lando Norris,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,101,1,0.159,0.216,88.8,4525.1
+5ab576dc5542997d4ad1f13d,bridge,hard,span,Carnatic music,Bollywood,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,83,1,0.167,0.209,100.6,4484.7
+5a8d8eb5554299068b959d3a,comparison,hard,span,Parsifal,Parsifal has more acts.,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,9,77,1,0.157,0.289,75.0,4471.9
+5ac5101455429924173fb592,bridge,hard,span,Every Rose Has Its Thorn,No,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,79,1,0.166,0.193,134.7,4476.7
+5ab91f98554299753720f70d,bridge,hard,span,Gangsta's Paradise,Gangsta's Paradise,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,6,90,1,0.168,0.255,79.9,4500.0
+5ae6371155429929b0807af1,bridge,hard,span,Polka,Yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,91,1,0.167,0.194,132.5,4503.3
+5ac1bff05542994ab5c67dfc,bridge,hard,span,Francisco Rafael Arellano Félix,Yes,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,83,1,0.168,0.195,132.3,4484.7
+5a7c2f145542996dd594b8b4,bridge,hard,span,McG,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,92,1,0.168,0.195,133.5,4504.8
+5a81e4e8554299676cceb140,bridge,hard,span,Campbellsville University,University of Michigan,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.166,0.223,88.6,4476.7
+5a83041355429966c78a6ae8,comparison,hard,span,film director,Animator,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.165,0.192,133.7,4474.0
+5ab7fa7b5542992aa3b8c897,comparison,hard,span,punk rock,Alternative rock,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,3,79,1,0.167,0.209,99.9,4476.7
+5a8cee9b554299441c6b9f87,bridge,hard,span,GE Appliances,GE Appliances,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.167,0.209,99.9,4471.9
+5ab67bf255429954757d32f5,bridge,hard,span,"McLean, Virginia",Redmond,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.168,0.21,100.0,4469.2
+5a77d65055429949eeb29f7b,bridge,hard,span,250,10,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,76,1,0.159,0.201,100.2,4469.2
+5a7f3f7c55429934daa2fd45,comparison,hard,span,The Futureheads,The Futureheads,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,75,1,0.165,0.222,88.9,4467.7
+5ade811e5542992fa25da7a0,bridge,hard,span,1851,1851,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,89,1,0.167,0.239,83.1,4498.5
+5a7633ff5542994ccc918712,bridge,hard,span,1932,No,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,99,1,0.158,0.185,133.0,4520.4
+5a88a1475542997e5c09a646,comparison,hard,span,Salvia,Salvia,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,74,1,0.165,0.207,99.6,4464.4
+5a8887a055429938390d3f72,bridge,hard,span,Rocky Boy's Indian Reservation,Eugeneодеяние,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,7,87,1,0.173,0.275,77.8,4493.8
+5a86399e5542994775f60733,bridge,hard,span,Punjabi/Pashtun,Arab-American,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,80,1,0.167,0.225,88.4,4478.2
+5a84c0765542991dd0999dd9,bridge,hard,span,Gary Lightbody,Mark Ronson,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.176,0.233,88.8,4471.9
+5adf17f95542995ec70e8f6c,bridge,hard,span,Australian,Australia,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,87,1,0.172,0.199,132.3,4493.8
+5a7f5ab65542995d8a8dde43,bridge,hard,span,Cosmopolitan of Las Vegas,The Venetian Hotel and Resort,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,84,1,0.159,0.276,76.1,4488.0
+5a8cec13554299441c6b9f7d,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.174,0.201,132.9,4476.7
+5abce9ca554299114383a193,bridge,hard,span,racehorse breeder and owner,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.17,0.197,133.9,4464.4
+5a7a1b845542990783324e5f,bridge,hard,span,Stadio Olimpico,"Athens, Greece",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.165,0.237,83.6,4474.0
+5a7363ec5542991f29ee2dd7,bridge,hard,span,Key West,Key West,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,3,97,1,0.165,0.207,99.9,4514.9
+5a77321355429972597f1493,comparison,hard,span,The Agronomist,The Agronomist,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.166,0.238,83.4,4469.2
+5ab5cd4f554299488d4d9a31,bridge,hard,span,In Pursuit,Toadies,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,88,1,0.166,0.208,98.7,4497.5
+5a83411655429966c78a6b5d,bridge,hard,span,Justin Spitzer,Alfonso G. Villareal,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,78,1,0.167,0.299,75.0,4474.0
+5a8d50fb55429941ae14dfa2,bridge,hard,span,75 mi,25 miles,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,98,1,0.168,0.225,88.5,4519.3
+5ae80919554299540e5a56f6,bridge,hard,span,The Changing Scottish Landscape,No,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,84,1,0.167,0.194,133.2,4488.0
+5ab2b8fe5542991669774070,bridge,hard,span,Budget Rent a Car,Hertz,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,81,1,0.165,0.208,98.6,4479.2
+5a8d0efd5542994ba4e3dbc6,bridge,hard,span,"Warsaw, Poland",Moscow,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,80,1,0.164,0.206,100.0,4478.2
+5a7125b95542994082a3e5d5,bridge,hard,span,Gardnerville,"Minden, Nevada",0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,88,1,0.165,0.237,83.2,4497.5
+5a8a6a2155429930ff3c0dd0,comparison,hard,span,Kenneth Eliot Flach,Ken Flach,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,86,1,0.159,0.216,89.2,4492.8
+5ae834e95542997ec272776a,bridge,hard,span,Highwayman,By the Time It's Over,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,78,1,0.157,0.259,77.9,4474.0
+5a7ab51055429927d897bef6,bridge,hard,span,1961,1975,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,73,1,0.157,0.229,83.5,4462.9
+5ae250b45542996483e64977,bridge,hard,span,former Speaker of the U.S. House of Representatives,Speaker of the United States House of Representatives,0.0,0.7143,0,2,0,0.0,2,0,0.0,1,,0,9,78,1,0.165,0.297,75.2,4474.0
+5a733c925542991f9a20c6b7,comparison,hard,span,cocktails,drinks,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,74,1,0.173,0.215,99.9,4464.4
+5a7e5ec25542991319bc947a,comparison,hard,span,Květa Peschke,John Newcombe,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.158,0.214,89.0,4474.0
+5adbf2805542994650320c15,bridge,hard,span,The High Sheriff changes every March.,1886,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,74,1,0.164,0.236,83.1,4464.4
+5a845e9055429933447460ec,bridge,hard,span,Sacramento Kings,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.157,0.184,133.1,4478.2
+5a820c0c554299676cceb1fc,bridge,hard,span,All Nippon,ANA,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,89,1,0.179,0.206,133.7,4498.5
+5a88bd1d554299206df2b357,bridge,hard,span,"season six, episode 5, ""Invasion""",2005,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,90,1,0.167,0.239,83.4,4500.0
+5a79332555429907847277e7,comparison,hard,span,Juan Carlos Onetti,Bryce Courtenay,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,75,1,0.165,0.267,77.8,4467.7
+5abd516a5542992ac4f3825c,bridge,hard,span,Hindi,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.158,0.185,132.1,4467.7
+5add26075542994ed6169c9c,bridge,hard,span,WAMC,WNYC,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,4,80,1,0.166,0.224,88.9,4478.2
+5a901f735542990a98493591,bridge,hard,span,second,three,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,79,1,0.165,0.192,132.7,4476.7
+5ab840e255429934fafe6d3b,bridge,hard,span,New Jewel Movement,Black Power Movement,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,4,109,1,0.166,0.223,88.8,4527.9
+5ac3d4b6554299204fd21e93,comparison,hard,span,Paper,Paper,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.165,0.192,133.6,4471.9
+5a73b2cb55429908901be31a,bridge,hard,span,Maria von Trapp,Maria von Trapp,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,89,1,0.159,0.232,83.4,4498.5
+5ac29cf8554299218029dac2,bridge,hard,span,Rowan Blanchard,Hailee Steinfeld,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.168,0.24,83.4,4474.0
+5ae686535542996d980e7bdc,bridge,hard,span,Ringo Starr,Ringo Starr,1.0,1.0,0,4,0,0.0,2,0,0.0,1,,0,4,81,1,0.17,0.227,89.2,4479.2
+5a8aa1685542992d82986f32,bridge,hard,span,Beijing Dance Academy,Beijing Dance Academy,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,77,1,0.166,0.239,83.3,4471.9
+5a7d7deb5542995f4f402282,bridge,hard,span,Shifty Shellshock,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.167,0.194,131.8,4483.7
+5a8c622a554299240d9c2142,bridge,hard,span,Ursula Kroeber Le Guin,China Miéville,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,80,1,0.159,0.231,82.5,4478.2
+5a7b81715542997c3ec971d4,bridge,hard,span,Hugo Award,Hugo Award,1.0,1.0,0,4,0,0.0,2,0,0.0,1,,0,4,86,1,0.159,0.217,87.8,4492.8
+5ae0c29c5542993d6555ec46,bridge,hard,span,"professional wrestler, actor, and hip hop musician",songwriter,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,88,1,0.159,0.202,99.4,4497.5
+5a7c290c5542990527d55468,bridge,hard,span,Oklahoma,Oklahoma,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,89,1,0.159,0.216,89.3,4498.5
+5a876f785542993e715abf42,comparison,hard,span,"musician, editor and composer.",William Blake Herron,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.157,0.23,82.7,4479.2
+5ae1e6d95542997283cd22c3,bridge,hard,span,Jordan Peele,Keanu Reeves and Derek Connolly,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,86,1,0.166,0.298,75.0,4492.8
+5ae10df355429920d52342ac,bridge,hard,span,"Warrnambool, Victoria",No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,72,1,0.165,0.192,133.8,4461.9
+5ae4d8475542993aec5ec0e0,bridge,hard,span,Giuseppe Verdi,Giuseppe Verdi,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,86,1,0.166,0.238,83.4,4492.8
+5ab94cf0554299743d22eade,bridge,hard,span,Warrington,Waimanalo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,80,1,0.171,0.243,83.5,4478.2
+5ae479745542996836b02cb1,bridge,hard,span,Sex Drive,The Intouchables,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,80,1,0.168,0.24,83.5,4478.2
+5a852cd05542997b5ce3ffb0,bridge,hard,span,Bay of Fundy,Table Bay,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.167,0.209,100.0,4474.0
+5a8babf05542996e8ac8899e,comparison,hard,span,Daviesia,Beech,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,76,1,0.164,0.221,89.0,4469.2
+5a82fcbd55429954d2e2ebe8,bridge,hard,span,Maria Szraiber,Krystian Zimerman,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,84,1,0.159,0.261,77.9,4488.0
+5a77c60255429967ab105285,bridge,hard,span,theory of direct scattering and inverse scattering,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.169,0.196,132.9,4464.4
+5adf39ce5542995534e8c76d,bridge,hard,span,Shakespeare performances,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,71,1,0.17,0.197,132.7,4458.1
+5ae694a15542991bbc976141,bridge,hard,span,defence of the Cathedral,Because he has been a long-serving and influential Labour politician representing the area in the House of Commons for many years.,0.0,0.0952,0,2,0,0.0,2,0,0.0,1,,0,24,76,1,0.165,0.522,69.6,4469.2
+5ae13bca55429901ffe4ae17,bridge,hard,span,Debbie Harry,John Mayer,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,91,1,0.175,0.217,100.2,4503.3
+5a8a265b5542992d82986ecc,comparison,hard,span,Frederick King Keller,Frederick King Keller,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,77,1,0.157,0.244,79.9,4471.9
+5a77121a5542994aec3b71db,comparison,hard,span,"The Boatniks is a 1970 American comedy film starring Robert Morse, Stefanie Powers, Don Ameche and Phil Silvers.",The Boatniks,0.0,0.1176,0,2,0,0.0,2,0,0.0,1,,0,5,85,1,0.159,0.231,83.5,4489.5
+5ae6911955429908198fa626,bridge,hard,span,Mrs. Eastwood & Company,The Hills,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.171,0.213,100.1,4474.0
+5ae53de455429908b6326599,bridge,hard,span,Delaware River,The Susquehanna River,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,7,81,1,0.167,0.269,77.9,4479.2
+5a813b6f55429903bc27b951,bridge,hard,span,Oryzomyini,Rodentia,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,85,1,0.173,0.23,88.9,4489.5
+5a84b4005542991dd0999d99,bridge,hard,span,"October 16, 2015",2020,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,84,1,0.167,0.239,83.4,4488.0
+5a8cca64554299653c1aa125,bridge,hard,span,British Army,United States Army and British Army respectively.,0.0,0.4444,0,2,0,0.0,2,0,0.0,1,,0,9,80,1,0.167,0.299,75.0,4478.2
+5ab8ed305542991b5579f046,bridge,hard,span,The United States of America,United States,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,3,90,1,0.16,0.202,100.2,4500.0
+5ae0b2f25542993d6555ec1c,bridge,hard,span,hamburgers,Chinese cuisine,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.159,0.201,100.1,4469.2
+5ae207a65542994d89d5b317,comparison,hard,span,Oplismenus,Lavatera,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,79,1,0.165,0.237,83.1,4476.7
+5a75383a5542996c70cfaeb3,comparison,hard,span,Ulf Dietrich Merbold,Mirosław Hermaszewski,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,79,1,0.158,0.275,76.3,4476.7
+5ae3fd2c5542995dadf2428f,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,71,1,0.169,0.196,133.9,4458.1
+5abffd10554299012d1db556,bridge,hard,span,Lombardy,Trentino-Alto Adige/Südtirol,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,13,72,1,0.164,0.356,72.2,4461.9
+5a8f812755429918e830d245,bridge,hard,span,a governor,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,94,1,0.169,0.196,133.5,4509.6
+5ae520315542993aec5ec152,bridge,hard,span,Taylor Swift,Taylor Swift,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,3,84,1,0.174,0.216,99.8,4488.0
+5a7631cd5542994ccc91870c,bridge,hard,span,"Franconia, New Hampshire","Newcastle, Australia",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,84,1,0.168,0.24,83.2,4488.0
+5ac26eed55429951e9e685bf,bridge,hard,span,the U.S. state of Kansas,Oklahoma,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,76,1,0.165,0.222,88.8,4469.2
+5a7e37095542995ed0d166d5,comparison,hard,span,Sinclair Hill,Sinclair Hill,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,75,1,0.166,0.224,88.4,4467.7
+5adf72d35542992d7e9f9369,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.169,0.196,133.9,4467.7
+5a876b265542993e715abf33,comparison,hard,span,and lead guitarist,Stephen Christian,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.161,0.203,100.1,4467.7
+5a77ddb855429967ab1052d8,bridge,hard,span,"Cynthia Ann Stephanie ""Cyndi"" Lauper",Tina Turner,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,82,1,0.171,0.228,88.8,4483.7
+5adcc3ed5542994d58a2f6c4,bridge,hard,span,"the ""First Family of Competitive Eating""",The Hooters,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,84,1,0.168,0.24,83.5,4488.0
+5a76f5b155429972597f1400,bridge,hard,span,Philip Morris Glass,Philip Glass,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.168,0.21,100.2,4467.7
+5ae2c696554299495565db32,bridge,hard,span,Keeper of the Privy Seal of Scotland,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,80,1,0.17,0.197,133.1,4478.2
+5a875154554299211dda2be7,bridge,hard,span,Mickey Gilley,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,85,1,0.17,0.197,133.5,4489.5
+5a84cf175542992a431d1aa2,comparison,hard,span,Ratatat,Ratatat,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,74,1,0.167,0.224,88.8,4464.4
+5ae675245542991bbc9760dc,bridge,hard,span,Merovech,Clovis I,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,73,1,0.165,0.223,88.0,4462.9
+5a80b0565542996402f6a5f0,comparison,hard,span,Adorable,Adorable,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,72,1,0.164,0.206,100.5,4461.9
+5adde3a45542997545bbbdc2,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.158,0.185,132.6,4471.9
+5ac26b7f55429951e9e685ae,bridge,hard,span,hardcore,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.169,0.196,134.2,4469.2
+5adf39295542992d7e9f92df,comparison,hard,span,Apium,Apium,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,74,1,0.167,0.209,100.1,4464.4
+5abc19705542993a06baf86e,bridge,hard,span,Dutch,African-American,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,72,1,0.166,0.223,89.1,4461.9
+5ae6914755429908198fa627,bridge,hard,span,January 2001,October,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.159,0.186,134.7,4483.7
+5adc9b7a5542994d58a2f679,bridge,hard,span,American,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.167,0.209,99.9,4471.9
+5a721dfd55429971e9dc928b,bridge,hard,span,Thorgan Ganael Francis Hazard,Thorgan Hazard,0.0,0.6667,0,3,0,0.0,2,0,0.0,1,,0,4,88,1,0.16,0.217,88.6,4497.5
+5a8b50475542997f31a41cd4,bridge,hard,span,world wushu tournament,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,86,1,0.171,0.198,133.9,4492.8
+5a860aa6554299211dda2a45,comparison,hard,span,The New York Enterprise Report,Utne Reader,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.167,0.224,88.8,4471.9
+5ae4585c5542996836b02c89,comparison,hard,span,Live,Band of Skulls,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,73,1,0.167,0.239,83.3,4462.9
+5adfcb5455429906c02daa48,bridge,hard,span,Father Dougal McGuire,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.168,0.195,134.3,4478.2
+5a77a41a5542997042120ab9,bridge,hard,span,2006,2010,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,73,1,0.166,0.238,83.5,4462.9
+5a8759395542994775f607e0,bridge,hard,span,Joel David Coen,Todd Anderson is older than John Todd Anderson.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,10,77,1,0.168,0.316,74.0,4471.9
+5a84992e5542992a431d1a6d,bridge,hard,span,Boyd Gaming,Alibaba Group,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,76,1,0.159,0.216,89.0,4469.2
+5ac1bce45542994ab5c67def,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.17,0.197,133.5,4471.9
+5ac0641f554299294b218fbe,bridge,hard,span,2.1 million,2.4 million,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.167,0.239,83.5,4469.2
+5a87954f5542996e4f308856,comparison,hard,span,Bactris,Bactris,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,75,1,0.167,0.224,88.8,4467.7
+5a8bc03d5542996e8ac88a0b,bridge,hard,span,Operation Neptune,Hot Lunch Express,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,82,1,0.169,0.227,89.0,4483.7
+5ab8869155429916710eb081,bridge,hard,span,Boeing EA-18G Growler,EAGLEAppDelegate,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,97,1,0.166,0.238,83.4,4514.9
+5adde17f5542992200553b87,bridge,hard,span,Orlando Magic,Dallas Mavericks,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,83,1,0.169,0.212,99.5,4484.7
+5a776ac75542993569682d9b,bridge,hard,span,"Daniel Patrick ""Pat"" Moynihan",Daniel Patrick Moynihan,0.0,0.8571,0,3,0,0.0,2,0,0.0,1,,0,6,77,1,0.167,0.254,80.2,4471.9
+5ae70ed7554299572ea546a1,bridge,hard,span,Charlie Murphy,Eddie Murphy's brother's name was Dan Murphy.,0.0,0.2222,0,3,0,0.0,2,0,0.0,1,,0,12,78,1,0.175,0.353,72.4,4474.0
+5ae1fbf05542997f29b3c1e7,bridge,hard,span,1944,1922,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,90,1,0.17,0.243,83.2,4500.0
+5ac1c9a15542994ab5c67e1c,bridge,hard,span,more than 10 million,no,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,83,1,0.172,0.199,133.1,4484.7
+5a77c8905542995d831812ce,bridge,hard,span,Levi Weeks,John Jacob Astor IV,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,6,79,1,0.169,0.256,79.9,4476.7
+5a89f68f5542992e4fca84b6,bridge,hard,span,officer,Baron,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,89,1,0.17,0.212,99.6,4498.5
+5a7f62405542992e7d278cf0,bridge,hard,span,Teriade,Oxford University Press,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,87,1,0.171,0.243,83.3,4493.8
+5a7ca4485542990527d554f1,bridge,hard,span,2027 Fairmount Avenue,"Alcatraz Island, San Francisco, CA",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,10,77,1,0.168,0.316,73.8,4471.9
+5a8347d65542996488c2e3f6,bridge,hard,span,Kurt Russell,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,84,1,0.169,0.196,133.9,4488.0
+5ab8634e5542990e739ec8de,bridge,hard,span,The Vanguard Group,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,83,1,0.169,0.196,132.3,4484.7
+5ab85e9e55429934fafe6d8b,bridge,hard,span,1614,1636,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,95,1,0.172,0.244,83.3,4512.3
+5a79c9c05542994bb94570a5,bridge,hard,span,"Robert ""Bobby"" Bunda",no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,92,1,0.17,0.197,133.8,4504.8
+5a8c616f5542995e66a475de,bridge,hard,span,Steeles Avenue,Yongle Road,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,73,1,0.168,0.24,83.4,4462.9
+5ab90fdd55429916710eb0fc,bridge,hard,span,"London, England",New England,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,3,81,1,0.169,0.211,99.3,4479.2
+5abe7f695542993f32c2a12d,bridge,hard,span,focus on young superheroes,Man of Steel,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.175,0.233,88.8,4476.7
+5abeb0da5542997ec76fd34b,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.17,0.197,133.8,4474.0
+5a7521c55542993748c897c6,comparison,hard,span,Burwash Mine,Temagami-Lorrain Mine,0.0,0.5,0,5,0,0.0,2,0,0.0,1,,0,8,106,1,0.17,0.287,75.9,4535.7
+5adfda5255429942ec259b5e,bridge,hard,span,Douglas,Renville County,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,82,1,0.17,0.227,89.1,4483.7
+5abaeda95542992ccd8e7e5d,bridge,hard,span,Twin Pines/Lone Pine Mall,Twin Rivers Mall,0.0,0.5714,0,2,0,0.0,2,0,0.0,1,,0,5,89,1,0.17,0.243,83.0,4498.5
+5ae68e0055429908198fa607,bridge,hard,span,Hindi,comedy,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,80,1,0.17,0.212,100.2,4478.2
+5a7577785542992d0ec05fa0,bridge,hard,span,Tatton Park,Blenheim Palace,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,76,1,0.176,0.249,83.1,4469.2
+5a7d147955429909bec76942,bridge,hard,span,Felicity Rose Hadley Jones,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,79,1,0.167,0.194,133.0,4476.7
+5a83a2a15542993344746063,bridge,hard,span,June 1925,1904,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,90,1,0.17,0.243,83.3,4500.0
+5ac079e9554299294b218fff,bridge,hard,span,Navy,Ministry of Defence (MOD),0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,78,1,0.159,0.277,76.2,4474.0
+5adca8375542990d50227cd4,bridge,hard,span,2008,2022,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.169,0.242,82.9,4474.0
+5add4f3a5542997545bbbd2c,bridge,hard,span,United Holy Salvation Army and Uganda Christian Army/Movement,Lord's Resistance Army,0.0,0.1818,0,3,0,0.0,2,0,0.0,1,,0,5,76,1,0.168,0.24,83.2,4469.2
+5ae26cb15542994d89d5b421,bridge,hard,span,"September 30, 2009",2019-01-04,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,11,80,1,0.168,0.331,73.2,4478.2
+5a73cad5554299623ed4ac5e,bridge,hard,span,"Wesley ""Wes"" Studi",no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,76,1,0.169,0.196,133.1,4469.2
+5ae0d5335542990adbacf674,bridge,hard,span,"Robert Smigel, Michael Koman and David Feldman",Bill and Hillary Crystal,0.0,0.1818,0,2,0,0.0,2,0,0.0,1,,0,5,74,1,0.167,0.239,83.3,4464.4
+5ab344fc55429969a97a811e,comparison,hard,yesno,no,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.171,0.198,134.6,4462.9
+5ae1319c55429920d5234301,bridge,hard,span,"""An All-Colored Vaudeville Show""",The Wizard of Oz,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,83,1,0.168,0.241,83.4,4484.7
+5abee41a5542993fe9a41d79,bridge,hard,span,Dirt track racing,Banger Racing,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,86,1,0.16,0.217,89.2,4492.8
+5a7daad55542995f4f4022b7,bridge,hard,span,1599,1899,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,79,1,0.168,0.241,83.3,4476.7
+5a8ff6635542995651fb5086,comparison,hard,span,Bearno's Pizza,Bearno's,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.176,0.233,89.0,4474.0
+5ae3c0cc5542992f92d82369,bridge,hard,span,1957,1959,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,98,1,0.17,0.242,83.3,4519.3
+5a8485fa5542992a431d1a41,bridge,hard,span,Cuyler Reynolds,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,83,1,0.176,0.203,133.7,4484.7
+5ae1389655429901ffe4ae05,bridge,hard,span,Southern State Parkway,the Northern State Parkway,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.169,0.241,83.4,4474.0
+5a7b73ad5542997c3ec9718c,bridge,hard,span,martial arts action films,action films,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,3,82,1,0.169,0.211,99.1,4483.7
+5a7a68d25542996c55b2dd98,bridge,hard,span,second cousin once removed,Uncle,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.166,0.208,100.3,4471.9
+5ae2bb545542992decbdcd88,bridge,hard,span,fortnightly,Monthly,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,96,1,0.17,0.197,133.1,4513.8
+5a8f47a55542997ba9cb3219,bridge,hard,span,Spam,Spam,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,85,1,0.17,0.212,100.1,4489.5
+5ab1ebff5542993be8fa9882,comparison,hard,span,Eustoma,Myrtus,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.167,0.224,89.0,4474.0
+5a7fd7305542992e7d278dc2,bridge,hard,span,The Life of Larry and Larry & Steve,The Blues Brothers,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.17,0.227,89.1,4476.7
+5abb8aaf5542993f40c73b1c,bridge,hard,span,Los Angeles,Chicago,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,84,1,0.169,0.196,133.2,4488.0
+5abba584554299642a094afa,bridge,hard,span,"1,925 yards","2,055",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,83,1,0.17,0.257,79.7,4484.7
+5a804510554299485f5985af,bridge,hard,span,Nicolas Vanier,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,94,1,0.171,0.197,133.6,4509.6
+5abb11c15542992ccd8e7ef8,bridge,hard,span,"March 30, 2025","February 22, 2024",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,11,86,1,0.171,0.334,73.2,4492.8
+5ae376a35542990afbd1e163,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.168,0.196,133.8,4464.4
+5adc5b875542996e68525328,bridge,hard,span,2006 season,2006,0.0,0.6667,0,3,0,0.0,2,0,0.0,1,,0,5,88,1,0.17,0.242,83.1,4497.5
+5ae6b6065542991bbc976168,bridge,hard,span,Scott Adkins,Kiefer Sutherland,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,107,1,0.171,0.258,79.9,4538.9
+5a79d2fe5542994f819ef0c3,comparison,hard,span,Aleksandr Ivanovsky,Aleksandr Ivanovsky,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,75,1,0.17,0.257,79.8,4467.7
+5ab38cdd5542992ade7c6de2,bridge,hard,span,John Lennon,John Lennon,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,82,1,0.169,0.211,100.0,4483.7
+5ae73d235542991e8301cc29,bridge,hard,span,Free Range Films,Red Planet Productions,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,80,1,0.168,0.225,89.0,4478.2
+5a7a33205542996a35c1712f,bridge,hard,span,Province of New York,Massachusetts Bay Colony,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,108,1,0.182,0.255,83.2,4540.4
+5a799dfb5542994bb9457029,bridge,hard,span,Caesars Palace Grand Prix,Phoenix Raceway,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,85,1,0.171,0.228,89.0,4489.5
+5a71095e5542994082a3e4f3,bridge,hard,span,David Dunn,David Fincher,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,4,75,1,0.159,0.216,89.1,4467.7
+5aba77be55429955dce3ee44,bridge,hard,span,7°56',5 degrees 30 minutes south,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,85,1,0.169,0.287,76.2,4489.5
+5a8af94455429971feec45b6,bridge,hard,span,since 2007,1993,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,80,1,0.163,0.236,83.3,4478.2
+5abcedb355429959677d6b4f,bridge,hard,span,Scott Paul Carson,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,85,1,0.17,0.197,132.4,4489.5
+5a713dcb5542994082a3e6d9,comparison,hard,span,"American educator, writer,",Chess,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,80,1,0.169,0.196,134.2,4478.2
+5ae383e15542992f92d822fb,comparison,hard,span,Heavyweights,Heavyweights,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.169,0.211,100.4,4467.7
+5a85df525542994c784ddb9f,bridge,hard,span,Robert A. Iger,no,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,83,1,0.172,0.199,132.8,4484.7
+5a9030ef5542995651fb50e4,bridge,hard,span,American football,football,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.168,0.195,132.5,4483.7
+5a8a2d2155429930ff3c0cdc,bridge,hard,span,Academy Award for Best Animated Feature,Academy Award,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,5,95,1,0.173,0.245,83.2,4512.3
+5a88fa9e5542993b751ca8de,bridge,hard,span,the Bears,New England Patriots,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,87,1,0.17,0.227,88.6,4493.8
+5ae7882b554299540e5a55dd,bridge,hard,span,great-grandfather,drafted by,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,89,1,0.17,0.227,88.6,4498.5
+5a81dacc55429926c1cdada0,bridge,hard,span,William Shakespeare,William Shakespeare,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,85,1,0.17,0.212,100.3,4489.5
+5ab322b1554299194fa93570,bridge,hard,span,fictional character,Mary Poppins Returns,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,89,1,0.171,0.243,83.1,4498.5
+5a8a764555429930ff3c0de1,bridge,hard,span,American-born,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,86,1,0.174,0.201,133.0,4492.8
+5a8d93bf554299068b959d46,comparison,hard,yesno,no,no,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,2,73,1,0.169,0.196,132.5,4462.9
+5abf04ae5542993fe9a41dbf,bridge,hard,span,played,improvisation,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,77,1,0.169,0.241,83.2,4471.9
+5ab55b0c554299488d4d995e,bridge,hard,span,the Big 12 Conference,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,79,1,0.171,0.198,133.9,4476.7
+5ae4a1875542995ad6573dd2,bridge,hard,span,Hero,TAP Portugal,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,80,1,0.169,0.226,88.8,4478.2
+5abae3205542996cc5e49edc,bridge,hard,span,Man Booker Prize for Fiction,no,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,80,1,0.168,0.196,132.2,4478.2
+5ab5a4555542997d4ad1f19c,bridge,hard,span,AMC Theatres,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,92,1,0.17,0.197,133.4,4504.8
+5abbd85a5542993f40c73be1,bridge,hard,span,"Christopher ""Chris"" Tarbell",Dread Pirate Roberts was arrested by the FBI.,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,11,72,1,0.169,0.331,73.2,4461.9
+5abe731255429965af743f0e,comparison,hard,span,musician,Musician,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.168,0.21,100.2,4469.2
+5a77bef05542992a6e59dfaf,bridge,hard,span,Katherine Harris,Marsha Blackburn,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,80,1,0.171,0.243,83.3,4478.2
+5a9064d05542990a9849360f,bridge,hard,span,Tariq Khan,Rajkummar Rao,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,7,90,1,0.171,0.273,77.8,4500.0
+5a8c30f6554299240d9c20d1,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.166,0.194,132.8,4462.9
+5ae5ffbb5542996de7b71ad4,bridge,hard,span,Argentinian,Argentinian,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,91,1,0.174,0.231,88.8,4503.3
+5ae213de5542997283cd23b9,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.168,0.195,133.8,4462.9
+5a81cb2c5542990a1d231ec4,bridge,hard,span,Player of the Year,Player of the Year Award,0.0,0.8571,0,4,0,0.0,2,0,0.0,1,,0,6,86,1,0.173,0.26,80.2,4492.8
+5a7605f85542994ccc91868d,comparison,hard,span,Battle of Hürtgen Forest,Battle of Hürtgen Forest,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,7,80,1,0.179,0.281,77.6,4478.2
+5ae07b0155429945ae95935d,comparison,hard,span,Paul Thomas Mann,Thomas Mann,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,3,73,1,0.169,0.211,99.8,4462.9
+5abcf17655429959677d6b5c,bridge,hard,span,UDC,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,85,1,0.176,0.204,133.2,4489.5
+5ae1b1aa5542997283cd223f,bridge,hard,span,Los Angeles Lakers,Los Angeles Lakers,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,87,1,0.169,0.226,89.0,4493.8
+5ab9587d55429970cfb8ea7e,bridge,hard,span,Reinhard Heydrich,Himmler's,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,73,1,0.169,0.256,80.0,4462.9
+5ab81cd955429916710eaff7,bridge,hard,span,electromagnetic field,Heat and ionized particles,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,71,1,0.169,0.257,79.9,4458.1
+5a77a9df55429967ab10521c,bridge,hard,span,Clive Staples Lewis,T.S. Eliot,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,86,1,0.17,0.258,79.8,4492.8
+5a85a2845542997175ce1fe1,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.168,0.195,133.4,4467.7
+5a800ca555429969796c1bac,bridge,hard,span,Plato,Socrates,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,107,1,0.163,0.205,99.7,4538.9
+5a73c958554299623ed4ac5c,bridge,hard,span,the autonomous community of Madrid,Sevilla FC,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,75,1,0.171,0.228,88.9,4467.7
+5ae528ed5542993aec5ec16e,bridge,hard,span,Revengers Tragedy,Straight Story,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,90,1,0.172,0.214,100.1,4500.0
+5a8aee2c55429970aeb70338,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.169,0.196,133.1,4464.4
+5ae7ef625542994a481bbe40,bridge,hard,span,"Umina Beach, New South Wales",Wallsend,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,88,1,0.161,0.218,88.8,4497.5
+5ae2cda55542992decbdcdb7,bridge,hard,span,Bryan Shelton White,Phil Cram,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,81,1,0.171,0.228,88.9,4479.2
+5a7af1a955429931da12c98f,comparison,hard,span,Distaghil Sar,Distaghil Sar,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,77,1,0.168,0.24,83.3,4471.9
+5a8b017155429949d91db463,bridge,hard,span,Obafemi Martins,Odion Ighalo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,97,1,0.169,0.256,79.6,4514.9
+5abe535055429976d4830aea,bridge,hard,span,Montreal,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.17,0.197,133.3,4462.9
+5ae3f2d25542995ad6573ccc,bridge,hard,span,U.S. Bancorp,Target Corporation,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,84,1,0.169,0.211,100.1,4488.0
+5a74122f55429929fddd83da,bridge,hard,span,Love Drunk,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,93,1,0.172,0.199,133.3,4507.6
+5ae803915542994a481bbe80,bridge,hard,span,Dubai International Stadium,Dubai Cricket Stadium,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,5,80,1,0.171,0.243,83.4,4478.2
+5a734e6d5542994cef4bc528,comparison,hard,span,The Beaver and Erie Canal,Beaver and Erie Canal,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,80,1,0.172,0.26,79.4,4478.2
+5ae3bb0d5542992f92d82357,bridge,hard,span,Nikolai Morozov,Gennadiy Plushenko,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,8,88,1,0.171,0.289,76.0,4497.5
+5a7624b85542992db947372c,bridge,hard,span,"January 18, 1813",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.172,0.199,130.5,4476.7
+5a8091515542996402f6a563,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.169,0.196,133.1,4474.0
+5a7a1b165542996c55b2dd10,comparison,hard,span,Margaret Landon,Connie Willis,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,73,1,0.169,0.226,88.9,4462.9
+5ac38bf355429939154137ba,bridge,hard,span,united Ireland,IRA,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.169,0.196,132.2,4478.2
+5a7502715542996c70cfae74,bridge,hard,span,Thon Marial Maker,Meyers Leonard,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,96,1,0.173,0.245,83.3,4513.8
+5a724ba25542990c210a40c7,bridge,hard,span,grand assembly,Zanzetse,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,83,1,0.169,0.242,83.2,4484.7
+5abd0b6b5542996e802b46b4,bridge,hard,span,number five,99,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.169,0.211,99.6,4474.0
+5ac00f795542996f0d89cb16,bridge,hard,span,Alan Young,Pete Pals,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,76,1,0.169,0.241,83.4,4469.2
+5ac3af895542995ef918c1f0,bridge,hard,span,Stedelijk Museum Amsterdam,Stedelijk Museum,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,5,79,1,0.169,0.241,83.1,4476.7
+5ac3bab155429939154138fb,bridge,hard,span,Ernestine,Saxe-Coburg and Gotha,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,90,1,0.171,0.304,74.7,4500.0
+5ab1f13e554299449642c81c,bridge,hard,span,aired on PBS stations,PBS,0.0,0.4,0,3,0,0.0,2,0,0.0,1,,0,2,78,1,0.17,0.197,133.5,4474.0
+5a7652435542992d0ec060a5,comparison,hard,span,Pyotr Ilyich Tchaikovsky,Pyotr Ilyich Tchaikovsky,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,10,90,1,0.172,0.32,73.8,4500.0
+5ade881f5542992fa25da7af,bridge,hard,span,Alan Mathison Turing,Alan Turing,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,3,90,1,0.174,0.216,99.6,4500.0
+5a83e98e5542992ef85e2387,bridge,hard,span,Cuban,Hispanic,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,88,1,0.177,0.219,99.8,4497.5
+5a7b60605542995eb53be931,bridge,hard,span,1907,1945,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,89,1,0.171,0.243,83.5,4498.5
+5a8df1a65542995085b3735f,bridge,hard,span,largest country,country,0.0,0.6667,0,4,0,0.0,2,0,0.0,1,,0,2,73,1,0.17,0.198,130.2,4462.9
+5a7e0c045542995f4f4023c5,comparison,hard,span,"Douglas Eric ""Doug"" Liman",Saul Metzstein,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,75,1,0.169,0.256,80.0,4467.7
+5a81711455429938b614233e,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.168,0.198,128.3,4467.7
+5ac275f155429921a00aaf82,bridge,hard,span,Viet Minh's base,Hanoi,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,84,1,0.168,0.211,98.1,4488.0
+5a7ed5af5542994959419a84,comparison,hard,span,Kitchens of Distinction,Kitchens of Distinction,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,76,1,0.18,0.27,78.6,4469.2
+5a83ed9b55429933447460b8,comparison,hard,span,flowering plants,plants,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.176,0.204,133.7,4464.4
+5ae648b955429929b0807b1d,bridge,hard,span,Nobel Prize,Nobel Prize,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,76,1,0.168,0.225,89.0,4469.2
+5a8f24cc55429924144829e7,bridge,hard,span,Battle of Dresden,Battle of Leipzig,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,87,1,0.171,0.228,89.0,4493.8
+5addda9b5542992200553b5b,bridge,hard,span,Isla de Xativa,South Georgia Island,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.17,0.227,88.8,4474.0
+5a77c4fe55429967ab10527b,bridge,hard,span,Remix,Remix,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,3,90,1,0.171,0.213,99.5,4500.0
+5adce36e5542990d50227d55,bridge,hard,span,Tufts College,Fisk University,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.17,0.231,84.3,4476.7
+5a8f155e554299458435d54c,bridge,hard,span,21 years and 154 days,9 years,0.0,0.2857,0,2,0,0.0,2,0,0.0,1,,0,3,83,1,0.177,0.219,99.4,4484.7
+5ac532335542994611c8b41c,bridge,hard,span,Marktown,Hull House,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.169,0.226,88.9,4479.2
+5a77ba6c55429967ab10524c,bridge,hard,span,"June 11, 1986","October 31, 1972",0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,11,93,1,0.171,0.334,73.0,4507.6
+5ac3b0885542995ef918c1f8,bridge,hard,span,20 October 1980,19 October 2004,0.0,0.3333,0,3,0,0.0,2,0,0.0,1,,0,9,82,1,0.17,0.303,74.4,4483.7
+5ab6006a554299110f2199b5,bridge,hard,span,The Wachowskis,Christopher Nolan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,72,1,0.176,0.218,99.7,4461.9
+5ab53ad6554299488d4d9917,bridge,hard,span,Shep Meyers,Charlie Parker,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,101,1,0.17,0.212,99.5,4525.1
+5a844fd35542990548d0b274,comparison,hard,span,author,Film critic,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,72,1,0.168,0.21,100.0,4461.9
+5ab2d1c45542992953946877,bridge,hard,span,The Campbell Soup Company,Campbell Soup Company,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,91,1,0.172,0.245,83.2,4503.3
+5a71674f5542994082a3e819,bridge,hard,span,January 2004,2015,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.167,0.239,83.2,4479.2
+5a8f38fa55429924144829f5,bridge,hard,span,Javan leopard,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.162,0.189,132.6,4476.7
+5a7a651b5542990783324f40,bridge,hard,span,David Dobkin,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,89,1,0.171,0.198,133.3,4498.5
+5a76a0005542993569682c64,comparison,hard,span,John Alan Lasseter,John Lasseter,0.0,0.8,0,3,0,0.0,2,0,0.0,1,,0,5,79,1,0.176,0.248,83.4,4476.7
+5a8747915542994775f607bb,bridge,hard,span,Dame Eileen June Atkins,Judi Dench,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,86,1,0.182,0.254,83.3,4492.8
+5ae66b055542995703ce8b61,bridge,hard,span,Canadian comedian,stand-up comedian,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,4,74,1,0.169,0.226,88.9,4464.4
+5ab5dc44554299494045f089,bridge,hard,span,Kansas–Nebraska Act,The Kansas-Nebraska Act,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,7,81,1,0.173,0.275,77.7,4479.2
+5ae0d9c555429924de1b719a,bridge,hard,span,Jay Van Andel,Richard T. DeKker,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,87,1,0.171,0.273,77.7,4493.8
+5a7ec95b55429934daa2fc67,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.168,0.195,133.3,4462.9
+5ac4ec9955429924173fb4da,bridge,hard,span,romantic comedy,Drama,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,77,1,0.17,0.212,99.8,4471.9
+5ac097b05542996f0d89cc18,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,81,1,0.172,0.198,133.1,4479.2
+5ac270025542990b17b15390,bridge,hard,span,9 venues,4,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.17,0.199,131.1,4471.9
+5a863d2d5542991e771815d2,bridge,hard,span,Xcel Energy Inc.,Consolidated Edison,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,75,1,0.167,0.24,83.2,4467.7
+5ab1e76c554299449642c800,bridge,hard,span,Dupont Plaza Hotel,The Station Nightclub fire in 2003,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,12,76,1,0.171,0.355,70.3,4469.2
+5a8a9bc15542996c9b8d5f36,bridge,hard,span,musical,musical,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,93,1,0.185,0.228,99.0,4507.6
+5a84f5195542994c784dda9d,bridge,hard,span,Israeli Ambassador,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,84,1,0.176,0.205,125.3,4488.0
+5a8b515e55429971feec46bb,bridge,hard,span,Red Dead Redemption,Red Dead Redemption 2,0.0,0.8571,0,2,0,0.0,2,0,0.0,1,,0,6,78,1,0.176,0.265,78.4,4474.0
+5ab44ab25542991779162c58,comparison,hard,span,board game,board games,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,3,71,1,0.177,0.22,99.1,4458.1
+5ab701395542991d3222373a,bridge,hard,span,Beatty,Amargosa Valley,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,83,1,0.173,0.246,83.3,4484.7
+5ae5305b5542990ba0bbb1f5,bridge,hard,span,"October 17, 2017",no,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,81,1,0.18,0.211,129.3,4479.2
+5ae0b60655429945ae959437,bridge,hard,span,"the Borough of Allerdale in Cumbria, England",Allerdale Borough,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,4,99,1,0.251,0.313,84.7,4520.4
+5a8fc0065542997ba9cb3318,bridge,hard,span,The Future,Black Swan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,84,1,0.209,0.256,92.0,4488.0
+5ac036b95542992a796deccd,bridge,hard,span,EN World web site,The Academy of Country Music Awards,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,85,1,0.218,0.324,74.8,4489.5
+5ac1a2f755429964131be258,bridge,hard,span,Shut Up,No,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,89,1,0.177,0.205,127.6,4498.5
+5ac41379554299204fd21ef1,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.173,0.201,130.3,4478.2
+5ac2ba4855429921a00ab048,bridge,hard,span,Sven Magnus,Magnus Carlsen,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.165,0.239,81.9,4469.2
+5a7119f75542994082a3e58e,bridge,hard,span,"June 24, 1935",1895,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.17,0.243,82.9,4469.2
+5ac55c135542993e66e82345,bridge,hard,span,Hordaland,Oslo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,74,1,0.172,0.215,99.7,4464.4
+5ae7fde25542994a481bbe66,bridge,hard,span,Theo James Walcott,Mesut Özil,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,93,1,0.173,0.246,83.4,4507.6
+5ac54ca45542993e66e822d5,bridge,hard,span,The Blue Album,Make Album,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,3,89,1,0.172,0.214,100.0,4498.5
+5a8da1815542994ba4e3dcd7,bridge,hard,span,1970s,1980s,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,81,1,0.172,0.259,79.8,4479.2
+5ae2075f5542994d89d5b315,bridge,hard,span,"the Hanna-Barbera show ""Birdman and the Galaxy Trio.""",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,70,1,0.169,0.196,132.8,4457.1
+5abe953b5542993f32c2a170,bridge,hard,span,superhero roles as the Marvel Comics,"Amy Tan is known for her work as a writer, but in the context of ""The Newcomers,"" she is known for her acting role.",0.0,0.0769,0,2,0,0.0,2,0,0.0,1,,0,31,76,1,0.171,0.636,68.5,4469.2
+5abff0645542994516f45539,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,72,1,0.166,0.194,133.0,4461.9
+5a7199725542994082a3e88f,comparison,hard,span,Texas Highways,Texas Highways,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.169,0.227,88.4,4471.9
+5abbd7985542992ccd8e7fb8,bridge,hard,span,artists' lofts,loft apartments,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,80,1,0.17,0.227,89.0,4478.2
+5a80ae105542992bc0c4a7a2,comparison,hard,span,poet,poet,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.172,0.214,99.7,4469.2
+5ab9cfb455429970cfb8ebae,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.169,0.196,133.7,4464.4
+5ae4c01e55429913cc2044f3,bridge,hard,span,Captain John Underhill,Peter Stuyvesant,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,6,99,1,0.172,0.26,80.0,4520.4
+5ae7922f5542994a481bbdac,bridge,hard,span,"Prince George's County, Maryland",New York City,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.171,0.229,88.0,4476.7
+5ac2f1d1554299218029dba4,comparison,hard,span,trees,leaves,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.17,0.212,99.8,4467.7
+5ac09da45542996f0d89cc1d,comparison,hard,span,orange,Citrus,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,80,1,0.169,0.211,99.5,4478.2
+5ab42d5755429942dd415eaf,bridge,hard,span,1996,1990,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,77,1,0.171,0.244,82.5,4471.9
+5ae5d7b755429929b08079cd,bridge,hard,span,last seen in 1933,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.17,0.198,132.6,4474.0
+5a8198565542995ce29dcc13,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,70,1,0.169,0.196,131.6,4457.1
+5ac3271e554299218029dbd3,bridge,hard,span,Chelmsford,Barnsley,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,75,1,0.168,0.241,82.7,4467.7
+5a8baf775542996e8ac889c8,bridge,hard,span,Wale,Kwesi Lindo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,87,1,0.183,0.27,79.7,4493.8
+5abbdb195542993f40c73bf1,comparison,hard,span,Sierra de Guadarrama National Park,Garajonay National Park,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,7,79,1,0.172,0.275,77.6,4476.7
+5ac46cb85542991943173987,bridge,hard,span,Götene in Sweden,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.168,0.195,131.9,4471.9
+5ab69e8755429954757d3334,bridge,hard,span,Big Machine Records,Apple Music,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,79,1,0.171,0.213,99.1,4476.7
+5adfd22255429906c02daa4f,bridge,hard,span,Tamzin Outhwaite,Siobhan Finneran,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,96,1,0.173,0.276,77.2,4513.8
+5add2b435542990d50227e11,bridge,hard,span,Saoirse Ronan,Ruth Wilson,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,80,1,0.171,0.228,88.8,4478.2
+5a8d0d7b55429941ae14df79,bridge,hard,span,"5,124 rooms","3,066",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,81,1,0.169,0.256,79.5,4479.2
+5a874e9b554299211dda2bd3,bridge,hard,span,fashion model,"Evelyn McCarley Bitton Johnson, the second First Lady to be born outside the United States, worked as a nurse before marrying Lyndon B. Johnson.",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,35,88,1,0.174,0.702,67.8,4497.5
+5a7c3178554299683c1c62e1,bridge,hard,span,Manhattan Project,Los Alamos National Laboratory,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,6,109,1,0.176,0.264,79.5,4527.9
+5a8ee6145542990e94052bab,bridge,hard,span,Comeng and Clyde Engineering,Siemens,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,96,1,0.176,0.218,99.3,4513.8
+5a8b7e9c5542995d1e6f13c1,comparison,hard,span,flowering plants,Perennials,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.171,0.228,88.6,4471.9
+5ae020f5554299025d62a41b,bridge,hard,span,867,2500 feet,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,6,85,1,0.168,0.255,79.8,4489.5
+5a7cc28f554299452d57ba1c,bridge,hard,span,50 best cities to live in,America's Favorite Cities,0.0,0.2222,0,3,0,0.0,2,0,0.0,1,,0,5,97,1,0.17,0.242,83.0,4514.9
+5a7e08305542995f4f4023ab,comparison,hard,span,Abū Bakr ibn Muḥammad ibn al Ḥusayn al-Karajī,Al-Karaji,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,79,1,0.169,0.241,82.7,4476.7
+5adf0ae45542992d7e9f9286,bridge,hard,span,Orissa,Kashmir,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,4,91,1,0.171,0.229,88.2,4503.3
+5a82efe355429966c78a6aa1,bridge,hard,span,Winter Haven Mall,Cable City Mall,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.171,0.244,83.0,4469.2
+5a86204d5542994775f60709,bridge,hard,span,Exeter College,"King's College, Cambridge",0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,6,79,1,0.173,0.261,79.7,4476.7
+5ab930655542991b5579f12a,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.171,0.198,131.4,4476.7
+5abc32cb55429959677d6a40,bridge,hard,span,Karen O,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.17,0.197,132.7,4462.9
+5a8dee2455429917b4a5bce1,bridge,hard,span,Pineapple Express,The Revenant,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.169,0.242,82.1,4469.2
+5a75e7b255429976ec32bc95,comparison,hard,span,Strange Synergy,Strange Synergy,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,84,1,0.171,0.229,88.8,4488.0
+5a8c8502554299585d9e36d0,bridge,hard,span,Ed Lee,Jeff Sheehy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,79,1,0.171,0.245,81.0,4476.7
+5ae3de615542992f92d823a5,bridge,hard,span,every aspect of public and private life,regulate human behavior and thought,0.0,0.1667,0,3,0,0.0,2,0,0.0,1,,0,7,93,1,0.164,0.268,76.7,4507.6
+5abee75f5542993fe9a41d8e,bridge,hard,span,HBO World Championship Boxing,Monday Night Football,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.162,0.22,87.6,4476.7
+5a8f73455542997ba9cb3269,bridge,hard,span,University of Texas at Austin,University of Minnesota,0.0,0.5,0,4,0,0.0,2,0,0.0,1,,0,4,83,1,0.162,0.22,87.9,4484.7
+5a7a9b9a5542990198eaf160,bridge,hard,span,1989,1981,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,79,1,0.163,0.235,83.1,4476.7
+5ab66b63554299110f219a0a,comparison,hard,span,hunting,hunting,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.163,0.205,99.4,4476.7
+5ae457a95542996836b02c85,bridge,hard,span,Garth Jennings,Tim Johnson,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.17,0.212,100.3,4476.7
+5ac1c73e55429964131be28a,bridge,hard,span,Country Thuggin,The Album: Coast to Coast,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,7,85,1,0.171,0.273,77.7,4489.5
+5adef1b35542993a75d263af,bridge,hard,span,Salma Hayek Pinault,Carmen Miranda,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.177,0.249,83.0,4474.0
+5ab29956554299194fa9342d,bridge,hard,span,Mandalay Entertainment,Warner Bros.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,85,1,0.17,0.242,83.1,4489.5
+5a7b1d3b5542992d025e677a,bridge,hard,span,Dodge Memorial Park,Omaha's Henry Doorly Zoo and Botanical Garden,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,12,86,1,0.166,0.345,72.4,4492.8
+5ac373195542995ef918c199,bridge,hard,span,"Hoffman Estates, Illinois",San Francisco,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,74,1,0.161,0.203,99.8,4464.4
+5a7e052d5542995f4f40238e,bridge,hard,span,Hirsch index rating,Ph.D.,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,4,86,1,0.171,0.228,88.6,4492.8
+5ac41850554299194317390b,bridge,hard,span,Dissection,At the Gates,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,84,1,0.176,0.233,88.7,4488.0
+5a8c06bb5542995e66a47530,bridge,hard,span,"""Rich Girl""",The answer is: Dream On,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,7,92,1,0.174,0.277,77.4,4504.8
+5a8fc3b155429933b8a20454,bridge,hard,span,Paleo-Indians,Asian migrants,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,89,1,0.175,0.217,99.6,4498.5
+5ab94acd554299743d22eac6,bridge,hard,span,28th,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.171,0.198,133.4,4476.7
+5ac1b1345542994ab5c67dd0,bridge,hard,span,1736,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,85,1,0.171,0.198,133.1,4489.5
+5ac3b04f55429939154138b7,bridge,hard,span,East Lancashire Railway,Heywood and Royton Railway,0.0,0.2857,0,3,0,0.0,2,0,0.0,1,,0,7,81,1,0.169,0.272,77.6,4479.2
+5adf0cbd5542993a75d263e0,bridge,hard,span,6 April 1830,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,90,1,0.171,0.199,131.7,4500.0
+5ae3790f5542992e3233c415,comparison,hard,yesno,no,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.173,0.2,132.8,4474.0
+5a7b820c5542997c3ec971d8,bridge,hard,span,NYPD's 83rd Precinct,New Orleans Police Department,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,78,1,0.161,0.234,83.1,4474.0
+5a90b1a15542990a984936ab,bridge,hard,span,the Netherlands,United States,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,86,1,0.164,0.206,100.2,4492.8
+5a7cdc1b55429907fabef04d,bridge,hard,span,"Calgary, Alberta",Los Angeles,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.169,0.211,99.5,4469.2
+5a8e08d35542995085b37395,bridge,hard,span,Bayern Munich,Bayern Munich,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.169,0.226,88.7,4474.0
+5a7a9a2255429941d65f26eb,bridge,hard,span,119 minutes,118,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.172,0.229,88.5,4479.2
+5a87ee7b55429938390d3eb6,bridge,hard,span,Louisville RiverBats,New York Yankees,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.171,0.228,88.8,4476.7
+5a8ba92c554299240d9c2071,bridge,hard,span,North Carolina,North Carolina,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,82,1,0.172,0.215,100.1,4483.7
+5a8b036d55429971feec45fe,comparison,hard,span,Daron Vartan Malakian,Zach Bogosian,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,78,1,0.17,0.257,79.6,4474.0
+5adfed45554299603e4183c5,comparison,hard,span,screenwriter,director,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.169,0.197,133.4,4469.2
+5adbf84555429947ff17387c,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.17,0.197,132.8,4476.7
+5ac2dfac554299657fa290b3,bridge,hard,span,Ernst & Young,EY (Ernst & Young),0.0,0.8,0,4,0,0.0,2,0,0.0,1,,0,9,95,1,0.174,0.307,74.5,4512.3
+5ae0cddc55429945ae959459,bridge,hard,span,35 people,35,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.167,0.21,99.6,4474.0
+5abb02fe554299232ef4a39f,bridge,hard,span,Bolshoi Theatre,Maly Theatre,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.171,0.229,88.6,4479.2
+5ac43d575542997ea680ca39,bridge,hard,span,Kal Ho Naa Ho,Lagaan,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.169,0.226,88.7,4479.2
+5a82817555429954d2e2eb5a,bridge,hard,span,"""Naked Killer""",Naked Prey,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.172,0.244,83.3,4474.0
+5adce0f455429947343537bd,bridge,hard,span,CBS Corporation,CBS,0.0,0.6667,0,3,0,0.0,2,0,0.0,1,,0,2,90,1,0.174,0.201,132.0,4500.0
+5ac21bac5542991316484bf2,bridge,hard,span,Excalibur Hotel and Casino,Mirage,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,82,1,0.171,0.228,88.7,4483.7
+5a84fea85542994c784ddabf,comparison,hard,span,tennis,Tennis,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.167,0.209,99.6,4471.9
+5ae7690c5542995703ce8c22,bridge,hard,span,"Indianapolis, Indiana",Australia,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,92,1,0.174,0.201,132.0,4504.8
+5a7e7c725542991319bc94be,bridge,hard,span,"(foaled February 1, 1999)",2019,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,80,1,0.164,0.236,83.2,4478.2
+5a70f39c5542994082a3e429,bridge,hard,span,Eliot Cutler,Paul LePage,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,88,1,0.172,0.229,88.9,4497.5
+5a8332815542993344745fe9,bridge,hard,span,Dave Thomas,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.17,0.198,131.0,4467.7
+5adf227a5542992d7e9f92a6,bridge,hard,span,Hamlet,La Traviata,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,75,1,0.182,0.254,83.2,4467.7
+5ae6143f5542996de7b71b2d,bridge,hard,span,The Chamber,The Client,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,77,1,0.171,0.213,99.6,4471.9
+5ae6368a5542992ae0d16284,bridge,hard,span,"January 11, 1755 or 1757July",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.17,0.197,132.8,4467.7
+5ae759b25542991e8301cc6b,bridge,hard,span,1994,1999,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,84,1,0.171,0.243,82.9,4488.0
+5ac4d2cd5542995c82c4ad73,bridge,hard,span,Tampa Bay Lightning,New Jersey Devils,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,4,92,1,0.171,0.228,88.8,4504.8
+5adf4b335542993a75d264a5,bridge,hard,span,Rockstar San Diego,Rockstar Games,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.172,0.229,88.4,4479.2
+5a8b04df55429950cd6afc49,bridge,hard,span,The Bomb Factory,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,87,1,0.171,0.199,133.8,4493.8
+5ae7da705542993210983f96,bridge,hard,span,Renaissance Technologies,RidgeWorth Investments,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,90,1,0.171,0.258,79.8,4500.0
+5a8ec4875542995a26add508,bridge,hard,span,"Ravalli County, Montana",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,70,1,0.164,0.191,133.0,4457.1
+5ae7d0675542994a481bbdf2,bridge,hard,span,Apalachee,Muskogean,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.169,0.241,82.9,4474.0
+5ab209ec554299722f9b4ca2,bridge,hard,span,"Kairi in the video game series ""Kingdom Hearts"".",Jasper,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.171,0.213,99.8,4474.0
+5a7a4a1d5542990198eaf108,bridge,hard,span,Marshal Pietro Badoglio,"Benito Mussolini was born in 1872, so the other man, Giovanni Giolitti, was born in 1871.",0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,33,80,1,0.168,0.664,68.2,4478.2
+5a7ce6bf55429909bec7686c,bridge,hard,span,Ryan Guno Babel,Adrijan Ristic,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,6,79,1,0.175,0.263,79.4,4476.7
+5a732aa055429901807daf9f,bridge,hard,span,1976,2016,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.169,0.241,83.0,4474.0
+5abec2ca5542997719eab5b9,comparison,hard,span,Carondelet Canal,Carondelet Canal,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,79,1,0.172,0.26,79.5,4476.7
+5a7f3bcd55429930675136c3,bridge,hard,span,Arthur Russell,Bela Fleck,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,88,1,0.171,0.244,82.7,4497.5
+5ab3e577554299233954ffe3,comparison,hard,span,writer,writers,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.173,0.2,132.1,4483.7
+5a90c8165542995651fb51ee,bridge,hard,span,Easter Rising of 1916,Easter Rising,0.0,0.6667,0,3,0,0.0,2,0,0.0,1,,0,3,81,1,0.161,0.203,100.3,4479.2
+5ab27389554299722f9b4d2f,bridge,hard,span,Peter 'Drago' Sell,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,94,1,0.173,0.2,134.1,4509.6
+5abe19895542991f661060c2,comparison,hard,span,China,China,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.169,0.197,132.1,4467.7
+5ab3c05d55429969a97a81aa,bridge,hard,span,five times,2,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,81,1,0.169,0.196,132.3,4479.2
+5ab9ccef55429955dce3ed86,bridge,hard,span,Buddha's delight,Dumpling,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,90,1,0.173,0.23,88.7,4500.0
+5a72c6565542992359bc31a7,bridge,hard,span,Belladonna,Tera Touch,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,93,1,0.172,0.23,88.7,4507.6
+5a72908f5542994cef4bc33b,comparison,hard,span,Brett Allen Scallions,Brett Scallions,0.0,0.8,0,3,0,0.0,2,0,0.0,1,,0,6,87,1,0.173,0.26,79.9,4493.8
+5a73830d55429908901be2da,bridge,hard,span,Bea Arthur,Estelle Getty,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.172,0.229,88.8,4471.9
+5a7982435542994bb945701f,bridge,hard,span,Folkets,The formal name of the building was Studio 3.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,12,82,1,0.17,0.348,72.4,4483.7
+5ae5c8cf554299546bf82f5f,bridge,hard,span,Rockland,Bangor,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,97,1,0.172,0.214,99.8,4514.9
+5ae0132d55429925eb1afc00,bridge,hard,span,the George Washington Bridge,"Newark, New Jersey",0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,6,91,1,0.17,0.258,79.2,4503.3
+5adf9d135542995534e8c817,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.172,0.2,133.7,4471.9
+5abbc2245542992ccd8e7f8a,bridge,hard,span,northeastern,"East coast, near the city of Marathon",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,80,1,0.171,0.304,74.6,4478.2
+5a83c56d5542996488c2e4c3,bridge,hard,span,Mayfair,Horror,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,89,1,0.173,0.215,100.1,4498.5
+5ab870ed55429934fafe6db9,bridge,hard,span,an album,album,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,2,88,1,0.172,0.199,133.5,4497.5
+5abb76fa5542992ccd8e7f48,bridge,hard,span,Nicole Kidman,Nicole Kidman,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,90,1,0.164,0.236,83.2,4500.0
+5a7b55bc55429927d897bf98,bridge,hard,span,20 assists,11,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,91,1,0.171,0.213,99.3,4503.3
+5ae518ae5542993aec5ec13c,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,81,1,0.171,0.198,132.1,4479.2
+5ac1c18855429964131be279,bridge,hard,span,American,American,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,2,93,1,0.174,0.201,133.1,4507.6
+5ac199955542994ab5c67d8c,bridge,hard,span,Harper's Bazaar,Harper's Bazaar,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,108,1,0.172,0.26,79.6,4540.4
+5ae27f22554299495565da8d,bridge,hard,span,1926,1915,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,79,1,0.173,0.246,83.0,4476.7
+5ac2680055429963665199a8,bridge,hard,span,Chaplain,Organist and Choirmaster,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,76,1,0.17,0.273,77.1,4469.2
+5ae351405542994393b9e67f,bridge,hard,span,Hee Haw,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,78,1,0.174,0.201,132.3,4474.0
+5ae1da385542997283cd2297,bridge,hard,span,"Katharine Hepburn, Joan Bennett, Frances Dee","Meryl Streep, Thora Birch, Susan Sarandon, Diane Lane",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,16,81,1,0.171,0.41,70.6,4479.2
+5adc69ef554299438c868daf,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.171,0.199,132.5,4469.2
+5a7a954855429941d65f26cd,bridge,hard,span,John Lennon/Plastic Ono Band,Plastic Ono Band,0.0,0.5714,0,2,0,0.0,2,0,0.0,1,,0,6,77,1,0.176,0.263,79.9,4471.9
+5ab9ddaa5542994dbf019873,bridge,hard,span,Lord Gort,Alan Brooke,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,92,1,0.173,0.215,100.0,4504.8
+5abbdd565542993f40c73bfb,bridge,hard,span,"IATA: VNO, ICAO: EYVI",VYN,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,82,1,0.169,0.211,99.3,4483.7
+5a8b544855429950cd6afcae,comparison,hard,span,The Country Bears,The Country Bears,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,75,1,0.176,0.234,88.5,4467.7
+5aba480c55429939ce03dc77,bridge,hard,span,Hong Kong,Cantonese Cinema,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,90,1,0.18,0.253,82.3,4500.0
+5a8518a75542994c784ddaf7,comparison,hard,span,building,apartment building,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,83,1,0.171,0.229,88.2,4484.7
+5a81b43d5542995ce29dcc39,bridge,hard,span,aging issues,Gender studies and feminism,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.169,0.241,82.8,4474.0
+5a79e3925542994bb9457130,comparison,hard,span,"Hotel"" (1965), ""Airport"" (1968), ""Wheels"" (1971)","Hotel, Money, The Money Machine",0.0,0.2,0,2,0,0.0,2,0,0.0,1,,0,8,79,1,0.171,0.288,76.1,4476.7
+5adbf34955429947ff173862,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.17,0.197,132.7,4467.7
+5ac5275755429924173fb617,bridge,hard,span,Argentine Americans,Jewish,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,95,1,0.172,0.215,99.4,4512.3
+5a77519c55429972597f14fa,bridge,hard,span,Tom Hiddleston,Tom Hardy,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.17,0.227,89.1,4479.2
+5a7a05485542990783324def,bridge,hard,span,Na Na,Yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,87,1,0.163,0.19,132.9,4493.8
+5ae3fd195542995dadf2428d,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.168,0.195,133.7,4467.7
+5ab3b2c4554299233954ff8a,bridge,hard,span,The Catcher in the Rye,"The Killing of a King: The FBI, the Black Panthers, and the Murder of Huey P. Newton",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,24,94,1,0.173,0.535,68.7,4509.6
+5a74f7f15542993748c89765,bridge,hard,span,11 November 1869,1859,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.17,0.242,83.0,4469.2
+5abaad5855429901930fa88f,comparison,hard,span,three singles titles,4,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.17,0.197,132.3,4467.7
+5a770eb65542994aec3b71d4,bridge,hard,span,The Ninth Gate,The Ninth Gate,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,103,1,0.17,0.228,88.5,4529.4
+5a7a845755429941d65f2684,comparison,hard,span,Old Dogs,Old Dogs,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.171,0.213,99.7,4467.7
+5ab42b24554299753aec5a43,bridge,hard,span,1895,1912,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.176,0.249,82.3,4479.2
+5a8141cc55429938b6142316,comparison,hard,yesno,yes,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.176,0.203,132.0,4462.9
+5abdb8ba5542993f32c2a015,bridge,hard,span,sailor,a sailor,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.17,0.213,99.9,4474.0
+5ab90f5755429934fafe6e57,bridge,hard,span,Ireland,Belarus,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.17,0.212,99.7,4467.7
+5a8492ab5542992a431d1a5b,bridge,hard,span,The Northrop P-61 Black Widow,Northrop P-61 Black Widow,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,9,87,1,0.173,0.306,74.8,4493.8
+5a83c3275542996488c2e4be,bridge,hard,span,Red and Assiniboine Rivers,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,78,1,0.161,0.188,132.7,4474.0
+5a8bde565542995d1e6f1454,comparison,hard,span,El Paso International Airport,Grand Forks International Airport,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,6,79,1,0.168,0.255,80.0,4476.7
+5ac249bd55429951e9e68528,bridge,hard,span,"blood, platelets, and plasma",Blood donations and related medical supplies,0.0,0.4,0,3,0,0.0,2,0,0.0,1,,0,7,75,1,0.17,0.273,77.6,4467.7
+5a80f4c2554299260e20a1da,bridge,hard,span,Big Mamie,Rough Stuff,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.171,0.228,88.6,4474.0
+5ae12fcf5542990adbacf72c,comparison,hard,span,Animation,animation,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,2,75,1,0.172,0.199,134.0,4467.7
+5a898872554299669944a540,bridge,hard,span,Anandji Virji Shah,Roshan Shah,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,5,86,1,0.172,0.246,81.4,4492.8
+5ade858a55429975fa854eea,comparison,hard,span,tennis,Tennis,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.168,0.21,100.3,4474.0
+5a8f54165542992414482a52,bridge,hard,span,"12,272","71,368",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,88,1,0.172,0.275,77.2,4497.5
+5a8b448255429971feec468c,bridge,hard,span,directed by Shane Meadows,Steve McQueen,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.176,0.234,88.7,4474.0
+5a8f18d555429918e830d189,bridge,hard,span,Caistor is a town,Scunthorpe,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,6,83,1,0.171,0.258,79.9,4484.7
+5ae7308d5542991e8301cbb8,bridge,hard,span,Caligula,Augustus,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,73,1,0.17,0.213,100.1,4462.9
+5ae305355542992decbdcdc2,bridge,hard,span,Leona Lewis,Sam Smith,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.17,0.212,99.4,4467.7
+5a8530cc5542992a431d1aeb,bridge,hard,span,Orono,Boston,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,85,1,0.175,0.202,133.0,4489.5
+5adc459255429944faac24ad,bridge,hard,span,Russell Humphreys,Duane T. Gish,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,102,1,0.163,0.265,77.7,4528.4
+5a866fed554299211dda2b2e,bridge,hard,span,his most brilliant student,The Man of the Moment,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,6,93,1,0.174,0.261,79.8,4507.6
+5abeafbb5542997ec76fd347,comparison,hard,span,"Frida, en trotjänarinna","Frida, en trotjänarinna",1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,11,83,1,0.162,0.324,73.2,4484.7
+5ab6391755429953192ad2a7,bridge,hard,span,Gauteng province,Limpopo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,89,1,0.171,0.229,88.5,4498.5
+5a7c68575542996dd594b91c,bridge,hard,span,Fade to Black,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,84,1,0.175,0.202,132.6,4488.0
+5ac524e55542994611c8b3d0,bridge,hard,span,Final Fantasy XII,Final Fantasy V,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,91,1,0.173,0.23,88.7,4503.3
+5abed6905542990832d3a0ed,bridge,hard,span,"Domingo ""Sam"" Samudio",Yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,78,1,0.162,0.189,132.6,4474.0
+5a7bd791554299683c1c62c2,bridge,hard,span,Vic Chesnutt,Wesley Willis,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,75,1,0.168,0.241,83.2,4467.7
+5ae75a5a5542991bbc9761f3,bridge,hard,span,Agent Vinod,Dilwale,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,85,1,0.172,0.245,83.2,4489.5
+5a7741775542994aec3b724f,bridge,hard,span,Aubrey Posen,Stacy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,87,1,0.172,0.214,99.6,4493.8
+5a80d2c6554299260e20a17c,bridge,hard,span,London,London,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.167,0.194,132.6,4462.9
+5a8a1b7a5542992d82986ec0,bridge,hard,span,Boston,Boston,1.0,1.0,0,4,0,0.0,2,0,0.0,1,,0,2,86,1,0.17,0.197,134.2,4492.8
+5a8638945542994775f6072d,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.168,0.195,132.6,4471.9
+5adc2e3d554299438c868d6b,bridge,hard,span,28 June 1945,1904,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,83,1,0.17,0.242,83.3,4484.7
+5ae5f3bb5542996de7b71a7e,bridge,hard,span,Anthony Hopkins,Meryl Streep,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,77,1,0.17,0.243,83.2,4471.9
+5a85d25b5542996432c570ee,bridge,hard,span,BC Dzūkija,Alytauskas,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,80,1,0.172,0.26,79.6,4478.2
+5ab66fd355429954757d32b7,bridge,hard,span,Syracuse University.,University of Oklahoma,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,80,1,0.169,0.226,88.9,4478.2
+5a7153d05542994082a3e7dc,comparison,hard,span,Nusretiye Mosque,Nusretiye Mosque,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,7,90,1,0.171,0.273,77.7,4500.0
+5ae249925542994d89d5b3c1,comparison,hard,span,Jim Pugh,Richard Gasquet,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,80,1,0.172,0.229,88.5,4478.2
+5ac170af5542994d76dcce20,comparison,hard,span,"Gregory John ""Greg"" Puciato",Greg Puciato,0.0,0.6667,0,3,0,0.0,2,0,0.0,1,,0,5,82,1,0.171,0.243,83.0,4483.7
+5a80cddd554299260e20a169,bridge,hard,span,Stephen King,Stephen King,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,94,1,0.175,0.218,99.7,4509.6
+5a89ab1355429946c8d6e996,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.169,0.196,132.3,4464.4
+5a7319bc5542992359bc3235,comparison,hard,span,Nikolai Ivanovich Lobachevsky,Nikolai Lobachevsky,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,9,78,1,0.17,0.302,74.8,4474.0
+5ae638865542992ae0d1628c,bridge,hard,span,Adam Dawes,Alf Clausen and his team at Radical Entertainment,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,11,91,1,0.183,0.346,73.1,4503.3
+5a72af155542992359bc316c,bridge,hard,span,Dead Poets Society,Good Will Hunting,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,85,1,0.171,0.228,88.5,4489.5
+5abd09585542996e802b469b,bridge,hard,span,2011,2011,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,86,1,0.163,0.235,83.2,4492.8
+5a71214d5542994082a3e5b9,bridge,hard,span,The Los Angeles Dance Theater,American Ballet Theatre,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,90,1,0.171,0.228,88.4,4500.0
+5a8a0cb75542992d82986e7d,bridge,hard,span,110 miles,20.5 miles,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,6,77,1,0.171,0.258,79.8,4471.9
+5a79c7ac5542994bb9457097,bridge,hard,span,nine girls and 10 boys,9 girls and 8 boys,0.0,0.6,0,2,0,0.0,2,0,0.0,1,,0,7,78,1,0.169,0.272,77.6,4474.0
+5abbc96755429931dba1452c,bridge,hard,span,three million copies worldwide,40 million,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,4,80,1,0.168,0.226,88.5,4478.2
+5ade664555429939a52fe89c,bridge,hard,span,"Miami Gardens, Florida,",Allston,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,76,1,0.169,0.212,99.9,4469.2
+5a8a06c35542992d82986e57,bridge,hard,span,Double Crossed,Diamond Mind,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,86,1,0.173,0.215,98.7,4492.8
+5ae2cbc9554299495565db36,bridge,hard,span,Melanie Owen,"Connie (on ""Inside No. 9"")",0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,12,92,1,0.172,0.351,71.8,4504.8
+5abf16965542993fe9a41dd3,bridge,hard,span,the world,Blackstone,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,83,1,0.164,0.207,97.4,4484.7
+5ab7ccf455429928e1fe3910,bridge,hard,span,"5,042","2,444",0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,6,82,1,0.178,0.266,78.8,4483.7
+5abd0b685542996583600501,bridge,hard,span,private,Public,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.177,0.204,131.7,4469.2
+5a7fa08d55429969796c1af7,comparison,hard,span,Drunter und Drüber is a multiplayer board game invented by Klaus Teuber,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,83,1,0.163,0.191,130.9,4484.7
+5a7306a655429901807daf67,bridge,hard,span,Umaro Mokhtar Sissoco Embaló,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,81,1,0.171,0.199,129.1,4479.2
+5adce2ee5542992c1e3a2461,bridge,hard,span,Tampa,Tampa,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,3,84,1,0.172,0.215,97.8,4488.0
+5ab4f7fc5542991779162d43,bridge,hard,span,Volta,Volta Region,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,4,72,1,0.173,0.231,87.1,4461.9
+5ae0d3da5542990adbacf66d,bridge,hard,span,Otto Eduard Leopold,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,89,1,0.165,0.193,129.7,4498.5
+5a81d19b55429926c1cdad90,bridge,hard,span,Ector County,Ector County,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,81,1,0.168,0.226,87.4,4479.2
+5ab4fd0b55429942dd415fbb,bridge,hard,span,Mexico City,Toluca,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,99,1,0.175,0.233,87.4,4520.4
+5ae5d0b5554299546bf82f80,bridge,hard,span,Autopia,It's not an expanded version of any other attraction.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,12,79,1,0.171,0.35,72.0,4476.7
+5a78e9d155429970f5fffdcc,comparison,hard,span,"Robert ""Rob"" Parissi",Pepper Keenan,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,73,1,0.162,0.236,82.0,4462.9
+5a8adc935542992d82986fb0,comparison,hard,span,Chuck E. Cheese's,Jet's Pizza,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,4,78,1,0.175,0.233,87.1,4474.0
+5a8763475542996e4f3087c0,bridge,hard,span,Australian Supercars Championship,IndyCar Championship,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,5,85,1,0.172,0.246,81.8,4489.5
+5a8c7232554299585d9e36a6,bridge,hard,span,Malta,Portugal,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,104,1,0.179,0.222,97.9,4533.1
+5ac156d05542994ab5c67ce9,comparison,hard,yesno,yes,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,85,1,0.172,0.2,131.2,4489.5
+5adcc9f35542990d50227d20,comparison,hard,span,Montejo v. Louisiana,Montejo v. Louisiana,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,7,85,1,0.171,0.275,76.5,4489.5
+5ae1d656554299234fd04322,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.169,0.197,131.6,4462.9
+5ae788fa55429952e35ea964,bridge,hard,span,extensive use of segues,their signature use of the blues scale and folk instrumentation,0.0,0.3077,0,2,0,0.0,2,0,0.0,1,,0,11,78,1,0.17,0.336,71.8,4474.0
+5adf39d45542992d7e9f92e5,comparison,hard,span,Disney,20th Century Fox,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,84,1,0.171,0.26,77.9,4488.0
+5ab503db5542990594ba9cc8,bridge,hard,span,American,Norwegian,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,74,1,0.174,0.217,97.6,4464.4
+5ae617285542996de7b71b4c,bridge,hard,span,South African-born,Irish,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,82,1,0.178,0.221,97.9,4483.7
+5aba9e545542994dbf019986,bridge,hard,span,A Bug's Life,A Bug's Life,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,74,1,0.175,0.249,81.0,4464.4
+5a8841195542994846c1ce65,bridge,hard,span,Matthew Vaughn,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,85,1,0.173,0.201,129.5,4489.5
+5a80b8845542992bc0c4a7de,bridge,hard,span,Stargate,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,94,1,0.175,0.203,129.1,4509.6
+5add92885542990dbb2f7e72,bridge,hard,span,one of Lithuania's most talented actors,no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,84,1,0.174,0.202,129.1,4488.0
+5a8b595855429949d91db563,bridge,hard,span,1992,1985,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,83,1,0.166,0.241,80.7,4484.7
+5a88e3cc5542997e5c09a6c2,bridge,hard,span,"New York, United States","Great Neck, New York",0.0,0.5,0,4,0,0.0,2,0,0.0,1,,0,6,78,1,0.182,0.272,77.6,4474.0
+5ac294b955429921a00aafd0,comparison,hard,span,Macworld,Soaps In Depth,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,75,1,0.166,0.24,80.8,4467.7
+5a75fa14554299109176e5dc,bridge,hard,span,2018 Unibet Premier League Darts,The World Darts Championship,0.0,0.25,0,3,0,0.0,2,0,0.0,1,,0,6,101,1,0.174,0.265,77.5,4525.1
+5adf88995542993344016cd4,bridge,hard,span,Baltimore,Buffalo,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,79,1,0.166,0.209,96.6,4476.7
+5ae0850055429945ae959396,bridge,hard,span,James Taylor,James Taylor,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,3,71,1,0.174,0.217,97.6,4458.1
+5ae835f25542997ec272776f,bridge,hard,span,1959,1963,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,82,1,0.175,0.249,80.6,4483.7
+5a8d7a8d55429941ae14dfc2,bridge,hard,span,Restoration Hardware,Westfield,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,80,1,0.175,0.218,96.8,4478.2
+5a8555ea5542992a431d1b07,bridge,hard,span,The Big Lebowski,Birth,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,98,1,0.176,0.204,128.0,4519.3
+5a7a8d15554299042af8f669,bridge,hard,span,Azeroth,The Witcher,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,91,1,0.179,0.239,86.0,4503.3
+5a7bcbc8554299294a54aae2,comparison,hard,span,Sir Syed University of Engineering and Technology,Sir Syed University of Engineering and Technology,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,9,82,1,0.179,0.316,72.4,4483.7
+5a84807d554299123d8c2278,bridge,hard,span,Philosophy professor,Detective,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,84,1,0.177,0.221,96.6,4488.0
+5a7a030c5542996a35c17077,bridge,hard,span,State Street,General Electric,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,92,1,0.184,0.228,97.1,4504.8
+5ae1388e5542997b2ef7d13a,bridge,hard,span,more than two decades,30 years,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,4,89,1,0.177,0.237,85.9,4498.5
+5ae5a4e5554299546bf82f01,bridge,hard,span,Pasek and Paul,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,88,1,0.178,0.206,128.2,4497.5
+5a87c19a5542994846c1cde6,bridge,hard,span,Firth of Clyde,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,86,1,0.178,0.206,129.1,4492.8
+5a74af7e55429916b01641d2,bridge,hard,span,Johan Leysen,Johan Leysen,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,75,1,0.176,0.266,77.3,4467.7
+5a7c8ae855429935c91b5207,bridge,hard,span,Alexander Porfiryevich Borodin,Nikolai Myaskovsky,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,8,81,1,0.176,0.297,73.5,4479.2
+5ab808b85542991d3222380d,bridge,hard,span,belief in many deities and spirits,Hawaiian mythology,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,79,1,0.185,0.26,80.4,4476.7
+5a7d158155429909bec76947,bridge,hard,span,1916,1962,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.176,0.25,80.5,4469.2
+5abad70d5542996606241631,bridge,hard,span,number 5,No,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,2,89,1,0.18,0.208,128.5,4498.5
+5a75092b55429916b0164242,bridge,hard,span,Transporter 3,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.176,0.205,128.5,4467.7
+5ae7766455429952e35ea920,bridge,hard,span,Australian actor and film producer,Australia,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,87,1,0.179,0.207,130.0,4493.8
+5a840e395542992ef85e239d,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.177,0.205,130.0,4464.4
+5ac023045542996f0d89cb32,bridge,hard,span,New York,Harvard,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,81,1,0.179,0.222,96.6,4479.2
+5ac0b6b15542996f0d89cc1e,bridge,hard,span,Ogier the Dane,Reinhold,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,86,1,0.178,0.237,85.8,4492.8
+5a7b24fe55429931da12c9f7,comparison,hard,span,German Spitz,German Spitz,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,80,1,0.177,0.237,85.5,4478.2
+5abf8ae85542990832d3a14b,bridge,hard,span,Russian Empire,Russian Empire,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,71,1,0.177,0.22,97.0,4458.1
+5a77e2095542995d8318131d,bridge,hard,span,Jesper Myrfors,Peter Molyneux,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,84,1,0.178,0.268,77.1,4488.0
+5a775f615542993735360250,bridge,hard,span,Green Chair,Sympathy for Mr. Vengeance,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,97,1,0.176,0.314,72.2,4514.9
+5ade15a45542997545bbbe46,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.176,0.204,129.3,4467.7
+5abf2e605542993fe9a41de4,comparison,hard,span,Atsushi Ogata,Ralph Smart,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.18,0.24,85.8,4471.9
+5ab5744e554299494045efdf,bridge,hard,span,Herbert Ross,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,85,1,0.185,0.213,127.8,4489.5
+5a7c6d98554299683c1c6304,bridge,hard,span,Agent Carter,Agents of S.H.I.E.L.D.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,10,84,1,0.179,0.332,71.2,4488.0
+5ab864945542990e739ec8e1,bridge,hard,span,Nobel Prize,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.178,0.206,128.9,4471.9
+5adcb4ae5542994734353774,bridge,hard,span,VH1,VH1,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,84,1,0.18,0.239,85.1,4488.0
+5a8675b1554299211dda2b44,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,72,1,0.179,0.207,128.2,4461.9
+5ac11201554299294b21908c,bridge,hard,span,Oakland County,Hinds,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,69,1,0.188,0.232,96.5,4453.9
+5ae663b05542992ae0d16316,bridge,hard,span,"Melbourne, Australia",Mordialloc,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.18,0.239,86.1,4474.0
+5a9057795542990a984935f7,bridge,hard,span,massively multiplayer online role-playing video game,The Forest,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,74,1,0.18,0.223,96.2,4464.4
+5a8d0e4e5542994ba4e3dbbf,bridge,hard,span,Gary Earl Johnson,Bob Barr,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,82,1,0.173,0.217,95.6,4483.7
+5ab4313a554299233955004c,bridge,hard,span,saint,wives of Cnut the Great,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,86,1,0.184,0.29,74.7,4492.8
+5abaee665542992ccd8e7e5f,bridge,hard,span,Benedict of Nursia,Saints Sergius and Bacchus,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,9,88,1,0.174,0.312,72.1,4497.5
+5ae16b925542997b2ef7d1e7,bridge,hard,span,"Queens, New York",Detroit,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.182,0.212,128.3,4476.7
+5a7faa215542995d8a8ddee8,bridge,hard,span,Princess Elizabeth,"Elizabeth, The Queen Mother",0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,6,82,1,0.21,0.302,77.2,4483.7
+5a8add4c5542992d82986fb4,bridge,hard,span,Daniel Sturridge,Steven Gerrard,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,78,1,0.208,0.269,86.1,4474.0
+5ab9ba6855429970cfb8eb87,bridge,hard,span,Ready Player One,The Three-Body Problem,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,6,81,1,0.202,0.294,77.3,4479.2
+5abb7ea4554299642a094a96,comparison,hard,span,1968,1936,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,5,77,1,0.2,0.277,80.4,4471.9
+5ab94cca554299753720f7dd,bridge,hard,span,2006,2005,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,84,1,0.2,0.276,80.5,4488.0
+5a83438955429966c78a6b61,bridge,hard,span,Bill McCutcheon,Bud Williams,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,83,1,0.195,0.255,86.0,4484.7
+5a7dff595542997cc2c474eb,bridge,hard,span,Charles Reed Bishop,No,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.19,0.218,128.5,4464.4
+5ac401bb55429919431738f4,bridge,hard,span,Ub Iwerks,Walt Disney,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,76,1,0.185,0.244,86.0,4469.2
+5a77846f5542995d83181187,bridge,hard,span,Duke Cunningham,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.183,0.212,128.5,4478.2
+5aba6d4b5542994dbf019906,bridge,hard,span,English-language,Italian,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,89,1,0.183,0.211,128.6,4498.5
+5a7da0915542990b8f5039d4,bridge,hard,span,Wilderness Road,Timothy验题助手，这个问题的答案是“Timothy验题助手”吗？如果是关于一个真实人物的话，请提供正确的人物名字和相关信息。如果是关于一个虚构角色，请明确说明。如果是关于一个特定主题或领域的人物，请提供更多信息以便准确回答。,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,57,80,1,0.179,1.067,65.2,4478.2
+5a7499eb55429929fddd8470,bridge,hard,span,2004 Nokia Sugar Bowl,"Bowl Championship Series (BCS) was a system used to determine the national champion of NCAA Division I FBS college football. The team with an 11-1 regular season record that played in the BCS title game was the Oklahoma Sooners, who played against the Florida Gators in the 2008 BCS National Championship Game.",0.0,0.0417,0,2,0,0.0,2,0,0.0,1,,0,73,85,1,0.193,1.364,63.1,4489.5
+5a7331705542991f9a20c67a,bridge,hard,span,Emad Hashim,Muthanna Saeed Ali Al-Mutlaq,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,13,85,1,0.232,0.451,63.3,4489.5
+5a7d7d895542995f4f402281,bridge,hard,span,"score 1,000 points with two different teams",Joe Namath,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,82,1,0.249,0.315,76.8,4483.7
+5a873ec75542996432c57244,bridge,hard,span,"5,112 feet","10,246",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,86,1,0.245,0.362,68.1,4492.8
+5adf3ab95542992d7e9f92f3,bridge,hard,span,Boston Celtics,Houston Rockets,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,88,1,0.232,0.279,89.5,4497.5
+5aba85335542994dbf01992d,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.219,0.249,120.6,4471.9
+5adbe1c5554299438c868cc4,comparison,hard,yesno,yes,yes,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.215,0.245,120.9,4474.0
+5abd6a7455429933744ab7c5,bridge,hard,span,The Panther,Panther tank,0.0,0.6667,0,3,0,0.0,2,0,0.0,1,,0,4,110,1,0.214,0.275,82.8,4529.8
+5adec62a55429975fa854f89,bridge,hard,span,"""Talk That Talk""",Noimpsest,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,86,1,0.2,0.262,81.6,4492.8
+5abcf5ec55429959677d6b76,bridge,hard,span,"Cleveland, Ohio",no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,72,1,0.198,0.227,127.3,4461.9
+5a80a7f6554299485f598680,bridge,hard,span,Dallas,Dallas,1.0,1.0,0,5,0,0.0,2,0,0.0,1,,0,2,93,1,0.202,0.231,127.4,4507.6
+5ab281ec554299449642c8d1,bridge,hard,span,"Forbes in the Central West region of New South Wales, Australia",Cobar,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,3,92,1,0.209,0.253,95.4,4504.8
+5a7643675542994ccc918747,comparison,hard,span,David Ross Lederman,D. Ross Lederman,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,6,77,1,0.195,0.292,72.4,4471.9
+5a88696b554299206df2b25b,comparison,hard,span,musician,wrestler and singer,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,77,1,0.209,0.303,74.7,4471.9
+5a712af15542994082a3e614,bridge,hard,span,My Cat from Hell,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,85,1,0.216,0.248,116.9,4489.5
+5a7b43735542992d025e67cb,bridge,hard,span,video game,video games,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.231,0.278,91.0,4474.0
+5ac25fa955429951e9e6858c,bridge,hard,span,"design, development, manufacture",no,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,82,1,0.228,0.258,123.5,4483.7
+5a8077ca5542992bc0c4a729,bridge,hard,span,Scotland,Shetland Islands,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,94,1,0.236,0.314,79.0,4509.6
+5ac397fe554299218029dbe2,bridge,hard,span,Norman,Kalamazoo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.218,0.297,78.1,4479.2
+5ab9aed855429970cfb8eb6d,comparison,hard,yesno,no,No,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.231,0.262,126.9,4471.9
+5ac23f9555429951e9e684db,bridge,hard,span,Seldom Jackson,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,88,1,0.232,0.265,125.9,4497.5
+5ae76c625542997ec272763e,bridge,hard,span,John Morgan,John Paul Jones,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,82,1,0.235,0.299,83.8,4483.7
+5ac3e0ab554299204fd21eae,bridge,hard,span,Brad Wilk,yes,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,83,1,0.245,0.277,124.7,4484.7
+5a8e69565542990e94052afb,bridge,hard,span,5,11,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,3,99,1,0.245,0.292,92.2,4520.4
+5ae65c925542992ae0d162f9,bridge,hard,span,Don Hahn,Don H. Bluth,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,6,82,1,0.249,0.343,75.9,4483.7
+5a9068f85542990a98493623,bridge,hard,span,The Process,"The answer is not provided in the question, but based on the information given, the 76ers player drafted 3rd in the 2014 draft was Michael Carter-Williams, who was nicknamed ""MCW"" or ""The MC.""",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,53,87,1,0.214,1.051,64.3,4493.8
+5ae238375542994d89d5b39a,bridge,hard,span,Terry Crews,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.223,0.253,124.6,4469.2
+5a80e4b255429938b6142239,bridge,hard,span,100 Greatest Artists of Hard Rock,Rock and Roll Hall of Fame list,0.0,0.3077,0,4,0,0.0,2,0,0.0,1,,0,8,97,1,0.238,0.368,69.6,4514.9
+5a8e40f65542995a26add498,bridge,hard,span,mountain ranges,states,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,88,1,0.236,0.267,118.9,4497.5
+5a7e1cad55429965cec5ea75,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,73,1,0.242,0.273,121.0,4462.9
+5a7560585542992d0ec05f76,bridge,hard,span,Maurice Ravel,Maurice Ravel,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,6,87,1,0.241,0.339,71.4,4493.8
+5ae35e8c5542990afbd1e120,bridge,hard,span,"Don Jeffrey ""Jeff"" Meldrum (born May 24, 1958) is a Professor of Anatomy and Anthropology",Claude Lévi-Strauss,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,9,85,1,0.238,0.383,68.7,4489.5
+5a8210f355429926c1cdae24,bridge,hard,span,BAFTA TV Award Best Actor,Emmy Award,0.0,0.2857,0,2,0,0.0,2,0,0.0,1,,0,4,73,1,0.237,0.305,79.0,4462.9
+5a868ca055429960ec39b6be,bridge,hard,span,Tim Whelan,Edward Devereaux,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,98,1,0.257,0.34,74.7,4519.3
+5abdaa0f55429965af743dad,bridge,hard,span,2nd Armored Division,2nd Division,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.258,0.322,80.3,4474.0
+5ae0613d5542993d6555eb22,bridge,hard,span,Monticello,Monticello,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,74,1,0.236,0.3,81.3,4464.4
+5add3b035542997545bbbcce,bridge,hard,span,November 2017,October,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.228,0.259,122.6,4469.2
+5a85db6e5542994c784ddb96,bridge,hard,span,"37,776","10,000+",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,8,73,1,0.227,0.357,69.6,4462.9
+5a7a88e455429941d65f268c,bridge,hard,span,First Street,Versailles,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,3,82,1,0.233,0.281,91.7,4483.7
+5a8b120755429949d91db4a4,bridge,hard,span,American,France,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,76,1,0.239,0.269,125.3,4469.2
+5ac4f9dc55429924173fb533,bridge,hard,span,Louisiana.,"Atlanta, Georgia",0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,77,1,0.218,0.28,83.1,4471.9
+5a8eb51655429917b4a5bdb5,bridge,hard,span,Graffiti,circus arts,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,79,1,0.217,0.278,84.1,4476.7
+5ae446fc5542995ad6573d24,bridge,hard,span,Gloria Trevi,Eros Ramazzotti,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,72,1,0.208,0.301,75.0,4461.9
+5a905d085542995651fb5147,bridge,hard,span,Over forty,4,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,85,1,0.208,0.237,126.6,4489.5
+5a8327fd5542990548d0b1a3,bridge,hard,span,Fort Worth,Houston,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.206,0.236,125.6,4471.9
+5a80522b5542996402f6a4c1,bridge,hard,span,fifth-largest,no,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,2,83,1,0.211,0.241,123.3,4484.7
+5ab67c3f55429954757d32f9,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.209,0.24,120.4,4464.4
+5a7da0de5542990b8f5039d7,comparison,hard,span,Robert Patrick Mulligan,Robert Mulligan,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,4,73,1,0.221,0.286,79.7,4462.9
+5ae2295c554299495565da13,bridge,hard,span,Edward Robert Martin Jr.,Joshua Shapiro,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,83,1,0.229,0.291,82.5,4484.7
+5adf24155542992d7e9f92af,bridge,hard,span,Oberkommando der Wehrmacht,Commanding General of the United States Third Army,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,10,86,1,0.241,0.418,63.0,4492.8
+5ab2a54b554299295394678e,bridge,hard,span,400 MW,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,81,1,0.306,0.338,114.0,4479.2
+5a7f85505542995d8a8dde95,bridge,hard,span,Point of Entry,High & Heavy,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,91,1,0.247,0.31,81.4,4503.3
+5ae60ea9554299546bf8304e,bridge,hard,span,August 2011,October,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,81,1,0.233,0.264,122.1,4479.2
+5a77253455429972597f1449,bridge,hard,span,Ian Paisley,Ivan Foster,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,4,72,1,0.229,0.293,81.4,4461.9
+5abaee845542996606241696,bridge,hard,span,Maryland,New York,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,93,1,0.24,0.288,91.4,4507.6
+5ac13e195542994ab5c67cc5,bridge,hard,span,Kramer's caddy Stan,George Costanza,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,85,1,0.239,0.303,81.1,4489.5
+5a7e283655429965cec5eaab,bridge,hard,span,8-track,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,83,1,0.235,0.266,122.9,4484.7
+5a8baf4b5542996e8ac889c5,comparison,hard,span,Multinational Monitor,In These Times,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.229,0.295,79.4,4474.0
+5ae5b99a5542993aec5ec1ce,bridge,hard,span,Drowning Pool,Soil,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,75,1,0.231,0.278,91.5,4467.7
+5abf08985542997719eab625,comparison,hard,span,Magic Dirt,Circus Diablo,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,73,1,0.255,0.336,76.0,4462.9
+5a8bb7f95542996e8ac889ff,bridge,hard,span,Korea,South Korea,0.0,0.6667,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.272,0.32,91.3,4476.7
+5a7b1a225542992d025e6770,bridge,hard,span,"""Baa, Baa, Black Sheep""",Twinkle Twinkle Little Star,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,87,1,0.243,0.355,72.2,4493.8
+5ac0d5cf554299294b219026,bridge,hard,span,"David Naughton, Jenny Agutter and Griffin Dunne",David Naughton,0.0,0.4444,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.24,0.318,78.0,4474.0
+5a8a756555429970aeb702f2,bridge,hard,span,Wildwood,Wheeling,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,89,1,0.235,0.285,88.7,4498.5
+5a77b5c255429967ab10523c,bridge,hard,span,Edward Trowbridge Collins Sr.,Al Simmons,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,83,1,0.27,0.319,88.0,4484.7
+5ab6c5be55429954757d336c,bridge,hard,span,1953,1995,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,75,1,0.264,0.355,67.4,4467.7
+5a78f26055429970f5fffdeb,bridge,hard,span,Max Rufus Mosley,Max Mosley,0.0,0.8,0,2,0,0.0,2,0,0.0,1,,0,4,86,1,0.33,0.401,76.0,4492.8
+5ae5e8c85542996de7b71a69,bridge,hard,span,Jeremy Renner,Jeremy Renner,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,92,1,0.284,0.349,79.2,4504.8
+5adf27775542993344016c00,bridge,hard,span,281,125,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,93,1,0.286,0.351,79.3,4507.6
+5ade450b5542997c77adedc5,bridge,hard,span,"Boston, Providence, Hartford, New York City, Philadelphia, Wilmington, Baltimore, and Washington, D.C.","Boston, Worcester, Providence",0.0,0.2667,0,2,0,0.0,2,0,0.0,1,,0,6,82,1,0.271,0.369,72.3,4483.7
+5abbcba05542992ccd8e7fa3,bridge,hard,span,Margarine Unie,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.273,0.304,120.4,4464.4
+5a75a0725542992d0ec05fc9,bridge,hard,span,"Edward Leonard ""Ed"" O'Neill",yes,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,87,1,0.245,0.277,118.0,4493.8
+5ac2a23a55429967731025cc,bridge,hard,span,David Michael Bautista Jr.,Stone Cold Steve Austin,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,73,1,0.239,0.325,72.2,4462.9
+5a7b66135542997c3ec97145,comparison,hard,span,I.O.U.S.A.,I.O.U.S.A.,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,7,86,1,0.242,0.36,68.8,4492.8
+5a72a9ac5542991f9a20c55f,bridge,hard,span,the fourth hour of the TODAY Show,Today Show,0.0,0.5714,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.283,0.332,89.8,4476.7
+5ae0819155429924de1b70ea,comparison,hard,span,The Memory of Justice,Hacking Democracy,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,75,1,0.231,0.294,83.6,4467.7
+5ab7ee895542995dae37e9f6,bridge,hard,span,Venice,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,71,1,0.225,0.256,126.3,4458.1
+5a8f791c5542992414482ad9,bridge,hard,span,death metal band,music,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,77,1,0.233,0.263,126.0,4471.9
+5a712e895542994082a3e636,bridge,hard,span,anabolic–androgenic steroid (AAS),Thiocolchicoside,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,7,88,1,0.215,0.324,74.1,4497.5
+5a8398405542993344746050,bridge,hard,span,Limerick,Saco,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,3,81,1,0.211,0.258,94.1,4479.2
+5ab5e8935542997d4ad1f23b,bridge,hard,span,Dr. Alberto Taquini,Eduardo Petry,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,92,1,0.22,0.314,76.2,4504.8
+5ae74818554299572ea547ad,bridge,hard,span,Boston and Maine Railroad's Southern Division,The Boston and Maine Railroad,0.0,0.6,0,3,0,0.0,2,0,0.0,1,,0,6,85,1,0.231,0.326,74.0,4489.5
+5a739323554299623ed4abff,comparison,hard,span,Kanichee Mine,Salmita Mine,0.0,0.5,0,2,0,0.0,2,0,0.0,1,,0,5,81,1,0.222,0.298,79.9,4479.2
+5abc7bf75542993a06baf8f0,comparison,hard,span,Laurus,Laurus,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,3,74,1,0.217,0.265,91.0,4464.4
+5a72125055429971e9dc9241,bridge,hard,span,Eucritta melanolimnetes,Plesiosaurusegis,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,80,1,0.232,0.325,76.0,4478.2
+5a7e1a5455429965cec5ea5f,bridge,hard,span,Steve McGarrett,Steve McGarrett,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,78,1,0.226,0.306,77.5,4474.0
+5ab576c4554299637185c5a4,bridge,hard,span,Mako,Arnold Schwarzenegger,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,7,87,1,0.226,0.335,74.0,4493.8
+5a8466a75542993344746108,bridge,hard,span,"""Alceste""",The Abduction from the Seraglio,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,9,91,1,0.227,0.369,70.8,4503.3
+5a75f32055429976ec32bcb7,bridge,hard,span,Jim Davis,Gene Autry,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,83,1,0.214,0.283,75.3,4484.7
+5a8762205542996e4f3087b8,comparison,hard,yesno,no,no,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,2,78,1,0.268,0.3,115.7,4474.0
+5ac1d4ad5542994d76dccef7,bridge,hard,span,Figaro,Pinocchio,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,103,1,0.241,0.306,81.8,4529.4
+5a7150c75542994082a3e7be,bridge,hard,span,"86,112","87,500",0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,7,88,1,0.258,0.373,70.9,4497.5
+5a9072dd5542990a98493656,comparison,hard,span,rock,Alternative rock and punk rock,0.0,0.3333,0,2,0,0.0,2,0,0.0,1,,0,6,89,1,0.259,0.357,72.4,4498.5
+5a8d0be85542994ba4e3dbb2,bridge,hard,span,Prince George's County,Baltimore County,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,4,78,1,0.239,0.305,81.4,4474.0
+5a7f924c55429969796c1aba,bridge,hard,span,Eric Banadinović,Armando Iannucci,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,93,1,0.242,0.339,73.1,4507.6
+5adca5eb5542994d58a2f693,bridge,hard,span,Bishop's Stortford,Braintree Town,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,71,1,0.231,0.313,75.3,4458.1
+5a77474855429972597f14e4,comparison,hard,span,Daisy Chainsaw,Daisy Chainsaw,1.0,1.0,0,4,0,0.0,2,0,0.0,1,,0,5,75,1,0.231,0.31,76.3,4467.7
+5a86edcc55429960ec39b6da,bridge,hard,span,Jennifer Aniston,Jennifer Aniston,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,4,85,1,0.238,0.301,81.9,4489.5
+5a80762a5542996402f6a536,bridge,hard,span,Scottish Premiership club Hibernian,Celtic,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,90,1,0.218,0.28,82.7,4500.0
+5a8bf6cf5542995e66a47525,bridge,hard,span,"""The Simpsons""' thirteenth season",Season 19,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,5,74,1,0.212,0.29,78.1,4464.4
+5ae6545f5542991bbc9760c2,bridge,hard,span,Dylan O'Brien,yes,0.0,0.0,0,4,0,0.0,2,0,0.0,1,,0,2,86,1,0.207,0.236,125.2,4492.8
+5a736aa95542991f29ee2dfa,bridge,hard,span,Lismore,Coffs Harbour,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,85,1,0.202,0.263,84.1,4489.5
+5abeb1925542994516f453f0,bridge,hard,span,Osaka International Airport,Narita Airport,0.0,0.4,0,2,0,0.0,2,0,0.0,1,,0,5,76,1,0.2,0.278,78.6,4469.2
+5a8b5b1c5542995d1e6f1387,comparison,hard,yesno,yes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,75,1,0.199,0.228,127.3,4467.7
+5adf076f5542992d7e9f9277,bridge,hard,span,John Faso,Michael A. Arcuri,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,6,81,1,0.197,0.289,75.3,4479.2
+5abc091555429965836003f6,bridge,hard,span,Swan Lake,Black Swan,0.0,0.5,0,3,0,0.0,2,0,0.0,1,,0,3,77,1,0.202,0.247,94.5,4471.9
+5a7f95685542995d8a8ddeaa,bridge,hard,span,German,American,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,82,1,0.195,0.224,126.2,4483.7
+5ab8903555429916710eb08e,bridge,hard,span,Clark County,"Holloman Air Force Base, New Mexico",0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,10,82,1,0.19,0.346,69.8,4483.7
+5ae454355542996836b02c77,bridge,hard,span,4 albums,5,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.197,0.226,127.0,4478.2
+5abc095c5542993f40c73c5d,comparison,hard,span,Fazoli's,Vocelli Pizza,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,77,1,0.199,0.276,78.3,4471.9
+5ade9545554299728e26c741,bridge,hard,span,Swiss made,They are known for their mechanical watches with innovative features.,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,12,76,1,0.198,0.388,68.0,4469.2
+5ab8179f5542990e739ec817,bridge,hard,span,Dana Fox,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,74,1,0.202,0.231,124.1,4464.4
+5ae01fcf554299025d62a411,bridge,hard,span,girls aged 11 to 18,No,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,2,74,1,0.198,0.227,124.4,4464.4
+5ac1b8cd55429963665198fc,comparison,hard,span,Brothers Quay,Brothers Quay,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,5,74,1,0.204,0.282,77.3,4464.4
+5a83d0845542996488c2e4e6,bridge,hard,span,The Longest Yard,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,80,1,0.203,0.232,123.8,4478.2
+5ae72b96554299572ea5474e,bridge,hard,span,Mezzanine,Mezzanine,1.0,1.0,0,3,0,0.0,2,0,0.0,1,,0,4,92,1,0.207,0.269,81.5,4504.8
+5ae4d15255429908b6326483,bridge,hard,span,Scribner,Scribner,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,5,73,1,0.207,0.285,76.3,4462.9
+5a7d2aa05542995f4f40221f,bridge,hard,span,The War of '04,yes,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,88,1,0.212,0.242,120.9,4497.5
+5a906c795542990a98493640,bridge,hard,span,mastered recordings,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,70,1,0.208,0.237,123.4,4457.1
+5ade914b55429939a52fe8f9,bridge,hard,span,"""Discover Pure Energy""",Featherflight,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,80,1,0.205,0.267,81.8,4478.2
+5aba6f3e55429955dce3ee21,bridge,hard,span,Dragon TV,Hunan TV,0.0,0.5,0,4,0,0.0,2,0,0.0,1,,0,4,73,1,0.204,0.266,81.9,4462.9
+5a8dad37554299068b959d94,comparison,hard,span,genus,genus,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,79,1,0.202,0.248,92.3,4476.7
+5ae00de055429906c02daab5,bridge,hard,span,Philip K. Dick,Robert Louis Stevenson,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,4,84,1,0.208,0.27,82.3,4488.0
+5aba902455429901930fa834,bridge,hard,span,Gene Serdena,);$Jennifer Connelly,0.0,0.0,0,3,0,0.0,2,0,0.0,1,,0,5,90,1,0.208,0.288,77.5,4500.0
+5adea83b55429975fa854f53,bridge,hard,span,Tharangambadi,Coimbatore,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,5,75,1,0.248,0.327,78.5,4467.7
+5abbe4c0554299642a094bc0,bridge,hard,span,65 mi,no,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,2,79,1,0.248,0.278,125.9,4476.7
+5a893f305542993b751ca91e,bridge,hard,span,St.George,Whitefish Bay,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,89,1,0.225,0.288,84.3,4498.5
+5abef8fd5542990832d3a111,bridge,hard,span,seven,5,0.0,0.0,0,5,0,0.0,2,0,0.0,1,,0,2,92,1,0.224,0.255,126.5,4504.8
+5adfc9a555429906c02daa42,bridge,hard,span,Yorgos Lanthimos,Jordan Peele,0.0,0.0,0,2,0,0.0,2,0,0.0,1,,0,4,94,1,0.22,0.282,84.7,4509.6
+5ae7954b554299540e5a5620,bridge,hard,span,Piaggio,Piaggio,1.0,1.0,0,2,0,0.0,2,0,0.0,1,,0,3,78,1,0.216,0.263,95.5,4474.0

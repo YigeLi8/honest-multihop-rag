@@ -1,0 +1,1001 @@
+id,qtype,level,answer_type,answer_gold,answer_pred,em,f1,retrieval_correct,n_gold,n_gold_hit,gold_recall,n_gold_para,n_gold_para_hit,para_recall,hops,stop_reason,n_context,reasoning_tokens,prompt_tokens,gen_calls,ttft_s,latency_s,tokens_per_s,peak_memory_mb
+4hop1__324759_378185_282674_759393,4hop1,,span,Green Bay,Pécs,0.0,0.0,0,4,1,0.25,4,1,0.25,3,repeated_query,9,31,2947,4,0.501,7.981,84.6,4955.3
+2hop__159816_37168,2hop,,span,551-600,401-500,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,50,5645,4,0.609,4.773,67.2,5278.9
+3hop1__491648_339990_15538,3hop1,,span,1984,1984,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,29,2949,3,0.632,2.737,75.4,5022.6
+2hop__510860_22402,2hop,,span,"nearly 25,000","25,000",0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,41,2709,3,0.593,2.805,69.7,5059.4
+3hop1__194006_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,67,5270,4,0.726,4.729,122.2,5106.6
+3hop1__127821_157828_239539,3hop1,,span,Pristina,Guyana,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,81,4275,4,0.624,4.441,91.4,5022.6
+2hop__593688_292889,2hop,,span,Senegal,Gambia,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,5,883,2,0.402,0.922,95.3,4838.8
+2hop__13592_85544,2hop,,span,38,38,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,73,4229,4,0.697,4.169,92.7,5083.2
+4hop1__88342_49853_128008_80487,4hop1,,span,"July 11, 2017",2017,0.0,0.5,0,4,1,0.25,4,1,0.25,3,repeated_query,7,70,5107,4,0.806,4.854,73.6,5071.9
+3hop1__6362_14336_21111,3hop1,,span,6 million,75.4%,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,38,4727,4,0.636,4.312,72.0,5058.4
+3hop1__135659_87694_124169,3hop1,,span,1952,1952,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,11,62,4323,4,0.467,4.634,75.0,5058.4
+2hop__132472_684936,2hop,,span,BAC,British Aerospace Dynamics,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,26,1967,3,0.524,2.266,82.9,4908.1
+3hop1__144678_443779_52195,3hop1,,span,Francisco Guterres,no,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,10,43,4683,4,0.608,4.591,107.6,5157.0
+2hop__538412_126089,2hop,,span,Johan Remkes,Johan Remkes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,885,2,0.482,1.115,75.8,4840.3
+4hop3__387712_132409_223216_35031,4hop3,,span,third-largest,27th,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,8,30,3187,3,0.621,3.074,83.9,5004.3
+3hop1__635099_131926_87157,3hop1,,span,rises in northern Minnesota and meanders slowly southwards,north,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,10,32,4537,4,0.673,4.308,112.8,5073.1
+2hop__329591_91104,2hop,,span,ATS - 6 (Applications Technology Satellite - 6),ATS-6,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,40,2420,3,0.596,2.719,83.2,4992.6
+3hop1__135793_87694_64412,3hop1,,span,11 February 1929,No,0.0,0.0,0,3,2,0.6667,3,2,0.6667,1,repeated_query,5,33,1293,2,0.555,1.729,129.7,4965.2
+2hop__471509_136043,2hop,,span,Natalie Albino,Nicole and Natalie,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,5,7,1529,2,0.634,1.431,77.6,4939.5
+3hop1__458916_665330_47686,3hop1,,span,Toronto Coach Terminal,Toronto Coach Terminal,1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,10,52,4715,4,0.681,4.551,81.5,5046.6
+2hop__158247_71142,2hop,,span,Abu Ubaidah,Abu Ubaidah,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,54,4527,4,0.636,4.59,73.5,5070.5
+3hop1__140345_2053_52946,3hop1,,span,"February 7, 2018","February 7, 2018",1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,11,52,4418,4,0.549,4.36,67.2,5059.0
+2hop__43776_162341,2hop,,span,nominated for an Academy Award for Best Supporting Actor,Oscar Award for Best Actor in a Leading Role,0.0,0.5714,0,2,1,0.5,2,1,0.5,2,repeated_query,7,51,2848,3,0.64,3.152,67.2,5102.0
+3hop2__304722_602987_63959,3hop2,,span,1 December 2010,1995,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,8,39,3509,3,0.72,3.481,74.6,5060.3
+3hop2__104979_23308_28343,3hop2,,span,February 1989,February 1989,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,29,2836,3,0.69,2.823,71.4,5094.6
+2hop__135963_486257,2hop,,span,physic,Physics,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,1057,2,0.465,1.07,125.4,4873.0
+2hop__41158_35124,2hop,,span,450,450,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,55,5168,4,0.77,4.917,72.1,5121.0
+2hop__96812_130869,2hop,,span,"Washington, D.C.",Massachusetts,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,23,1818,3,0.455,2.197,87.8,4871.9
+2hop__273020_57594,2hop,,span,LeMat revolver,BL 18-inch Mk I naval gun,0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,8,31,4079,3,0.765,3.936,64.0,5217.5
+4hop1__668178_378185_282674_759393,4hop1,,span,Green Bay,Pécs,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,11,44,3754,4,0.529,3.939,77.5,5014.8
+4hop2__71753_261673_70784_61381,4hop2,,span,1932,1930,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,9,42,3777,4,0.538,4.065,66.9,5024.3
+2hop__85753_64503,2hop,,span,one level down from the automobile street,one story,0.0,0.25,1,2,2,1.0,2,2,1.0,3,repeated_query,8,39,5133,4,0.599,5.167,85.1,5157.0
+4hop3__160230_470287_862998_72134,4hop3,,span,1839,1839,1.0,1.0,1,4,4,1.0,4,4,1.0,3,repeated_query,8,43,4978,4,0.661,5.108,71.7,5112.4
+2hop__68322_510545,2hop,,span,Jennifer Connelly,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,30,3138,3,0.693,3.229,114.7,4972.9
+2hop__132469_533882,2hop,,span,Martin Marietta,Martin Marietta Corporation,0.0,0.8,1,2,2,1.0,2,2,1.0,3,repeated_query,6,59,2401,4,0.413,3.386,72.0,4887.6
+2hop__123104_77615,2hop,,span,1912,1922,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,37,2251,3,0.513,2.697,72.6,4993.4
+4hop1__814776_765799_282674_759393,4hop1,,span,Green Bay,Appleton,0.0,0.0,0,4,1,0.25,4,1,0.25,2,repeated_query,6,37,1709,3,0.469,2.298,88.9,4960.8
+4hop1__152562_5274_458768_33633,4hop1,,span,"August 3, 1769",no,0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,11,74,4147,4,0.533,4.848,114.3,5007.5
+2hop__25396_593388,2hop,,span,"Sir Robert Peel, 1st Baronet",Duke of Wellington,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,7,1667,2,0.723,1.617,73.0,4972.2
+3hop1__280834_547811_80702,3hop1,,span,Rialto Bridge,Ponte di Rialto,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,27,2745,3,0.582,2.824,67.2,5105.0
+3hop1__131783_131926_87157,3hop1,,span,rises in northern Minnesota and meanders slowly southwards,west,0.0,0.0,0,3,2,0.6667,3,2,0.6667,1,done,5,4,1389,2,0.625,1.345,118.9,4866.4
+3hop2__326964_263934_7713,3hop2,,span,about 400 years,24 years,0.0,0.4,1,3,3,1.0,3,3,1.0,3,repeated_query,9,54,4544,4,0.696,4.705,80.2,5021.3
+3hop1__862117_792411_51423,3hop1,,span,Casa Loma,Terringzean Castle,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,9,34,2944,3,0.561,3.046,66.3,4958.4
+2hop__47071_162399,2hop,,span,15 December 1950,1950,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,8,29,2371,3,0.542,2.531,75.7,5003.3
+2hop__84439_482364,2hop,,span,Aeson,Pelias,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,56,3717,4,0.624,4.037,87.9,5103.6
+2hop__351275_75487,2hop,,span,Andrew Scheer,Andrew Scheer,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,44,2254,3,0.634,2.723,79.4,4911.8
+2hop__327688_56873,2hop,,span,1898 and 1959,No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,40,3290,3,0.762,3.493,111.1,5043.6
+2hop__58168_38663,2hop,,span,54.7%,22.61%,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,85,4865,4,0.868,6.156,53.1,5043.3
+2hop__82766_67668,2hop,,span,Nightwing / Dick Grayson,Neil Patrick Harris played Nightwing / Dick Grayson in Batman Under The Red Hood.,0.0,0.4,1,2,2,1.0,2,2,1.0,3,repeated_query,7,62,5146,4,0.99,6.367,49.5,5098.4
+2hop__130404_59180,2hop,,span,"May 21, 1979","May 21, 1979",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,45,2243,3,0.643,3.514,40.6,4967.6
+2hop__43579_289940,2hop,,span,New England Patriots,Dallas Cowboys,0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,7,19,4648,3,1.224,4.768,76.8,5259.8
+2hop__76314_177869,2hop,,span,Helen Pitts Douglass,Helen Pitts Douglass,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,47,3080,4,0.607,3.994,57.9,5066.0
+2hop__168816_144857,2hop,,span,Clatskanie,Clatskanie,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,8,35,2103,4,0.422,3.051,59.5,4935.8
+2hop__194469_83289,2hop,,span,Matt Bennett,Max Landis,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,64,5441,4,1.167,6.537,62.1,5125.4
+3hop1__45612_502967_84283,3hop1,,span,Warner Music Group,no,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,5,52,1387,3,0.564,2.746,105.1,4858.8
+3hop1__24980_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,8,70,5491,4,1.053,6.741,86.4,5169.0
+2hop__463353_66723,2hop,,span,James Howard Meredith,Madelon Stockwell,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,8,48,3115,4,0.646,4.327,57.2,4988.0
+4hop2__105527_39078_8987_8974,4hop2,,span,Alfredo Stroessner's Paraguay,Paraguay,0.0,0.5,0,4,3,0.75,4,3,0.75,2,repeated_query,7,37,2578,3,0.804,3.548,73.4,5024.0
+2hop__575797_91104,2hop,,span,ATS - 6 (Applications Technology Satellite - 6),ATS-6,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,7,62,3428,4,0.738,4.823,63.3,5038.6
+4hop1__46196_497223_15840_36002,4hop1,,span,built on 16-bit architectures and offered improved graphics and sound,16-bit architecture,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,8,69,4512,4,0.793,5.977,56.4,5105.7
+4hop1__341777_508773_85832_745702,4hop1,,span,Sebastian Cabot,Sebastian Cabot,1.0,1.0,0,4,3,0.75,4,3,0.75,4,max_hops,9,70,3783,4,0.714,5.321,56.5,4985.7
+3hop1__622497_160088_85460,3hop1,,span,"$59,039",26719,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,10,40,3767,4,0.643,4.681,54.5,4998.3
+3hop2__145209_20335_9331,3hop2,,span,March Constitution of Poland,Habsburg Monarchy,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,11,67,6169,4,0.859,7.336,53.1,5235.7
+2hop__663184_57816,2hop,,span,100,100,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,38,2236,3,0.753,3.199,58.5,4906.9
+4hop3__160230_470287_345497_72134,4hop3,,span,1839,no,0.0,0.0,0,4,3,0.75,4,3,0.75,1,repeated_query,5,37,1671,2,0.855,2.56,87.1,4973.8
+2hop__51760_122023,2hop,,span,Luitpold Gymnasium,University College School,0.0,0.0,0,2,0,0.0,2,0,0.0,4,max_hops,8,58,3769,4,0.746,5.165,59.8,5021.4
+2hop__142881_127399,2hop,,span,2005,2005,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,1145,2,0.658,1.58,57.1,4914.4
+2hop__31085_23241,2hop,,span,48.8 percent,57%,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,11,50,5955,4,0.967,6.935,56.9,5288.2
+2hop__598467_68489,2hop,,span,Snapper Foster,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,56,2490,4,0.593,4.149,86.2,4963.0
+2hop__132969_417697,2hop,,span,Nissan Altima,Altima,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,76,5350,4,0.756,7.284,61.2,5223.8
+2hop__6735_6733,2hop,,span,Eastern block,Central Catalan,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,5,1325,2,0.774,1.773,63.7,4846.9
+4hop3__373573_132409_146285_35031,4hop3,,span,third-largest,no,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,10,46,4621,4,0.818,6.0,92.0,5149.4
+4hop2__161602_426860_88460_18966,4hop2,,span,Han Chinese emigrants,ethnic Han Chinese emigrants,0.0,0.8571,0,4,3,0.75,4,3,0.75,4,max_hops,10,79,4104,4,0.683,6.283,51.4,5064.7
+2hop__65576_80026,2hop,,span,Julie Dawn Cole,AnnaSophia Robb,0.0,0.0,0,2,0,0.0,2,0,0.0,3,repeated_query,6,76,2641,4,0.695,4.803,52.5,4960.3
+2hop__77263_84616,2hop,,span,for Best Performance by a Leading Actress in a Play in Ondine,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,38,1879,3,0.704,3.087,77.1,4963.5
+2hop__85713_72187,2hop,,span,Dottie Hinson,Diana Ross,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,41,3005,4,0.634,3.921,71.8,5028.7
+2hop__822113_91104,2hop,,span,ATS - 6 (Applications Technology Satellite - 6),ATS-6,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,66,3453,4,0.555,4.763,69.1,5098.4
+3hop2__90098_84553_10557,3hop2,,span,Medieval Latin,Classical Latin,0.0,0.5,1,3,3,1.0,3,3,1.0,3,repeated_query,10,63,5388,4,0.833,6.956,56.6,5310.7
+3hop1__136129_87694_124169,3hop1,,span,1952,1952,1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,10,44,4076,4,0.674,5.376,54.2,5007.8
+3hop1__90327_73181_68042,3hop1,,span,the 2010 election,2010,0.0,0.6667,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,67,4705,4,1.034,6.541,52.9,5081.6
+3hop1__129675_39743_24526,3hop1,,span,upper 40s–lower 50s °F,24.1 °C (75.4 °F),0.0,0.25,0,3,2,0.6667,3,2,0.6667,2,done,6,30,2262,3,0.765,3.419,46.5,4945.4
+2hop__161151_50883,2hop,,span,"The fourth section, with orange page borders",fourth,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,39,4128,4,0.871,5.394,65.9,5078.2
+3hop1__73796_87694_64412,3hop1,,span,11 February 1929,1929,0.0,0.5,1,3,3,1.0,3,3,1.0,2,repeated_query,7,29,3149,3,0.986,4.066,56.9,5013.2
+2hop__95172_152907,2hop,,span,La Goulette,San Rafael,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,23,1372,3,0.609,2.458,68.6,4851.8
+4hop1__105401_17130_70784_79935,4hop1,,span,1930,2010,0.0,0.0,0,4,2,0.5,4,2,0.5,1,repeated_query,5,33,1535,2,0.857,2.545,56.5,4941.5
+4hop3__405277_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,Moors,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,9,36,3613,4,0.836,4.929,62.7,5103.1
+3hop1__305566_568433_47686,3hop1,,span,Toronto Coach Terminal,Philadelphia Greyhound Terminal,0.0,0.3333,0,3,0,0.0,3,0,0.0,2,repeated_query,8,41,2099,3,0.666,3.445,58.6,4944.7
+3hop2__132957_132968_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,43,4153,4,0.889,5.475,56.1,5027.9
+2hop__9223_9237,2hop,,span,September 2012,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,32,2839,3,0.863,3.922,82.9,5126.1
+2hop__865961_159109,2hop,,span,central Atlantic Ocean,Atlantic Ocean,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,1175,2,0.727,1.625,67.8,4928.8
+3hop2__792915_467331_162182,3hop2,,span,South Central Coast,Central Vietnam,0.0,0.4,0,3,2,0.6667,3,2,0.6667,4,max_hops,8,49,2354,4,0.554,3.935,65.7,4905.7
+2hop__6827_86319,2hop,,span,Brian Thomas Moynihan,James Joseph Schiro,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,50,3443,4,0.714,4.913,57.6,5056.0
+3hop1__337705_132457_51423,3hop1,,span,Casa Loma,Baynard's Castle,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,41,2330,4,0.611,3.687,56.2,4962.5
+3hop2__222979_132628_40768,3hop2,,span,1981,early 1980s,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,56,3596,4,0.767,5.315,51.1,5103.1
+4hop1__749363_49925_13759_736921,4hop1,,span,Saxony-Anhalt,Germany,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,8,47,4776,4,0.933,6.274,89.3,5058.7
+2hop__796221_18803,2hop,,span,trying to find a potential buyer for all of its operations in Finland,divest from downstream business of all African countries except South Africa and Egypt,0.0,0.16,1,2,2,1.0,2,2,1.0,3,repeated_query,8,73,3607,4,0.753,5.655,46.7,5071.6
+3hop1__465684_160545_34751,3hop1,,span,1941,1941,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,51,5844,4,1.07,7.059,52.5,5305.2
+2hop__71016_75184,2hop,,span,Claudia Wells,Lea Thompson,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,61,3008,4,0.662,4.886,59.5,5002.9
+3hop1__163654_503371_21711,3hop1,,span,built in the 15th century,1409,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,51,4691,4,0.719,6.171,54.5,5122.2
+3hop1__159803_89752_75165,3hop1,,span,"1,335,907",Massachusetts,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,7,39,3869,3,1.092,5.029,63.5,5117.6
+3hop1__398232_326948_10972,3hop1,,span,1970s,1973,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,49,4150,4,0.803,5.838,56.2,5081.3
+4hop2__9988_729371_70784_79935,4hop2,,span,1930,1980s,0.0,0.0,0,4,1,0.25,4,1,0.25,3,repeated_query,9,60,2244,4,0.563,4.37,50.2,4965.2
+2hop__70584_198548,2hop,,span,Katharine Ross,No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,42,1970,3,0.739,3.368,101.3,4926.9
+3hop1__765565_326948_86925,3hop1,,span,fleur - de-lis,Theotokia,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,9,28,2559,3,0.781,3.628,57.0,5057.8
+3hop2__304722_692815_63959,3hop2,,span,1 December 2010,West Ham United in 1980,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,7,44,3755,3,1.1,5.063,47.7,5087.5
+2hop__133102_417697,2hop,,span,Nissan Altima,Nissan,0.0,0.6667,1,2,2,1.0,2,2,1.0,4,max_hops,10,73,5531,4,0.776,7.55,62.6,5252.4
+2hop__82270_177869,2hop,,span,Helen Pitts Douglass,no,0.0,0.0,0,2,0,0.0,2,0,0.0,2,repeated_query,6,28,2081,3,0.703,3.022,87.2,4921.7
+4hop2__160585_14670_8987_8974,4hop2,,span,Alfredo Stroessner's Paraguay,Paraguay,0.0,0.5,0,4,2,0.5,4,2,0.5,4,max_hops,8,63,3829,4,0.918,5.65,68.1,5080.9
+2hop__13986_161674,2hop,,span,October,September,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,8,46,4350,4,0.804,5.665,92.2,5002.4
+2hop__37353_23241,2hop,,span,48.8 percent,0,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,52,3615,3,1.154,5.105,95.3,5009.7
+2hop__476927_31270,2hop,,span,45,45 miles,0.0,0.6667,1,2,2,1.0,2,2,1.0,4,max_hops,9,48,3774,4,0.756,5.223,62.3,5096.5
+2hop__38229_84500,2hop,,span,North Atlantic Treaty Organization,NATO,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,39,2905,3,1.079,4.196,68.3,5069.4
+2hop__307218_161450,2hop,,span,in the north-east of the country south of the Caspian Sea,north-east,0.0,0.2222,1,2,2,1.0,2,2,1.0,1,done,5,5,1023,2,0.663,1.521,67.4,4857.1
+4hop3__152056_698586_91248_54362,4hop3,,span,Confederate Gen. John Bell Hood,Jeremy F. Gilmer,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,7,34,1914,3,0.638,3.14,51.6,4870.3
+3hop1__295815_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,75,3982,4,0.945,6.155,54.1,5050.9
+2hop__115515_779396,2hop,,span,University of Glasgow,Not mentioned in the context.,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,40,3319,4,0.777,4.734,52.5,5010.2
+2hop__24661_66233,2hop,,span,"October 3, 2018","October 3, 2018",1.0,1.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,56,3282,4,0.855,5.179,49.2,4974.2
+2hop__998_25839,2hop,,span,five unit loads,500 mA,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,7,1851,2,1.055,2.41,54.7,5040.6
+4hop1__696484_49925_13759_736921,4hop1,,span,Saxony-Anhalt,Wittenberg,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,7,34,3643,3,0.91,4.728,53.3,5104.0
+4hop1__580153_49925_13759_736921,4hop1,,span,Saxony-Anhalt,Wittenberg,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,6,34,3047,3,0.958,4.193,58.2,5029.8
+3hop1__354480_834494_34099,3hop1,,span,four-year,four years,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,33,1848,3,0.663,3.072,64.7,4976.3
+3hop1__791757_15840_36014,3hop1,,span,five,5,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,34,2994,3,0.884,4.219,87.8,4949.0
+2hop__57638_615257,2hop,,span,Oklahoma City Thunder,Oklahoma City Thunder,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,6,24,3554,3,1.062,4.374,55.3,5100.0
+2hop__81682_707195,2hop,,span,Sydney Harbour,Sydney Harbor,0.0,0.5,0,2,1,0.5,2,1,0.5,3,repeated_query,6,42,2083,4,0.611,3.644,57.3,4878.5
+4hop1__836115_49925_13759_736921,4hop1,,span,Saxony-Anhalt,Rome,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,6,45,3417,3,1.143,4.808,65.9,4976.6
+3hop1__837871_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land",1.0,1.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,5,63,1657,3,0.669,3.429,51.2,4885.7
+4hop1__39871_314549_131976_44528,4hop1,,span,Florida Straits,Florida,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,7,42,3679,3,1.116,4.909,88.1,5124.1
+2hop__83460_456238,2hop,,span,United States National Forest,Sam Houston,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,49,2986,3,0.839,4.471,65.8,4955.2
+2hop__158275_35739,2hop,,span,September 2013,September 2013,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,33,3720,3,1.072,4.678,62.4,5093.8
+4hop3__661103_698586_89595_54362,4hop3,,span,Confederate Gen. John Bell Hood,no,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,8,32,2247,3,0.617,2.929,102.3,4972.2
+3hop1__751782_2053_5289,3hop1,,span,Oriole Records.,Oriole Records,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,39,2115,3,0.544,3.071,52.4,4960.7
+2hop__363214_590899,2hop,,span,Santa Clara County,Santa Clara County,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,28,1849,3,0.679,2.999,52.2,4967.8
+4hop1__668178_765799_282674_759393,4hop1,,span,Green Bay,Appleton,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,6,43,2427,4,0.666,4.039,57.4,4958.1
+2hop__75207_7363,2hop,,span,24:00,02:00 local time,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,44,2814,3,1.029,4.293,51.9,5064.4
+2hop__157376_643670,2hop,,span,Het Scheur,Nieuwe Maas,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,36,1434,3,0.564,2.691,52.1,4883.0
+3hop1__6379_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,38,4054,3,1.119,5.202,80.0,5155.4
+3hop1__529164_567566_84283,3hop1,,span,Warner Music Group,Warner Bros. Records,0.0,0.4,0,3,2,0.6667,3,2,0.6667,3,repeated_query,6,60,2744,4,0.638,4.554,55.2,4902.1
+2hop__62020_158262,2hop,,span,1848,1848,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,53,6751,4,1.109,8.182,54.2,5154.1
+2hop__207597_63853,2hop,,span,Thaba Putsoa,"Thaba Putsoa - location Maloti Mountains (Drakensberg), Lesotho",0.0,0.4444,1,2,2,1.0,2,2,1.0,2,repeated_query,5,37,2479,3,0.931,3.693,47.1,4964.2
+2hop__752214_639679,2hop,,span,Clio Goldsmith,Parbati Barua,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,34,1988,3,0.651,3.315,48.9,4901.6
+3hop2__140194_49541_51068,3hop2,,span,Jenna - Louise Coleman,no,0.0,0.0,0,3,1,0.3333,3,1,0.3333,4,max_hops,11,62,3585,4,0.753,5.71,80.9,5095.4
+2hop__35989_623159,2hop,,span,Yaroslavl Oblast,Yaroslavl Oblast,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,33,2274,3,0.791,3.445,49.1,4955.3
+2hop__16632_110014,2hop,,span,1517,1517,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,25,4660,3,1.333,5.671,51.7,5277.5
+3hop1__9285_5188_23307,3hop1,,span,mid-June,June,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,9,32,3621,3,0.988,4.737,77.3,5083.6
+2hop__124807_135019,2hop,,span,Europa,Europa,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,34,4155,4,0.906,5.373,66.0,5096.6
+2hop__51113_84616,2hop,,span,for Best Performance by a Leading Actress in a Play in Ondine,Best Performance by a Leading Actress in a Play in Ondine,0.0,0.9474,1,2,2,1.0,2,2,1.0,3,repeated_query,6,63,3449,4,0.819,5.387,47.0,5028.3
+2hop__37097_86208,2hop,,span,August,August,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,1533,2,0.857,1.888,95.3,4940.3
+3hop2__92991_38242_76291,3hop2,,span,January 2015,1954,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,77,4357,4,0.918,6.451,56.6,5008.2
+2hop__20256_74481,2hop,,span,Vito Corleone,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,55,3910,4,0.73,5.479,85.0,5020.1
+2hop__23459_35123,2hop,,span,980–1037,980–1037,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,6,26,2549,3,0.815,3.363,52.6,5020.4
+4hop1__151650_5274_458768_33637,4hop1,,span,two,2,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,9,41,3367,4,0.629,4.643,91.2,5045.2
+3hop2__326964_320101_7713,3hop2,,span,about 400 years,no,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,55,4341,4,0.892,6.186,77.7,4978.9
+3hop1__540585_568433_51423,3hop1,,span,Casa Loma,Katzenstein Castle,0.0,0.0,0,3,1,0.3333,3,1,0.3333,3,repeated_query,10,45,2997,4,0.666,4.465,57.1,5052.1
+2hop__68158_189357,2hop,,span,Stanford University,"The context does not provide information about where Sandra Day O'Connor was educated. Therefore, no answer can be given based solely on the provided context.",0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,48,2093,3,0.657,3.512,47.9,4935.1
+3hop1__108881_720914_41132,3hop1,,span,22,22,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,21,2908,3,0.99,3.756,64.0,5091.6
+3hop1__9285_5188_63702,3hop1,,span,June 1941,1941,0.0,0.6667,0,3,1,0.3333,3,1,0.3333,2,repeated_query,5,29,2623,3,0.956,3.677,56.0,4999.9
+2hop__64372_83289,2hop,,span,Matt Bennett,Max Landis,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,38,3529,3,1.195,4.773,60.7,4989.7
+2hop__7906_78851,2hop,,span,Brooklyn Nets NBA,Green Bay Packers,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,1429,2,0.824,1.819,62.5,4881.7
+3hop1__312146_720914_41132,3hop1,,span,22,2,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,20,2943,3,0.924,3.657,79.7,5097.0
+2hop__415518_616002,2hop,,span,Pulitzer Prize for Drama,Pulitzer Prize for Drama,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,27,2020,3,0.564,2.981,56.7,4957.3
+2hop__311931_417706,2hop,,span,Attic Records,A&M Records (Canada),0.0,0.4,1,2,2,1.0,2,2,1.0,3,repeated_query,8,45,2389,4,0.545,3.893,50.7,4965.2
+3hop1__652852_2053_52946,3hop1,,span,"February 7, 2018","February 7, 2018",1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,46,3184,4,0.776,4.543,52.6,4972.8
+3hop1__19768_19788_10117,3hop1,,span,"1,400 years","1,400 years ago",0.0,0.8,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,51,3253,4,0.685,4.901,48.7,5035.6
+2hop__128342_375952,2hop,,span,Santa Barbara County,Santa Fe,0.0,0.4,1,2,2,1.0,2,2,1.0,3,repeated_query,7,38,2594,4,0.668,3.885,84.7,4880.2
+2hop__147260_623159,2hop,,span,Yaroslavl Oblast,Rostov,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,47,3418,4,0.629,4.348,68.6,5124.1
+3hop2__93066_88342_90766,3hop2,,span,1981,2017,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,9,63,4776,4,0.78,6.329,55.8,5157.8
+2hop__37656_36240,2hop,,span,Genesis 3:15,sola scriptura,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,7,1495,2,0.834,2.02,54.5,4911.8
+2hop__25396_212301,2hop,,span,Arthur Peel,Robert Peel,0.0,0.5,0,2,1,0.5,2,1,0.5,2,repeated_query,7,25,3012,3,0.799,3.913,65.8,4965.4
+4hop2__567956_39078_8987_8974,4hop2,,span,Alfredo Stroessner's Paraguay,Paraguay,0.0,0.5,0,4,2,0.5,4,2,0.5,2,repeated_query,8,33,2952,3,0.889,4.031,69.2,5024.3
+2hop__157251_556157,2hop,,span,Limpopo River,Mzingwane River,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,8,51,2994,4,0.631,4.737,50.9,4976.5
+2hop__286621_84856,2hop,,span,"January 20, 2017","October 8, 2017",0.0,0.3333,0,2,1,0.5,2,1,0.5,2,repeated_query,7,38,2950,3,0.736,4.227,50.3,4970.8
+2hop__619265_45326,2hop,,span,12,12,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,33,2605,3,0.881,3.706,64.7,5031.7
+2hop__152229_604644,2hop,,span,429 Records,Nothing Records,0.0,0.5,0,2,1,0.5,2,1,0.5,2,repeated_query,6,21,1482,3,0.632,2.575,74.3,4860.5
+3hop1__765565_326948_78782,3hop1,,span,General Edward Pakenham,Andrew Jackson,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,25,2188,3,0.654,3.243,66.1,4969.2
+3hop1__109185_720914_41132,3hop1,,span,22,2,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,38,3069,3,0.968,4.365,83.6,4968.8
+3hop1__365934_87694_64412,3hop1,,span,11 February 1929,1929,0.0,0.5,1,3,3,1.0,3,3,1.0,3,repeated_query,10,38,4803,4,0.734,6.208,45.4,5111.3
+2hop__280583_229757,2hop,,span,Will Arnett,Amy Poehler's spouse is not mentioned in the given context.,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,39,3443,4,0.777,4.848,42.6,5057.8
+2hop__96411_159054,2hop,,span,the novel of the same name by Robert Ludlum,"The novel ""The Bourne Deception"" is based on the character Jason Bourne from the Jason Bourne series created by Robert Ludlum.",0.0,0.3333,1,2,2,1.0,2,2,1.0,2,repeated_query,8,61,3121,3,0.977,5.043,44.1,4993.4
+2hop__332453_139339,2hop,,span,Academy Award for Best Live Action Short Film,Best Live Action Short Film,0.0,0.7692,1,2,2,1.0,2,2,1.0,2,done,7,24,1940,3,0.581,3.018,46.5,4913.5
+3hop2__127483_76623_10557,3hop2,,span,Medieval Latin,Latin,0.0,0.6667,0,3,1,0.3333,3,1,0.3333,1,done,5,4,1605,2,0.881,2.037,86.6,4950.5
+2hop__131061_54221,2hop,,span,5am,5am,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,5,1139,2,0.706,1.629,74.4,4906.7
+2hop__84937_21969,2hop,,span,1786,1788,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,45,2979,3,1.084,4.495,59.4,5099.7
+2hop__708145_30351,2hop,,span,the Austrian government,Ludwig von Mises,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,47,5284,4,0.918,6.652,48.3,5200.0
+3hop1__469478_15840_36014,3hop1,,span,five,5,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,34,2982,3,1.021,4.154,87.9,5093.9
+2hop__448615_127908,2hop,,span,Major League Soccer,MLS,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,65,2821,4,0.739,4.947,79.6,4944.8
+3hop1__161507_160713_77246,3hop1,,span,the country of India,Hindu,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,10,55,6940,4,1.22,8.689,56.2,5105.4
+3hop1__132967_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,56,4313,4,1.02,6.123,54.3,5038.6
+2hop__20536_96912,2hop,,span,University of Cambridge,Royal Society of Chemistry,0.0,0.2857,1,2,2,1.0,2,2,1.0,1,done,5,7,1425,2,0.842,1.922,57.1,4880.0
+3hop2__326964_7861_7713,3hop2,,span,about 400 years,3000 years,0.0,0.4,1,3,3,1.0,3,3,1.0,3,repeated_query,6,63,5609,4,1.291,7.5,49.0,5138.6
+3hop1__178435_547811_80702,3hop1,,span,Rialto Bridge,Calvin Coolidge Memorial Bridge,0.0,0.3333,0,3,1,0.3333,3,1,0.3333,2,repeated_query,5,37,1660,3,0.672,2.889,53.8,4886.2
+4hop1__88342_49853_128008_86588,4hop1,,span,582 feet (177 m),582 feet (177 m),1.0,1.0,0,4,3,0.75,4,3,0.75,4,max_hops,11,58,5811,4,1.055,7.213,48.0,5265.2
+3hop1__275261_443779_52195,3hop1,,span,Francisco Guterres,Susilo Bambang Yudhoyono,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,68,6730,4,1.273,8.53,62.0,5202.8
+4hop3__152056_698586_1926_54362,4hop3,,span,Confederate Gen. John Bell Hood,no,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,7,22,1981,3,0.538,2.713,103.8,4885.7
+4hop1__342858_131850_33897_81096,4hop1,,span,Mario Andretti,no,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,7,36,3789,4,0.865,4.806,113.7,5123.1
+3hop1__695430_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land Teams",0.0,0.8889,0,3,2,0.6667,3,2,0.6667,1,done,5,10,1259,2,0.616,1.501,67.2,4970.3
+2hop__269659_722575,2hop,,span,News Corp,News Corp,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,44,2599,4,0.576,3.559,82.8,4877.0
+2hop__701525_342810,2hop,,span,Bell County,Falls County,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,5,26,1012,3,0.514,2.1,74.8,4825.6
+3hop2__655849_467331_162182,3hop2,,span,South Central Coast,Central Vietnam,0.0,0.4,1,3,3,1.0,3,3,1.0,4,max_hops,10,47,3631,4,0.61,4.916,68.7,4996.6
+2hop__6956_192417,2hop,,span,sports league,professional sports league,0.0,0.8,0,2,1,0.5,2,1,0.5,1,done,5,6,1259,2,0.738,1.68,73.0,4970.3
+3hop1__584774_131926_87157,3hop1,,span,rises in northern Minnesota and meanders slowly southwards,north,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,55,4309,4,0.821,5.115,116.6,4978.9
+3hop2__90098_19639_10557,3hop2,,span,Medieval Latin,Classical Latin,0.0,0.5,1,3,3,1.0,3,3,1.0,3,repeated_query,9,63,5634,4,1.014,6.527,71.7,5231.9
+3hop2__57186_89048_66294,3hop2,,span,Lawrence Hilton - Jacobs,Michael Jackson,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,56,2736,4,0.585,4.021,91.3,4915.1
+3hop1__106847_160713_77246,3hop1,,span,the country of India,Hindu,0.0,0.0,0,3,1,0.3333,3,1,0.3333,3,repeated_query,8,51,6476,4,0.905,7.216,73.7,5207.5
+4hop3__474028_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,no,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,11,65,5253,4,0.874,6.133,113.4,5194.7
+4hop3__316459_41402_145922_13584,4hop3,,span,two cities,Barcelona and Madrid,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,9,59,4093,4,0.785,4.987,73.3,5122.5
+3hop1__140855_2053_5289,3hop1,,span,Oriole Records.,EMI,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,56,4790,4,0.663,5.861,82.4,5260.5
+3hop2__326964_7845_7713,3hop2,,span,about 400 years,0,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,57,4859,4,0.722,5.727,113.5,5118.9
+2hop__763840_144857,2hop,,span,Clatskanie,New York City,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,24,1488,3,0.501,2.145,82.0,4870.3
+2hop__671664_646310,2hop,,span,Albemarle,Albemarle,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,993,2,0.504,1.244,72.9,4880.1
+4hop1__130480_53706_795904_580996,4hop1,,span,Rio Linda,Oak Lawn,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,8,50,2934,4,0.551,3.865,87.1,4960.7
+3hop2__855821_467331_162182,3hop2,,span,South Central Coast,Central Highlands,0.0,0.4,1,3,3,1.0,3,3,1.0,4,max_hops,9,45,3225,4,0.544,4.071,88.6,5074.3
+4hop2__161602_474028_88460_21062,4hop2,,span,It is not possible for foreigners to go to/from Myanmar by sea or river.,no,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,8,74,4715,4,0.809,5.905,116.2,5048.2
+2hop__301011_820181,2hop,,span,Norton County,Norton County,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,28,1825,3,0.628,2.439,81.2,4960.3
+2hop__95878_88628,2hop,,span,U.S. Marshal Rooster Cogburn,"Jeff Bridges played the role of Deputy U.S. Marshal Reuben J. ""Rooster"" Cogburn in the 2010 version of True Grit. However, the context provided does not mention an actor named ""Advernture's End."" Therefore, no answer can be given based on the provided information.",0.0,0.1905,0,2,1,0.5,2,1,0.5,4,max_hops,7,129,4273,4,0.822,6.568,60.1,5028.6
+2hop__852122_150107,2hop,,span,Association for Computing Machinery,ACM,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,48,2437,4,0.466,3.394,89.4,4956.8
+2hop__496792_392646,2hop,,span,Scottish clan,no,0.0,0.0,0,2,0,0.0,2,0,0.0,3,repeated_query,8,39,3370,4,0.626,4.058,119.2,5037.0
+3hop1__41865_55331_34700,3hop1,,span,Caesar,French,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,6,45,3492,4,0.767,3.961,119.2,5008.5
+2hop__231890_595414,2hop,,span,Miller County,Dane,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,19,1385,3,0.419,1.906,93.6,4883.6
+2hop__748182_78303,2hop,,span,Cordell Walker,Alexandra Cahill,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,33,2104,3,0.692,2.768,74.2,4868.5
+3hop2__792915_223623_162182,3hop2,,span,South Central Coast,Central Vietnam,0.0,0.4,0,3,2,0.6667,3,2,0.6667,3,repeated_query,6,52,1598,4,0.439,2.78,94.5,4883.6
+2hop__607517_161450,2hop,,span,in the north-east of the country south of the Caspian Sea,Golestan Province,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,7,1239,2,0.573,1.398,77.8,4960.8
+3hop1__198276_709625_84283,3hop1,,span,Warner Music Group,Al Bell,0.0,0.0,0,3,1,0.3333,3,1,0.3333,1,done,5,5,863,2,0.531,1.237,89.9,4827.6
+2hop__149983_108549,2hop,,span,Alfred Gough,Brent Stait,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,27,1131,3,0.461,1.908,77.9,4877.1
+2hop__36747_18974,2hop,,span,Chen Zheng,Zheng Jing,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,9,69,6021,4,1.031,6.791,78.9,5295.7
+2hop__817096_15463,2hop,,span,Hewlett Packard,no,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,12,48,4014,4,0.596,4.549,117.5,5096.8
+3hop1__53690_161697_49779,3hop1,,span,Chris Harrison,yes,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,10,44,4340,4,0.762,5.049,112.4,5024.8
+2hop__731584_700117,2hop,,span,Berrien County,Berrien,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,repeated_query,7,35,2197,4,0.519,2.913,90.7,4917.7
+3hop2__90098_91678_10557,3hop2,,span,Medieval Latin,Latin,0.0,0.6667,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,52,3451,4,0.662,4.391,116.3,5038.6
+3hop1__109422_720914_41132,3hop1,,span,22,2,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,20,3096,3,0.904,3.39,111.3,5035.9
+4hop1__58323_375563_161848_84681,4hop1,,span,13 December 1642,1642,0.0,0.5,1,4,4,1.0,4,4,1.0,4,max_hops,12,51,4305,4,0.719,5.144,70.9,5142.7
+2hop__412633_15781,2hop,,span,David Hume,David Hume,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,30,2119,3,0.683,2.734,78.3,4885.3
+3hop2__25177_19506_23299,3hop2,,span,Polish state,Poland,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,5,25,2914,3,0.994,3.377,89.2,5071.6
+2hop__503085_110222,2hop,,span,10 June 1819,1819,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,5,7,1037,2,0.558,1.279,76.9,4863.5
+2hop__21103_16335,2hop,,span,inter-marriage and conversions in the time of the Roman Empire,inter-marriage and conversions in the time of the Roman Empire,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,15,2613,2,1.202,2.86,64.1,5062.2
+2hop__542569_87295,2hop,,span,Queen dowager Clarisse Renaldi,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,8,53,2727,4,0.547,3.823,118.8,4899.9
+3hop1__93963_170667_18967,3hop1,,span,Dutch East Indies,Indonesia,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,done,9,16,3020,3,0.737,3.265,85.5,4957.0
+3hop1__838590_831637_91775,3hop1,,span,"Sea, Air, and Land",Navy,0.0,0.0,0,3,2,0.6667,3,2,0.6667,1,done,5,5,1167,2,0.622,1.341,91.5,4924.7
+2hop__92900_512508,2hop,,span,Manhattan Project,Tube Alloys project,0.0,0.4,1,2,2,1.0,2,2,1.0,2,repeated_query,7,41,2529,3,0.666,3.304,72.5,5034.0
+2hop__88906_55840,2hop,,span,Colin Firth,Colin Firth,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,35,1965,3,0.629,2.672,74.5,4944.3
+2hop__370911_589237,2hop,,span,Sheila Hancock,"Melinda's husband, Jim Clancy, is played by David Conrad.",0.0,0.0,0,2,0,0.0,2,0,0.0,2,repeated_query,5,44,2194,3,0.725,3.081,63.0,4898.9
+2hop__538735_3296,2hop,,span,Diana DeGarmo,Diana DeGarmo,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,65,2740,4,0.524,3.935,69.3,4911.4
+3hop1__108833_720914_27537,3hop1,,span,for the conclave in Rome,no,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,49,3435,4,0.67,4.355,116.7,5121.1
+3hop1__635099_131926_13165,3hop1,,span,Treaty of Paris,Treaty of Guadalupe Hidalgo,0.0,0.5714,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,34,3170,3,0.791,3.727,63.3,4980.3
+3hop1__251085_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land",1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,43,2182,3,0.611,2.983,69.3,4959.3
+4hop1__228808_49925_13759_736921,4hop1,,span,Saxony-Anhalt,no,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,8,55,4768,4,0.911,5.769,115.3,5069.8
+2hop__77134_88165,2hop,,span,Keturah,Abraham,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,29,2001,3,0.632,2.611,89.2,4921.7
+3hop1__90327_78276_68042,3hop1,,span,the 2010 election,2010,0.0,0.6667,0,3,1,0.3333,3,1,0.3333,4,max_hops,8,55,5214,4,0.934,5.901,73.0,5140.0
+2hop__502852_75487,2hop,,span,Andrew Scheer,Stephen Harper,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,57,2902,4,0.614,3.826,89.3,4951.0
+3hop1__131110_39743_24526,3hop1,,span,upper 40s–lower 50s °F,50°F to 70°F (10°C to 21°C),0.0,0.0,0,3,2,0.6667,3,2,0.6667,1,done,5,21,1977,2,0.965,2.424,63.1,5087.8
+2hop__38030_23241,2hop,,span,48.8 percent,48.8%,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,repeated_query,9,57,6592,4,0.88,7.419,68.6,5216.2
+2hop__199513_13732,2hop,,span,12–14 years old,12-14 years old,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,repeated_query,7,55,3194,4,0.672,4.185,66.8,4979.1
+2hop__998_25855,2hop,,span,PowerShare,Sleep-and-charge USB ports,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,58,5625,4,0.844,6.503,67.3,5223.3
+3hop1__462960_160545_34754,3hop1,,span,blackmail,Japanese blackmail before occupation,0.0,0.4,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,61,3327,4,0.735,4.36,74.3,5002.9
+3hop2__304722_582839_63959,3hop2,,span,1 December 2010,1973,0.0,0.0,0,3,1,0.3333,3,1,0.3333,4,max_hops,10,62,4877,4,0.836,5.912,72.0,5150.9
+2hop__316374_82341,2hop,,span,in Northern Florida,"Ocala, Florida",0.0,0.5,0,2,1,0.5,2,1,0.5,1,done,5,7,1035,2,0.57,1.291,77.2,4861.5
+2hop__756620_127399,2hop,,span,2005,2005,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,37,1532,3,0.443,2.263,75.2,4888.2
+3hop1__141138_2053_5289,3hop1,,span,Oriole Records.,CBS,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,8,57,3127,4,0.569,4.259,118.6,4986.1
+2hop__226204_69048,2hop,,span,Honorable Justice Abiodun Smith,Adama Lamikanra,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,42,2441,4,0.514,3.27,72.1,4967.8
+4hop1__17192_17130_70784_79935,4hop1,,span,1930,"The context provided does not contain information about when a region north of Lebanon and the Persian Gulf was created. Therefore, no date can be given based on the provided information.",0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,7,84,5067,4,1.007,6.398,60.3,5088.4
+4hop1__39871_314549_131976_44892,4hop1,,span,around 140 million years ago,140 million years ago,0.0,0.8889,0,4,3,0.75,4,3,0.75,3,repeated_query,9,45,5327,4,0.845,6.0,66.0,5203.3
+3hop1__107195_160713_77246,3hop1,,span,the country of India,Al-Hind,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,65,7342,4,1.061,8.332,76.6,5208.7
+2hop__123214_22402,2hop,,span,"nearly 25,000",25000,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,30,2655,3,0.721,3.214,70.5,5061.3
+2hop__14078_49084,2hop,,span,Liam Thomas Garrigan,Liam Thomas Garrigan,1.0,1.0,0,2,1,0.5,2,1,0.5,4,max_hops,8,64,2729,4,0.537,4.079,70.1,4962.4
+2hop__75207_365216,2hop,,span,Talca Province,Maule,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,11,47,4205,4,0.696,4.908,84.4,5079.2
+2hop__69_59409,2hop,,span,three different relationships he had in the past,Lesley Gore,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,12,43,6938,4,0.915,7.589,76.1,5299.2
+4hop2__9988_261673_70784_79935,4hop2,,span,1930,No,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,7,52,3214,4,0.609,4.358,113.9,4990.0
+2hop__59612_42352,2hop,,span,2 million,North America,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,10,45,5942,4,0.883,6.664,84.3,5159.0
+2hop__499003_853511,2hop,,span,Kanine Records,Sire Records,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,5,6,939,2,0.518,1.209,79.5,4870.3
+3hop1__140994_2053_5289,3hop1,,span,Oriole Records.,Oriole Records,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,56,3507,4,0.533,4.334,73.6,5099.7
+4hop1__161605_32392_823060_610794,4hop1,,span,Richland County,Baranya,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,8,27,2626,3,0.593,3.02,88.2,5093.1
+4hop1__151903_5274_458768_33677,4hop1,,span,2013,New York City,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,10,73,3742,4,0.65,4.888,77.4,5031.7
+2hop__301587_233146,2hop,,span,Amschel Moses Rothschild,Mayer Amschel Rothschild,0.0,0.6667,0,2,1,0.5,2,1,0.5,1,done,5,11,1587,2,0.754,1.787,68.8,4961.3
+3hop1__726561_132457_47686,3hop1,,span,Toronto Coach Terminal,Rodoferroviária,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,44,3408,4,0.506,4.066,68.1,4938.0
+4hop1__802394_153080_159767_81096,4hop1,,span,Mario Andretti,No,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,6,22,2104,3,0.592,2.458,121.9,4938.2
+2hop__574496_123283,2hop,,span,Clifton College,"The context does not provide information about where the founder of the Acting Company studied. Therefore, no answer can be given based solely on the provided context.",0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,51,2031,3,0.544,2.875,61.7,4901.6
+3hop2__140194_16797_51068,3hop2,,span,Jenna - Louise Coleman,no,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,46,2902,3,0.616,3.732,116.6,4962.2
+4hop2__103790_14670_8987_8529,4hop2,,span,1943–1992,1939-1945,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,8,85,4558,4,0.788,5.949,64.4,5021.3
+4hop2__71753_261673_70784_79935,4hop2,,span,1930,"The context does not provide a specific date for the creation of the region that lies to the north of where Israel is located or for the phenomenon known as Shamal. Therefore, no specific date can be given based on the provided information.",0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,12,90,4599,4,0.602,5.84,60.1,5217.5
+3hop1__222497_309482_89834,3hop1,,span,16th - century,no,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,6,38,2415,3,0.684,3.02,118.3,4967.6
+3hop1__813285_774554_64412,3hop1,,span,11 February 1929,1929,0.0,0.5,1,3,3,1.0,3,3,1.0,3,repeated_query,11,54,3805,4,0.635,4.518,74.4,5013.8
+2hop__811015_3300,2hop,,span,season three,Season five,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,10,46,2729,4,0.523,3.52,92.2,4959.7
+3hop1__63037_567566_84283,3hop1,,span,Warner Music Group,Warner Music Group,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,48,4495,4,0.644,5.06,73.2,5093.5
+2hop__223655_463572,2hop,,span,MGM Records,MGM Records,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,65,2535,4,0.502,3.605,80.0,4960.8
+2hop__639445_567836,2hop,,span,Adams County,Adams,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,43,1657,3,0.535,2.567,91.9,4933.7
+2hop__258940_135844,2hop,,span,Palmiro Togliatti,Tolyatti,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,6,845,2,0.458,1.123,82.5,4817.3
+2hop__157498_127908,2hop,,span,Major League Soccer,Major League Soccer (MLS),0.0,0.8571,1,2,2,1.0,2,2,1.0,2,repeated_query,7,31,2639,3,0.745,3.071,69.1,5037.0
+4hop2__9988_158279_70784_61381,4hop2,,span,1932,1869,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,6,58,1735,3,0.537,2.792,75.7,4935.0
+2hop__91626_96912,2hop,,span,University of Cambridge,"W. Strahan and T. Cadell, London",0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,34,2587,3,0.783,3.075,65.9,4991.0
+2hop__53433_59035,2hop,,span,6 February 1840,On 6 February 1840,0.0,0.8571,1,2,2,1.0,2,2,1.0,4,max_hops,11,41,5488,4,0.814,5.815,64.2,5268.1
+3hop1__161433_33952_34099,3hop1,,span,four-year,4 years,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,71,5192,4,0.978,6.309,86.8,5094.9
+4hop1__443274_17130_70784_79935,4hop1,,span,1930,No,0.0,0.0,0,4,1,0.25,4,1,0.25,3,repeated_query,6,50,3758,4,0.789,4.599,118.2,5090.0
+2hop__827755_156034,2hop,,span,Hudson's Bay,Lower Nelson River,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,34,2162,3,0.624,2.829,78.8,4954.3
+3hop2__304722_423353_63959,3hop2,,span,1 December 2010,No,0.0,0.0,0,3,0,0.0,3,0,0.0,2,repeated_query,7,51,3292,3,0.978,4.182,116.0,5069.0
+3hop1__857_846_7770,3hop1,,span,past the west side and then north side,west and north,0.0,0.6,1,3,3,1.0,3,3,1.0,3,repeated_query,8,62,5061,4,1.019,5.702,79.4,5066.8
+2hop__81268_85407,2hop,,span,"260,897","260,897",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,32,3877,3,1.042,4.078,68.4,5075.5
+3hop1__255970_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land",1.0,1.0,1,3,3,1.0,3,3,1.0,1,done,5,9,1307,2,0.637,1.49,72.4,4972.2
+2hop__14095_15463,2hop,,span,Hewlett Packard,Compaq merged with Hewlett Packard.,0.0,0.5714,1,2,2,1.0,2,2,1.0,2,repeated_query,5,47,2875,3,0.89,3.48,66.5,5062.4
+3hop1__865037_214799_259594,3hop1,,span,GDR,East Germany,1.0,1.0,0,3,2,0.6667,3,2,0.6667,2,done,6,18,2268,3,0.65,2.486,89.5,4974.9
+2hop__475070_532404,2hop,,span,Amherst,"Amherst, Nova Scotia",0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,6,35,1821,3,0.546,2.476,72.4,4969.2
+2hop__814856_110882,2hop,,span,1 January 1986,1986,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,7,23,2306,3,0.642,2.641,75.9,4955.3
+4hop2__161602_474028_88460_21063,4hop2,,span,Yangon Stock Exchange Joint Venture Co. Ltd,Yangon Stock Exchange,0.0,0.6,0,4,3,0.75,4,3,0.75,2,repeated_query,7,51,3131,3,0.757,3.752,72.0,4996.6
+2hop__48776_807969,2hop,,span,Egypt national football team,Liverpool,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,42,3125,3,0.926,3.763,103.2,5087.8
+4hop3__524186_219173_548463_72134,4hop3,,span,1839,1839,1.0,1.0,1,4,4,1.0,4,4,1.0,2,repeated_query,7,29,2578,3,0.76,3.174,74.7,5030.3
+3hop2__106842_30645_84681,3hop2,,span,13 December 1642,17th century,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,43,5038,4,0.92,5.792,70.0,5100.3
+2hop__108336_772156,2hop,,span,Mantua,"The context does not provide information about where the creator of the Allegory of Isabella d'Este's Coronation died. Therefore, no answer can be given based solely on the provided context.",0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,73,3256,4,0.627,4.661,60.0,5056.0
+2hop__126188_396277,2hop,,span,Doctor De Soto,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,42,2952,4,0.536,3.834,118.3,4998.0
+4hop3__131820_29339_508306_70744,4hop3,,span,University of South Carolina,Clemson University,0.0,0.3333,1,4,4,1.0,4,4,1.0,4,max_hops,10,63,3580,4,0.57,4.816,72.0,4985.7
+3hop1__857_846_7752,3hop1,,span,Yuan Shikai,no,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,47,5929,4,1.029,6.59,113.3,5294.3
+3hop1__135659_87694_64412,3hop1,,span,11 February 1929,1929,0.0,0.5,1,3,3,1.0,3,3,1.0,3,repeated_query,10,41,4662,4,0.668,5.09,71.9,5088.9
+2hop__141365_417697,2hop,,span,Nissan Altima,Nissan,0.0,0.6667,1,2,2,1.0,2,2,1.0,4,max_hops,10,83,5399,4,0.661,6.664,85.5,5287.3
+2hop__810884_22402,2hop,,span,"nearly 25,000",25000,0.0,0.6667,1,2,2,1.0,2,2,1.0,4,max_hops,7,48,3862,4,0.775,4.667,69.3,5040.6
+2hop__1667_40501,2hop,,span,"75,000 to 100,000","75,000 to 100,000",1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,79,5318,4,1.024,6.797,61.8,5197.1
+4hop1__88342_75218_128008_67954,4hop1,,span,Alex Bregman,Alex Bregman,1.0,1.0,0,4,2,0.5,4,2,0.5,3,done,10,44,7191,4,1.268,7.962,62.9,5180.7
+2hop__149862_108549,2hop,,span,Alfred Gough,Alfred Gough and Miles Millar,0.0,0.5714,1,2,2,1.0,2,2,1.0,4,max_hops,11,49,4631,4,0.786,6.073,60.1,5123.6
+2hop__42027_42004,2hop,,span,Scottish Parliament Building,Holyrood area of Edinburgh,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,9,1657,2,0.899,2.057,63.8,4968.8
+3hop1__689538_547811_80702,3hop1,,span,Rialto Bridge,Rialto Bridge,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,40,3520,4,0.677,4.649,67.5,5100.0
+3hop1__145212_443779_52195,3hop1,,span,Francisco Guterres,Susilo Bambang Yudhoyono,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,8,94,5453,4,0.779,7.845,57.6,5211.4
+3hop2__90098_60649_10557,3hop2,,span,Medieval Latin,Latin,0.0,0.6667,1,3,3,1.0,3,3,1.0,4,max_hops,8,61,5094,4,0.984,6.923,103.5,5133.8
+3hop1__354480_834494_34109,3hop1,,span,KUAT-TV 6,Pima County,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,26,2085,3,0.747,2.906,73.3,4931.5
+2hop__685280_510757,2hop,,span,Peace Corps,Peace Corps,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,11,40,3043,4,0.574,4.265,78.7,5021.5
+4hop3__220945_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,Moorish people,0.0,0.0,0,4,2,0.5,4,2,0.5,3,repeated_query,7,52,4076,4,0.963,5.419,64.9,5025.7
+4hop1__767417_624859_355213_203322,4hop1,,span,Cabarrus County,Rowan,0.0,0.0,1,4,4,1.0,4,4,1.0,2,repeated_query,6,21,1399,3,0.544,2.178,82.2,4878.2
+3hop1__459153_544076_84283,3hop1,,span,Warner Music Group,Warner Music Group,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,39,2774,4,0.603,3.665,72.0,4952.6
+2hop__147212_60904,2hop,,span,Jack Michel,no,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,8,63,3654,4,0.54,5.072,109.3,4976.2
+3hop2__132957_52222_40768,3hop2,,span,1981,1981,1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,59,3966,4,0.846,5.182,71.0,5098.2
+4hop2__161602_426860_88460_21034,4hop2,,span,hosted the summit in 2014,2014,0.0,0.4,0,4,3,0.75,4,3,0.75,4,max_hops,13,73,5270,4,0.881,7.064,45.3,5177.2
+2hop__501624_181960,2hop,,span,Slade School of Art,Slade School of Art,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,26,2409,3,0.661,3.746,47.5,5072.7
+2hop__335899_124498,2hop,,span,Louis Chedid,Matthieu Chedid,0.0,0.5,0,2,1,0.5,2,1,0.5,2,repeated_query,8,33,3126,3,0.927,4.529,44.8,4967.1
+2hop__157339_156796,2hop,,span,Limpopo River,Shashe River,0.0,0.5,1,2,2,1.0,2,2,1.0,2,done,6,21,1917,3,0.761,3.066,50.3,4972.8
+2hop__362912_97805,2hop,,span,Winter War,Finnish Navy,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,27,1896,3,0.79,3.165,54.0,4965.2
+2hop__24441_36630,2hop,,span,United Kingdom and Prussia,Armenia,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,75,4954,4,1.116,7.151,54.6,5071.9
+4hop1__44149_32392_823060_610794,4hop1,,span,Richland County,Richland,0.0,0.6667,0,4,3,0.75,4,3,0.75,3,repeated_query,8,42,3746,4,0.845,5.19,66.8,5099.7
+4hop1__31050_725495_49925_267352,4hop1,,span,German Renaissance,Reformation,0.0,0.0,0,4,1,0.25,4,1,0.25,2,repeated_query,8,39,2792,3,0.845,4.161,55.7,5101.7
+2hop__78873_461854,2hop,,span,Laurence Olivier,Rhett Butler,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,68,4212,4,0.773,6.612,56.2,4982.4
+4hop3__152056_698586_57596_54362,4hop3,,span,Confederate Gen. John Bell Hood,no,0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,8,76,3529,4,0.858,6.065,76.0,5047.5
+2hop__460946_294723,2hop,,span,Miquette Giraudy,Ahmad Rashād,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,9,39,3110,4,0.757,4.705,53.2,4994.6
+4hop2__71753_729371_70784_61381,4hop2,,span,1932,1981,0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,10,59,3320,4,0.678,5.252,54.7,4985.7
+2hop__178922_5385,2hop,,span,"11,900",Not specified,0.0,0.0,0,2,1,0.5,2,1,0.5,1,repeated_query,5,18,1729,2,0.986,2.457,69.3,5000.6
+2hop__82858_654855,2hop,,span,Socialist Party of America,Socialist Party of America,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,8,1323,2,0.781,1.849,53.5,4845.4
+3hop2__222979_380281_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,53,4599,4,0.882,6.342,49.4,5022.2
+3hop1__849312_503371_21711,3hop1,,span,built in the 15th century,1409,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,31,2125,3,0.744,3.353,53.6,4947.5
+2hop__122651_141338,2hop,,span,City University of New York,High Times,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,5,1195,2,0.754,1.747,61.5,4938.3
+2hop__144763_599630,2hop,,span,Yongjia County,Wenzhou,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,24,2565,3,0.846,3.64,58.2,5037.0
+3hop1__786632_831637_91775,3hop1,,span,"Sea, Air, and Land",Sea,0.0,0.4,1,3,3,1.0,3,3,1.0,2,done,7,19,2395,3,0.8,3.31,90.6,4991.4
+2hop__73717_653666,2hop,,span,Lucy Mack Smith,Lucy Mack Smith,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,39,2114,3,0.729,3.4,55.5,4942.9
+2hop__81659_52835,2hop,,span,John D. Loudermilk,Norah Jones,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,45,3790,4,0.86,5.519,56.3,5122.5
+2hop__66_59409,2hop,,span,three different relationships he had in the past,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,46,3347,3,0.984,4.887,87.1,5011.3
+4hop3__800262_466199_695123_72134,4hop3,,span,1839,1839,1.0,1.0,1,4,4,1.0,4,4,1.0,2,repeated_query,7,29,2523,3,0.802,3.64,55.9,5045.6
+4hop1__9007_698949_157828_162309,4hop1,,span,2016,1992,0.0,0.0,0,4,2,0.5,4,2,0.5,3,repeated_query,6,44,2548,4,0.732,4.233,55.1,4967.1
+2hop__557743_92763,2hop,,span,"16,801",40.6%,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,24,1969,3,0.739,3.008,53.1,4915.5
+2hop__442516_595885,2hop,,span,Tanzania,Ghana,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,33,1808,3,0.681,3.071,62.4,4967.1
+2hop__44590_510545,2hop,,span,Jennifer Connelly,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,22,2929,3,1.11,3.97,86.7,5075.9
+3hop1__751782_2053_52946,3hop1,,span,"February 7, 2018","February 7, 2018",1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,11,43,3899,4,0.786,5.444,44.5,5064.7
+3hop2__28727_92991_76291,3hop2,,span,January 2015,2018,0.0,0.0,0,3,2,0.6667,3,2,0.6667,1,repeated_query,5,31,1499,2,0.854,2.562,55.3,4913.5
+2hop__859431_18803,2hop,,span,trying to find a potential buyer for all of its operations in Finland,trying to find a potential buyer for all of its operations in Finland and is doing similar market research concerning Swedish operations.,0.0,0.7273,1,2,2,1.0,2,2,1.0,2,repeated_query,7,64,2644,3,0.867,4.528,44.1,5052.1
+3hop1__157177_625046_613900,3hop1,,span,Ottawa County,St. Louis County,0.0,0.4,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,23,2170,3,0.737,3.254,56.6,4955.3
+2hop__203985_524737,2hop,,span,United Soccer League,Southwest Independent Soccer League,1.0,1.0,0,2,1,0.5,2,1,0.5,1,repeated_query,5,19,1523,2,0.894,2.299,54.2,4936.8
+4hop1__166471_49925_13759_736921,4hop1,,span,Saxony-Anhalt,New York,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,11,44,5024,4,0.837,6.596,64.4,5232.2
+2hop__247353_55227,2hop,,span,Maria Bello,Salma Hayek,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,52,4088,4,1.019,5.974,56.9,5122.5
+4hop3__601548_836463_161616_77103,4hop3,,span,1839,1839,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,9,29,3663,3,1.015,4.825,50.0,5088.4
+3hop1__178435_547811_41132,3hop1,,span,22,22,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,12,43,6322,4,1.166,8.008,58.6,5233.3
+2hop__81825_49084,2hop,,span,Liam Thomas Garrigan,Liam Garrigan,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,29,3096,3,1.061,4.175,55.0,5045.2
+2hop__575188_342798,2hop,,span,Ahmad Shah Qajar,Mahmoud Mirza,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,48,2425,4,0.584,4.209,49.7,4974.9
+3hop1__831499_228453_10972,3hop1,,span,1970s,1973,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,29,2358,3,0.802,3.51,54.7,4988.4
+3hop1__742464_15840_36014,3hop1,,span,five,five,1.0,1.0,0,3,2,0.6667,3,2,0.6667,1,done,5,4,1719,2,0.968,2.17,92.2,4991.4
+2hop__129499_85379,2hop,,span,"February 14, 1912",1912,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,7,31,2642,3,0.648,3.838,57.0,5025.4
+3hop1__572324_568433_51423,3hop1,,span,Casa Loma,Katzenstein Castle,0.0,0.0,0,3,1,0.3333,3,1,0.3333,3,repeated_query,9,78,3473,4,0.679,5.83,50.9,5096.5
+2hop__661847_288421,2hop,,span,Erick Sermon,no,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,11,28,3322,4,0.63,4.621,78.1,5005.2
+2hop__259228_793698,2hop,,span,Cologne,"Alma, Wisconsin",0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,9,41,2537,4,0.661,4.308,51.6,4956.9
+2hop__609313_20273,2hop,,span,1572,1572,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,1911,2,1.113,2.527,44.6,5062.8
+2hop__421324_97805,2hop,,span,Winter War,Continuation War,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,8,74,3962,4,0.86,6.604,50.2,5020.1
+2hop__595747_31270,2hop,,span,45,45 miles,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,30,2412,3,0.874,3.551,57.2,4979.5
+2hop__143915_68489,2hop,,span,Snapper Foster,Beau Kazer,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,10,55,3200,4,0.691,5.358,46.5,5033.3
+2hop__477492_240386,2hop,,span,TML Entertainment,TRC,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,35,3363,4,0.708,4.938,62.4,5064.4
+2hop__835171_141338,2hop,,span,City University of New York,City University of New York,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,32,2070,3,0.689,3.26,53.1,4936.8
+3hop1__487301_443779_52195,3hop1,,span,Francisco Guterres,Xanana Gusmão,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,70,6671,4,1.029,8.782,49.4,5214.6
+2hop__29339_40482,2hop,,span,Edmund Bellinger,British Landgrave,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,42,3235,3,1.166,4.623,56.8,5022.6
+2hop__89991_58067,2hop,,span,A.P.J. Abdul Kalam,Radhakrishnan,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,38,3048,3,0.849,4.32,51.3,4960.6
+4hop1__429751_32392_823060_610794,4hop1,,span,Richland County,Richland County,1.0,1.0,0,4,3,0.75,4,3,0.75,4,max_hops,12,48,4174,4,0.803,5.961,55.1,5091.2
+3hop2__222979_132536_40768,3hop2,,span,1981,By the early 1980s.,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,49,4630,4,1.026,6.303,47.9,5018.0
+2hop__30390_92972,2hop,,span,much of the European industrial infrastructure had been destroyed,No,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,8,73,5335,4,1.016,7.541,75.8,5170.2
+2hop__67660_158861,2hop,,span,Josh Radnor,Bob Saget,0.0,0.0,0,2,0,0.0,2,0,0.0,1,done,5,6,1003,2,0.631,1.503,58.3,4881.2
+4hop3__678814_466199_695123_72134,4hop3,,span,1839,1839,1.0,1.0,1,4,4,1.0,4,4,1.0,2,repeated_query,8,29,1998,3,0.514,3.171,52.9,4962.4
+4hop1__483807_508773_85832_745702,4hop1,,span,Sebastian Cabot,Sebastian Cabot,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,8,29,2995,3,0.87,4.119,56.2,4947.8
+3hop2__326964_7855_7713,3hop2,,span,about 400 years,0,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,9,30,3872,3,1.066,5.001,77.0,5138.6
+3hop1__587540_514761_594810,3hop1,,span,Warner Bros. Records,Burning Heart Records,0.0,0.3333,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,29,1632,3,0.657,2.866,56.6,4924.7
+3hop2__14253_76873_64554,3hop2,,span,Union of Soviet Socialist Republics,Soviet Union,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,11,59,5122,4,1.033,7.283,37.3,5169.9
+2hop__6827_79845,2hop,,span,"15,900","15,900",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,33,2876,3,1.029,4.329,40.5,5098.2
+2hop__191125_781346,2hop,,span,Eastern Equatoria,Central Equatoria,0.0,0.5,0,2,1,0.5,2,1,0.5,2,repeated_query,6,38,2274,3,0.875,3.903,53.3,4941.5
+3hop1__46571_87694_124169,3hop1,,span,1952,1952,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,67,4101,4,0.916,6.572,57.3,5023.2
+2hop__846844_47134,2hop,,span,Benny Beaver,Benny Beaver,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,919,2,0.635,1.461,60.1,4859.4
+3hop2__57233_105140_56883,3hop2,,span,1964,1964,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,64,3477,4,0.813,5.512,52.4,5033.3
+4hop3__577443_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,No,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,8,49,4253,4,0.954,5.963,77.7,4986.5
+2hop__167577_31122,2hop,,span,18th,18th century,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,5,7,2495,2,1.324,3.009,48.8,5022.4
+3hop2__569322_467331_162182,3hop2,,span,South Central Coast,Central Vietnam,0.0,0.4,1,3,3,1.0,3,3,1.0,3,repeated_query,7,54,3103,4,0.673,4.962,62.7,4979.5
+2hop__283298_22402,2hop,,span,"nearly 25,000","25,000",0.0,0.6667,1,2,2,1.0,2,2,1.0,3,repeated_query,8,51,4300,4,0.988,6.098,49.7,5038.6
+2hop__864101_135373,2hop,,span,Vitus Bering,Saint Matthew Island is located in the Bering Sea.,0.0,0.2,0,2,1,0.5,2,1,0.5,2,done,7,29,1937,3,0.735,3.111,47.4,4935.8
+2hop__329676_119915,2hop,,span,1065,1010,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,8,57,2751,4,0.655,4.74,55.4,4915.1
+2hop__487706_40501,2hop,,span,"75,000 to 100,000",0,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,12,58,5504,4,1.006,7.485,78.3,5232.2
+2hop__157285_556157,2hop,,span,Limpopo River,Mzingwane River,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,10,59,2619,4,0.595,4.626,51.0,4976.1
+2hop__153573_45901,2hop,,span,Walt Disney,Walt Disney,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,48,4216,4,0.803,5.994,55.0,5194.9
+4hop1__525129_315334_131926_89261,4hop1,,span,the Mississippi River Delta,Matagorda Bay,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,12,47,5248,4,0.906,6.978,52.5,5225.2
+2hop__119423_779396,2hop,,span,University of Glasgow,Not applicable,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,5,929,2,0.676,1.623,62.8,4865.1
+2hop__72487_510545,2hop,,span,Jennifer Connelly,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,10,42,5460,4,1.235,7.224,84.4,5198.4
+2hop__701895_752697,2hop,,span,Tamaulipas,Nuevo Laredo,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,40,4059,4,0.83,5.809,50.3,5048.9
+3hop1__641921_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,38,4299,3,1.363,5.699,88.7,5198.2
+2hop__133116_533882,2hop,,span,Martin Marietta,Martin Marietta Corporation,0.0,0.8,1,2,2,1.0,2,2,1.0,3,repeated_query,7,58,2034,4,0.458,3.325,58.6,4890.1
+2hop__22930_23241,2hop,,span,48.8 percent,50%,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,10,53,7317,4,0.979,7.274,59.3,5227.3
+4hop1__105002_17130_70784_61381,4hop1,,span,1932,1916,0.0,0.0,0,4,2,0.5,4,2,0.5,3,repeated_query,9,47,5570,4,0.847,5.831,56.1,5243.0
+3hop1__559908_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,38,3644,3,0.98,4.215,83.9,5043.6
+3hop2__326964_36852_7713,3hop2,,span,about 400 years,400 years,0.0,0.8,1,3,3,1.0,3,3,1.0,2,repeated_query,7,35,3972,3,0.997,4.389,55.7,5125.9
+2hop__45296_83837,2hop,,span,Karen Fairchild,Karen Fairchild,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,28,2773,3,0.661,3.308,56.1,5017.0
+2hop__156700_73244,2hop,,span,Thaba Putsoa,Orange River,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,35,1679,3,0.525,2.588,67.7,4935.0
+2hop__63214_319330,2hop,,span,Jessie Woodrow Wilson,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,8,45,3227,4,0.598,4.227,93.0,5031.7
+2hop__29606_600504,2hop,,span,physic,Physics,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,38,2434,3,0.767,3.181,91.8,4954.2
+2hop__800166_156034,2hop,,span,Hudson's Bay,Nelson River,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,709,2,0.408,1.073,64.0,4856.5
+3hop2__90098_79978_10557,3hop2,,span,Medieval Latin,Latin,0.0,0.6667,1,3,3,1.0,3,3,1.0,4,max_hops,11,70,5473,4,0.759,6.683,87.1,5302.4
+2hop__472083_7298,2hop,,span,Michael Bublé,Josh Groban,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,46,3396,4,0.729,4.336,52.9,5003.3
+3hop1__169494_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,65,5677,4,1.143,6.72,83.7,5240.6
+2hop__390947_232243,2hop,,span,European integration,promoting European integration,0.0,0.8,1,2,2,1.0,2,2,1.0,1,done,5,7,733,2,0.448,1.094,58.2,4874.0
+2hop__61924_712629,2hop,,span,Philip Mountbatten,"Prince Philip, Duke of Edinburgh",0.0,0.2857,0,2,1,0.5,2,1,0.5,1,done,5,9,1059,2,0.564,1.41,53.4,4874.4
+2hop__123166_47134,2hop,,span,Benny Beaver,Benny Beaver,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,30,1731,3,0.565,2.506,62.2,4940.2
+4hop3__130404_29339_508306_70744,4hop3,,span,University of South Carolina,Clemson University,0.0,0.3333,1,4,4,1.0,4,4,1.0,2,repeated_query,5,73,1588,3,0.577,3.37,61.3,4870.3
+2hop__96410_47902,2hop,,span,Matt Damon,no,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,4,1127,2,0.596,1.342,130.7,4901.1
+4hop1__373866_5186_10659_23296,4hop1,,span,Soviet,Germany,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,10,45,4768,4,0.684,5.575,85.0,5216.6
+2hop__35137_22896,2hop,,span,Hamadan,Balkh,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,24,3394,3,0.788,3.817,59.4,5055.2
+3hop1__480375_709625_84283,3hop1,,span,Warner Music Group,Rodney Crowell,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,6,51,2494,4,0.548,3.847,54.5,4859.4
+3hop1__33845_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,done,6,28,4143,3,1.18,4.633,84.5,5131.7
+4hop1__88342_49853_128008_67954,4hop1,,span,Alex Bregman,Alex Bregman,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,7,29,3454,3,0.985,4.038,55.0,5123.1
+2hop__498061_88622,2hop,,span,ADM Michael S. Rogers,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,50,3224,3,0.756,4.308,75.6,5020.8
+3hop1__139787_88110_77129,3hop1,,span,Windows 8,Windows,0.0,0.6667,1,3,3,1.0,3,3,1.0,3,repeated_query,8,43,4020,4,0.737,4.945,77.3,4938.4
+3hop2__781093_223623_162182,3hop2,,span,South Central Coast,Northeastern region,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,49,3192,4,0.661,4.488,57.6,4997.6
+2hop__94507_654855,2hop,,span,Socialist Party of America,Socialist Party of America,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,38,1842,3,0.56,2.857,54.6,4848.4
+4hop3__175072_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,Moorish people,0.0,0.0,0,4,2,0.5,4,2,0.5,3,repeated_query,8,62,4819,4,1.007,6.059,54.7,5024.8
+2hop__697729_576069,2hop,,span,Chad Basin,Adamawa Emirate,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,10,39,3231,4,0.648,4.174,53.1,5060.8
+3hop1__315504_629431_64412,3hop1,,span,11 February 1929,no,0.0,0.0,0,3,1,0.3333,3,1,0.3333,1,repeated_query,5,22,875,2,0.543,1.653,93.5,4833.3
+4hop1__833841_378185_282674_759393,4hop1,,span,Green Bay,Appleton,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,6,37,1477,3,0.58,2.701,65.1,4882.5
+2hop__34495_85544,2hop,,span,38,112,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,58,3139,3,0.988,4.579,51.8,5079.8
+4hop1__43565_624859_355213_203322,4hop1,,span,Cabarrus County,Rowan,0.0,0.0,1,4,4,1.0,4,4,1.0,2,repeated_query,6,25,1466,3,0.564,2.472,57.6,4857.1
+2hop__39063_212301,2hop,,span,Arthur Peel,Nicolas Delamare,0.0,0.0,0,2,0,0.0,2,0,0.0,2,repeated_query,6,42,2887,3,0.908,4.112,46.8,5096.5
+4hop1__13170_32392_823060_610794,4hop1,,span,Richland County,St. Mary's County,0.0,0.4,0,4,0,0.0,4,0,0.0,2,repeated_query,7,48,3104,3,0.867,4.569,51.0,4964.6
+2hop__683835_709167,2hop,,span,Academy Award for Best Animated Short Film,No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,38,2161,3,0.687,3.226,95.0,4956.9
+3hop1__694534_160088_73916,3hop1,,span,"$72,641",No,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,24,4058,3,0.852,4.592,90.7,5221.4
+2hop__67057_52871,2hop,,span,"April 28, 1952",1943,0.0,0.0,1,2,2,1.0,2,2,1.0,3,done,9,36,5046,4,0.703,5.879,55.5,5245.4
+4hop2__71753_729371_70784_79935,4hop2,,span,1930,1987,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,8,27,2500,3,0.692,3.219,57.9,5040.6
+3hop1__568951_567566_84283,3hop1,,span,Warner Music Group,Columbia Records,0.0,0.0,0,3,1,0.3333,3,1,0.3333,1,done,5,6,1527,2,0.798,1.824,60.8,4938.2
+2hop__35686_58556,2hop,,span,Food Safety Modernization Act (FSMA),Food and Drug Administration (FDA),0.0,0.2,0,2,1,0.5,2,1,0.5,2,repeated_query,6,43,2270,3,0.715,3.443,51.9,4957.3
+4hop1__71715_59747_211319_557671,4hop1,,span,Presque Isle County,Dougherty County,0.0,0.4,0,4,2,0.5,4,2,0.5,2,repeated_query,7,43,3560,3,1.004,4.66,48.8,5098.4
+2hop__552546_70131,2hop,,span,consisting largely of World War I veterans,right-wing paramilitary militias,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,53,3956,4,0.788,5.476,48.5,5025.7
+2hop__275891_55984,2hop,,span,Phil Hanseroth,Phil Hanseroth,1.0,1.0,1,2,2,1.0,2,2,1.0,3,done,7,33,2239,4,0.61,3.45,54.3,4935.8
+2hop__512773_346751,2hop,,span,Haliburton County,Hastings County,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,7,40,3040,4,0.592,4.318,52.4,4991.0
+4hop2__161602_426860_88460_20999,4hop2,,span,The dynasty regrouped and defeated the Portuguese,Oman,0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,11,47,4930,4,0.845,6.027,63.3,5136.4
+2hop__696442_51329,2hop,,span,The African Queen,The French Connection,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,11,45,3565,4,0.67,4.762,60.9,5026.6
+3hop1__38426_91850_685675,3hop1,,span,New York Yankees,Cleveland Indians,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,6,40,3392,3,1.04,4.35,55.7,5018.5
+4hop3__857_846_326964_7713,4hop3,,span,about 400 years,300 years,0.0,0.4,1,4,4,1.0,4,4,1.0,3,repeated_query,9,55,6504,4,0.883,7.653,53.0,5214.6
+2hop__256553_617289,2hop,,span,Liu Yin,No,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,45,2946,4,0.706,4.225,87.9,4936.8
+3hop2__655849_223623_162182,3hop2,,span,South Central Coast,North Central Coast,0.0,0.6667,1,3,3,1.0,3,3,1.0,3,repeated_query,11,41,3279,4,0.675,4.471,55.8,5045.9
+3hop1__626214_503371_21711,3hop1,,span,built in the 15th century,1889-1896,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,7,42,3213,3,0.78,4.285,48.7,5008.9
+2hop__157602_21567,2hop,,span,John Kukuzelis,John Kukuzelis,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,82,3139,4,0.661,5.257,45.9,4994.6
+3hop1__353661_629431_64412,3hop1,,span,11 February 1929,no,0.0,0.0,0,3,1,0.3333,3,1,0.3333,1,repeated_query,5,29,953,2,0.625,2.012,82.6,4879.7
+2hop__91667_67223,2hop,,span,Tracy Mosby,Tracy McConnell,0.0,0.5,0,2,1,0.5,2,1,0.5,1,done,5,6,1035,2,0.644,1.502,61.6,4861.5
+3hop1__765388_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,53,6508,4,1.048,7.644,84.7,5189.8
+2hop__286268_97805,2hop,,span,Winter War,Winter War,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,7,47,2811,4,0.669,4.369,50.3,4967.8
+2hop__567588_67465,2hop,,span,"March 11, 2011",2011,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,9,42,3118,4,0.675,4.437,56.1,5077.9
+2hop__337223_56873,2hop,,span,1898 and 1959,no,0.0,0.0,0,2,0,0.0,2,0,0.0,2,repeated_query,7,30,4267,3,1.167,5.005,81.3,5196.1
+3hop2__103871_20335_9331,3hop2,,span,March Constitution of Poland,March Constitution of Poland,1.0,1.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,11,66,5948,4,1.048,7.527,44.3,5278.6
+3hop1__622497_160088_73916,3hop1,,span,"$72,641","27,029 USD",0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,42,3429,4,0.686,4.539,49.3,5064.7
+2hop__82669_768138,2hop,,span,Matthew Lawrence,Joey Lawrence,0.0,0.5,0,2,1,0.5,2,1,0.5,2,repeated_query,7,24,2764,3,0.699,3.375,58.5,5021.5
+2hop__96414_159054,2hop,,span,the novel of the same name by Robert Ludlum,The Bourne Identity novel by Robert Ludlum,0.0,0.6154,1,2,2,1.0,2,2,1.0,1,done,5,13,1735,2,0.906,2.263,45.8,5003.3
+4hop2__71753_73205_70784_79935,4hop2,,span,1930,no,0.0,0.0,0,4,2,0.5,4,2,0.5,3,repeated_query,7,46,4304,4,0.863,5.428,88.4,4983.1
+3hop1__759384_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,38,3918,3,1.104,4.791,89.9,5117.3
+3hop1__458916_651917_47686,3hop1,,span,Toronto Coach Terminal,Philadelphia,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,12,38,4033,4,0.718,4.874,94.2,5069.7
+3hop1__136016_87694_124169,3hop1,,span,1952,1952,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,11,49,4884,4,0.789,5.945,49.3,5301.2
+2hop__538735_3299,2hop,,span,season five,3,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,45,4875,4,0.878,5.885,91.9,5146.2
+3hop1__354480_834494_33939,3hop1,,span,"7,531","13,913",0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,33,2372,3,0.711,3.326,49.1,4985.7
+3hop1__595371_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,1,3,3,1.0,3,3,1.0,3,repeated_query,7,50,3436,4,0.728,4.687,56.1,5027.1
+2hop__596188_297986,2hop,,span,Royal Borough of Greenwich,Royal Borough of Greenwich,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,8,25,1756,3,0.573,2.625,55.3,4967.1
+2hop__587048_621800,2hop,,span,Senica District,Slovakia,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,41,2419,4,0.611,3.671,58.1,4965.2
+3hop1__527372_339990_54675,3hop1,,span,Tualatin Mountains,"Tualatin Mountains, Oregon Coast Range, Cascade Range",0.0,0.4444,1,3,3,1.0,3,3,1.0,2,repeated_query,6,30,1994,3,0.7,2.878,45.4,4972.8
+2hop__347686_127399,2hop,,span,2005,2005,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,821,2,0.507,1.32,52.9,4811.8
+2hop__93145_54024,2hop,,span,King James I of England,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,34,3587,3,1.049,4.483,70.3,5019.1
+2hop__803903_78606,2hop,,span,Joyce Van Patten,Jennifer Morrison,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,65,4554,4,0.61,6.024,59.8,5074.1
+3hop1__106688_160713_77246,3hop1,,span,the country of India,Islam,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,10,64,8016,4,1.106,9.141,83.3,5197.0
+3hop1__489567_443779_52195,3hop1,,span,Francisco Guterres,Francisco Guterres,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,10,90,7096,4,0.919,8.917,54.9,5105.4
+3hop1__53690_161697_73916,3hop1,,span,"$72,641","$36,836",0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,24,2277,3,0.659,2.886,49.0,4967.8
+3hop1__23058_20608_36327,3hop1,,span,top emerging market economy in Africa,Angola,0.0,0.0,0,3,1,0.3333,3,1,0.3333,3,repeated_query,8,65,5061,4,0.893,6.332,62.8,5164.3
+2hop__16581_16569,2hop,,span,Kalb,Jacobite Christian Arab tribe,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,58,5555,4,1.058,6.556,53.2,5175.9
+2hop__517145_367341,2hop,,span,Tatum O'Neal,Ryan O'Neal,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,11,52,5515,4,0.73,6.426,53.1,5282.4
+2hop__160223_58067,2hop,,span,A.P.J. Abdul Kalam,Sir Mokshagundam Viswesvarayya,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,72,4528,4,0.917,6.064,46.2,5048.9
+2hop__507528_139339,2hop,,span,Academy Award for Best Live Action Short Film,Academy Award for Best Live Action Short Film,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,10,51,3258,4,0.576,4.616,48.3,5060.8
+2hop__832795_350510,2hop,,span,Jackson 5,Jackie Jackson,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,9,46,2768,4,0.561,4.077,55.3,4988.4
+3hop2__69814_76873_64554,3hop2,,span,Union of Soviet Socialist Republics,Soviet Union,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,56,4837,4,0.867,6.125,51.5,5137.5
+2hop__511176_22458,2hop,,span,International Federation of Association Football,DFK,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,57,3420,4,0.655,4.826,66.6,5025.1
+3hop1__756602_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land",1.0,1.0,0,3,2,0.6667,3,2,0.6667,1,done,5,9,1341,2,0.723,1.715,50.5,4852.5
+2hop__75207_53316,2hop,,span,Salvador Allende,no,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,65,3860,4,0.755,5.49,81.0,5092.6
+2hop__131818_161450,2hop,,span,in the north-east of the country south of the Caspian Sea,"Aqqala County, Golestan Province, Iran",0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,14,703,2,0.484,1.348,50.0,4852.7
+2hop__85463_54688,2hop,,span,a communist government,Communist,0.0,0.6667,0,2,1,0.5,2,1,0.5,1,done,5,5,2379,2,1.079,2.437,68.3,4986.2
+3hop1__68981_91191_156667,3hop1,,span,Khawlah bint Ja'far,the princess of Pasai,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,10,60,5760,4,0.899,6.784,50.2,5222.1
+3hop1__617062_127905_86588,3hop1,,span,582 feet (177 m),582 feet (177 m),1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,9,37,4102,3,1.014,4.816,43.7,5171.0
+2hop__402530_774333,2hop,,span,Crockett County,Crockett County,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,37,2320,3,0.7,3.283,50.6,4956.9
+3hop1__49236_89752_54221,3hop1,,span,5am,No,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,6,54,1941,3,0.653,3.332,92.1,4947.5
+4hop3__862_846_613770_7713,4hop3,,span,about 400 years,one year,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,11,54,5522,4,0.743,6.489,61.9,5232.2
+2hop__315072_120259,2hop,,span,918,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,26,3215,3,0.752,3.698,84.9,5006.4
+3hop1__79039_131926_13165,3hop1,,span,Treaty of Paris,Treaty of Guadalupe Hidalgo,0.0,0.5714,1,3,3,1.0,3,3,1.0,2,repeated_query,7,32,2978,3,0.808,3.68,47.9,5025.7
+2hop__265989_531490,2hop,,span,Jane Greer,Nina Companeez,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,31,2261,3,0.599,3.081,52.0,4984.7
+2hop__25788_25855,2hop,,span,PowerShare,PowerShare,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,35,1927,3,0.685,2.954,68.5,4956.8
+3hop1__222497_737465_93723,3hop1,,span,Jason Momoa,Jason Momoa,1.0,1.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,8,97,3828,4,0.706,6.077,51.5,5008.5
+2hop__6736_6733,2hop,,span,Eastern block,Central Catalan,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,25,1807,3,0.614,2.556,69.3,4960.8
+2hop__200391_44187,2hop,,span,a Wilson volleyball,Wilson,0.0,0.6667,1,2,2,1.0,2,2,1.0,4,max_hops,9,51,4403,4,0.636,5.569,76.8,5096.8
+2hop__669160_139339,2hop,,span,Academy Award for Best Live Action Short Film,no,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,4,1289,2,0.718,1.585,80.9,4963.0
+3hop1__671542_665330_47686,3hop1,,span,Toronto Coach Terminal,Philadelphia Greyhound Terminal,0.0,0.3333,1,3,3,1.0,3,3,1.0,3,repeated_query,6,51,2795,4,0.694,4.277,51.2,4878.6
+4hop1__88342_49853_128008_89859,4hop1,,span,"March 29, 2018","Thursday, March 30 for the 2018 season, and traditionally on Monday for most seasons.",0.0,0.25,0,4,1,0.25,4,1,0.25,1,done,5,26,1491,2,0.778,2.288,43.9,4910.3
+2hop__850984_7292,2hop,,span,George Benson,Dave Koz,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,28,1748,3,0.568,2.669,49.1,4963.5
+2hop__207597_73244,2hop,,span,Thaba Putsoa,"Thaba Putsoa - location Maloti Mountains (Drakensberg), Lesotho",0.0,0.4444,1,2,2,1.0,2,2,1.0,2,repeated_query,5,39,2794,3,0.889,3.772,45.2,5042.2
+3hop2__159979_30587_44003,3hop2,,span,through the Florida Straits,Atlantic Ocean,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,9,46,4995,4,0.886,5.891,65.6,5090.1
+2hop__56270_68396,2hop,,span,more than 12 percent,3.5%,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,50,4911,4,0.859,6.014,48.0,5103.3
+2hop__219456_87295,2hop,,span,Queen dowager Clarisse Renaldi,Mia Thermopolis,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,11,61,3614,4,0.646,5.207,44.4,4960.6
+4hop1__708184_153080_159767_81096,4hop1,,span,Mario Andretti,no,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,10,51,5035,4,0.755,6.002,83.7,5146.2
+4hop1__370129_621192_10659_59955,4hop1,,span,Kaliningrad Oblast,Poland,0.0,0.0,0,4,2,0.5,4,2,0.5,3,repeated_query,10,69,4815,4,0.695,6.223,63.7,5205.4
+3hop1__305282_282081_73772,3hop1,,span,"December 14, 1814",1754,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,14,42,4434,4,0.712,5.477,51.4,5114.9
+3hop1__747772_514761_594810,3hop1,,span,Warner Bros. Records,Burning Heart Records,0.0,0.3333,0,3,2,0.6667,3,2,0.6667,2,repeated_query,6,29,2036,3,0.648,2.852,54.0,4956.8
+2hop__704217_82341,2hop,,span,in Northern Florida,Ocala,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,23,1974,3,0.66,2.696,68.8,4933.1
+3hop2__11282_57233_56883,3hop2,,span,1964,1939,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,41,3928,4,0.739,4.884,58.6,5076.6
+2hop__635544_110949,2hop,,span,11 September 1962,1962,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,9,34,4234,4,0.668,4.668,59.1,4997.0
+4hop1__145087_32392_823060_610794,4hop1,,span,Richland County,Richland County,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,10,38,3943,4,0.755,4.596,58.6,5025.4
+2hop__227031_144857,2hop,,span,Clatskanie,Boston,0.0,0.0,0,2,0,0.0,2,0,0.0,3,repeated_query,8,31,2380,4,0.502,3.26,89.6,4890.9
+3hop2__127483_19639_10557,3hop2,,span,Medieval Latin,Old English,0.0,0.0,0,3,1,0.3333,3,1,0.3333,4,max_hops,9,60,4527,4,0.89,5.577,59.8,5102.0
+3hop1__309596_160713_77246,3hop1,,span,the country of India,Islam,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,52,6911,4,1.272,7.615,82.0,5197.6
+2hop__7046_44085,2hop,,span,The Mickey Mouse Club,The Mickey Mouse Club,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,43,3382,3,0.936,4.306,51.5,5069.0
+3hop2__125104_90098_10557,3hop2,,span,Medieval Latin,Latin,0.0,0.6667,1,3,3,1.0,3,3,1.0,3,repeated_query,9,36,4723,4,0.728,5.338,77.8,5115.2
+2hop__81379_84616,2hop,,span,for Best Performance by a Leading Actress in a Play in Ondine,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,34,2323,3,0.602,3.281,81.1,5021.4
+3hop2__304722_526346_63959,3hop2,,span,1 December 2010,"Trevor Dark played in the late 1970s and early 1980s, while the 1894–95 FA Cup winner was Notts County. The context does not provide information about when Trevor Dark's team beat Notts County, so based on the given context, we cannot determine the answer. However, since the question asks for a specific event that is not covered by the context, the answer is no.",0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,8,129,3333,3,0.834,6.669,39.0,5012.4
+4hop2__9988_158279_70784_79935,4hop2,,span,1930,No,0.0,0.0,0,4,1,0.25,4,1,0.25,1,repeated_query,5,38,783,2,0.515,2.008,76.8,4877.1
+3hop2__132957_595371_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,53,3746,4,0.719,5.081,45.4,5124.1
+3hop1__132798_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,1,3,3,1.0,3,3,1.0,2,repeated_query,6,53,2975,3,0.88,4.338,53.6,5122.5
+2hop__61714_80069,2hop,,span,in the fourth season,Season 4,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,5,6,1949,2,0.938,2.223,54.5,5076.6
+2hop__488811_30113,2hop,,span,names were replaced by new Russian names,"Ethnic Russians, Belarusians, and Ukrainians were settled in the northern part, and a policy of eliminating all remnants of German history was pursued. All German place names were replaced by new Russian names.",0.0,0.3684,1,2,2,1.0,2,2,1.0,4,max_hops,8,113,2978,4,0.649,5.468,46.8,4970.3
+4hop3__710473_354093_254885_76356,4hop3,,span,Ferdinand de Lesseps,no,0.0,0.0,0,4,3,0.75,4,3,0.75,1,repeated_query,5,31,1215,2,0.631,1.998,88.6,4949.1
+2hop__135029_712629,2hop,,span,Philip Mountbatten,"Prince Philip, Duke of Edinburgh",0.0,0.2857,1,2,2,1.0,2,2,1.0,2,repeated_query,7,31,4079,3,1.092,4.494,50.7,5140.3
+2hop__16446_58556,2hop,,span,Food Safety Modernization Act (FSMA),Food Safety Modernization Act (FSMA),1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,34,2816,3,0.609,3.452,48.9,4958.9
+2hop__418941_429437,2hop,,span,Yakima River,Little Naches River,0.0,0.4,1,2,2,1.0,2,2,1.0,2,repeated_query,6,23,2211,3,0.671,2.707,57.1,4945.4
+3hop1__749581_443779_52195,3hop1,,span,Francisco Guterres,Francisco Guterres,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,12,53,6205,4,0.714,7.124,49.1,5294.3
+2hop__776377_857193,2hop,,span,Delaware River,Crum Creek,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,24,2096,3,0.647,2.735,59.2,4918.6
+2hop__747667_52835,2hop,,span,John D. Loudermilk,Norah Jones,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,39,3636,4,0.739,4.587,57.5,5072.7
+3hop1__446612_160545_62931,3hop1,,span,island Koh Phi Phi,Italy,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,40,5008,4,0.859,5.745,85.3,5137.5
+2hop__40270_11402,2hop,,span,17.037 square miles,498,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,7,46,4066,4,0.841,5.019,64.0,5095.4
+2hop__272714_113442,2hop,,span,13 August 1896,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,37,3921,4,0.618,4.529,90.3,4940.3
+3hop2__88342_93066_47738,3hop2,,span,the 2009 season,2012,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,6,33,2846,3,0.768,3.402,53.6,5100.4
+2hop__527400_159673,2hop,,span,The Hateful Eight,Kurt Russell: The Hateful Eight,0.0,0.6667,1,2,2,1.0,2,2,1.0,4,max_hops,9,57,3751,4,0.723,4.878,49.3,5056.0
+3hop1__145924_131905_41948,3hop1,,span,English Channel,sea level,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,10,59,5091,4,0.76,6.082,52.9,5207.1
+2hop__73719_510545,2hop,,span,Jennifer Connelly,Gwyneth Paltrow,0.0,0.0,0,2,0,0.0,2,0,0.0,1,repeated_query,5,24,2167,2,1.037,2.727,51.6,5028.3
+3hop1__622145_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,8,73,6788,4,1.221,8.147,67.1,5264.0
+3hop2__209741_89048_66294,3hop2,,span,Lawrence Hilton - Jacobs,no,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,70,3487,4,0.562,5.394,77.1,4964.3
+2hop__557411_652060,2hop,,span,Peter Marc Jacobson,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,42,1573,3,0.597,2.782,82.2,4865.5
+3hop1__796649_720914_41132,3hop1,,span,22,2,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,8,33,4383,4,0.834,4.993,75.7,5007.9
+2hop__1667_40502,2hop,,span,2 million,2 million,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,8,61,4706,4,0.761,5.87,82.7,5092.5
+4hop1__567737_141375_458768_33637,4hop1,,span,two,2,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,9,50,2957,4,0.658,3.868,107.3,4965.2
+3hop2__222979_132957_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,10,48,4629,4,0.759,4.95,67.3,5050.6
+2hop__765678_310556,2hop,,span,John Profumo,Valerie Hobson,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,37,4248,4,0.676,4.433,69.2,4994.3
+2hop__71034_343058,2hop,,span,Adrian Edmondson,Fiona,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,35,2628,3,0.773,3.106,81.1,5013.8
+3hop1__79039_131926_89261,3hop1,,span,the Mississippi River Delta,Gulf of Mexico,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,12,47,4916,4,0.726,5.335,66.8,5206.8
+2hop__794999_113442,2hop,,span,13 August 1896,1896,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,5,7,1269,2,0.64,1.487,71.6,4976.3
+2hop__203437_152093,2hop,,span,Fair Trade Services,Warner Music Group,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,42,2882,4,0.531,3.491,70.0,4999.9
+2hop__2148_78851,2hop,,span,Brooklyn Nets NBA,New York Knicks,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,48,5450,4,0.819,5.594,65.7,5236.5
+2hop__274110_413723,2hop,,span,West Berkshire,No,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,20,1543,3,0.596,2.079,109.2,4855.5
+2hop__323534_810083,2hop,,span,Scranton,"Scranton, Pennsylvania, United States",0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,30,1498,3,0.43,2.046,67.1,4885.2
+2hop__13986_40169,2hop,,span,1191,1183,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,8,61,3512,4,0.643,4.273,69.4,5074.3
+3hop1__857_846_7795,3hop1,,span,8.11 million,"12,479,608",0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,11,68,4956,4,0.82,5.489,57.2,5147.0
+2hop__543853_124498,2hop,,span,Louis Chedid,André Chedid,0.0,0.5,0,2,1,0.5,2,1,0.5,1,done,5,8,903,2,0.506,1.201,67.5,4850.6
+3hop1__132795_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,45,2317,3,0.609,2.876,71.7,4961.9
+3hop1__127716_157828_239539,3hop1,,span,Pristina,Belgrade,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,47,3717,4,0.661,4.209,84.9,5091.6
+2hop__525242_52835,2hop,,span,John D. Loudermilk,Norah Jones,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,45,3325,4,0.57,3.811,78.0,5016.8
+3hop1__783711_503371_21711,3hop1,,span,built in the 15th century,1410,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,11,53,4071,4,0.627,4.597,69.9,5100.4
+4hop1__567737_141375_458768_33632,4hop1,,span,May 4,7 October,0.0,0.0,0,4,1,0.25,4,1,0.25,2,repeated_query,7,37,2288,3,0.475,2.77,81.3,5012.1
+2hop__468778_88165,2hop,,span,Keturah,Abraham,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,33,1678,3,0.574,2.24,89.9,4892.7
+2hop__8496_21567,2hop,,span,John Kukuzelis,Hampartsoum Limondjian,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,11,59,5639,4,0.692,6.099,60.2,5271.4
+3hop1__524212_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land Teams",0.0,0.8889,0,3,2,0.6667,3,2,0.6667,1,done,5,10,1259,2,0.599,1.467,60.5,4970.3
+4hop3__316459_41402_599212_13584,4hop3,,span,two cities,No,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,8,53,3918,4,0.737,4.523,113.8,5101.7
+2hop__133241_33564,2hop,,span,From the 1950s to the 1970s,1967,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,10,41,3684,4,0.525,4.114,69.1,5072.7
+4hop2__797545_14670_8987_8974,4hop2,,span,Alfredo Stroessner's Paraguay,Paraguay,0.0,0.5,0,4,2,0.5,4,2,0.5,2,repeated_query,8,39,2807,3,0.619,3.178,84.5,5022.6
+2hop__29368_29376,2hop,,span,Lyons' death in 1939,Robert Menzies' opposition to Labor's proposal to nationalise banks and his victory in the 1949 election caused him to become Prime Minister.,0.0,0.08,1,2,2,1.0,2,2,1.0,2,repeated_query,7,59,2643,3,0.735,3.356,62.2,5043.6
+2hop__326140_9237,2hop,,span,September 2012,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,38,2197,3,0.506,2.56,116.8,4950.5
+3hop1__662413_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,38,4104,3,0.992,4.14,112.2,5140.3
+2hop__195917_575657,2hop,,span,Orleans County,Orleans County,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,40,2971,4,0.393,3.533,74.4,5025.4
+2hop__78766_461854,2hop,,span,Laurence Olivier,Rhett Butler,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,34,2753,3,0.618,3.149,73.9,5021.0
+2hop__439614_349102,2hop,,span,panda,giant panda,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,6,1535,2,0.704,1.562,76.7,4941.5
+4hop1__344155_378185_282674_759393,4hop1,,span,Green Bay,Appleton,0.0,0.0,0,4,2,0.5,4,2,0.5,3,repeated_query,9,41,3201,4,0.485,3.658,87.2,5095.4
+3hop1__17192_78396_54865,3hop1,,span,1776,1776,1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,41,4052,4,0.708,4.295,72.0,4936.2
+2hop__63002_461854,2hop,,span,Laurence Olivier,Rhett Butler,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,28,3548,3,0.817,3.505,76.4,5071.6
+3hop1__144439_443779_52195,3hop1,,span,Francisco Guterres,Francisco Guterres,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,7,80,5132,4,0.98,5.801,68.6,5088.4
+2hop__499577_617190,2hop,,span,Johanne Luise Heiberg,Johanne Luise Heiberg,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,11,1171,2,0.553,1.303,67.0,4926.9
+4hop1__152562_5274_458768_33677,4hop1,,span,2013,2013,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,8,39,2171,3,0.523,2.599,71.8,4953.8
+4hop1__814776_378185_282674_759393,4hop1,,span,Green Bay,Appleton,0.0,0.0,0,4,1,0.25,4,1,0.25,2,repeated_query,7,21,1814,3,0.425,1.923,80.6,4869.1
+4hop3__439878_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,no,0.0,0.0,0,4,2,0.5,4,2,0.5,3,done,9,40,5105,4,0.665,4.637,113.3,5169.9
+2hop__176712_8311,2hop,,span,1216,1216,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,27,2603,3,0.543,2.515,73.3,5060.8
+2hop__80070_89752,2hop,,span,Maine,Maine,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,40,3045,4,0.438,3.125,86.9,4968.8
+2hop__51074_75184,2hop,,span,Claudia Wells,Elisabeth Shue,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,8,1293,2,0.531,1.223,68.8,4965.2
+3hop1__79462_91850_685675,3hop1,,span,New York Yankees,New York Yankees,1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,72,4361,4,0.667,4.742,70.9,5009.5
+3hop2__14777_8533_9331,3hop2,,span,March Constitution of Poland,The Habsburg Monarchy,0.0,0.0,0,3,2,0.6667,3,2,0.6667,1,repeated_query,5,53,1923,2,0.877,2.75,64.3,5067.4
+3hop2__6989_37759_74563,3hop2,,span,1630,1629,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,72,4487,4,0.706,5.022,70.1,5104.7
+3hop2__57233_106716_56883,3hop2,,span,1964,Canada,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,32,2227,3,0.479,2.37,116.8,4972.8
+3hop1__408237_400692_51423,3hop1,,span,Casa Loma,Stauffenberg Castle,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,8,44,3081,3,0.621,3.19,68.1,4959.3
+2hop__495316_660579,2hop,,span,Starkville,Clayton,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,30,1291,3,0.399,1.753,79.6,4822.1
+4hop3__238811_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,no,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,10,43,4473,4,0.609,4.213,115.3,5048.2
+3hop1__801799_547811_41132,3hop1,,span,22,22,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,53,5883,4,0.893,5.747,84.6,5282.2
+2hop__230022_68489,2hop,,span,Snapper Foster,Blake,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,30,1801,3,0.469,2.168,115.7,4967.8
+2hop__166824_185403,2hop,,span,Lega Pro Prima Divisione,Serie B,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,7,20,1383,3,0.406,1.976,61.2,4867.5
+2hop__44652_165532,2hop,,span,Sherry Boucher,No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,34,2045,3,0.609,3.191,63.1,4905.7
+2hop__50068_494136,2hop,,span,Meg Ryan,Dennis Quaid,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,63,3375,4,0.855,5.145,51.9,4992.6
+3hop2__326964_734214_7713,3hop2,,span,about 400 years,239 years,0.0,0.4,1,3,3,1.0,3,3,1.0,4,max_hops,9,59,4215,4,0.675,5.786,55.0,5047.1
+3hop1__17192_78396_42428,3hop1,,span,French residents who chose to remain in the colony would be given freedom,"freedom to continue worshiping in their Roman Catholic tradition, continued ownership of their property, and the right to remain undisturbed in their homes",0.0,0.2353,0,3,2,0.6667,3,2,0.6667,1,done,5,32,1499,2,0.775,2.346,47.5,4913.5
+4hop1__15567_59747_211319_557671,4hop1,,span,Presque Isle County,Wayne,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,8,45,4877,4,0.959,5.826,67.9,5101.9
+2hop__388467_110882,2hop,,span,1 January 1986,Unknown,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,4,925,2,0.578,1.32,91.2,4862.7
+2hop__152052_141308,2hop,,span,Apple Corps,Apple Records,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,8,49,4314,4,0.904,5.48,62.6,5076.6
+2hop__51760_602275,2hop,,span,Hans Albert Einstein,Ty Burrell,0.0,0.0,0,2,0,0.0,2,0,0.0,3,repeated_query,8,60,3451,4,0.658,4.888,51.0,5052.5
+2hop__160092_80144,2hop,,span,Lech Wałęsa,no,0.0,0.0,0,2,0,0.0,2,0,0.0,3,repeated_query,8,64,3894,4,0.689,5.033,84.4,5025.7
+3hop1__567955_503371_21711,3hop1,,span,built in the 15th century,15th century,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,31,2278,3,0.654,2.959,50.6,4952.2
+4hop1__152146_5274_458768_33637,4hop1,,span,two,2,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,10,61,3481,4,0.604,4.715,88.1,5042.5
+3hop1__579562_629431_64412,3hop1,,span,11 February 1929,1929,0.0,0.5,1,3,3,1.0,3,3,1.0,2,repeated_query,8,41,3479,3,0.778,4.161,49.4,5073.1
+2hop__47257_43786,2hop,,span,"Washington, D.C.","The Washington Post, page six, dated October 25, 1911.",0.0,0.2222,1,2,2,1.0,2,2,1.0,4,max_hops,8,108,3176,4,0.611,5.492,48.0,5004.5
+3hop1__844109_720914_41132,3hop1,,span,22,0,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,39,5735,4,0.989,5.933,91.5,5217.5
+2hop__73760_712629,2hop,,span,Philip Mountbatten,Elizabeth Bowes-Lyon,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,9,41,6596,4,1.0,6.635,53.7,5229.5
+2hop__199513_801817,2hop,,span,Nazareth,No,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,4,971,2,0.522,1.219,90.0,4862.7
+4hop1__105773_457883_650651_7262,4hop1,,span,Walter Sabo,Johnny Dare,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,10,55,4308,4,0.631,5.225,63.5,5008.9
+4hop1__364476_439408_131976_90181,4hop1,,span,Milwaukee Deep,Milwaukee Deep,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,5,32,2023,3,0.653,2.743,63.2,4852.5
+4hop1__39871_314549_131976_56103,4hop1,,span,usually in the summer or fall,summer or fall,0.0,0.75,1,4,4,1.0,4,4,1.0,4,max_hops,10,56,3979,4,0.7,4.936,60.5,5079.2
+3hop2__92991_38326_76291,3hop2,,span,January 2015,2015,0.0,0.6667,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,59,4304,4,0.761,5.289,56.1,4997.0
+2hop__73615_20510,2hop,,span,1600,1600,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,29,4226,3,1.109,4.477,54.1,5155.9
+2hop__862994_69048,2hop,,span,Honorable Justice Abiodun Smith,no,0.0,0.0,1,2,2,1.0,2,2,1.0,3,done,9,23,2616,4,0.536,3.163,84.9,4967.1
+3hop1__145194_160545_34751,3hop1,,span,1941,1941,1.0,1.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,29,3409,3,0.877,3.89,51.6,5028.3
+2hop__788306_131879,2hop,,span,River Great Ouse,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,57,1866,4,0.499,3.554,88.2,4881.7
+2hop__144658_599630,2hop,,span,Yongjia County,Wenzhou,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,1127,2,0.58,1.404,59.6,4901.1
+3hop1__68732_39743_24526,3hop1,,span,upper 40s–lower 50s °F,32.6 °F (0.3 °C),0.0,0.25,1,3,3,1.0,3,3,1.0,3,done,9,41,7118,4,1.052,7.227,46.7,5220.6
+2hop__761291_87295,2hop,,span,Queen dowager Clarisse Renaldi,Julie Andrews plays Queen dowager Clarisse Renaldi.,0.0,0.7273,1,2,2,1.0,2,2,1.0,3,repeated_query,7,72,3377,4,0.649,4.87,48.1,5013.8
+3hop1__103751_24918_24991,3hop1,,span,Soviet flag,"Gorbachev left the Kremlin on the night of December 25, 1991.",0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,85,3966,4,0.767,5.61,45.9,5028.6
+3hop1__106042_64399_53006,3hop1,,span,Al - Aqsa Mosque,Al-Aqsa Mosque,1.0,1.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,11,57,6314,4,0.858,6.899,53.2,5185.8
+4hop3__373866_5189_31809_86687,4hop3,,span,May 1990,1990,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,8,77,3950,4,0.695,5.481,56.5,5005.3
+4hop1__726391_153080_33952_33939,4hop1,,span,"7,531",no,0.0,0.0,0,4,1,0.25,4,1,0.25,2,repeated_query,7,40,2693,3,0.711,3.463,89.3,5091.2
+3hop1__373866_5189_63702,3hop1,,span,June 1941,yes,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,57,3601,4,0.707,4.654,91.2,5069.4
+2hop__96137_62765,2hop,,span,Dathan,no,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,56,4816,4,0.899,5.564,83.9,5071.3
+3hop1__142044_538202_84283,3hop1,,span,Warner Music Group,Warner Bros. Records,0.0,0.4,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,48,3180,4,0.637,4.266,54.0,4984.1
+2hop__837900_71701,2hop,,span,November 5,November 5,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,65,4144,4,0.561,5.361,54.5,4988.7
+3hop2__304722_591230_63959,3hop2,,span,1 December 2010,1973,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,6,39,2949,3,0.816,3.677,57.9,5100.0
+2hop__506099_20057,2hop,,span,Richard Stallman,Richard Stallman,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,22,2518,3,0.545,2.959,63.9,5121.5
+2hop__77601_814677,2hop,,span,ancient Egyptian religion,Egyptian pantheon,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,5,7,2257,2,0.987,2.223,59.0,4954.8
+3hop1__346416_831637_91775,3hop1,,span,"Sea, Air, and Land",No,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,38,2443,3,0.69,3.135,94.9,4995.0
+2hop__21103_16254,2hop,,span,92 percent,92%,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,6,2135,2,0.956,2.2,57.5,5018.2
+3hop2__76623_90098_10557,3hop2,,span,Medieval Latin,Classical Latin,0.0,0.5,1,3,3,1.0,3,3,1.0,4,max_hops,9,76,4473,4,0.704,5.804,58.6,5043.6
+2hop__159902_362941,2hop,,span,Mount Laurel Township,New York,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,10,41,3718,4,0.718,4.397,67.1,5047.5
+2hop__71755_463572,2hop,,span,MGM Records,Epic Records,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,8,50,4518,4,0.763,5.184,56.8,5017.6
+4hop2__161602_474028_88460_126088,4hop2,,span,Thein Sein,Russia,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,6,24,1881,3,0.557,2.484,83.4,4972.8
+2hop__551235_310309,2hop,,span,Edwin Landseer Lutyens,no,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,10,59,3242,4,0.614,4.583,88.8,5077.9
+2hop__780238_110949,2hop,,span,11 September 1962,1962,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,7,27,2086,3,0.587,2.736,57.4,4945.0
+3hop1__136852_30587_83479,3hop1,,span,to stem the flow of merchant shipping that enabled Britain to keep fighting,No,0.0,0.0,0,3,0,0.0,3,0,0.0,3,repeated_query,8,68,3169,4,0.609,4.631,77.4,5000.2
+2hop__613779_55984,2hop,,span,Phil Hanseroth,Phil Hanseroth,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,7,1028,2,0.582,1.394,52.1,4858.3
+4hop1__88342_75218_128008_87812,4hop1,,span,"Thursday, March 29",March 29,0.0,0.8,0,4,3,0.75,4,3,0.75,3,repeated_query,11,43,6327,4,1.067,6.601,56.3,5217.7
+3hop1__848113_15840_36002,3hop1,,span,built on 16-bit architectures and offered improved graphics and sound,"larger library of games, and lower price point",0.0,0.1111,1,3,3,1.0,3,3,1.0,2,repeated_query,8,47,3398,3,0.798,4.132,48.1,5024.0
+2hop__203955_25719,2hop,,span,406,390 BC,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,7,2591,2,1.157,2.648,50.8,5056.3
+2hop__422295_8311,2hop,,span,1216,1220,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,54,3167,4,0.668,4.364,54.2,5033.3
+2hop__61714_42553,2hop,,span,"the season finale, ``The Job, ''",Niagara,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,49,5746,4,1.194,6.157,63.6,5141.4
+2hop__532383_768138,2hop,,span,Matthew Lawrence,Joey Lawrence,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,8,36,3608,4,0.655,4.239,62.1,5091.0
+4hop3__31333_29339_508306_70744,4hop3,,span,University of South Carolina,Clemson,0.0,0.0,1,4,4,1.0,4,4,1.0,2,repeated_query,8,40,2732,3,0.66,3.51,61.7,5126.1
+2hop__537404_55227,2hop,,span,Maria Bello,Bonnie Bedelia,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,49,1990,3,0.653,3.124,58.8,4978.5
+3hop1__102087_214799_259594,3hop1,,span,GDR,GER,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,6,28,2505,3,0.736,3.014,90.8,4992.6
+3hop1__92991_78276_68042,3hop1,,span,the 2010 election,2010,0.0,0.6667,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,35,3902,3,0.947,4.305,57.7,5129.4
+4hop1__131820_59747_211319_557671,4hop1,,span,Presque Isle County,Augusta County,0.0,0.4,0,4,2,0.5,4,2,0.5,2,repeated_query,7,28,2392,3,0.651,2.962,62.1,4981.1
+4hop1__94201_642284_131926_90707,4hop1,,span,"at the city of Cairo, Illinois",Cape Agulhas,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,9,57,3314,4,0.549,4.51,52.5,5067.4
+2hop__497191_129669,2hop,,span,Lisbon District,Lisbon,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,8,45,3144,4,0.659,4.165,57.3,4974.6
+2hop__166484_798067,2hop,,span,Quanzhou,Jinjiang,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,28,1367,3,0.492,2.28,62.8,4862.7
+3hop1__57186_237521_291682,3hop1,,span,Liza Minnelli,David Gest,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,35,2434,3,0.639,3.042,76.0,4996.0
+3hop1__818422_160545_60577,3hop1,,span,Ko Phi Phi Leh,United Kingdom,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,7,29,2150,3,0.582,2.896,63.7,4962.4
+2hop__463353_80420,2hop,,span,James Howard Meredith,James Howard Meredith,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,49,3678,4,0.564,4.82,46.8,5025.1
+2hop__9285_42311,2hop,,span,Medical University of Warsaw,Medical University of Warsaw,1.0,1.0,1,2,2,1.0,2,2,1.0,3,done,7,36,3961,4,0.885,4.765,50.1,5050.9
+2hop__61664_786853,2hop,,span,Amy Poehler,no,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,10,42,6129,4,0.964,6.628,95.7,5298.7
+4hop1__94201_642284_131926_87157,4hop1,,span,rises in northern Minnesota and meanders slowly southwards,no,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,9,56,3433,4,0.58,4.602,86.0,5079.8
+3hop1__829944_474097_84283,3hop1,,span,Warner Music Group,Terry Dexter,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,5,38,1423,3,0.534,2.511,65.4,4877.6
+2hop__88406_83289,2hop,,span,Matt Bennett,Matt Bennett,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,39,4145,3,1.207,4.595,65.4,5099.2
+2hop__131275_72870,2hop,,span,Hillary Clinton,Republican Donald Trump,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,42,3001,4,0.612,3.88,62.8,4965.7
+3hop1__847684_339990_54675,3hop1,,span,Tualatin Mountains,"Mt. Hood, Mt. St. Helens, Mt. Adams, Mt. Rainier",0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,6,38,2043,3,0.638,2.85,48.4,4864.5
+2hop__21991_43945,2hop,,span,crystallized the rebellious demand for independence from Great Britain,yes,0.0,0.0,1,2,2,1.0,2,2,1.0,3,done,10,27,5436,4,0.682,5.389,92.4,5220.3
+2hop__129721_40482,2hop,,span,Edmund Bellinger,British Crown,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,55,4811,4,0.885,5.553,61.4,5062.8
+3hop1__140345_2053_5289,3hop1,,span,Oriole Records.,CBS,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,8,48,2675,4,0.575,3.793,84.9,4965.2
+2hop__50910_177869,2hop,,span,Helen Pitts Douglass,No,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,40,2627,4,0.625,3.588,86.8,4915.5
+4hop1__391525_49925_13759_736921,4hop1,,span,Saxony-Anhalt,Notre Dame de Paris,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,8,59,5123,4,0.813,5.998,56.2,5173.8
+3hop2__222979_133154_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,37,2629,3,0.714,3.463,55.1,5067.4
+2hop__144784_623159,2hop,,span,Yaroslavl Oblast,Rostov,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,41,2684,4,0.576,3.653,59.3,4877.1
+2hop__3739_13529,2hop,,span,June 1982,June 1982,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,33,2005,3,0.652,2.761,53.2,4848.4
+3hop1__133264_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,1,3,3,1.0,3,3,1.0,4,max_hops,9,64,3778,4,0.695,4.955,56.2,5034.0
+3hop2__57233_11282_56883,3hop2,,span,1964,United States,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,6,40,2606,4,0.607,3.644,60.4,4912.8
+2hop__398344_85513,2hop,,span,TBD,No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,30,1729,3,0.564,2.629,79.0,4972.8
+2hop__17854_17873,2hop,,span,"palace was seldom used, even neglected","Widowed in 1861, the grief-stricken Queen withdrew from public life and left Buckingham Palace to live at Windsor Castle, Balmoral Castle and Osborne House.",0.0,0.0833,1,2,2,1.0,2,2,1.0,2,repeated_query,5,64,2788,3,0.875,4.335,44.6,5040.6
+4hop1__525129_315334_131926_87157,4hop1,,span,rises in northern Minnesota and meanders slowly southwards,southwards,0.0,0.2222,1,4,4,1.0,4,4,1.0,3,repeated_query,6,42,3701,4,0.66,4.617,53.8,5105.0
+2hop__280451_84616,2hop,,span,for Best Performance by a Leading Actress in a Play in Ondine,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,32,1792,3,0.642,2.695,86.7,4935.0
+4hop1__443274_17130_70784_61381,4hop1,,span,1932,1932,1.0,1.0,0,4,3,0.75,4,3,0.75,3,repeated_query,11,48,5330,4,0.71,6.075,46.8,5271.4
+2hop__821368_14251,2hop,,span,"""Archibald, certainly not!""",no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,7,21,2329,3,0.671,2.829,92.1,4979.5
+3hop1__841091_339990_54675,3hop1,,span,Tualatin Mountains,no,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,9,34,3894,4,0.583,4.292,90.0,5126.5
+2hop__557496_57594,2hop,,span,LeMat revolver,Thompson submachine gun,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,40,1963,3,0.642,2.856,54.6,4969.2
+2hop__13548_13529,2hop,,span,June 1982,June 1982,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,9,33,4388,3,0.847,4.522,53.5,5290.8
+2hop__88953_64006,2hop,,span,30% to 65%,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,36,3097,3,0.919,3.647,88.0,5100.0
+2hop__754826_7292,2hop,,span,George Benson,Dave Koz,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,36,1762,3,0.471,2.554,63.9,4979.0
+2hop__135651_669373,2hop,,span,Charles University,Charles University in Prague,0.0,0.6667,1,2,2,1.0,2,2,1.0,3,repeated_query,8,38,3525,4,0.637,4.072,56.7,5102.0
+2hop__82378_158266,2hop,,span,The Australian Ballet,Tulsa Ballet,0.0,0.5,0,2,1,0.5,2,1,0.5,2,repeated_query,5,33,1921,3,0.635,2.626,62.2,4978.5
+2hop__827995_159109,2hop,,span,central Atlantic Ocean,Sal Island,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,5,1269,2,0.637,1.42,68.7,4976.3
+2hop__25797_25839,2hop,,span,five unit loads,6 unit loads,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,6,1761,2,0.796,1.809,62.3,5006.9
+3hop1__139862_2053_5289,3hop1,,span,Oriole Records.,EMI,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,5,59,2020,3,0.648,3.315,69.2,4852.1
+2hop__156700_63853,2hop,,span,Thaba Putsoa,Orange River,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,5,977,2,0.531,1.269,68.1,4866.7
+2hop__66167_90991,2hop,,span,Greg Oden,Derrick Rose,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,48,3546,3,0.877,4.184,59.1,5093.9
+3hop1__241001_568433_51423,3hop1,,span,Casa Loma,Katzenstein Castle,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,56,3403,4,0.542,4.652,52.5,5067.9
+2hop__198650_84856,2hop,,span,"January 20, 2017",TBA,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,55,5062,4,0.644,6.069,54.9,5148.7
+3hop1__654651_55349_651302,3hop1,,span,Denver,"Denver, Colorado",1.0,1.0,1,3,3,1.0,3,3,1.0,2,done,8,16,3209,3,0.802,3.402,56.4,4982.7
+3hop1__49610_89752_75165,3hop1,,span,"1,335,907",5.3 million,0.0,0.0,0,3,1,0.3333,3,1,0.3333,1,repeated_query,5,25,1449,2,0.705,2.073,56.9,4893.3
+2hop__853227_68633,2hop,,span,Thomas Bach,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,50,2946,3,0.753,3.934,81.9,5028.3
+3hop2__127483_79978_10557,3hop2,,span,Medieval Latin,Latin,0.0,0.6667,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,82,5188,4,0.978,6.607,76.1,5098.4
+3hop1__76377_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,0,3,1,0.3333,3,1,0.3333,2,repeated_query,7,51,2774,3,0.775,3.991,46.7,5093.7
+3hop1__136083_87694_124169,3hop1,,span,1952,1952,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,11,52,4104,4,0.58,5.227,48.0,5092.2
+2hop__39954_65371,2hop,,span,Modest Jonathan Mero,Modest Jonathan Mero,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,11,80,3864,4,0.546,5.674,47.4,5064.7
+4hop1__711773_508773_85832_745702,4hop1,,span,Sebastian Cabot,Sebastian Cabot,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,8,29,3199,3,0.719,3.709,51.0,5016.2
+2hop__52283_75184,2hop,,span,Claudia Wells,Jennifer Parker,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,31,2095,3,0.718,2.761,65.7,4866.4
+2hop__159146_120065,2hop,,span,1738,2009,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,57,2577,4,0.554,3.705,60.0,4894.9
+3hop1__52222_40769_64047,3hop1,,span,Sales began worldwide in April 2012,2012,0.0,0.2857,0,3,2,0.6667,3,2,0.6667,3,repeated_query,6,56,3318,4,0.684,4.356,59.6,4993.4
+4hop3__700962_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,Moorish peoples were expelled during the Christian Reconquista of the peninsula.,0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,11,66,4810,4,0.801,5.735,46.5,5125.9
+3hop1__157807_19788_15107,3hop1,,span,48%,48%,1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,49,4512,4,0.679,5.139,60.2,5056.3
+3hop1__797496_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land",1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,70,2534,4,0.468,3.947,54.8,4879.0
+3hop1__639955_834494_34099,3hop1,,span,four-year,four years,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,6,52,2378,4,0.55,3.502,71.5,4940.2
+2hop__44815_494136,2hop,,span,Meg Ryan,Salli Richardson,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,30,1793,3,0.55,2.445,58.8,4958.9
+2hop__455392_40315,2hop,,span,12,7,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,32,2590,3,0.601,3.165,80.6,5080.9
+2hop__311694_129669,2hop,,span,Lisbon District,Portugal,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,9,33,2735,4,0.472,3.353,70.9,4947.0
+4hop1__788226_32392_823060_610794,4hop1,,span,Richland County,Richland County,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,9,49,3545,4,0.696,4.364,57.7,5103.6
+3hop1__108062_720914_27537,3hop1,,span,for the conclave in Rome,Venice,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,8,31,4593,3,1.028,4.869,63.0,5295.7
+2hop__23459_22946,2hop,,span,George Sarton,George Sarton,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,44,3073,3,0.856,3.929,53.6,5047.5
+4hop1__343844_17130_70784_61381,4hop1,,span,1932,3500 BCE,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,10,43,7411,4,1.046,7.901,38.1,5105.4
+3hop1__617062_127905_87812,3hop1,,span,"Thursday, March 29","March 1, 1988",0.0,0.3333,1,3,3,1.0,3,3,1.0,2,repeated_query,8,38,3198,3,0.721,3.961,43.6,5002.7
+3hop2__132957_133292_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,37,2801,3,0.642,3.481,49.6,5024.0
+2hop__142443_768138,2hop,,span,Matthew Lawrence,Joseph Lawrence,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,7,23,1998,3,0.566,2.592,63.7,4901.6
+3hop1__241085_42197_18397,3hop1,,span,the Politburo,China,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,53,6184,4,1.094,6.823,84.6,5247.3
+2hop__197470_271394,2hop,,span,Blair High School,Blair International Baccalaureate School,0.0,0.5714,1,2,2,1.0,2,2,1.0,1,repeated_query,5,23,1311,2,0.688,1.939,50.5,4974.1
+2hop__46376_158105,2hop,,span,ease of use and enhanced support for Plug and Play,"professional skateboarder, actor",0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,64,3331,4,0.632,4.623,56.0,5012.1
+2hop__103889_86452,2hop,,span,1989,1989,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,8,19,2597,3,0.639,2.832,59.3,5073.2
+2hop__135652_669373,2hop,,span,Charles University,Ernst Mach,0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,7,15,1827,3,0.552,2.172,62.6,4963.0
+3hop2__158279_71753_70784,3hop2,,span,Kingdom of Saudi Arabia,Tel Aviv,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,58,4808,4,0.679,5.534,71.1,5091.9
+2hop__455158_247871,2hop,,span,Waseca County,Waseca County,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,33,1348,3,0.535,2.32,60.6,4843.4
+2hop__645367_68633,2hop,,span,Thomas Bach,Vice-President of the International Olympic Committee,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,51,4153,4,0.785,4.983,45.2,4984.1
+2hop__766973_770570,2hop,,span,Rockland County,Rockland County,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,49,2909,4,0.536,3.922,63.4,4962.8
+3hop1__320697_547811_80702,3hop1,,span,Rialto Bridge,Rialto Bridge,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,29,3938,4,0.647,4.264,57.0,5024.0
+2hop__238499_431914,2hop,,span,Alpes-de-Haute-Provence,Alpes-de-Haute-Provence department,0.0,0.6667,1,2,2,1.0,2,2,1.0,2,repeated_query,6,35,1544,3,0.518,2.486,50.5,4884.3
+3hop2__84553_90098_10557,3hop2,,span,Medieval Latin,Classical Latin,0.0,0.5,1,3,3,1.0,3,3,1.0,3,repeated_query,10,67,5706,4,0.73,6.745,53.2,5273.8
+2hop__92590_43786,2hop,,span,"Washington, D.C.","The Washington, D.C.",1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,9,1539,2,0.768,1.862,37.3,4943.0
+2hop__518354_67465,2hop,,span,"March 11, 2011","March 11, 2011",1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,54,3427,4,0.644,4.929,45.6,5045.2
+2hop__2613_59409,2hop,,span,three different relationships he had in the past,no,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,59,4195,4,0.628,5.518,74.0,4991.1
+3hop1__321720_650651_7262,3hop1,,span,Walter Sabo,Johnny Dare,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,27,2905,3,0.714,3.398,58.6,5022.3
+3hop1__376309_160713_77246,3hop1,,span,the country of India,Islam,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,44,7589,4,0.93,7.642,88.1,5105.4
+3hop1__66872_709625_84283,3hop1,,span,Warner Music Group,Warner Bros. Records,0.0,0.4,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,47,5029,4,0.797,5.512,53.2,5100.6
+2hop__13731_801817,2hop,,span,Nazareth,"Edward was born in White Lodge, Richmond Park, London. The context does not provide information about the birthplace of Mary's betrothed, Joseph. Therefore, based on the given context, the answer is unknown. However, since the instruction is to reply with just the answer if it can be derived from the context, and no specific birthplace for Joseph is mentioned, the appropriate response is:",0.0,0.0,1,2,2,1.0,2,2,1.0,2,done,8,97,2869,3,0.659,4.877,44.9,4933.6
+2hop__814408_155922,2hop,,span,Sydney Harbour,Parramatta River,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,44,2959,4,0.556,3.772,55.4,4962.4
+2hop__124412_402641,2hop,,span,Chiang Hsiao-wu,Chiang Ching-kuo,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,5,10,1303,2,0.642,1.514,53.1,4969.7
+4hop3__839787_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,Moors,0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,9,68,4555,4,0.741,5.645,64.9,5078.2
+2hop__72686_83769,2hop,,span,Fred O'Bannion,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,7,27,3239,3,0.847,3.681,93.2,5037.0
+2hop__128420_375952,2hop,,span,Santa Barbara County,Santa Fe,0.0,0.4,1,2,2,1.0,2,2,1.0,3,repeated_query,7,45,2302,4,0.535,3.346,70.5,4958.9
+3hop1__604991_339990_54675,3hop1,,span,Tualatin Mountains,no,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,28,2353,3,0.669,2.948,93.4,4965.6
+3hop1__273571_834494_34088,3hop1,,span,Tucson Raceway Park,Tucson,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,47,2674,4,0.594,3.608,67.0,4976.8
+2hop__78756_198548,2hop,,span,Katharine Ross,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,24,2150,3,0.625,2.749,78.9,4904.9
+3hop1__152880_131926_87157,3hop1,,span,rises in northern Minnesota and meanders slowly southwards,northwest to southeast,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,25,2750,3,0.579,3.238,51.1,4942.7
+2hop__686395_141338,2hop,,span,City University of New York,Brooklyn College,0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,7,19,2103,3,0.543,2.469,59.4,4940.3
+4hop3__524186_219173_862998_72134,4hop3,,span,1839,1839,1.0,1.0,1,4,4,1.0,4,4,1.0,3,repeated_query,9,47,3552,4,0.52,4.52,51.5,5103.6
+3hop2__304722_230978_63959,3hop2,,span,1 December 2010,Notts County,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,8,38,3781,3,0.912,4.328,53.1,5114.1
+2hop__252521_80650,2hop,,span,Martin Short,Sir David Jason,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,36,2016,3,0.62,2.891,57.6,4947.0
+2hop__31995_8583,2hop,,span,Iranic Sarmatians and the Germanic Goths,Ukraine,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,57,4380,4,0.913,5.717,58.9,5066.0
+3hop1__68802_89752_75165,3hop1,,span,"1,335,907",352,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,10,26,3059,3,0.798,3.701,51.0,4957.3
+2hop__475808_71302,2hop,,span,Vito Corleone,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,26,2006,3,0.622,2.733,82.9,4919.0
+3hop1__140855_2053_52946,3hop1,,span,"February 7, 2018","February 7, 2018",1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,7,36,2629,3,0.788,3.475,44.2,5039.0
+4hop2__103790_39078_8987_8529,4hop2,,span,1943–1992,1939-1945,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,6,50,2386,3,0.704,3.441,50.0,4961.3
+2hop__60880_87295,2hop,,span,Queen dowager Clarisse Renaldi,Julie Andrews,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,68,4537,4,0.796,5.798,63.6,5001.3
+3hop2__569322_223623_162182,3hop2,,span,South Central Coast,Central Vietnam,0.0,0.4,1,3,3,1.0,3,3,1.0,3,repeated_query,9,41,3544,4,0.705,4.278,67.8,5066.0
+2hop__79875_84469,2hop,,span,Bill Pullman,Bill Pullman,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,54,3211,3,0.955,4.177,60.1,5017.9
+2hop__814671_82341,2hop,,span,in Northern Florida,Gainesville-Ocala,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,8,1047,2,0.576,1.356,54.9,4868.2
+2hop__142130_67668,2hop,,span,Nightwing / Dick Grayson,Neil Patrick Harris plays Nightwing / Dick Grayson in Batman Under the Red Hood.,0.0,0.4,1,2,2,1.0,2,2,1.0,4,max_hops,10,59,3853,4,0.654,4.914,47.6,5088.2
+2hop__778212_22458,2hop,,span,International Federation of Association Football,AIFF,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,41,1602,3,0.521,2.577,69.1,4892.2
+2hop__496732_658428,2hop,,span,Panglao Island,Bohol Island,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,9,39,4520,4,0.855,4.956,59.6,5056.0
+2hop__153532_72380,2hop,,span,"June 20, 2016","April 4, 2014",0.0,0.0,0,2,1,0.5,2,1,0.5,2,done,7,26,2336,3,0.692,2.865,48.1,4955.3
+3hop1__354480_834494_34053,3hop1,,span,1905,1905,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,52,2819,4,0.489,4.006,59.7,4959.3
+4hop1__342858_131850_33952_33939,4hop1,,span,"7,531","Yuma, Arizona's population in 1900 was 7,531. The second largest city in Arizona at that time was Tucson, which had a population of 5,399 in 1900 according to the 1900 census. However, the question asks for the second largest city in the state containing the Yuma County Library District, which is Yuma itself. So the answer is 7,531.",0.0,0.0392,1,4,4,1.0,4,4,1.0,3,repeated_query,8,147,3851,4,0.71,6.964,44.5,5056.0
+4hop2__71753_648517_70784_79935,4hop2,,span,1930,No,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,5,56,2512,3,0.792,3.669,89.5,4972.2
+3hop1__433054_831637_91775,3hop1,,span,"Sea, Air, and Land","Sea, Air, and Land Teams",0.0,0.8889,0,3,2,0.6667,3,2,0.6667,2,done,9,31,2450,3,0.714,3.145,48.7,5003.3
+3hop1__446612_160545_60577,3hop1,,span,Ko Phi Phi Leh,United Kingdom,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,7,27,2376,3,0.661,2.884,68.6,4982.7
+4hop2__161324_14670_8987_8974,4hop2,,span,Alfredo Stroessner's Paraguay,Paraguay,0.0,0.5,0,4,2,0.5,4,2,0.5,4,max_hops,10,58,5450,4,0.795,6.118,62.7,5213.1
+2hop__536283_67465,2hop,,span,"March 11, 2011",2011,0.0,0.5,1,2,2,1.0,2,2,1.0,2,repeated_query,7,31,2931,3,0.741,3.445,58.6,5026.6
+2hop__860241_766393,2hop,,span,Nobel Prize in Literature,Prix Goncourt,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,27,2466,3,0.686,2.903,58.0,4999.9
+2hop__135993_160249,2hop,,span,323–272 BC,272 BC,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,8,45,4225,4,0.732,4.772,58.6,5025.4
+3hop2__132957_800948_40768,3hop2,,span,1981,1981,1.0,1.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,27,2966,3,0.683,3.269,60.7,4944.1
+2hop__9_59409,2hop,,span,three different relationships he had in the past,Jay-Z,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,54,4193,4,0.636,4.95,73.0,5111.7
+2hop__30032_46621,2hop,,span,as early as the 3rd century BC,1610,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,61,4528,4,0.798,5.466,49.9,5002.4
+4hop3__387712_132409_371500_35031,4hop3,,span,third-largest,San Diego,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,11,38,6064,4,0.864,6.419,65.3,5205.6
+2hop__428940_135373,2hop,,span,Vitus Bering,Bering Sea,0.0,0.5,0,2,1,0.5,2,1,0.5,1,done,5,6,1133,2,0.617,1.443,54.0,4904.1
+2hop__31091_31122,2hop,,span,18th,18th century,1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,18,3586,3,0.907,3.718,54.0,5093.9
+3hop2__304722_398767_63959,3hop2,,span,1 December 2010,1966,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,7,33,3749,3,0.944,4.157,54.7,5081.7
+2hop__59133_512508,2hop,,span,Manhattan Project,Dalton's theory of the atom,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,46,2188,3,0.649,3.191,52.8,4940.3
+2hop__135822_46621,2hop,,span,as early as the 3rd century BC,no,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,42,2519,3,0.694,3.335,89.7,5020.4
+2hop__788087_150107,2hop,,span,Association for Computing Machinery,Association for Computing Machinery (ACM),0.0,0.8889,1,2,2,1.0,2,2,1.0,4,max_hops,8,58,2201,4,0.474,3.502,52.5,4935.8
+4hop1__726152_153080_33897_81096,4hop1,,span,Mario Andretti,no,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,8,38,2774,3,0.695,3.458,90.8,5126.1
+2hop__62823_654855,2hop,,span,Socialist Party of America,Socialist Party,0.0,0.6667,1,2,2,1.0,2,2,1.0,4,max_hops,8,61,4938,4,0.853,5.993,57.3,5097.3
+3hop1__804367_160713_77246,3hop1,,span,the country of India,Hindu,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,53,7306,4,1.013,7.678,55.0,5230.9
+2hop__59612_42429,2hop,,span,10 February 1763,1763,0.0,0.5,1,2,2,1.0,2,2,1.0,1,done,5,7,1591,2,0.745,1.76,51.5,4962.8
+2hop__358270_108549,2hop,,span,Alfred Gough,Alfred Gough and Miles Millar,0.0,0.5714,1,2,2,1.0,2,2,1.0,2,repeated_query,6,33,2600,3,0.705,3.273,47.5,5039.0
+3hop1__389069_132457_51423,3hop1,,span,Casa Loma,Baynard's Castle,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,41,3333,4,0.637,4.144,52.5,5021.8
+4hop3__310746_88460_30152_20999,4hop3,,span,The dynasty regrouped and defeated the Portuguese,Portugal,0.0,0.0,0,4,3,0.75,4,3,0.75,2,repeated_query,8,31,2847,3,0.798,3.486,57.4,5097.0
+4hop3__129456_29339_508306_70744,4hop3,,span,University of South Carolina,"University of South Carolina, Columbia",0.0,0.8889,1,4,4,1.0,4,4,1.0,4,max_hops,9,56,2692,4,0.555,3.989,44.6,4915.1
+2hop__684287_78303,2hop,,span,Cordell Walker,Chuck Norris,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,54,4093,4,0.651,5.071,60.3,4958.7
+3hop1__404541_629431_124169,3hop1,,span,1952,1952,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,27,2559,3,0.599,2.988,60.0,5073.2
+3hop2__304722_667199_63959,3hop2,,span,1 December 2010,1973,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,6,43,3059,3,0.877,3.762,58.0,5126.5
+2hop__77775_162341,2hop,,span,nominated for an Academy Award for Best Supporting Actor,Academy Award for Best Actor,0.0,0.9091,1,2,2,1.0,2,2,1.0,2,repeated_query,5,48,2050,3,0.648,2.962,58.0,4854.7
+3hop1__36497_73181_68042,3hop1,,span,the 2010 election,2010,0.0,0.6667,0,3,2,0.6667,3,2,0.6667,3,repeated_query,8,65,5769,4,1.023,6.438,58.9,5237.9
+2hop__463884_807572,2hop,,span,Monmouth County,"Fair Haven, Vermont, which is in Bennington County.",0.0,0.2,1,2,2,1.0,2,2,1.0,1,repeated_query,5,30,879,2,0.511,1.675,54.0,4836.4
+4hop1__9002_698949_157828_239539,4hop1,,span,Pristina,Belgrade,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,8,62,3887,4,0.72,4.783,69.9,5043.6
+3hop1__850160_15840_36014,3hop1,,span,five,five,1.0,1.0,1,3,3,1.0,3,3,1.0,1,done,5,4,1829,2,0.867,1.915,95.7,5032.2
+2hop__284613_87295,2hop,,span,Queen dowager Clarisse Renaldi,no,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,75,3205,4,0.506,4.577,95.5,5085.1
+2hop__31124_31093,2hop,,span,Irish,British,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,21,4187,4,0.743,4.259,100.5,4967.1
+2hop__723101_150107,2hop,,span,Association for Computing Machinery,Association for Computing Machinery (ACM),0.0,0.8889,0,2,1,0.5,2,1,0.5,2,repeated_query,8,39,1379,3,0.422,2.358,53.1,4873.0
+4hop1__88342_75218_128008_86588,4hop1,,span,582 feet (177 m),Babe Ruth's 575 feet home run by the New York Yankees.,0.0,0.1429,0,4,3,0.75,4,3,0.75,4,max_hops,10,66,5377,4,0.671,6.19,48.3,5248.9
+3hop1__222380_443779_52195,3hop1,,span,Francisco Guterres,Xanana Gusmão,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,13,82,6689,4,0.778,7.99,45.1,5264.4
+3hop2__855821_223623_162182,3hop2,,span,South Central Coast,Central Highlands,0.0,0.4,1,3,3,1.0,3,3,1.0,4,max_hops,10,45,2580,4,0.54,3.688,67.0,4947.0
+2hop__32441_274635,2hop,,span,United States Army,Army,0.0,0.5,1,2,2,1.0,2,2,1.0,4,max_hops,9,66,4055,4,0.664,5.233,77.6,5024.0
+3hop1__354480_834494_34088,3hop1,,span,Tucson Raceway Park,Phoenix,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,6,26,2004,3,0.636,2.795,86.3,4947.0
+2hop__511454_120259,2hop,,span,918,no,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,28,1636,3,0.471,2.522,86.6,4974.9
+2hop__10515_21567,2hop,,span,John Kukuzelis,John Kukuzelis,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,11,55,7180,4,0.886,7.715,42.9,5105.4
+4hop1__433767_32392_823060_610794,4hop1,,span,Richland County,Baranya,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,6,25,1931,3,0.637,2.65,66.3,4974.9
+3hop2__831456_467331_162182,3hop2,,span,South Central Coast,"Vietnam and Vietnam, respectively.",0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,52,2727,4,0.629,4.109,49.6,4947.0
+2hop__32441_522949,2hop,,span,Edith Roosevelt,Theodore Roosevelt,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,7,48,3643,4,0.76,4.848,58.8,5074.7
+3hop1__140514_2053_5289,3hop1,,span,Oriole Records.,EMI,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,43,2171,3,0.568,3.11,59.4,4961.9
+3hop1__108881_720914_27537,3hop1,,span,for the conclave in Rome,no,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,44,3341,4,0.562,4.297,79.0,5069.4
+2hop__567471_123283,2hop,,span,Clifton College,no,0.0,0.0,0,2,1,0.5,2,1,0.5,1,repeated_query,5,17,1037,2,0.562,1.581,77.2,4863.5
+4hop1__324759_765799_282674_759393,4hop1,,span,Green Bay,Appleton,0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,11,46,3317,4,0.603,4.287,68.5,5069.4
+3hop1__857_846_7849,3hop1,,span,"Suzhou pingtan, spoken theatre and puppet theatre",Nanjing,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,9,32,3813,3,0.826,4.258,58.8,5152.4
+2hop__723404_58556,2hop,,span,Food Safety Modernization Act (FSMA),iPLEDGE,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,36,3125,4,0.561,3.694,61.0,5005.2
+2hop__423045_570226,2hop,,span,Danzhou,Hainan,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,51,3447,4,0.774,4.33,57.4,4994.6
+2hop__706637_93362,2hop,,span,Yeh Raaste Hain Pyaar Ke,Yeh Raaste Hain Pyaar Ke,1.0,1.0,0,2,1,0.5,2,1,0.5,4,max_hops,7,80,3222,4,0.61,5.045,49.5,5018.7
+4hop1__152146_5274_458768_33632,4hop1,,span,May 4,7 October,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,9,80,3710,4,0.725,5.4,64.5,5105.0
+3hop1__786067_228453_10972,3hop1,,span,1970s,no,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,26,2475,3,0.672,2.946,86.7,5012.1
+3hop2__65854_88342_58657,3hop2,,span,Cleveland Indians,Chicago Cubs,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,7,41,2800,3,0.759,3.566,67.5,5099.7
+3hop2__326964_851134_7713,3hop2,,span,about 400 years,0,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,54,3658,4,0.522,4.606,91.4,5122.5
+2hop__145220_58439,2hop,,span,The Île de la Cité,Paris,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,8,52,3514,4,0.659,4.461,94.6,5100.0
+2hop__835710_7298,2hop,,span,Michael Bublé,Michael Bublé,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,46,3473,4,0.743,4.239,55.6,5027.1
+2hop__78401_158262,2hop,,span,1848,1848,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,37,3747,3,0.968,4.707,74.1,5087.3
+2hop__804417_126089,2hop,,span,Johan Remkes,no,0.0,0.0,0,2,0,0.0,2,0,0.0,3,repeated_query,6,40,1918,4,0.421,2.783,109.6,4882.9
+2hop__347652_47134,2hop,,span,Benny Beaver,Benny Beaver,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,28,1749,3,0.493,2.191,74.6,4965.2
+3hop1__558449_503371_21711,3hop1,,span,built in the 15th century,1404,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,8,48,4626,4,0.73,4.726,69.9,5023.4
+4hop3__531933_836463_161616_77103,4hop3,,span,1839,1839,1.0,1.0,0,4,2,0.5,4,2,0.5,2,repeated_query,7,29,3326,3,0.776,3.515,71.4,5012.7
+2hop__56806_7298,2hop,,span,Michael Bublé,Josh Groban,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,55,4082,4,0.761,4.526,66.1,5027.9
+2hop__61714_89309,2hop,,span,"October 8, 2009","October 8, 2009",1.0,1.0,1,2,2,1.0,2,2,1.0,2,done,7,26,4556,3,1.032,4.479,63.0,5285.6
+2hop__449673_91104,2hop,,span,ATS - 6 (Applications Technology Satellite - 6),ATS-6,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,40,2468,3,0.575,2.864,73.6,5016.4
+2hop__335418_279684,2hop,,span,Pittsburgh Pirates,Pittsburgh Pirates,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,31,2734,4,0.588,3.154,69.3,4924.2
+2hop__60001_512508,2hop,,span,Manhattan Project,chemistry,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,40,2173,3,0.691,2.812,116.2,4885.7
+4hop1__72247_497223_15840_36002,4hop1,,span,built on 16-bit architectures and offered improved graphics and sound,Sega Genesis,0.0,0.0,0,4,3,0.75,4,3,0.75,4,max_hops,10,70,5105,4,0.794,5.486,82.0,5157.0
+4hop1__58323_375563_161848_83118,4hop1,,span,the first Sunday in April,"November 2, 2009",0.0,0.0,0,4,2,0.5,4,2,0.5,4,max_hops,9,44,4740,4,0.81,4.611,63.3,5067.9
+3hop1__28841_547811_41132,3hop1,,span,22,3,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,28,3644,3,0.76,3.516,114.7,5086.2
+4hop3__312119_132409_146285_35031,4hop3,,span,third-largest,"San Diego, the 4th largest city in the state.",0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,9,66,4543,4,0.621,4.816,61.6,5100.3
+4hop1__846600_153080_159767_81096,4hop1,,span,Mario Andretti,no,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,11,53,5609,4,0.614,5.376,112.3,5293.3
+3hop1__818422_160545_34754,3hop1,,span,blackmail,no,0.0,0.0,0,3,1,0.3333,3,1,0.3333,1,done,5,4,1265,2,0.6,1.284,120.5,4974.1
+2hop__510647_507085,2hop,,span,John Crockett,"David ""Davy"" Crockett",0.0,0.4,1,2,2,1.0,2,2,1.0,2,done,7,23,1543,3,0.408,1.861,68.3,4919.0
+4hop2__103790_14670_8987_8974,4hop2,,span,Alfredo Stroessner's Paraguay,Paraguay,0.0,0.5,0,4,2,0.5,4,2,0.5,2,repeated_query,7,41,2870,3,0.692,3.171,77.6,5103.6
+3hop2__132957_483843_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,10,48,4416,4,0.701,4.798,65.4,5021.5
+2hop__160292_23241,2hop,,span,48.8 percent,49.3%,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,7,79,4628,4,0.93,5.566,65.6,5007.8
+4hop1__152146_5274_458768_33633,4hop1,,span,"August 3, 1769",no,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,8,26,2262,3,0.541,2.616,110.9,4981.5
+2hop__581084_828685,2hop,,span,Cornell University,Cornell University School of Industrial and Labor Relations,0.0,0.4,1,2,2,1.0,2,2,1.0,1,done,5,12,724,2,0.4,1.088,62.7,4867.1
+2hop__725233_150107,2hop,,span,Association for Computing Machinery,Association for Computing Machinery (ACM),0.0,0.8889,1,2,2,1.0,2,2,1.0,2,repeated_query,5,39,1273,3,0.451,2.087,64.3,4814.2
+3hop1__798544_514761_594810,3hop1,,span,Warner Bros. Records,Warner Bros. Records,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,8,34,2690,4,0.487,3.134,68.9,4898.9
+3hop1__820301_720914_41132,3hop1,,span,22,4,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,40,5399,4,0.796,5.379,106.1,5150.5
+2hop__41158_35123,2hop,,span,980–1037,981-1037,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,39,3197,3,0.783,3.588,63.9,4985.7
+2hop__124932_278133,2hop,,span,Guru Tegh Bahadur,Guru Gobind Singh,0.0,0.3333,0,2,1,0.5,2,1,0.5,1,done,5,9,1495,2,0.639,1.594,70.7,4911.8
+2hop__70490_21567,2hop,,span,John Kukuzelis,John Kukuzelis,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,57,3180,3,0.699,3.546,68.7,4997.6
+2hop__699172_141338,2hop,,span,City University of New York,City University of New York,1.0,1.0,0,2,1,0.5,2,1,0.5,1,done,5,8,1189,2,0.532,1.297,68.2,4935.8
+3hop1__458916_665330_51423,3hop1,,span,Casa Loma,Broken Social Scene,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,14,48,3769,4,0.518,4.181,67.5,4999.4
+2hop__60336_169233,2hop,,span,Academy Award for Best Supporting Actor,Academy Award for Best Supporting Actor,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,63,5256,4,0.82,5.561,61.7,5197.4
+2hop__690412_526810,2hop,,span,Chao Phraya River,Chao Phraya River,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,10,57,3256,4,0.557,3.846,70.2,5047.8
+2hop__68981_39234,2hop,,span,"Hephthalite Empire,",Ottoman Empire,0.0,0.5,0,2,0,0.0,2,0,0.0,2,repeated_query,6,31,2957,3,0.701,3.083,73.2,5121.5
+2hop__67660_67223,2hop,,span,Tracy Mosby,Tracy Mosby,1.0,1.0,0,2,1,0.5,2,1,0.5,2,done,8,26,2231,3,0.507,2.345,76.6,4972.8
+2hop__488811_30078,2hop,,span,Russian troops,Imperial Russian troops,0.0,0.8,1,2,2,1.0,2,2,1.0,4,max_hops,10,59,3103,4,0.389,3.551,72.4,5022.1
+3hop1__305566_568433_51423,3hop1,,span,Casa Loma,Katzenstein Castle,0.0,0.0,0,3,0,0.0,3,0,0.0,2,repeated_query,8,39,2204,3,0.487,2.584,74.5,4995.0
+3hop1__145194_160545_60577,3hop1,,span,Ko Phi Phi Leh,Ko Phi Phi Leh,1.0,1.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,6,28,2098,3,0.561,2.219,73.3,4879.0
+2hop__124592_402641,2hop,,span,Chiang Hsiao-wu,Hsiao-wen,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,40,2341,3,0.539,2.618,68.5,4976.1
+4hop1__31050_725495_49925_349426,4hop1,,span,Katharina von Bora,"Katharina von Bora's spouse, Martin Luther.",0.0,0.4444,0,4,2,0.5,4,2,0.5,4,max_hops,11,73,5681,4,0.709,6.024,39.0,5202.3
+2hop__7855_7794,2hop,,span,8.005 million,Nanjing,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,30,2189,3,0.574,3.064,48.1,4965.6
+2hop__88834_356793,2hop,,span,Steve Irwin,Mark Wahlberg,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,38,1440,3,0.511,2.732,49.6,4879.3
+3hop2__36852_326964_7713,3hop2,,span,about 400 years,35 years,0.0,0.4,1,3,3,1.0,3,3,1.0,3,repeated_query,8,53,5538,4,0.858,6.652,47.1,5203.0
+4hop1__819901_32392_823060_610794,4hop1,,span,Richland County,Baranya,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,7,23,2647,3,0.681,3.138,73.1,5075.9
+2hop__51881_20590,2hop,,span,after 1900,1848,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,7,39,3743,4,0.713,4.373,53.7,5094.6
+3hop1__446612_160545_34754,3hop1,,span,blackmail,Thailand was forced into certain actions by Japanese blackmail before being occupied by Japanese troops.,0.0,0.125,0,3,2,0.6667,3,2,0.6667,4,max_hops,10,72,4397,4,0.801,5.641,48.1,5123.1
+3hop1__632623_160713_77246,3hop1,,span,the country of India,Islam,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,54,6971,4,1.057,7.221,89.3,5279.8
+4hop1__3496_5274_458768_33677,4hop1,,span,2013,2013,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,8,98,3364,4,0.692,5.171,63.2,5023.7
+2hop__242045_2684,2hop,,span,"""Donda West Law""",The Donda West Law,1.0,1.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,60,4093,4,0.768,4.844,57.6,5024.0
+2hop__83938_5666,2hop,,span,Yeltsin,Johan Henri Eliza Ferrier,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,9,55,3766,4,0.677,4.505,55.1,5021.5
+3hop1__603558_87694_124169,3hop1,,span,1952,1952,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,8,54,3966,4,0.539,4.755,56.5,4964.6
+2hop__201704_135481,2hop,,span,International Tennis Federation,Fed Cup,0.0,0.0,1,2,2,1.0,2,2,1.0,1,done,5,5,1361,2,0.646,1.483,73.3,4855.7
+3hop2__304722_590317_63959,3hop2,,span,1 December 2010,1980,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,9,51,6370,4,0.816,6.655,57.5,5217.9
+3hop1__21282_692112_236857,3hop1,,span,GDR,Germany,0.0,0.6667,1,3,3,1.0,3,3,1.0,4,max_hops,13,42,6122,4,0.631,6.18,91.5,5116.3
+4hop1__342858_131850_33952_34109,4hop1,,span,KUAT-TV 6,no,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,9,38,3980,4,0.673,4.417,80.7,5089.8
+2hop__123145_66723,2hop,,span,James Howard Meredith,James Howard Meredith,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,58,3126,4,0.548,4.286,59.4,4993.4
+3hop1__273571_834494_34099,3hop1,,span,four-year,four years,0.0,0.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,35,2519,4,0.509,3.242,73.8,4861.2
+2hop__569582_304416,2hop,,span,Derrty Entertainment,Universal Records,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,53,3520,4,0.718,4.297,72.4,5020.4
+3hop2__304722_466316_63959,3hop2,,span,1 December 2010,1973,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,9,57,5499,4,0.822,6.21,55.6,5258.6
+4hop2__71753_648517_70784_61381,4hop2,,span,1932,1930,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,9,65,4059,4,0.702,5.108,55.7,5012.6
+2hop__10620_49084,2hop,,span,Liam Thomas Garrigan,Beverley Elliott,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,82,2147,4,0.522,4.018,56.9,4883.0
+2hop__63982_768138,2hop,,span,Matthew Lawrence,Jasone,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,52,4543,4,0.926,5.302,58.7,5020.1
+2hop__13574_13498,2hop,,span,five,0,0.0,0.0,0,2,0,0.0,2,0,0.0,1,done,5,4,1797,2,0.831,1.84,89.7,5020.4
+2hop__644898_64046,2hop,,span,Simon Farnaby,Strother Martin,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,51,2029,3,0.665,3.179,56.3,4854.2
+2hop__35137_22940,2hop,,span,Kitab al-shifa,الكتاب الشفاء,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,30,2284,3,0.705,2.867,52.2,4909.6
+2hop__70338_36240,2hop,,span,Genesis 3:15,Ineffabilis Deus,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,7,89,4385,4,0.847,5.884,55.6,5054.1
+2hop__589264_150107,2hop,,span,Association for Computing Machinery,Association for Computing Machinery (ACM),0.0,0.8889,1,2,2,1.0,2,2,1.0,2,done,8,29,1347,3,0.435,2.16,51.9,4881.7
+2hop__85596_807969,2hop,,span,Egypt national football team,Blackburn Rovers,0.0,0.0,0,2,1,0.5,2,1,0.5,4,max_hops,9,53,4612,4,0.795,5.385,51.5,5025.4
+3hop2__76873_69814_64554,3hop2,,span,Union of Soviet Socialist Republics,Soviet Union,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,7,49,4507,4,0.762,5.212,57.8,5007.8
+4hop1__130404_59747_211319_557671,4hop1,,span,Presque Isle County,Rockland County,0.0,0.4,0,4,2,0.5,4,2,0.5,2,repeated_query,7,40,3535,3,0.848,3.954,62.3,5054.1
+2hop__819974_129669,2hop,,span,Lisbon District,Portugal,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,59,2808,4,0.637,4.02,72.5,4972.2
+3hop2__607269_223623_162182,3hop2,,span,South Central Coast,Central Vietnam,0.0,0.4,0,3,2,0.6667,3,2,0.6667,1,done,5,5,1167,2,0.618,1.411,70.2,4924.7
+2hop__57638_88526,2hop,,span,Greg Oden,Derrick Rose,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,30,3750,3,1.009,4.11,60.0,5066.8
+4hop1__455862_508773_85832_745702,4hop1,,span,Sebastian Cabot,Sebastian Cabot,1.0,1.0,0,4,3,0.75,4,3,0.75,3,repeated_query,7,59,3251,4,0.594,4.322,57.3,5072.7
+2hop__89403_122023,2hop,,span,Luitpold Gymnasium,University of California,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,33,2645,3,0.696,3.154,59.3,5050.9
+2hop__27650_27628,2hop,,span,Vitor Constâncio,European Central Bank,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,8,47,4339,4,0.652,4.888,64.7,4997.8
+2hop__259267_22402,2hop,,span,"nearly 25,000",No,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,32,2931,4,0.541,3.532,86.7,4952.2
+2hop__768312_814677,2hop,,span,ancient Egyptian religion,Ancient Egyptian religion,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,7,47,3145,4,0.651,4.057,49.0,4979.5
+2hop__84847_21969,2hop,,span,1786,1788,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,25,3213,3,0.663,3.496,56.3,5021.8
+2hop__92385_2072,2hop,,span,Brooklyn Public Library,New York City Public Schools system,0.0,0.2222,0,2,1,0.5,2,1,0.5,3,repeated_query,8,47,2919,4,0.58,3.829,52.7,4994.6
+2hop__144317_120065,2hop,,span,1738,1929,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,7,1707,2,0.791,1.849,59.2,4986.5
+2hop__85463_33311,2hop,,span,1950–1953),1950-1951,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,7,36,3903,3,1.026,4.265,49.2,5089.8
+3hop1__145411_443779_52195,3hop1,,span,Francisco Guterres,Francisco Guterres,1.0,1.0,1,3,3,1.0,3,3,1.0,4,max_hops,9,77,5728,4,0.678,6.723,53.6,5274.1
+2hop__673655_316668,2hop,,span,conga,none,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,38,3048,3,0.634,3.538,92.4,4979.9
+2hop__2299_38663,2hop,,span,54.7%,54.7%,1.0,1.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,79,3422,4,0.685,4.929,52.1,5033.3
+2hop__250030_7298,2hop,,span,Michael Bublé,Michael Bublé,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,56,3663,4,0.538,4.623,54.7,5081.6
+2hop__351045_47134,2hop,,span,Benny Beaver,No,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,8,33,3321,4,0.553,3.832,93.2,5034.0
+2hop__603365_120259,2hop,,span,918,no,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,6,50,3492,4,0.6,4.587,78.6,5069.4
+3hop1__702699_792411_51423,3hop1,,span,Casa Loma,Katzenstein Castle,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,8,29,2987,3,0.786,3.655,55.9,4947.0
+4hop1__17192_17130_70784_61381,4hop1,,span,1932,1932,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,7,50,5439,4,0.938,5.919,51.7,5199.8
+2hop__64323_55840,2hop,,span,Colin Firth,Colin Firth,1.0,1.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,37,2472,3,0.727,3.257,49.6,4982.7
+4hop1__88342_75218_128008_80286,4hop1,,span,Pete Rose,Ichiro Suzuki,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,8,66,5930,4,1.037,6.629,56.9,5222.2
+2hop__511296_577502,2hop,,span,Maria Shriver,Phylicia Rashād,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,5,32,1723,3,0.59,2.498,51.4,4908.1
+4hop1__726391_153080_33952_34053,4hop1,,span,1905,1905,1.0,1.0,1,4,4,1.0,4,4,1.0,3,repeated_query,7,62,4630,4,0.823,5.4,60.4,5052.8
+4hop1__130623_32392_823060_610794,4hop1,,span,Richland County,"Due West is in Spartanburg County, but Erskine College is in Due West, not the capital city of South Carolina which is Columbia. So the answer is no.",0.0,0.2,0,4,1,0.25,4,1,0.25,2,repeated_query,6,60,1515,3,0.495,2.807,48.2,4865.1
+3hop1__131829_39743_24526,3hop1,,span,upper 40s–lower 50s °F,32.6 °F (0.3 °C),0.0,0.25,1,3,3,1.0,3,3,1.0,2,done,7,33,2775,3,0.573,3.289,52.2,4937.3
+3hop2__89854_92991_76291,3hop2,,span,January 2015,2015,0.0,0.6667,1,3,3,1.0,3,3,1.0,4,max_hops,9,72,4606,4,0.684,5.611,57.5,5106.6
+2hop__494659_5385,2hop,,span,"11,900",No,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,34,1444,3,0.517,2.383,97.8,4883.1
+2hop__96096_78606,2hop,,span,Joyce Van Patten,Joyce Van Patten,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,9,54,5748,4,0.731,6.174,55.5,5302.4
+3hop2__132957_295815_40768,3hop2,,span,1981,1981,1.0,1.0,1,3,3,1.0,3,3,1.0,3,repeated_query,9,43,4831,4,0.793,5.155,58.2,5066.8
+2hop__84103_345851,2hop,,span,Hollywood Records,Hollywood Records,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,59,4083,4,0.678,4.96,62.6,5131.9
+2hop__557284_160249,2hop,,span,323–272 BC,No,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,11,50,3263,4,0.564,4.161,83.1,5099.7
+2hop__818692_113442,2hop,,span,13 August 1896,13 August 1896,1.0,1.0,1,2,2,1.0,2,2,1.0,4,max_hops,11,50,4562,4,0.718,5.269,52.6,5128.0
+2hop__141456_6455,2hop,,span,Firefox,Firefox,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,4,1325,2,0.647,1.464,93.1,4846.9
+4hop1__46196_497223_15840_36014,4hop1,,span,five,5,0.0,0.0,1,4,4,1.0,4,4,1.0,3,repeated_query,8,49,4204,4,0.69,4.86,91.3,4967.1
+2hop__95970_456836,2hop,,span,La Goulette,Claudia Cardinale was born in La Goulette.,0.0,0.4444,1,2,2,1.0,2,2,1.0,2,repeated_query,8,35,2139,3,0.516,2.757,51.6,4962.7
+3hop2__30956_65244_84681,3hop2,,span,13 December 1642,1623,0.0,0.0,0,3,2,0.6667,3,2,0.6667,4,max_hops,10,47,6947,4,0.892,6.875,56.7,5153.8
+4hop1__93316_53706_795904_580996,4hop1,,span,Rio Linda,Oak Lawn,0.0,0.0,0,4,1,0.25,4,1,0.25,3,repeated_query,10,48,4944,4,0.681,5.401,67.1,5113.8
+4hop1__131632_32392_823060_610794,4hop1,,span,Richland County,Richland County,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,9,49,3465,4,0.607,4.355,60.2,5050.5
+2hop__89764_827343,2hop,,span,Lana Wood,Princess Margaret,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,48,1963,3,0.6,2.975,61.9,4935.8
+3hop1__77966_91191_156667,3hop1,,span,Khawlah bint Ja'far,no,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,6,28,2586,3,0.756,3.107,94.7,5009.9
+2hop__34595_160249,2hop,,span,323–272 BC,280 BC and 279 BC,0.0,0.2857,1,2,2,1.0,2,2,1.0,4,max_hops,9,44,3335,4,0.619,4.224,48.4,5059.7
+3hop1__536452_15840_36002,3hop1,,span,built on 16-bit architectures and offered improved graphics and sound,improved graphics and sound,0.0,0.5714,0,3,2,0.6667,3,2,0.6667,3,repeated_query,7,49,3059,4,0.614,4.068,51.3,4954.3
+2hop__846415_88165,2hop,,span,Keturah,Keturah,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,30,2108,3,0.66,2.775,63.9,4887.4
+2hop__364489_861485,2hop,,span,Minnesota History Center,"Minneapolis, Minnesota",0.0,0.4,1,2,2,1.0,2,2,1.0,4,max_hops,9,34,3041,4,0.593,3.825,55.0,4976.1
+2hop__143650_152023,2hop,,span,Kicking Mule Records,Real World Records,1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,18,2329,3,0.553,2.648,55.1,5008.5
+4hop1__408432_32392_823060_610794,4hop1,,span,Richland County,Richland County,1.0,1.0,1,4,4,1.0,4,4,1.0,4,max_hops,10,61,2778,4,0.54,4.154,61.3,4984.1
+2hop__80637_19033,2hop,,span,Great American Bash,Chris Jericho won in 2008.,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,6,52,2769,3,0.784,3.834,49.7,5067.4
+2hop__496961_554601,2hop,,span,Kingscliff,"Kingscliff, New South Wales",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,29,2731,3,0.688,3.273,49.0,5087.8
+4hop1__145494_698949_157828_162309,4hop1,,span,2016,1992,0.0,0.0,0,4,3,0.75,4,3,0.75,3,repeated_query,7,50,3047,4,0.547,4.163,53.5,4964.2
+2hop__40970_90367,2hop,,span,the Red Sea was parted by God,parted the sea,0.0,0.5,1,2,2,1.0,2,2,1.0,3,repeated_query,6,88,4212,4,0.863,5.524,60.7,5066.0
+4hop1__320457_508773_85832_745702,4hop1,,span,Sebastian Cabot,Sebastian Cabot,1.0,1.0,0,4,3,0.75,4,3,0.75,2,repeated_query,6,29,2442,3,0.601,2.952,59.5,5026.7
+2hop__66843_494136,2hop,,span,Meg Ryan,Rebecca Romijn,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,8,33,2349,3,0.555,3.035,58.6,5033.7
+2hop__728969_131890,2hop,,span,River Thames,Deptford Creek,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,8,26,1982,3,0.541,2.577,64.2,4907.4
+2hop__96177_62765,2hop,,span,Dathan,Edward G. Robinson played Dathan in The Ten Commandments.,0.0,0.2222,1,2,2,1.0,2,2,1.0,2,repeated_query,7,48,2475,3,0.692,3.369,51.4,5009.9
+3hop1__573244_339990_15538,3hop1,,span,1984,1984,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,9,29,3302,3,0.634,3.559,58.2,5062.4
+2hop__175168_110222,2hop,,span,10 June 1819,10 June 1819,1.0,1.0,1,2,2,1.0,2,2,1.0,1,done,5,11,951,2,0.521,1.336,53.3,4877.9
+2hop__34495_49388,2hop,,span,38,38,1.0,1.0,1,2,2,1.0,2,2,1.0,3,repeated_query,6,82,3334,4,0.681,4.762,69.5,4985.7
+4hop1__860115_798482_131926_87157,4hop1,,span,rises in northern Minnesota and meanders slowly southwards,northwest,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,10,54,4921,4,0.746,5.594,65.9,5197.4
+2hop__452580_70131,2hop,,span,consisting largely of World War I veterans,cotton and tobacco,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,6,33,2237,3,0.693,2.972,55.8,4918.6
+3hop1__715607_792411_51423,3hop1,,span,Casa Loma,Old Castle,0.0,0.0,0,3,2,0.6667,3,2,0.6667,2,repeated_query,8,25,1970,3,0.49,2.614,65.4,4943.0
+2hop__179322_83289,2hop,,span,Matt Bennett,"Ariana Grande, Matt Bennett",0.0,0.6667,1,2,2,1.0,2,2,1.0,1,done,5,10,2291,2,1.042,2.395,47.9,4963.6
+2hop__26642_66233,2hop,,span,"October 3, 2018","October 3, 2018",1.0,1.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,46,2611,3,0.7,3.456,51.9,5045.2
+4hop1__130508_32392_823060_610794,4hop1,,span,Richland County,Sumter,0.0,0.0,0,4,1,0.25,4,1,0.25,3,repeated_query,7,35,3296,4,0.725,4.129,59.1,5002.9
+3hop1__103662_443779_52195,3hop1,,span,Francisco Guterres,Xanana Gusmão,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,11,87,6553,4,0.785,7.683,54.8,5134.3
+3hop1__305282_282081_10972,3hop1,,span,1970s,no,0.0,0.0,0,3,1,0.3333,3,1,0.3333,2,repeated_query,6,28,2155,3,0.599,2.635,89.1,4963.5
+2hop__719184_55227,2hop,,span,Maria Bello,Maggie Smith,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,7,57,3020,4,0.582,4.15,55.2,4969.7
+2hop__48481_319887,2hop,,span,National Institute of Dramatic Art,Western Australian Academy of Performing Arts,0.0,0.1818,0,2,1,0.5,2,1,0.5,2,repeated_query,6,43,1539,3,0.486,2.685,54.6,4904.1
+2hop__563476_61845,2hop,,span,Mido,Hines,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,10,47,4077,4,0.518,4.894,68.4,5000.3
+3hop1__857_846_7821,3hop1,,span,140 mi,130,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,10,47,4659,4,0.792,5.165,65.5,5106.8
+4hop1__57467_53706_795904_580996,4hop1,,span,Rio Linda,Oak Lawn,0.0,0.0,0,4,1,0.25,4,1,0.25,2,repeated_query,9,29,2691,3,0.617,3.067,74.2,5125.7
+3hop1__664835_650651_7262,3hop1,,span,Walter Sabo,no,0.0,0.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,9,48,3746,4,0.635,4.654,93.2,5019.8
+2hop__132472_120537,2hop,,span,30 November 1999,no,0.0,0.0,1,2,2,1.0,2,2,1.0,4,max_hops,9,55,2473,4,0.524,3.85,86.9,4854.3
+2hop__169443_83769,2hop,,span,Fred O'Bannion,Christin Hinojosa played Sabrina in Dazed and Confused.,0.0,0.0,0,2,1,0.5,2,1,0.5,3,repeated_query,8,64,4005,4,0.756,5.056,52.3,5018.5
+3hop1__545624_2053_5289,3hop1,,span,Oriole Records.,EMI,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,8,54,2988,4,0.529,3.866,66.2,4970.8
+3hop1__104762_24918_24991,3hop1,,span,Soviet flag,"The Soviet president, Gorbachev, departed from the Kremlin after visiting Ukraine, where large public rallies were taking place to protest the election laws and call for the resignation of the first secretary of the Communist Party of Ukraine, Volodymyr Scherbytsky.",0.0,0.0556,1,3,3,1.0,3,3,1.0,4,max_hops,10,118,4576,4,0.784,6.774,45.5,5147.3
+2hop__520033_123956,2hop,,span,15 February 1942,4 January 1963,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,10,1603,2,0.753,1.874,52.8,4950.1
+2hop__6827_55848,2hop,,span,"November 3, 1930",1987,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,39,3496,4,0.61,4.135,53.9,5126.1
+4hop1__93963_170667_443779_52195,4hop1,,span,Francisco Guterres,Susilo Bambang Yudhoyono,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,6,43,4178,3,1.143,4.786,50.4,5125.4
+3hop1__680374_503371_21711,3hop1,,span,built in the 15th century,1409,0.0,0.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,43,2460,3,0.58,3.213,57.0,5039.0
+3hop2__565959_223623_162182,3hop2,,span,South Central Coast,Da Nang,0.0,0.0,1,3,3,1.0,3,3,1.0,4,max_hops,13,41,2995,4,0.477,3.866,61.7,5064.0
+2hop__77518_548781,2hop,,span,Plymouth Notch,James Monroe,0.0,0.0,0,2,1,0.5,2,1,0.5,2,repeated_query,5,31,2365,3,0.759,2.951,74.3,4954.2
+4hop2__9988_729371_70784_61381,4hop2,,span,1932,1932,1.0,1.0,1,4,4,1.0,4,4,1.0,3,repeated_query,9,40,3487,4,0.469,4.163,54.0,5121.1
+3hop1__208108_547811_80702,3hop1,,span,Rialto Bridge,Rialto Bridge,1.0,1.0,1,3,3,1.0,3,3,1.0,2,repeated_query,8,27,2604,3,0.636,3.117,56.0,5079.8
+4hop1__58323_375563_161848_67585,4hop1,,span,four,15,0.0,0.0,0,4,2,0.5,4,2,0.5,2,repeated_query,7,73,2665,3,0.706,4.027,75.2,5071.3
+4hop3__316459_41402_146281_13584,4hop3,,span,two cities,no,0.0,0.0,1,4,4,1.0,4,4,1.0,4,max_hops,12,73,5116,4,0.851,6.146,92.0,5168.9
+2hop__278022_71701,2hop,,span,November 5,1941,0.0,0.0,1,2,2,1.0,2,2,1.0,3,repeated_query,8,62,3545,4,0.594,4.538,59.8,5081.6
+3hop1__131820_59747_90139,3hop1,,span,Kim Zolciak,Kim Zolciak,1.0,1.0,0,3,2,0.6667,3,2,0.6667,3,repeated_query,6,79,3416,4,0.686,4.835,57.4,5011.8
+2hop__27650_27619,2hop,,span,Article 2 of the Statute of the ECB,European Central Bank,0.0,0.0,0,2,1,0.5,2,1,0.5,1,done,5,6,1637,2,0.758,1.768,62.6,4962.8
+2hop__284789_52835,2hop,,span,John D. Loudermilk,Norah Jones,0.0,0.0,1,2,2,1.0,2,2,1.0,2,repeated_query,7,30,2246,3,0.579,2.72,63.3,4961.3

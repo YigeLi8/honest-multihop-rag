@@ -1,0 +1,6 @@
+a,b,metric,mean_a,mean_b,diff,ci_lo,ci_hi,only_a,only_b,mcnemar_p
+bm25_2wiki_confirm,bm25_k13_2wiki_confirm,em,0.32,0.349,0.029,0.01,0.048,31,60,0.00311
+bm25_2wiki_confirm,bm25_k13_2wiki_confirm,retrieval_correct,0.365,0.491,0.126,0.105,0.147,0,126,0.0
+bm25_2wiki_confirm,bm25_k13_2wiki_confirm,illusion,0.133,0.102,-0.031,-0.047,-0.015,49,18,0.00019
+bm25_2wiki_confirm,bm25_k13_2wiki_confirm,unexplained,0.02,0.02,0.0,-0.004,0.004,2,2,1.0
+bm25_2wiki_confirm,bm25_k13_2wiki_confirm,f1,0.3676,0.4,0.0324,0.0139,0.0507,,,
