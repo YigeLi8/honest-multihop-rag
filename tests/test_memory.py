@@ -886,7 +886,7 @@ def test_predictability_is_held_out():
     # similarity memory: when the arm that hits is a function of the question
     # text, the nearest past questions route it; random text does not
     from src.memory.arms import neighbour_routed_rate
-    table["question"] = ["long query %d" % i if table["arm:a"][i] else "short one %d" % i
+    table["question"] = ["long query %03d" % i if table["arm:a"][i] else "short one %03d" % i
                          for i in range(n)]
     nn = neighbour_routed_rate(table, ks=[5], seeds=[13, 17]).set_index("stage")
     assert nn.loc["question_knn5"]["gain"] > 0.15 and nn.loc["question_knn5"]["n_splits"] == 4

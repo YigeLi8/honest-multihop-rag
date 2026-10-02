@@ -376,7 +376,8 @@ def neighbour_routed_rate(table: pd.DataFrame, ks: Sequence[int] = (5, 20),
                 continue
             vec = TfidfVectorizer(sublinear_tf=True).fit([text[i] for i in fit])
             sims = (vec.transform([text[i] for i in score]) @ vec.transform([text[i] for i in fit]).T).toarray()
-            nearest = np.argsort(-sims, axis=1)[:, :k]            # positions within fit
+            # stable: equal similarities go to the earlier fit position on every platform
+            nearest = np.argsort(-sims, axis=1, kind="stable")[:, :k]   # positions within fit
             order = sorted(arms, key=lambda a: -hit[a][fit].mean())  # tie-break: fit-half best
             votes = np.stack([hit[a][fit][nearest].mean(axis=1) for a in order])
             chosen = np.argmax(votes, axis=0)                     # first max wins the tie
