@@ -1225,6 +1225,7 @@ def test_stream_protocol_and_baselines():
     assert 0.3 < m["false_application"] < 0.7                 # "other" is right on half the region
     assert m["false_rejection"] == 0.0                        # every recoverable question fires
     assert abs(m["boundary_precision"] + m["false_application"] - 1) < 1e-9
+    assert m["harm"] == 0.0                                   # primary never hits where it fires
 
     # the router and the knn learn the region at the primary_hits stage and
     # nothing at the query stage, where the features are constants
@@ -1280,7 +1281,7 @@ def test_stream_protocol_and_baselines():
     row = summary.set_index("policy")
     assert row.loc["fixed:primary", "gain"] == 0.0 and row.loc["fixed:primary", "mcnemar_p_max"] == 1.0
     assert row.loc["boundary", "op_create"] > 0 and row.loc["utility", "op_narrow"] == 0
-    for c in ("rate", "false_application", "false_rejection", "repeated_failure",
+    for c in ("rate", "false_application", "harm", "false_rejection", "repeated_failure",
               "boundary_precision", "boundary_recall"):
         vals = summary[c].dropna()
         assert ((vals >= 0) & (vals <= 1)).all(), c

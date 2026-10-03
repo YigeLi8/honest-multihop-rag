@@ -305,9 +305,68 @@ EM beside +27 retrieval_correct).
 ### Stage 5: boundaries that revise themselves (the claim under test)
 
 - [ ] per-lesson applicability model (predicate, then logistic / small tree),
-      decide-then-reveal online protocol, K=5 seeded stream orders
-- [ ] operators narrow / expand / exception / split / retire with a revision
-      log; never overwrite silently
+      decide-then-reveal online protocol, K=5 seeded stream orders. The
+      protocol and every policy of the table are in `src/memory/stream.py`,
+      run on the hop-0 records of an arms log: a policy reads the features
+      of its stage (query / pool / primary_hits, the last meaning bm25 has
+      already run and a switch costs a second arm), picks an arm or probes
+      every arm, and is then told how each arm did; five seeded orders,
+      every rate paired against the fixed default per order. A lesson is
+      "where bm25 fails like this, arm A recovers it", created from a
+      revealed recoverable failure with that question's features as the
+      exemplar and a box of 1 or 2 running sd around it as its region; it
+      fires when the question is inside and its utility (mean gain of A
+      over bm25 on the revealed questions inside the region, fired or not,
+      never the current one) is positive after five of them. `utility`
+      keeps the region fixed; `boundary` revises it with the operators
+      below; `+lr` adds a per-lesson online logistic inside the region.
+      Hotpot, positions 0-1499, bm25 default, all gold in top-10
+      (`results/hotpot_stream.csv`): fixed hybrid 0.634, probe 0.735 at
+      cost 3. The shared router lands at 0.619-0.622 at every stage and the
+      feature-space knn at 0.612, i.e. at always-dense, below always-hybrid,
+      as the held-out tables of Stage 1b said. The lesson memories do worse
+      the more structure they have: the best of them is the fixed-region
+      utility memory at the query stage with radius 2 (0.626 +- 0.004), and
+      it gets there by firing on 1437 of 1500 questions, i.e. it has turned
+      into "always switch"; the boundary memory is at 0.546-0.587 with
+      380-700 lessons created, 30-230 alive at the end and 2000-4000 logged
+      revisions per order. The per-lesson logistic does not help either:
+      inside a fixed region it is the worst row (0.516-0.546), with the
+      operators it stays where the box alone was (0.554-0.571).
+      The static rules fixed from the Stage 3 table (thin or flat bm25 list
+      -> hybrid, no title named -> dense) give 0.552 at cost 1.41, the veto
+      changes nothing (0.550). Among the 344 recoverable failures, the
+      fixed hybrid repeats 0.28 of them, the best memory 0.22, the boundary
+      memory 0.47-0.70; false application is 0.79-0.83 for every policy
+      that fires (mostly firings where bm25 would have hit too; the harm
+      share, chosen arm missed where bm25 hit, is 0.06-0.08 throughout).
+      So on hotpot the claim fails as stated: an explicit per-lesson
+      boundary over the frozen process features does not beat the shared
+      router, the fixed-region utility memory or always-hybrid, and the
+      operators make it worse, because there is no region of this feature
+      space where one arm reliably beats another (Stage 1b). The unit test
+      shows the instrument is not the problem: on a table with a planted
+      boundary the boundary memory recovers it (0.94 against the oracle
+      1.0, false application 0.09) where the fixed-region utility memory
+      does not (0.63-0.69, 0.45-0.64). Still open: the same table on
+      musique (the arms log has to be rebuilt; dense on cpu over 2417
+      questions with 20 paragraphs each is hours here, so on the Mac), the
+      twins as the stream (where the boundary question is defined by
+      construction), induced drift, and features that are not frozen
+      process statistics
+- [x] operators narrow / expand / exception / split / retire with a revision
+      log; never overwrite silently. `LessonMemory(revise=True)` in
+      `stream.py`: narrow pulls one box edge to just inside a contradicting
+      point on the dimension where it is farthest from the exemplar, only
+      if no supporter is lost; exception excludes the point with a small
+      ball when every cut would lose one; expand grows the box to a point
+      just outside it where the arm beat the default; split cuts a lesson
+      with more than three exceptions at the median of its supporters and
+      replaces it with two; retire drops a lesson whose utility is not
+      positive after five questions. Every step is a row of
+      `results/hotpot_stream_revisions.csv` (first order) with the box
+      width before and after; the test checks that narrowing never widens a
+      box or loses a supporter
 - [ ] baselines on the same stream: shared online router, scalar utility,
       always-probe, fixed hybrid; induced drift (switch dataset mid-stream);
       a query-only router (the same router on the query-stage features
@@ -315,16 +374,33 @@ EM beside +27 retrieval_correct).
       gains elsewhere; and a no-persistence control (decide each question
       from the current features with nothing kept across questions), which
       beat every persisted-skill method in the held-out skill study (paper
-      log, 2026-10-01)
-- [ ] metrics: repeated-failure rate, false application, false rejection,
+      log, 2026-10-01). All but the drift are rows of `hotpot_stream.csv`
+      (numbers above): the query-only router equals the primary-hits router
+      (0.622 vs 0.619), and the no-persistence rules are the `rule:` rows.
+      Drift waits for the musique log
+- [x] metrics: repeated-failure rate, false application, false rejection,
       boundary precision / recall against the known best arm, adaptation
       speed, revision rate, regret, retrieval cost. Every rate that
       conditions on a lesson firing is reported beside the unconditioned
       contrast over the whole stream at matched retrieval cost (paper log,
       2026-10-02: conditioning on the trigger does not identify the
-      invocation effect)
+      invocation effect). In `stream.py` (`boundary_metrics`, `evaluate`):
+      each row carries the whole-stream rate, cost and gain over the fixed
+      default with McNemar per order, then the conditioned rates; false
+      application is split into useless firings (both arms hit) and harm
+      (the chosen arm missed where the default hit). Adaptation speed is
+      not in the table yet (the per-order hit sequences are there to
+      compute it from)
 - [ ] ablation: remove the operators and the log, keep the features; if
-      nothing changes, the structure is decoration
+      nothing changes, the structure is decoration. Done as the `utility`
+      against `boundary` pairs at every stage and radius, and `utility+lr`
+      against `boundary+lr`: on hotpot removing the operators does not
+      merely leave the rate unchanged, it raises it (0.626 against 0.565 at
+      the query stage, radius 2); with the per-lesson logistic inside the
+      region the order reverses (0.516 against 0.554), both well below
+      always-hybrid. The structure is worse than decoration
+      on these features; whether it is on any features is what the twins
+      stream and the musique run have to say
 
 ### Stage 6-7, only if Stage 5 shows something
 

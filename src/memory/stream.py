@@ -606,6 +606,7 @@ class StreamResult:
     arm: list                # chosen arm per question, "probe" when probing
     fired: np.ndarray        # a lesson or rule made the decision
     lesson_arm_ok: np.ndarray    # fired and the chosen arm beat the default
+    harm: np.ndarray         # fired and the chosen arm missed where the default hit
     state: dict
     log: list
 
@@ -616,6 +617,7 @@ def run_stream(stream: Stream, policy: Policy) -> StreamResult:
     cost = np.zeros(n, dtype=int)
     fired = np.zeros(n, dtype=bool)
     ok = np.zeros(n, dtype=bool)
+    harm = np.zeros(n, dtype=bool)
     chosen = []
     d = stream.arms.index(policy.default)
     for t, q in enumerate(stream.order):
@@ -630,8 +632,9 @@ def run_stream(stream: Stream, policy: Policy) -> StreamResult:
         cost[t] = decision.cost
         fired[t] = decision.lesson is not None
         ok[t] = fired[t] and not decision.probe and hit[t] > h[d]
+        harm[t] = fired[t] and not decision.probe and hit[t] < h[d]
         policy.reveal(x, h, decision, t)
-    return StreamResult(policy.name, policy.stage, hit, cost, chosen, fired, ok,
+    return StreamResult(policy.name, policy.stage, hit, cost, chosen, fired, ok, harm,
                         policy.lesson_state(), getattr(policy, "log", []))
 
 
@@ -643,6 +646,10 @@ def boundary_metrics(stream: Stream, result: StreamResult, default: str) -> dict
                   share the policy still missed (the memory had seen such a
                   failure and did not avoid it)
     false_application  fired and the chosen arm did not beat the default
+                  (both hit counts: the lesson changed nothing, and at the
+                  primary_hits stage it cost a retrieval)
+    harm          fired and the chosen arm missed where the default hit: the
+                  firings that lost a question, apart from the useless ones
     false_rejection    recoverable, after the first recoverable question, not
                   fired
     boundary_precision / recall   fired-and-beat-default against recoverable
@@ -664,6 +671,7 @@ def boundary_metrics(stream: Stream, result: StreamResult, default: str) -> dict
     return {"n_recoverable": int(recoverable.sum()), "n_fired": int(fired.sum()),
             "repeated_failure": rate(rec_later & (result.hit == 0), rec_later),
             "false_application": rate(fired & ~ok, fired),
+            "harm": rate(result.harm, fired),
             "false_rejection": rate(rec_later & ~fired, rec_later),
             "boundary_precision": rate(ok, fired),
             "boundary_recall": rate(ok & rec_later, rec_later)}
@@ -757,7 +765,7 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
                "mcnemar_p_max": round(df["mcnemar_p"].max(), 4),
                "only_policy": round(df["only_policy"].mean(), 1),
                "only_default": round(df["only_default"].mean(), 1)}
-        for c in ("n_recoverable", "n_fired", "repeated_failure", "false_application",
+        for c in ("n_recoverable", "n_fired", "repeated_failure", "false_application", "harm",
                   "false_rejection", "boundary_precision", "boundary_recall", "n_lessons",
                   "n_active", *[f"op_{o}" for o in OPERATORS]):
             if c in df:
