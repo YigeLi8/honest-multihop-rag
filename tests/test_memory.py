@@ -1149,6 +1149,144 @@ def test_failure_typing():
     assert failure_type(stub) == "bridge_miss"
 
 
+def stream_table(n=400, seed=7):
+    """An arm table (src.memory.arms.arm_table layout) with a boundary to
+    learn: the primary arm misses when score_entropy is high; in that region
+    "other" recovers the question when rare_token_ratio is low and "third"
+    when it is high. Everything else is noise, so a lesson for "other" has a
+    true boundary (entropy > 0.5 and rare < 0.5) and a lesson for "third"
+    the complementary half. Every other feature is a constant or noise."""
+    import numpy as np
+    import pandas as pd
+    rng = np.random.RandomState(seed)
+    entropy = rng.rand(n)
+    rare = rng.rand(n)
+    primary = (entropy <= 0.5).astype(float)
+    other = ((entropy > 0.5) & (rare < 0.5) | (primary == 1) & (rng.rand(n) < 0.5)).astype(float)
+    third = ((entropy > 0.5) & (rare >= 0.5) | (primary == 1) & (rng.rand(n) < 0.5)).astype(float)
+    table = pd.DataFrame({"id": [f"q{i}" for i in range(n)],
+                          "qtype": ["bridge" if i % 2 else "comparison" for i in range(n)],
+                          "question": [f"question {i}" for i in range(n)], "n_gold": 2,
+                          "arm:primary": primary, "arm:other": other, "arm:third": third})
+    for name in FEATURES:
+        table[f"f:{name}"] = 0.0
+    table["f:score_entropy"] = entropy
+    table["f:rare_token_ratio"] = rare
+    table["f:top1_score"] = rng.rand(n)          # noise
+    table["f:n_hits"] = 2.0
+    return table
+
+
+def test_stream_protocol_and_baselines():
+    import numpy as np
+    from src.memory.stream import (AlwaysProbe, Decision, FixedArm, LessonMemory, OnlineKNN,
+                                   OnlineRouter, Policy, StaticRule, boundary_metrics,
+                                   evaluate, make_stream, run_stream, seeded_orders)
+    table = stream_table()
+    orders = seeded_orders(len(table), [13, 17])
+    assert not np.array_equal(orders[0], orders[1]) and sorted(orders[0]) == list(range(len(table)))
+    s = make_stream(table, "primary_hits", orders[0])
+    assert s.arms == ["primary", "other", "third"] and s.X.shape == (400, len(FEATURES) + 2)
+    assert "f:score_entropy" in s.columns and "qtype:bridge" in s.columns
+    q = make_stream(table, "query", orders[0])
+    assert "f:score_entropy" not in q.columns          # the query stage cannot see the hits
+
+    # the fixed arms and the probe reproduce the ceiling table
+    fixed = run_stream(s, FixedArm(s, "primary", "primary"))
+    assert fixed.hit.mean() == table["arm:primary"].mean() and set(fixed.cost) == {1}
+    probe = run_stream(s, AlwaysProbe(s, "primary"))
+    assert probe.hit.mean() == table[["arm:primary", "arm:other", "arm:third"]].max(axis=1).mean()
+    assert set(probe.cost) == {3} and set(probe.arm) == {"probe"}
+
+    # decide-then-reveal: a policy never sees the current outcome before deciding
+    class Peeker(Policy):
+        stage = "primary_hits"
+        def __init__(self, stream, default):
+            super().__init__(stream, default)
+            self.revealed = []
+        def decide(self, x, t):
+            assert len(self.revealed) == t          # exactly the earlier questions
+            return Decision(self.default, cost=1)
+        def reveal(self, x, h, decision, t):
+            self.revealed.append(h)
+    run_stream(s, Peeker(s, "primary"))
+
+    # switching after the primary ran costs two arms; the primary itself one
+    rules = [("high_entropy", lambda f: f["f:score_entropy"] > 0.5, "other")]
+    rule = run_stream(s, StaticRule(s, "primary", "primary_hits", rules))
+    fired = rule.fired
+    assert fired.sum() > 100 and set(rule.cost[fired]) == {2} and set(rule.cost[~fired]) == {1}
+    assert rule.hit.mean() > fixed.hit.mean()                 # the rule is half right
+    veto = run_stream(s, StaticRule(s, "primary", "primary_hits", rules, veto=True, min_n=10))
+    assert veto.fired.sum() < fired.sum()                     # the first min_n never fire
+    m = boundary_metrics(s, rule, "primary")
+    assert m["n_recoverable"] == int(((table["arm:primary"] == 0) &
+                                      ((table["arm:other"] == 1) | (table["arm:third"] == 1))).sum())
+    assert 0.3 < m["false_application"] < 0.7                 # "other" is right on half the region
+    assert m["false_rejection"] == 0.0                        # every recoverable question fires
+    assert abs(m["boundary_precision"] + m["false_application"] - 1) < 1e-9
+
+    # the router and the knn learn the region at the primary_hits stage and
+    # nothing at the query stage, where the features are constants
+    router = run_stream(s, OnlineRouter(s, "primary", "primary_hits", warmup=50))
+    assert router.hit[200:].mean() > 0.85
+    knn = run_stream(s, OnlineKNN(s, "primary", "primary_hits", k=10, warmup=50))
+    assert knn.hit[200:].mean() > 0.85
+    blind = run_stream(q, OnlineRouter(q, "primary", "query", warmup=50))
+    assert abs(blind.hit.mean() - fixed.hit.mean()) < 0.1
+
+    # lessons: created only from recoverable failures, after the decision
+    util = LessonMemory(s, "primary", "primary_hits", revise=False, radius=2.0, warmup=20)
+    res_u = run_stream(s, util)
+    assert util.lessons and all(e["op"] == "create" for e in util.log)
+    assert all(l.arm in ("other", "third") for l in util.lessons)
+    assert all(not l.retired for l in util.lessons)
+    bound = LessonMemory(s, "primary", "primary_hits", revise=True, radius=2.0, warmup=20)
+    res_b = run_stream(s, bound)
+    ops = {e["op"] for e in bound.log}
+    assert {"create", "narrow"} <= ops, ops
+    assert all(set(e) >= {"t", "lesson", "op", "reason", "width_before", "width_after"}
+               for e in bound.log)
+    # a narrow step never widens the box and keeps every supporter inside
+    for e in bound.log:
+        if e["op"] == "narrow":
+            assert e["width_after"] <= e["width_before"] + 1e-9
+    for l in bound.lessons:
+        assert all(np.all((p >= l.lo - 1e-9) & (p <= l.hi + 1e-9)) for p in l.support)
+    assert res_b.state["op_narrow"] > 0 and res_b.state["n_lessons"] == len(bound.lessons)
+    mb = boundary_metrics(s, res_b, "primary")
+    assert mb["n_fired"] > 0 and mb["false_application"] <= m["false_application"]
+    # the utility of a lesson never includes the question being decided:
+    # on the first question inside a fresh lesson gain_n is still 0
+    fresh = LessonMemory(s, "primary", "primary_hits", revise=False, radius=2.0, warmup=0, min_n=1)
+    x0, h0 = s.X[s.order[0]], s.H[s.order[0]]
+    fresh.reveal(x0, h0, Decision("primary"), 0)
+    if fresh.lessons:
+        assert fresh.lessons[0].gain_n == 0 and fresh.decide(x0, 1).lesson is None
+
+    # the summary table: one row per policy, every rate inside [0, 1]
+    summary, log = evaluate(table, "primary", seeds=[13, 17],
+                            policies=[("utility", "primary_hits",
+                                       lambda st, d: LessonMemory(st, d, "primary_hits", False,
+                                                                  radius=2.0)),
+                                      ("boundary", "primary_hits",
+                                       lambda st, d: LessonMemory(st, d, "primary_hits", True,
+                                                                  radius=2.0))],
+                            rules={"primary_hits": rules})
+    assert summary["policy"].tolist() == ["fixed:primary", "fixed:other", "fixed:third", "utility",
+                                          "boundary", "rule:primary_hits",
+                                          "rule:primary_hits+veto"]
+    assert (summary["n_orders"] == 2).all()
+    row = summary.set_index("policy")
+    assert row.loc["fixed:primary", "gain"] == 0.0 and row.loc["fixed:primary", "mcnemar_p_max"] == 1.0
+    assert row.loc["boundary", "op_create"] > 0 and row.loc["utility", "op_narrow"] == 0
+    for c in ("rate", "false_application", "false_rejection", "repeated_failure",
+              "boundary_precision", "boundary_recall"):
+        vals = summary[c].dropna()
+        assert ((vals >= 0) & (vals <= 1)).all(), c
+    assert log and log[0]["policy"] == "boundary" and log[0]["op"] == "create"
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1175,4 +1313,5 @@ if __name__ == "__main__":
     test_make_twins()
     test_lookalike_pairs_and_twins()
     test_failure_typing()
+    test_stream_protocol_and_baselines()
     print("all good")
