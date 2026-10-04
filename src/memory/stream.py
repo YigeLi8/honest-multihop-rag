@@ -71,6 +71,25 @@ retrieval cost next to it.
 Writes results/<dataset>_stream.csv (one row per policy) and
 results/<dataset>_stream_revisions.csv (the first boundary memory's revision
 log on the first order).
+
+The twins as the stream (--twin-records, the arms log of a
+data/make_twins.py file): per twin kind, one stream of the originals and
+their twins in a seeded order, the same policies plus the surface-keyed
+memories
+
+  text:exact, text:0.6   the nearest revealed question by text, if identical
+                    or at Jaccard 0.6 or more, decides: the default where it
+                    hit, else the arm that recovered it there
+
+and, per policy, the pair metrics of twin_metrics: on twins whose original
+came earlier, the hit rate on unchanged and on changed pairs (the twin's
+outcomes differ from the original's on some arm) beside the default, the
+arm a surface key repeats from the original, and the oracle. A distractor
+twin is the original's text over a harder pool, so the surface key cannot
+tell them apart and the process features are the only thing that can; an
+alias twin is a new text over the same pool, where the surface key sees a
+new question and the features almost the same one. Writes
+results/<dataset>_twin_stream.csv and _twin_stream_revisions.csv.
 """
 import argparse
 import math
@@ -85,9 +104,12 @@ import pandas as pd
 from src.eval.stats import mcnemar
 from src.memory.arms import (OUTCOMES, arm_table, arms_of, hits, read_ids, read_records,
                              stage_columns, with_qtype_columns)
+from src.memory.features import tokens
 
 DECIDE_STAGES = ("query", "pool", "history", "primary_hits")
 OPERATORS = ("create", "narrow", "expand", "exception", "split", "retire")
+TWIN_SEP = "::twin:"
+TWIN_COLUMNS = ("hit", "default", "repeat", "oracle", "same_decision")
 
 
 # ---------------------------------------------------------------- the stream
@@ -110,6 +132,7 @@ class Stream:
     H: np.ndarray                 # questions x arms, 0/1
     arms: list
     order: np.ndarray             # the positions in stream order
+    text: list = field(default_factory=list)   # question text per position (surface-keyed policies)
 
     def column(self, name: str) -> int:
         return self.columns.index(name)
@@ -130,7 +153,8 @@ def make_stream(table: pd.DataFrame, stage: str, order: np.ndarray) -> Stream:
     arms = arms_of(table)
     H = np.stack([hits(table, a).to_numpy(dtype=int) for a in arms], axis=1)
     return Stream(ids=table["id"].tolist(), X=full[cols].to_numpy(dtype=float), columns=cols,
-                  H=H, arms=arms, order=np.asarray(order, dtype=int))
+                  H=H, arms=arms, order=np.asarray(order, dtype=int),
+                  text=table["question"].fillna("").tolist())
 
 
 class Standardiser:
@@ -329,6 +353,68 @@ class OnlineKNN(Policy):
     def reveal(self, x, h, decision, t):
         self.std.update(x)
         self.xs.append(np.asarray(x, dtype=float))
+        self.hs.append(np.asarray(h, dtype=int))
+
+
+class TextMemory(Policy):
+    """Similarity memory keyed on the question's surface, online: the pair
+    baseline of the twin stream. The nearest revealed question by token
+    Jaccard over the question text, if at least `threshold` similar, decides:
+    the default when it hit there, else the first other arm that hit there,
+    i.e. the arm a "this question failed before, X recovered it" memory
+    repeats. It decides at the query stage, before any retrieval, and reads
+    nothing but the text, so a distractor twin (identical text) always
+    matches its original and an alias twin matches only below threshold 1.
+
+    Hypothesis it serves (plan, Stage 5, the twins as the stream): whether a
+    per-lesson boundary over the process features tells a changed retrieval
+    situation from an unchanged one where a surface key by construction
+    cannot. The text key is never a feature of any other policy."""
+    stage = "query"
+
+    def __init__(self, stream: Stream, default: str, threshold: float = 1.0) -> None:
+        super().__init__(stream, default)
+        self.threshold = threshold
+        self.name = f"text:{'exact' if threshold >= 1.0 else f'{threshold:g}'}"
+        self.keys: list[frozenset] = []
+        self.hs: list[np.ndarray] = []
+        self.exact: dict[frozenset, int] = {}
+
+    def _key(self, t: int) -> frozenset:
+        return frozenset(tokens(self.stream.text[self.stream.order[t]]))
+
+    def _nearest(self, key: frozenset) -> tuple[Optional[int], float]:
+        if not key:
+            return None, 0.0
+        if key in self.exact:
+            return self.exact[key], 1.0
+        if self.threshold >= 1.0:
+            return None, 0.0
+        best, best_sim = None, 0.0
+        for i, k in enumerate(self.keys):
+            inter = len(key & k)
+            if inter:
+                sim = inter / len(key | k)
+                if sim > best_sim:
+                    best, best_sim = i, sim
+        return best, best_sim
+
+    def decide(self, x, t):
+        i, sim = self._nearest(self._key(t))
+        if i is None or sim < self.threshold:
+            return Decision(self.default, cost=1)
+        h = self.hs[i]
+        if h[self.d_arm]:
+            return Decision(self.default, cost=1)
+        for j, arm in enumerate(self.arms):
+            if j != self.d_arm and h[j]:
+                return Decision(arm, lesson=f"match@{sim:.2f}", cost=self.cost_of(arm))
+        return Decision(self.default, cost=1)
+
+    def reveal(self, x, h, decision, t):
+        key = self._key(t)
+        self.exact[key] = len(self.keys)      # the latest question with this text
+        self.keys.append(key)
         self.hs.append(np.asarray(h, dtype=int))
 
 
@@ -677,6 +763,83 @@ def boundary_metrics(stream: Stream, result: StreamResult, default: str) -> dict
             "boundary_recall": rate(ok & rec_later, rec_later)}
 
 
+# ---------------------------------------------------------------- twins as the stream
+
+def twin_pairs(table: pd.DataFrame) -> dict[int, int]:
+    """twin row -> original row, for every twin (data/make_twins.py ids,
+    '<original>::twin:<kind>') whose original is in the table."""
+    at = {i: n for n, i in enumerate(table["id"])}
+    pairs = {}
+    for n, i in enumerate(table["id"]):
+        if TWIN_SEP in i and i.rsplit(TWIN_SEP, 1)[0] in at:
+            pairs[n] = at[i.rsplit(TWIN_SEP, 1)[0]]
+    return pairs
+
+
+def with_twins(originals: pd.DataFrame, twins: pd.DataFrame) -> pd.DataFrame:
+    """One arm table of the originals and the twins whose original is in it,
+    so that one stream carries both and a policy meets a twin before or
+    after its original as the order says. The same arms on both sides."""
+    if arms_of(twins) != arms_of(originals):
+        raise ValueError(f"twins carry arms {arms_of(twins)}, originals {arms_of(originals)}")
+    have = set(originals["id"])
+    keep = twins["id"].map(lambda i: TWIN_SEP in i and i.rsplit(TWIN_SEP, 1)[0] in have)
+    cols = [c for c in originals.columns if c in twins.columns]
+    out = pd.concat([originals[cols], twins.loc[keep, cols]], ignore_index=True)
+    if out["id"].duplicated().any():
+        raise ValueError("duplicate ids between originals and twins")
+    return out
+
+
+def twin_metrics(stream: Stream, result: StreamResult, pairs: dict, default: str) -> dict:
+    """What a policy does on a twin whose original it has already seen: the
+    pairs where the original came earlier in this order (about half of them
+    under a random order; the rest are left out).
+
+    changed    the twin's hit vector differs from the original's on some arm:
+               by construction the surface is the same (distractor twins) or
+               nearly so (alias twins), and the retrieval situation moved
+    repeat     the arm a surface-keyed memory carries over from the original:
+               the default if it hit there, else the first other arm that hit
+               there. On an unchanged pair it is the best arm; on a changed
+               pair it is what a memory that cannot see the change does
+    Per unchanged / changed pairs: the policy's hit rate on the twin beside
+    the fixed default's, the repeat arm's and the oracle's, and
+    same_decision, the share of pairs where the policy chose on the twin the
+    arm it chose on the original. p_vs_repeat_changed is McNemar between the
+    policy's hits and the repeat arm's on the changed pairs."""
+    pos = np.empty(len(stream.order), dtype=int)
+    pos[stream.order] = np.arange(len(stream.order))
+    d = stream.arms.index(default)
+    rows = []
+    for tw, orig in pairs.items():
+        pt, po = pos[tw], pos[orig]
+        if po >= pt:
+            continue
+        ht, ho = stream.H[tw], stream.H[orig]
+        rep = d if ho[d] else next((j for j in range(len(ho)) if j != d and ho[j]), d)
+        rows.append({"changed": bool(np.any(ht != ho)), "hit": int(result.hit[pt] >= 1),
+                     "default": int(ht[d]), "repeat": int(ht[rep]), "oracle": int(ht.max()),
+                     "same_decision": int(result.arm[pt] == result.arm[po])})
+    df = pd.DataFrame(rows, columns=["changed", *TWIN_COLUMNS])
+    out = {"n_pairs": len(df), "n_changed": int(df["changed"].sum())}
+    for label, sub in (("unchanged", df[~df["changed"]]), ("changed", df[df["changed"]])):
+        for c in TWIN_COLUMNS:
+            out[f"{c}_{label}"] = round(float(sub[c].mean()), 4) if len(sub) else math.nan
+    changed = df[df["changed"]]
+    out["p_vs_repeat_changed"] = mcnemar(changed["repeat"].tolist(), changed["hit"].tolist())[2] \
+        if len(changed) else math.nan
+    return out
+
+
+def text_policies() -> list[tuple]:
+    """The surface-keyed memories of the twin stream: exact text, and the
+    nearest question at Jaccard 0.6 or more (an alias twin sits above it,
+    nearest natural neighbours on hotpot almost never do)."""
+    return [("text:exact", "query", lambda s, d: TextMemory(s, d, 1.0)),
+            ("text:0.6", "query", lambda s, d: TextMemory(s, d, 0.6))]
+
+
 def default_policies(default: str) -> list[tuple]:
     """(label, stage, factory) for every learned policy of the Stage 5 table."""
     pols: list[tuple] = [("probe", "query", lambda s, d: AlwaysProbe(s, d))]
@@ -728,11 +891,14 @@ def bm25_rules(k: int) -> list[tuple]:
 
 def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 19, 23, 29),
              policies: Optional[Sequence[tuple]] = None,
-             rules: Optional[dict] = None) -> tuple[pd.DataFrame, list[dict]]:
+             rules: Optional[dict] = None,
+             pairs: Optional[dict] = None) -> tuple[pd.DataFrame, list[dict]]:
     """Every policy on every seeded order. Returns the summary table (mean
     and sd over orders; gain over the fixed default paired per order with
     the largest McNemar p) and the boundary memory's revision log on the
-    first order."""
+    first order. With `pairs` (twin_pairs of a with_twins table) every row
+    also carries the twin metrics, averaged over orders, the McNemar p as
+    its largest."""
     arms = arms_of(table)
     if default not in arms:
         raise ValueError(f"default {default!r} is not one of the arms {arms}")
@@ -753,7 +919,8 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
             per_order.append({"rate": res.hit.mean(), "cost": res.cost.mean(),
                               "gain": res.hit.mean() - base.mean(), "oracle": s.H[s.order].max(axis=1).mean(),
                               "mcnemar_p": p, "only_policy": only_b, "only_default": only_a,
-                              **boundary_metrics(s, res, default), **res.state})
+                              **boundary_metrics(s, res, default), **res.state,
+                              **(twin_metrics(s, res, pairs, default) if pairs else {})})
             if res.log and label not in logs:
                 logs[label] = [{"policy": label, **e} for e in res.log]
         df = pd.DataFrame(per_order)
@@ -770,6 +937,11 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
                   "n_active", *[f"op_{o}" for o in OPERATORS]):
             if c in df:
                 row[c] = round(float(df[c].mean()), 4)
+        if pairs:
+            for c in ("n_pairs", "n_changed", *[f"{c}_{w}" for w in ("unchanged", "changed")
+                                                 for c in TWIN_COLUMNS]):
+                row[c] = round(float(df[c].mean()), 4)
+            row["p_vs_repeat_changed"] = round(float(df["p_vs_repeat_changed"].max()), 4)
         rows.append(row)
     boundary = [k for k in logs if k.startswith("boundary")]
     first_log = logs[boundary[0]] if boundary else next(iter(logs.values()), [])
@@ -784,6 +956,9 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     ap.add_argument("--ids", default=None)
     ap.add_argument("--default", default=None, help="the default arm (the log's primary)")
     ap.add_argument("--seeds", type=int, nargs="+", default=[13, 17, 19, 23, 29])
+    ap.add_argument("--twin-records", default=None,
+                    help="experience jsonl of the twins run: one stream of originals and twins "
+                         "per twin kind, with the pair metrics and the text-keyed memories")
     ap.add_argument("--out-dir", default="results")
     args = ap.parse_args(argv)
     header, records = read_records(args.records)
@@ -791,14 +966,36 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     arms = arms_of(table)
     default = args.default or arms[0]
     k = int(header["strategy"]["top_k"])
+    rules = {"primary_hits": bm25_rules(k)} if default == arms[0] else None
     print(f"{args.records}: {len(table)} questions, arms {arms}, default {default}, k={k}")
-    summary, log = evaluate(table, default, seeds=args.seeds,
-                            rules={"primary_hits": bm25_rules(k)} if default == arms[0] else None)
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
+    pd.set_option("display.width", 250)
+
+    if args.twin_records:
+        _, twin_records = read_records(args.twin_records)
+        twins = arm_table(twin_records, outcome=args.outcome)
+        kinds = sorted({i.rsplit(TWIN_SEP, 1)[1] for i in twins["id"] if TWIN_SEP in i})
+        summaries, logs = [], []
+        for kind in kinds:
+            both = with_twins(table, twins[twins["id"].str.endswith(f"{TWIN_SEP}{kind}")])
+            pairs = twin_pairs(both)
+            print(f"\n{kind}: {len(pairs)} pairs, {len(both)} questions in the stream")
+            summary, log = evaluate(both, default, seeds=args.seeds,
+                                    policies=text_policies() + default_policies(default),
+                                    rules=rules, pairs=pairs)
+            summary.insert(0, "kind", kind)
+            summaries.append(summary)
+            logs += [{"kind": kind, **e} for e in log]
+            print(summary.to_string(index=False))
+        pd.concat(summaries, ignore_index=True).to_csv(out / f"{args.dataset}_twin_stream.csv",
+                                                       index=False)
+        pd.DataFrame(logs).to_csv(out / f"{args.dataset}_twin_stream_revisions.csv", index=False)
+        return
+
+    summary, log = evaluate(table, default, seeds=args.seeds, rules=rules)
     summary.to_csv(out / f"{args.dataset}_stream.csv", index=False)
     pd.DataFrame(log).to_csv(out / f"{args.dataset}_stream_revisions.csv", index=False)
-    pd.set_option("display.width", 250)
     print(summary.to_string(index=False))
     print(f"\nrevision log: {len(log)} entries -> {out / f'{args.dataset}_stream_revisions.csv'}")
 

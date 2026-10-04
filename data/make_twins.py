@@ -12,6 +12,13 @@ made. Two kinds, from a processed dev file:
                paragraph title the question does not name). Same surface,
                harder lexical situation: a memory keyed on the question text
                sees the same question, the retrievers see a different pool.
+  distractor_para   the harder version: up to --n-para-distractors sentences
+               from other pools that share a content token with the question
+               (so they score against it) and one with the text of a bridge
+               paragraph (so they look like the gold the question has to
+               reach). Same surface, and a pool built to compete with the
+               bridge for the same top-k slot. --kinds picks which twins to
+               build.
   alias        the pool is left as it is and one gold title the question
                names verbatim is replaced by an alias of it: the "known as"
                form from the paragraph's first sentence when there is one,
@@ -49,6 +56,15 @@ STOP = frozenset(
     "band album song book novel series season episode new york city county state "
     "united states american british english university school college company".split())
 
+# function words the first STOP list lets through; a sentence that shares only
+# these with a paragraph does not look like it. Used by the bridge_paragraph
+# twin only, so the bridge_token twin stays as it was reported
+FUNCTION = frozenset(
+    "also she her his he him its it they their them this that these those which who whom "
+    "whose what when where has had have having not one two first after before into over "
+    "than then there here only both all any some more most other such been being does did "
+    "while during between under about".split())
+
 _KNOWN_AS = re.compile(
     r"(?:also|commonly|better|often|professionally|popularly|simply|widely)?\s*known as\s+"
     r"(?:the\s+)?([A-Z][\w'.-]*(?:\s+[A-Z][\w'.-]*){0,4})")
@@ -68,6 +84,12 @@ def content_tokens(title):
     """Alphabetic tokens of three letters or more that are not stop words;
     years and other numbers are left out."""
     return [t for t in tokens(title) if t not in STOP and len(t) > 2 and t.isalpha()]
+
+
+def paragraph_tokens(text):
+    """content_tokens without the function words: what makes a sentence
+    score on a question or resemble a paragraph."""
+    return [t for t in content_tokens(text) if t not in FUNCTION]
 
 
 def mention(question, title):
@@ -161,6 +183,55 @@ def distractor_twin(record, sentence_index, n_distractors, rng):
     return twin
 
 
+def bridge_paragraph_twin(record, sentence_index, n_distractors, rng):
+    """The harder distractor twin (plan, Stage 1b): sentences from other
+    pools that share a content token with the question and one with the
+    text of a bridge paragraph, the most shared tokens first.
+
+    The bridge_token twin barely moves any arm (4.7% of pairs), because a
+    sentence that shares a token with the bridge title alone rarely scores
+    against the question. Here every added sentence scores on the question
+    (it shares a query token, so bm25 ranks it) and looks like the bridge
+    paragraph (it shares a token with the paragraph's text, so it competes
+    with the gold for the same slot). Hypothesis: this is enough to flip an
+    arm's outcome on a useful share of pairs while the question stays
+    identical, which is the "same surface, different situation" pair the
+    boundary study needs."""
+    bridges = bridge_titles(record)
+    if not bridges:
+        return None
+    have = {c["chunk_id"] for c in record["chunks"]}
+    q_tokens = set(paragraph_tokens(record["question"]))
+    b_tokens = set()
+    for c in record["chunks"]:
+        if c["title"] in bridges:
+            b_tokens.update(paragraph_tokens(c["text"]))
+    b_tokens -= q_tokens        # tokens the question already carries do not make it look like the bridge
+    candidates, shared = {}, {}
+    for tok in q_tokens:
+        for chunk, source in sentence_index.get(tok, ()):
+            cid = chunk["chunk_id"]
+            if source == record["id"] or cid in have or cid in candidates:
+                continue
+            s_tokens = set(paragraph_tokens(chunk["text"]))
+            with_bridge = len(s_tokens & b_tokens)
+            if with_bridge:
+                candidates[cid] = chunk
+                shared[cid] = (len(s_tokens & q_tokens), with_bridge)
+    if not candidates:
+        return None
+    order = sorted(candidates, key=lambda c: (-sum(shared[c]), -shared[c][1], rng.random()))
+    picked = order[:n_distractors]
+    twin = dict(record)
+    twin["id"] = f"{record['id']}::twin:distractor_para"
+    twin["chunks"] = list(record["chunks"]) + [dict(candidates[c]) for c in picked]
+    twin["twin_of"], twin["twin_kind"] = record["id"], "distractor_para"
+    twin["twin_rule"] = "bridge_paragraph"
+    twin["twin_change"] = {"bridge_titles": bridges, "added": picked,
+                           "shared": {c: list(shared[c]) for c in picked}}
+    return twin
+
+
 def build_sentence_index(records):
     """token -> [(chunk, source id)] over every pool, content tokens only,
     for sentences that are gold nowhere (a distractor must not be evidence)."""
@@ -175,12 +246,28 @@ def build_sentence_index(records):
     return index
 
 
-def make_twins(records, n_distractors=5, seed=13):
+KINDS = ("alias", "distractor", "distractor_para")
+
+
+def make_twins(records, n_distractors=5, seed=13, kinds=KINDS, n_para_distractors=10):
+    """One twin per record and kind in `kinds`, in record order. The
+    distractor_para twin takes n_para_distractors sentences (more than the
+    bridge_token twin, which is kept as it was for comparison)."""
+    unknown = set(kinds) - set(KINDS)
+    if unknown:
+        raise ValueError(f"unknown twin kinds {sorted(unknown)}; choose from {KINDS}")
     rng = random.Random(seed)
     sentence_index = build_sentence_index(records)
     twins, counts = [], Counter()
     for r in records:
-        for twin in (alias_twin(r), distractor_twin(r, sentence_index, n_distractors, rng)):
+        made = []
+        if "alias" in kinds:
+            made.append(alias_twin(r))
+        if "distractor" in kinds:
+            made.append(distractor_twin(r, sentence_index, n_distractors, rng))
+        if "distractor_para" in kinds:
+            made.append(bridge_paragraph_twin(r, sentence_index, n_para_distractors, rng))
+        for twin in made:
             if twin is not None:
                 twins.append(twin)
                 counts[(twin["twin_kind"], twin["twin_rule"])] += 1
@@ -191,7 +278,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--dataset", default="hotpotqa")
     ap.add_argument("--n", type=int, default=None, help="first n questions of the dev file")
-    ap.add_argument("--n-distractors", type=int, default=5)
+    ap.add_argument("--n-distractors", type=int, default=5, help="for the bridge_token twin")
+    ap.add_argument("--n-para-distractors", type=int, default=10,
+                    help="for the bridge_paragraph twin")
+    ap.add_argument("--kinds", nargs="+", default=list(KINDS), choices=KINDS)
     ap.add_argument("--seed", type=int, default=13)
     ap.add_argument("--out", default=None)
     args = ap.parse_args(argv)
@@ -202,7 +292,8 @@ def main(argv=None):
             records.append(json.loads(line))
             if args.n and len(records) >= args.n:
                 break
-    twins, counts = make_twins(records, args.n_distractors, args.seed)
+    twins, counts = make_twins(records, args.n_distractors, args.seed, kinds=args.kinds,
+                               n_para_distractors=args.n_para_distractors)
     out = Path(args.out) if args.out else PROCESSED / f"{args.dataset}_twins_dev.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
     with open(out, "w") as f:

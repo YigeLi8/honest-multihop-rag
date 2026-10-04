@@ -976,7 +976,8 @@ def test_make_twins():
                      ("Esma Sultan Mansion", 0, "The Esma Sultan Mansion is a mansion in Istanbul."),
                      ("Blue Mosque", 0, "The Blue Mosque is a mosque in Istanbul with Derrickson tiles."),
                      ("Acid Lake", 0, "Acid Lake is a lake whose water is picric."),
-                     ("Acid Lake", 1, "Acid rain feeds it.")],
+                     ("Acid Lake", 1, "Acid rain feeds it."),
+                     ("Formula One", 0, "Formula One cars use a picric component.")],
                     ["Laleli Mosque::0", "Esma Sultan Mansion::0"])
 
     # mentions are found without the disambiguator, case-insensitive
@@ -1015,6 +1016,25 @@ def test_make_twins():
     again, _ = make_twins([scott, shellite, laleli], n_distractors=2, seed=1)
     assert [t["id"] for t in again] == [t["id"] for t in twins]
     assert again[[t["id"] for t in again].index("q1::twin:distractor")]["twin_change"]["added"] == added
+
+    # the harder distractor: a sentence must score on the question and look
+    # like the bridge paragraph. "Acid Lake is a lake whose water is picric"
+    # shares bridge tokens but no question token, so it is left out; the
+    # Formula One sentence shares two question tokens and one bridge token
+    p = kinds["q1::twin:distractor_para"]
+    assert p["twin_rule"] == "bridge_paragraph" and p["twin_of"] == "q1"
+    assert p["twin_change"]["added"] == ["Formula One::0"]
+    assert p["twin_change"]["shared"]["Formula One::0"] == [2, 1]
+    assert p["question"] == shellite["question"] and p["gold_chunk_ids"] == shellite["gold_chunk_ids"]
+    assert "q0::twin:distractor_para" not in kinds and "q2::twin:distractor_para" not in kinds
+    assert counts[("distractor_para", "bridge_paragraph")] == 1
+    only_alias, c2 = make_twins([scott, shellite, laleli], kinds=("alias",))
+    assert {t["twin_kind"] for t in only_alias} == {"alias"} and sum(c2.values()) == 2
+    try:
+        make_twins([scott], kinds=("nonsense",))
+        assert False, "unknown kind accepted"
+    except ValueError:
+        pass
 
 
 def test_lookalike_pairs_and_twins():
@@ -1288,6 +1308,88 @@ def test_stream_protocol_and_baselines():
     assert log and log[0]["policy"] == "boundary" and log[0]["op"] == "create"
 
 
+def test_twin_stream():
+    import math
+    import numpy as np
+    import pandas as pd
+    from src.memory.stream import (FixedArm, TextMemory, evaluate, make_stream, run_stream,
+                                   seeded_orders, text_policies, twin_metrics, twin_pairs,
+                                   with_twins)
+    table = stream_table(n=200)
+    rng = np.random.RandomState(3)
+    # distractor twins: the same text, a harder pool: the primary flips on half
+    dist = table.copy()
+    dist["id"] = dist["id"] + "::twin:distractor_para"
+    flip = rng.rand(len(dist)) < 0.5
+    dist.loc[flip, "arm:primary"] = 1 - dist.loc[flip, "arm:primary"]
+    dist["f:top1_score"] = rng.rand(len(dist))
+    # alias twins: a new text, the same pool and outcomes
+    alias = table.copy()
+    alias["id"] = alias["id"] + "::twin:alias"
+    alias["question"] = alias["question"] + " alias"
+    stray = alias.iloc[:1].copy()
+    stray["id"] = ["nobody::twin:alias"]                 # an original that is not in the table
+
+    both = with_twins(table, dist)
+    assert len(both) == 400 and both["id"].tolist()[:200] == table["id"].tolist()
+    assert len(with_twins(table, pd.concat([alias, stray]))) == 400     # the stray twin is dropped
+    pairs = twin_pairs(both)
+    assert len(pairs) == 200
+    assert all(both["id"][t] == both["id"][o] + "::twin:distractor_para" for t, o in pairs.items())
+    try:
+        with_twins(table, dist.rename(columns={"arm:third": "arm:fourth"}))
+        assert False, "different arms accepted"
+    except ValueError:
+        pass
+
+    order = seeded_orders(len(both), [13])[0]
+    s = make_stream(both, "query", order)
+    assert s.text[0] == "question 0" and s.text[200] == "question 0"
+    # only the pairs whose original came first count; the fixed default's
+    # hit on the twins is the default column
+    fixed = run_stream(s, FixedArm(s, "primary", "primary"))
+    m = twin_metrics(s, fixed, pairs, "primary")
+    assert 50 < m["n_pairs"] < 150 and 0 < m["n_changed"] < m["n_pairs"]
+    assert m["hit_unchanged"] == m["default_unchanged"] and m["hit_changed"] == m["default_changed"]
+    assert m["same_decision_unchanged"] == 1.0 and m["same_decision_changed"] == 1.0
+    # on an unchanged pair the repeated arm is the best arm
+    assert m["repeat_unchanged"] == m["oracle_unchanged"]
+    assert m["repeat_changed"] < m["oracle_changed"]
+    # the exact-text memory carries the original's arm over to a distractor twin
+    text = run_stream(s, TextMemory(s, "primary", 1.0))
+    mt = twin_metrics(s, text, pairs, "primary")
+    assert mt["hit_unchanged"] == mt["repeat_unchanged"] and mt["hit_changed"] == mt["repeat_changed"]
+    assert mt["p_vs_repeat_changed"] == 1.0
+    assert text.fired.sum() > 0 and set(text.cost) == {1}        # query stage: a switch costs 1
+    # a twin met before its original is a new question to it
+    first_twin = next(t for t, q in enumerate(order) if q >= 200 and
+                      np.where(order == q - 200)[0][0] > t)
+    assert text.arm[first_twin] == "primary" and not text.fired[first_twin]
+
+    # alias twins: the exact key sees a new question, the Jaccard key does not
+    both_a = with_twins(table, alias)
+    pairs_a = twin_pairs(both_a)
+    sa = make_stream(both_a, "query", seeded_orders(len(both_a), [13])[0])
+    exact = twin_metrics(sa, run_stream(sa, TextMemory(sa, "primary", 1.0)), pairs_a, "primary")
+    loose = twin_metrics(sa, run_stream(sa, TextMemory(sa, "primary", 0.6)), pairs_a, "primary")
+    assert exact["n_changed"] == 0 and exact["hit_unchanged"] == exact["default_unchanged"]
+    assert loose["hit_unchanged"] == loose["repeat_unchanged"] > exact["hit_unchanged"]
+    assert math.isnan(exact["hit_changed"])
+
+    summary, _ = evaluate(both, "primary", seeds=[13, 17], policies=text_policies(), pairs=pairs)
+    assert summary["policy"].tolist() == ["fixed:primary", "fixed:other", "fixed:third",
+                                          "text:exact", "text:0.6"]
+    for c in ("n_pairs", "n_changed", "hit_changed", "repeat_changed", "same_decision_unchanged",
+              "p_vs_repeat_changed"):
+        assert c in summary.columns, c
+    row = summary.set_index("policy")
+    assert row.loc["text:exact", "hit_changed"] == row.loc["text:exact", "repeat_changed"]
+    assert row.loc["fixed:primary", "hit_changed"] == row.loc["fixed:primary", "default_changed"]
+    # without pairs the table has no twin columns
+    plain, _ = evaluate(table, "primary", seeds=[13], policies=text_policies())
+    assert "n_pairs" not in plain.columns
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1315,4 +1417,5 @@ if __name__ == "__main__":
     test_lookalike_pairs_and_twins()
     test_failure_typing()
     test_stream_protocol_and_baselines()
+    test_twin_stream()
     print("all good")
