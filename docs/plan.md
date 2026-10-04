@@ -244,9 +244,21 @@ EM beside +27 retrieval_correct).
       bridge-title token) changes an outcome on only 4.7% of pairs (bm25
       loses 14 of 641, p = 0.0001; hybrid 12 vs 3, p = 0.035; dense 5 vs
       0), so it is too weak to make the "same surface, different
-      situation" pairs the boundary study needs. Next: a harder distractor
-      twin (sentences sharing tokens with the whole bridge paragraph, more
-      of them), then the 2wiki template pairs once the zip is here.
+      situation" pairs the boundary study needs. The harder twin
+      (`distractor_para`: ten sentences from other pools that share a
+      content token with the question and one with a bridge paragraph's
+      text, function words out, so each scores on the query and looks like
+      the bridge; pool 41.6 -> 52.7 chunks) does more
+      (`results/hotpot_twins_para.csv`, twins of the first 500 questions,
+      365 distractor_para and 78 alias, arms run on each): an outcome
+      changes on 14.5% of pairs, three times the bridge-token twin, and
+      every arm loses (bm25 19 hit-to-miss against 2, dense 22 against 0,
+      hybrid 22 against 3; p <= 0.0002). The change is "harder for every
+      arm" rather than "a different arm wins": of the 53 changed pairs, 34
+      still have an arm that hits and 21 flip bm25 itself. The alias twins
+      of the same 500 move an outcome on 29% of pairs (23 of 78), as in the
+      first 800. That is enough changed pairs for the stream (next item);
+      the 2wiki template pairs still wait for the zip.
 
 ### Stages 2-4: the baselines
 
@@ -348,11 +360,41 @@ EM beside +27 retrieval_correct).
       shows the instrument is not the problem: on a table with a planted
       boundary the boundary memory recovers it (0.94 against the oracle
       1.0, false application 0.09) where the fixed-region utility memory
-      does not (0.63-0.69, 0.45-0.64). Still open: the same table on
-      musique (the arms log has to be rebuilt; dense on cpu over 2417
-      questions with 20 paragraphs each is hours here, so on the Mac), the
-      twins as the stream (where the boundary question is defined by
-      construction), induced drift, and features that are not frozen
+      does not (0.63-0.69, 0.45-0.64).
+      The twins as the stream (`--twin-records`, `results/hotpot_twin_stream.csv`,
+      first 500 questions plus their twins of one kind in each seeded
+      order, five orders): the pair the boundary study was built for, with
+      the surface-keyed memory (`text:exact`, `text:0.6`: repeat what the
+      nearest revealed question by text taught) as the baseline that by
+      construction cannot see a changed pool, and per policy the hit rate
+      on twins whose original came earlier, split into unchanged pairs and
+      changed ones (some arm's outcome differs), beside the default, the
+      repeated arm and the oracle. Distractor_para (865 questions, 180
+      ordered pairs per order, 27 of them changed): on the unchanged pairs
+      the text key is the oracle (0.630, the repeated arm is the best arm
+      by definition) and every feature-keyed policy is 8-16 points below
+      it (router 0.53, knn 0.55, utility memory 0.47-0.54, boundary memory
+      0.48-0.51): the process features move with the pool (its size, the
+      bm25 scores) while the outcome does not, so a feature boundary does
+      not recognise the same question again. On the changed pairs nothing
+      beats repeating the old arm either: repeat 0.396 against default
+      0.255 and oracle 0.627; the best feature policy is the fixed-region
+      utility memory at the query stage (0.387), the router 0.33-0.37, the
+      boundary memories 0.27-0.34 (McNemar against the repeated arm p >=
+      0.125 everywhere, 27 pairs per order, so this half is underpowered;
+      the unchanged half is not). Alias (578 questions, 39 ordered pairs,
+      10 changed): the exact key sees a new question and does nothing, the
+      0.6 key matches every alias twin and equals the oracle on the
+      unchanged pairs (0.767) where the feature policies sit at 0.58-0.76.
+      So the twins say the same as the plain stream, and more sharply: the
+      surface key is the better key for "when does this experience apply"
+      on hotpot, and the boundary over frozen process features is worse
+      than the key that cannot see the change at all. The fix, if there is
+      one, is features that stay put when the question is the same and
+      move when the arm's fortune does, not more operators. Still open:
+      the same table on musique (the arms log has to be rebuilt; dense on
+      cpu over 2417 questions with 20 paragraphs each is hours here, so on
+      the Mac), induced drift, and features that are not frozen
       process statistics
 - [x] operators narrow / expand / exception / split / retire with a revision
       log; never overwrite silently. `LessonMemory(revise=True)` in
