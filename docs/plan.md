@@ -389,8 +389,14 @@ EM beside +27 retrieval_correct).
       default with McNemar per order, then the conditioned rates; false
       application is split into useless firings (both arms hit) and harm
       (the chosen arm missed where the default hit). Adaptation speed is
-      not in the table yet (the per-order hit sequences are there to
-      compute it from)
+      the gain over the default on the first half of each order against
+      the second (`gain_half1`, `gain_half2`): a policy that learns gains
+      more later. On hotpot nothing does, beyond what the stream's
+      composition gives: the fixed arms themselves gain 0.4-1.2 points more
+      on the second half (hybrid 0.123 -> 0.135), the routers and knn 1.2-2.6
+      more, the lesson memories 0.6-3.7 more at the box radius and less or
+      nothing with the per-lesson logistic (utility+lr 0.020 -> 0.001). The
+      rebuilt linux log reproduces every cell of the committed table
 - [ ] ablation: remove the operators and the log, keep the features; if
       nothing changes, the structure is decoration. Done as the `utility`
       against `boundary` pairs at every stage and radius, and `utility+lr`
