@@ -916,8 +916,13 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
             res = run_stream(s, factory(s, default))
             base = s.H[s.order][:, arms.index(default)]
             only_a, only_b, p = mcnemar(base.tolist(), (res.hit >= 1).astype(int).tolist())
+            half = len(base) // 2
             per_order.append({"rate": res.hit.mean(), "cost": res.cost.mean(),
                               "gain": res.hit.mean() - base.mean(), "oracle": s.H[s.order].max(axis=1).mean(),
+                              # adaptation: the gain on the first half of the stream against
+                              # the second; a policy that learns gains more later
+                              "gain_half1": res.hit[:half].mean() - base[:half].mean(),
+                              "gain_half2": res.hit[half:].mean() - base[half:].mean(),
                               "mcnemar_p": p, "only_policy": only_b, "only_default": only_a,
                               **boundary_metrics(s, res, default), **res.state,
                               **(twin_metrics(s, res, pairs, default) if pairs else {})})
@@ -929,6 +934,8 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
                "oracle": round(df["oracle"].mean(), 4),
                "cost": round(df["cost"].mean(), 4),
                "gain": round(df["gain"].mean(), 4), "gain_sd": round(df["gain"].std(ddof=0), 4),
+               "gain_half1": round(df["gain_half1"].mean(), 4),
+               "gain_half2": round(df["gain_half2"].mean(), 4),
                "mcnemar_p_max": round(df["mcnemar_p"].max(), 4),
                "only_policy": round(df["only_policy"].mean(), 1),
                "only_default": round(df["only_default"].mean(), 1)}

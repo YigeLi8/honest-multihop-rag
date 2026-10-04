@@ -1300,6 +1300,9 @@ def test_stream_protocol_and_baselines():
     assert (summary["n_orders"] == 2).all()
     row = summary.set_index("policy")
     assert row.loc["fixed:primary", "gain"] == 0.0 and row.loc["fixed:primary", "mcnemar_p_max"] == 1.0
+    assert row.loc["fixed:primary", "gain_half1"] == 0.0 and row.loc["fixed:primary", "gain_half2"] == 0.0
+    # the learned policies gain more on the second half of the stream than on the first
+    assert row.loc["boundary", "gain_half2"] > row.loc["boundary", "gain_half1"]
     assert row.loc["boundary", "op_create"] > 0 and row.loc["utility", "op_narrow"] == 0
     for c in ("rate", "false_application", "harm", "false_rejection", "repeated_failure",
               "boundary_precision", "boundary_recall"):
