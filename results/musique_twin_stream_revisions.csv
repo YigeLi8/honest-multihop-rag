@@ -1,0 +1,1415 @@
+kind,policy,t,lesson,arm,op,reason,width_before,width_after,n_support,n_contra,n_exceptions,utility,gain_n
+distractor_para,boundary:query,0,L1,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,0,L2,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,17,L1,dense,expand,arm beat the default just outside the box,3.239,3.2883,2,0,0,0.0,0
+distractor_para,boundary:query,17,L2,hybrid,expand,arm beat the default just outside the box,3.239,3.2883,2,0,0,0.0,0
+distractor_para,boundary:query,17,L3,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,17,L4,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,19,L1,dense,expand,arm beat the default just outside the box,3.3772,3.4153,3,0,0,0.0,0
+distractor_para,boundary:query,19,L3,dense,expand,arm beat the default just outside the box,2.0339,2.0452,2,0,0,0.0,0
+distractor_para,boundary:query,19,L5,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,24,L3,dense,expand,arm beat the default just outside the box,2.8968,2.9172,3,0,0,0.0,0
+distractor_para,boundary:query,24,L4,hybrid,expand,arm beat the default just outside the box,2.8862,2.9066,2,0,0,0.0,0
+distractor_para,boundary:query,24,L5,dense,expand,arm beat the default just outside the box,2.8497,2.8693,3,0,0,1.0,1
+distractor_para,boundary:query,24,L6,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,24,L7,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,25,L5,dense,expand,arm beat the default just outside the box,2.8984,2.9196,4,0,0,1.0,1
+distractor_para,boundary:query,25,L8,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,26,L2,hybrid,expand,arm beat the default just outside the box,4.4455,4.4805,3,0,0,0.0,0
+distractor_para,boundary:query,26,L9,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,29,L1,dense,expand,arm beat the default just outside the box,4.3407,4.3758,4,0,0,0.0,0
+distractor_para,boundary:query,29,L5,dense,expand,arm beat the default just outside the box,2.9604,3.0087,5,1,0,0.5,2
+distractor_para,boundary:query,29,L6,dense,expand,arm beat the default just outside the box,1.9956,2.0139,2,0,0,0.0,0
+distractor_para,boundary:query,29,L7,hybrid,expand,arm beat the default just outside the box,1.9956,2.0139,2,0,0,0.0,0
+distractor_para,boundary:query,34,L6,dense,expand,arm beat the default just outside the box,2.0738,2.1167,3,1,0,0.0,1
+distractor_para,boundary:query,34,L8,dense,expand,arm beat the default just outside the box,2.0428,2.0619,2,2,0,0.0,2
+distractor_para,boundary:query,36,L5,dense,exception,contradicted; every cut loses a supporter,2.8505,2.8505,6,5,1,0.1429,7
+distractor_para,boundary:query,38,L1,dense,retire,utility <= 0,,4.2895,5,4,0,0.0,5
+distractor_para,boundary:query,39,L10,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,40,L5,dense,exception,contradicted; every cut loses a supporter,2.8786,2.8786,6,6,2,0.125,8
+distractor_para,boundary:query,43,L2,hybrid,exception,contradicted; every cut loses a supporter,4.3652,4.3652,4,5,1,0.1667,6
+distractor_para,boundary:query,43,L5,dense,exception,contradicted; every cut loses a supporter,2.9253,2.9253,7,7,3,0.2,10
+distractor_para,boundary:query,44,L10,dense,expand,arm beat the default just outside the box,2.0379,2.0717,2,0,0,0.0,0
+distractor_para,boundary:query,44,L11,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,45,L12,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,46,L5,dense,exception,contradicted; every cut loses a supporter,2.7966,2.7966,7,8,4,0.1818,11
+distractor_para,boundary:query,46,L5,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.7966,7,8,4,0.1818,11
+distractor_para,boundary:query,46,L5.lo,dense,create,split of L5,,2.6617,6,0,0,0.0,0
+distractor_para,boundary:query,46,L5.hi,dense,create,split of L5,,2.6617,1,0,0,0.0,0
+distractor_para,boundary:query,47,L3,dense,retire,utility <= 0,,2.7837,4,4,0,0.0,5
+distractor_para,boundary:query,48,L6,dense,retire,utility <= 0,,2.0837,3,5,0,-0.2,5
+distractor_para,boundary:query,50,L2,hybrid,narrow,contradicted; cut qtype:4hop1,4.3422,4.3422,5,6,1,0.25,8
+distractor_para,boundary:query,51,L4,hybrid,expand,arm beat the default just outside the box,2.8236,2.847,4,3,0,0.25,4
+distractor_para,boundary:query,51,L15,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,52,L8,dense,narrow,contradicted; cut f:query_len_tokens,2.0515,1.9933,3,5,0,0.1667,6
+distractor_para,boundary:query,54,L5.lo,dense,retire,utility <= 0,,2.7567,7,4,0,0.0,5
+distractor_para,boundary:query,55,L7,hybrid,retire,utility <= 0,,2.069,2,5,0,0.0,5
+distractor_para,boundary:query,55,L5.hi,dense,retire,utility <= 0,,2.7701,1,5,0,-0.2,5
+distractor_para,boundary:query,56,L2,hybrid,exception,contradicted; every cut loses a supporter,4.4722,4.4722,5,7,2,0.2222,9
+distractor_para,boundary:query,56,L16,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,64,L4,hybrid,expand,arm beat the default just outside the box,4.3622,4.3866,5,4,0,0.2,5
+distractor_para,boundary:query,64,L8,dense,expand,arm beat the default just outside the box,3.4179,3.4566,4,5,0,0.1667,6
+distractor_para,boundary:query,64,L15,hybrid,expand,arm beat the default just outside the box,3.4436,3.4449,2,0,0,0.0,0
+distractor_para,boundary:query,64,L16,dense,expand,arm beat the default just outside the box,3.4144,3.4619,2,0,0,0.0,0
+distractor_para,boundary:query,64,L17,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,64,L18,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,65,L4,hybrid,exception,contradicted; every cut loses a supporter,4.415,4.415,5,5,1,0.1667,6
+distractor_para,boundary:query,66,L4,hybrid,expand,arm beat the default just outside the box,4.4398,4.4658,6,5,1,0.1667,6
+distractor_para,boundary:query,66,L15,hybrid,expand,arm beat the default just outside the box,3.485,3.5111,3,0,0,0.0,0
+distractor_para,boundary:query,66,L16,dense,expand,arm beat the default just outside the box,3.502,3.528,3,1,0,0.0,1
+distractor_para,boundary:query,68,L2,hybrid,expand,arm beat the default just outside the box,6.1041,6.1172,6,7,2,0.2222,9
+distractor_para,boundary:query,68,L8,dense,expand,arm beat the default just outside the box,3.5291,3.5684,6,5,0,0.2857,7
+distractor_para,boundary:query,68,L15,hybrid,expand,arm beat the default just outside the box,3.5432,3.5752,4,0,0,0.0,0
+distractor_para,boundary:query,68,L17,dense,expand,arm beat the default just outside the box,2.0285,2.0503,3,0,0,1.0,1
+distractor_para,boundary:query,68,L18,hybrid,expand,arm beat the default just outside the box,2.0285,2.0503,3,0,0,1.0,1
+distractor_para,boundary:query,69,L8,dense,exception,contradicted; every cut loses a supporter,3.5879,3.5879,6,6,1,0.25,8
+distractor_para,boundary:query,70,L4,hybrid,exception,contradicted; every cut loses a supporter,4.5635,4.5635,7,6,2,0.25,8
+distractor_para,boundary:query,70,L8,dense,exception,contradicted; every cut loses a supporter,3.6087,3.6087,6,7,2,0.2222,9
+distractor_para,boundary:query,71,L4,hybrid,exception,contradicted; every cut loses a supporter,4.5885,4.5885,7,7,3,0.2222,9
+distractor_para,boundary:query,75,L16,dense,retire,utility <= 0,,3.1683,4,4,0,0.0,5
+distractor_para,boundary:query,76,L8,dense,exception,contradicted; every cut loses a supporter,3.1922,3.1922,6,8,3,0.2,10
+distractor_para,boundary:query,76,L17,dense,exception,contradicted; every cut loses a supporter,2.0356,2.0356,3,5,1,0.1667,6
+distractor_para,boundary:query,76,L2,hybrid,expand,arm beat the default just outside the box,5.8664,5.9164,7,7,2,0.2222,9
+distractor_para,boundary:query,77,L8,dense,expand,arm beat the default just outside the box,3.2089,3.2215,7,8,3,0.2,10
+distractor_para,boundary:query,78,L2,hybrid,exception,contradicted; every cut loses a supporter,5.9627,5.9627,8,8,3,0.2727,11
+distractor_para,boundary:query,79,L2,hybrid,exception,contradicted; every cut loses a supporter,5.9941,5.9941,8,9,4,0.25,12
+distractor_para,boundary:query,79,L4,hybrid,exception,contradicted; every cut loses a supporter,4.24,4.24,9,8,4,0.3333,12
+distractor_para,boundary:query,79,L15,hybrid,exception,contradicted; every cut loses a supporter,3.2415,3.2415,6,4,1,0.3333,6
+distractor_para,boundary:query,79,L18,hybrid,exception,contradicted; every cut loses a supporter,2.0549,2.0549,5,5,1,0.375,8
+distractor_para,boundary:query,79,L2,hybrid,split,4 exceptions; cut qtype:4hop1 at 0,,5.9941,8,9,4,0.25,12
+distractor_para,boundary:query,79,L2.lo,hybrid,create,split of L2,,5.6796,8,0,0,0.0,0
+distractor_para,boundary:query,79,L4,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,4.24,9,8,4,0.3333,12
+distractor_para,boundary:query,79,L4.lo,hybrid,create,split of L4,,4.1089,8,0,0,0.0,0
+distractor_para,boundary:query,79,L4.hi,hybrid,create,split of L4,,4.1089,1,0,0,0.0,0
+distractor_para,boundary:query,81,L15,hybrid,exception,contradicted; every cut loses a supporter,3.2222,3.2222,6,5,2,0.2857,7
+distractor_para,boundary:query,81,L18,hybrid,exception,contradicted; every cut loses a supporter,2.0256,2.0256,5,6,2,0.3333,9
+distractor_para,boundary:query,82,L8,dense,exception,contradicted; every cut loses a supporter,3.239,3.239,8,9,4,0.25,12
+distractor_para,boundary:query,82,L17,dense,narrow,contradicted; cut f:query_len_tokens,2.032,2.01,5,6,1,0.3333,9
+distractor_para,boundary:query,82,L18,hybrid,narrow,contradicted; cut f:query_len_tokens,2.032,2.01,5,7,2,0.3,10
+distractor_para,boundary:query,82,L8,dense,split,4 exceptions; cut f:query_cap_spans at 0,,3.239,8,9,4,0.25,12
+distractor_para,boundary:query,82,L8.lo,dense,create,split of L8,,3.1083,5,0,0,0.0,0
+distractor_para,boundary:query,82,L8.hi,dense,create,split of L8,,3.128,3,0,0,0.0,0
+distractor_para,boundary:query,85,L15,hybrid,narrow,contradicted; cut f:query_len_tokens,3.2575,3.2078,6,6,2,0.25,8
+distractor_para,boundary:query,87,L15,hybrid,exception,contradicted; every cut loses a supporter,3.2213,3.2213,6,7,3,0.2222,9
+distractor_para,boundary:query,87,L18,hybrid,exception,contradicted; every cut loses a supporter,2.0105,2.0105,5,8,3,0.2727,11
+distractor_para,boundary:query,89,L11,dense,retire,utility <= 0,,3.2358,1,5,0,0.0,5
+distractor_para,boundary:query,91,L18,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0335,1.9949,5,9,3,0.25,12
+distractor_para,boundary:query,93,L17,dense,exception,contradicted; every cut loses a supporter,2.0361,2.0361,7,7,2,0.4167,12
+distractor_para,boundary:query,93,L4.lo,hybrid,exception,contradicted; every cut loses a supporter,4.2605,4.2605,9,5,1,0.1667,6
+distractor_para,boundary:query,94,L9,hybrid,exception,contradicted; every cut loses a supporter,3.2936,3.2936,2,5,1,0.1667,6
+distractor_para,boundary:query,94,L2.lo,hybrid,exception,contradicted; every cut loses a supporter,5.7351,5.7351,9,5,1,0.1667,6
+distractor_para,boundary:query,95,L17,dense,exception,contradicted; every cut loses a supporter,2.0419,2.0419,7,8,3,0.3846,13
+distractor_para,boundary:query,95,L8.hi,dense,exception,contradicted; every cut loses a supporter,3.243,3.243,6,3,1,0.5,6
+distractor_para,boundary:query,100,L2.lo,hybrid,exception,contradicted; every cut loses a supporter,5.6826,5.6826,9,6,2,0.1429,7
+distractor_para,boundary:query,100,L4.lo,hybrid,exception,contradicted; every cut loses a supporter,4.3201,4.3201,9,6,2,0.1429,7
+distractor_para,boundary:query,100,L8.hi,dense,exception,contradicted; every cut loses a supporter,3.2567,3.2567,6,4,2,0.4286,7
+distractor_para,boundary:query,101,L17,dense,exception,contradicted; every cut loses a supporter,2.0326,2.0326,7,9,4,0.3571,14
+distractor_para,boundary:query,101,L2.lo,hybrid,exception,contradicted; every cut loses a supporter,5.7039,5.7039,9,7,3,0.125,8
+distractor_para,boundary:query,101,L4.lo,hybrid,exception,contradicted; every cut loses a supporter,4.3365,4.3365,9,7,3,0.125,8
+distractor_para,boundary:query,101,L8.hi,dense,exception,contradicted; every cut loses a supporter,3.268,3.268,6,5,3,0.375,8
+distractor_para,boundary:query,101,L17,dense,split,4 exceptions; cut f:query_len_tokens at 13,,2.0326,7,9,4,0.3571,14
+distractor_para,boundary:query,101,L17.lo,dense,create,split of L17,,1.9327,4,0,0,0.0,0
+distractor_para,boundary:query,101,L17.hi,dense,create,split of L17,,1.9551,3,0,0,0.0,0
+distractor_para,boundary:query,102,L2.lo,hybrid,exception,contradicted; every cut loses a supporter,5.7149,5.7149,9,8,4,0.1111,9
+distractor_para,boundary:query,102,L2.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,5.7149,9,8,4,0.1111,9
+distractor_para,boundary:query,102,L2.lo.lo,hybrid,create,split of L2.lo,,5.7149,9,0,0,0.0,0
+distractor_para,boundary:query,103,L17.lo,dense,expand,arm beat the default just outside the box,1.9372,1.9501,5,0,0,0.0,0
+distractor_para,boundary:query,103,L27,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,105,L8.hi,dense,exception,contradicted; every cut loses a supporter,3.3026,3.3026,7,6,4,0.4,10
+distractor_para,boundary:query,105,L8.hi,dense,split,4 exceptions; cut f:query_cap_spans at 1,,3.3026,7,6,4,0.4,10
+distractor_para,boundary:query,105,L8.hi.lo,dense,create,split of L8.hi,,3.3026,7,0,0,0.0,0
+distractor_para,boundary:query,106,L8.lo,dense,exception,contradicted; every cut loses a supporter,3.2927,3.2927,7,4,1,0.3333,6
+distractor_para,boundary:query,110,L8.lo,dense,exception,contradicted; every cut loses a supporter,3.3143,3.3143,7,5,2,0.2857,7
+distractor_para,boundary:query,110,L17.lo,dense,retire,utility <= 0,,1.9614,5,5,0,0.0,5
+distractor_para,boundary:query,111,L8.hi.lo,dense,retire,utility <= 0,,3.3457,7,5,0,0.0,5
+distractor_para,boundary:query,115,L29,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,115,L30,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,116,L15,hybrid,exception,contradicted; every cut loses a supporter,3.1569,3.1569,6,8,4,0.2,10
+distractor_para,boundary:query,116,L18,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9731,1.9378,5,10,3,0.2308,13
+distractor_para,boundary:query,116,L4.lo,hybrid,exception,contradicted; every cut loses a supporter,4.2176,4.2176,9,8,4,0.1111,9
+distractor_para,boundary:query,116,L15,hybrid,split,4 exceptions; cut f:query_cap_spans at 0.5,,3.1569,6,8,4,0.2,10
+distractor_para,boundary:query,116,L15.lo,hybrid,create,split of L15,,3.0888,3,0,0,0.0,0
+distractor_para,boundary:query,116,L15.hi,hybrid,create,split of L15,,2.9877,3,0,0,0.0,0
+distractor_para,boundary:query,116,L4.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,4.2176,9,8,4,0.1111,9
+distractor_para,boundary:query,116,L4.lo.lo,hybrid,create,split of L4.lo,,4.2176,9,0,0,0.0,0
+distractor_para,boundary:query,116,L2.lo.lo,hybrid,retire,utility <= 0,,5.4974,9,5,0,0.0,5
+distractor_para,boundary:query,122,L27,hybrid,expand,arm beat the default just outside the box,1.9276,1.9436,2,3,0,0.0,3
+distractor_para,boundary:query,124,L17.hi,dense,expand,arm beat the default just outside the box,1.8956,1.9346,5,1,0,0.5,2
+distractor_para,boundary:query,124,L34,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,126,L35,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,127,L9,hybrid,exception,contradicted; every cut loses a supporter,3.0125,3.0125,2,6,2,0.1429,7
+distractor_para,boundary:query,130,L4.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,4.0183,4.0183,2,5,0,0.1667,6
+distractor_para,boundary:query,131,L17.hi,dense,expand,arm beat the default just outside the box,1.9437,1.9825,6,3,0,0.25,4
+distractor_para,boundary:query,131,L34,dense,expand,arm beat the default just outside the box,2.0065,2.0401,2,3,0,0.0,3
+distractor_para,boundary:query,132,L18,hybrid,exception,contradicted; every cut loses a supporter,1.913,1.913,5,11,4,0.2143,14
+distractor_para,boundary:query,132,L4.hi,hybrid,exception,contradicted; every cut loses a supporter,4.041,4.041,2,6,1,0.1429,7
+distractor_para,boundary:query,132,L18,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,1.913,5,11,4,0.2143,14
+distractor_para,boundary:query,132,L18.lo,hybrid,create,split of L18,,1.848,3,0,0,0.0,0
+distractor_para,boundary:query,132,L18.hi,hybrid,create,split of L18,,1.874,2,0,0,0.0,0
+distractor_para,boundary:query,133,L17.hi,dense,exception,contradicted; every cut loses a supporter,1.9913,1.9913,6,5,1,0.1667,6
+distractor_para,boundary:query,133,L4.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,4.0525,4.0525,10,5,1,0.1667,6
+distractor_para,boundary:query,133,L27,hybrid,retire,utility <= 0,,1.964,2,5,0,0.0,5
+distractor_para,boundary:query,133,L34,dense,retire,utility <= 0,,2.0492,2,5,0,0.0,5
+distractor_para,boundary:query,135,L10,dense,exception,contradicted; every cut loses a supporter,3.1299,3.1299,3,5,1,0.1667,6
+distractor_para,boundary:query,136,L8.lo,dense,exception,contradicted; every cut loses a supporter,2.9908,2.9908,9,6,3,0.4,10
+distractor_para,boundary:query,136,L17.hi,dense,exception,contradicted; every cut loses a supporter,1.9985,1.9985,6,6,2,0.1429,7
+distractor_para,boundary:query,136,L4.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,4.0816,4.0816,10,6,2,0.1429,7
+distractor_para,boundary:query,137,L9,hybrid,narrow,contradicted; cut f:query_len_tokens,3.0794,3.0588,2,7,2,0.125,8
+distractor_para,boundary:query,139,L15.hi,hybrid,expand,arm beat the default just outside the box,2.918,2.918,4,3,0,0.0,3
+distractor_para,boundary:query,139,L38,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,140,L18.lo,hybrid,expand,arm beat the default just outside the box,1.8633,1.8897,4,1,0,0.0,1
+distractor_para,boundary:query,140,L38,dense,expand,arm beat the default just outside the box,2.0047,2.0364,2,0,0,0.0,0
+distractor_para,boundary:query,146,L38,dense,expand,arm beat the default just outside the box,2.0113,2.038,3,0,0,0.0,0
+distractor_para,boundary:query,147,L10,dense,exception,contradicted; every cut loses a supporter,3.0553,3.0553,3,6,2,0.1429,7
+distractor_para,boundary:query,147,L39,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,148,L4.hi,hybrid,exception,contradicted; every cut loses a supporter,4.0414,4.0414,5,7,2,0.3636,11
+distractor_para,boundary:query,148,L17.hi,dense,exception,contradicted; every cut loses a supporter,1.9908,1.9908,8,7,3,0.3,10
+distractor_para,boundary:query,148,L15.hi,hybrid,exception,contradicted; every cut loses a supporter,2.8285,2.8285,6,4,1,0.3333,6
+distractor_para,boundary:query,148,L4.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,4.0414,4.0414,13,7,3,0.3636,11
+distractor_para,boundary:query,149,L4.hi,hybrid,expand,arm beat the default just outside the box,4.0518,4.0518,6,7,2,0.3636,11
+distractor_para,boundary:query,149,L18.hi,hybrid,expand,arm beat the default just outside the box,1.8777,1.9045,5,1,0,0.6667,3
+distractor_para,boundary:query,149,L38,dense,expand,arm beat the default just outside the box,2.0469,2.0737,4,0,0,0.0,0
+distractor_para,boundary:query,149,L40,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,152,L18.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8786,1.8786,6,4,1,0.3333,6
+distractor_para,boundary:query,153,L15.lo,hybrid,exception,contradicted; every cut loses a supporter,2.9545,2.9545,4,5,1,0.1667,6
+distractor_para,boundary:query,153,L18.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8815,1.8815,6,5,2,0.2857,7
+distractor_para,boundary:query,153,L18.hi,hybrid,narrow,contradicted; cut f:query_cap_spans,1.9084,1.7938,5,4,0,0.3333,6
+distractor_para,boundary:query,158,L17.hi,dense,exception,contradicted; every cut loses a supporter,1.997,1.997,8,8,4,0.2727,11
+distractor_para,boundary:query,158,L17.hi,dense,split,4 exceptions; cut f:query_len_tokens at 15,,1.997,8,8,4,0.2727,11
+distractor_para,boundary:query,158,L17.hi.lo,dense,create,split of L17.hi,,1.9196,5,0,0,0.0,0
+distractor_para,boundary:query,158,L17.hi.hi,dense,create,split of L17.hi,,1.8891,3,0,0,0.0,0
+distractor_para,boundary:query,162,L15.lo,hybrid,exception,contradicted; every cut loses a supporter,2.9491,2.9491,4,6,2,0.1429,7
+distractor_para,boundary:query,162,L38,dense,expand,arm beat the default just outside the box,2.0502,2.0874,5,1,0,0.0,1
+distractor_para,boundary:query,162,L40,dense,expand,arm beat the default just outside the box,1.9761,2.0148,2,2,0,0.0,2
+distractor_para,boundary:query,167,L4.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,3.9385,3.9385,13,8,4,0.3333,12
+distractor_para,boundary:query,167,L17.hi.lo,dense,expand,arm beat the default just outside the box,1.8885,1.902,7,1,0,0.5,2
+distractor_para,boundary:query,167,L4.lo.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 15,,3.9385,13,8,4,0.3333,12
+distractor_para,boundary:query,167,L4.lo.lo.lo,hybrid,create,split of L4.lo.lo,,3.7205,7,0,0,0.0,0
+distractor_para,boundary:query,167,L4.lo.lo.hi,hybrid,create,split of L4.lo.lo,,3.8843,6,0,0,0.0,0
+distractor_para,boundary:query,169,L18.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8525,1.8525,6,6,3,0.25,8
+distractor_para,boundary:query,169,L18.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7648,1.7648,5,5,1,0.2857,7
+distractor_para,boundary:query,171,L10,dense,exception,contradicted; every cut loses a supporter,3.0055,3.0055,3,7,3,0.125,8
+distractor_para,boundary:query,172,L40,dense,exception,contradicted; every cut loses a supporter,2.0039,2.0039,3,5,1,0.1667,6
+distractor_para,boundary:query,173,L40,dense,exception,contradicted; every cut loses a supporter,2.0068,2.0068,3,6,2,0.1429,7
+distractor_para,boundary:query,175,L8.lo,dense,expand,arm beat the default just outside the box,2.8816,2.8953,11,6,3,0.4545,11
+distractor_para,boundary:query,175,L18.lo,hybrid,expand,arm beat the default just outside the box,1.8453,1.8864,7,6,3,0.25,8
+distractor_para,boundary:query,175,L18.hi,hybrid,expand,arm beat the default just outside the box,1.7568,1.7568,6,5,1,0.2857,7
+distractor_para,boundary:query,175,L17.hi.lo,dense,expand,arm beat the default just outside the box,1.9001,1.9275,8,4,0,0.2,5
+distractor_para,boundary:query,175,L4.lo.lo.lo,hybrid,expand,arm beat the default just outside the box,3.6807,3.7218,8,3,0,0.0,3
+distractor_para,boundary:query,176,L40,dense,narrow,contradicted; cut f:query_len_tokens,2.0142,1.9257,4,7,2,0.2222,9
+distractor_para,boundary:query,176,L17.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.9305,1.9305,8,5,1,0.1667,6
+distractor_para,boundary:query,177,L18.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8927,1.8927,7,7,4,0.2222,9
+distractor_para,boundary:query,177,L18.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7626,1.7626,6,6,2,0.25,8
+distractor_para,boundary:query,177,L38,dense,exception,contradicted; every cut loses a supporter,2.0915,2.0915,7,5,1,0.2857,7
+distractor_para,boundary:query,177,L17.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.9339,1.9339,8,6,2,0.1429,7
+distractor_para,boundary:query,177,L18.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,1.8927,7,7,4,0.2222,9
+distractor_para,boundary:query,177,L18.lo.lo,hybrid,create,split of L18.lo,,1.8242,5,0,0,0.0,0
+distractor_para,boundary:query,177,L18.lo.hi,hybrid,create,split of L18.lo,,1.8516,2,0,0,0.0,0
+distractor_para,boundary:query,179,L4.hi,hybrid,exception,contradicted; every cut loses a supporter,3.854,3.854,6,8,3,0.3333,12
+distractor_para,boundary:query,179,L15.hi,hybrid,exception,contradicted; every cut loses a supporter,2.791,2.791,6,5,2,0.2857,7
+distractor_para,boundary:query,179,L38,dense,exception,contradicted; every cut loses a supporter,2.0837,2.0837,7,6,2,0.25,8
+distractor_para,boundary:query,180,L9,hybrid,narrow,contradicted; cut f:query_len_tokens,2.9552,2.9066,2,8,2,0.1111,9
+distractor_para,boundary:query,181,L18.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7536,1.7536,6,7,3,0.2222,9
+distractor_para,boundary:query,181,L38,dense,exception,contradicted; every cut loses a supporter,2.0855,2.0855,7,7,3,0.2222,9
+distractor_para,boundary:query,181,L40,dense,exception,contradicted; every cut loses a supporter,1.925,1.925,4,8,3,0.2,10
+distractor_para,boundary:query,181,L17.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.9253,1.9253,8,7,3,0.125,8
+distractor_para,boundary:query,181,L4.lo.lo.lo,hybrid,retire,utility <= 0,,3.6872,8,5,0,0.0,5
+distractor_para,boundary:query,182,L35,hybrid,expand,arm beat the default just outside the box,1.9861,2.0396,3,0,0,1.0,1
+distractor_para,boundary:query,182,L47,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,183,L4.hi,hybrid,exception,contradicted; every cut loses a supporter,3.8745,3.8745,6,9,4,0.3077,13
+distractor_para,boundary:query,183,L15.hi,hybrid,exception,contradicted; every cut loses a supporter,2.8031,2.8031,6,6,3,0.25,8
+distractor_para,boundary:query,183,L40,dense,exception,contradicted; every cut loses a supporter,1.9239,1.9239,4,9,4,0.1818,11
+distractor_para,boundary:query,183,L4.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,3.8745,6,9,4,0.3077,13
+distractor_para,boundary:query,183,L4.hi.lo,hybrid,create,split of L4.hi,,3.7314,5,0,0,0.0,0
+distractor_para,boundary:query,183,L4.hi.hi,hybrid,create,split of L4.hi,,3.8745,1,0,0,0.0,0
+distractor_para,boundary:query,183,L40,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.9239,4,9,4,0.1818,11
+distractor_para,boundary:query,183,L40.lo,dense,create,split of L40,,1.678,3,0,0,0.0,0
+distractor_para,boundary:query,183,L40.hi,dense,create,split of L40,,1.9239,1,0,0,0.0,0
+distractor_para,boundary:query,184,L17.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.9286,1.9286,8,8,4,0.1111,9
+distractor_para,boundary:query,184,L17.hi.lo,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.9286,8,8,4,0.1111,9
+distractor_para,boundary:query,184,L17.hi.lo.lo,dense,create,split of L17.hi.lo,,1.7853,5,0,0,0.0,0
+distractor_para,boundary:query,184,L17.hi.lo.hi,dense,create,split of L17.hi.lo,,1.8105,3,0,0,0.0,0
+distractor_para,boundary:query,187,L18.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7535,1.7535,6,8,4,0.2,10
+distractor_para,boundary:query,187,L38,dense,exception,contradicted; every cut loses a supporter,2.0833,2.0833,7,8,4,0.2,10
+distractor_para,boundary:query,187,L18.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.7535,6,8,4,0.2,10
+distractor_para,boundary:query,187,L18.hi.lo,hybrid,create,split of L18.hi,,1.7535,6,0,0,0.0,0
+distractor_para,boundary:query,187,L38,dense,split,4 exceptions; cut f:query_len_tokens at 15,,2.0833,7,8,4,0.2,10
+distractor_para,boundary:query,187,L38.lo,dense,create,split of L38,,1.8422,4,0,0,0.0,0
+distractor_para,boundary:query,187,L38.hi,dense,create,split of L38,,2.0285,3,0,0,0.0,0
+distractor_para,boundary:query,188,L17.hi.hi,dense,expand,arm beat the default just outside the box,1.8571,1.8846,7,0,0,1.0,3
+distractor_para,boundary:query,188,L38.hi,dense,expand,arm beat the default just outside the box,2.0311,2.0585,4,0,0,0.0,0
+distractor_para,boundary:query,193,L10,dense,narrow,contradicted; cut f:query_len_tokens,2.9883,2.9166,4,8,3,0.2,10
+distractor_para,boundary:query,194,L57,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,195,L8.lo,dense,exception,contradicted; every cut loses a supporter,2.8598,2.8598,11,7,4,0.3333,12
+distractor_para,boundary:query,195,L15.lo,hybrid,exception,contradicted; every cut loses a supporter,2.8555,2.8555,5,7,3,0.2222,9
+distractor_para,boundary:query,195,L8.lo,dense,split,4 exceptions; cut f:query_len_tokens at 11,,2.8598,11,7,4,0.3333,12
+distractor_para,boundary:query,195,L8.lo.lo,dense,create,split of L8.lo,,2.7646,6,0,0,0.0,0
+distractor_para,boundary:query,195,L8.lo.hi,dense,create,split of L8.lo,,2.6748,5,0,0,0.0,0
+distractor_para,boundary:query,195,L18.lo.hi,hybrid,retire,utility <= 0,,1.8344,2,5,0,0.0,5
+distractor_para,boundary:query,196,L15.lo,hybrid,exception,contradicted; every cut loses a supporter,2.8604,2.8604,5,8,4,0.2,10
+distractor_para,boundary:query,196,L17.hi.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.8739,1.8639,8,2,0,0.5,6
+distractor_para,boundary:query,196,L15.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 15,,2.8604,5,8,4,0.2,10
+distractor_para,boundary:query,196,L15.lo.lo,hybrid,create,split of L15.lo,,2.7241,3,0,0,0.0,0
+distractor_para,boundary:query,196,L15.lo.hi,hybrid,create,split of L15.lo,,2.8059,2,0,0,0.0,0
+distractor_para,boundary:query,200,L17.hi.lo.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.7877,1.7741,5,4,0,0.1667,6
+distractor_para,boundary:query,201,L38.lo,dense,expand,arm beat the default just outside the box,1.8219,1.8491,7,0,0,1.0,2
+distractor_para,boundary:query,201,L15.lo.lo,hybrid,expand,arm beat the default just outside the box,2.6661,2.6933,4,0,0,0.0,0
+distractor_para,boundary:query,202,L17.hi.hi,dense,exception,contradicted; every cut loses a supporter,1.8536,1.8536,9,3,1,0.5,8
+distractor_para,boundary:query,202,L40.hi,dense,exception,contradicted; every cut loses a supporter,1.9025,1.9025,4,4,1,0.2857,7
+distractor_para,boundary:query,202,L17.hi.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.7791,1.7791,6,5,1,0.25,8
+distractor_para,boundary:query,207,L57,dense,expand,arm beat the default just outside the box,1.9765,2.0187,2,0,0,0.0,0
+distractor_para,boundary:query,207,L62,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,208,L15.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7043,2.7043,6,7,4,0.2222,9
+distractor_para,boundary:query,208,L17.hi.hi,dense,exception,contradicted; every cut loses a supporter,1.8402,1.8402,9,4,2,0.4444,9
+distractor_para,boundary:query,208,L4.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,3.7132,3.7132,8,5,1,0.2857,7
+distractor_para,boundary:query,208,L40.hi,dense,exception,contradicted; every cut loses a supporter,1.8869,1.8869,4,5,2,0.25,8
+distractor_para,boundary:query,208,L17.hi.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.7672,1.7672,6,6,2,0.2222,9
+distractor_para,boundary:query,208,L18.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7261,1.7261,7,5,1,0.1667,6
+distractor_para,boundary:query,208,L38.hi,dense,exception,contradicted; every cut loses a supporter,2.023,2.023,6,4,1,0.1667,6
+distractor_para,boundary:query,208,L15.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 15.5,,2.7043,6,7,4,0.2222,9
+distractor_para,boundary:query,208,L15.hi.lo,hybrid,create,split of L15.hi,,2.574,3,0,0,0.0,0
+distractor_para,boundary:query,208,L15.hi.hi,hybrid,create,split of L15.hi,,2.6426,3,0,0,0.0,0
+distractor_para,boundary:query,210,L18.lo.lo,hybrid,expand,arm beat the default just outside the box,1.7842,1.8254,6,3,0,0.0,3
+distractor_para,boundary:query,210,L15.hi.lo,hybrid,expand,arm beat the default just outside the box,2.5778,2.5846,4,0,0,0.0,0
+distractor_para,boundary:query,211,L4.lo.lo.hi,hybrid,expand,arm beat the default just outside the box,3.7269,3.7406,9,5,1,0.2857,7
+distractor_para,boundary:query,211,L15.hi.hi,hybrid,expand,arm beat the default just outside the box,2.6509,2.6716,5,0,0,1.0,1
+distractor_para,boundary:query,214,L62,dense,expand,arm beat the default just outside the box,2.0035,2.0417,2,0,0,0.0,0
+distractor_para,boundary:query,214,L65,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,222,L66,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,224,L4.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,3.6416,3.6416,9,6,2,0.25,8
+distractor_para,boundary:query,224,L18.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.6978,1.6978,8,6,2,0.25,8
+distractor_para,boundary:query,225,L39,hybrid,exception,contradicted; every cut loses a supporter,1.9233,1.9233,2,5,1,0.1667,6
+distractor_para,boundary:query,226,L9,hybrid,expand,arm beat the default just outside the box,2.8226,2.8449,3,8,2,0.1111,9
+distractor_para,boundary:query,226,L39,hybrid,expand,arm beat the default just outside the box,1.9239,1.961,3,5,1,0.1667,6
+distractor_para,boundary:query,226,L67,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,227,L18.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7982,1.7982,7,5,1,0.1667,6
+distractor_para,boundary:query,227,L4.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.5627,3.5627,7,4,1,0.3333,6
+distractor_para,boundary:query,227,L4.hi.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,3.6975,3.6837,3,5,0,0.2857,7
+distractor_para,boundary:query,227,L40.hi,dense,exception,contradicted; every cut loses a supporter,1.8673,1.8673,5,6,3,0.3,10
+distractor_para,boundary:query,227,L17.hi.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.7424,1.7424,7,7,3,0.2727,11
+distractor_para,boundary:query,227,L18.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7009,1.7009,8,7,3,0.2222,9
+distractor_para,boundary:query,227,L38.lo,dense,exception,contradicted; every cut loses a supporter,1.8153,1.8153,10,3,1,0.625,8
+distractor_para,boundary:query,232,L18.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7925,1.7925,7,6,2,0.1429,7
+distractor_para,boundary:query,233,L9,hybrid,exception,contradicted; every cut loses a supporter,2.8032,2.8032,3,9,3,0.1,10
+distractor_para,boundary:query,233,L39,hybrid,exception,contradicted; every cut loses a supporter,1.9543,1.9543,3,6,2,0.1429,7
+distractor_para,boundary:query,235,L17.hi.hi,dense,exception,contradicted; every cut loses a supporter,1.8091,1.8091,11,5,3,0.5,12
+distractor_para,boundary:query,235,L40.lo,dense,exception,contradicted; every cut loses a supporter,1.6276,1.6276,8,3,1,0.5,8
+distractor_para,boundary:query,235,L40.hi,dense,exception,contradicted; every cut loses a supporter,1.8597,1.8597,6,7,4,0.3333,12
+distractor_para,boundary:query,235,L17.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.7302,1.7302,10,4,1,0.4444,9
+distractor_para,boundary:query,235,L17.hi.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.7399,1.7399,8,8,4,0.3077,13
+distractor_para,boundary:query,235,L38.lo,dense,exception,contradicted; every cut loses a supporter,1.8079,1.8079,11,4,2,0.6,10
+distractor_para,boundary:query,235,L38.hi,dense,exception,contradicted; every cut loses a supporter,1.9986,1.9986,9,5,2,0.4,10
+distractor_para,boundary:query,235,L18.lo.lo,hybrid,expand,arm beat the default just outside the box,1.795,1.8091,8,6,2,0.1429,7
+distractor_para,boundary:query,235,L40.hi,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.8597,6,7,4,0.3333,12
+distractor_para,boundary:query,235,L40.hi.lo,dense,create,split of L40.hi,,1.6276,5,0,0,0.0,0
+distractor_para,boundary:query,235,L40.hi.hi,dense,create,split of L40.hi,,1.8597,1,0,0,0.0,0
+distractor_para,boundary:query,235,L17.hi.lo.hi,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.7399,8,8,4,0.3077,13
+distractor_para,boundary:query,235,L17.hi.lo.hi.lo,dense,create,split of L17.hi.lo.hi,,1.605,5,0,0,0.0,0
+distractor_para,boundary:query,235,L17.hi.lo.hi.hi,dense,create,split of L17.hi.lo.hi,,1.7399,3,0,0,0.0,0
+distractor_para,boundary:query,238,L4.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,3.6408,3.6408,10,7,3,0.2,10
+distractor_para,boundary:query,238,L18.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8117,1.8117,8,7,3,0.0,8
+distractor_para,boundary:query,238,L18.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7001,1.7001,9,8,4,0.1818,11
+distractor_para,boundary:query,238,L18.lo.lo,hybrid,retire,utility <= 0,,1.8117,8,7,3,0.0,8
+distractor_para,boundary:query,238,L18.hi.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.7001,9,8,4,0.1818,11
+distractor_para,boundary:query,238,L18.hi.lo.lo,hybrid,create,split of L18.hi.lo,,1.7001,9,0,0,0.0,0
+distractor_para,boundary:query,239,L4.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.674,3.674,3,6,1,0.25,8
+distractor_para,boundary:query,240,L4.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,3.6519,3.6519,10,8,4,0.1818,11
+distractor_para,boundary:query,240,L4.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.5588,3.5588,7,5,2,0.2857,7
+distractor_para,boundary:query,240,L4.hi.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,3.68,3.5379,3,7,1,0.2222,9
+distractor_para,boundary:query,240,L38.hi,dense,exception,contradicted; every cut loses a supporter,2.0043,2.0043,9,6,3,0.3636,11
+distractor_para,boundary:query,240,L4.lo.lo.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,3.6519,10,8,4,0.1818,11
+distractor_para,boundary:query,240,L4.lo.lo.hi.lo,hybrid,create,split of L4.lo.lo.hi,,3.6519,10,0,0,0.0,0
+distractor_para,boundary:query,242,L40.lo,dense,expand,arm beat the default just outside the box,1.6344,1.6765,9,3,1,0.5,8
+distractor_para,boundary:query,242,L40.hi.lo,dense,expand,arm beat the default just outside the box,1.6344,1.6765,6,1,0,-1.0,1
+distractor_para,boundary:query,242,L40.hi.hi,dense,expand,arm beat the default just outside the box,1.8661,1.9082,2,2,0,-1.0,2
+distractor_para,boundary:query,242,L17.hi.lo.hi.lo,dense,expand,arm beat the default just outside the box,1.6123,1.6263,6,1,0,-1.0,1
+distractor_para,boundary:query,242,L17.hi.lo.hi.hi,dense,expand,arm beat the default just outside the box,1.747,1.761,4,2,0,-1.0,2
+distractor_para,boundary:query,242,L74,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,243,L38.lo,dense,expand,arm beat the default just outside the box,1.8162,1.8443,12,4,2,0.6,10
+distractor_para,boundary:query,244,L17.hi.hi,dense,exception,contradicted; every cut loses a supporter,1.8195,1.8195,11,6,4,0.4615,13
+distractor_para,boundary:query,244,L40.lo,dense,exception,contradicted; every cut loses a supporter,1.6799,1.6799,9,4,2,0.4444,9
+distractor_para,boundary:query,244,L17.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.7407,1.7407,11,5,2,0.4545,11
+distractor_para,boundary:query,244,L38.lo,dense,exception,contradicted; every cut loses a supporter,1.846,1.846,12,5,3,0.5455,11
+distractor_para,boundary:query,244,L38.hi,dense,exception,contradicted; every cut loses a supporter,2.0087,2.0087,9,7,4,0.3333,12
+distractor_para,boundary:query,244,L8.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.6283,2.6283,8,3,1,0.3333,6
+distractor_para,boundary:query,244,L17.hi.hi,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.8195,11,6,4,0.4615,13
+distractor_para,boundary:query,244,L17.hi.hi.lo,dense,create,split of L17.hi.hi,,1.6846,9,0,0,0.0,0
+distractor_para,boundary:query,244,L17.hi.hi.hi,dense,create,split of L17.hi.hi,,1.7083,2,0,0,0.0,0
+distractor_para,boundary:query,244,L38.hi,dense,split,4 exceptions; cut f:query_cap_spans at 0,,2.0087,9,7,4,0.3333,12
+distractor_para,boundary:query,244,L38.hi.lo,dense,create,split of L38.hi,,1.7752,7,0,0,0.0,0
+distractor_para,boundary:query,244,L38.hi.hi,dense,create,split of L38.hi,,2.0087,2,0,0,0.0,0
+distractor_para,boundary:query,244,L15.lo.lo,hybrid,retire,utility <= 0,,2.6946,5,4,0,0.0,5
+distractor_para,boundary:query,245,L40.hi.hi,dense,retire,utility <= 0,,1.9142,3,4,0,-0.2,5
+distractor_para,boundary:query,245,L17.hi.lo.hi.hi,dense,retire,utility <= 0,,1.7664,5,4,0,-0.2,5
+distractor_para,boundary:query,246,L9,hybrid,exception,contradicted; every cut loses a supporter,2.8432,2.8432,3,10,4,0.0909,11
+distractor_para,boundary:query,246,L39,hybrid,exception,contradicted; every cut loses a supporter,1.9707,1.9707,3,7,3,0.125,8
+distractor_para,boundary:query,246,L9,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,2.8432,3,10,4,0.0909,11
+distractor_para,boundary:query,246,L9.lo,hybrid,create,split of L9,,2.7302,3,0,0,0.0,0
+distractor_para,boundary:query,249,L4.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.5971,3.5971,7,6,3,0.25,8
+distractor_para,boundary:query,249,L4.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.5765,3.5765,3,8,2,0.2,10
+distractor_para,boundary:query,249,L38.lo,dense,exception,contradicted; every cut loses a supporter,1.8493,1.8493,12,6,4,0.5,12
+distractor_para,boundary:query,249,L38.lo,dense,split,4 exceptions; cut f:query_len_tokens at 15,,1.8493,12,6,4,0.5,12
+distractor_para,boundary:query,249,L38.lo.lo,dense,create,split of L38.lo,,1.8212,10,0,0,0.0,0
+distractor_para,boundary:query,249,L38.lo.hi,dense,create,split of L38.lo,,1.765,2,0,0,0.0,0
+distractor_para,boundary:query,251,L15.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,2.7666,2.7666,4,4,0,0.1667,6
+distractor_para,boundary:query,252,L4.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.6085,3.6085,7,7,4,0.2222,9
+distractor_para,boundary:query,252,L4.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.5872,3.5872,3,9,3,0.1818,11
+distractor_para,boundary:query,252,L4.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 14,,3.6085,7,7,4,0.2222,9
+distractor_para,boundary:query,252,L4.hi.lo.lo,hybrid,create,split of L4.hi.lo,,3.3667,4,0,0,0.0,0
+distractor_para,boundary:query,252,L4.hi.lo.hi,hybrid,create,split of L4.hi.lo,,3.5661,3,0,0,0.0,0
+distractor_para,boundary:query,252,L15.hi.lo,hybrid,retire,utility <= 0,,2.5992,5,4,0,0.0,5
+distractor_para,boundary:query,252,L18.hi.lo.lo,hybrid,retire,utility <= 0,,1.7129,9,5,0,0.0,5
+distractor_para,boundary:query,253,L4.lo.lo.hi.lo,hybrid,expand,arm beat the default just outside the box,3.7068,3.7492,11,4,0,0.0,4
+distractor_para,boundary:query,253,L17.hi.hi.lo,dense,expand,arm beat the default just outside the box,1.6906,1.7188,10,1,0,0.0,1
+distractor_para,boundary:query,253,L17.hi.hi.hi,dense,expand,arm beat the default just outside the box,1.7145,1.7427,3,3,0,0.0,3
+distractor_para,boundary:query,253,L38.hi.lo,dense,expand,arm beat the default just outside the box,1.7817,1.81,8,1,0,0.0,1
+distractor_para,boundary:query,253,L38.hi.hi,dense,expand,arm beat the default just outside the box,2.0166,2.0448,3,3,0,0.0,3
+distractor_para,boundary:query,254,L40.lo,dense,exception,contradicted; every cut loses a supporter,1.6874,1.6874,10,5,3,0.4545,11
+distractor_para,boundary:query,254,L17.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.7486,1.7486,12,6,3,0.4615,13
+distractor_para,boundary:query,254,L8.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.6536,2.6536,9,4,2,0.375,8
+distractor_para,boundary:query,254,L40.hi.lo,dense,retire,utility <= 0,,1.6874,7,4,0,0.0,5
+distractor_para,boundary:query,254,L17.hi.lo.hi.lo,dense,retire,utility <= 0,,1.6368,7,4,0,0.0,5
+distractor_para,boundary:query,254,L4.lo.lo.hi.lo,hybrid,retire,utility <= 0,,3.7542,11,5,0,0.0,5
+distractor_para,boundary:query,257,L10,dense,exception,contradicted; every cut loses a supporter,2.8992,2.8992,4,9,4,0.1818,11
+distractor_para,boundary:query,257,L39,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9763,1.8991,3,8,3,0.1111,9
+distractor_para,boundary:query,257,L10,dense,split,4 exceptions; cut f:query_len_tokens at 28,,2.8992,4,9,4,0.1818,11
+distractor_para,boundary:query,257,L10.lo,dense,create,split of L10,,2.8146,2,0,0,0.0,0
+distractor_para,boundary:query,257,L10.hi,dense,create,split of L10,,2.7864,2,0,0,0.0,0
+distractor_para,boundary:query,258,L39,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9001,1.8933,3,9,3,0.1,10
+distractor_para,boundary:query,259,L38.hi.hi,dense,retire,utility <= 0,,2.0496,3,5,0,0.0,5
+distractor_para,boundary:query,261,L17.hi.hi.hi,dense,retire,utility <= 0,,1.7442,3,5,0,-0.2,5
+distractor_para,boundary:query,261,L38.lo.lo,dense,retire,utility <= 0,,1.8238,11,4,0,0.0,5
+distractor_para,boundary:query,264,L15.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6592,2.6592,5,5,1,0.1667,6
+distractor_para,boundary:query,264,L86,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,268,L39,hybrid,narrow,contradicted; cut f:query_len_tokens,1.8878,1.874,3,10,3,0.0909,11
+distractor_para,boundary:query,268,L66,dense,retire,utility <= 0,,2.0064,1,5,0,0.0,5
+distractor_para,boundary:query,275,L4.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.4916,3.4916,3,10,4,0.1667,12
+distractor_para,boundary:query,275,L4.hi.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,3.4916,3,10,4,0.1667,12
+distractor_para,boundary:query,275,L4.hi.hi.lo,hybrid,create,split of L4.hi.hi,,3.3538,2,0,0,0.0,0
+distractor_para,boundary:query,275,L4.hi.hi.hi,hybrid,create,split of L4.hi.hi,,3.4916,1,0,0,0.0,0
+distractor_para,boundary:query,281,L15.hi.hi,hybrid,expand,arm beat the default just outside the box,2.5926,2.6062,6,5,1,0.1667,6
+distractor_para,boundary:query,281,L74,hybrid,expand,arm beat the default just outside the box,1.993,2.0285,3,3,0,0.25,4
+distractor_para,boundary:query,281,L4.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,3.452,3.4657,4,4,0,0.0,4
+distractor_para,boundary:query,283,L67,hybrid,retire,utility <= 0,,1.9937,1,5,0,0.0,5
+distractor_para,boundary:query,286,L89,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,287,L15.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.607,2.607,6,6,2,0.1429,7
+distractor_para,boundary:query,287,L4.hi.lo.hi,hybrid,retire,utility <= 0,,3.4473,4,5,0,0.0,5
+distractor_para,boundary:query,290,L15.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,2.6861,2.6725,4,5,0,0.1429,7
+distractor_para,boundary:query,290,L86,dense,expand,arm beat the default just outside the box,1.9768,2.0144,2,2,0,0.0,2
+distractor_para,boundary:query,292,L39,hybrid,exception,contradicted; every cut loses a supporter,1.8581,1.8581,3,11,4,0.0833,12
+distractor_para,boundary:query,292,L39,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.8581,3,11,4,0.0833,12
+distractor_para,boundary:query,292,L39.lo,hybrid,create,split of L39,,1.7579,3,0,0,0.0,0
+distractor_para,boundary:query,292,L9.lo,hybrid,retire,utility <= 0,,2.6628,3,5,0,-0.2,5
+distractor_para,boundary:query,293,L74,hybrid,exception,contradicted; every cut loses a supporter,2.0255,2.0255,3,5,1,0.1667,6
+distractor_para,boundary:query,294,L74,hybrid,exception,contradicted; every cut loses a supporter,2.027,2.027,3,6,2,0.1429,7
+distractor_para,boundary:query,299,L8.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.5812,2.5812,10,5,3,0.4,10
+distractor_para,boundary:query,299,L15.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6881,2.6881,4,6,1,0.125,8
+distractor_para,boundary:query,299,L17.hi.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.7002,1.7002,11,5,1,0.1667,6
+distractor_para,boundary:query,299,L38.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.784,1.784,9,5,1,0.1667,6
+distractor_para,boundary:query,304,L17.hi.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.7004,1.7004,11,6,2,0.1429,7
+distractor_para,boundary:query,304,L38.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.785,1.785,9,6,2,0.1429,7
+distractor_para,boundary:query,304,L86,dense,retire,utility <= 0,,2.022,2,5,0,0.0,5
+distractor_para,boundary:query,305,L38.lo.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.759,1.759,3,5,0,0.0,6
+distractor_para,boundary:query,305,L38.lo.hi,dense,retire,utility <= 0,,1.759,3,5,0,0.0,6
+distractor_para,boundary:query,308,L8.lo.lo,dense,expand,arm beat the default just outside the box,2.688,2.7154,9,3,0,0.4,5
+distractor_para,boundary:query,308,L15.lo.hi,hybrid,expand,arm beat the default just outside the box,2.7054,2.7465,5,6,1,0.125,8
+distractor_para,boundary:query,308,L91,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,312,L15.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7556,2.7556,5,7,2,0.1111,9
+distractor_para,boundary:query,312,L38.hi.lo,dense,narrow,contradicted; cut f:query_len_tokens,1.7936,1.6206,10,7,2,0.2222,9
+distractor_para,boundary:query,313,L74,hybrid,exception,contradicted; every cut loses a supporter,2.0394,2.0394,3,7,3,0.125,8
+distractor_para,boundary:query,313,L4.hi.lo.lo,hybrid,retire,utility <= 0,,3.2958,5,4,0,0.0,5
+distractor_para,boundary:query,314,L92,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,316,L10.lo,dense,expand,arm beat the default just outside the box,2.7709,2.8029,3,2,0,0.0,2
+distractor_para,boundary:query,316,L93,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,318,L8.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.7371,2.7371,9,4,1,0.3333,6
+distractor_para,boundary:query,318,L15.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7682,2.7682,5,8,3,0.1,10
+distractor_para,boundary:query,318,L17.hi.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.7109,1.7109,12,7,3,0.2222,9
+distractor_para,boundary:query,318,L38.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.624,1.624,10,8,3,0.2,10
+distractor_para,boundary:query,319,L15.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7711,2.7711,5,9,4,0.0909,11
+distractor_para,boundary:query,319,L15.lo.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 17,,2.7711,5,9,4,0.0909,11
+distractor_para,boundary:query,319,L15.lo.hi.lo,hybrid,create,split of L15.lo.hi,,2.6604,3,0,0,0.0,0
+distractor_para,boundary:query,319,L15.lo.hi.hi,hybrid,create,split of L15.lo.hi,,2.7157,2,0,0,0.0,0
+distractor_para,boundary:query,322,L29,dense,retire,utility <= 0,,1.9092,1,5,0,0.0,5
+distractor_para,boundary:query,322,L30,hybrid,retire,utility <= 0,,1.9092,1,5,0,0.0,5
+distractor_para,boundary:query,324,L15.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.642,2.642,6,7,3,0.125,8
+distractor_para,boundary:query,330,L92,dense,expand,arm beat the default just outside the box,2.007,2.0309,2,4,0,-0.5,4
+distractor_para,boundary:query,330,L96,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,332,L15.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.655,2.655,6,8,4,0.1111,9
+distractor_para,boundary:query,332,L15.hi.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 16,,2.655,6,8,4,0.1111,9
+distractor_para,boundary:query,332,L15.hi.hi.lo,hybrid,create,split of L15.hi.hi,,2.5299,4,0,0,0.0,0
+distractor_para,boundary:query,332,L15.hi.hi.hi,hybrid,create,split of L15.hi.hi,,2.6133,2,0,0,0.0,0
+distractor_para,boundary:query,337,L40.lo,dense,exception,contradicted; every cut loses a supporter,1.6817,1.6817,10,6,4,0.4167,12
+distractor_para,boundary:query,337,L17.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.7412,1.7412,12,7,4,0.4286,14
+distractor_para,boundary:query,337,L8.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.7316,2.7316,9,5,2,0.2857,7
+distractor_para,boundary:query,337,L74,hybrid,exception,contradicted; every cut loses a supporter,2.0463,2.0463,3,8,4,0.1111,9
+distractor_para,boundary:query,337,L40.lo,dense,split,4 exceptions; cut f:query_len_tokens at 15,,1.6817,10,6,4,0.4167,12
+distractor_para,boundary:query,337,L40.lo.lo,dense,create,split of L40.lo,,1.6337,7,0,0,0.0,0
+distractor_para,boundary:query,337,L40.lo.hi,dense,create,split of L40.lo,,1.5707,3,0,0,0.0,0
+distractor_para,boundary:query,337,L17.hi.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 15,,1.7412,12,7,4,0.4286,14
+distractor_para,boundary:query,337,L17.hi.lo.lo.lo,dense,create,split of L17.hi.lo.lo,,1.6996,9,0,0,0.0,0
+distractor_para,boundary:query,337,L17.hi.lo.lo.hi,dense,create,split of L17.hi.lo.lo,,1.6303,3,0,0,0.0,0
+distractor_para,boundary:query,337,L74,hybrid,split,4 exceptions; cut f:query_len_tokens at 11,,2.0463,3,8,4,0.1111,9
+distractor_para,boundary:query,337,L74.lo,hybrid,create,split of L74,,2.0029,2,0,0,0.0,0
+distractor_para,boundary:query,337,L74.hi,hybrid,create,split of L74,,1.8919,1,0,0,0.0,0
+distractor_para,boundary:query,338,L8.lo.hi,dense,expand,arm beat the default just outside the box,2.6148,2.6426,11,5,3,0.4,10
+distractor_para,boundary:query,338,L17.hi.hi.lo,dense,expand,arm beat the default just outside the box,1.7148,1.7148,13,7,3,0.2222,9
+distractor_para,boundary:query,338,L38.hi.lo,dense,expand,arm beat the default just outside the box,1.6296,1.6296,11,8,3,0.2,10
+distractor_para,boundary:query,338,L92,dense,expand,arm beat the default just outside the box,2.0302,2.0688,3,4,0,-0.5,4
+distractor_para,boundary:query,338,L15.lo.hi.lo,hybrid,expand,arm beat the default just outside the box,2.6523,2.694,4,0,0,0.0,0
+distractor_para,boundary:query,338,L96,dense,expand,arm beat the default just outside the box,1.9993,2.0389,2,1,0,0.0,1
+distractor_para,boundary:query,338,L40.lo.hi,dense,expand,arm beat the default just outside the box,1.572,1.5934,4,0,0,0.0,0
+distractor_para,boundary:query,338,L17.hi.lo.lo.hi,dense,expand,arm beat the default just outside the box,1.6315,1.6592,4,0,0,0.0,0
+distractor_para,boundary:query,338,L105,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,339,L92,dense,retire,utility <= 0,,2.0708,3,5,0,-0.4,5
+distractor_para,boundary:query,340,L4.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.3765,3.3765,3,5,1,0.1667,6
+distractor_para,boundary:query,340,L4.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.5151,3.5151,2,5,1,0.1667,6
+distractor_para,boundary:query,341,L8.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.6508,2.6508,11,6,4,0.3636,11
+distractor_para,boundary:query,341,L17.hi.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.7191,1.7191,13,8,4,0.2,10
+distractor_para,boundary:query,341,L38.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.6337,1.6337,11,9,4,0.1818,11
+distractor_para,boundary:query,341,L91,hybrid,exception,contradicted; every cut loses a supporter,2.0193,2.0193,2,5,1,0.1667,6
+distractor_para,boundary:query,341,L8.lo.hi,dense,split,4 exceptions; cut f:query_len_tokens at 16,,2.6508,11,6,4,0.3636,11
+distractor_para,boundary:query,341,L8.lo.hi.lo,dense,create,split of L8.lo.hi,,2.595,8,0,0,0.0,0
+distractor_para,boundary:query,341,L8.lo.hi.hi,dense,create,split of L8.lo.hi,,2.5811,3,0,0,0.0,0
+distractor_para,boundary:query,341,L17.hi.hi.lo,dense,split,4 exceptions; cut f:query_len_tokens at 15,,1.7191,13,8,4,0.2,10
+distractor_para,boundary:query,341,L17.hi.hi.lo.lo,dense,create,split of L17.hi.hi.lo,,1.6494,7,0,0,0.0,0
+distractor_para,boundary:query,341,L17.hi.hi.lo.hi,dense,create,split of L17.hi.hi.lo,,1.6633,6,0,0,0.0,0
+distractor_para,boundary:query,341,L38.hi.lo,dense,split,4 exceptions; cut f:query_len_tokens at 15,,1.6337,11,9,4,0.1818,11
+distractor_para,boundary:query,341,L38.hi.lo.lo,dense,create,split of L38.hi.lo,,1.564,6,0,0,0.0,0
+distractor_para,boundary:query,341,L38.hi.lo.hi,dense,create,split of L38.hi.lo,,1.5779,5,0,0,0.0,0
+distractor_para,boundary:query,342,L112,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,342,L113,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,343,L91,hybrid,exception,contradicted; every cut loses a supporter,2.0138,2.0138,2,6,2,0.1429,7
+distractor_para,boundary:query,343,L96,dense,retire,utility <= 0,,2.0383,2,5,0,-0.2,5
+distractor_para,boundary:query,344,L10.lo,dense,retire,utility <= 0,,2.8102,3,5,0,0.0,5
+distractor_para,boundary:query,348,L39.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7841,1.7841,5,4,1,0.3333,6
+distractor_para,boundary:query,348,L93,dense,retire,utility <= 0,,2.0112,1,5,0,0.0,5
+distractor_para,boundary:query,351,L91,hybrid,expand,arm beat the default just outside the box,2.0236,2.0618,3,6,2,0.1429,7
+distractor_para,boundary:query,351,L15.hi.hi.hi,hybrid,expand,arm beat the default just outside the box,2.6437,2.6717,3,1,0,0.0,1
+distractor_para,boundary:query,351,L74.lo,hybrid,expand,arm beat the default just outside the box,2.0136,2.0556,3,2,0,0.0,2
+distractor_para,boundary:query,351,L105,dense,expand,arm beat the default just outside the box,2.0093,2.0473,2,3,0,-0.6667,3
+distractor_para,boundary:query,351,L114,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,352,L91,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0635,1.9752,3,7,2,0.125,8
+distractor_para,boundary:query,352,L105,dense,expand,arm beat the default just outside the box,2.049,2.0602,3,3,0,-0.6667,3
+distractor_para,boundary:query,353,L40.lo.lo,dense,expand,arm beat the default just outside the box,1.6476,1.6896,8,1,0,-1.0,1
+distractor_para,boundary:query,353,L17.hi.lo.lo.lo,dense,expand,arm beat the default just outside the box,1.7109,1.753,10,1,0,-1.0,1
+distractor_para,boundary:query,353,L8.lo.hi.lo,dense,expand,arm beat the default just outside the box,2.6166,2.6446,9,2,0,-1.0,2
+distractor_para,boundary:query,353,L17.hi.hi.lo.lo,dense,expand,arm beat the default just outside the box,1.6549,1.6969,8,1,0,-1.0,1
+distractor_para,boundary:query,353,L38.hi.lo.lo,dense,expand,arm beat the default just outside the box,1.5716,1.6137,7,1,0,-1.0,1
+distractor_para,boundary:query,353,L114,dense,expand,arm beat the default just outside the box,2.0032,2.0406,3,0,0,1.0,1
+distractor_para,boundary:query,354,L91,hybrid,exception,contradicted; every cut loses a supporter,1.9781,1.9781,4,8,3,0.2,10
+distractor_para,boundary:query,354,L15.lo.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7396,2.7396,4,4,1,0.3333,6
+distractor_para,boundary:query,354,L40.lo.hi,dense,retire,utility <= 0,,1.6068,5,4,0,-0.2,5
+distractor_para,boundary:query,354,L17.hi.lo.lo.hi,dense,retire,utility <= 0,,1.6701,5,4,0,-0.2,5
+distractor_para,boundary:query,354,L105,dense,retire,utility <= 0,,2.0633,4,4,0,-0.2,5
+distractor_para,boundary:query,357,L4.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.5398,3.5398,2,6,2,0.1429,7
+distractor_para,boundary:query,357,L114,dense,expand,arm beat the default just outside the box,2.0402,2.0776,4,1,0,0.5,2
+distractor_para,boundary:query,357,L115,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,358,L15.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.7287,2.7287,5,5,1,0.1667,6
+distractor_para,boundary:query,358,L17.hi.hi.lo.hi,dense,retire,utility <= 0,,1.6679,7,4,0,-0.2,5
+distractor_para,boundary:query,358,L38.hi.lo.hi,dense,retire,utility <= 0,,1.5858,6,4,0,-0.2,5
+distractor_para,boundary:query,361,L91,hybrid,exception,contradicted; every cut loses a supporter,1.9738,1.9738,4,9,4,0.1818,11
+distractor_para,boundary:query,361,L91,hybrid,split,4 exceptions; cut f:query_len_tokens at 16,,1.9738,4,9,4,0.1818,11
+distractor_para,boundary:query,361,L91.lo,hybrid,create,split of L91,,1.9133,2,0,0,0.0,0
+distractor_para,boundary:query,361,L91.hi,hybrid,create,split of L91,,1.9176,2,0,0,0.0,0
+distractor_para,boundary:query,362,L35,hybrid,exception,contradicted; every cut loses a supporter,2.0055,2.0055,4,4,1,0.3333,6
+distractor_para,boundary:query,362,L62,dense,expand,arm beat the default just outside the box,2.0393,2.0774,4,2,0,0.3333,3
+distractor_para,boundary:query,363,L4.hi.hi.lo,hybrid,narrow,contradicted; cut f:query_len_tokens,3.3811,3.367,3,6,1,0.1429,7
+distractor_para,boundary:query,363,L4.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.5191,3.5191,2,7,3,0.125,8
+distractor_para,boundary:query,363,L114,dense,retire,utility <= 0,,2.0749,4,4,0,0.0,5
+distractor_para,boundary:query,367,L39.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7833,1.7833,5,5,2,0.2857,7
+distractor_para,boundary:query,367,L118,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,368,L74.hi,hybrid,narrow,contradicted; cut f:query_cap_spans,1.8978,1.7954,2,5,0,0.1667,6
+distractor_para,boundary:query,368,L8.lo.hi.lo,dense,retire,utility <= 0,,2.6233,10,4,0,-0.2,5
+distractor_para,boundary:query,370,L115,dense,expand,arm beat the default just outside the box,1.9949,2.0325,2,0,0,0.0,0
+distractor_para,boundary:query,370,L91.hi,hybrid,expand,arm beat the default just outside the box,1.9142,1.9424,3,1,0,0.0,1
+distractor_para,boundary:query,370,L119,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,371,L74.lo,hybrid,exception,contradicted; every cut loses a supporter,2.0546,2.0546,4,5,1,0.1667,6
+distractor_para,boundary:query,371,L119,dense,expand,arm beat the default just outside the box,2.0012,2.0394,2,0,0,0.0,0
+distractor_para,boundary:query,372,L15.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.55,2.55,6,4,1,0.3333,6
+distractor_para,boundary:query,372,L74.lo,hybrid,exception,contradicted; every cut loses a supporter,2.0562,2.0562,4,6,2,0.1429,7
+distractor_para,boundary:query,372,L74.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7983,1.7983,3,6,1,0.25,8
+distractor_para,boundary:query,375,L74.lo,hybrid,exception,contradicted; every cut loses a supporter,2.0601,2.0601,4,7,3,0.125,8
+distractor_para,boundary:query,376,L115,dense,retire,utility <= 0,,2.0407,3,4,0,0.0,5
+distractor_para,boundary:query,380,L119,dense,retire,utility <= 0,,2.0459,3,4,0,0.0,5
+distractor_para,boundary:query,384,L40.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.6921,1.6921,10,4,1,0.1667,6
+distractor_para,boundary:query,384,L17.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.7561,1.7561,12,4,1,0.1667,6
+distractor_para,boundary:query,385,L4.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.5539,3.5539,2,8,4,0.1111,9
+distractor_para,boundary:query,385,L4.hi.hi.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 1.5,,3.5539,2,8,4,0.1111,9
+distractor_para,boundary:query,385,L4.hi.hi.hi.lo,hybrid,create,split of L4.hi.hi.hi,,3.485,1,0,0,0.0,0
+distractor_para,boundary:query,385,L4.hi.hi.hi.hi,hybrid,create,split of L4.hi.hi.hi,,3.485,1,0,0,0.0,0
+distractor_para,boundary:query,392,L15.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.7379,2.7379,5,6,2,0.1429,7
+distractor_para,boundary:query,392,L40.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.6918,1.6918,10,5,2,0.0,7
+distractor_para,boundary:query,392,L17.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.7541,1.7541,12,5,2,0.0,7
+distractor_para,boundary:query,392,L17.hi.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.6971,1.6971,10,4,1,0.0,6
+distractor_para,boundary:query,392,L38.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.6151,1.6151,9,4,1,0.0,6
+distractor_para,boundary:query,392,L91.lo,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9192,1.9192,3,5,0,0.1667,6
+distractor_para,boundary:query,392,L40.lo.lo,dense,retire,utility <= 0,,1.6918,10,5,2,0.0,7
+distractor_para,boundary:query,392,L17.hi.lo.lo.lo,dense,retire,utility <= 0,,1.7541,12,5,2,0.0,7
+distractor_para,boundary:query,392,L8.lo.hi.hi,dense,retire,utility <= 0,,2.6152,4,4,0,-0.2,5
+distractor_para,boundary:query,392,L17.hi.hi.lo.lo,dense,retire,utility <= 0,,1.6971,10,4,1,0.0,6
+distractor_para,boundary:query,392,L38.hi.lo.lo,dense,retire,utility <= 0,,1.6151,9,4,1,0.0,6
+distractor_para,boundary:query,393,L74.lo,hybrid,expand,arm beat the default just outside the box,2.0651,2.1079,5,7,3,0.125,8
+distractor_para,boundary:query,393,L74.hi,hybrid,expand,arm beat the default just outside the box,1.8063,1.8473,4,6,1,0.25,8
+distractor_para,boundary:query,393,L91.lo,hybrid,expand,arm beat the default just outside the box,1.9204,1.9346,4,5,0,0.1667,6
+distractor_para,boundary:query,393,L122,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,394,L15.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.5835,2.5835,6,5,2,0.2857,7
+distractor_para,boundary:query,394,L15.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6976,2.6976,4,5,1,0.1667,6
+distractor_para,boundary:query,394,L74.lo,hybrid,exception,contradicted; every cut loses a supporter,2.1096,2.1096,5,8,4,0.1111,9
+distractor_para,boundary:query,394,L74.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8487,1.8487,4,7,2,0.2222,9
+distractor_para,boundary:query,394,L91.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9362,1.9362,4,6,1,0.1429,7
+distractor_para,boundary:query,394,L74.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 0,,2.1096,5,8,4,0.1111,9
+distractor_para,boundary:query,394,L74.lo.lo,hybrid,create,split of L74.lo,,1.9719,3,0,0,0.0,0
+distractor_para,boundary:query,394,L74.lo.hi,hybrid,create,split of L74.lo,,2.0074,2,0,0,0.0,0
+distractor_para,boundary:query,396,L8.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.7892,2.7892,11,6,3,0.4,10
+distractor_para,boundary:query,396,L74.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.8503,1.8503,4,8,2,0.2,10
+distractor_para,boundary:query,398,L35,hybrid,exception,contradicted; every cut loses a supporter,2.0163,2.0163,4,5,2,0.2857,7
+distractor_para,boundary:query,398,L57,dense,narrow,contradicted; cut f:query_len_tokens,2.0295,1.9384,3,5,0,0.1667,6
+distractor_para,boundary:query,401,L15.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7071,2.7071,4,6,2,0.1429,7
+distractor_para,boundary:query,401,L91.hi,hybrid,exception,contradicted; every cut loses a supporter,1.9567,1.9567,4,5,1,0.1667,6
+distractor_para,boundary:query,407,L125,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,410,L4.hi.hi.lo,hybrid,narrow,contradicted; cut f:query_len_tokens,3.4541,3.4109,3,7,1,0.125,8
+distractor_para,boundary:query,410,L15.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7206,2.7206,4,7,3,0.125,8
+distractor_para,boundary:query,410,L74.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8546,1.8546,4,9,3,0.1818,11
+distractor_para,boundary:query,410,L91.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9427,1.9427,4,7,2,0.125,8
+distractor_para,boundary:query,410,L91.hi,hybrid,exception,contradicted; every cut loses a supporter,1.9615,1.9615,4,6,2,0.1429,7
+distractor_para,boundary:query,410,L74.lo.hi,hybrid,retire,utility <= 0,,2.0146,2,5,0,0.0,5
+distractor_para,boundary:query,419,L39.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7924,1.7924,5,6,3,0.25,8
+distractor_para,boundary:query,420,L4.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,3.3919,3.3919,4,7,1,0.125,8
+distractor_para,boundary:query,420,L15.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,2.5798,2.5942,7,5,2,0.2857,7
+distractor_para,boundary:query,420,L15.hi.hi.hi,hybrid,expand,arm beat the default just outside the box,2.6952,2.724,5,7,3,0.125,8
+distractor_para,boundary:query,420,L91.lo,hybrid,expand,arm beat the default just outside the box,1.9371,1.9371,5,7,2,0.125,8
+distractor_para,boundary:query,420,L91.hi,hybrid,expand,arm beat the default just outside the box,1.9559,1.9847,5,6,2,0.1429,7
+distractor_para,boundary:query,420,L4.hi.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,3.5192,3.5192,2,4,0,0.0,4
+distractor_para,boundary:query,420,L122,dense,expand,arm beat the default just outside the box,2.0036,2.0416,2,2,0,0.0,2
+distractor_para,boundary:query,420,L125,dense,expand,arm beat the default just outside the box,1.9987,2.0373,2,0,0,0.0,0
+distractor_para,boundary:query,420,L126,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,420,L127,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,421,L118,dense,expand,arm beat the default just outside the box,2.0185,2.0568,2,4,0,0.0,4
+distractor_para,boundary:query,421,L128,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,422,L91.hi,hybrid,exception,contradicted; every cut loses a supporter,1.9866,1.9866,5,7,3,0.125,8
+distractor_para,boundary:query,422,L4.hi.hi.hi.lo,hybrid,retire,utility <= 0,,3.5248,2,5,0,0.0,5
+distractor_para,boundary:query,426,L118,dense,retire,utility <= 0,,2.0613,2,5,0,0.0,5
+distractor_para,boundary:query,427,L15.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.7537,2.7537,5,7,3,0.125,8
+distractor_para,boundary:query,427,L74.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8541,1.8541,4,10,4,0.1667,12
+distractor_para,boundary:query,427,L91.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9428,1.9428,5,8,3,0.1111,9
+distractor_para,boundary:query,427,L91.hi,hybrid,exception,contradicted; every cut loses a supporter,1.9907,1.9907,5,8,4,0.1111,9
+distractor_para,boundary:query,427,L122,dense,exception,contradicted; every cut loses a supporter,2.0477,2.0477,3,5,1,0.1667,6
+distractor_para,boundary:query,427,L74.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 14,,1.8541,4,10,4,0.1667,12
+distractor_para,boundary:query,427,L74.hi.lo,hybrid,create,split of L74.hi,,1.8106,3,0,0,0.0,0
+distractor_para,boundary:query,427,L74.hi.hi,hybrid,create,split of L74.hi,,1.8106,1,0,0,0.0,0
+distractor_para,boundary:query,427,L91.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 0,,1.9907,5,8,4,0.1111,9
+distractor_para,boundary:query,427,L91.hi.lo,hybrid,create,split of L91.hi,,1.8512,3,0,0,0.0,0
+distractor_para,boundary:query,427,L91.hi.hi,hybrid,create,split of L91.hi,,1.89,2,0,0,0.0,0
+distractor_para,boundary:query,430,L4.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.419,3.419,4,8,2,0.1111,9
+distractor_para,boundary:query,430,L15.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7427,2.7427,5,8,4,0.1111,9
+distractor_para,boundary:query,430,L91.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9457,1.9457,5,9,4,0.1,10
+distractor_para,boundary:query,430,L122,dense,exception,contradicted; every cut loses a supporter,2.0505,2.0505,3,6,2,0.1429,7
+distractor_para,boundary:query,430,L15.hi.hi.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 14,,2.7427,5,8,4,0.1111,9
+distractor_para,boundary:query,430,L15.hi.hi.hi.lo,hybrid,create,split of L15.hi.hi.hi,,2.5834,3,0,0,0.0,0
+distractor_para,boundary:query,430,L15.hi.hi.hi.hi,hybrid,create,split of L15.hi.hi.hi,,2.7137,2,0,0,0.0,0
+distractor_para,boundary:query,430,L91.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.9457,5,9,4,0.1,10
+distractor_para,boundary:query,430,L91.lo.lo,hybrid,create,split of L91.lo,,1.9457,5,0,0,0.0,0
+distractor_para,boundary:query,432,L8.lo.lo,dense,expand,arm beat the default just outside the box,2.8036,2.8326,12,6,3,0.4,10
+distractor_para,boundary:query,432,L126,dense,expand,arm beat the default just outside the box,2.0095,2.049,3,3,0,0.25,4
+distractor_para,boundary:query,432,L74.lo.lo,hybrid,retire,utility <= 0,,1.9827,3,5,0,0.0,5
+distractor_para,boundary:query,432,L136,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,434,L122,dense,narrow,contradicted; cut f:query_len_tokens,2.0524,2.0521,3,7,2,0.125,8
+distractor_para,boundary:query,434,L127,hybrid,retire,utility <= 0,,2.0105,1,5,0,0.0,5
+distractor_para,boundary:query,435,L8.lo.lo,dense,expand,arm beat the default just outside the box,2.8374,2.8519,13,6,3,0.4,10
+distractor_para,boundary:query,436,L8.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.8541,2.8541,13,7,4,0.3636,11
+distractor_para,boundary:query,436,L126,dense,exception,contradicted; every cut loses a supporter,2.0525,2.0525,4,5,1,0.2857,7
+distractor_para,boundary:query,436,L8.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 11,,2.8541,13,7,4,0.3636,11
+distractor_para,boundary:query,436,L8.lo.lo.lo,dense,create,split of L8.lo.lo,,2.7817,10,0,0,0.0,0
+distractor_para,boundary:query,436,L8.lo.lo.hi,dense,create,split of L8.lo.lo,,2.6571,3,0,0,0.0,0
+distractor_para,boundary:query,440,L39.lo,hybrid,exception,contradicted; every cut loses a supporter,1.805,1.805,5,7,4,0.2222,9
+distractor_para,boundary:query,440,L39.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 0,,1.805,5,7,4,0.2222,9
+distractor_para,boundary:query,440,L39.lo.lo,hybrid,create,split of L39.lo,,1.6646,3,0,0,0.0,0
+distractor_para,boundary:query,440,L39.lo.hi,hybrid,create,split of L39.lo,,1.805,2,0,0,0.0,0
+distractor_para,boundary:query,441,L35,hybrid,exception,contradicted; every cut loses a supporter,2.0299,2.0299,4,6,3,0.25,8
+distractor_para,boundary:query,441,L57,dense,narrow,contradicted; cut f:query_len_tokens,1.9521,1.9033,3,6,0,0.0,7
+distractor_para,boundary:query,441,L62,dense,narrow,contradicted; cut f:query_len_tokens,2.1048,2.0424,4,5,0,0.0,6
+distractor_para,boundary:query,441,L57,dense,retire,utility <= 0,,1.9033,3,6,0,0.0,7
+distractor_para,boundary:query,441,L62,dense,retire,utility <= 0,,2.0424,4,5,0,0.0,6
+distractor_para,boundary:query,444,L136,dense,expand,arm beat the default just outside the box,2.0028,2.0429,3,1,0,0.5,2
+distractor_para,boundary:query,444,L91.hi.hi,hybrid,retire,utility <= 0,,1.896,2,5,0,0.0,5
+distractor_para,boundary:query,447,L4.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,3.4175,3.461,5,8,2,0.1111,9
+distractor_para,boundary:query,447,L15.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,2.5988,2.6423,8,5,2,0.2857,7
+distractor_para,boundary:query,447,L122,dense,expand,arm beat the default just outside the box,2.0498,2.0643,6,7,2,0.3,10
+distractor_para,boundary:query,447,L74.hi.lo,hybrid,expand,arm beat the default just outside the box,1.8115,1.8405,4,2,0,0.0,2
+distractor_para,boundary:query,447,L15.hi.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,2.5698,2.6133,4,1,0,0.0,1
+distractor_para,boundary:query,447,L91.lo.lo,hybrid,expand,arm beat the default just outside the box,1.9449,1.9884,6,4,0,0.0,4
+distractor_para,boundary:query,447,L141,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,448,L125,dense,narrow,contradicted; cut f:query_len_tokens,2.0465,2.0181,5,5,0,0.375,8
+distractor_para,boundary:query,448,L126,dense,narrow,contradicted; cut f:query_len_tokens,2.0485,2.006,6,6,1,0.4,10
+distractor_para,boundary:query,449,L74.hi.hi,hybrid,retire,utility <= 0,,1.8137,1,5,0,0.0,5
+distractor_para,boundary:query,449,L91.lo.lo,hybrid,retire,utility <= 0,,1.9907,6,5,0,0.0,5
+distractor_para,boundary:query,450,L91.hi.lo,hybrid,retire,utility <= 0,,1.855,3,5,0,0.0,5
+distractor_para,boundary:query,454,L8.lo.lo.hi,dense,expand,arm beat the default just outside the box,2.6411,2.6556,4,2,0,0.0,2
+distractor_para,boundary:query,458,L122,dense,narrow,contradicted; cut f:query_len_tokens,2.0604,1.9732,7,8,2,0.3333,12
+distractor_para,boundary:query,458,L126,dense,narrow,contradicted; cut f:query_len_tokens,2.0011,1.9876,7,7,1,0.4167,12
+distractor_para,boundary:query,458,L136,dense,narrow,contradicted; cut f:query_len_tokens,2.0344,1.9781,5,4,0,0.4286,7
+distractor_para,boundary:query,463,L125,dense,narrow,contradicted; cut f:query_len_tokens,2.011,1.939,6,6,0,0.4,10
+distractor_para,boundary:query,464,L122,dense,exception,contradicted; every cut loses a supporter,1.9722,1.9722,8,9,3,0.3571,14
+distractor_para,boundary:query,464,L125,dense,exception,contradicted; every cut loses a supporter,1.9402,1.9402,6,7,1,0.3636,11
+distractor_para,boundary:query,464,L126,dense,exception,contradicted; every cut loses a supporter,1.9867,1.9867,8,8,2,0.4286,14
+distractor_para,boundary:query,464,L136,dense,exception,contradicted; every cut loses a supporter,1.9772,1.9772,6,5,1,0.4444,9
+distractor_para,boundary:query,466,L126,dense,expand,arm beat the default just outside the box,1.9831,2.0229,9,8,2,0.4286,14
+distractor_para,boundary:query,466,L141,hybrid,expand,arm beat the default just outside the box,1.9922,2.0332,3,2,0,0.3333,3
+distractor_para,boundary:query,473,L126,dense,exception,contradicted; every cut loses a supporter,2.0172,2.0172,9,9,3,0.3333,15
+distractor_para,boundary:query,473,L136,dense,exception,contradicted; every cut loses a supporter,1.9683,1.9683,6,6,2,0.3,10
+distractor_para,boundary:query,474,L128,dense,expand,arm beat the default just outside the box,1.9946,2.0341,2,4,0,0.0,4
+distractor_para,boundary:query,474,L142,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,475,L4.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.4176,3.4176,5,9,3,0.1,10
+distractor_para,boundary:query,475,L15.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6295,2.6295,8,6,3,0.25,8
+distractor_para,boundary:query,475,L122,dense,exception,contradicted; every cut loses a supporter,1.9649,1.9649,8,10,4,0.3333,15
+distractor_para,boundary:query,475,L125,dense,exception,contradicted; every cut loses a supporter,1.9331,1.9331,7,8,2,0.3846,13
+distractor_para,boundary:query,475,L126,dense,exception,contradicted; every cut loses a supporter,2.019,2.019,9,10,4,0.3125,16
+distractor_para,boundary:query,475,L74.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8297,1.8297,5,5,1,0.1667,6
+distractor_para,boundary:query,475,L136,dense,exception,contradicted; every cut loses a supporter,1.97,1.97,6,7,3,0.2727,11
+distractor_para,boundary:query,475,L122,dense,split,4 exceptions; cut f:query_len_tokens at 14,,1.9649,8,10,4,0.3333,15
+distractor_para,boundary:query,475,L122.lo,dense,create,split of L122,,1.9068,5,0,0,0.0,0
+distractor_para,boundary:query,475,L122.hi,dense,create,split of L122,,1.8923,3,0,0,0.0,0
+distractor_para,boundary:query,475,L126,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.019,9,10,4,0.3125,16
+distractor_para,boundary:query,475,L126.lo,dense,create,split of L126,,1.8791,8,0,0,0.0,0
+distractor_para,boundary:query,475,L126.hi,dense,create,split of L126,,1.8791,1,0,0,0.0,0
+distractor_para,boundary:query,477,L147,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,477,L148,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,479,L125,dense,exception,contradicted; every cut loses a supporter,1.9309,1.9309,7,9,3,0.3571,14
+distractor_para,boundary:query,479,L136,dense,exception,contradicted; every cut loses a supporter,1.9677,1.9677,6,8,4,0.25,12
+distractor_para,boundary:query,479,L15.hi.hi.hi.hi,hybrid,expand,arm beat the default just outside the box,2.6643,2.6933,4,2,0,0.3333,3
+distractor_para,boundary:query,479,L136,dense,split,4 exceptions; cut f:query_len_tokens at 14.5,,1.9677,6,8,4,0.25,12
+distractor_para,boundary:query,479,L136.lo,dense,create,split of L136,,1.9169,3,0,0,0.0,0
+distractor_para,boundary:query,479,L136.hi,dense,create,split of L136,,1.875,3,0,0,0.0,0
+distractor_para,boundary:query,480,L141,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0282,2.0152,4,4,0,0.3333,6
+distractor_para,boundary:query,481,L128,dense,retire,utility <= 0,,2.0344,2,5,0,0.0,5
+distractor_para,boundary:query,483,L141,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0175,1.9319,4,5,0,0.2857,7
+distractor_para,boundary:query,486,L8.lo.lo.hi,dense,expand,arm beat the default just outside the box,2.595,2.6239,5,4,0,-0.25,4
+distractor_para,boundary:query,486,L141,hybrid,expand,arm beat the default just outside the box,1.9242,1.9643,5,5,0,0.2857,7
+distractor_para,boundary:query,487,L125,dense,exception,contradicted; every cut loses a supporter,1.9272,1.9272,7,10,4,0.3333,15
+distractor_para,boundary:query,487,L141,hybrid,exception,contradicted; every cut loses a supporter,1.9648,1.9648,5,6,1,0.25,8
+distractor_para,boundary:query,487,L125,dense,split,4 exceptions; cut f:query_cap_spans at 1,,1.9272,7,10,4,0.3333,15
+distractor_para,boundary:query,487,L125.lo,dense,create,split of L125,,1.69,5,0,0,0.0,0
+distractor_para,boundary:query,487,L125.hi,dense,create,split of L125,,1.9272,2,0,0,0.0,0
+distractor_para,boundary:query,490,L39.lo.lo,hybrid,expand,arm beat the default just outside the box,1.6477,1.6477,4,1,0,0.0,1
+distractor_para,boundary:query,490,L39.lo.hi,hybrid,expand,arm beat the default just outside the box,1.7856,1.7856,4,2,0,0.3333,3
+distractor_para,boundary:query,490,L153,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,497,L8.lo.lo.hi,dense,retire,utility <= 0,,2.6098,5,5,0,-0.2,5
+distractor_para,boundary:query,498,L4.hi.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.4665,3.4665,3,4,1,0.3333,6
+distractor_para,boundary:query,499,L74.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8238,1.8238,7,6,2,0.3333,9
+distractor_para,boundary:query,499,L141,hybrid,exception,contradicted; every cut loses a supporter,1.9635,1.9635,5,7,2,0.2222,9
+distractor_para,boundary:query,499,L126.lo,dense,exception,contradicted; every cut loses a supporter,1.8729,1.8729,9,5,1,0.0,6
+distractor_para,boundary:query,499,L126.lo,dense,retire,utility <= 0,,1.8729,9,5,1,0.0,6
+distractor_para,boundary:query,500,L74.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8247,1.8247,7,7,3,0.3,10
+distractor_para,boundary:query,500,L141,hybrid,exception,contradicted; every cut loses a supporter,1.9643,1.9643,5,8,3,0.2,10
+distractor_para,boundary:query,509,L74.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8229,1.8229,7,8,4,0.1818,11
+distractor_para,boundary:query,509,L15.hi.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.5548,2.5548,6,4,1,0.1667,6
+distractor_para,boundary:query,509,L15.hi.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6705,2.6705,4,5,1,0.0,6
+distractor_para,boundary:query,509,L141,hybrid,exception,contradicted; every cut loses a supporter,1.9627,1.9627,5,9,4,0.0909,11
+distractor_para,boundary:query,509,L74.hi.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.8229,7,8,4,0.1818,11
+distractor_para,boundary:query,509,L74.hi.lo.lo,hybrid,create,split of L74.hi.lo,,1.8229,7,0,0,0.0,0
+distractor_para,boundary:query,509,L15.hi.hi.hi.hi,hybrid,retire,utility <= 0,,2.6705,4,5,1,0.0,6
+distractor_para,boundary:query,509,L141,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.9627,5,9,4,0.0909,11
+distractor_para,boundary:query,509,L141.lo,hybrid,create,split of L141,,1.8241,4,0,0,0.0,0
+distractor_para,boundary:query,509,L141.hi,hybrid,create,split of L141,,1.8241,1,0,0,0.0,0
+distractor_para,boundary:query,509,L122.lo,dense,retire,utility <= 0,,1.8988,6,4,0,-0.2,5
+distractor_para,boundary:query,509,L126.hi,dense,retire,utility <= 0,,1.8716,2,4,0,0.0,5
+distractor_para,boundary:query,511,L122.hi,dense,retire,utility <= 0,,1.8852,3,5,0,0.0,5
+distractor_para,boundary:query,511,L136.lo,dense,retire,utility <= 0,,1.9118,4,4,0,-0.2,5
+distractor_para,boundary:query,517,L15.hi.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.5595,2.5595,6,5,2,0.1429,7
+distractor_para,boundary:query,520,L39.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7815,1.7815,4,5,1,0.1667,6
+distractor_para,boundary:query,520,L142,dense,narrow,contradicted; cut f:query_len_tokens,1.9932,1.966,2,5,0,0.1667,6
+distractor_para,boundary:query,524,L142,dense,expand,arm beat the default just outside the box,1.9678,2.0074,3,5,0,0.1667,6
+distractor_para,boundary:query,524,L157,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,525,L4.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,3.392,3.392,5,10,4,0.0909,11
+distractor_para,boundary:query,525,L4.hi.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,3.392,5,10,4,0.0909,11
+distractor_para,boundary:query,525,L4.hi.hi.lo.lo,hybrid,create,split of L4.hi.hi.lo,,3.3341,3,0,0,0.0,0
+distractor_para,boundary:query,525,L4.hi.hi.lo.hi,hybrid,create,split of L4.hi.hi.lo,,3.3341,2,0,0,0.0,0
+distractor_para,boundary:query,525,L136.hi,dense,retire,utility <= 0,,1.8728,3,5,0,-0.2,5
+distractor_para,boundary:query,526,L125.hi,dense,narrow,contradicted; cut f:query_cap_spans,1.9297,1.9297,4,4,0,0.1667,6
+distractor_para,boundary:query,529,L142,dense,exception,contradicted; every cut loses a supporter,2.0109,2.0109,3,6,1,0.1429,7
+distractor_para,boundary:query,530,L125.lo,dense,retire,utility <= 0,,1.6914,5,5,0,-0.2,5
+distractor_para,boundary:query,530,L74.hi.lo.lo,hybrid,retire,utility <= 0,,1.8297,7,5,0,0.0,5
+distractor_para,boundary:query,530,L141.lo,hybrid,retire,utility <= 0,,1.8303,4,5,0,0.0,5
+distractor_para,boundary:query,531,L142,dense,exception,contradicted; every cut loses a supporter,2.0121,2.0121,3,7,2,0.125,8
+distractor_para,boundary:query,536,L141.hi,hybrid,narrow,contradicted; cut f:query_cap_spans,1.8296,1.8296,2,5,0,0.1667,6
+distractor_para,boundary:query,539,L125.hi,dense,expand,arm beat the default just outside the box,1.934,1.934,5,4,0,0.1667,6
+distractor_para,boundary:query,539,L141.hi,hybrid,expand,arm beat the default just outside the box,1.8324,1.8324,3,5,0,0.1667,6
+distractor_para,boundary:query,539,L4.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,3.3436,3.3581,3,2,0,0.0,2
+distractor_para,boundary:query,539,L160,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,540,L39.lo.lo,hybrid,expand,arm beat the default just outside the box,1.6497,1.6642,5,1,0,0.0,1
+distractor_para,boundary:query,540,L39.lo.hi,hybrid,expand,arm beat the default just outside the box,1.7894,1.8039,5,5,1,0.1667,6
+distractor_para,boundary:query,540,L153,hybrid,expand,arm beat the default just outside the box,2.005,2.0351,2,1,0,0.0,1
+distractor_para,boundary:query,540,L161,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,542,L39.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8037,1.8037,5,6,2,0.1429,7
+distractor_para,boundary:query,543,L142,dense,narrow,contradicted; cut f:query_len_tokens,2.0145,1.9872,4,8,2,0.2,10
+distractor_para,boundary:query,545,L35,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0143,1.9316,4,7,3,0.2222,9
+distractor_para,boundary:query,547,L142,dense,expand,arm beat the default just outside the box,1.986,1.986,5,8,2,0.2,10
+distractor_para,boundary:query,547,L157,dense,expand,arm beat the default just outside the box,2.0059,2.0362,3,3,0,0.0,4
+distractor_para,boundary:query,547,L162,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,551,L89,hybrid,retire,utility <= 0,,2.0443,1,5,0,-0.2,5
+distractor_para,boundary:query,552,L39.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.799,1.799,6,7,3,0.2222,9
+distractor_para,boundary:query,555,L15.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,2.597,2.6115,9,6,3,0.25,8
+distractor_para,boundary:query,555,L15.hi.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,2.5679,2.6115,7,5,2,0.1429,7
+distractor_para,boundary:query,555,L125.hi,dense,expand,arm beat the default just outside the box,1.9269,1.956,6,4,0,0.1667,6
+distractor_para,boundary:query,555,L141.hi,hybrid,expand,arm beat the default just outside the box,1.8249,1.854,4,5,0,0.1667,6
+distractor_para,boundary:query,555,L4.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,3.3247,3.3247,4,2,0,0.0,2
+distractor_para,boundary:query,555,L163,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,556,L160,dense,expand,arm beat the default just outside the box,1.9938,2.0497,3,0,0,1.0,1
+distractor_para,boundary:query,556,L163,hybrid,expand,arm beat the default just outside the box,2.0009,2.0414,2,0,0,0.0,0
+distractor_para,boundary:query,556,L164,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,557,L15.hi.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6147,2.6147,7,6,3,0.125,8
+distractor_para,boundary:query,557,L125.hi,dense,exception,contradicted; every cut loses a supporter,1.9579,1.9579,6,5,1,0.1429,7
+distractor_para,boundary:query,557,L141.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8558,1.8558,4,6,1,0.1429,7
+distractor_para,boundary:query,558,L125.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.9588,1.9297,6,6,1,0.125,8
+distractor_para,boundary:query,558,L141.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.8567,1.8276,4,7,1,0.125,8
+distractor_para,boundary:query,558,L4.hi.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,3.3169,3.3169,4,5,1,0.1667,6
+distractor_para,boundary:query,559,L162,dense,expand,arm beat the default just outside the box,1.9965,2.0529,2,1,0,0.0,1
+distractor_para,boundary:query,560,L142,dense,exception,contradicted; every cut loses a supporter,1.9833,1.9833,5,9,3,0.1818,11
+distractor_para,boundary:query,561,L165,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,564,L15.lo.hi.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,2.7257,2.6966,5,5,1,0.375,8
+distractor_para,boundary:query,565,L35,hybrid,exception,contradicted; every cut loses a supporter,1.9286,1.9286,4,8,4,0.2,10
+distractor_para,boundary:query,565,L35,hybrid,split,4 exceptions; cut f:query_cap_spans at 0.5,,1.9286,4,8,4,0.2,10
+distractor_para,boundary:query,565,L35.lo,hybrid,create,split of L35,,1.8581,2,0,0,0.0,0
+distractor_para,boundary:query,565,L35.hi,hybrid,create,split of L35,,1.7527,2,0,0,0.0,0
+distractor_para,boundary:query,567,L4.hi.hi.lo.hi,hybrid,retire,utility <= 0,,3.3433,4,5,0,0.0,5
+distractor_para,boundary:query,568,L8.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.7286,2.7286,12,4,1,0.1667,6
+distractor_para,boundary:query,568,L160,dense,narrow,contradicted; cut f:query_len_tokens,2.0535,1.9821,3,5,0,0.1667,6
+distractor_para,boundary:query,569,L142,dense,exception,contradicted; every cut loses a supporter,1.9846,1.9846,5,10,4,0.1667,12
+distractor_para,boundary:query,569,L142,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.9846,5,10,4,0.1667,12
+distractor_para,boundary:query,569,L142.lo,dense,create,split of L142,,1.7425,3,0,0,0.0,0
+distractor_para,boundary:query,569,L142.hi,dense,create,split of L142,,1.9846,2,0,0,0.0,0
+distractor_para,boundary:query,571,L15.lo.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6815,2.6815,5,6,2,0.3333,9
+distractor_para,boundary:query,571,L163,hybrid,retire,utility <= 0,,2.0433,2,5,0,0.0,5
+distractor_para,boundary:query,572,L157,dense,retire,utility <= 0,,2.0325,3,4,0,0.0,5
+distractor_para,boundary:query,575,L8.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.7144,2.7144,12,5,2,0.1429,7
+distractor_para,boundary:query,581,L125.hi,dense,exception,contradicted; every cut loses a supporter,1.929,1.929,6,7,2,0.1111,9
+distractor_para,boundary:query,581,L141.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8259,1.8259,4,8,2,0.1111,9
+distractor_para,boundary:query,581,L160,dense,exception,contradicted; every cut loses a supporter,1.9797,1.9797,3,6,1,0.1429,7
+distractor_para,boundary:query,582,L12,dense,expand,arm beat the default just outside the box,2.8999,2.9628,2,3,0,0.0,3
+distractor_para,boundary:query,582,L170,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,584,L162,dense,retire,utility <= 0,,2.0465,2,5,0,0.0,5
+distractor_para,boundary:query,585,L39.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.6531,1.6531,6,5,1,0.1667,6
+distractor_para,boundary:query,585,L39.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7944,1.7944,6,8,4,0.2,10
+distractor_para,boundary:query,585,L153,hybrid,exception,contradicted; every cut loses a supporter,2.0247,2.0247,3,5,1,0.1667,6
+distractor_para,boundary:query,585,L161,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9894,1.9476,2,5,0,0.1667,6
+distractor_para,boundary:query,585,L39.lo.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 0.5,,1.7944,6,8,4,0.2,10
+distractor_para,boundary:query,585,L39.lo.hi.lo,hybrid,create,split of L39.lo.hi,,1.7237,3,0,0,0.0,0
+distractor_para,boundary:query,585,L39.lo.hi.hi,hybrid,create,split of L39.lo.hi,,1.7237,3,0,0,0.0,0
+distractor_para,boundary:query,587,L161,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9489,1.8636,2,6,0,0.1429,7
+distractor_para,boundary:query,590,L125.hi,dense,exception,contradicted; every cut loses a supporter,1.9243,1.9243,6,8,3,0.1,10
+distractor_para,boundary:query,590,L141.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8213,1.8213,4,9,3,0.1,10
+distractor_para,boundary:query,590,L4.hi.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,3.2885,3.2885,4,6,2,0.1429,7
+distractor_para,boundary:query,590,L160,dense,exception,contradicted; every cut loses a supporter,1.9744,1.9744,3,7,2,0.125,8
+distractor_para,boundary:query,593,L15.hi.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.5982,2.5982,7,7,4,0.1111,9
+distractor_para,boundary:query,593,L15.hi.hi.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 14,,2.5982,7,7,4,0.1111,9
+distractor_para,boundary:query,593,L15.hi.hi.hi.lo.lo,hybrid,create,split of L15.hi.hi.hi.lo,,2.5547,6,0,0,0.0,0
+distractor_para,boundary:query,593,L15.hi.hi.hi.lo.hi,hybrid,create,split of L15.hi.hi.hi.lo,,2.5256,1,0,0,0.0,0
+distractor_para,boundary:query,595,L160,dense,exception,contradicted; every cut loses a supporter,1.9772,1.9772,3,8,3,0.1111,9
+distractor_para,boundary:query,596,L160,dense,expand,arm beat the default just outside the box,1.9778,1.9923,4,8,3,0.1111,9
+distractor_para,boundary:query,596,L175,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,596,L176,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,598,L15.lo.hi.lo,hybrid,expand,arm beat the default just outside the box,2.6942,2.7232,7,7,3,0.2222,9
+distractor_para,boundary:query,598,L164,dense,expand,arm beat the default just outside the box,1.9995,2.0301,2,3,0,0.0,3
+distractor_para,boundary:query,599,L153,hybrid,expand,arm beat the default just outside the box,2.0287,2.0678,4,5,1,0.1667,6
+distractor_para,boundary:query,599,L161,hybrid,expand,arm beat the default just outside the box,1.8661,1.9065,3,6,0,0.1429,7
+distractor_para,boundary:query,602,L39.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.6572,1.6572,6,6,2,0.1429,7
+distractor_para,boundary:query,602,L153,hybrid,exception,contradicted; every cut loses a supporter,2.0698,2.0698,4,6,2,0.1429,7
+distractor_para,boundary:query,604,L10.hi,dense,expand,arm beat the default just outside the box,2.7525,2.7998,4,1,0,0.5,2
+distractor_para,boundary:query,604,L177,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,605,L164,dense,retire,utility <= 0,,2.034,2,5,0,0.0,5
+distractor_para,boundary:query,606,L15.hi.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.5406,2.5696,2,1,0,0.0,1
+distractor_para,boundary:query,606,L175,dense,expand,arm beat the default just outside the box,2.0055,2.0476,3,2,0,0.3333,3
+distractor_para,boundary:query,606,L176,hybrid,expand,arm beat the default just outside the box,2.0055,2.0476,3,2,0,0.3333,3
+distractor_para,boundary:query,606,L178,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,607,L142.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.986,1.9425,3,5,0,0.1667,6
+distractor_para,boundary:query,610,L65,dense,narrow,contradicted; cut f:query_len_tokens,2.0086,1.9324,2,5,0,0.1667,6
+distractor_para,boundary:query,611,L153,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0703,2.0424,5,7,2,0.2222,9
+distractor_para,boundary:query,613,L175,dense,narrow,contradicted; cut f:query_len_tokens,2.0481,2.006,3,5,0,0.1667,6
+distractor_para,boundary:query,613,L176,hybrid,exception,contradicted; every cut loses a supporter,2.0481,2.0481,4,4,1,0.3333,6
+distractor_para,boundary:query,614,L161,hybrid,exception,contradicted; every cut loses a supporter,1.9112,1.9112,3,7,1,0.125,8
+distractor_para,boundary:query,614,L142.hi,dense,narrow,contradicted; cut f:query_cap_spans,1.9426,1.9426,3,6,0,0.1429,7
+distractor_para,boundary:query,616,L15.hi.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.621,2.621,9,7,4,0.2222,9
+distractor_para,boundary:query,616,L160,dense,exception,contradicted; every cut loses a supporter,1.9991,1.9991,5,9,4,0.1818,11
+distractor_para,boundary:query,616,L15.hi.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 14,,2.621,9,7,4,0.2222,9
+distractor_para,boundary:query,616,L15.hi.hi.lo.lo,hybrid,create,split of L15.hi.hi.lo,,2.5775,6,0,0,0.0,0
+distractor_para,boundary:query,616,L15.hi.hi.lo.hi,hybrid,create,split of L15.hi.hi.lo,,2.5485,3,0,0,0.0,0
+distractor_para,boundary:query,616,L160,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.9991,5,9,4,0.1818,11
+distractor_para,boundary:query,616,L160.lo,dense,create,split of L160,,1.7544,3,0,0,0.0,0
+distractor_para,boundary:query,616,L160.hi,dense,create,split of L160,,1.9991,2,0,0,0.0,0
+distractor_para,boundary:query,618,L4.hi.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.477,3.477,3,5,2,0.2857,7
+distractor_para,boundary:query,618,L125.hi,dense,exception,contradicted; every cut loses a supporter,1.9346,1.9346,6,9,4,0.0909,11
+distractor_para,boundary:query,618,L141.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8312,1.8312,4,10,4,0.0909,11
+distractor_para,boundary:query,618,L125.hi,dense,split,4 exceptions; cut f:query_cap_spans at 2,,1.9346,6,9,4,0.0909,11
+distractor_para,boundary:query,618,L125.hi.lo,dense,create,split of L125.hi,,1.8318,6,0,0,0.0,0
+distractor_para,boundary:query,618,L141.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 1.5,,1.8312,4,10,4,0.0909,11
+distractor_para,boundary:query,618,L141.hi.lo,hybrid,create,split of L141.hi,,1.7601,2,0,0,0.0,0
+distractor_para,boundary:query,618,L141.hi.hi,hybrid,create,split of L141.hi,,1.7601,2,0,0,0.0,0
+distractor_para,boundary:query,619,L15.hi.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.5812,2.5957,3,4,0,0.0,4
+distractor_para,boundary:query,619,L176,hybrid,expand,arm beat the default just outside the box,2.0506,2.081,5,4,1,0.3333,6
+distractor_para,boundary:query,619,L15.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.5521,2.5667,4,0,0,0.0,0
+distractor_para,boundary:query,619,L125.hi.lo,dense,expand,arm beat the default just outside the box,1.8327,1.8472,7,0,0,0.0,0
+distractor_para,boundary:query,619,L141.hi.lo,hybrid,expand,arm beat the default just outside the box,1.7609,1.7755,3,0,0,0.0,0
+distractor_para,boundary:query,619,L186,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,620,L153,hybrid,narrow,contradicted; cut f:query_len_tokens,2.047,2.0035,5,8,2,0.2,10
+distractor_para,boundary:query,620,L177,dense,expand,arm beat the default just outside the box,2.0048,2.047,2,1,0,0.0,1
+distractor_para,boundary:query,623,L153,hybrid,exception,contradicted; every cut loses a supporter,2.0048,2.0048,5,9,3,0.1818,11
+distractor_para,boundary:query,624,L39.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.6633,1.6633,7,7,3,0.2222,9
+distractor_para,boundary:query,624,L153,hybrid,exception,contradicted; every cut loses a supporter,2.0052,2.0052,5,10,4,0.1667,12
+distractor_para,boundary:query,624,L161,hybrid,exception,contradicted; every cut loses a supporter,1.9149,1.9149,3,8,2,0.1111,9
+distractor_para,boundary:query,624,L142.hi,dense,expand,arm beat the default just outside the box,1.9464,1.9464,4,6,0,0.1429,7
+distractor_para,boundary:query,624,L177,dense,expand,arm beat the default just outside the box,2.0488,2.0648,3,2,0,0.0,2
+distractor_para,boundary:query,624,L153,hybrid,split,4 exceptions; cut f:query_len_tokens at 21,,2.0052,5,10,4,0.1667,12
+distractor_para,boundary:query,624,L153.lo,hybrid,create,split of L153,,1.8887,3,0,0,0.0,0
+distractor_para,boundary:query,624,L153.hi,hybrid,create,split of L153,,1.9615,2,0,0,0.0,0
+distractor_para,boundary:query,627,L15.hi.hi.hi.lo.lo,hybrid,expand,arm beat the default just outside the box,2.5873,2.631,8,2,0,0.3333,3
+distractor_para,boundary:query,627,L15.hi.hi.lo.lo,hybrid,expand,arm beat the default just outside the box,2.5873,2.631,7,0,0,0.0,0
+distractor_para,boundary:query,628,L176,hybrid,exception,contradicted; every cut loses a supporter,2.0828,2.0828,6,5,2,0.375,8
+distractor_para,boundary:query,629,L65,dense,exception,contradicted; every cut loses a supporter,1.9359,1.9359,2,6,1,0.1429,7
+distractor_para,boundary:query,630,L176,hybrid,exception,contradicted; every cut loses a supporter,2.0813,2.0813,6,6,3,0.3333,9
+distractor_para,boundary:query,633,L15.hi.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6071,2.6071,4,5,1,0.1667,6
+distractor_para,boundary:query,633,L178,dense,exception,contradicted; every cut loses a supporter,2.0046,2.0046,2,5,1,0.1667,6
+distractor_para,boundary:query,633,L160.hi,dense,exception,contradicted; every cut loses a supporter,2.0018,2.0018,3,5,1,0.1667,6
+distractor_para,boundary:query,634,L153.hi,hybrid,expand,arm beat the default just outside the box,1.9612,1.9758,3,0,0,0.0,0
+distractor_para,boundary:query,638,L4.hi.hi.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,3.4938,3.4938,3,6,3,0.25,8
+distractor_para,boundary:query,640,L142.hi,dense,exception,contradicted; every cut loses a supporter,1.9449,1.9449,5,7,1,0.2222,9
+distractor_para,boundary:query,641,L65,dense,narrow,contradicted; cut f:query_len_tokens,1.9346,1.8725,2,7,1,0.125,8
+distractor_para,boundary:query,642,L39.lo.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,1.732,1.732,5,4,1,0.3333,6
+distractor_para,boundary:query,644,L142.lo,dense,exception,contradicted; every cut loses a supporter,1.7411,1.7411,4,5,1,0.1667,6
+distractor_para,boundary:query,646,L189,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,647,L12,dense,retire,utility <= 0,,2.9562,2,5,0,0.0,5
+distractor_para,boundary:query,648,L15.hi.hi.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6003,2.6003,8,5,1,0.1667,6
+distractor_para,boundary:query,648,L125.hi.lo,dense,retire,utility <= 0,,1.8365,7,5,0,0.0,5
+distractor_para,boundary:query,649,L142.hi,dense,expand,arm beat the default just outside the box,1.9338,1.9631,6,7,1,0.2222,9
+distractor_para,boundary:query,650,L15.hi.hi.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6025,2.6025,8,6,2,0.1429,7
+distractor_para,boundary:query,650,L176,hybrid,exception,contradicted; every cut loses a supporter,2.0723,2.0723,6,7,4,0.3,10
+distractor_para,boundary:query,650,L176,hybrid,split,4 exceptions; cut f:query_cap_spans at 0.5,,2.0723,6,7,4,0.3,10
+distractor_para,boundary:query,650,L176.lo,hybrid,create,split of L176,,2.0013,3,0,0,0.0,0
+distractor_para,boundary:query,650,L176.hi,hybrid,create,split of L176,,1.9014,3,0,0,0.0,0
+distractor_para,boundary:query,651,L175,dense,exception,contradicted; every cut loses a supporter,2.0,2.0,4,6,1,0.25,8
+distractor_para,boundary:query,651,L186,hybrid,narrow,contradicted; cut f:query_len_tokens,1.992,1.9792,2,5,0,0.1667,6
+distractor_para,boundary:query,651,L15.hi.hi.lo.lo,hybrid,retire,utility <= 0,,2.6038,7,5,0,0.0,5
+distractor_para,boundary:query,652,L178,dense,exception,contradicted; every cut loses a supporter,1.9957,1.9957,3,6,2,0.25,8
+distractor_para,boundary:query,652,L160.hi,dense,exception,contradicted; every cut loses a supporter,1.9929,1.9929,4,6,2,0.25,8
+distractor_para,boundary:query,652,L141.hi.lo,hybrid,narrow,contradicted; cut f:query_len_tokens,1.7674,1.7528,4,5,0,0.1667,6
+distractor_para,boundary:query,653,L15.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.7265,2.7265,7,8,4,0.2,10
+distractor_para,boundary:query,653,L175,dense,exception,contradicted; every cut loses a supporter,2.0014,2.0014,4,7,2,0.2222,9
+distractor_para,boundary:query,653,L160.hi,dense,narrow,contradicted; cut f:query_cap_spans,1.9935,1.9935,4,7,2,0.2222,9
+distractor_para,boundary:query,653,L15.lo.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 17,,2.7265,7,8,4,0.2,10
+distractor_para,boundary:query,653,L15.lo.hi.lo.lo,hybrid,create,split of L15.lo.hi.lo,,2.6826,4,0,0,0.0,0
+distractor_para,boundary:query,653,L15.lo.hi.lo.hi,hybrid,create,split of L15.lo.hi.lo,,2.6387,3,0,0,0.0,0
+distractor_para,boundary:query,655,L175,dense,expand,arm beat the default just outside the box,1.9995,1.9995,5,7,2,0.2222,9
+distractor_para,boundary:query,655,L15.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.547,2.5617,6,0,0,1.0,1
+distractor_para,boundary:query,655,L194,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,656,L39.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.6537,1.6537,7,8,4,0.2,10
+distractor_para,boundary:query,656,L39.lo.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 22,,1.6537,7,8,4,0.2,10
+distractor_para,boundary:query,656,L39.lo.lo.lo,hybrid,create,split of L39.lo.lo,,1.5806,5,0,0,0.0,0
+distractor_para,boundary:query,656,L39.lo.lo.hi,hybrid,create,split of L39.lo.lo,,1.5952,2,0,0,0.0,0
+distractor_para,boundary:query,658,L39.lo.hi.hi,hybrid,expand,arm beat the default just outside the box,1.7255,1.7547,6,4,1,0.3333,6
+distractor_para,boundary:query,658,L153.hi,hybrid,expand,arm beat the default just outside the box,1.9659,1.9659,4,2,0,0.0,2
+distractor_para,boundary:query,658,L197,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,659,L175,dense,exception,contradicted; every cut loses a supporter,2.0011,2.0011,5,8,3,0.2,10
+distractor_para,boundary:query,659,L160.lo,dense,retire,utility <= 0,,1.7496,3,5,0,0.0,5
+distractor_para,boundary:query,660,L141.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7542,1.7542,5,6,1,0.25,8
+distractor_para,boundary:query,661,L142.hi,dense,exception,contradicted; every cut loses a supporter,1.9673,1.9673,6,8,2,0.2,10
+distractor_para,boundary:query,662,L39.lo.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7566,1.7566,6,5,2,0.2857,7
+distractor_para,boundary:query,662,L177,dense,exception,contradicted; every cut loses a supporter,2.0578,2.0578,5,5,1,0.2857,7
+distractor_para,boundary:query,663,L161,hybrid,exception,contradicted; every cut loses a supporter,1.9076,1.9076,4,9,3,0.1818,11
+distractor_para,boundary:query,663,L39.lo.hi.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.757,1.757,6,6,2,0.25,8
+distractor_para,boundary:query,664,L186,hybrid,exception,contradicted; every cut loses a supporter,1.9835,1.9835,3,6,1,0.25,8
+distractor_para,boundary:query,665,L160.hi,dense,expand,arm beat the default just outside the box,1.9974,2.0413,5,7,2,0.2222,9
+distractor_para,boundary:query,665,L194,dense,expand,arm beat the default just outside the box,2.0056,2.052,2,2,0,0.0,2
+distractor_para,boundary:query,665,L198,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,666,L142.hi,dense,exception,contradicted; every cut loses a supporter,1.9706,1.9706,6,9,3,0.1818,11
+distractor_para,boundary:query,666,L39.lo.hi.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.7588,1.7442,6,7,2,0.2222,9
+distractor_para,boundary:query,666,L177,dense,exception,contradicted; every cut loses a supporter,2.0607,2.0607,5,6,2,0.25,8
+distractor_para,boundary:query,669,L165,hybrid,exception,contradicted; every cut loses a supporter,2.0006,2.0006,2,5,1,0.1667,6
+distractor_para,boundary:query,672,L10.hi,dense,exception,contradicted; every cut loses a supporter,2.8089,2.8089,6,4,1,0.4286,7
+distractor_para,boundary:query,672,L39.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7265,1.7265,4,5,1,0.1667,6
+distractor_para,boundary:query,672,L177,dense,exception,contradicted; every cut loses a supporter,2.0584,2.0584,5,7,3,0.2222,9
+distractor_para,boundary:query,672,L153.hi,hybrid,retire,utility <= 0,,1.9684,4,5,0,0.0,5
+distractor_para,boundary:query,673,L15.hi.hi.hi.lo.lo,hybrid,expand,arm beat the default just outside the box,2.6208,2.6355,9,6,2,0.1429,7
+distractor_para,boundary:query,675,L142.lo,dense,exception,contradicted; every cut loses a supporter,1.7364,1.7364,5,6,2,0.25,8
+distractor_para,boundary:query,675,L142.hi,dense,exception,contradicted; every cut loses a supporter,1.9671,1.9671,6,10,4,0.1667,12
+distractor_para,boundary:query,675,L39.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7261,1.7261,4,6,2,0.1429,7
+distractor_para,boundary:query,675,L142.hi,dense,split,4 exceptions; cut f:query_cap_spans at 1,,1.9671,6,10,4,0.1667,12
+distractor_para,boundary:query,675,L142.hi.lo,dense,create,split of L142.hi,,1.8648,6,0,0,0.0,0
+distractor_para,boundary:query,676,L161,hybrid,exception,contradicted; every cut loses a supporter,1.9067,1.9067,4,10,4,0.1667,12
+distractor_para,boundary:query,676,L153.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8799,1.8799,4,5,1,0.1667,6
+distractor_para,boundary:query,676,L161,hybrid,split,4 exceptions; cut f:query_cap_spans at 0.5,,1.9067,4,10,4,0.1667,12
+distractor_para,boundary:query,676,L161.lo,hybrid,create,split of L161,,1.8351,2,0,0,0.0,0
+distractor_para,boundary:query,676,L161.hi,hybrid,create,split of L161,,1.7327,2,0,0,0.0,0
+distractor_para,boundary:query,677,L15.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.5782,2.5929,8,1,0,0.6667,3
+distractor_para,boundary:query,677,L186,hybrid,expand,arm beat the default just outside the box,1.983,1.983,6,6,1,0.4,10
+distractor_para,boundary:query,681,L153.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8766,1.8766,4,6,2,0.1429,7
+distractor_para,boundary:query,682,L141.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7508,1.7508,6,7,2,0.3,10
+distractor_para,boundary:query,682,L176.hi,hybrid,exception,contradicted; every cut loses a supporter,1.9017,1.9017,6,5,1,0.375,8
+distractor_para,boundary:query,684,L194,dense,exception,contradicted; every cut loses a supporter,2.0486,2.0486,4,4,1,0.3333,6
+distractor_para,boundary:query,685,L147,dense,retire,utility <= 0,,1.9959,1,5,0,0.0,5
+distractor_para,boundary:query,685,L148,hybrid,retire,utility <= 0,,1.9959,1,5,0,0.0,5
+distractor_para,boundary:query,686,L176.lo,hybrid,retire,utility <= 0,,2.0014,3,5,0,0.0,5
+distractor_para,boundary:query,689,L177,dense,exception,contradicted; every cut loses a supporter,2.0558,2.0558,5,8,4,0.2,10
+distractor_para,boundary:query,689,L177,dense,split,4 exceptions; cut f:query_len_tokens at 27,,2.0558,5,8,4,0.2,10
+distractor_para,boundary:query,689,L177.lo,dense,create,split of L177,,1.954,3,0,0,0.0,0
+distractor_para,boundary:query,689,L177.hi,dense,create,split of L177,,1.9377,2,0,0,0.0,0
+distractor_para,boundary:query,692,L15.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.5674,2.5674,8,4,1,0.3333,6
+distractor_para,boundary:query,692,L176.hi,hybrid,exception,contradicted; every cut loses a supporter,1.9028,1.9028,6,6,2,0.3333,9
+distractor_para,boundary:query,693,L189,dense,expand,arm beat the default just outside the box,1.9999,2.0319,2,2,0,0.0,2
+distractor_para,boundary:query,693,L204,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,695,L15.hi.hi.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6104,2.6104,9,7,3,0.125,8
+distractor_para,boundary:query,695,L15.hi.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.5661,2.5661,5,6,2,0.25,8
+distractor_para,boundary:query,695,L178,dense,exception,contradicted; every cut loses a supporter,1.9936,1.9936,4,7,3,0.3,10
+distractor_para,boundary:query,695,L15.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.5661,2.5661,8,5,2,0.2857,7
+distractor_para,boundary:query,695,L160.hi,dense,exception,contradicted; every cut loses a supporter,2.0353,2.0353,6,8,3,0.2727,11
+distractor_para,boundary:query,695,L186,hybrid,exception,contradicted; every cut loses a supporter,1.9779,1.9779,6,7,2,0.3636,11
+distractor_para,boundary:query,695,L194,dense,exception,contradicted; every cut loses a supporter,2.0458,2.0458,4,5,2,0.2857,7
+distractor_para,boundary:query,700,L165,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9901,1.9184,2,6,1,0.1429,7
+distractor_para,boundary:query,701,L142.lo,dense,exception,contradicted; every cut loses a supporter,1.728,1.728,5,7,3,0.2222,9
+distractor_para,boundary:query,701,L39.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7194,1.7194,4,7,3,0.125,8
+distractor_para,boundary:query,701,L153.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8713,1.8713,4,7,3,0.125,8
+distractor_para,boundary:query,703,L15.lo.hi.lo.lo,hybrid,retire,utility <= 0,,2.6729,4,5,0,0.0,5
+distractor_para,boundary:query,706,L178,dense,expand,arm beat the default just outside the box,1.9889,2.0314,5,7,3,0.3,10
+distractor_para,boundary:query,706,L160.hi,dense,expand,arm beat the default just outside the box,2.0305,2.0305,7,8,3,0.2727,11
+distractor_para,boundary:query,706,L194,dense,expand,arm beat the default just outside the box,2.0409,2.0832,5,5,2,0.2857,7
+distractor_para,boundary:query,706,L205,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,708,L205,dense,expand,arm beat the default just outside the box,2.0007,2.044,2,0,0,0.0,0
+distractor_para,boundary:query,710,L153.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8707,1.8707,4,8,4,0.1111,9
+distractor_para,boundary:query,710,L153.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 0.5,,1.8707,4,8,4,0.1111,9
+distractor_para,boundary:query,710,L153.lo.lo,hybrid,create,split of L153.lo,,1.7991,2,0,0,0.0,0
+distractor_para,boundary:query,710,L153.lo.hi,hybrid,create,split of L153.lo,,1.6952,2,0,0,0.0,0
+distractor_para,boundary:query,710,L142.hi.lo,dense,retire,utility <= 0,,1.8558,6,5,0,0.0,5
+distractor_para,boundary:query,713,L178,dense,exception,contradicted; every cut loses a supporter,2.0305,2.0305,5,8,4,0.2727,11
+distractor_para,boundary:query,713,L160.hi,dense,exception,contradicted; every cut loses a supporter,2.0294,2.0294,7,9,4,0.25,12
+distractor_para,boundary:query,713,L194,dense,exception,contradicted; every cut loses a supporter,2.0822,2.0822,6,6,3,0.3333,9
+distractor_para,boundary:query,713,L178,dense,split,4 exceptions; cut f:query_len_tokens at 12,,2.0305,5,8,4,0.2727,11
+distractor_para,boundary:query,713,L178.lo,dense,create,split of L178,,1.9291,3,0,0,0.0,0
+distractor_para,boundary:query,713,L178.hi,dense,create,split of L178,,1.9291,2,0,0,0.0,0
+distractor_para,boundary:query,713,L160.hi,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.0294,7,9,4,0.25,12
+distractor_para,boundary:query,713,L160.hi.lo,dense,create,split of L160.hi,,1.927,7,0,0,0.0,0
+distractor_para,boundary:query,716,L194,dense,exception,contradicted; every cut loses a supporter,2.084,2.084,6,7,4,0.3,10
+distractor_para,boundary:query,716,L194,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.084,6,7,4,0.3,10
+distractor_para,boundary:query,716,L194.lo,dense,create,split of L194,,1.9831,6,0,0,0.0,0
+distractor_para,boundary:query,718,L175,dense,narrow,contradicted; cut f:query_len_tokens,1.993,1.9062,5,9,3,0.1818,11
+distractor_para,boundary:query,718,L176.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.8941,1.8073,6,7,2,0.3,10
+distractor_para,boundary:query,720,L39.lo.lo.lo,hybrid,retire,utility <= 0,,1.5738,5,5,0,0.0,5
+distractor_para,boundary:query,720,L177.lo,dense,retire,utility <= 0,,1.9475,3,5,0,0.0,5
+distractor_para,boundary:query,723,L175,dense,exception,contradicted; every cut loses a supporter,1.9085,1.9085,5,10,4,0.1667,12
+distractor_para,boundary:query,723,L176.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.8099,1.7952,6,8,2,0.2727,11
+distractor_para,boundary:query,723,L175,dense,split,4 exceptions; cut f:query_cap_spans at 1,,1.9085,5,10,4,0.1667,12
+distractor_para,boundary:query,723,L175.lo,dense,create,split of L175,,1.9085,5,0,0,0.0,0
+distractor_para,boundary:query,723,L205,dense,retire,utility <= 0,,2.0445,2,5,0,0.0,5
+distractor_para,boundary:query,726,L160.hi.lo,dense,retire,utility <= 0,,1.9282,7,5,0,0.0,5
+distractor_para,boundary:query,726,L194.lo,dense,retire,utility <= 0,,1.9827,6,5,0,0.0,5
+distractor_para,boundary:query,728,L178.hi,dense,retire,utility <= 0,,1.9316,2,5,0,-0.2,5
+distractor_para,boundary:query,732,L8.lo.lo.lo,dense,expand,arm beat the default just outside the box,2.7209,2.7503,13,5,2,0.1429,7
+distractor_para,boundary:query,732,L198,dense,expand,arm beat the default just outside the box,1.9902,2.0796,3,0,0,1.0,1
+distractor_para,boundary:query,732,L178.lo,dense,expand,arm beat the default just outside the box,1.9313,1.9461,4,4,0,-0.25,4
+distractor_para,boundary:query,733,L176.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.7957,1.781,6,9,2,0.25,12
+distractor_para,boundary:query,733,L198,dense,expand,arm beat the default just outside the box,2.0802,2.1244,4,0,0,1.0,1
+distractor_para,boundary:query,733,L178.lo,dense,retire,utility <= 0,,1.9467,5,4,0,0.0,5
+distractor_para,boundary:query,734,L10.hi,dense,exception,contradicted; every cut loses a supporter,2.8062,2.8062,6,5,2,0.375,8
+distractor_para,boundary:query,737,L186,hybrid,exception,contradicted; every cut loses a supporter,1.9778,1.9778,7,8,3,0.3846,13
+distractor_para,boundary:query,738,L186,hybrid,expand,arm beat the default just outside the box,1.9783,2.0357,8,8,3,0.3846,13
+distractor_para,boundary:query,738,L213,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,741,L213,hybrid,expand,arm beat the default just outside the box,2.0017,2.0483,2,0,0,0.0,0
+distractor_para,boundary:query,742,L10.hi,dense,narrow,contradicted; cut f:query_len_tokens,2.8152,2.7858,6,6,2,0.3333,9
+distractor_para,boundary:query,743,L198,dense,exception,contradicted; every cut loses a supporter,2.1297,2.1297,7,3,1,0.5714,7
+distractor_para,boundary:query,743,L175.lo,dense,exception,contradicted; every cut loses a supporter,1.9146,1.9146,8,3,1,0.3333,6
+distractor_para,boundary:query,745,L186,hybrid,exception,contradicted; every cut loses a supporter,2.0365,2.0365,9,9,4,0.4,15
+distractor_para,boundary:query,745,L198,dense,exception,contradicted; every cut loses a supporter,2.1284,2.1284,7,4,2,0.5,8
+distractor_para,boundary:query,745,L175.lo,dense,exception,contradicted; every cut loses a supporter,1.9133,1.9133,8,4,2,0.2857,7
+distractor_para,boundary:query,745,L186,hybrid,split,4 exceptions; cut f:query_len_tokens at 18,,2.0365,9,9,4,0.4,15
+distractor_para,boundary:query,745,L186.lo,hybrid,create,split of L186,,1.9353,8,0,0,0.0,0
+distractor_para,boundary:query,745,L186.hi,hybrid,create,split of L186,,1.9335,1,0,0,0.0,0
+distractor_para,boundary:query,746,L141.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.751,1.751,8,8,3,0.3846,13
+distractor_para,boundary:query,746,L176.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7856,1.7856,8,10,3,0.3333,15
+distractor_para,boundary:query,746,L198,dense,exception,contradicted; every cut loses a supporter,2.1293,2.1293,7,5,3,0.4444,9
+distractor_para,boundary:query,748,L198,dense,exception,contradicted; every cut loses a supporter,2.1228,2.1228,7,6,4,0.4,10
+distractor_para,boundary:query,748,L198,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.1228,7,6,4,0.4,10
+distractor_para,boundary:query,748,L198.lo,dense,create,split of L198,,2.0236,7,0,0,0.0,0
+distractor_para,boundary:query,749,L15.hi.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.5815,2.5962,8,6,2,0.4,10
+distractor_para,boundary:query,749,L15.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.5815,2.5962,11,5,2,0.4444,9
+distractor_para,boundary:query,749,L141.hi.lo,hybrid,expand,arm beat the default just outside the box,1.748,1.748,9,8,3,0.3846,13
+distractor_para,boundary:query,751,L8.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.7473,2.7473,13,6,3,0.125,8
+distractor_para,boundary:query,751,L175.lo,dense,exception,contradicted; every cut loses a supporter,1.9092,1.9092,8,5,3,0.25,8
+distractor_para,boundary:query,752,L217,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,754,L141.hi.hi,hybrid,retire,utility <= 0,,1.7477,2,5,0,0.0,5
+distractor_para,boundary:query,755,L186.hi,hybrid,expand,arm beat the default just outside the box,1.9294,1.9441,2,1,0,0.0,1
+distractor_para,boundary:query,755,L217,dense,expand,arm beat the default just outside the box,1.9996,2.041,2,1,0,0.0,1
+distractor_para,boundary:query,757,L213,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0439,1.9589,4,5,0,0.2857,7
+distractor_para,boundary:query,761,L213,hybrid,exception,contradicted; every cut loses a supporter,1.9601,1.9601,4,6,1,0.25,8
+distractor_para,boundary:query,761,L198.lo,dense,exception,contradicted; every cut loses a supporter,2.0271,2.0271,9,4,1,0.1667,6
+distractor_para,boundary:query,768,L186.lo,hybrid,expand,arm beat the default just outside the box,1.9343,1.9763,12,3,0,0.5,6
+distractor_para,boundary:query,768,L186.hi,hybrid,expand,arm beat the default just outside the box,1.9472,2.0333,3,2,0,0.0,2
+distractor_para,boundary:query,768,L218,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,772,L47,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9682,1.875,2,5,0,0.1667,6
+distractor_para,boundary:query,774,L213,hybrid,exception,contradicted; every cut loses a supporter,1.9616,1.9616,5,7,2,0.3,10
+distractor_para,boundary:query,774,L186.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9766,1.9766,12,4,1,0.4286,7
+distractor_para,boundary:query,774,L198.lo,dense,exception,contradicted; every cut loses a supporter,2.0291,2.0291,10,5,2,0.25,8
+distractor_para,boundary:query,776,L142.lo,dense,exception,contradicted; every cut loses a supporter,1.7342,1.7342,5,8,4,0.1,10
+distractor_para,boundary:query,776,L142.lo,dense,split,4 exceptions; cut f:query_len_tokens at 18,,1.7342,5,8,4,0.1,10
+distractor_para,boundary:query,776,L142.lo.lo,dense,create,split of L142.lo,,1.69,3,0,0,0.0,0
+distractor_para,boundary:query,776,L142.lo.hi,dense,create,split of L142.lo,,1.631,2,0,0,0.0,0
+distractor_para,boundary:query,777,L186.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9758,1.9758,12,5,2,0.375,8
+distractor_para,boundary:query,777,L217,dense,exception,contradicted; every cut loses a supporter,2.0441,2.0441,4,4,1,0.3333,6
+distractor_para,boundary:query,778,L15.hi.hi.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.645,2.645,12,8,4,0.3333,12
+distractor_para,boundary:query,778,L15.hi.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6155,2.6155,9,7,3,0.4167,12
+distractor_para,boundary:query,778,L15.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6155,2.6155,12,6,3,0.4545,11
+distractor_para,boundary:query,778,L213,hybrid,exception,contradicted; every cut loses a supporter,1.9615,1.9615,5,8,3,0.2727,11
+distractor_para,boundary:query,778,L186.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9766,1.9766,12,6,3,0.3333,9
+distractor_para,boundary:query,778,L15.hi.hi.hi.lo.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 14,,2.645,12,8,4,0.3333,12
+distractor_para,boundary:query,778,L15.hi.hi.hi.lo.lo.lo,hybrid,create,split of L15.hi.hi.hi.lo.lo,,2.586,7,0,0,0.0,0
+distractor_para,boundary:query,778,L15.hi.hi.hi.lo.lo.hi,hybrid,create,split of L15.hi.hi.hi.lo.lo,,2.5712,5,0,0,0.0,0
+distractor_para,boundary:query,778,L186.hi,hybrid,retire,utility <= 0,,2.0339,3,5,0,0.0,5
+distractor_para,boundary:query,779,L39.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7252,1.7252,4,8,4,0.1111,9
+distractor_para,boundary:query,779,L39.lo.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 24,,1.7252,4,8,4,0.1111,9
+distractor_para,boundary:query,779,L39.lo.hi.lo.lo,hybrid,create,split of L39.lo.hi.lo,,1.6809,2,0,0,0.0,0
+distractor_para,boundary:query,779,L39.lo.hi.lo.hi,hybrid,create,split of L39.lo.hi.lo,,1.6366,2,0,0,0.0,0
+distractor_para,boundary:query,780,L198.lo,dense,exception,contradicted; every cut loses a supporter,2.0296,2.0296,11,6,3,0.3,10
+distractor_para,boundary:query,782,L213,hybrid,exception,contradicted; every cut loses a supporter,1.9627,1.9627,5,9,4,0.25,12
+distractor_para,boundary:query,782,L186.lo,hybrid,exception,contradicted; every cut loses a supporter,1.9777,1.9777,12,7,4,0.3,10
+distractor_para,boundary:query,782,L198.lo,dense,exception,contradicted; every cut loses a supporter,2.0303,2.0303,11,7,4,0.2727,11
+distractor_para,boundary:query,782,L213,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.9627,5,9,4,0.25,12
+distractor_para,boundary:query,782,L213.lo,hybrid,create,split of L213,,1.9627,5,0,0,0.0,0
+distractor_para,boundary:query,782,L186.lo,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.9777,12,7,4,0.3,10
+distractor_para,boundary:query,782,L186.lo.lo,hybrid,create,split of L186.lo,,1.8362,11,0,0,0.0,0
+distractor_para,boundary:query,782,L186.lo.hi,hybrid,create,split of L186.lo,,1.8362,1,0,0,0.0,0
+distractor_para,boundary:query,782,L198.lo,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.0303,11,7,4,0.2727,11
+distractor_para,boundary:query,782,L198.lo.lo,dense,create,split of L198.lo,,2.0303,11,0,0,0.0,0
+distractor_para,boundary:query,783,L8.lo.lo.lo,dense,expand,arm beat the default just outside the box,2.7706,2.815,14,6,3,0.125,8
+distractor_para,boundary:query,783,L175.lo,dense,expand,arm beat the default just outside the box,1.9142,1.9585,9,5,3,0.25,8
+distractor_para,boundary:query,786,L175.lo,dense,exception,contradicted; every cut loses a supporter,1.9603,1.9603,9,6,4,0.2222,9
+distractor_para,boundary:query,786,L217,dense,exception,contradicted; every cut loses a supporter,2.0486,2.0486,5,5,2,0.375,8
+distractor_para,boundary:query,786,L175.lo,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.9603,9,6,4,0.2222,9
+distractor_para,boundary:query,786,L175.lo.lo,dense,create,split of L175.lo,,1.8187,5,0,0,0.0,0
+distractor_para,boundary:query,786,L175.lo.hi,dense,create,split of L175.lo,,1.8606,4,0,0,0.0,0
+distractor_para,boundary:query,787,L15.hi.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.6245,2.6541,10,7,3,0.4167,12
+distractor_para,boundary:query,787,L15.hi.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.6245,2.6541,13,6,3,0.4545,11
+distractor_para,boundary:query,787,L141.hi.lo,hybrid,expand,arm beat the default just outside the box,1.7555,1.785,10,8,3,0.3846,13
+distractor_para,boundary:query,787,L176.hi,hybrid,expand,arm beat the default just outside the box,1.7903,1.8051,9,10,3,0.3333,15
+distractor_para,boundary:query,787,L218,hybrid,expand,arm beat the default just outside the box,2.0045,2.0459,2,0,0,0.0,0
+distractor_para,boundary:query,787,L213.lo,hybrid,expand,arm beat the default just outside the box,1.9656,1.9804,6,2,0,0.0,2
+distractor_para,boundary:query,787,L186.lo.lo,hybrid,expand,arm beat the default just outside the box,1.839,1.8685,12,2,0,0.0,2
+distractor_para,boundary:query,787,L186.lo.hi,hybrid,expand,arm beat the default just outside the box,1.839,1.8685,2,1,0,0.0,1
+distractor_para,boundary:query,787,L198.lo.lo,dense,expand,arm beat the default just outside the box,2.0333,2.0481,13,2,0,0.3333,3
+distractor_para,boundary:query,789,L15.hi.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6545,2.6545,10,8,4,0.3846,13
+distractor_para,boundary:query,789,L15.hi.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6545,2.6545,13,7,4,0.4167,12
+distractor_para,boundary:query,789,L141.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.784,1.784,10,9,4,0.3571,14
+distractor_para,boundary:query,789,L176.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8043,1.8043,9,11,4,0.3125,16
+distractor_para,boundary:query,789,L217,dense,exception,contradicted; every cut loses a supporter,2.0481,2.0481,6,6,3,0.4,10
+distractor_para,boundary:query,789,L15.hi.hi.hi.lo.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 17,,2.6545,10,8,4,0.3846,13
+distractor_para,boundary:query,789,L15.hi.hi.hi.lo.hi.lo,hybrid,create,split of L15.hi.hi.hi.lo.hi,,2.6397,6,0,0,0.0,0
+distractor_para,boundary:query,789,L15.hi.hi.hi.lo.hi.hi,hybrid,create,split of L15.hi.hi.hi.lo.hi,,2.5362,4,0,0,0.0,0
+distractor_para,boundary:query,789,L15.hi.hi.lo.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 17,,2.6545,13,7,4,0.4167,12
+distractor_para,boundary:query,789,L15.hi.hi.lo.hi.lo,hybrid,create,split of L15.hi.hi.lo.hi,,2.6397,9,0,0,0.0,0
+distractor_para,boundary:query,789,L15.hi.hi.lo.hi.hi,hybrid,create,split of L15.hi.hi.lo.hi,,2.5362,4,0,0,0.0,0
+distractor_para,boundary:query,789,L141.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 17,,1.784,10,9,4,0.3571,14
+distractor_para,boundary:query,789,L141.hi.lo.lo,hybrid,create,split of L141.hi.lo,,1.7692,6,0,0,0.0,0
+distractor_para,boundary:query,789,L141.hi.lo.hi,hybrid,create,split of L141.hi.lo,,1.6657,4,0,0,0.0,0
+distractor_para,boundary:query,789,L176.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 17,,1.8043,9,11,4,0.3125,16
+distractor_para,boundary:query,789,L176.hi.lo,hybrid,create,split of L176.hi,,1.7895,5,0,0,0.0,0
+distractor_para,boundary:query,789,L176.hi.hi,hybrid,create,split of L176.hi,,1.6859,4,0,0,0.0,0
+distractor_para,boundary:query,790,L161.lo,hybrid,retire,utility <= 0,,1.8353,2,5,0,0.0,5
+distractor_para,boundary:query,793,L39.lo.lo.hi,hybrid,retire,utility <= 0,,1.5991,2,5,0,0.0,5
+distractor_para,boundary:query,796,L198.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.0498,2.0498,13,5,1,0.1667,6
+distractor_para,boundary:query,796,L213.lo,hybrid,retire,utility <= 0,,1.982,6,5,0,0.0,5
+distractor_para,boundary:query,796,L186.lo.lo,hybrid,retire,utility <= 0,,1.8701,12,5,0,0.0,5
+distractor_para,boundary:query,799,L15.hi.hi.hi.lo.lo.hi,hybrid,expand,arm beat the default just outside the box,2.5887,2.6035,6,0,0,0.0,0
+distractor_para,boundary:query,800,L8.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.8286,2.8286,14,7,4,0.1111,9
+distractor_para,boundary:query,800,L198.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.0504,2.0504,14,6,2,0.25,8
+distractor_para,boundary:query,800,L175.lo.hi,dense,narrow,contradicted; cut f:query_cap_spans,1.8637,1.8637,6,4,0,0.3333,6
+distractor_para,boundary:query,800,L8.lo.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 10,,2.8286,14,7,4,0.1111,9
+distractor_para,boundary:query,800,L8.lo.lo.lo.lo,dense,create,split of L8.lo.lo.lo,,2.74,7,0,0,0.0,0
+distractor_para,boundary:query,800,L8.lo.lo.lo.hi,dense,create,split of L8.lo.lo.lo,,2.6424,7,0,0,0.0,0
+distractor_para,boundary:query,804,L198.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.052,2.052,14,7,3,0.2222,9
+distractor_para,boundary:query,804,L175.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.865,1.865,6,5,1,0.2857,7
+distractor_para,boundary:query,807,L218,hybrid,exception,contradicted; every cut loses a supporter,2.05,2.05,4,4,1,0.3333,6
+distractor_para,boundary:query,807,L15.hi.hi.hi.lo.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6093,2.6093,10,5,1,0.375,8
+distractor_para,boundary:query,807,L186.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8723,1.8723,4,5,1,0.2857,7
+distractor_para,boundary:query,808,L217,dense,exception,contradicted; every cut loses a supporter,2.0541,2.0541,6,7,4,0.3636,11
+distractor_para,boundary:query,808,L218,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0508,1.9946,4,5,1,0.2857,7
+distractor_para,boundary:query,808,L186.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.873,1.8582,4,6,1,0.25,8
+distractor_para,boundary:query,808,L198.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.053,2.053,14,8,4,0.2,10
+distractor_para,boundary:query,808,L15.hi.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6549,2.6549,8,4,1,0.3333,6
+distractor_para,boundary:query,808,L15.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6549,2.6549,11,4,1,0.3333,6
+distractor_para,boundary:query,808,L141.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7745,1.7745,8,4,1,0.3333,6
+distractor_para,boundary:query,808,L176.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7947,1.7947,7,4,1,0.3333,6
+distractor_para,boundary:query,808,L217,dense,split,4 exceptions; cut f:query_cap_spans at 1.5,,2.0541,6,7,4,0.3636,11
+distractor_para,boundary:query,808,L217.lo,dense,create,split of L217,,1.8827,3,0,0,0.0,0
+distractor_para,boundary:query,808,L217.hi,dense,create,split of L217,,1.9831,3,0,0,0.0,0
+distractor_para,boundary:query,808,L198.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 14.5,,2.053,14,8,4,0.2,10
+distractor_para,boundary:query,808,L198.lo.lo.lo,dense,create,split of L198.lo.lo,,1.8258,7,0,0,0.0,0
+distractor_para,boundary:query,808,L198.lo.lo.hi,dense,create,split of L198.lo.lo,,1.9715,7,0,0,0.0,0
+distractor_para,boundary:query,811,L175.lo.hi,dense,expand,arm beat the default just outside the box,1.8643,1.8643,7,5,1,0.2857,7
+distractor_para,boundary:query,811,L8.lo.lo.lo.hi,dense,expand,arm beat the default just outside the box,2.6485,2.6632,8,2,0,-0.5,2
+distractor_para,boundary:query,811,L245,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,813,L175.lo.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.8654,1.8505,7,6,1,0.25,8
+distractor_para,boundary:query,813,L15.hi.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.657,2.657,8,5,2,0.2857,7
+distractor_para,boundary:query,813,L15.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.657,2.657,11,5,2,0.2857,7
+distractor_para,boundary:query,813,L141.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7742,1.7742,8,5,2,0.2857,7
+distractor_para,boundary:query,813,L176.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7943,1.7943,7,5,2,0.2857,7
+distractor_para,boundary:query,814,L175.lo.lo,dense,retire,utility <= 0,,1.8239,6,4,0,0.0,5
+distractor_para,boundary:query,815,L39.lo.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7482,1.7482,7,8,3,0.2727,11
+distractor_para,boundary:query,815,L10.hi,dense,expand,arm beat the default just outside the box,2.8179,2.8624,7,6,2,0.3333,9
+distractor_para,boundary:query,815,L177.hi,dense,expand,arm beat the default just outside the box,1.9463,1.9908,3,4,0,0.0,4
+distractor_para,boundary:query,815,L246,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,819,L175.lo.hi,dense,expand,arm beat the default just outside the box,1.8499,1.8648,8,6,1,0.25,8
+distractor_para,boundary:query,819,L198.lo.lo.lo,dense,expand,arm beat the default just outside the box,1.8247,1.847,9,0,0,1.0,1
+distractor_para,boundary:query,821,L218,hybrid,narrow,contradicted; cut f:query_len_tokens,1.9946,1.9828,4,6,1,0.25,8
+distractor_para,boundary:query,823,L175.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.8664,1.8664,8,7,2,0.2222,9
+distractor_para,boundary:query,823,L8.lo.lo.lo.hi,dense,retire,utility <= 0,,2.6719,9,4,0,0.0,5
+distractor_para,boundary:query,825,L218,hybrid,exception,contradicted; every cut loses a supporter,1.9847,1.9847,4,7,2,0.2222,9
+distractor_para,boundary:query,825,L15.hi.hi.hi.lo.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.621,2.621,10,6,2,0.3333,9
+distractor_para,boundary:query,825,L186.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8598,1.8598,4,7,2,0.2222,9
+distractor_para,boundary:query,825,L15.hi.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6656,2.6656,8,6,3,0.25,8
+distractor_para,boundary:query,825,L15.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6656,2.6656,11,6,3,0.25,8
+distractor_para,boundary:query,825,L141.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7756,1.7756,8,6,3,0.25,8
+distractor_para,boundary:query,825,L176.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7961,1.7961,7,6,3,0.25,8
+distractor_para,boundary:query,825,L198.lo.lo.hi,dense,expand,arm beat the default just outside the box,1.9733,2.0104,9,2,0,0.3333,3
+distractor_para,boundary:query,828,L10.hi,dense,exception,contradicted; every cut loses a supporter,2.8715,2.8715,7,7,3,0.3,10
+distractor_para,boundary:query,828,L177.hi,dense,retire,utility <= 0,,1.993,3,5,0,0.0,5
+distractor_para,boundary:query,830,L218,hybrid,exception,contradicted; every cut loses a supporter,1.9866,1.9866,4,8,3,0.2,10
+distractor_para,boundary:query,830,L15.hi.hi.hi.lo.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6252,2.6252,10,7,3,0.3,10
+distractor_para,boundary:query,830,L186.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8615,1.8615,4,8,3,0.2,10
+distractor_para,boundary:query,830,L175.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.8691,1.8691,8,8,3,0.2,10
+distractor_para,boundary:query,830,L15.hi.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6698,2.6698,8,7,4,0.2222,9
+distractor_para,boundary:query,830,L15.hi.hi.lo.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6698,2.6698,11,7,4,0.2222,9
+distractor_para,boundary:query,830,L141.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7772,1.7772,8,7,4,0.2222,9
+distractor_para,boundary:query,830,L176.hi.lo,hybrid,exception,contradicted; every cut loses a supporter,1.7977,1.7977,7,7,4,0.2222,9
+distractor_para,boundary:query,830,L15.hi.hi.hi.lo.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,2.6698,8,7,4,0.2222,9
+distractor_para,boundary:query,830,L15.hi.hi.hi.lo.hi.lo.lo,hybrid,create,split of L15.hi.hi.hi.lo.hi.lo,,2.6103,5,0,0,0.0,0
+distractor_para,boundary:query,830,L15.hi.hi.hi.lo.hi.lo.hi,hybrid,create,split of L15.hi.hi.hi.lo.hi.lo,,2.6103,3,0,0,0.0,0
+distractor_para,boundary:query,830,L15.hi.hi.lo.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,2.6698,11,7,4,0.2222,9
+distractor_para,boundary:query,830,L15.hi.hi.lo.hi.lo.lo,hybrid,create,split of L15.hi.hi.lo.hi.lo,,2.6103,6,0,0,0.0,0
+distractor_para,boundary:query,830,L15.hi.hi.lo.hi.lo.hi,hybrid,create,split of L15.hi.hi.lo.hi.lo,,2.6103,5,0,0,0.0,0
+distractor_para,boundary:query,830,L141.hi.lo.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,1.7772,8,7,4,0.2222,9
+distractor_para,boundary:query,830,L141.hi.lo.lo.lo,hybrid,create,split of L141.hi.lo.lo,,1.7177,6,0,0,0.0,0
+distractor_para,boundary:query,830,L141.hi.lo.lo.hi,hybrid,create,split of L141.hi.lo.lo,,1.7177,2,0,0,0.0,0
+distractor_para,boundary:query,830,L176.hi.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,1.7977,7,7,4,0.2222,9
+distractor_para,boundary:query,830,L176.hi.lo.lo,hybrid,create,split of L176.hi.lo,,1.7382,6,0,0,0.0,0
+distractor_para,boundary:query,830,L176.hi.lo.hi,hybrid,create,split of L176.hi.lo,,1.7382,1,0,0,0.0,0
+distractor_para,boundary:query,832,L175.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.8678,1.8678,8,9,4,0.1818,11
+distractor_para,boundary:query,832,L198.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.0109,2.0109,9,5,1,0.1667,6
+distractor_para,boundary:query,832,L175.lo.hi,dense,split,4 exceptions; cut f:query_cap_spans at 1,,1.8678,8,9,4,0.1818,11
+distractor_para,boundary:query,832,L175.lo.hi.lo,dense,create,split of L175.lo.hi,,1.8678,8,0,0,0.0,0
+distractor_para,boundary:query,833,L198.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8506,1.8506,10,4,1,0.3333,6
+distractor_para,boundary:query,834,L198.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.0122,2.0122,9,6,2,0.1429,7
+distractor_para,boundary:query,837,L197,hybrid,narrow,contradicted; cut f:query_len_tokens,2.0137,1.9565,3,5,0,0.2857,7
+distractor_para,boundary:query,838,L217.lo,dense,exception,contradicted; every cut loses a supporter,1.8872,1.8872,4,5,1,0.1667,6
+distractor_para,boundary:query,840,L198.lo.lo.hi,dense,expand,arm beat the default just outside the box,2.0147,2.0593,11,6,2,0.25,8
+distractor_para,boundary:query,841,L198.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.0598,2.0598,11,7,3,0.2222,9
+distractor_para,boundary:query,842,L10.hi,dense,exception,contradicted; every cut loses a supporter,2.8839,2.8839,7,8,4,0.2727,11
+distractor_para,boundary:query,842,L10.hi,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.8839,7,8,4,0.2727,11
+distractor_para,boundary:query,842,L10.hi.lo,dense,create,split of L10.hi,,2.7735,7,0,0,0.0,0
+distractor_para,boundary:query,843,L198.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8551,1.8551,10,5,2,0.2857,7
+distractor_para,boundary:query,847,L35.lo,hybrid,retire,utility <= 0,,1.868,2,5,0,0.0,5
+distractor_para,boundary:query,847,L189,dense,retire,utility <= 0,,2.0457,2,5,0,0.0,5
+distractor_para,boundary:query,848,L217.lo,dense,narrow,contradicted; cut f:query_len_tokens,1.8866,1.8598,5,6,1,0.25,8
+distractor_para,boundary:query,848,L198.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,2.0575,2.0575,11,8,4,0.2,10
+distractor_para,boundary:query,848,L198.lo.lo.hi,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.0575,11,8,4,0.2,10
+distractor_para,boundary:query,848,L198.lo.lo.hi.lo,dense,create,split of L198.lo.lo.hi,,2.0575,11,0,0,0.0,0
+distractor_para,boundary:query,851,L198.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8526,1.8526,10,6,3,0.25,8
+distractor_para,boundary:query,851,L175.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.8704,1.8704,9,5,1,0.1667,6
+distractor_para,boundary:query,851,L245,hybrid,retire,utility <= 0,,2.0063,1,5,0,0.0,5
+distractor_para,boundary:query,853,L246,dense,retire,utility <= 0,,2.004,1,5,0,0.0,5
+distractor_para,boundary:query,854,L198.lo.lo.lo,dense,expand,arm beat the default just outside the box,1.8533,1.8682,11,6,3,0.25,8
+distractor_para,boundary:query,854,L175.lo.hi.lo,dense,expand,arm beat the default just outside the box,1.8711,1.886,10,5,1,0.1667,6
+distractor_para,boundary:query,855,L175.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.8866,1.8866,10,6,2,0.1429,7
+distractor_para,boundary:query,855,L15.hi.hi.hi.lo.hi.lo.lo,hybrid,retire,utility <= 0,,2.6261,5,5,0,0.0,5
+distractor_para,boundary:query,855,L15.hi.hi.lo.hi.lo.lo,hybrid,retire,utility <= 0,,2.6261,6,5,0,0.0,5
+distractor_para,boundary:query,855,L141.hi.lo.lo.lo,hybrid,retire,utility <= 0,,1.7207,6,5,0,0.0,5
+distractor_para,boundary:query,855,L176.hi.lo.lo,hybrid,retire,utility <= 0,,1.7412,6,5,0,0.0,5
+distractor_para,boundary:query,856,L217.lo,dense,expand,arm beat the default just outside the box,1.8624,1.8773,6,6,1,0.25,8
+distractor_para,boundary:query,860,L15.lo.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.7204,2.7353,6,3,0,0.4,5
+distractor_para,boundary:query,860,L258,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,861,L259,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,862,L218,hybrid,exception,contradicted; every cut loses a supporter,1.9865,1.9865,4,9,4,0.1818,11
+distractor_para,boundary:query,862,L186.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.8621,1.8621,4,9,4,0.1818,11
+distractor_para,boundary:query,862,L218,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.9865,4,9,4,0.1818,11
+distractor_para,boundary:query,862,L218.lo,hybrid,create,split of L218,,1.744,3,0,0,0.0,0
+distractor_para,boundary:query,862,L218.hi,hybrid,create,split of L218,,1.9865,1,0,0,0.0,0
+distractor_para,boundary:query,862,L186.lo.hi,hybrid,split,4 exceptions; cut f:query_cap_spans at 1,,1.8621,4,9,4,0.1818,11
+distractor_para,boundary:query,862,L186.lo.hi.lo,hybrid,create,split of L186.lo.hi,,1.7202,3,0,0,0.0,0
+distractor_para,boundary:query,862,L186.lo.hi.hi,hybrid,create,split of L186.lo.hi,,1.8621,1,0,0,0.0,0
+distractor_para,boundary:query,864,L198.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8669,1.8669,11,7,4,0.2222,9
+distractor_para,boundary:query,864,L198.lo.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,2.0575,2.0575,14,4,1,0.4286,7
+distractor_para,boundary:query,864,L198.lo.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 11,,1.8669,11,7,4,0.2222,9
+distractor_para,boundary:query,864,L198.lo.lo.lo.lo,dense,create,split of L198.lo.lo.lo,,1.7778,6,0,0,0.0,0
+distractor_para,boundary:query,864,L198.lo.lo.lo.hi,dense,create,split of L198.lo.lo.lo,,1.8372,5,0,0,0.0,0
+distractor_para,boundary:query,865,L161.hi,hybrid,retire,utility <= 0,,1.7431,2,5,0,0.0,5
+distractor_para,boundary:query,867,L47,hybrid,exception,contradicted; every cut loses a supporter,1.8851,1.8851,2,6,1,0.1429,7
+distractor_para,boundary:query,869,L175.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.8822,1.8822,10,7,3,0.125,8
+distractor_para,boundary:query,869,L198.lo.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,2.0549,2.0549,14,5,2,0.375,8
+distractor_para,boundary:query,872,L4.hi.hi.lo.lo,hybrid,expand,arm beat the default just outside the box,3.3754,3.42,5,6,2,0.1429,7
+distractor_para,boundary:query,872,L15.hi.hi.hi.lo.lo.lo,hybrid,expand,arm beat the default just outside the box,2.6319,2.6616,11,7,3,0.3,10
+distractor_para,boundary:query,872,L15.hi.hi.hi.lo.hi.hi,hybrid,expand,arm beat the default just outside the box,2.5724,2.5873,5,2,0,0.0,2
+distractor_para,boundary:query,872,L15.hi.hi.lo.hi.hi,hybrid,expand,arm beat the default just outside the box,2.5724,2.5873,5,2,0,0.0,2
+distractor_para,boundary:query,872,L141.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,1.6725,1.6873,5,2,0,0.0,2
+distractor_para,boundary:query,872,L176.hi.hi,hybrid,expand,arm beat the default just outside the box,1.6935,1.7083,5,2,0,0.0,2
+distractor_para,boundary:query,872,L258,hybrid,expand,arm beat the default just outside the box,1.996,2.0382,2,0,0,0.0,0
+distractor_para,boundary:query,873,L217.lo,dense,exception,contradicted; every cut loses a supporter,1.8741,1.8741,7,7,2,0.3,10
+distractor_para,boundary:query,873,L198.lo.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,2.057,2.057,15,6,3,0.4,10
+distractor_para,boundary:query,878,L198.lo.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,2.0568,2.0568,15,7,4,0.2727,11
+distractor_para,boundary:query,878,L198.lo.lo.hi.lo,dense,split,4 exceptions; cut f:query_len_tokens at 17,,2.0568,15,7,4,0.2727,11
+distractor_para,boundary:query,878,L198.lo.lo.hi.lo.lo,dense,create,split of L198.lo.lo.hi.lo,,1.8659,8,0,0,0.0,0
+distractor_para,boundary:query,878,L198.lo.lo.hi.lo.hi,dense,create,split of L198.lo.lo.hi.lo,,1.9377,7,0,0,0.0,0
+distractor_para,boundary:query,879,L15.lo.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7268,2.7268,6,4,1,0.1667,6
+distractor_para,boundary:query,883,L15.hi.hi.hi.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6385,2.6385,8,5,1,0.2857,7
+distractor_para,boundary:query,883,L217.lo,dense,exception,contradicted; every cut loses a supporter,1.8746,1.8746,7,8,3,0.2727,11
+distractor_para,boundary:query,883,L175.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.8841,1.8841,11,8,4,0.2,10
+distractor_para,boundary:query,883,L175.lo.hi.lo,dense,split,4 exceptions; cut f:query_cap_spans at 1,,1.8841,11,8,4,0.2,10
+distractor_para,boundary:query,883,L175.lo.hi.lo.lo,dense,create,split of L175.lo.hi.lo,,1.8841,11,0,0,0.0,0
+distractor_para,boundary:query,884,L198.lo.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.8368,1.8368,6,5,1,0.1667,6
+distractor_para,boundary:query,887,L8.lo.lo.lo.lo,dense,expand,arm beat the default just outside the box,2.7773,2.8221,9,2,0,0.3333,3
+distractor_para,boundary:query,887,L198.lo.lo.lo.lo,dense,expand,arm beat the default just outside the box,1.7775,1.8073,7,1,0,-1.0,1
+distractor_para,boundary:query,888,L4.hi.hi.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,3.4368,3.4368,5,7,3,0.125,8
+distractor_para,boundary:query,888,L15.hi.hi.hi.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6424,2.6424,8,6,2,0.25,8
+distractor_para,boundary:query,888,L217.lo,dense,exception,contradicted; every cut loses a supporter,1.8762,1.8762,7,9,4,0.25,12
+distractor_para,boundary:query,888,L198.lo.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.8378,1.8378,6,6,2,0.1429,7
+distractor_para,boundary:query,888,L217.lo,dense,split,4 exceptions; cut f:query_len_tokens at 16,,1.8762,7,9,4,0.25,12
+distractor_para,boundary:query,888,L217.lo.lo,dense,create,split of L217.lo,,1.8015,4,0,0,0.0,0
+distractor_para,boundary:query,888,L217.lo.hi,dense,create,split of L217.lo,,1.7597,3,0,0,0.0,0
+distractor_para,boundary:query,889,L198.lo.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.8383,1.8383,6,7,3,0.125,8
+distractor_para,boundary:query,889,L198.lo.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8682,1.8682,9,5,1,0.1667,6
+distractor_para,boundary:query,889,L258,hybrid,retire,utility <= 0,,2.0407,3,4,0,0.0,5
+distractor_para,boundary:query,892,L198.lo.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8669,1.8669,9,6,2,0.1429,7
+distractor_para,boundary:query,892,L218.lo,hybrid,retire,utility <= 0,,1.7444,4,4,0,0.0,5
+distractor_para,boundary:query,892,L218.hi,hybrid,retire,utility <= 0,,1.9864,2,4,0,0.0,5
+distractor_para,boundary:query,892,L186.lo.hi.lo,hybrid,retire,utility <= 0,,1.7208,4,4,0,0.0,5
+distractor_para,boundary:query,892,L186.lo.hi.hi,hybrid,retire,utility <= 0,,1.8624,2,4,0,0.0,5
+distractor_para,boundary:query,893,L198.lo.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8673,1.8673,9,7,3,0.125,8
+distractor_para,boundary:query,893,L175.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8855,1.8855,12,5,1,0.1667,6
+distractor_para,boundary:query,894,L198.lo.lo.lo.hi,dense,expand,arm beat the default just outside the box,1.8379,1.8529,7,7,3,0.125,8
+distractor_para,boundary:query,894,L198.lo.lo.hi.lo.lo,dense,expand,arm beat the default just outside the box,1.8679,1.8828,10,7,3,0.125,8
+distractor_para,boundary:query,894,L175.lo.hi.lo.lo,dense,expand,arm beat the default just outside the box,1.886,1.901,13,5,1,0.1667,6
+distractor_para,boundary:query,896,L198.lo.lo.lo.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.8539,1.8539,7,8,3,0.1111,9
+distractor_para,boundary:query,896,L198.lo.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8839,1.8839,11,8,4,0.2,10
+distractor_para,boundary:query,896,L175.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.902,1.902,14,6,2,0.25,8
+distractor_para,boundary:query,896,L198.lo.lo.hi.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 16,,1.8839,11,8,4,0.2,10
+distractor_para,boundary:query,896,L198.lo.lo.hi.lo.lo.lo,dense,create,split of L198.lo.lo.hi.lo.lo,,1.8539,7,0,0,0.0,0
+distractor_para,boundary:query,896,L198.lo.lo.hi.lo.lo.hi,dense,create,split of L198.lo.lo.hi.lo.lo,,1.7791,4,0,0,0.0,0
+distractor_para,boundary:query,897,L15.lo.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.739,2.739,8,5,2,0.3333,9
+distractor_para,boundary:query,897,L175.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.9026,1.9026,14,7,3,0.2222,9
+distractor_para,boundary:query,897,L198.lo.lo.hi.lo.hi,dense,retire,utility <= 0,,1.9417,8,4,0,0.0,5
+distractor_para,boundary:query,901,L175.lo.hi.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.9004,1.9004,14,8,4,0.2,10
+distractor_para,boundary:query,901,L175.lo.hi.lo.lo,dense,split,4 exceptions; cut f:query_cap_spans at 1,,1.9004,14,8,4,0.2,10
+distractor_para,boundary:query,901,L175.lo.hi.lo.lo.lo,dense,create,split of L175.lo.hi.lo.lo,,1.9004,14,0,0,0.0,0
+distractor_para,boundary:query,903,L153.lo.hi,hybrid,retire,utility <= 0,,1.7153,2,5,0,0.0,5
+distractor_para,boundary:query,904,L47,hybrid,expand,arm beat the default just outside the box,1.886,1.9284,3,6,1,0.1429,7
+distractor_para,boundary:query,904,L204,dense,expand,arm beat the default just outside the box,2.0143,2.0474,2,4,0,0.0,4
+distractor_para,boundary:query,904,L274,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,904,L275,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,906,L15.hi.hi.hi.lo.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6367,2.6367,4,5,1,0.1667,6
+distractor_para,boundary:query,906,L15.hi.hi.lo.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6367,2.6367,6,5,1,0.1667,6
+distractor_para,boundary:query,906,L141.hi.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7187,1.7187,3,5,1,0.1667,6
+distractor_para,boundary:query,906,L176.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7403,1.7403,2,5,1,0.1667,6
+distractor_para,boundary:query,906,L198.lo.lo.lo.hi,dense,exception,contradicted; every cut loses a supporter,1.8523,1.8523,7,9,4,0.1,10
+distractor_para,boundary:query,906,L198.lo.lo.lo.hi,dense,split,4 exceptions; cut f:query_cap_spans at 0,,1.8523,7,9,4,0.1,10
+distractor_para,boundary:query,906,L198.lo.lo.lo.hi.lo,dense,create,split of L198.lo.lo.lo.hi,,1.7113,4,0,0,0.0,0
+distractor_para,boundary:query,906,L198.lo.lo.lo.hi.hi,dense,create,split of L198.lo.lo.lo.hi,,1.8523,3,0,0,0.0,0
+distractor_para,boundary:query,907,L142.lo.lo,dense,expand,arm beat the default just outside the box,1.7042,1.749,4,3,0,0.0,3
+distractor_para,boundary:query,907,L39.lo.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,1.6475,1.6922,3,4,0,0.0,4
+distractor_para,boundary:query,907,L10.hi.lo,dense,expand,arm beat the default just outside the box,2.7894,2.8342,8,3,0,0.0,3
+distractor_para,boundary:query,908,L15.hi.hi.hi.lo.hi.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,2.6385,2.6236,4,6,1,0.1429,7
+distractor_para,boundary:query,908,L15.hi.hi.lo.hi.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,2.6385,2.6236,6,6,1,0.1429,7
+distractor_para,boundary:query,908,L141.hi.lo.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.7194,1.7045,3,6,1,0.1429,7
+distractor_para,boundary:query,908,L176.hi.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.7411,1.7261,2,6,1,0.1429,7
+distractor_para,boundary:query,916,L198.lo.lo.lo.lo,dense,retire,utility <= 0,,1.8036,8,4,0,0.0,5
+distractor_para,boundary:query,920,L278,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,920,L279,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,923,L15.hi.hi.hi.lo.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,2.6706,2.6706,11,8,4,0.2727,11
+distractor_para,boundary:query,923,L15.hi.hi.hi.lo.lo.lo,hybrid,split,4 exceptions; cut f:query_len_tokens at 13,,2.6706,11,8,4,0.2727,11
+distractor_para,boundary:query,923,L15.hi.hi.hi.lo.lo.lo.lo,hybrid,create,split of L15.hi.hi.hi.lo.lo.lo,,2.6259,7,0,0,0.0,0
+distractor_para,boundary:query,923,L15.hi.hi.hi.lo.lo.lo.hi,hybrid,create,split of L15.hi.hi.hi.lo.lo.lo,,2.6111,4,0,0,0.0,0
+distractor_para,boundary:query,923,L15.hi.hi.hi.lo.hi.hi,hybrid,retire,utility <= 0,,2.5962,5,5,0,0.0,5
+distractor_para,boundary:query,923,L15.hi.hi.lo.hi.hi,hybrid,retire,utility <= 0,,2.5962,5,5,0,0.0,5
+distractor_para,boundary:query,923,L141.hi.lo.hi,hybrid,retire,utility <= 0,,1.6853,5,5,0,0.0,5
+distractor_para,boundary:query,923,L176.hi.hi,hybrid,retire,utility <= 0,,1.7067,5,5,0,0.0,5
+distractor_para,boundary:query,923,L217.lo.lo,dense,retire,utility <= 0,,1.7975,4,5,0,0.0,5
+distractor_para,boundary:query,926,L15.hi.hi.hi.lo.hi.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,2.6104,2.5955,4,7,1,0.125,8
+distractor_para,boundary:query,926,L15.hi.hi.lo.hi.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,2.6104,2.5955,6,7,1,0.125,8
+distractor_para,boundary:query,926,L141.hi.lo.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.6981,1.6832,3,7,1,0.125,8
+distractor_para,boundary:query,926,L176.hi.lo.hi,hybrid,narrow,contradicted; cut f:query_len_tokens,1.7195,1.7046,2,7,1,0.125,8
+distractor_para,boundary:query,926,L217.lo.hi,dense,expand,arm beat the default just outside the box,1.7536,1.7685,4,2,0,0.0,2
+distractor_para,boundary:query,926,L198.lo.lo.hi.lo.lo.hi,dense,expand,arm beat the default just outside the box,1.7713,1.7862,5,3,0,0.0,3
+distractor_para,boundary:query,929,L198.lo.lo.lo.hi.hi,dense,expand,arm beat the default just outside the box,1.8452,1.8601,5,2,0,0.3333,3
+distractor_para,boundary:query,930,L198.lo.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8458,1.8458,9,5,1,0.2857,7
+distractor_para,boundary:query,930,L175.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8936,1.8936,16,5,1,0.2857,7
+distractor_para,boundary:query,931,L15.lo.hi.hi,hybrid,expand,arm beat the default just outside the box,2.7613,2.7613,6,6,2,0.3333,9
+distractor_para,boundary:query,931,L15.lo.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.7315,2.7613,9,5,2,0.3333,9
+distractor_para,boundary:query,931,L282,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,931,L283,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,932,L198.lo.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8468,1.8468,9,6,2,0.25,8
+distractor_para,boundary:query,932,L175.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8946,1.8946,16,6,2,0.25,8
+distractor_para,boundary:query,935,L8.lo.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.8269,2.8269,10,4,1,0.3333,6
+distractor_para,boundary:query,935,L198.lo.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8478,1.8478,9,7,3,0.2222,9
+distractor_para,boundary:query,935,L175.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8958,1.8958,16,7,3,0.2222,9
+distractor_para,boundary:query,935,L198.lo.lo.lo.hi.hi,dense,narrow,contradicted; cut f:query_cap_spans,1.8628,1.8628,5,5,0,0.1667,6
+distractor_para,boundary:query,936,L39.lo.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,1.7488,1.7488,7,9,4,0.25,12
+distractor_para,boundary:query,936,L197,hybrid,exception,contradicted; every cut loses a supporter,1.9509,1.9509,3,6,1,0.25,8
+distractor_para,boundary:query,936,L39.lo.hi.hi,hybrid,split,4 exceptions; cut f:query_len_tokens at 26,,1.7488,7,9,4,0.25,12
+distractor_para,boundary:query,936,L39.lo.hi.hi.lo,hybrid,create,split of L39.lo.hi.hi,,1.704,5,0,0,0.0,0
+distractor_para,boundary:query,936,L39.lo.hi.hi.hi,hybrid,create,split of L39.lo.hi.hi,,1.6444,2,0,0,0.0,0
+distractor_para,boundary:query,937,L15.lo.hi.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7665,2.7665,6,7,3,0.3,10
+distractor_para,boundary:query,937,L15.lo.hi.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.7665,2.7665,9,6,3,0.3,10
+distractor_para,boundary:query,938,L10.hi.lo,dense,retire,utility <= 0,,2.83,8,5,0,0.0,5
+distractor_para,boundary:query,939,L286,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,941,L8.lo.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.8318,2.8318,10,5,2,0.2857,7
+distractor_para,boundary:query,941,L198.lo.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8499,1.8499,9,8,4,0.2,10
+distractor_para,boundary:query,941,L175.lo.hi.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,1.8979,1.8979,16,8,4,0.2,10
+distractor_para,boundary:query,941,L198.lo.lo.hi.lo.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 13,,1.8499,9,8,4,0.2,10
+distractor_para,boundary:query,941,L198.lo.lo.hi.lo.lo.lo.lo,dense,create,split of L198.lo.lo.hi.lo.lo.lo,,1.8052,5,0,0,0.0,0
+distractor_para,boundary:query,941,L198.lo.lo.hi.lo.lo.lo.hi,dense,create,split of L198.lo.lo.hi.lo.lo.lo,,1.7903,4,0,0,0.0,0
+distractor_para,boundary:query,941,L175.lo.hi.lo.lo.lo,dense,split,4 exceptions; cut f:query_len_tokens at 13,,1.8979,16,8,4,0.2,10
+distractor_para,boundary:query,941,L175.lo.hi.lo.lo.lo.lo,dense,create,split of L175.lo.hi.lo.lo.lo,,1.8233,11,0,0,0.0,0
+distractor_para,boundary:query,941,L175.lo.hi.lo.lo.lo.hi,dense,create,split of L175.lo.hi.lo.lo.lo,,1.8233,5,0,0,0.0,0
+distractor_para,boundary:query,943,L198.lo.lo.lo.hi.hi,dense,exception,contradicted; every cut loses a supporter,1.8652,1.8652,5,6,1,0.1429,7
+distractor_para,boundary:query,947,L198.lo.lo.lo.hi.hi,dense,exception,contradicted; every cut loses a supporter,1.8668,1.8668,5,7,2,0.125,8
+distractor_para,boundary:query,947,L198.lo.lo.hi.lo.lo.hi,dense,retire,utility <= 0,,1.7921,5,5,0,0.0,5
+distractor_para,boundary:query,952,L217.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.9851,1.8982,4,5,0,0.1667,6
+distractor_para,boundary:query,953,L198.lo.lo.lo.hi.hi,dense,exception,contradicted; every cut loses a supporter,1.8652,1.8652,5,8,3,0.0,9
+distractor_para,boundary:query,953,L198.lo.lo.lo.hi.hi,dense,retire,utility <= 0,,1.8652,5,8,3,0.0,9
+distractor_para,boundary:query,953,L15.hi.hi.hi.lo.lo.lo.lo,hybrid,retire,utility <= 0,,2.6423,7,5,0,-0.2,5
+distractor_para,boundary:query,955,L39.lo.hi.hi.lo,hybrid,expand,arm beat the default just outside the box,1.7062,1.7511,6,3,0,0.0,3
+distractor_para,boundary:query,956,L15.lo.hi.hi,hybrid,expand,arm beat the default just outside the box,2.7785,2.8084,7,7,3,0.3,10
+distractor_para,boundary:query,956,L15.lo.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.7785,2.8084,10,6,3,0.3,10
+distractor_para,boundary:query,956,L8.lo.lo.lo.lo,dense,expand,arm beat the default just outside the box,2.8406,2.8705,11,5,2,0.2857,7
+distractor_para,boundary:query,956,L282,dense,expand,arm beat the default just outside the box,2.0052,2.0246,2,1,0,0.0,1
+distractor_para,boundary:query,956,L283,hybrid,expand,arm beat the default just outside the box,2.0052,2.0246,2,1,0,0.0,1
+distractor_para,boundary:query,956,L198.lo.lo.hi.lo.lo.lo.lo,dense,expand,arm beat the default just outside the box,1.8063,1.8363,6,2,0,-0.5,2
+distractor_para,boundary:query,956,L175.lo.hi.lo.lo.lo.lo,dense,expand,arm beat the default just outside the box,1.8245,1.8545,12,2,0,-0.5,2
+distractor_para,boundary:query,956,L291,hybrid,create,"default missed, hybrid hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,959,L39.lo.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,1.6915,1.7364,4,4,0,0.0,4
+distractor_para,boundary:query,959,L286,dense,expand,arm beat the default just outside the box,2.0015,2.0412,3,1,0,0.5,2
+distractor_para,boundary:query,960,L217.lo.hi,dense,retire,utility <= 0,,1.7743,4,5,0,0.0,5
+distractor_para,boundary:query,962,L8.lo.lo.lo.lo,dense,exception,contradicted; every cut loses a supporter,2.8743,2.8743,11,6,3,0.125,8
+distractor_para,boundary:query,962,L198.lo.lo.lo.hi.lo,dense,exception,contradicted; every cut loses a supporter,1.7129,1.7129,5,5,1,0.0,6
+distractor_para,boundary:query,962,L175.lo.hi.lo.lo.lo.hi,dense,narrow,contradicted; cut f:query_len_tokens,1.8254,1.8105,6,5,0,0.0,6
+distractor_para,boundary:query,962,L198.lo.lo.lo.hi.lo,dense,retire,utility <= 0,,1.7129,5,5,1,0.0,6
+distractor_para,boundary:query,962,L198.lo.lo.hi.lo.lo.lo.hi,dense,retire,utility <= 0,,1.7923,5,4,0,0.0,5
+distractor_para,boundary:query,962,L175.lo.hi.lo.lo.lo.hi,dense,retire,utility <= 0,,1.8105,6,5,0,0.0,6
+distractor_para,boundary:query,963,L282,dense,expand,arm beat the default just outside the box,2.026,2.0806,3,1,0,0.0,1
+distractor_para,boundary:query,963,L198.lo.lo.hi.lo.lo.lo.lo,dense,retire,utility <= 0,,1.8378,7,4,0,-0.2,5
+distractor_para,boundary:query,963,L175.lo.hi.lo.lo.lo.lo,dense,retire,utility <= 0,,1.856,13,4,0,-0.2,5
+distractor_para,boundary:query,964,L39.lo.hi.hi.lo,hybrid,retire,utility <= 0,,1.7533,6,5,0,0.0,5
+distractor_para,boundary:query,968,L286,dense,exception,contradicted; every cut loses a supporter,2.0444,2.0444,3,5,1,0.1667,6
+distractor_para,boundary:query,969,L142.lo.lo,dense,retire,utility <= 0,,1.7518,5,4,0,0.0,5
+distractor_para,boundary:query,971,L15.hi.hi.hi.lo.lo.hi,hybrid,exception,contradicted; every cut loses a supporter,2.6696,2.6696,8,7,3,0.2222,9
+distractor_para,boundary:query,972,L217.hi,dense,exception,contradicted; every cut loses a supporter,1.903,1.903,5,6,1,0.25,8
+distractor_para,boundary:query,974,L286,dense,exception,contradicted; every cut loses a supporter,2.0463,2.0463,3,6,2,0.1429,7
+distractor_para,boundary:query,975,L15.hi.hi.hi.lo.lo.lo.hi,hybrid,retire,utility <= 0,,2.6431,4,5,0,0.0,5
+distractor_para,boundary:query,976,L15.lo.hi.hi,hybrid,expand,arm beat the default just outside the box,2.8228,2.8528,8,7,3,0.3,10
+distractor_para,boundary:query,976,L15.lo.hi.lo.hi,hybrid,expand,arm beat the default just outside the box,2.8228,2.8528,11,6,3,0.3,10
+distractor_para,boundary:query,976,L282,dense,expand,arm beat the default just outside the box,2.0847,2.0997,4,2,0,0.0,2
+distractor_para,boundary:query,976,L283,hybrid,expand,arm beat the default just outside the box,2.03,2.06,3,2,0,0.0,2
+distractor_para,boundary:query,976,L292,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0
+distractor_para,boundary:query,980,L286,dense,exception,contradicted; every cut loses a supporter,2.0483,2.0483,3,7,3,0.125,8
+distractor_para,boundary:query,981,L153.lo.lo,hybrid,exception,contradicted; every cut loses a supporter,1.8213,1.8213,4,4,1,0.3333,6
+distractor_para,boundary:query,981,L286,dense,exception,contradicted; every cut loses a supporter,2.0486,2.0486,3,8,4,0.1111,9
+distractor_para,boundary:query,981,L39.lo.hi.lo.hi,hybrid,retire,utility <= 0,,1.742,4,5,0,0.0,5
+distractor_para,boundary:query,981,L286,dense,split,4 exceptions; cut f:query_cap_spans at 1,,2.0486,3,8,4,0.1111,9
+distractor_para,boundary:query,981,L286.lo,dense,create,split of L286,,1.9485,3,0,0,0.0,0
+distractor_para,boundary:query,982,L65,dense,expand,arm beat the default just outside the box,1.8771,1.9157,3,7,1,0.125,8
+distractor_para,boundary:query,982,L204,dense,expand,arm beat the default just outside the box,2.0522,2.1247,3,4,0,0.0,4
+distractor_para,boundary:query,982,L274,dense,expand,arm beat the default just outside the box,2.0041,2.0453,2,0,0,0.0,0
+distractor_para,boundary:query,982,L275,hybrid,expand,arm beat the default just outside the box,2.0041,2.0453,2,0,0,0.0,0
+distractor_para,boundary:query,982,L294,dense,create,"default missed, dense hit",,2.0,1,0,0,0.0,0

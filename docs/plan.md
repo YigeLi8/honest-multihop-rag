@@ -373,10 +373,14 @@ EM beside +27 retrieval_correct).
       for every arm rather than a different arm winning (hit-to-miss bm25 48
       against 0, dense 65 against 0, hybrid 55 against 1). The alias twin
       changes 15% of 54 pairs, too few to read. The twin set is a harder
-      subset: comparison questions get no distractor twin. Musique gets no
-      twins as the builder stands (it takes titles from the chunk id, and
-      musique ids are `p{idx}::{title}`). Within-template pairs on 2wiki
-      are not written yet.
+      subset: comparison questions get no distractor twin. Rebuilt on 5 Oct
+      with the sorted builder: 31.8% of pairs (164 against 1; bm25 47 / 0,
+      dense 65 / 0, hybrid 52 / 1), alias unchanged. Musique twins exist
+      since 5 Oct (`results/musique_twins.csv`, 484 distractor_para of the
+      first 500, no alias kind): an outcome changes on 13.4% of pairs (74
+      against 9; bm25 24 / 3, dense 17 / 0, hybrid 33 / 6, p < 1e-4 each),
+      between hotpot and 2wiki; details under Stage 5. Within-template pairs
+      on 2wiki are not written yet.
 
 ### Stages 2-4: the baselines
 
@@ -461,9 +465,23 @@ EM beside +27 retrieval_correct).
       named misses have no gold chunk in the top-10 at all, which is why
       total_miss is empty, and 120 of the 537 near misses sit in pools of 20
       chunks or fewer, where the 2k window is the whole pool. No audit
-      sample for 2wiki. The typing is not usable on musique yet: `paragraph_of`
-      takes the part of the chunk id before `::`, which on musique is
-      `p{idx}`, so the named-miss rule can never fire there.
+      sample for 2wiki. Until 5 Oct the typing was not usable on musique:
+      `paragraph_of` took the part of the chunk id before `::`, which on
+      musique is `p{idx}`, so the named-miss rule could never fire there.
+      Musique, bm25 k=5 over 20-paragraph pools, full dev
+      (`results/musique_failure_types.csv`, Mac, 5 Oct): 1990 failures of
+      2417, of which 466 near misses, 369 named, 1018 bridge, 137 total.
+      Recovery differs by type as on the other two (near 52%, named 18%,
+      bridge 23%, total 18%; chi-square over type x recovering arm 339 on
+      9 dof, p ~ 1e-67) and dense does the recovering for every type (25%
+      of all failures against hybrid's 16%); hybrid alone adds 41 near
+      misses, 7 named, 16 bridge and 1 total. The shares mean something
+      different here: bridge misses are half the failures (against a quarter
+      on hotpot and 2wiki) because compositional musique questions rarely
+      name a gold paragraph, and total_miss is populated (137 against 5 and
+      0) because the 2k = 10 window is half the pool and a question whose
+      gold is all outside the top-5 and unnamed falls through to it; 72% of
+      failures are recovered by no arm. No audit sample for musique either.
 - [ ] 4. static conditions: a fixed predicate per lesson, and the same as
       prose read by the generator; if a fixed rule captures most of the
       best-arm ceiling, stop here and report that. CAVE-Mem (paper log,
@@ -474,8 +492,11 @@ EM beside +27 retrieval_correct).
 
 ### Stage 5: boundaries that revise themselves (the claim under test)
 
-- [ ] per-lesson applicability model (predicate, then logistic / small tree),
-      decide-then-reveal online protocol, K=5 seeded stream orders. The
+- [x] per-lesson applicability model (predicate, then logistic / small tree),
+      decide-then-reveal online protocol, K=5 seeded stream orders. Built,
+      run on all three datasets with the paired contrasts and the
+      shuffled-reveal control (5 Oct), and the claim fails as stated; the
+      numbers follow. The
       protocol and every policy of the table are in `src/memory/stream.py`,
       run on the hop-0 records of an arms log: a policy reads the features
       of its stage (query / pool / primary_hits, the last meaning bm25 has
@@ -608,6 +629,53 @@ EM beside +27 retrieval_correct).
       that are not frozen process statistics, and qtype taken out of the
       query-stage features (it is dataset annotation, and on musique and
       2wiki it carries difficulty).
+      The 2wiki twin stream rebuilt on the Mac (5 Oct) with the sorted
+      twin builder (435 twins again, a few distractor_para twins pick other
+      sentences; `results/2wiki_twin_stream.csv`, 192.2 pairs per order,
+      60.6 changed, 251 distinct unchanged and 120 distinct changed pairs)
+      and the pooled columns. On unchanged pairs the text key is the oracle
+      (0.384) and above always-dense (0.352) by +0.028 (paired bootstrap
+      0.008 to 0.052); nothing else is, apart from probe at cost 3. On
+      changed pairs the pooled test settles the per-order caution:
+      always-dense beats repeating the old arm by +0.133 (0.058 to 0.208),
+      as do the routers and knn at every stage (router:query +0.122, knn20
+      +0.137, lower bounds 0.002 to 0.058), while the radius-2 boundary
+      memories do not separate from repeat (boundary:query:r2 +0.045, -0.029
+      to 0.119). Against always-dense on changed pairs no cost-matched
+      policy's interval excludes zero upward (largest knn20:query +0.004,
+      -0.011 to 0.025); 29 of 44 rows are below it, every boundary memory
+      among them (boundary:query:r2 -0.088, -0.139 to -0.041), and the text
+      keys at -0.133 (-0.208 to -0.058). `repeat_best` answers the caution
+      about the repeat rule: started from dense instead of bm25 the
+      repeated arm gets 0.311 on changed pairs against always-dense 0.302
+      and the oracle 0.391 (a rate, no paired column), so the surface key's
+      loss on 2wiki changed pairs is its bm25 starting point, and the text
+      rows in the table still test the bm25-started rule. Alias: 8 distinct
+      changed pairs, nothing to read.
+      Musique twins (first ones, 5 Oct, `results/musique_twins.csv`,
+      `results/musique_twin_stream.csv`): 484 distractor_para twins of the
+      first 500 questions, no alias kind (the alias rules read a
+      paragraph's first sentence, which a paragraph pool does not have; the
+      builder refuses them there now, after giving four, two wrong). The
+      builder also skips a candidate whose text is already in the pool: on
+      musique the same paragraph recurs across pools under different
+      p{idx} ids, so the id check alone had let 54 of 484 twins add a copy
+      of their own gold paragraph as a distractor. The twin changes some
+      arm's outcome on 13.4% of pairs (74 hit-to-miss against 9
+      miss-to-hit; bm25 24 / 3, dense 17 / 0, hybrid 33 / 6, McNemar p <
+      1e-4 each), between hotpot's 14.5% and 2wiki's 31.8%, harder for
+      every arm as elsewhere. The twin stream (233.4 pairs per order, 31.6
+      changed; 403 distinct unchanged, 64 changed): on unchanged pairs the
+      text key is the oracle (0.261) and above always-dense (0.202) by
+      +0.055 (0.035 to 0.077), about half of hotpot's lead, with the
+      routers and knn at 0.20-0.22 and the boundary memories at 0.15-0.20;
+      on the 64 changed pairs the intervals are 0.06 to 0.31 wide and only
+      probe separates from always-dense (repeat 0.284, always-dense 0.353,
+      knn20:query 0.384 at +0.014 with -0.063 to 0.095, oracle 0.505), so
+      the changed half is as underpowered as hotpot's. The twin streams
+      carry the shuffled control too and no pair is under 0.05 (musique p
+      0.11-1.0, 2wiki 0.34-1.0). The hotpot twin table predates the
+      `repeat_best` and pooled columns.
       5 Oct, hotpot rebuilt here (bm25s 0.3.10 on linux replays the
       committed arms trace on 1500 of 1500 hops, and every cell of the
       committed table reproduces), with the paired contrasts the table
@@ -644,9 +712,62 @@ EM beside +27 retrieval_correct).
       marginal rates (how often it leaves bm25, and for which arm) and
       nothing from the pairing of situation with outcome, which is what
       Stage 1b's "no region where one arm reliably beats another" predicts,
-      now at the level of the policies rather than of an AUC. The control
-      goes onto musique and 2wiki when their logs are next rebuilt on the
-      Mac
+      now at the level of the policies rather than of an AUC.
+      Musique and 2wiki with the same columns (Mac, 5 Oct, from the 4 Oct
+      arms logs; every rate of the 4 Oct paragraph above reproduces, the
+      revision logs byte for byte). Against always-dense nothing is above
+      it on either dataset. On musique the routers, knn and the best lesson
+      memory are within noise of it (router:query -0.007, largest p over
+      the orders 0.29; utility:query:r2 -0.005, p 0.52, firing on 2278 of
+      2417), every boundary memory is 4-7 points below (p < 1e-4 each), the
+      +lr rows 6-13 below and the static rules 10 below. On 2wiki no
+      learned policy is within noise at 0.05: the closest is utility:query:r2
+      at -0.008 (p 0.049; 4.6 questions it gets against 16.2 only dense
+      gets), the routers and knn are -0.017 to -0.029 (p <= 0.014), the
+      boundary memories -0.056 to -0.164, the rules -0.18. Inside the nine
+      utility / boundary pairs per dataset, removing the operators raises
+      the rate at radius 2 at every stage on both (musique +0.053 to +0.063
+      at query, +0.043 pool, +0.022 primary_hits, p <= 0.0009; 2wiki +0.068
+      to +0.076, +0.028, +0.020, p <= 0.018), is level at radius 1 at the
+      pool stage (p 0.78 and 0.57), and lowers it at radius 1 at
+      primary_hits (-0.052 and -0.027, p <= 0.0006) and in every +lr pair
+      (musique -0.044 / -0.038 / -0.036, p <= 0.027; 2wiki -0.047 to
+      -0.087, p < 1e-4); the two hotpot cells that were not separable
+      (primary_hits r2, +lr primary_hits) separate here in the direction of
+      the hotpot point estimates. Every row the operators raise is 6-16
+      points under always-dense, and in all 18 pairs the member that fires
+      more has the higher rate. The shuffled-reveal control says what it
+      said on hotpot: no learned policy separates from the copy told the
+      wrong question's outcomes. Musique, real / shuffled: router:query
+      0.319 / 0.310 (p 0.25), knn 0.316 / 0.300 (0.94), utility:query:r2
+      0.321 / 0.319 (0.71), boundary:query:r2 0.258 / 0.251 (0.65); pool and
+      primary_hits differ by 0.002 to 0.020 with p 0.39-1.0, except
+      boundary:primary_hits:r2 at 0.283 / 0.266 (p 0.041 on all five
+      orders), which is one pair of 24 and sits 4.2 points under
+      always-dense and 2.2 under its operators-off pair. 2wiki: eight
+      shuffled copies are below the real policy (-0.001 to -0.026) and four
+      above (+0.002 to +0.005), smallest p 0.35; utility:query:r2 real 0.566
+      against shuffled 0.567. One difference from hotpot: on musique the
+      shuffled boundary memory fires about as often (n_fired within 6%) but
+      creates 17-43% fewer lessons and logs 20-55% fewer exceptions than
+      the real one (1201 against 1450 at the query stage); on 2wiki it
+      creates and revises about as many (1545 against 1339). I have not
+      traced why. False application of every firing utility / boundary row
+      is 0.725-0.790 on musique and 0.682-0.741 on 2wiki against 0.793 and
+      0.742 for a blanket switch to dense (from the fixed:dense row's
+      discordant counts), the lowest being the rows that fire least, and
+      harm 0.045-0.061 against 0.058 and 0.045. Nothing out-learns fixed
+      dense on the second half (musique 0.1532 against 0.1538, 2wiki
+      0.2109 against 0.2115), and the shuffled copies gain as much on the
+      second half as the real ones, so that gain is the cold start. So the
+      claim fails as stated on all three datasets, with the same shape each
+      time: no region of the frozen feature space where one arm reliably
+      beats another (Stage 1b), policies whose rate is how often they leave
+      the default (the pairs), and nothing read from which outcome went
+      with which situation (the shuffled control). Levels are not
+      comparable across datasets (musique is the full dev at top-5 of 20
+      paragraphs, the others positions 0-1499 at top-10 of sentence pools);
+      the shapes and signs are
 - [x] operators narrow / expand / exception / split / retire with a revision
       log; never overwrite silently. `LessonMemory(revise=True)` in
       `stream.py`: narrow pulls one box edge to just inside a contradicting
@@ -670,8 +791,9 @@ EM beside +27 retrieval_correct).
       log, 2026-10-01). All but the drift are rows of `hotpot_stream.csv`
       (numbers above): the query-only router equals the primary-hits router
       (0.622 vs 0.619), and the no-persistence rules are the `rule:` rows.
-      The musique and 2wiki tables have the same rows. Drift is not written
-      yet; the musique and 2wiki logs it needs are on the Mac now
+      The musique and 2wiki tables have the same rows, with the paired
+      columns and the shuffled control since 5 Oct. Drift is not written
+      yet; the musique and 2wiki logs it needs are on the Mac
 - [x] metrics: repeated-failure rate, false application, false rejection,
       boundary precision / recall against the known best arm, adaptation
       speed, revision rate, regret, retrieval cost. Every rate that
@@ -691,7 +813,7 @@ EM beside +27 retrieval_correct).
       more, the lesson memories 0.6-3.7 more at the box radius and less or
       nothing with the per-lesson logistic (utility+lr 0.020 -> 0.001). The
       rebuilt linux log reproduces every cell of the committed table
-- [ ] ablation: remove the operators and the log, keep the features; if
+- [x] ablation: remove the operators and the log, keep the features; if
       nothing changes, the structure is decoration. Done as the `utility`
       against `boundary` pairs at every stage and radius, and `utility+lr`
       against `boundary+lr`: on hotpot removing the operators does not
@@ -713,8 +835,16 @@ EM beside +27 retrieval_correct).
       more questions has the higher rate, so this ablation measures how
       often a memory leaves bm25 more than where it puts the boundary, and
       the rows where the operators help are all well under the best fixed
-      arm. What the tables support is "no evidence the structure helps",
-      and no pair has a paired test of its own yet
+      arm. What the tables support is "no evidence the structure helps".
+      With the pair tests on all three datasets (5 Oct, numbers under the
+      first Stage 5 item): removing the operators raises the rate at radius
+      2 at every stage on every dataset (p <= 0.018 everywhere, the hotpot
+      primary_hits cell p 0.18), is level at radius 1 at the pool stage
+      (p 0.18-0.78), lowers it at radius 1 at primary_hits (p <= 0.018)
+      and in every +lr pair (p <= 0.027, hotpot primary_hits p 0.32), and
+      every row the operators raise is 5-16 points under the best fixed
+      arm. The reading stands and is now tested: the operators change how
+      often a lesson fires, not where one arm beats another
 
 ### Stage 6-7, only if Stage 5 shows something
 
@@ -730,8 +860,8 @@ EM beside +27 retrieval_correct).
       typing never named a paragraph there and `make_twins` yielded no
       musique twins. Fixed 5 Oct: `paragraph_of` reads the title from
       either id form and the twin builder uses it. The musique failure
-      table and twins are not rebuilt yet (the musique arms log is on the
-      Mac); the hotpot and 2wiki tables are unchanged by it
+      table and twins were built on the Mac on 5 Oct (Stage 3 and Stage 5
+      above); the hotpot and 2wiki tables are unchanged by it
 - [x] `make_twins` iterated a set of tokens before its seeded tie-break, so
       the twin file depended on PYTHONHASHSEED. The three iterations are
       sorted now, and the hotpot twins of the first 500 questions are
@@ -740,8 +870,26 @@ EM beside +27 retrieval_correct).
       `hotpot_twins_para.csv` that is one distractor_para twin short (365
       there); whether a twin exists does not depend on the order, so the
       difference is in the dev file this machine prepared from the hf
-      mirror, not in the sort. The 2wiki twins can only be rebuilt on the
-      Mac
+      mirror, not in the sort. The 2wiki twins were rebuilt on the Mac on
+      5 Oct: the sorted builder gives the same 435 twins under PYTHONHASHSEED
+      0 and 7 but not the 4 Oct file (a few distractor_para twins draw other
+      sentences inside a tie), so the twin arms log, `results/2wiki_twins.csv`
+      and the twin stream were rebuilt from it; the 4 Oct twins file and
+      arms log are kept outside the repo
+- [x] `make_twins` checked a distractor candidate against the pool by chunk
+      id only. Musique pools repeat the same paragraph under different
+      p{idx} ids, so 54 of the 484 musique distractor_para twins carried a
+      byte-identical copy of their own gold paragraph as a distractor, and
+      retrieving it counted as a miss. Since 5 Oct a candidate is skipped
+      when its id or its text is already in the pool; hotpot and 2wiki twins
+      of the first 500 questions are byte-identical before and after. The
+      alias twin is refused on paragraph pools (its rules read the sent_idx
+      0 chunk, which on musique is whatever paragraph sits at pool position
+      0: four musique aliases, two of them wrong). `run_qa`'s paragraph
+      recall on a musique twins log is not reliable either: it maps musique
+      ids to `p{idx}`, and the added paragraphs keep their source index, so
+      a distractor `p9::Other` counts as gold paragraph `p9`; every twin
+      table uses all_gold_in_topk on chunk ids, which is unaffected
 - [x] `stream.py`: gains and tests were against the bm25 default only. Now
       every row carries the same paired contrast against the best fixed
       arm (`best_fixed`, `gain_vs_best`, `p_vs_best_max`), each utility /
@@ -763,6 +911,9 @@ EM beside +27 retrieval_correct).
 - [ ] 48 of the first 1500 2wiki pools hold one paragraph twice (same chunk
       ids), so a bm25 or dense top-10 can carry a repeated id there
 - [ ] induced drift and the 2wiki within-template pairs are not written
+- [ ] on musique the shuffled boundary memory creates 17-43% fewer lessons
+      than the real one while firing as often; on hotpot and 2wiki it
+      creates about as many. Not traced
 
 ## Writing
 
