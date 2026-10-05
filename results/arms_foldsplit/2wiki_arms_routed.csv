@@ -1,0 +1,15 @@
+stage,n_features,routed,best_single,oracle,gain,gain_sd,n_splits
+size,3,0.575,0.575,0.626,0.0,0.0,1
+qtype,4,0.575,0.575,0.626,0.0,0.0,1
+query,4,0.575,0.575,0.626,0.0,0.0,1
+pool,9,0.574,0.575,0.626,-0.001,0.0,1
+primary_hits,19,0.573,0.575,0.626,-0.002,0.0,1
+probe,23,0.569,0.575,0.626,-0.006,0.0,1
+question_knn5,5,0.557,0.575,0.626,-0.018,0.0,1
+question_knn20,20,0.571,0.575,0.626,-0.004,0.0,1
+question_knn5_discordant,5,0.57,0.575,0.626,-0.005,0.0,1
+question_knn20_discordant,20,0.575,0.575,0.626,0.0,0.0,1
+question_dense_knn5,5,0.559,0.575,0.626,-0.016,0.0,1
+question_dense_knn20,20,0.572,0.575,0.626,-0.003,0.0,1
+question_dense_knn5_discordant,5,0.568,0.575,0.626,-0.007,0.0,1
+question_dense_knn20_discordant,20,0.575,0.575,0.626,0.0,0.0,1

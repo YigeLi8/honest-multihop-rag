@@ -7,7 +7,7 @@ pyyaml
 tqdm
 
 # retrieval
-bm25s
+bm25s==0.3.10          # the Mac's version, which the Mac traces were made with; the linux runs on 0.3.11 / 0.3.12 ordered ties differently
 torch                  # MPS backend for embeddings + reranker
 sentence-transformers  # BGE embeddings + CrossEncoder reranker
 faiss-cpu

@@ -1,0 +1,6 @@
+arm,n,rate,regret,regret_lo,regret_hi,best_single
+bm25,1500,0.5053,0.2287,0.2073,0.25,False
+dense,1500,0.6173,0.1167,0.1007,0.1327,False
+hybrid,1500,0.634,0.1,0.0853,0.1153,True
+oracle,1500,0.734,0.0,0.0,0.0,False
+all_arms,1500,0.4067,0.3273,,,False
