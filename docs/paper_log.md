@@ -3,6 +3,60 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-10-05
+
+Listings read in full (cs.IR 17, cs.CL 185, cs.AI 402 entries); about
+thirty abstract pages checked, the closest read in full.
+
+- Ji, Lu, Zhang and Olukotun 2026, Sentry (arXiv 2610.02994). Failure
+  lessons are conditional knowledge: kept in the agent's context they
+  misfire where their failure is absent (a frozen playbook as background
+  context lowers WebShop reward 0.364 -> 0.296 and Mind2Web Replay 0.651 ->
+  0.599), so the playbook stays outside the context and a lesson is exposed
+  only when a rule-based detector over the last five reason-act-observe
+  cycles sees a failure of its type (progress: repetition, stall;
+  reasoning / grounding: unsupported claim, action-reasoning mismatch).
+  Retrieval is a predicate, not an embedding: same failure type, at least
+  one shared retrieval label, ranked by label overlap, k=5, falling back to
+  the most recent entries of the type. A lesson (type, labels, trigger
+  pattern, repair principle) is written only after a recovery judged from
+  the next ten cycles without task reward; nothing is revised, narrowed or
+  retired after admission. WebShop, AppWorld, SWE-bench Lite, Mind2Web
+  Replay, online from scratch; +37% over the best runtime-intervention
+  baseline, +39% over ACE where both run. This is the typed-trigger half of
+  my failure memory (Stage 3) with the condition "the failure is present
+  now" fixed in advance and never learned; the control they run (the whole
+  playbook always visible) is the unconditioned baseline I should also
+  have: every lesson exposed to a shared router, no per-lesson region. The
+  gap they leave is the one under test here, whether the region a lesson
+  applies in can be revised from later outcomes; cite as the strongest case
+  that exposure conditions matter at all.
+- Liu et al. 2026, Action Calibration (arXiv 2610.02769). Within one task,
+  agents gain from interaction history even when the past actions are
+  shuffled, and breaking the action-observation correspondence costs
+  little, so the history is used as context and not as experience.
+  Labelling each observation as the outcome of its action helps on its
+  own; a learned calibrator then reassesses past actions and records only
+  some of them. The point for me is the selective write: an experience
+  that is kept is a decision, and a memory evaluation needs the
+  shuffled-history control (does the policy use which past outcome went
+  with which situation, or only that there were past outcomes). On the
+  stream that is a permutation of the revealed outcomes across questions
+  before they enter a lesson; a policy that does as well on shuffled
+  reveals is not learning applicability. Add it as a control row.
+
+Seen and set aside: 2610.02687 GraphMemory (strategies as a graph,
+subgraph retrieved per query, token cost is the claim), 2610.02945
+(Continual Graph Memory for a maths agent: negative findings recalled with
+a scope, no learning of the scope), 2610.02932 PACE (when to compile a
+repeated GUI procedure into a program, an online payback rule), 2610.02361
+SEDIMA (insight memory across evolutionary-search runs), 2610.03190 Nautil
+(when the evidence suffices to close a case, with an evidence-removal
+control), 2610.03020 DyadMem, 2609.38021 (an audit of a long-term-memory
+evaluation: reader variation and gains concentrated where the baseline
+lacked evidence; no untouched holdout), 2610.02070 Causal Memory Policy
+(already in the 2 Oct entry; cross-listed again).
+
 ## 2026-10-02
 
 Listings read in full (cs.IR 24, cs.CL 280, cs.AI 568 entries); twenty
