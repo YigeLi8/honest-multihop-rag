@@ -113,7 +113,8 @@ decode and mostly prefill; per-step decode is 32.8 and 60.9 tok/s. What is
 left for the README rewrite: the bullets still quote the old column, the
 pareto x axis still says throughput, and the `tokens_per_s` that run_qa logs
 counts n tokens over n-1 steps (43-45% high on five-token answers), which the
-runner's field comment does not say. A small graph arm moves to Part B as one of the retrieval strategies.
+runner's field comment does not say. A small graph arm moves to Part B as
+one of the retrieval strategies.
 
 ## Part B: experience memory (`experience-memory`)
 
