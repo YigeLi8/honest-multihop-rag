@@ -1028,6 +1028,24 @@ def test_make_twins():
     assert p["question"] == shellite["question"] and p["gold_chunk_ids"] == shellite["gold_chunk_ids"]
     assert "q0::twin:distractor_para" not in kinds and "q2::twin:distractor_para" not in kinds
     assert counts[("distractor_para", "bridge_paragraph")] == 1
+    # musique-style ids (p{idx}::{title}): the gold titles are read from the
+    # second part, so the bridge is found and the record gets its twins
+    def musique_record(id, question, chunks, gold):
+        return {"id": id, "question": question, "answer": "x", "hops": 2,
+                "chunks": [{"chunk_id": f"p{n}::{t}", "title": t, "sent_idx": -1, "text": s}
+                           for n, (t, s) in enumerate(chunks)], "gold_chunk_ids": gold}
+    m_shellite = musique_record("m1", shellite["question"],
+                                [(c["title"], c["text"]) for c in shellite["chunks"][::2]],
+                                ["p0::Shellite (explosive)", "p1::Picric acid"])
+    m_laleli = musique_record("m2", laleli["question"],
+                              [(c["title"], c["text"]) for c in laleli["chunks"]],
+                              ["p0::Laleli Mosque", "p1::Esma Sultan Mansion"])
+    assert bridge_titles(m_shellite) == ["Picric acid"]
+    m_twins, m_counts = make_twins([m_shellite, m_laleli], n_distractors=2, seed=1)
+    m_kinds = {t["id"]: t for t in m_twins}
+    assert "m1::twin:distractor_para" in m_kinds and "m1::twin:distractor" in m_kinds
+    assert m_kinds["m1::twin:distractor_para"]["twin_change"]["added"] == ["p5::Formula One"]
+    assert m_counts[("distractor_para", "bridge_paragraph")] == 1
     only_alias, c2 = make_twins([scott, shellite, laleli], kinds=("alias",))
     assert {t["twin_kind"] for t in only_alias} == {"alias"} and sum(c2.values()) == 2
     try:
@@ -1167,6 +1185,16 @@ def test_failure_typing():
     # the stub record without gold_ranks still gets a type
     stub = dict(deep, hop_outcome={"all_gold_in_topk": False, "gold_hit_ids": ["Book X::0"], "n_gold": 2})
     assert failure_type(stub) == "bridge_miss"
+    # musique ids carry the title after the paragraph index, so the named
+    # rule reads it from there; hotpot and 2wiki ids keep the title first
+    from src.memory.failures import paragraph_of
+    assert paragraph_of("Book X::0") == "Book X" and paragraph_of("Book X (novel)::12") == "Book X (novel)"
+    assert paragraph_of("p7::Book X") == "Book X" and paragraph_of("p12::Author Y") == "Author Y"
+    assert paragraph_of("p7::Book X::0") == "Book X::0"    # a musique title with a colon pair is kept
+    assert paragraph_of("p7") == "p7"
+    musique = record("musique", q, ["p1::Author Y", "p2::D"], ["p1::Author Y"],
+                     {"p0::Book X": [9, 0.1], "p1::Author Y": [1, 3.0]}, k=2)
+    assert failure_type(musique) == "named_miss"                        # was bridge_miss before 5 Oct
 
 
 def stream_table(n=400, seed=7):
@@ -1393,6 +1421,145 @@ def test_twin_stream():
     assert "n_pairs" not in plain.columns
 
 
+def test_stream_best_arm_pair_and_shuffled_controls():
+    """The paired column against the best fixed arm, the paired test inside
+    each utility / boundary pair, the shuffled-reveal control and the pooled
+    twin test (docs/plan.md, Stage 5, the open items of 4 Oct)."""
+    import math
+    import numpy as np
+    import pandas as pd
+    from src.memory.stream import (FixedArm, LessonMemory, OnlineRouter, ShuffledReveal,
+                                   TextMemory, best_fixed_arm, evaluate, make_stream, pair_of,
+                                   pooled_twin_test, run_stream, seeded_orders, text_policies,
+                                   twin_metrics, twin_pairs, twin_rows, with_twins)
+    table = stream_table()
+    # the best fixed arm is read off the table, ties to the default
+    assert best_fixed_arm(table, "primary") in ("primary", "other", "third")
+    rates = {a: table[f"arm:{a}"].mean() for a in ("primary", "other", "third")}
+    assert rates[best_fixed_arm(table, "primary")] == max(rates.values())
+    tied = table.copy()
+    tied["arm:other"] = tied["arm:primary"]
+    tied["arm:third"] = 0.0
+    assert best_fixed_arm(tied, "primary") == "primary"
+
+    # pair_of: the operators toggled, everything else the same
+    assert pair_of("utility:query:r2") == "boundary:query:r2"
+    assert pair_of("boundary:pool") == "utility:pool"
+    assert pair_of("utility+lr:primary_hits:r2") == "boundary+lr:primary_hits:r2"
+    assert pair_of("shuffled:boundary:query:r2") == "shuffled:utility:query:r2"
+    assert pair_of("router:query") is None and pair_of("fixed:primary") is None
+
+    # the shuffled control: the same decisions scored on the true outcomes,
+    # the reveals a permutation of the outcome rows. On the planted table
+    # the boundary memory learns the region unshuffled and nothing shuffled
+    order = seeded_orders(len(table), [13])[0]
+    s = make_stream(table, "primary_hits", order, seed=13)
+    assert s.seed == 13
+    plain = run_stream(s, LessonMemory(s, "primary", "primary_hits", revise=True, radius=2.0,
+                                       warmup=20))
+    ctrl = ShuffledReveal(s, "primary", LessonMemory(s, "primary", "primary_hits", revise=True,
+                                                     radius=2.0, warmup=20))
+    assert ctrl.name == "shuffled:boundary" and ctrl.stage == "primary_hits"
+    assert sorted(ctrl.perm) == list(range(len(table)))
+    shuf = run_stream(s, ctrl)
+    fixed = run_stream(s, FixedArm(s, "primary", "primary"))
+    assert plain.hit[200:].mean() > 0.8
+    assert shuf.hit.mean() < plain.hit.mean() - 0.1
+    # a policy that only learns the base rates is unaffected: the router at
+    # the query stage, where the features are constants, lands in the same
+    # place shuffled or not, since the marginal hit of every arm is unchanged
+    q = make_stream(table, "query", order, seed=13)
+    r_plain = run_stream(q, OnlineRouter(q, "primary", "query", warmup=50))
+    r_shuf = run_stream(q, ShuffledReveal(q, "primary", OnlineRouter(q, "primary", "query",
+                                                                      warmup=50)))
+    assert abs(r_plain.hit.mean() - r_shuf.hit.mean()) < 0.05
+    assert shuf.log is ctrl.inner.log and shuf.state == ctrl.inner.lesson_state()
+    del fixed
+
+    # the summary: the columns against the best fixed arm and inside each pair
+    summary, _ = evaluate(table, "primary", seeds=[13, 17],
+                          policies=[("utility:primary_hits:r2", "primary_hits",
+                                     lambda st, d: LessonMemory(st, d, "primary_hits", False,
+                                                                radius=2.0,
+                                                                label="utility:primary_hits:r2")),
+                                    ("boundary:primary_hits:r2", "primary_hits",
+                                     lambda st, d: LessonMemory(st, d, "primary_hits", True,
+                                                                radius=2.0,
+                                                                label="boundary:primary_hits:r2"))],
+                          shuffled=True)
+    row = summary.set_index("policy")
+    best = best_fixed_arm(table, "primary")
+    assert (summary["best_fixed"] == best).all()
+    assert row.loc[f"fixed:{best}", "gain_vs_best"] == 0.0
+    assert row.loc[f"fixed:{best}", "p_vs_best_max"] == 1.0
+    assert row.loc["fixed:primary", "gain_vs_best"] == -round(row.loc[f"fixed:{best}", "gain"], 4)
+    assert row.loc["boundary:primary_hits:r2", "gain_vs_best"] > 0        # it learns the region
+    assert row.loc["boundary:primary_hits:r2", "p_vs_best_max"] < 0.05
+    # the pair test is symmetric
+    assert row.loc["boundary:primary_hits:r2", "pair"] == "utility:primary_hits:r2"
+    assert row.loc["utility:primary_hits:r2", "pair"] == "boundary:primary_hits:r2"
+    assert row.loc["boundary:primary_hits:r2", "gain_vs_pair"] == \
+        -row.loc["utility:primary_hits:r2", "gain_vs_pair"]
+    assert row.loc["boundary:primary_hits:r2", "p_vs_pair_max"] == \
+        row.loc["utility:primary_hits:r2", "p_vs_pair_max"]
+    assert row.loc["boundary:primary_hits:r2", "only_policy_vs_pair"] == \
+        row.loc["utility:primary_hits:r2", "only_pair"]
+    assert row.loc["shuffled:router:query", "pair"] == "" and \
+        math.isnan(row.loc["shuffled:router:query", "gain_vs_pair"])
+    # the shuffled rows are there, one per control, and the shuffled boundary
+    # memory is well under the unshuffled one
+    shuffled = [p for p in summary["policy"] if p.startswith("shuffled:")]
+    assert len(shuffled) == 12 and "shuffled:boundary:primary_hits:r2" in shuffled
+    assert row.loc["shuffled:boundary:primary_hits:r2", "rate"] < \
+        row.loc["boundary:primary_hits:r2", "rate"] - 0.1
+    assert row.loc["shuffled:boundary:primary_hits:r2", "pair"] == "shuffled:utility:primary_hits:r2"
+    plain_summary, _ = evaluate(table, "primary", seeds=[13], policies=[])
+    assert not any(p.startswith("shuffled:") for p in plain_summary["policy"])
+
+    # twins: repeat_best, best and the pooled test over distinct pairs
+    small = stream_table(n=200)
+    rng = np.random.RandomState(3)
+    dist = small.copy()
+    dist["id"] = dist["id"] + "::twin:distractor_para"
+    flip = rng.rand(len(dist)) < 0.5
+    dist.loc[flip, "arm:primary"] = 1 - dist.loc[flip, "arm:primary"]
+    both = with_twins(small, dist)
+    pairs = twin_pairs(both)
+    best = best_fixed_arm(both, "primary")
+    st = make_stream(both, "query", seeded_orders(len(both), [13])[0], seed=13)
+    text = run_stream(st, TextMemory(st, "primary", 1.0))
+    rows = twin_rows(st, text, pairs, "primary", best)
+    assert set(rows.columns) >= {"twin", "changed", "repeat_best", "best"}
+    assert rows["twin"].is_unique and (rows["twin"] >= 200).all()
+    m = twin_metrics(st, text, pairs, "primary", best)
+    # on an unchanged pair any arm that hit the original hits the twin, so
+    # both repeat rules are the oracle there; the best column is the best
+    # fixed arm's own hit
+    assert m["repeat_best_unchanged"] == m["oracle_unchanged"] == m["repeat_unchanged"]
+    assert m["repeat_best_changed"] <= m["oracle_changed"]
+    assert m["best_unchanged"] == rows.loc[~rows["changed"], "best"].mean()
+    # the pooled test: each distinct twin once, the text memory equals the
+    # repeat arm exactly so its difference is zero with a zero-width interval
+    pooled = pooled_twin_test(pd.concat([rows, rows], ignore_index=True))
+    assert pooled["n_changed_distinct"] == int(rows["changed"].sum())
+    assert pooled["n_unchanged_distinct"] + pooled["n_changed_distinct"] == len(rows)
+    assert pooled["diff_vs_repeat_changed"] == 0.0
+    assert pooled["diff_vs_repeat_changed_lo"] == 0.0 == pooled["diff_vs_repeat_changed_hi"]
+    assert pooled["diff_vs_best_unchanged_lo"] <= pooled["diff_vs_best_unchanged"] <= \
+        pooled["diff_vs_best_unchanged_hi"]
+    empty = pooled_twin_test(rows.iloc[:0])
+    assert empty["n_changed_distinct"] == 0 and math.isnan(empty["diff_vs_repeat_changed"])
+    # over two orders the distinct count is at most the number of twins, and
+    # a twin scored in both orders counts once
+    summary, _ = evaluate(both, "primary", seeds=[13, 17], policies=text_policies(), pairs=pairs)
+    row = summary.set_index("policy")
+    assert (summary["n_changed_distinct"] <= int(dist["arm:primary"].ne(small["arm:primary"]).sum())).all()
+    assert (summary["n_changed_distinct"] >= summary["n_changed"]).all()
+    assert row.loc["text:exact", "diff_vs_repeat_changed"] == 0.0
+    assert row.loc[f"fixed:{best}", "diff_vs_best_changed"] == 0.0
+    assert "repeat_best_changed" in summary.columns and "best_changed" in summary.columns
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1421,4 +1588,5 @@ if __name__ == "__main__":
     test_failure_typing()
     test_stream_protocol_and_baselines()
     test_twin_stream()
+    test_stream_best_arm_pair_and_shuffled_controls()
     print("all good")

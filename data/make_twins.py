@@ -46,6 +46,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
+from src.memory.failures import paragraph_of
 from src.memory.features import tokens
 
 PROCESSED = Path(__file__).resolve().parent / "processed"
@@ -101,7 +102,9 @@ def mention(question, title):
 
 
 def gold_titles(record):
-    return list(dict.fromkeys(g.split("::")[0] for g in record["gold_chunk_ids"]))
+    """The gold paragraph titles in gold order (paragraph_of reads the
+    title from either id form, so musique records get twins too)."""
+    return list(dict.fromkeys(paragraph_of(g) for g in record["gold_chunk_ids"]))
 
 
 def first_sentence(record, title):
@@ -165,7 +168,7 @@ def distractor_twin(record, sentence_index, n_distractors, rng):
     have = {c["chunk_id"] for c in record["chunks"]}
     candidates, shared = {}, Counter()
     for title in bridges:
-        for tok in set(content_tokens(title)):
+        for tok in sorted(set(content_tokens(title))):
             for chunk, source in sentence_index.get(tok, ()):
                 if source != record["id"] and chunk["chunk_id"] not in have:
                     candidates[chunk["chunk_id"]] = chunk
@@ -208,7 +211,7 @@ def bridge_paragraph_twin(record, sentence_index, n_distractors, rng):
             b_tokens.update(paragraph_tokens(c["text"]))
     b_tokens -= q_tokens        # tokens the question already carries do not make it look like the bridge
     candidates, shared = {}, {}
-    for tok in q_tokens:
+    for tok in sorted(q_tokens):
         for chunk, source in sentence_index.get(tok, ()):
             cid = chunk["chunk_id"]
             if source == record["id"] or cid in have or cid in candidates:
@@ -241,7 +244,7 @@ def build_sentence_index(records):
         for c in r["chunks"]:
             if c["chunk_id"] in gold:
                 continue
-            for tok in set(content_tokens(c["text"])):
+            for tok in sorted(set(content_tokens(c["text"]))):
                 index.setdefault(tok, []).append((c, r["id"]))
     return index
 

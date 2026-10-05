@@ -684,27 +684,46 @@ EM beside +27 retrieval_correct).
 - [ ] a small evidence graph (title links over the pool, with the query-free
       degree control) as one more strategy the memory can choose
 
-### Found while running on the Mac (4 Oct), not fixed yet
+### Found while running on the Mac (4 Oct)
 
-- `failures.paragraph_of` and the twin builder read the paragraph title from
-  the chunk id; musique ids are `p{idx}::{title}`, so failure typing never
-  names a paragraph there and `make_twins` yields no musique twins
-- `make_twins` iterates a set of tokens before its seeded tie-break, so the
-  twin file depends on PYTHONHASHSEED; sort the tokens, then check that the
-  committed hotpot twin tables still rebuild
-- `stream.py`: gains and tests are against the bm25 default only. Wanted: a
-  paired column against the best fixed arm, a pooled test for the twin pairs
-  beside the largest per-order p, a repeat rule that does not start from
-  the default, and a paired test inside each utility / boundary pair
-- `arms.py`: the routed table has a spread over half-splits and no paired
-  test, and the fold-split table prints a spread of 0.0 for its one split
-- `lookalike.py`: agreement counts both-miss and the random baseline is not
-  matched on question type; add a row for pairs where the arms disagree on
-  both questions, and a type-matched baseline
-- `backfill.py --allow-mismatch` exits 0 whatever the mismatch count
-- 48 of the first 1500 2wiki pools hold one paragraph twice (same chunk
-  ids), so a bm25 or dense top-10 can carry a repeated id there
-- induced drift and the 2wiki within-template pairs are not written
+- [x] `failures.paragraph_of` and the twin builder read the paragraph title
+      from the chunk id; musique ids are `p{idx}::{title}`, so failure
+      typing never named a paragraph there and `make_twins` yielded no
+      musique twins. Fixed 5 Oct: `paragraph_of` reads the title from
+      either id form and the twin builder uses it. The musique failure
+      table and twins are not rebuilt yet (the musique arms log is on the
+      Mac); the hotpot and 2wiki tables are unchanged by it
+- [x] `make_twins` iterated a set of tokens before its seeded tie-break, so
+      the twin file depended on PYTHONHASHSEED. The three iterations are
+      sorted now, and the hotpot twins of the first 500 questions are
+      byte-identical under PYTHONHASHSEED 0 and 7 (339 distractor, 364
+      distractor_para, 78 alias). Against the committed
+      `hotpot_twins_para.csv` that is one distractor_para twin short (365
+      there); whether a twin exists does not depend on the order, so the
+      difference is in the dev file this machine prepared from the hf
+      mirror, not in the sort. The 2wiki twins can only be rebuilt on the
+      Mac
+- [x] `stream.py`: gains and tests were against the bm25 default only. Now
+      every row carries the same paired contrast against the best fixed
+      arm (`best_fixed`, `gain_vs_best`, `p_vs_best_max`), each utility /
+      boundary pair its own paired test (`pair`, `gain_vs_pair`,
+      `p_vs_pair_max`), the twin tables a repeat rule started from the best
+      fixed arm (`repeat_best_*`) and the best arm's own hit on the twin
+      (`best_*`), and a pooled test over the distinct pairs (each twin
+      once, its mean hit over the orders that scored it, paired bootstrap
+      against the repeated arm and against the best fixed arm,
+      `diff_vs_repeat_*`, `diff_vs_best_*`) beside the largest per-order
+      McNemar p. Numbers under Stage 5
+- [ ] `arms.py`: the routed table has a spread over half-splits and no paired
+      test, and the fold-split table prints a spread of 0.0 for its one split
+- [ ] `lookalike.py`: agreement counts both-miss and the random baseline is
+      not matched on question type; add a row for pairs where the arms
+      disagree on both questions, and a type-matched baseline
+- [x] `backfill.py --allow-mismatch` exited 0 whatever the mismatch count;
+      the exit code is now 1 whenever a hop differed, written or not
+- [ ] 48 of the first 1500 2wiki pools hold one paragraph twice (same chunk
+      ids), so a bm25 or dense top-10 can carry a repeated id there
+- [ ] induced drift and the 2wiki within-template pairs are not written
 
 ## Writing
 

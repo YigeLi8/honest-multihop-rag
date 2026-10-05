@@ -42,6 +42,14 @@ what each part of the structure is worth:
                     model inside the region (the plan's "predicate, then
                     logistic"); utility+lr against boundary+lr is the
                     operators ablation with the learned boundary kept
+  shuffled:<policy> the same policy told, at reveal time, the outcomes of a
+                    different question (a fixed permutation of the stream's
+                    outcome rows per order; the decision is still scored on
+                    the true outcomes). A policy that does as well here as
+                    unshuffled is reading which arm is best overall, not
+                    which situation goes with which outcome, so it has not
+                    learned where anything applies (the shuffled-history
+                    control of paper log 2026-10-05)
 
 A lesson is "where the default arm fails like this, arm A recovers it": it is
 created when a revealed question had the default arm miss and A hit, with
@@ -63,7 +71,14 @@ rejection, repeated failure, boundary precision and recall against the
 known best arm) is reported beside the unconditioned contrast: the policy's
 hit rate against the fixed default over the whole stream, paired per order
 (McNemar on the discordant questions, the largest p over orders), with the
-retrieval cost next to it.
+retrieval cost next to it. The default is the log's primary arm and the
+weakest arm on every dataset so far, so the same paired contrast is given
+against the best fixed arm (the arm with the highest rate over the table;
+best_fixed, gain_vs_best, p_vs_best_max): a learned policy that does not
+beat that column has learned less than "always run arm A". Each utility /
+boundary pair (same stage and radius, operators off against on) also
+carries its own paired test (pair, gain_vs_pair, p_vs_pair_max), which is
+the operators ablation read per order rather than off two rates.
 
     python -m src.memory.stream --records results/memory/bm25_arms_hotpot_dev_experience.jsonl \\
         --dataset hotpot [--ids ...] [--seeds 13 17 19 23 29] [--default bm25]
@@ -84,11 +99,17 @@ memories
 and, per policy, the pair metrics of twin_metrics: on twins whose original
 came earlier, the hit rate on unchanged and on changed pairs (the twin's
 outcomes differ from the original's on some arm) beside the default, the
-arm a surface key repeats from the original, and the oracle. A distractor
+arm a surface key repeats from the original (from the default, and from
+the best fixed arm), the best fixed arm and the oracle. A distractor
 twin is the original's text over a harder pool, so the surface key cannot
 tell them apart and the process features are the only thing that can; an
 alias twin is a new text over the same pool, where the surface key sees a
-new question and the features almost the same one. Writes
+new question and the features almost the same one. The per-order McNemar
+against the repeated arm is kept (its largest p over orders), and beside
+it a pooled test over the distinct pairs: each pair counted once with the
+policy's mean hit over the orders that scored it, paired bootstrap of the
+difference against the repeated arm and against the best fixed arm
+(diff_vs_repeat_*, diff_vs_best_*, with their 95% intervals). Writes
 results/<dataset>_twin_stream.csv and _twin_stream_revisions.csv.
 """
 import argparse
@@ -101,7 +122,7 @@ from typing import Callable, Optional, Sequence
 import numpy as np
 import pandas as pd
 
-from src.eval.stats import mcnemar
+from src.eval.stats import mcnemar, paired_bootstrap
 from src.memory.arms import (OUTCOMES, arm_table, arms_of, hits, read_ids, read_records,
                              stage_columns, with_qtype_columns)
 from src.memory.features import tokens
@@ -109,7 +130,7 @@ from src.memory.features import tokens
 DECIDE_STAGES = ("query", "pool", "history", "primary_hits")
 OPERATORS = ("create", "narrow", "expand", "exception", "split", "retire")
 TWIN_SEP = "::twin:"
-TWIN_COLUMNS = ("hit", "default", "repeat", "oracle", "same_decision")
+TWIN_COLUMNS = ("hit", "default", "repeat", "repeat_best", "best", "oracle", "same_decision")
 
 
 # ---------------------------------------------------------------- the stream
@@ -133,6 +154,7 @@ class Stream:
     arms: list
     order: np.ndarray             # the positions in stream order
     text: list = field(default_factory=list)   # question text per position (surface-keyed policies)
+    seed: int = 0                 # the seed of the order, for controls that need their own draw
 
     def column(self, name: str) -> int:
         return self.columns.index(name)
@@ -142,7 +164,7 @@ def seeded_orders(n: int, seeds: Sequence[int]) -> list[np.ndarray]:
     return [np.random.RandomState(s).permutation(n) for s in seeds]
 
 
-def make_stream(table: pd.DataFrame, stage: str, order: np.ndarray) -> Stream:
+def make_stream(table: pd.DataFrame, stage: str, order: np.ndarray, seed: int = 0) -> Stream:
     """The features a policy at this stage may read, in raw units, and every
     arm's hit. The qtype one-hot columns ride along at every stage (they are
     known from the question alone)."""
@@ -154,7 +176,7 @@ def make_stream(table: pd.DataFrame, stage: str, order: np.ndarray) -> Stream:
     H = np.stack([hits(table, a).to_numpy(dtype=int) for a in arms], axis=1)
     return Stream(ids=table["id"].tolist(), X=full[cols].to_numpy(dtype=float), columns=cols,
                   H=H, arms=arms, order=np.asarray(order, dtype=int),
-                  text=table["question"].fillna("").tolist())
+                  text=table["question"].fillna("").tolist(), seed=int(seed))
 
 
 class Standardiser:
@@ -416,6 +438,42 @@ class TextMemory(Policy):
         self.exact[key] = len(self.keys)      # the latest question with this text
         self.keys.append(key)
         self.hs.append(np.asarray(h, dtype=int))
+
+
+class ShuffledReveal(Policy):
+    """The shuffled-history control: the wrapped policy decides on the true
+    features and is scored on the true outcomes, but at reveal time it is
+    told the outcome row of another question (one fixed permutation of the
+    stream's rows, drawn from the order's seed). The marginal rate of every
+    arm is unchanged, so a policy that only learns which arm is best overall
+    is unaffected; a policy that learns where an arm applies loses the
+    pairing of situation and outcome and should fall towards the default.
+
+    Hypothesis it serves (plan, Stage 5): whether a learned policy's gain
+    over the default comes from applicability (this situation, this
+    outcome) or from the base rates. The paper log of 2026-10-05 is where
+    the control comes from."""
+
+    def __init__(self, stream: Stream, default: str, inner: Policy) -> None:
+        super().__init__(stream, default)
+        self.inner = inner
+        self.stage = inner.stage
+        self.name = f"shuffled:{inner.name}"
+        self.perm = np.random.RandomState(stream.seed + 1).permutation(len(stream.order))
+
+    def decide(self, x, t):
+        return self.inner.decide(x, t)
+
+    def reveal(self, x, h, decision, t):
+        other = self.stream.H[self.stream.order[self.perm[t]]]
+        self.inner.reveal(x, other, decision, t)
+
+    def lesson_state(self):
+        return self.inner.lesson_state()
+
+    @property
+    def log(self):
+        return getattr(self.inner, "log", [])
 
 
 @dataclass
@@ -791,10 +849,19 @@ def with_twins(originals: pd.DataFrame, twins: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def twin_metrics(stream: Stream, result: StreamResult, pairs: dict, default: str) -> dict:
-    """What a policy does on a twin whose original it has already seen: the
-    pairs where the original came earlier in this order (about half of them
-    under a random order; the rest are left out).
+def repeat_arm(ho: np.ndarray, start: int) -> int:
+    """The arm a surface-keyed memory carries over from an original with hit
+    vector ho: `start` if it hit there, else the first other arm that hit
+    there, else `start`."""
+    return start if ho[start] else next((j for j in range(len(ho)) if j != start and ho[j]), start)
+
+
+def twin_rows(stream: Stream, result: StreamResult, pairs: dict, default: str,
+              best: Optional[str] = None) -> pd.DataFrame:
+    """One row per twin whose original came earlier in this order (about
+    half of the pairs under a random order; the rest are left out), indexed
+    by the twin's row in the table so that the same pair can be matched
+    across orders.
 
     changed    the twin's hit vector differs from the original's on some arm:
                by construction the surface is the same (distractor twins) or
@@ -802,26 +869,41 @@ def twin_metrics(stream: Stream, result: StreamResult, pairs: dict, default: str
     repeat     the arm a surface-keyed memory carries over from the original:
                the default if it hit there, else the first other arm that hit
                there. On an unchanged pair it is the best arm; on a changed
-               pair it is what a memory that cannot see the change does
-    Per unchanged / changed pairs: the policy's hit rate on the twin beside
-    the fixed default's, the repeat arm's and the oracle's, and
-    same_decision, the share of pairs where the policy chose on the twin the
-    arm it chose on the original. p_vs_repeat_changed is McNemar between the
-    policy's hits and the repeat arm's on the changed pairs."""
+               pair it is what a memory that cannot see the change does.
+               repeat_best is the same rule started from the best fixed arm,
+               since the default is the weakest arm and part of what the
+               repeat rule loses on a changed pair is its starting point
+    best       the best fixed arm's hit on the twin (the default's when no
+               best arm is given)
+    """
     pos = np.empty(len(stream.order), dtype=int)
     pos[stream.order] = np.arange(len(stream.order))
     d = stream.arms.index(default)
+    b = stream.arms.index(best) if best else d
     rows = []
     for tw, orig in pairs.items():
         pt, po = pos[tw], pos[orig]
         if po >= pt:
             continue
         ht, ho = stream.H[tw], stream.H[orig]
-        rep = d if ho[d] else next((j for j in range(len(ho)) if j != d and ho[j]), d)
-        rows.append({"changed": bool(np.any(ht != ho)), "hit": int(result.hit[pt] >= 1),
-                     "default": int(ht[d]), "repeat": int(ht[rep]), "oracle": int(ht.max()),
+        rows.append({"twin": tw, "changed": bool(np.any(ht != ho)), "hit": int(result.hit[pt] >= 1),
+                     "default": int(ht[d]), "repeat": int(ht[repeat_arm(ho, d)]),
+                     "repeat_best": int(ht[repeat_arm(ho, b)]), "best": int(ht[b]),
+                     "oracle": int(ht.max()),
                      "same_decision": int(result.arm[pt] == result.arm[po])})
-    df = pd.DataFrame(rows, columns=["changed", *TWIN_COLUMNS])
+    return pd.DataFrame(rows, columns=["twin", "changed", *TWIN_COLUMNS])
+
+
+def twin_metrics(stream: Stream, result: StreamResult, pairs: dict, default: str,
+                 best: Optional[str] = None) -> dict:
+    """What a policy does on a twin whose original it has already seen (the
+    rows of twin_rows). Per unchanged / changed pairs: the policy's hit rate
+    on the twin beside the fixed default's, the repeat arms', the best fixed
+    arm's and the oracle's, and same_decision, the share of pairs where the
+    policy chose on the twin the arm it chose on the original.
+    p_vs_repeat_changed is McNemar between the policy's hits and the repeat
+    arm's on the changed pairs of this one order."""
+    df = twin_rows(stream, result, pairs, default, best)
     out = {"n_pairs": len(df), "n_changed": int(df["changed"].sum())}
     for label, sub in (("unchanged", df[~df["changed"]]), ("changed", df[df["changed"]])):
         for c in TWIN_COLUMNS:
@@ -829,6 +911,35 @@ def twin_metrics(stream: Stream, result: StreamResult, pairs: dict, default: str
     changed = df[df["changed"]]
     out["p_vs_repeat_changed"] = mcnemar(changed["repeat"].tolist(), changed["hit"].tolist())[2] \
         if len(changed) else math.nan
+    return out
+
+
+def pooled_twin_test(rows: pd.DataFrame, n_boot: int = 2000) -> dict:
+    """The pooled test over the distinct pairs of a twin stream: `rows` is
+    the concatenation of twin_rows over the orders. Each distinct twin is
+    one unit, with the policy's mean hit over the orders that scored it
+    (the original came first there) against the repeat arm's and the best
+    fixed arm's hits, which do not depend on the order. The paired
+    bootstrap of the mean difference gives diff_vs_repeat_<half> and
+    diff_vs_best_<half> with 95% intervals, and n_<half>_distinct the
+    number of units. Five orders of the same pairs are not five samples,
+    which is why the per-order McNemar's largest p is not enough."""
+    out = {}
+    if rows.empty:
+        rows = pd.DataFrame(columns=["twin", "changed", *TWIN_COLUMNS])
+    per = rows.groupby("twin", sort=True).agg(changed=("changed", "first"), hit=("hit", "mean"),
+                                                repeat=("repeat", "first"), best=("best", "first"))
+    for label, sub in (("unchanged", per[~per["changed"].astype(bool)]),
+                       ("changed", per[per["changed"].astype(bool)])):
+        out[f"n_{label}_distinct"] = len(sub)
+        for against in ("repeat", "best"):
+            key = f"diff_vs_{against}_{label}"
+            if len(sub) < 2:
+                out[key] = out[f"{key}_lo"] = out[f"{key}_hi"] = math.nan
+                continue
+            diff, lo, hi = paired_bootstrap(sub[against].tolist(), sub["hit"].tolist(),
+                                            n_boot=n_boot)
+            out[key], out[f"{key}_lo"], out[f"{key}_hi"] = round(diff, 4), round(lo, 4), round(hi, 4)
     return out
 
 
@@ -862,6 +973,45 @@ def default_policies(default: str) -> list[tuple]:
     return pols
 
 
+def shuffled_policies(default: str) -> list[tuple]:
+    """The shuffled-reveal control for the learned policies that matter in
+    the table: the router, the knn and the best utility / boundary pair
+    (radius 2) at every stage, each told another question's outcomes."""
+    pols: list[tuple] = []
+    for stage in ("query", "pool", "primary_hits"):
+        inner = [(f"router:{stage}", lambda s, d, st=stage: OnlineRouter(s, d, st)),
+                 (f"knn20:{stage}", lambda s, d, st=stage: OnlineKNN(s, d, st, k=20)),
+                 (f"utility:{stage}:r2", lambda s, d, st=stage, lb=f"utility:{stage}:r2":
+                  LessonMemory(s, d, st, revise=False, radius=2.0, label=lb)),
+                 (f"boundary:{stage}:r2", lambda s, d, st=stage, lb=f"boundary:{stage}:r2":
+                  LessonMemory(s, d, st, revise=True, radius=2.0, label=lb))]
+        for label, factory in inner:
+            pols.append((f"shuffled:{label}", stage,
+                         lambda s, d, f=factory: ShuffledReveal(s, d, f(s, d))))
+    return pols
+
+
+def pair_of(label: str) -> Optional[str]:
+    """The other member of a utility / boundary pair: the same stage, radius
+    and refinement with the operators toggled, shuffled or not."""
+    head, _, rest = label.partition(":")
+    prefix = ""
+    if head == "shuffled":
+        prefix, head, _, rest = "shuffled:", *rest.partition(":")
+    for a, b in (("utility", "boundary"), ("boundary", "utility")):
+        if head == a or head == f"{a}+lr":
+            return f"{prefix}{head.replace(a, b)}:{rest}"
+    return None
+
+
+def best_fixed_arm(table: pd.DataFrame, default: str) -> str:
+    """The arm with the highest rate over the whole table, ties to the
+    default. It is known in hindsight, so it is a reference column and not
+    a policy a stream could run; the fixed:<arm> row is the same number."""
+    arms = arms_of(table)
+    return max(arms, key=lambda a: (float(hits(table, a).mean()), a == default))
+
+
 def rule_policies(stage_rules: dict) -> list[tuple]:
     """The static-condition policies, with and without the utility veto, for
     {stage: rules}."""
@@ -892,30 +1042,41 @@ def bm25_rules(k: int) -> list[tuple]:
 def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 19, 23, 29),
              policies: Optional[Sequence[tuple]] = None,
              rules: Optional[dict] = None,
-             pairs: Optional[dict] = None) -> tuple[pd.DataFrame, list[dict]]:
+             pairs: Optional[dict] = None,
+             shuffled: bool = False) -> tuple[pd.DataFrame, list[dict]]:
     """Every policy on every seeded order. Returns the summary table (mean
-    and sd over orders; gain over the fixed default paired per order with
-    the largest McNemar p) and the boundary memory's revision log on the
-    first order. With `pairs` (twin_pairs of a with_twins table) every row
-    also carries the twin metrics, averaged over orders, the McNemar p as
-    its largest."""
+    and sd over orders; gain over the fixed default and over the best fixed
+    arm, each paired per order with the largest McNemar p; the same against
+    the other member of a utility / boundary pair) and the boundary
+    memory's revision log on the first order. With `pairs` (twin_pairs of a
+    with_twins table) every row also carries the twin metrics, averaged
+    over orders, the McNemar p as its largest, and the pooled test over
+    the distinct pairs. With `shuffled` the shuffled-reveal control rows
+    are added."""
     arms = arms_of(table)
     if default not in arms:
         raise ValueError(f"default {default!r} is not one of the arms {arms}")
+    best = best_fixed_arm(table, default)
     orders = seeded_orders(len(table), seeds)
     pols = list(policies if policies is not None else default_policies(default))
     pols = [(f"fixed:{a}", "query", lambda s, d, arm=a: FixedArm(s, d, arm)) for a in arms] \
-        + pols + rule_policies(rules or {})
-    streams = {stage: [make_stream(table, stage, o) for o in orders] for stage in DECIDE_STAGES}
-    rows, logs = [], {}
+        + pols + (shuffled_policies(default) if shuffled else []) + rule_policies(rules or {})
+    streams = {stage: [make_stream(table, stage, o, seed=sd) for o, sd in zip(orders, seeds)]
+               for stage in DECIDE_STAGES}
+    rows, logs, hit_rows = [], {}, {}
     for label, stage, factory in pols:
         if stage in ("primary_hits", "history") and default != arms[0]:
             continue   # the primary-hits features belong to the log's primary arm
-        per_order = []
+        per_order, twin_frames = [], []
+        hit_rows[label] = []
         for s in streams[stage]:
             res = run_stream(s, factory(s, default))
             base = s.H[s.order][:, arms.index(default)]
-            only_a, only_b, p = mcnemar(base.tolist(), (res.hit >= 1).astype(int).tolist())
+            top = s.H[s.order][:, arms.index(best)]
+            policy_hit = (res.hit >= 1).astype(int)
+            hit_rows[label].append(policy_hit)
+            only_a, only_b, p = mcnemar(base.tolist(), policy_hit.tolist())
+            only_best, only_vs_best, p_best = mcnemar(top.tolist(), policy_hit.tolist())
             half = len(base) // 2
             per_order.append({"rate": res.hit.mean(), "cost": res.cost.mean(),
                               "gain": res.hit.mean() - base.mean(), "oracle": s.H[s.order].max(axis=1).mean(),
@@ -924,8 +1085,12 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
                               "gain_half1": res.hit[:half].mean() - base[:half].mean(),
                               "gain_half2": res.hit[half:].mean() - base[half:].mean(),
                               "mcnemar_p": p, "only_policy": only_b, "only_default": only_a,
+                              "gain_vs_best": res.hit.mean() - top.mean(), "p_vs_best": p_best,
+                              "only_policy_vs_best": only_vs_best, "only_best": only_best,
                               **boundary_metrics(s, res, default), **res.state,
-                              **(twin_metrics(s, res, pairs, default) if pairs else {})})
+                              **(twin_metrics(s, res, pairs, default, best) if pairs else {})})
+            if pairs:
+                twin_frames.append(twin_rows(s, res, pairs, default, best))
             if res.log and label not in logs:
                 logs[label] = [{"policy": label, **e} for e in res.log]
         df = pd.DataFrame(per_order)
@@ -938,7 +1103,13 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
                "gain_half2": round(df["gain_half2"].mean(), 4),
                "mcnemar_p_max": round(df["mcnemar_p"].max(), 4),
                "only_policy": round(df["only_policy"].mean(), 1),
-               "only_default": round(df["only_default"].mean(), 1)}
+               "only_default": round(df["only_default"].mean(), 1),
+               "best_fixed": best,
+               "gain_vs_best": round(df["gain_vs_best"].mean(), 4),
+               "gain_vs_best_sd": round(df["gain_vs_best"].std(ddof=0), 4),
+               "p_vs_best_max": round(df["p_vs_best"].max(), 4),
+               "only_policy_vs_best": round(df["only_policy_vs_best"].mean(), 1),
+               "only_best": round(df["only_best"].mean(), 1)}
         for c in ("n_recoverable", "n_fired", "repeated_failure", "false_application", "harm",
                   "false_rejection", "boundary_precision", "boundary_recall", "n_lessons",
                   "n_active", *[f"op_{o}" for o in OPERATORS]):
@@ -949,7 +1120,20 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
                                                  for c in TWIN_COLUMNS]):
                 row[c] = round(float(df[c].mean()), 4)
             row["p_vs_repeat_changed"] = round(float(df["p_vs_repeat_changed"].max()), 4)
+            row.update(pooled_twin_test(pd.concat(twin_frames, ignore_index=True)))
         rows.append(row)
+    # the operators ablation as a paired test: each utility / boundary pair per order
+    for row in rows:
+        other = pair_of(row["policy"])
+        row["pair"] = other if other in hit_rows else ""
+        if row["pair"]:
+            tests = [mcnemar(b.tolist(), a.tolist())
+                     for a, b in zip(hit_rows[row["policy"]], hit_rows[other])]
+            gains = [a.mean() - b.mean() for a, b in zip(hit_rows[row["policy"]], hit_rows[other])]
+            row["gain_vs_pair"] = round(float(np.mean(gains)), 4)
+            row["p_vs_pair_max"] = round(max(t[2] for t in tests), 4)
+            row["only_policy_vs_pair"] = round(float(np.mean([t[1] for t in tests])), 1)
+            row["only_pair"] = round(float(np.mean([t[0] for t in tests])), 1)
     boundary = [k for k in logs if k.startswith("boundary")]
     first_log = logs[boundary[0]] if boundary else next(iter(logs.values()), [])
     return pd.DataFrame(rows), first_log
@@ -966,6 +1150,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     ap.add_argument("--twin-records", default=None,
                     help="experience jsonl of the twins run: one stream of originals and twins "
                          "per twin kind, with the pair metrics and the text-keyed memories")
+    ap.add_argument("--no-shuffled", action="store_true",
+                    help="leave out the shuffled-reveal control rows")
     ap.add_argument("--out-dir", default="results")
     args = ap.parse_args(argv)
     header, records = read_records(args.records)
@@ -990,7 +1176,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             print(f"\n{kind}: {len(pairs)} pairs, {len(both)} questions in the stream")
             summary, log = evaluate(both, default, seeds=args.seeds,
                                     policies=text_policies() + default_policies(default),
-                                    rules=rules, pairs=pairs)
+                                    rules=rules, pairs=pairs, shuffled=not args.no_shuffled)
             summary.insert(0, "kind", kind)
             summaries.append(summary)
             logs += [{"kind": kind, **e} for e in log]
@@ -1000,7 +1186,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         pd.DataFrame(logs).to_csv(out / f"{args.dataset}_twin_stream_revisions.csv", index=False)
         return
 
-    summary, log = evaluate(table, default, seeds=args.seeds, rules=rules)
+    summary, log = evaluate(table, default, seeds=args.seeds, rules=rules,
+                            shuffled=not args.no_shuffled)
     summary.to_csv(out / f"{args.dataset}_stream.csv", index=False)
     pd.DataFrame(log).to_csv(out / f"{args.dataset}_stream_revisions.csv", index=False)
     print(summary.to_string(index=False))

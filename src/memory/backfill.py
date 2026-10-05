@@ -10,8 +10,9 @@ ones the live logger would have written. The recomputed chunk ids must equal
 the trace at every hop: a mismatch means the config, the data file or the
 retriever changed since the run, and the records would describe a retrieval
 that never happened. Mismatches are counted and the exit code is non-zero
-unless --allow-mismatch is given; then the questions with a mismatching hop
-are left out and only the ones that reproduce are written.
+whenever there are any; without --allow-mismatch nothing is written, with it
+the questions with a mismatching hop are left out and only the ones that
+reproduce are written, and the exit code still says that some were.
 
 The question-level outcome comes from results/<run>_qa.csv, joined by id.
 Columns an older csv does not have (para_recall, stop_reason) are recomputed
@@ -155,4 +156,4 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(1 if main() else 0)

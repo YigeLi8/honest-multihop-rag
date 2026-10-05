@@ -38,6 +38,7 @@ until that audit is done and its disagreement rate recorded.
 Writes results/<dataset>_failure_types.csv and, with --audit, _failure_audit.csv.
 """
 import argparse
+import re
 from pathlib import Path
 from typing import Optional, Sequence
 
@@ -51,7 +52,17 @@ FAILURE_TYPES: tuple[str, ...] = ("none", "near_miss", "named_miss", "bridge_mis
 NEAR_FACTOR = 2    # near_miss: every missed gold within NEAR_FACTOR * k of the full ranking
 
 
+_MUSIQUE_PARAGRAPH = re.compile(r"p\d+")
+
+
 def paragraph_of(chunk_id: str) -> str:
+    """The paragraph title a chunk id names. hotpot and 2wiki ids are
+    `Title::sent_idx`; musique ids are `p{idx}::{title}` (data/prepare_musique),
+    where the title is the second part. Until 5 Oct this took the first part
+    on every dataset, so on musique the named-miss rule could never fire."""
+    head, _, tail = chunk_id.partition("::")
+    if tail and _MUSIQUE_PARAGRAPH.fullmatch(head):
+        return tail
     return chunk_id.rsplit("::", 1)[0]
 
 
