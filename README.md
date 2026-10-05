@@ -101,7 +101,11 @@ Gold mapping error (annotated facts that failed to map onto a chunk): 1/18005
 inherits this error.
 
 Serving sweep, single hop, n=100 per point (full table in
-`results/sweep_metal.csv`, plot in `results/pareto.png`):
+`results/sweep_metal.csv`, plot in `results/pareto.png`). The tok/s in that
+table and on the plot's x axis is answer tokens over the wall time of the whole
+generate call, prefill included. With prompts of a few hundred tokens and
+~5-token answers that is mostly a prefill measurement, not decode throughput
+(two corners re-run below):
 
 - fastest corner: 4-bit, k=5, ~10.4 tok/s at EM 0.45
 - best quality: 8-bit, k=20, EM 0.53 at 4.7 tok/s (about 2.2x slower)
@@ -110,6 +114,26 @@ Serving sweep, single hop, n=100 per point (full table in
   the best accuracy, because prefill length is what the k axis really costs.
 - peak memory is weights-dominated: ~4.9 GB (4-bit) vs ~8.5 GB (8-bit), with a
   few hundred MB of KV-cache growth at k=20
+
+Two corners re-run on 4 Oct with the streaming runner, which times prefill and
+decode separately (`results/serving_corner/`, `scripts/serving_corner.py`;
+rerank off, n=100, one run each, times without the model-load question):
+
+| corner      | EM   | retrieval_correct | prompt tokens | TTFT (s) | decode (s) | retrieval (s) | latency (s) | decode tok/s per step | tok/s, old definition (sweep) |
+|-------------|------|-------------------|---------------|----------|------------|---------------|-------------|-----------------------|-------------------------------|
+| 8-bit, k=20 | 0.53 | 0.85              | 833           | 0.748    | 0.140      | 0.090         | 0.977       | 32.8                  | 4.4 (4.7)                     |
+| 4-bit, k=5  | 0.46 | 0.45              | 275           | 0.305    | 0.063      | 0.083         | 0.450       | 60.9                  | 9.5 (10.1)                    |
+
+EM and retrieval match the sweep rows. Rebuilt the old way the tok/s comes out
+about 6% under the sweep's, so the old column is what I thought it was, and
+time to first token is over 80% of its denominator. End to end the 8-bit k=20
+corner is about 2.2x slower (0.977 s against 0.450 s), and most of that gap is
+time to first token on a prompt three times as long; per-step decode differs
+by 1.9x. The two corners differ in quantization and k at once, so they do not
+split the cost between the two (at equal k the sweep's own latency column puts
+8-bit at about 1.2x: 0.884 s against 0.740 s at k=20). One more caution: the
+tokens_per_s column in the `*_qa.csv` files is mlx-lm's figure, n tokens over
+the time of n-1 steps, which reads 43-45% high on answers this short.
 
 Plots: `results/pareto.png`, `results/*_2x2.png`.
 
