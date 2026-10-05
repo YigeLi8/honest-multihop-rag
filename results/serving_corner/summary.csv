@@ -1,0 +1,3 @@
+corner,n,em,retrieval_correct,prompt_tokens,completion_tokens,ttft_s,decode_s,other_s,latency_s,decode_tok_s_per_step,decode_tok_s_logged,old_definition_tok_s,sweep_tok_s,sweep_latency_s,sweep_em,sweep_retrieval_correct,peak_memory_mb
+corner_8bit_k20,100,0.53,0.85,833.1,5.55,0.748,0.14,0.09,0.977,32.8,46.9,4.4,4.7,0.884,0.53,0.85,8913.0
+corner_4bit_k5,100,0.46,0.45,274.5,4.79,0.305,0.063,0.083,0.45,60.9,88.3,9.5,10.1,0.445,0.46,0.45,4877.1

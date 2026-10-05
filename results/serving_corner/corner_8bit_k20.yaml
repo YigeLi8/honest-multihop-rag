@@ -1,0 +1,16 @@
+# serving-sweep corner re-run with the streaming runner (ttft, prompt tokens, decode rate)
+# same point as the results/sweep_metal.csv row: hybrid, single hop, first 100 hotpot dev
+run:
+  name: corner_8bit_k20
+retrieval:
+  method: hybrid
+  top_k: 20
+rerank:
+  enabled: false
+pipeline:
+  mode: single_hop
+generation:
+  backend: mlx
+  model: mlx-community/Qwen2.5-7B-Instruct-8bit
+paths:
+  results_dir: results/serving_corner

@@ -1,0 +1,101 @@
+id,qtype,level,answer_type,answer_gold,answer_pred,em,f1,retrieval_correct,n_gold,n_gold_hit,gold_recall,n_gold_para,n_gold_para_hit,para_recall,hops,stop_reason,n_context,reasoning_tokens,prompt_tokens,gen_calls,ttft_s,latency_s,tokens_per_s,peak_memory_mb
+5a8b57f25542995d1e6f1371,comparison,hard,yesno,yes,no,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,2,815,1,0.871,6.019,67.5,8757.7
+5a8c7595554299585d9e36b6,bridge,hard,span,Chief of Protocol,Secretary of State for Constitutional Affairs,0.0,0.2222,1,3,3,1.0,2,2,1.0,1,,20,7,828,1,0.667,0.981,40.0,8766.9
+5a85ea095542994775f606a8,bridge,hard,span,Animorphs,The Hork-Bajir Chronicles,0.0,0.0,1,5,5,1.0,2,2,1.0,1,,20,8,851,1,0.688,0.989,37.5,8596.8
+5adbf0a255429947ff17385a,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,809,1,0.663,0.768,66.9,8753.1
+5a8e3ea95542995a26add48d,bridge,hard,span,"Greenwich Village, New York City",Greenwich Village,0.0,0.5714,1,2,2,1.0,2,2,1.0,1,,20,4,704,1,0.589,0.762,44.6,8660.6
+5abd94525542992ac4f382d2,bridge,hard,span,YG Entertainment,YG Entertainment,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,3,725,1,0.617,0.758,50.3,8676.4
+5a85b2d95542997b5ce40028,bridge,hard,span,Eenasul Fateh,Eenasul Fateh,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,6,879,1,0.718,0.969,39.6,8611.7
+5a87ab905542996e4f3088c1,bridge,hard,span,"3,677 seated",4000,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,5,840,1,0.716,1.068,40.9,8591.5
+5a7bbb64554299042af8f7cc,bridge,hard,span,Terry Richardson,Annie Morton,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,4,959,1,0.769,0.964,44.3,8653.6
+5a8db19d5542994ba4e3dd00,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,722,1,0.633,0.737,63.6,8674.4
+5a7166395542994082a3e814,bridge,hard,span,Kansas Song,Kansas Song (We’re From Kansas),0.0,0.5714,1,3,3,1.0,2,2,1.0,1,,20,9,840,1,0.699,1.046,38.2,8591.5
+5a877e5d5542993e715abf7d,bridge,hard,span,David Weissman,David Weissman,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,4,752,1,0.622,0.791,43.9,8696.3
+5ab3b0bf5542992ade7c6e39,bridge,hard,span,1999,1999,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,5,810,1,0.702,0.92,42.6,8753.4
+5ab56e32554299637185c594,comparison,hard,yesno,no,no,1.0,1.0,0,2,1,0.5,2,2,1.0,1,,20,2,975,1,0.789,1.023,68.3,8662.0
+5ab6d09255429954757d337d,bridge,hard,span,from 1986 to 2013,1945 to 1969,0.0,0.2857,1,3,3,1.0,2,2,1.0,1,,20,11,921,1,0.758,1.117,37.4,8633.6
+5a75e05c55429976ec32bc5f,bridge,hard,span,"9,984","9,984",1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,6,587,1,0.539,0.813,39.4,8574.0
+5ab3e45655429976abd1bcd4,bridge,hard,span,the North Atlantic Conference,North Atlantic Conference,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,4,788,1,0.694,0.867,44.0,8737.6
+5ab29c24554299449642c932,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,1022,1,0.851,1.014,65.6,8686.3
+5ae0d4c9554299603e418468,bridge,hard,span,1969 until 1974,1969-1974,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,10,1114,1,0.928,1.293,36.3,8748.5
+5a8133725542995ce29dcbdb,comparison,hard,span,Robert Erskine Childers DSC,Robert Erskine Childers,0.0,0.8571,1,2,2,1.0,2,2,1.0,1,,20,7,784,1,0.722,0.998,37.8,8734.3
+5ae7a8175542993210983ed8,bridge,hard,span,Pedro Rodríguez,Sergio Pérez,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,6,771,1,0.758,1.025,31.7,8724.6
+5ae6050f55429929b0807a5e,bridge,hard,span,Sonic,Sonic,1.0,1.0,0,2,1,0.5,2,2,1.0,1,,20,3,883,1,0.898,1.076,39.5,8613.6
+5adddccd5542997dc7907069,bridge,hard,span,keyboard function keys,iSight iMac G5 remote control,0.0,0.0,0,4,3,0.75,2,2,1.0,1,,20,10,819,1,0.829,1.284,30.1,8760.3
+5ae2070a5542994d89d5b313,comparison,hard,span,Badly Drawn Boy,Badly Drawn Boy,1.0,1.0,0,2,1,0.5,2,2,1.0,1,,20,6,906,1,0.941,1.227,32.4,8625.5
+5ae22b8d554299234fd0440f,bridge,hard,span,World's Best Goalkeeper,World's Best Goalkeeper,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,6,838,1,0.829,1.097,34.5,8590.3
+5a722b8655429971e9dc9329,bridge,hard,span,Barton Lee Hazlewood,Barton Lee Hazlewood,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,7,803,1,0.734,0.998,38.2,8748.4
+5adf37a95542995ec70e8f97,bridge,hard,span,1838,1838,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,742,1,0.68,0.903,40.9,8689.4
+5abd259d55429924427fcf1a,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,11,2,446,1,0.503,0.594,66.0,8479.4
+5a828c8355429966c78a6a50,bridge,hard,span,Henry J. Kaiser,yes,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,2,906,1,0.839,0.949,61.2,8625.5
+5a8a3e745542996c9b8d5e70,bridge,hard,span,Arena of Khazan,Arena of Khazan,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,6,768,1,0.702,0.956,39.2,8708.2
+5ac23ff0554299636651994d,bridge,hard,span,2000,2000,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,825,1,0.765,0.985,38.9,8764.9
+5ae4a3265542995ad6573de5,comparison,hard,span,"Fujioka, Gunma",Japan,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,2,695,1,0.655,0.758,67.2,8654.0
+5ae0361155429925eb1afc2c,bridge,hard,span,Charles Eugène,Charles Nungesser,0.0,0.5,1,2,2,1.0,2,2,1.0,1,,20,5,1029,1,0.901,1.107,41.2,8704.2
+5abc0a5d5542993f40c73c64,comparison,hard,yesno,no,No,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,875,1,0.791,0.924,65.0,8613.4
+5a7cc50e554299452d57ba3e,comparison,hard,span,Letters to Cleo,Screaming Trees,0.0,0.0,1,4,4,1.0,2,2,1.0,1,,20,5,884,1,0.78,0.99,41.2,8614.3
+5abf63f15542997ec76fd3ea,bridge,hard,span,October 1922,1922,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,,20,5,998,1,0.88,1.102,38.9,8678.4
+5a8ef2a75542995a26add583,bridge,hard,span,2000,2000,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,876,1,0.781,0.986,41.5,8609.9
+5a80721b554299485f5985ef,bridge,hard,span,World War II,World War II,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,4,728,1,0.67,0.832,42.2,8679.1
+5ab51dae5542991779162d82,comparison,hard,yesno,no,No,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,946,1,0.84,0.95,64.7,8646.8
+5a7571135542992d0ec05f98,bridge,hard,span,New York City,New York City,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,4,806,1,0.74,0.918,43.3,8751.1
+5a7a0e1e5542990783324e1a,comparison,hard,span,Scotch Collie,the Manchester Terrier,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,5,734,1,0.683,0.903,40.9,8683.0
+5a74106b55429979e288289e,bridge,hard,span,Mumbai,Kochi,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,4,640,1,0.605,0.757,44.9,8613.1
+5a79311755429970f5fffe67,bridge,hard,span,1962,1962,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,846,1,0.759,0.977,41.9,8594.2
+5ab2d3df554299194fa9352c,bridge,hard,span,sovereignty,Ethiopian sovereignty,0.0,0.6667,0,2,1,0.5,2,2,1.0,1,,20,5,1056,1,0.91,1.156,42.0,8718.2
+5a760ab65542994ccc918697,bridge,hard,span,Nelson Rockefeller,no,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,,20,2,963,1,0.837,1.033,67.6,8655.4
+5a7d54165542995f4f402256,bridge,hard,span,Yellowcraig,"Dirleton Castle borders on the south side of the village and Dirleton Kirk. However, the question asks for a coastal area, which is not directly bordered by Dirleton Castle but is mentioned in the context. The correct answer based on the coastal area near Dirleton is Yellowcraig.",0.0,0.0488,0,4,3,0.75,2,2,1.0,1,,20,59,849,1,0.758,2.583,33.4,8595.5
+5ab859a955429934fafe6d7b,bridge,hard,span,Phil Spector,Phil Spector,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,4,884,1,0.78,1.008,43.0,8614.3
+5add61d65542995b365fab21,bridge,hard,span,Organizations could come together to address global issues,World Summit of Nobel Peace Laureates,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,8,1110,1,0.961,1.299,37.5,8746.8
+5a8e068b5542995085b37384,comparison,hard,yesno,yes,yes,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,660,1,0.63,0.766,66.8,8628.3
+5abbf698554299114383a0b5,bridge,hard,span,English Electric Canberra,English Electric Canberra,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,4,772,1,0.711,0.866,44.5,8725.7
+5a8e1027554299653c1aa15f,bridge,hard,span,2009 Big 12 Conference,2009 Big 12 Conference,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,10,870,1,0.763,1.105,36.9,8607.1
+5ab84bf555429916710eb01f,bridge,hard,span,"1,462",1462,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,694,1,0.631,0.826,41.6,8653.7
+5a77724455429972597f153e,bridge,hard,span,Indianapolis Motor Speedway,Indianapolis Motor Speedway,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,985,1,0.867,1.069,41.3,8667.1
+5a87c13f5542996e4f30890c,bridge,hard,span,Rome,Rome,1.0,1.0,0,2,1,0.5,2,2,1.0,1,,20,3,961,1,0.806,0.944,49.3,8654.1
+5ab96ab755429970cfb8eacd,bridge,hard,span,"Max Martin, Savan Kotecha and Ilya Salmanzadeh",Fraser T Smith,0.0,0.0,0,4,2,0.5,2,2,1.0,1,,20,5,786,1,0.702,0.887,42.2,8736.2
+5a8a43eb5542996c9b8d5e82,bridge,hard,span,"Marion, South Australia",Adelaide,0.0,0.0,1,4,4,1.0,2,2,1.0,1,,20,3,910,1,0.794,0.983,48.7,8627.7
+5ae73acb5542991e8301cc07,bridge,hard,span,Drifting,Drifting,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,3,773,1,0.714,0.849,49.7,8726.2
+5a7320565542991f9a20c61d,bridge,hard,span,Keith Bostic,William Keith Bostic,0.0,0.8,1,2,2,1.0,2,2,1.0,1,,20,6,670,1,0.638,0.866,40.5,8635.4
+5ae32e125542991a06ce9946,bridge,hard,span,"35,124",6825,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,5,891,1,0.754,0.956,40.8,8618.0
+5adc53f75542996e6852530a,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,765,1,0.693,0.801,64.6,8706.2
+5a8b20335542996c9b8d5fb3,bridge,hard,span,shortest player ever to play in the National Basketball Association,Michael Jordan,0.0,0.0,0,3,1,0.3333,2,2,1.0,1,,20,3,714,1,0.667,0.825,49.3,8667.9
+5a85fb085542994775f606de,bridge,hard,span,Ronald Shusett,Shusett,0.0,0.6667,0,3,2,0.6667,2,2,1.0,1,,20,4,827,1,0.723,0.9,43.2,8766.6
+5a7be2595542997c3ec972ac,comparison,hard,span,Adeline Virginia Woolf,Virginia Woolf,0.0,0.8,1,2,2,1.0,2,2,1.0,1,,20,4,795,1,0.719,0.875,44.5,8742.8
+5a77152355429966f1a36c2e,bridge,hard,span,821,19800,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,6,484,1,0.49,0.7,40.2,8506.6
+5a8f4c8d554299458435d5a3,bridge,hard,span,more than 70 countries,more than 70,0.0,0.8571,1,2,2,1.0,2,2,1.0,1,,20,6,731,1,0.664,0.893,39.8,8681.0
+5a80840f554299485f59863b,bridge,hard,span,Charmed,Charmed,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,3,865,1,0.745,0.879,49.5,8603.9
+5a8361b65542992ef85e22a0,bridge,hard,span,International Boxing Hall of Fame,International Boxing Hall of Fame,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,6,2117,1,1.699,1.968,39.4,8913.0
+5ae7ba7a5542993210983f12,bridge,hard,span,Usher,Usher,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,3,995,1,0.843,1.024,49.6,8672.2
+5ac2acff55429921a00ab02b,bridge,hard,span,Bill Murray,Dwight,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,4,686,1,0.629,0.798,44.6,8647.3
+5aba7cfe554299232ef4a2fd,bridge,hard,span,Carabao Cup,Carabao Cup,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,845,1,0.788,0.976,41.6,8593.8
+5ae5aba0554299546bf82f17,bridge,hard,span,Teen Titans Go!,Teen Titans,0.0,0.8,1,2,2,1.0,2,2,1.0,1,,20,3,772,1,0.736,0.904,50.1,8725.7
+5ae1f4cb554299234fd0436d,bridge,hard,span,"276,170 inhabitants","276,170",0.0,0.6667,1,2,2,1.0,2,2,1.0,1,,20,8,708,1,0.687,0.968,37.7,8664.0
+5ae7e1fc55429952e35ea9cc,bridge,hard,span,orange,orange,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,805,1,0.715,0.871,67.3,8750.0
+5ae37c765542992f92d822d4,bridge,hard,span,Tromeo and Juliet,Tromeo and Juliet,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,6,1026,1,0.907,1.144,40.1,8702.8
+5ae33c4d5542992f92d82262,bridge,hard,span,William Jefferson Clinton,Bill Clinton,0.0,0.4,1,3,3,1.0,2,2,1.0,1,,20,3,799,1,0.738,0.854,50.9,8745.8
+5a77cb335542997042120b3a,bridge,hard,span,John John Florence,John John Florence,1.0,1.0,1,4,4,1.0,2,2,1.0,1,,20,4,830,1,0.752,0.909,43.0,8768.5
+5a8979f4554299669944a52e,bridge,hard,span,Ann,Ann,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,823,1,0.75,0.857,61.8,8763.3
+5a713ea95542994082a3e6e4,bridge,hard,span,Apalachees,Ais,0.0,0.0,0,3,2,0.6667,2,2,1.0,1,,20,3,730,1,0.7,0.846,51.1,8679.8
+5a78bd9b554299078472774a,bridge,hard,span,British,British,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,916,1,0.831,0.938,67.6,8631.1
+5a7625e8554299109176e66a,bridge,hard,span,1865,1865,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,923,1,0.857,1.034,42.0,8634.7
+5ae2dd2055429928c423950d,bridge,hard,span,Newport,Sullivan County,0.0,0.0,1,2,2,1.0,2,2,1.0,1,,20,4,745,1,0.673,0.848,44.2,8691.3
+5abdf12255429976d4830a2f,bridge,hard,span,Bob Seger,Bob Seger,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,4,791,1,0.74,0.901,45.1,8739.6
+5a88658955429938390d3f47,bridge,hard,span,Conscription,requiring only men to register for the draft,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,10,905,1,0.854,1.222,37.7,8625.2
+5a86ebac55429960ec39b6d6,bridge,hard,span,"Mondelez International, Inc.",Mondelez International,0.0,0.8,1,2,2,1.0,2,2,1.0,1,,20,5,808,1,0.712,0.912,42.5,8752.7
+5aba5d2e55429901930fa799,bridge,hard,span,Monica Lewinsky,Monica Lewinsky,1.0,1.0,1,3,3,1.0,2,2,1.0,1,,20,5,1021,1,0.867,1.076,40.4,8685.9
+5ae5736e5542990ba0bbb2b3,bridge,hard,span,"April 1, 1949","April 1, 1949",1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,10,938,1,0.854,1.21,35.9,8642.2
+5ae005b555429942ec259bec,bridge,hard,span,1866,1866,1.0,1.0,0,2,1,0.5,2,2,1.0,1,,20,5,837,1,0.793,1.0,42.3,8589.6
+5a7759fc5542993569682d60,comparison,hard,span,"Canary Islands, Spain","Teide National Park is located in Tenerife (Canary Islands, Spain), and Garajonay National Park is located in the center and north of the island of La Gomera, one of the Canary Islands (Spain).",0.0,0.1818,1,2,2,1.0,2,2,1.0,1,,20,49,736,1,0.697,2.169,34.7,8684.4
+5a835478554299123d8c20ed,bridge,hard,span,250 million,250 million,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,746,1,0.635,0.825,42.3,8696.6
+5aba749055429901930fa7d8,comparison,hard,span,director,director,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,2,672,1,0.641,0.729,67.6,8636.8
+5abfb3425542990832d3a1c0,bridge,hard,span,The Conversation,The Conversation,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,3,728,1,0.712,0.835,50.1,8679.1
+5ac3165c5542995ef918c10a,bridge,hard,span,John Waters,no,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,2,709,1,0.698,0.78,68.3,8664.5
+5ae53b545542990ba0bbb23c,bridge,hard,span,Las Vegas Strip in Paradise,Flamingo Hotel,0.0,0.0,0,4,3,0.75,2,2,1.0,1,,20,5,561,1,0.539,0.716,42.1,8553.9
+5ae224da554299234fd043ee,comparison,hard,yesno,no,No,1.0,1.0,0,2,1,0.5,2,2,1.0,1,,20,2,669,1,0.624,0.731,66.9,8634.9
+5ae2b770554299495565db0f,bridge,hard,span,March and April,June,0.0,0.0,1,4,4,1.0,2,2,1.0,1,,20,2,754,1,0.674,0.774,68.4,8698.2
+5a80b3a9554299485f5986cc,bridge,hard,span,Fairfax County,Fairfax,0.0,0.6667,1,2,2,1.0,2,2,1.0,1,,20,3,751,1,0.673,0.8,51.1,8700.8
+5a8e0a005542995085b373a1,bridge,hard,span,IT products and services,IT products and services,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,20,5,806,1,0.711,0.934,41.8,8751.1
+5ac1b8ee5542994d76dccedc,comparison,hard,span,Levni Yilmaz,Lev Yilmaz,0.0,0.5,1,2,2,1.0,2,2,1.0,1,,20,6,916,1,0.822,1.091,40.1,8631.1
+5adccd795542990d50227d2c,bridge,hard,span,Beijing,Rabat,0.0,0.0,1,3,3,1.0,2,2,1.0,1,,20,4,1048,1,0.934,1.12,44.3,8714.5
+5a84c4135542994c784dda31,comparison,hard,yesno,no,no,1.0,1.0,1,2,2,1.0,2,2,1.0,1,,17,2,693,1,0.646,0.74,67.3,8652.6

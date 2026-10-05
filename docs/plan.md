@@ -104,8 +104,16 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
 
 Cut from this branch: the selector arm, the model-size sweep, the concurrency
 ladder, energy, the CUDA leg. The serving sweep stays as it is in the README,
-relabelled with the corrected throughput definition once one corner re-run is
-in. A small graph arm moves to Part B as one of the retrieval strategies.
+relabelled: the two ends of its latency range (8-bit k=20 and 4-bit k=5,
+rerank off) are re-run with the streaming runner in `results/serving_corner/`
+and summarised by `scripts/serving_corner.py`. EM and retrieval_correct match
+the old rows (0.53 / 0.85 and 0.46 / 0.45); the old tok/s column rebuilds to
+4.4 and 9.5 against 4.7 and 10.1, i.e. it was answer tokens over prefill plus
+decode and mostly prefill; per-step decode is 32.8 and 60.9 tok/s. What is
+left for the README rewrite: the bullets still quote the old column, the
+pareto x axis still says throughput, and the `tokens_per_s` that run_qa logs
+counts n tokens over n-1 steps (43-45% high on five-token answers), which the
+runner's field comment does not say. A small graph arm moves to Part B as one of the retrieval strategies.
 
 ## Part B: experience memory (`experience-memory`)
 
