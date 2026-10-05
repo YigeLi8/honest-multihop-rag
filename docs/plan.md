@@ -605,9 +605,48 @@ EM beside +27 retrieval_correct).
       the same rule and should be re-read with it in mind. Alias: 28 pairs
       per order, 4 changed, too few. Still open: induced drift (not written
       in `stream.py`: one log, one permutation, no dataset marker), features
-      that are not frozen process statistics, the paired column against the
-      best fixed arm, and qtype taken out of the query-stage features (it is
-      dataset annotation, and on musique and 2wiki it carries difficulty)
+      that are not frozen process statistics, and qtype taken out of the
+      query-stage features (it is dataset annotation, and on musique and
+      2wiki it carries difficulty).
+      5 Oct, hotpot rebuilt here (bm25s 0.3.10 on linux replays the
+      committed arms trace on 1500 of 1500 hops, and every cell of the
+      committed table reproduces), with the paired contrasts the table
+      lacked. Against the best fixed arm (hybrid, 0.634) nothing is above
+      it: the routers and the best lesson memory are within noise of it
+      (router:query -0.012, largest p over the five orders 0.25;
+      utility:query:r2 -0.008, p 0.70; utility:pool:r2 -0.017, p 0.61),
+      every boundary memory is below it on every order (-0.047 to -0.088,
+      p < 1e-4 on each), as are the +lr rows and the static rules (-0.082).
+      Inside the utility / boundary pairs, per order: at radius 2 removing
+      the operators raises the rate at the query stage (+0.061, p < 1e-4;
+      158 questions the fixed region alone gets against 67) and the pool
+      stage (+0.031, p 0.011), and the +0.023 at primary_hits is not
+      separable (p 0.18); at radius 1 the operators raise it at
+      primary_hits (+0.029, p 0.018), the pool stage is level (+0.019, p
+      0.18) and the query stage goes the other way (-0.054, p < 1e-4); with
+      the per-lesson logistic the operators help at query (+0.039, p
+      0.0003) and pool (+0.037, p 0.003) and not separably at primary_hits
+      (+0.019, p 0.32). So the ablation's reading stands with a test behind
+      it, and every row the operators raise is 5-9 points under
+      always-hybrid. The shuffled-reveal control (paper log 2026-10-05: the
+      same policy, told after each decision the outcomes of a different
+      question under one fixed permutation per order, scored on the true
+      outcomes; `shuffled:` rows, paired against the policy they shuffle)
+      is the sharpest line in the table: no learned policy separates from
+      its shuffled copy. Query stage, real against shuffled: router 0.622 /
+      0.620 (p 1.0), knn 0.612 / 0.606 (1.0), utility:r2 0.626 / 0.622
+      (0.50), boundary:r2 0.565 / 0.563 (1.0); pool stage, differences of
+      0.004 to 0.009 with p 0.57-1.0; primary_hits, -0.008 to +0.003 with
+      p 0.88-1.0. The shuffled boundary memory creates and revises about as
+      many lessons as the real one (595 against 574 created at the query
+      stage, 264 against 246 narrows, 1069 against 1053 exceptions). So on
+      hotpot every policy in the table gets its rate from the arms'
+      marginal rates (how often it leaves bm25, and for which arm) and
+      nothing from the pairing of situation with outcome, which is what
+      Stage 1b's "no region where one arm reliably beats another" predicts,
+      now at the level of the policies rather than of an AUC. The control
+      goes onto musique and 2wiki when their logs are next rebuilt on the
+      Mac
 - [x] operators narrow / expand / exception / split / retire with a revision
       log; never overwrite silently. `LessonMemory(revise=True)` in
       `stream.py`: narrow pulls one box edge to just inside a contradicting

@@ -78,7 +78,9 @@ best_fixed, gain_vs_best, p_vs_best_max): a learned policy that does not
 beat that column has learned less than "always run arm A". Each utility /
 boundary pair (same stage and radius, operators off against on) also
 carries its own paired test (pair, gain_vs_pair, p_vs_pair_max), which is
-the operators ablation read per order rather than off two rates.
+the operators ablation read per order rather than off two rates, and each
+shuffled control the same against the policy it shuffles
+(gain_vs_unshuffled, p_vs_unshuffled_max).
 
     python -m src.memory.stream --records results/memory/bm25_arms_hotpot_dev_experience.jsonl \\
         --dataset hotpot [--ids ...] [--seeds 13 17 19 23 29] [--default bm25]
@@ -1122,18 +1124,25 @@ def evaluate(table: pd.DataFrame, default: str, seeds: Sequence[int] = (13, 17, 
             row["p_vs_repeat_changed"] = round(float(df["p_vs_repeat_changed"].max()), 4)
             row.update(pooled_twin_test(pd.concat(twin_frames, ignore_index=True)))
         rows.append(row)
-    # the operators ablation as a paired test: each utility / boundary pair per order
+    # the operators ablation as a paired test: each utility / boundary pair per
+    # order; and each shuffled control against the policy it shuffles
+    def paired(row, other, tag):
+        tests = [mcnemar(b.tolist(), a.tolist())
+                 for a, b in zip(hit_rows[row["policy"]], hit_rows[other])]
+        gains = [a.mean() - b.mean() for a, b in zip(hit_rows[row["policy"]], hit_rows[other])]
+        row[f"gain_vs_{tag}"] = round(float(np.mean(gains)), 4)
+        row[f"p_vs_{tag}_max"] = round(max(t[2] for t in tests), 4)
+        row[f"only_policy_vs_{tag}"] = round(float(np.mean([t[1] for t in tests])), 1)
+        row[f"only_{tag}"] = round(float(np.mean([t[0] for t in tests])), 1)
+
     for row in rows:
         other = pair_of(row["policy"])
         row["pair"] = other if other in hit_rows else ""
         if row["pair"]:
-            tests = [mcnemar(b.tolist(), a.tolist())
-                     for a, b in zip(hit_rows[row["policy"]], hit_rows[other])]
-            gains = [a.mean() - b.mean() for a, b in zip(hit_rows[row["policy"]], hit_rows[other])]
-            row["gain_vs_pair"] = round(float(np.mean(gains)), 4)
-            row["p_vs_pair_max"] = round(max(t[2] for t in tests), 4)
-            row["only_policy_vs_pair"] = round(float(np.mean([t[1] for t in tests])), 1)
-            row["only_pair"] = round(float(np.mean([t[0] for t in tests])), 1)
+            paired(row, other, "pair")
+        plain = row["policy"][len("shuffled:"):] if row["policy"].startswith("shuffled:") else ""
+        if plain in hit_rows:
+            paired(row, plain, "unshuffled")
     boundary = [k for k in logs if k.startswith("boundary")]
     first_log = logs[boundary[0]] if boundary else next(iter(logs.values()), [])
     return pd.DataFrame(rows), first_log

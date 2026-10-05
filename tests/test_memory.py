@@ -1513,6 +1513,13 @@ def test_stream_best_arm_pair_and_shuffled_controls():
     assert row.loc["shuffled:boundary:primary_hits:r2", "rate"] < \
         row.loc["boundary:primary_hits:r2", "rate"] - 0.1
     assert row.loc["shuffled:boundary:primary_hits:r2", "pair"] == "shuffled:utility:primary_hits:r2"
+    # and each shuffled row is paired with the policy it shuffles
+    assert abs(row.loc["shuffled:boundary:primary_hits:r2", "gain_vs_unshuffled"] -
+               (row.loc["shuffled:boundary:primary_hits:r2", "rate"] -
+                row.loc["boundary:primary_hits:r2", "rate"])) < 1e-3
+    assert row.loc["shuffled:boundary:primary_hits:r2", "p_vs_unshuffled_max"] < 0.05
+    assert math.isnan(row.loc["boundary:primary_hits:r2", "gain_vs_unshuffled"])
+    assert math.isnan(row.loc["shuffled:router:query", "gain_vs_unshuffled"])   # router:query not run here
     plain_summary, _ = evaluate(table, "primary", seeds=[13], policies=[])
     assert not any(p.startswith("shuffled:") for p in plain_summary["policy"])
 
