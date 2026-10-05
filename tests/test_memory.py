@@ -1037,15 +1037,22 @@ def test_make_twins():
     m_shellite = musique_record("m1", shellite["question"],
                                 [(c["title"], c["text"]) for c in shellite["chunks"][::2]],
                                 ["p0::Shellite (explosive)", "p1::Picric acid"])
+    # m2's pool carries a copy of m1's gold Picric acid paragraph under its own
+    # p{idx} id, as musique pools do: it scores on m1's question and looks like
+    # the bridge, and it must not be added to m1's pool as a distractor
     m_laleli = musique_record("m2", laleli["question"],
-                              [(c["title"], c["text"]) for c in laleli["chunks"]],
+                              [(c["title"], c["text"]) for c in laleli["chunks"]]
+                              + [("Picric acid", "Picric acid is a component of Shellite.")],
                               ["p0::Laleli Mosque", "p1::Esma Sultan Mansion"])
     assert bridge_titles(m_shellite) == ["Picric acid"]
     m_twins, m_counts = make_twins([m_shellite, m_laleli], n_distractors=2, seed=1)
     m_kinds = {t["id"]: t for t in m_twins}
     assert "m1::twin:distractor_para" in m_kinds and "m1::twin:distractor" in m_kinds
     assert m_kinds["m1::twin:distractor_para"]["twin_change"]["added"] == ["p5::Formula One"]
+    assert "p6::Picric acid" not in m_kinds["m1::twin:distractor"]["twin_change"]["added"]
     assert m_counts[("distractor_para", "bridge_paragraph")] == 1
+    # a paragraph pool has no first sentence to read an alias from
+    assert alias_twin(m_shellite) is None and not any(t["twin_kind"] == "alias" for t in m_twins)
     only_alias, c2 = make_twins([scott, shellite, laleli], kinds=("alias",))
     assert {t["twin_kind"] for t in only_alias} == {"alias"} and sum(c2.values()) == 2
     try:

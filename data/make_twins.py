@@ -46,7 +46,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-from src.memory.failures import paragraph_of
+from src.memory.failures import _MUSIQUE_PARAGRAPH, paragraph_of
 from src.memory.features import tokens
 
 PROCESSED = Path(__file__).resolve().parent / "processed"
@@ -107,9 +107,34 @@ def gold_titles(record):
     return list(dict.fromkeys(paragraph_of(g) for g in record["gold_chunk_ids"]))
 
 
+def is_paragraph_pool(record):
+    """musique pools are paragraphs, one chunk per paragraph with the pool
+    position as sent_idx; hotpot and 2wiki pools are sentences."""
+    return any(_MUSIQUE_PARAGRAPH.fullmatch(c["chunk_id"].partition("::")[0]) for c in record["chunks"][:1])
+
+
 def first_sentence(record, title):
+    """The first sentence of the titled paragraph: the sent_idx 0 chunk on
+    sentence pools. On a paragraph pool sent_idx is the pool position, so
+    there is no first sentence to read and the alias rules do not fire
+    (until 5 Oct they read whatever paragraph sat at position 0, which gave
+    four musique aliases, two of them wrong)."""
+    if is_paragraph_pool(record):
+        return ""
     return next((c["text"] for c in record["chunks"]
                  if c["title"] == title and c.get("sent_idx", -1) == 0), "")
+
+
+def pool_contents(record):
+    """Chunk ids and texts already in the pool. A distractor is skipped on
+    either: on musique the same paragraph recurs across pools under
+    different p{idx}:: ids, so an id check alone let a copy of the pool's
+    own gold paragraph in as a distractor (54 of 484 twins of the first 500
+    questions); on hotpot and 2wiki sentence ids are global and the text
+    check changes nothing."""
+    have = {c["chunk_id"] for c in record["chunks"]}
+    have.update(c["text"] for c in record["chunks"])
+    return have
 
 
 def alias_of(record, title):
@@ -165,12 +190,12 @@ def distractor_twin(record, sentence_index, n_distractors, rng):
     bridges = bridge_titles(record)
     if not bridges:
         return None
-    have = {c["chunk_id"] for c in record["chunks"]}
+    have = pool_contents(record)
     candidates, shared = {}, Counter()
     for title in bridges:
         for tok in sorted(set(content_tokens(title))):
             for chunk, source in sentence_index.get(tok, ()):
-                if source != record["id"] and chunk["chunk_id"] not in have:
+                if source != record["id"] and chunk["chunk_id"] not in have and chunk["text"] not in have:
                     candidates[chunk["chunk_id"]] = chunk
                     shared[chunk["chunk_id"]] += 1
     if not candidates:
@@ -203,7 +228,7 @@ def bridge_paragraph_twin(record, sentence_index, n_distractors, rng):
     bridges = bridge_titles(record)
     if not bridges:
         return None
-    have = {c["chunk_id"] for c in record["chunks"]}
+    have = pool_contents(record)
     q_tokens = set(paragraph_tokens(record["question"]))
     b_tokens = set()
     for c in record["chunks"]:
@@ -214,7 +239,7 @@ def bridge_paragraph_twin(record, sentence_index, n_distractors, rng):
     for tok in sorted(q_tokens):
         for chunk, source in sentence_index.get(tok, ()):
             cid = chunk["chunk_id"]
-            if source == record["id"] or cid in have or cid in candidates:
+            if source == record["id"] or cid in have or chunk["text"] in have or cid in candidates:
                 continue
             s_tokens = set(paragraph_tokens(chunk["text"]))
             with_bridge = len(s_tokens & b_tokens)
