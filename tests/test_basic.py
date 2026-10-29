@@ -343,6 +343,62 @@ def test_illusion_buckets():
     assert answer_in({"A::0"}, dict(data, answer="yes"), True) is None
 
 
+def test_intervention_contexts():
+    import pandas as pd
+    from src.eval.interventions import build_contexts, run_arms, summarize_frames
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example
+
+    chunks = [Chunk("A::0", "Book X was written by Author Y."),
+              Chunk("A::1", "It sold well."),
+              Chunk("B::0", "Author Y attended Some University."),
+              Chunk("C::0", "Some University is old."),
+              Chunk("D::0", "Author Y attended Some University."),   # copy of a gold text
+              Chunk("E::0", "Nothing about books here."),
+              Chunk("A::0", "Book X was written by Author Y.")]     # repeated id
+    ex = Example(id="q", question="Which university did the author of Book X attend?",
+                 answer="Some University", hops=2, chunks=chunks,
+                 gold_chunk_ids=["A::0", "B::0"])
+    ctx = build_contexts(ex, k=5)
+    ids = {a: [c.chunk_id for c in cs] for a, cs in ctx.items()}
+    assert ids["gold"] == ["A::0", "B::0"]
+    assert ids["answer_only"] == ["B::0"] and ids["bridge_only"] == ["A::0"]
+    # no sentence of a gold paragraph, no copy of a gold text
+    assert ids["distractors"] == ["C::0", "E::0"]
+    assert ids["distractors"] == [c.chunk_id for c in build_contexts(ex, k=2)["distractors"]]
+
+    yn = Example(id="y", question="Same country?", answer="yes", hops=2, chunks=chunks,
+                 gold_chunk_ids=["A::0", "B::0"])
+    assert set(build_contexts(yn, k=5)) == {"gold", "distractors"}
+    one = Example(id="o", question="q", answer="Some University", hops=2, chunks=chunks,
+                  gold_chunk_ids=["B::0"])          # every gold chunk carries the answer
+    assert "answer_only" not in build_contexts(one, k=5)
+
+    class FakeGen:
+        def generate(self, prompt, max_tokens=None):
+            assert "Answer the question using only the context" in prompt
+            right = "attended Some University" in prompt
+            return ("Some University" if right else "dunno") + "\nmore", GenMetrics(
+                tokens_per_s=1.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=2,
+                prompt_tokens=7)
+    rows, traces = run_arms(ex, ctx, FakeGen())
+    by = {r["arm"]: r for r in rows}
+    assert [r["arm"] for r in rows] == ["gold", "answer_only", "bridge_only", "distractors"]
+    assert by["gold"]["em"] == 1 and by["answer_only"]["em"] == 1
+    assert by["bridge_only"]["em"] == 0 and by["distractors"]["em"] == 0
+    assert by["answer_only"]["answer_in_ctx"] == 1 and by["bridge_only"]["answer_in_ctx"] == 0
+    assert by["gold"]["n_gold_in_ctx"] == 2 and by["distractors"]["n_gold_in_ctx"] == 0
+    assert traces[0]["context"] == ["A::0", "B::0"] and traces[0]["answer_pred"] == "Some University"
+
+    qa = pd.DataFrame(rows + [dict(r, id="q2") for r in rows])
+    per_arm, paired, by_bucket = summarize_frames(qa, {"q": 0, "q2": 1},
+                                                  {"q": "shortcut", "q2": "(wrong)"})
+    assert list(per_arm.arm) == ["gold", "answer_only", "bridge_only", "distractors"]
+    row = paired[(paired.a == "closed_book") & (paired.b == "gold")].iloc[0]
+    assert row.n == 2 and row.em_a == 0.5 and row.em_b == 1.0 and row.only_b == 1
+    assert set(by_bucket.bm25_bucket) == {"shortcut", "(wrong)"}
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
@@ -362,4 +418,5 @@ if __name__ == "__main__":
     test_paragraph_recall()
     test_paired_stats()
     test_illusion_buckets()
+    test_intervention_contexts()
     print("all good")
