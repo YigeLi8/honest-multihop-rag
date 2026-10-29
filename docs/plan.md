@@ -884,11 +884,22 @@ and only then run the loop live.
       deeper chunks are from paragraphs not yet in context). Retrieving 2k
       is cheap; what costs is the generator reading it, so a policy may look
       before it hands chunks over. Same gate as above, same fold
-- [ ] answer level: does more context move EM in this loop at all? Hybrid
+- [x] answer level: does more context move EM in this loop at all? Hybrid
       ircot k=20 on the hotpot exploration fold (`configs/hybrid_ircot_k20.yaml`)
       against the committed k=10 run, paired. If EM does not move with
       +0.136 all-gold, a deepening memory is a retrieval-level result only
-      and is reported as that
+      and is reported as that. Mac, 28 Oct, n=500: retrieval_correct 0.772
+      -> 0.906 (+0.134 [+0.104, +0.166], 70 vs 3, p 1e-17), which the
+      fixed-trajectory replay put at 0.908; EM 0.486 -> 0.502 (+0.016
+      [-0.010, +0.042], 26 vs 18, p 0.29); F1 0.619 -> 0.636; prompt tokens
+      1518 -> 2609 per question, latency 1.81 -> 2.37 s, hops 2.11 -> 2.19.
+      The cell drops 0.068 -> 0.038 (20 vs 5, p 0.004), which is the
+      retrieval_correct column moving, not answers. So deepening is a
+      retrieval-level result here, and the intervention arms on
+      `illusion-analysis` say why: with only the answer-bearing gold the
+      reader does as well as with all of it, so completing the evidence adds
+      little EM. A memory that deepens is judged on retrieval outcomes and
+      context cost, and EM is reported beside it as level
 - [ ] if the probe stage clears the gate: the live loop with the memory
       choosing deepen / extra hop / stop, lessons and boundaries as in
       Stage 5, on the exploration fold first, then once on a confirmation
