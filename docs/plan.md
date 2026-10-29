@@ -846,6 +846,54 @@ EM beside +27 retrieval_correct).
       arm. The reading stands and is now tested: the operators change how
       often a lesson fires, not where one arm beats another
 
+### Stage 5b: actions inside the loop (28 Oct)
+
+Stages 1b-5 asked one decision of the memory, which retriever to run, and on
+three datasets that decision has nothing stable to learn. The ircot loop
+offers others, and the hop-level logs already hold the effect of two of them:
+retrieve deeper on this hop, and switch retriever on this hop. Extra hops,
+query rewrites and early stops need generation and are not in the logs. So
+the order is the same as before: replay what can be replayed, gate on it,
+and only then run the loop live.
+
+- [x] replay ceilings, hotpot exploration fold, hybrid ircot k=10
+      (`scripts/inloop_ceiling.py`, trajectory fixed: later queries, stop and
+      hop count are the logged ones). All gold in context 0.772 as run;
+      per-hop best of the three retrievers at k 0.832 (+0.060, 30 vs 0);
+      always dense 0.754 (-0.018, p 0.22); always 2k 0.908 (+0.136, 68 vs
+      0) at 42.2 chunks per question against 21.1; 2k only on the hops where
+      it adds gold (oracle) 0.908 at 26.6, i.e. on 26% of hops (275 of
+      1057). Pools hold 41.5 chunks per hop, so 2k is not the whole pool
+      (2.5% of hops have pool <= 2k). Reranked logs are refused: there top_k
+      is the first-stage depth.
+- [x] gate: is "deepening helps on this hop" learnable from the frozen
+      features? Held-out AUC (halves by question, 5 seeds) 0.557 query
+      stage, 0.562 pool, 0.643 primary_hits, size control 0.515. At matched
+      cost (deepen 30% of hops, 27.5 chunks per question) the learned
+      policy reaches 0.833 against 0.816 for uniform k=13 and 0.824 for
+      deepening a random 30%: +0.017 +- 0.014 and +0.009 +- 0.015 over 10
+      half-splits of 250 questions (per-split McNemar p median 0.54 and
+      0.72, smallest 0.012 and 0.041 unadjusted, one split each of ten;
+      `--gate`). The same shape as routing: a large oracle gap (0.908
+      against 0.816 at matched cost) that the pre-retrieval features do not
+      reach. Uniform k computed from gold_ranks gives 0.768 at k=10, not
+      0.772, because hybrid's full-pool ranking is fused differently.
+- [ ] probe stage for deepening: features of ranks k+1..2k computed without
+      gold (does a deeper chunk come from a paragraph whose title is named in
+      the question or in the context so far, score gap at rank k, how many
+      deeper chunks are from paragraphs not yet in context). Retrieving 2k
+      is cheap; what costs is the generator reading it, so a policy may look
+      before it hands chunks over. Same gate as above, same fold
+- [ ] answer level: does more context move EM in this loop at all? Hybrid
+      ircot k=20 on the hotpot exploration fold (`configs/hybrid_ircot_k20.yaml`)
+      against the committed k=10 run, paired. If EM does not move with
+      +0.136 all-gold, a deepening memory is a retrieval-level result only
+      and is reported as that
+- [ ] if the probe stage clears the gate: the live loop with the memory
+      choosing deepen / extra hop / stop, lessons and boundaries as in
+      Stage 5, on the exploration fold first, then once on a confirmation
+      fold with the closed-book control
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve
