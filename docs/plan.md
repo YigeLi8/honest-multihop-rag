@@ -99,8 +99,31 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       entered context, stop reason, correctness
 - [ ] README rewrite: scope in paragraph one (distractor pools, one model, one
       device), confirmation-fold tables, limitations, reproduction steps
-- [ ] intervention arms on the exploration fold (gold-only, gold minus bridge,
-      gold minus answer sentence, distractors only), if time
+- [x] intervention arms on the exploration fold (gold-only, gold minus bridge,
+      gold minus answer sentence, distractors only), if time.
+      `src/eval/interventions.py`, positions 0-499, 7B 4-bit, the one answer
+      prompt, paired against the closed-book run on the same ids, Holm over
+      the six pairs within each dataset (`results/interventions_*_explore_*`).
+      Exploratory, not preregistered. EM, hotpot / 2wiki / musique:
+      gold 0.614 / 0.578 / 0.424 against closed-book 0.170 / 0.226 / 0.028.
+      Gold minus the bridge (answer-bearing gold only), against gold on the
+      same questions: -0.012 [-0.055, +0.030] Holm p 0.96 / -0.048 [-0.096,
+      0.000] p 0.064 / -0.013 [-0.054, +0.029] p 1.0. So taking the bridge
+      sentence away does not measurably lower EM on any of the three; on
+      2wiki the drop is at the edge. Gold minus the answer sentence (bridge
+      only) is at or below closed-book: 0.119 vs 0.104 (p 0.96) / 0.089 vs
+      0.170 (-0.082, 19 vs 53, p 0.0002) / 0.021 vs 0.025 (p 1.0).
+      Distractors only (bm25 top-k from paragraphs holding no gold): 0.143
+      vs 0.169 (p 0.35) / 0.146 vs 0.226 (-0.080, 33 vs 73, p 0.0003) /
+      0.012 vs 0.028 (p 0.12). Reading: the model answers from the
+      answer-bearing sentence whether or not the bridge is there, which is
+      what the shortcut bucket assumed from the decomposition and is now seen
+      by intervention; and on 2wiki any context without the answer, bridge
+      or distractor, suppresses answers it gives closed-book. Per bm25
+      bucket the cells are small (shortcut 46 / 33 / 26) and are in the
+      by_bucket files without tests. Even with only the gold evidence EM
+      stays at 0.42-0.61, so the EM side of the 2x2 has a ceiling well below
+      1 in this harness
 
 Cut from this branch: the selector arm, the model-size sweep, the concurrency
 ladder, energy, the CUDA leg. The serving sweep stays as it is in the README,
