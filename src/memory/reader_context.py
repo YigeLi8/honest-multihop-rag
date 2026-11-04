@@ -24,12 +24,18 @@ Every kept set is listed in context order and answered with the one answer
 prompt, so two arms over a question differ only in which chunks are there.
 Three chunks is the mean gold size rounded up (2.4 on the hotpot fold).
 The learned filter is the "filter trained on the same gold" baseline a
-memory has to beat; it is fit once per half, not online. Its labels are
+memory has to beat; it is fit once per half, not online. With --train-trace
+it is instead fit once on another fold's contexts (the exploration fold) and
+applied to these questions, so nothing is fit on the fold being scored. Its labels are
 gold, its features never are (src/memory/features.py's rule).
 
     python -m src.memory.reader_context run --config configs/hybrid_ircot_k20.yaml \\
         --trace results/hybrid_ircot_k20_hotpot_dev_trace.jsonl \\
         --ids results/folds/hotpot_explore.txt --name reader_ctx_hotpot_explore [--dry-run]
+    python -m src.memory.reader_context run --config configs/hybrid_ircot_k20.yaml \
+        --trace results/hybrid_ircot_k20_hotpot_confirm_trace.jsonl --ids results/folds/hotpot_confirm.txt \
+        --train-trace results/hybrid_ircot_k20_hotpot_dev_trace.jsonl --train-ids results/folds/hotpot_explore.txt \
+        --name reader_ctx_hotpot_confirm
     python -m src.memory.reader_context summarize --name reader_ctx_hotpot_explore \\
         --run-qa results/hybrid_ircot_k20_hotpot_dev_qa.csv
 """
@@ -84,14 +90,31 @@ def keep_top(scores, n):
     return sorted(top)
 
 
-def learned_scores(items, seed=13):
-    """Held-out probability that a chunk is gold: questions split in halves
-    by a seeded shuffle, a logistic fit on one half scores the other."""
+def _fit(items):
     import numpy as np
     from sklearn.linear_model import LogisticRegression
     from sklearn.pipeline import make_pipeline
     from sklearn.preprocessing import StandardScaler
 
+    X = np.array([[r[f] for f in FEATURES] for it in items for r in it["feats"]], float)
+    y = np.array([g for it in items for g in it["is_gold"]])
+    return make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000)).fit(X, y)
+
+
+def _score(clf, items):
+    import numpy as np
+    return {it["id"]: clf.predict_proba(np.array([[r[f] for f in FEATURES] for r in it["feats"]],
+                                                 float))[:, 1].tolist() for it in items}
+
+
+def learned_scores(items, seed=13, train_items=None):
+    """Held-out probability that a chunk is gold: fit on train_items when
+    given, else questions split in halves by a seeded shuffle and a logistic
+    fit on one half scores the other."""
+    if train_items is not None:
+        if {it["id"] for it in train_items} & {it["id"] for it in items}:
+            raise SystemExit("train and scored questions overlap")
+        return _score(_fit(train_items), items)
     qids = sorted({it["id"] for it in items})
     random.Random(seed).shuffle(qids)
     half = set(qids[: len(qids) // 2])
@@ -99,12 +122,7 @@ def learned_scores(items, seed=13):
     for train_half in (True, False):
         tr = [it for it in items if (it["id"] in half) == train_half]
         te = [it for it in items if (it["id"] in half) != train_half]
-        X = np.array([[r[f] for f in FEATURES] for it in tr for r in it["feats"]], float)
-        y = np.array([g for it in tr for g in it["is_gold"]])
-        clf = make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000)).fit(X, y)
-        for it in te:
-            Xt = np.array([[r[f] for f in FEATURES] for r in it["feats"]], float)
-            out[it["id"]] = clf.predict_proba(Xt)[:, 1].tolist()
+        out.update(_score(_fit(tr), te))
     return out
 
 
@@ -159,7 +177,14 @@ def cmd_run(args):
     ids = read_ids(args.ids) if args.ids else list(traces)
     examples = load_examples(data_file, None, ids)
     items = build(cfg, examples, traces)
-    sel = select(items, learned_scores(items))
+    train_items = None
+    if args.train_trace:
+        with open(args.train_trace) as f:
+            tr_traces = {t["id"]: t for t in map(json.loads, f)}
+        tr_ids = read_ids(args.train_ids) if args.train_ids else list(tr_traces)
+        train_items = build(cfg, load_examples(data_file, None, tr_ids), tr_traces)
+        print(f"chunk filter fit on {len(train_items)} questions from {args.train_trace}")
+    sel = select(items, learned_scores(items, train_items=train_items))
     print(f"{len(items)} questions from {data_file}; context {sum(len(i['chunks']) for i in items) / len(items):.1f} "
           f"chunks per question, gold {sum(sum(i['is_gold']) for i in items) / len(items):.2f}")
     for arm in ARMS:
@@ -270,6 +295,8 @@ def main():
     r.add_argument("--trace", required=True, help="the ircot run's trace.jsonl")
     r.add_argument("--ids", default=None)
     r.add_argument("--name", required=True)
+    r.add_argument("--train-trace", default=None, help="fit the chunk filter on this run's contexts instead")
+    r.add_argument("--train-ids", default=None)
     r.add_argument("--dry-run", action="store_true", help="build contexts and selections, no generation")
     s = sub.add_parser("summarize")
     s.add_argument("--name", required=True)

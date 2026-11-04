@@ -34,6 +34,14 @@ both ways, 5 seeds. Then, at the cost of deepening 30% of the held-out hops,
 the learned policy (deepen the 30% with the highest predicted probability)
 against uniform k=13 and against deepening a random 30%, paired per split.
 
+--train-records fits the same logistic once on another log (the exploration
+fold) and applies it to --records (a confirmation fold): one paired test of
+the learned policy against uniform k+3 and against a random 30%, at the same
+30% budget. Nothing is fit on --records.
+
+    python scripts/inloop_ceiling.py --records results/memory/hybrid_ircot_hotpot_confirm_experience.jsonl \
+        --train-records results/memory/hybrid_ircot_hotpot_dev_experience.jsonl
+
     python scripts/inloop_ceiling.py --records results/memory/hybrid_ircot_hotpot_dev_experience.jsonl
 """
 import argparse
@@ -84,6 +92,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--records", required=True)
     ap.add_argument("--gate", action="store_true")
+    ap.add_argument("--train-records", default=None, help="fit the deepening policy here, score on --records")
     args = ap.parse_args()
     with open(args.records) as f:
         header = json.loads(f.readline())
@@ -112,9 +121,68 @@ def main():
               f"{only_a} vs {only_k}  holm p {ph:.2g}  chunks/question {cost[a]:.1f}")
     if args.gate:
         gate(header, records)
+    if args.train_records:
+        with open(args.train_records) as f:
+            train_header = json.loads(f.readline())
+            train = [json.loads(line) for line in f]
+        transfer(train_header, train, header, records)
 
 
 SIZE = ("hop", "n_pool_chunks", "n_hits")
+
+
+def deep_label(r, k):
+    """1 when 2k adds gold this hop missed at k (an outcome, never a feature)."""
+    return int(bool(within(r["hop_outcome"]["gold_ranks"], 2 * k) - set(r["hop_outcome"]["gold_hit_ids"])))
+
+
+def stage_columns(header, names, top="primary_hits"):
+    import ast
+    stage = header["feature_stage"]
+    stage = stage if isinstance(stage, dict) else ast.literal_eval(stage)
+    allowed = {"query": {"query"}, "pool": {"query", "pool"},
+               "primary_hits": {"query", "pool", "primary_hits"}}[top]
+    return [n for n in names if stage.get(n) in allowed]
+
+
+def transfer(train_header, train, header, records, budget=0.30, seed=13):
+    import numpy as np
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+
+    if train_header["features_sha256"] != header["features_sha256"]:
+        raise SystemExit("the two logs were written with different feature schemas")
+    k = header["strategy"]["top_k"]
+    if train_header["strategy"]["top_k"] != k:
+        raise SystemExit("the two logs use different top_k")
+    cols = stage_columns(header, list(records[0]["features"]))
+    Xtr = np.array([[r["features"][n] for n in cols] for r in train], float)
+    ytr = np.array([deep_label(r, k) for r in train])
+    clf = make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000)).fit(Xtr, ytr)
+    p = clf.predict_proba(np.array([[r["features"][n] for n in cols] for r in records], float))[:, 1]
+    learned = p >= np.quantile(p, 1 - budget)
+    rnd = np.zeros(len(records), bool)
+    rnd[np.random.RandomState(seed).choice(len(records), int(budget * len(records)), replace=False)] = True
+    zero = np.zeros(len(records), bool)
+    oracle = np.array([bool(deep_label(r, k)) for r in records])
+    out, cost = {}, {}
+    for name, (g, c, ch) in (("k", coverage(records, zero, k)),
+                             (f"uniform k={k + 3}", coverage(records, zero, k, k + 3)),
+                             ("random", coverage(records, rnd, k)),
+                             ("learned", coverage(records, learned, k)),
+                             ("oracle", coverage(records, oracle, k))):
+        ids = sorted(g)
+        out[name] = [int(g[i] <= c[i]) for i in ids]
+        cost[name] = sum(ch[i] for i in ids) / len(ids)
+    print(f"\nfit on {train_header['run']} ({len(train)} hops), scored on {header['run']} "
+          f"({len(records)} hops, {len(out['k'])} questions); deepen {budget:.0%} of hops")
+    for name in out:
+        print(f"{name:<13} all gold {sum(out[name]) / len(out[name]):.3f}  chunks/question {cost[name]:.1f}")
+    for b in (f"uniform k={k + 3}", "random"):
+        only_b, only_l, pv = mcnemar(out[b], out["learned"])
+        diff, lo, hi = paired_bootstrap(out[b], out["learned"])
+        print(f"learned - {b}: {diff:+.3f} [{lo:+.3f}, {hi:+.3f}]  {only_l} vs {only_b}  McNemar p {pv:.2g}")
 
 
 def coverage(records, deep, k, uniform=None):
