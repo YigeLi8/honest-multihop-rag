@@ -1,0 +1,8 @@
+bm25_bucket,n,closed_book_em,gold_n,gold_em,answer_only_n,answer_only_em,bridge_only_n,bridge_only_em,distractors_n,distractors_em
+"(right, all gold)",284,0.331,284,0.9225,194,0.8402,194,0.2216,282,0.3191
+(wrong),585,0.0632,585,0.4256,528,0.3845,528,0.0549,583,0.0274
+paragraph,3,0.0,3,1.0,3,1.0,3,0.3333,3,0.3333
+parametric,42,1.0,42,0.9524,29,0.8966,29,0.3793,42,0.4286
+partial,3,0.0,3,1.0,3,1.0,3,0.6667,3,0.3333
+shortcut,81,0.0,81,0.8765,68,0.8235,68,0.2059,81,0.1358
+yesno,2,0.0,2,1.0,0,,0,,2,0.5

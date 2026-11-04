@@ -124,6 +124,13 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       by_bucket files without tests. Even with only the gold evidence EM
       stays at 0.42-0.61, so the EM side of the 2x2 has a ceiling well below
       1 in this harness
+- [x] intervention arms on the three confirmation folds, under
+      `docs/preregistration_2.md` (I1-I4, outcomes there). I2 and I3 pass on
+      all three; I1 passes on musique and fails on hotpot: gold minus the
+      bridge -0.042 [-0.068, -0.017], so on this fold the bridge is worth
+      about four EM points on hotpot and 2wiki, and the "bridge not needed"
+      reading is kept for musique only. Distractors alone are below
+      closed-book on all three (-0.032 / -0.070 / -0.017).
 
 Cut from this branch: the selector arm, the model-size sweep, the concurrency
 ladder, energy, the CUDA leg. The serving sweep stays as it is in the README,
