@@ -901,6 +901,17 @@ and only then run the loop live.
       against 0.816 at matched cost) that the pre-retrieval features do not
       reach. Uniform k computed from gold_ranks gives 0.768 at k=10, not
       0.772, because hybrid's full-pool ranking is fused differently.
+- [x] confirmation, preregistration 2 D3 (3 Nov): the policy fit on the
+      exploration log and applied once to `hybrid_ircot_hotpot_confirm`
+      (1000 questions, 2177 hops), deepening 30% of hops: all gold 0.826
+      against 0.825 for uniform k=13 at 28.3 chunks per question, +0.001
+      [-0.016, +0.018] (36 vs 35, p 1.0), and against a random 30% -0.008
+      [-0.025, +0.009] (p 0.42). Upper bound 0.018 < 0.046: passed. The
+      oracle at the same cost is 0.920 (27.4 chunks), always-2k 0.920,
+      per-hop best arm 0.847. Musique confirmation log, descriptive (D4,
+      k=5 over 20-paragraph pools, so 2k is half the pool): as run 0.553,
+      always-2k 0.770, oracle 0.770 at 17.9 chunks against 13.1, per-hop
+      best arm 0.681
 - [ ] probe stage for deepening: features of ranks k+1..2k computed without
       gold (does a deeper chunk come from a paragraph whose title is named in
       the question or in the context so far, score gap at rank k, how many
