@@ -136,6 +136,70 @@ with the same config and listed below.
   over frozen features. A failure to beat a baseline is about that model and
   those features, not about learning in general.
 
+## Outcomes (4 Nov 2026)
+
+Runs from queue12, 3-4 Nov, all 1000 ids each, none crashed. Paired
+differences with 95% paired-bootstrap CIs; McNemar exact. Files:
+`results/interventions_*_confirm_*` (this branch),
+`results/hybrid_ircot_k20_hotpot_confirm_*` and
+`results/reader_ctx_hotpot_confirm_*` (`experience-memory`).
+
+Manipulation check: gold above closed-book on all three, 0.630 vs 0.173 /
+0.550 vs 0.214 / 0.436 vs 0.032. The intervention tables are interpreted.
+
+| Test | Result | Rule | Outcome |
+|---|---|---|---|
+| I1 hotpot, gold vs answer_only (n=825) | -0.042 [-0.068, -0.017] | inside +-0.05 | **failed**: equivalence not shown |
+| I1 musique (n=941) | -0.020 [-0.049, +0.009] | inside +-0.05 | pass |
+| I1w 2wiki (n=845) | -0.056 [-0.091, -0.020] | descriptive | - |
+| I2 hotpot, bridge_only - closed-book | -0.005 [-0.029, +0.019] | upper < +0.05 | pass |
+| I2 2wiki | -0.104 [-0.131, -0.077] | upper < +0.05 | pass |
+| I2 musique | -0.002 [-0.015, +0.011] | upper < +0.05 | pass |
+| I3 2wiki, bridge_only vs closed-book | -0.104, 29 vs 117, Holm p 2e-13 | lower, Holm < 0.05 | pass |
+| I3 2wiki, distractors vs closed-book | -0.070 [-0.096, -0.044], 58 vs 128, Holm p 3e-7 | lower, Holm < 0.05 | pass |
+| I4 hotpot, distractors vs closed-book | -0.032 [-0.056, -0.008], p 0.011 | descriptive | - |
+| I4 musique | -0.017 [-0.028, -0.007], p 0.003 | descriptive | - |
+| D1 retrieval_correct, k=10 vs k=20 | 0.774 -> 0.925, +0.151 [+0.129, +0.174], 156 vs 5, Holm p 2e-39 | higher, Holm < 0.05 | pass |
+| D2 EM, same pair | 0.466 -> 0.476, +0.010 [-0.009, +0.029] | inside +-0.05 | pass |
+| D3 learned - uniform k=13 | 0.826 vs 0.825, +0.001 [-0.016, +0.018] | upper < +0.046 | pass |
+| C0 full arm = k=20 run | 1000 of 1000 identical | check | holds |
+| C1 gold vs full, EM | 0.610 vs 0.476, +0.134 [+0.106, +0.161], 180 vs 46, Holm p 2e-19 | higher, Holm < 0.05 | pass |
+| C2 rerank3 - full | -0.031 [-0.057, -0.005] | upper < 0 | pass (below) |
+| C2 rerank5 - full | -0.017 [-0.042, +0.008] | upper < +0.03 | weaker pass (not above) |
+| C2 learned3 - full | -0.022 [-0.050, +0.005] | upper < +0.03 | weaker pass (not above) |
+
+Holm family (I3 x2, D1, C1): raw p 1e-13, 3e-7, 6e-40, 6e-20; all four
+below 0.05 after adjustment.
+
+Of the ten CI rules, one fails: I1 on hotpot. On this fold the bridge
+sentence is worth about four EM points on hotpot (77 vs 42 questions), so
+"the bridge is not needed for EM" holds on musique only; on 2wiki the drop
+(I1w) is of the same size. The exploration estimate (-0.012) is not
+substituted. What still holds on all three is I2: the bridge without the
+answer sentence adds nothing over closed-book.
+
+Descriptive, not tested:
+
+- C1 on the all-gold-in-context subset (n=925): +0.140 [+0.110, +0.170].
+- C2 effects are a third of their exploration size (-0.090 / -0.062 /
+  -0.084 there). The cuts are below or level with the full context, not
+  clearly below it.
+- C3: random3 -0.301. Kept-gold rates (every gold chunk of the context kept):
+  rerank3 0.424, rerank5 0.567, learned3 0.459. Where a cut kept every gold
+  chunk and the context held all of it, the cut is above the full context on
+  the same questions: rerank3 0.634 vs 0.577 (n=385), rerank5 0.593 vs 0.557
+  (n=519), learned3 0.628 vs 0.573 (n=419). These are selected subsets; on
+  exploration the same split showed a tie. Read with C1: a short context
+  helps this reader when it is the right one, and these cuts are right less
+  than 60% of the time.
+- D4: musique confirmation log, as run 0.553, deepening every hop and the
+  matched-cost oracle both 0.770.
+
 ## Deviations
 
 Anything that departs from the above, with date and reason.
+
+- 2026-11-04, analysis code. D1 and D2 have no summarize step in run_qa; the
+  pair was scored with a short paired script (10,000 bootstrap resamples,
+  seed 0, exact McNemar), the same tests as the other rows. The Holm
+  adjustment across the four tests was done by hand from the raw p values.
