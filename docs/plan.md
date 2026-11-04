@@ -928,6 +928,80 @@ and only then run the loop live.
       Stage 5, on the exploration fold first, then once on a confirmation
       fold with the closed-book control
 
+### Stage 5c: what the reader is handed (3 Nov)
+
+Where the answers go, hotpot exploration fold, paired on the same 500 ids.
+Retrieval-side changes move EM little: deepening +0.134 retrieval_correct
+for +0.016 EM (Stage 5b); choosing the better of the closed-book and the
+context answer per question (oracle) adds +0.026 over ircot (+0.068 over
+bm25 on 2wiki, +0.010 on musique). What does move it is the context after
+retrieval: on the 453 questions whose ircot k=20 context already held every
+gold sentence, the gold sentences alone answer 0.625 against 0.512 for the
+whole context (+0.113 [+0.068, +0.157], 79 vs 28, p 8e-7; +0.083 at k=10,
+p 0.0002). And the reader still misses 39% with gold only, 89 of those with
+F1 >= 0.5. So the decision a memory could take that reaches answers is which
+retrieved chunks to hand the reader, not which to retrieve.
+
+The memory, if the gate below is passed: before the answer step, keep or drop
+each chunk of the answer context. Lessons are about chunks in a situation
+("a sentence from a paragraph the question does not name, entered at a late
+hop, with a low cross-encoder score, distracted the reader"), learned from
+the per-chunk gold label and the reader's outcome, with a per-lesson
+applicability boundary revised online as in Stage 5. Outcomes: EM recovered
+toward the gold-only oracle on the all-gold-in-context subset, at matched
+context size; kept-gold recall beside it.
+
+What is already done elsewhere (literature check on 3 Nov, keyword search,
+the 2026 items not yet read in full): learned filtering before the reader
+(FILCO, RECOMP, Provence, CompAct, EXIT, CRAG, BRIEF); distraction by
+irrelevant context (Shi et al. 2023, Lost in the Middle, The Power of Noise,
+and gold-only against full context as a standard oracle ablation, so the
++0.113 is a confirmation in this harness, not a discovery); rule memories
+with add / edit / remove (ExpeL), context-conditioned guidelines
+(AutoGuide), evolving playbooks (ACE, Dynamic Cheatsheet, ReasoningBank),
+applicability scoring of memory units (MILES, 2607.06974). Nothing found does
+scoped, online-revised lessons for context selection, but every part exists,
+so the claim stays narrow: scoped lessons beat a reranker and a supervised
+filter at matched size, and the scope is what does it (ablation against the
+same lessons without boundaries). To read in full before writing: MILES,
+2607.17108 (evidence interfaces), 2609.17043 (fact-grounding gap), 2205.03685.
+
+- [x] gate (`src/memory/reader_context.py`): the k=20 answer contexts cut
+      to gold / reranker top 3 / top 5 / a held-out logistic chunk filter on
+      gold-free features (top 3) / random 3, against the full context.
+      Selection only, before generation: every gold chunk of the context
+      kept on 0.438 (rerank3), 0.612 (rerank5), 0.464 (learned3), 0.016
+      (random3) of questions; context 24.1 chunks, gold 2.31. If neither the
+      reranker nor the filter recovers any of the +0.113, the decision is
+      open but hard; if the filter recovers most of it, a memory has nothing
+      to add and that is the result.
+      Mac, 3 Nov, n=500 (`results/reader_ctx_hotpot_explore_*`). The full
+      arm gives the run's answer on 500 of 500 (EM 0.502 both). Against
+      full, Holm over the five arms: gold +0.102 [+0.064, +0.142] (79 vs
+      28, p 3e-6); rerank3 -0.090 [-0.132, -0.050] (34 vs 79, p 8e-5);
+      rerank5 -0.062 [-0.098, -0.026] (29 vs 60, p 0.001); learned3 -0.084
+      [-0.124, -0.046] (31 vs 73, p 9e-5); random3 -0.322. The same on the
+      453 all-gold-in-context questions (gold +0.117; rerank3 and learned3
+      -0.080, rerank5 -0.057, all p <= 0.004). So no cut short of the
+      oracle recovers any of the gap; every one of them loses EM, and the
+      filter fit on the same gold labels is level with the reranker. Split
+      by whether the cut kept every gold chunk (not tested, the subsets are
+      selected by the arm): where rerank3 kept them all (219) it ties the
+      full context, 0.594 against 0.594, under gold's 0.621; where it
+      dropped one (281) it falls to 0.270 against full's 0.431, and learned3
+      and rerank5 look the same. Reading: dropping a gold sentence costs
+      far more than a distractor does, and a three-chunk cut that keeps the
+      gold still gains nothing over the whole context, so the +0.11 lives
+      only at exact selection. The gate is not passed: a keep / drop memory
+      would be judged against a decision where every non-oracle policy
+      tried so far is below doing nothing
+- [ ] baselines a memory must face, from the literature check: reranker
+      truncated to the same size, a supervised filter on the same labels
+      (the learned3 arm here, and Provence off the shelf), and a flat lesson
+      memory without boundaries (ExpeL / ACE style)
+- [ ] then the memory, online over the exploration fold in a seeded order,
+      and once on a confirmation fold with the closed-book control
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve
