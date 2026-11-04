@@ -1574,6 +1574,47 @@ def test_stream_best_arm_pair_and_shuffled_controls():
     assert "repeat_best_changed" in summary.columns and "best_changed" in summary.columns
 
 
+def test_reader_context_selection():
+    import pandas as pd
+    from src.memory.reader_context import (answer_context, chunk_features, keep_top,
+                                           select, summarize_frame)
+    from src.types import Chunk
+
+    tr = {"hops": [{"hop": 0, "retrieved": ["A::0", "B::0", "C::0"]},
+                   {"hop": 1, "retrieved": ["B::0", "D::0"]}]}
+    info = answer_context(tr)
+    assert list(info) == ["A::0", "B::0", "C::0", "D::0"]        # first-seen order
+    assert info["B::0"] == {"first_hop": 0, "first_rank": 2, "n_hops_hit": 2}
+    assert info["D::0"]["first_hop"] == 1 and info["D::0"]["first_rank"] == 2
+    chunks = [Chunk(c, t) for c, t in (("A::0", "alpha beta"), ("B::0", "gamma"),
+                                      ("C::0", "beta delta"), ("D::0", "x"))]
+    feats = chunk_features("Is A alpha?", chunks, info, [0.1, 0.9, 0.5, 0.2])
+    assert [f["ce_rank"] for f in feats] == [4, 1, 2, 3]
+    assert feats[0]["title_in_question"] == 1 and feats[1]["title_in_question"] == 0
+    assert feats[0]["question_overlap"] > 0 and feats[3]["question_overlap"] == 0
+    # gold flags never enter the features
+    assert "is_gold" not in feats[0] and "gold" not in " ".join(feats[0])
+    assert keep_top([0.1, 0.9, 0.5, 0.2], 2) == [1, 2]          # kept in context order
+    assert keep_top([0.5, 0.5, 0.1], 1) == [0]                  # ties to the earlier chunk
+    items = [{"id": "q", "chunks": chunks, "feats": feats, "is_gold": [1, 0, 0, 1]},
+             {"id": "r", "chunks": chunks[:2], "feats": feats[:2], "is_gold": [0, 0]}]
+    sel = select(items, {"q": [0.9, 0.1, 0.2, 0.8], "r": [0.3, 0.4]})
+    assert sel["q"]["gold"] == [0, 3] and sel["q"]["learned3"] == [0, 2, 3]
+    assert sel["q"]["rerank3"] == [1, 2, 3] and sel["q"]["full"] == [0, 1, 2, 3]
+    assert "gold" not in sel["r"] and sel["r"]["rerank5"] == [0, 1]
+    assert len(sel["q"]["random3"]) == 3 and len(sel["r"]["random3"]) == 2
+
+    rows = []
+    for qid, full_em, gold_em, allg in (("a", 0, 1, 1), ("b", 1, 1, 1), ("c", 0, 0, 0)):
+        rows += [{"id": qid, "arm": "full", "em": full_em, "all_gold_ctx": allg},
+                 {"id": qid, "arm": "gold", "em": gold_em, "all_gold_ctx": allg}]
+    out = summarize_frame(pd.DataFrame(rows))
+    a = out[(out.subset == "all") & (out.arm == "gold")].iloc[0]
+    assert a.n == 3 and a.only_arm == 1 and a.only_full == 0
+    g = out[(out.subset == "all_gold_in_context") & (out.arm == "gold")].iloc[0]
+    assert g.n == 2 and g.em_full == 0.5 and g.em_arm == 1.0
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1603,4 +1644,5 @@ if __name__ == "__main__":
     test_stream_protocol_and_baselines()
     test_twin_stream()
     test_stream_best_arm_pair_and_shuffled_controls()
+    test_reader_context_selection()
     print("all good")
