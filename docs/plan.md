@@ -934,6 +934,11 @@ and only then run the loop live.
       reader does as well as with all of it, so completing the evidence adds
       little EM. A memory that deepens is judged on retrieval outcomes and
       context cost, and EM is reported beside it as level
+- [x] confirmation, preregistration 2 D1/D2 (4 Nov): hybrid ircot k=20 on
+      hotpot confirm (n=1000) against the k=10 run. retrieval_correct 0.774
+      -> 0.925 (+0.151 [+0.129, +0.174], 156 vs 5, Holm p 2e-39); EM 0.466
+      -> 0.476 (+0.010 [-0.009, +0.029]). Both pass: deepening is a
+      retrieval-level change only on this fold too
 - [ ] if the probe stage clears the gate: the live loop with the memory
       choosing deepen / extra hop / stop, lessons and boundaries as in
       Stage 5, on the exploration fold first, then once on a confirmation
@@ -1006,6 +1011,21 @@ same lessons without boundaries). To read in full before writing: MILES,
       only at exact selection. The gate is not passed: a keep / drop memory
       would be judged against a decision where every non-oracle policy
       tried so far is below doing nothing
+- [x] confirmation, preregistration 2 C0-C3 (4 Nov,
+      `results/reader_ctx_hotpot_confirm_*`, n=1000, filter fit on the
+      exploration contexts only). Full arm = k=20 run on 1000 of 1000. Gold
+      +0.134 [+0.106, +0.161] (180 vs 46, Holm p 2e-19). rerank3 -0.031
+      [-0.057, -0.005] (below); rerank5 -0.017 [-0.042, +0.008] and learned3
+      -0.022 [-0.050, +0.005] (not above, the weaker pass). All pass, but the
+      cuts lose a third of what they lost on exploration. Kept-gold rates
+      0.424 / 0.567 / 0.459. The split by kept gold (selected subsets, not
+      tested) does not repeat exploration's tie: where rerank3 kept every
+      gold chunk (385) it is above full on the same questions, 0.634 against
+      0.577, and rerank5 and learned3 look the same. So on this fold a short
+      context does help when it holds all the gold, and the cuts lose it by
+      dropping gold on about half the questions. The gate stays closed for
+      these cuts; what would open it is a selector that keeps all the gold
+      far more often, which neither the reranker nor the filter is
 - [ ] baselines a memory must face, from the literature check: reranker
       truncated to the same size, a supervised filter on the same labels
       (the learned3 arm here, and Provence off the shelf), and a flat lesson

@@ -17,16 +17,20 @@ come from, and what a retrieval memory can and cannot change.*
 2. **Retrieval moves more than answers do.** bm25 to ircot: +0.27
    retrieval_correct for +0.05 EM on hotpot (confirmation fold); the
    reranker loses evidence with EM inside +-0.05 (H3a/H3b); deepening ircot
-   to k=20: +0.13 retrieval_correct, EM +0.016 n.s. on exploration
-   (preregistration 2, D1/D2, pending).
-3. **Why: the reader answers from the answer sentence.** Intervention arms:
-   gold minus the bridge leaves EM level, the bridge alone is no better than
-   closed-book, and on 2wiki any context without the answer lowers EM below
-   closed-book (I1-I3, pending; exploration in plan.md Part A).
+   to k=20: +0.15 retrieval_correct for EM +0.010 [-0.009, +0.029] on the
+   confirmation fold (preregistration 2, D1/D2, both pass).
+3. **Why: the reader answers mostly from the answer sentence.** Intervention
+   arms: the bridge alone is no better than closed-book on all three (I2),
+   and on 2wiki any context without the answer lowers EM below closed-book
+   (I3). Gold minus the bridge is level on musique but four points lower on
+   hotpot (I1 failed there) and 2wiki, so the bridge adds a little only when
+   the answer sentence is also present.
 4. **The loss is after retrieval, and it is at exact selection.** Gold-only
-   beats the full context by about 10 EM points even where the context held
-   every gold sentence, and every non-oracle cut (reranker top 3/5, a filter
-   trained on the same gold) is below the full context (C1/C2, pending).
+   beats the full context by 13 EM points (C1), and no non-oracle cut
+   (reranker top 3/5, a filter trained on the same gold) is above the full
+   context (C2; rerank3 below, the other two level). Where a cut happens to
+   keep all the gold it is above the full context, but it does so on under
+   60% of questions.
    The distraction itself is known (Shi et al. 2023, Cuconasu et al. 2024);
    what is new here is that no tried cut gets any of it.
 5. **A retrieval memory has three decisions to learn, and none of them is
@@ -44,12 +48,12 @@ come from, and what a retrieval memory can and cannot change.*
 |---|---|---|
 | 1, cell and partition | prereg 1 H1, H4, H5, H6 | confirmed, n=1000 x 3 |
 | 2, retrieval vs EM (ircot, rerank) | prereg 1 H2, H3a, H3b; EM rise not preregistered | confirmed; H2 a thin pass |
-| 2, deepening | prereg 2 D1, D2 | queued 3 Nov |
-| 3, interventions | prereg 2 I1-I3 | queued 3 Nov |
-| 4, reader context | prereg 2 C1, C2 | queued 3 Nov |
+| 2, deepening | prereg 2 D1, D2 | confirmed 4 Nov |
+| 3, interventions | prereg 2 I1-I3 | I2, I3 confirmed; I1 musique only (failed on hotpot) |
+| 4, reader context | prereg 2 C1, C2 | confirmed 4 Nov; rerank5 and learned3 only "not above" |
 | 5, routing | stream on positions 0-1499 (hotpot, 2wiki) and full dev (musique), online, 5 orders, held-out halves | not preregistered; report as held-out analysis over both folds |
 | 5, deepening policy | prereg 2 D3 | passed 3 Nov |
-| 5, context filter | prereg 2 C2 (learned3) | queued 3 Nov |
+| 5, context filter | prereg 2 C2 (learned3) | not above full, 4 Nov |
 
 ## Figures and tables
 
@@ -67,7 +71,7 @@ come from, and what a retrieval memory can and cannot change.*
 
 ## Still to do, in order
 
-- [ ] 4 Nov: read queue12's results against preregistration 2, write the
+- [x] 4 Nov: read queue12's results against preregistration 2, write the
       outcomes and any deviations into it; regenerate Table 1
 - [ ] Part A leftovers needed for Fig 1: alternative order for every run and
       the evidence ladder (CPU); criteria columns in run_qa's 2x2
