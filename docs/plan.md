@@ -61,7 +61,7 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       Musique (no hypotheses fixed): the cell is 0.078 bm25, 0.073 k=7,
       0.074 hybrid, 0.051 hybrid ircot (54 vs 27 against bm25, p = 0.004),
       and almost all of it is shortcut (67 of 78).
-- [ ] partition tables and bars per dataset on the confirmation folds, with
+- [x] partition tables and bars per dataset on the confirmation folds, with
       the alternative assignment order and the evidence-criterion ladder (all
       gold sentences / answer-bearing gold / all gold paragraphs / any gold /
       answer string in context). Done: primary-order tables and bars
@@ -73,9 +73,21 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       parametric bucket includes closed-book-right yes/no questions (11 on
       hotpot, 8 on 2wiki), so it is not all memory. Musique has the lowest
       parametric share of the cell under the primary order only; under the
-      alternative order hotpot's is lower (0.053 against 0.064). Still open:
-      the alternative order for every run in the decomposition tables, and
-      the ladder.
+      alternative order hotpot's is lower (0.053 against 0.064). 4 Nov: the
+      alternative order (alt_* columns, right-hand panel of every
+      decomposition png) and the ladder (cell_* columns with Wilson
+      intervals) for every run in the six decomposition tables, in
+      `analyze.py`; the primary columns are unchanged. Confirmation folds,
+      the cell under rungs 1 / 2 / 3 / 4 / 5 (all gold sentences /
+      answer-bearing gold / all gold paragraphs / any gold / answer anywhere):
+      hotpot bm25 0.131 / 0.027 / 0.032 / 0.002 / 0.004, hybrid ircot 0.060 /
+      0.008 / 0.004 / 0 / 0.002; 2wiki bm25 0.133 / 0.050 / 0.086 / 0.007 /
+      0.017; musique bm25 0.078 / 0.007 / 0.078 / 0.002 / 0.003. So the cell
+      is mostly a property of rung 1: asking only for the answer-bearing gold
+      sentence leaves 1-5% of questions, and an answer right with no gold in
+      context at all is under 1% in every run. Under the alternative order
+      parametric falls to 0-11 per run (of 1000), which is the lower bound on
+      answers from memory.
 - [ ] correctness beyond EM: F1 >= 0.5 and capped containment with aliases,
       reported beside EM in every 2x2. The criteria are in
       `src/eval/answer_metrics.py` (containment allows at most four tokens

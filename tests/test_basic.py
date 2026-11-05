@@ -335,6 +335,18 @@ def test_illusion_buckets():
     assert bucket_alt(Row(em=0)) == "" and bucket_alt(Row()) == "none"
     assert bucket_alt(Row(para_recall=1.0, gold_recall=0.5)) == "paragraph"
 
+    # evidence ladder: yes/no falls back from rung 2 to 1 and from 5 to 4
+    from src.eval.analyze import evidence_rungs
+    r = evidence_rungs(Row(ans_in_gold_ctx=True, ans_in_nongold_ctx=False, gold_recall=0.5))
+    assert r == {"all_sent": False, "answer_sent": True, "all_para": False,
+                 "any_gold": True, "answer_any": True}
+    r = evidence_rungs(Row(ans_in_gold_ctx=False, ans_in_nongold_ctx=True))
+    assert r["answer_sent"] is False and r["answer_any"] is True and r["any_gold"] is False
+    r = evidence_rungs(Row(ans_in_gold_ctx=None, ans_in_nongold_ctx=None, gold_recall=0.5,
+                           para_recall=1.0))
+    assert r == {"all_sent": False, "answer_sent": False, "all_para": True,
+                 "any_gold": True, "answer_any": True}
+
     data = {"gold": {"A::0", "B::1"}, "answer": "Paris", "aliases": [],
             "text": {"A::0": "The capital is Paris.", "B::1": "It is old.", "C::0": "Paris again."}}
     assert answer_in({"A::0", "C::0"}, data, True) is True
