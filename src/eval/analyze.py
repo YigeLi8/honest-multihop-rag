@@ -28,8 +28,13 @@ could still be right:
     none         no gold sentence in context and closed-book wrong: the
                  answer came from non-gold context or a guess
 
+The decomposition table also carries the evidence-first order (alt_*
+columns, bucket_alt) and the cell under each rung of the evidence ladder
+(cell_* columns, RUNGS), both as defined in docs/preregistration.md.
+
 Writes results/<dataset>_decomposition.csv, results/<dataset>_paired.csv and
-results/<dataset>_decomposition.png.
+results/<dataset>_decomposition.png (primary and evidence-first order side by
+side).
 """
 import argparse
 import json
@@ -135,6 +140,25 @@ def bucket_alt(row):
     return "none"
 
 
+# evidence-criterion ladder (docs/preregistration.md): the cell recomputed
+# with each rung in place of retrieval_correct. 2 and 3 are not nested; on
+# musique the gold chunks are paragraphs, so 1 and 3 coincide.
+RUNGS = ("all_sent", "answer_sent", "all_para", "any_gold", "answer_any")
+
+
+def evidence_rungs(row):
+    """rung -> was the evidence there, for one question. answer_in gives None
+    for yes/no answers; rung 2 falls back to rung 1 and rung 5 to rung 4."""
+    yesno = row.ans_in_gold_ctx is None
+    all_sent = bool(row.retrieval_correct)
+    any_gold = row.gold_recall > 0
+    return {"all_sent": all_sent,
+            "answer_sent": all_sent if yesno else bool(row.ans_in_gold_ctx),
+            "all_para": row.para_recall >= 1.0,
+            "any_gold": any_gold,
+            "answer_any": any_gold if yesno else bool(row.ans_in_gold_ctx or row.ans_in_nongold_ctx)}
+
+
 def decompose(df, name):
     n = len(df)
     ill = df[df.bucket != ""]
@@ -155,6 +179,16 @@ def decompose(df, name):
     # answer-bearing gold sentence in context
     out["unexplained"] = int(sum(out[b] for b in ("paragraph", "partial", "none")))
     out["unexplained_rate"] = round(out["unexplained"] / n, 4)
+    if "bucket_alt" in df:
+        for b in BUCKETS:
+            out[f"alt_{b}"] = int((df.bucket_alt == b).sum())
+            out[f"alt_{b}_rate"] = round(out[f"alt_{b}"] / n, 4)
+    rungs = pd.DataFrame([evidence_rungs(r) for r in df.itertuples()], index=df.index)
+    for r in RUNGS:
+        c = int(((df.em == 1) & ~rungs[r]).sum())
+        lo, hi = wilson_ci(c, n)
+        out[f"cell_{r}"] = round(c / n, 4)
+        out[f"cell_{r}_lo"], out[f"cell_{r}_hi"] = round(lo, 4), round(hi, 4)
     # em conditional on how much gold was in context
     for lab, mask in (("em_given_all_gold", df.gold_recall >= 1.0),
                       ("em_given_all_para", (df.para_recall >= 1.0) & (df.gold_recall < 1.0)),
@@ -190,23 +224,26 @@ def plot(table, out_path, dataset):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    fig, ax = plt.subplots(figsize=(7, 4.2))
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4.6), sharey=True)
     names = [r["run"] for r in table]
-    bottom = [0.0] * len(table)
-    for b in BUCKETS:
-        vals = [r[f"{b}_rate"] for r in table]
-        if not any(vals):
-            continue
-        ax.bar(names, vals, bottom=bottom, label=b, color=COLORS[b])
-        bottom = [x + y for x, y in zip(bottom, vals)]
-    for i, r in enumerate(table):
-        ax.errorbar(i, r["illusion"], yerr=[[r["illusion"] - r["illusion_lo"]],
-                                            [r["illusion_hi"] - r["illusion"]]],
-                    fmt="none", ecolor="black", capsize=3)
-    ax.set_ylabel("share of questions: answer right, gold evidence incomplete")
-    ax.set_title(f"what the illusion cell is made of ({dataset})")
-    ax.legend(title="bucket", fontsize=8)
-    plt.setp(ax.get_xticklabels(), rotation=15, ha="right", fontsize=8)
+    for ax, prefix, label in ((axes[0], "", "primary order"),
+                              (axes[1], "alt_", "evidence-first order")):
+        bottom = [0.0] * len(table)
+        for b in BUCKETS:
+            vals = [r[f"{prefix}{b}_rate"] for r in table]
+            if not any(vals):
+                continue
+            ax.bar(names, vals, bottom=bottom, label=b, color=COLORS[b])
+            bottom = [x + y for x, y in zip(bottom, vals)]
+        for i, r in enumerate(table):
+            ax.errorbar(i, r["illusion"], yerr=[[r["illusion"] - r["illusion_lo"]],
+                                                [r["illusion_hi"] - r["illusion"]]],
+                        fmt="none", ecolor="black", capsize=3)
+        ax.set_title(label, fontsize=10)
+        plt.setp(ax.get_xticklabels(), rotation=15, ha="right", fontsize=8)
+    axes[0].set_ylabel("share of questions\n(answer right, gold evidence incomplete)")
+    axes[1].legend(title="bucket", fontsize=8, loc="upper left", bbox_to_anchor=(1.01, 1))
+    fig.suptitle(f"what the illusion cell is made of ({dataset})")
     fig.tight_layout()
     fig.savefig(out_path, dpi=150)
     plt.close(fig)
@@ -230,6 +267,7 @@ def main():
         df["cb_em"] = cb.em.reindex(df.index)
         df["illusion"] = ((df.em == 1) & (df.retrieval_correct == 0)).astype(int)
         df["bucket"] = df.apply(bucket, axis=1)
+        df["bucket_alt"] = df.apply(bucket_alt, axis=1)
         df["unexplained"] = df.bucket.isin(("paragraph", "partial", "none")).astype(int)
         runs[name] = df
     ids = set.intersection(*(set(df.index) for df in runs.values()))
@@ -251,6 +289,9 @@ def main():
     cols = ["run", "em", "closed_book_em", "retrieval_correct", "illusion", *BUCKETS,
             "unexplained", "em_given_all_gold", "em_given_partial_gold", "em_given_no_gold"]
     print(pd.DataFrame(table)[cols].to_string(index=False))
+    print()
+    print(pd.DataFrame(table)[["run", *(f"alt_{b}" for b in BUCKETS),
+                              *(f"cell_{r}" for r in RUNGS)]].to_string(index=False))
     if pairs:
         print()
         print(pd.DataFrame(pairs).to_string(index=False))
