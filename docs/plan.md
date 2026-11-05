@@ -1124,6 +1124,17 @@ as cost. Steps:
       `hybrid_ircot` and the matched-size reranker cut. If its notebook
       keeps all gold less often than rerank5 did (0.61 on exploration), fix
       the prompt on exploration before any memory goes in
+- [ ] A2b main agent over subagents (`src/agent/orchestrator.py`, pipeline
+      mode `orchestrator`, `configs/orchestrator.yaml`): one planning call
+      splits the question into at most 3 sub-questions, #k standing for an
+      earlier sub-answer; each sub-question gets the A1 keep / search loop
+      (at most 2 searches) and a sub-answer from its own notebook; the
+      answer is read from the union of the notebooks. Lessons are asked for
+      per role (planner / subagent). Motivated by A2's split: the single
+      agent gains on bridge questions and loses on comparison ones, where
+      one notebook has to hold both entities. Code and a fake-generator
+      test written 4 Nov, neither run yet. Judged against the single agent
+      on the same questions, by question type
 - [ ] A3 episode scoring and error typing; the reflection call
 - [ ] A4 lesson memory with regions, the flat, show-all and shuffled
       variants

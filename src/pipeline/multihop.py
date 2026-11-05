@@ -7,6 +7,9 @@ apart from answers that actually came from the context.
 agent: the evidence agent of Stage 6 (src/agent/agent.py): the same searches
 as ircot, but the model keeps sentences in a notebook and the answer is
 read from the notebook only.
+orchestrator: a main agent splits the question and runs that agent once per
+sub-question (src/agent/orchestrator.py); the answer is read from the union
+of the notebooks.
 
 Every hop gets logged as a HopTrace so per-hop precision can be scored
 afterwards, and every raw completion is kept on the result for later audits.
@@ -148,6 +151,12 @@ class MultiHopPipeline:
             from src.agent.agent import run_episode
             self._index(ex)
             traces, answer, stats = run_episode(self, ex)
+        elif mode == "orchestrator":
+            if self.generator is None:
+                raise ValueError("orchestrator needs a generation backend")
+            from src.agent.orchestrator import run_orchestrated
+            self._index(ex)
+            traces, answer, stats = run_orchestrated(self, ex)
         else:
             raise ValueError(f"unknown pipeline mode {mode!r}")
 

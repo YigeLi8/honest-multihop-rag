@@ -1,0 +1,11 @@
+run:
+  name: orchestrator_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+generation:
+  backend: mlx

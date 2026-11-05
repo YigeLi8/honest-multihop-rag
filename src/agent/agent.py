@@ -83,21 +83,33 @@ def parse_reply(text, n_results):
     return keep, action, query
 
 
-def run_episode(pipe, ex):
-    """Returns (traces, answer, (ntok, tps, peak)); sets pipe.stop_reason,
-    pipe.notebook and pipe.steps."""
-    cfg = pipe.cfg
-    max_hops = cfg.pipeline.max_hops
+class Usage:
+    """Completion tokens, last decode rate and peak memory over an episode."""
+
+    def __init__(self):
+        self.ntok, self.tps, self.peak = 0, 0.0, 0.0
+
+    def add(self, m):
+        self.ntok += m.completion_tokens
+        self.tps, self.peak = m.tokens_per_s, max(self.peak, m.peak_memory_mb)
+
+    def stats(self):
+        return self.ntok, self.tps, self.peak
+
+
+def search_loop(pipe, ex, question, max_hops, usage, traces, steps, seen,
+                role="agent", sub=None):
+    """The keep / search loop on one question (the original one, or a
+    sub-question when a main agent runs this as a subagent). Hop numbers
+    continue from the traces already there, so a question's traces stay one
+    sequence. Returns (notebook, stop_reason); fills traces, steps, seen."""
     notebook = {}             # chunk_id -> RetrievedChunk, in the order kept
-    seen = {}                 # everything retrieved, for the fallback
-    traces, steps = [], []
     asked = set()
     prev_feats = None
-    query = ex.question
-    ntok, tps, peak = 0, 0.0, 0.0
-    pipe.stop_reason = "max_hops"
-
-    for hop in range(max_hops):
+    query = question
+    stop = "max_hops"
+    for i in range(max_hops):
+        hop = len(traces)
         hits = pipe._retrieve(query, hop=hop, ex=ex)
         feats = compute_features(query, hits, ex.chunks, hop, ex.question,
                                  prev=prev_feats, seen_ids=list(seen))
@@ -109,47 +121,61 @@ def run_episode(pipe, ex):
         asked.add(query.lower())
 
         shown = [h for h in hits if h.chunk.chunk_id not in notebook]
-        last = hop == max_hops - 1
+        last = i == max_hops - 1
         step = {"hop": hop, "query": query, "features": feats,
                 "shown": [h.chunk.chunk_id for h in shown]}
+        if role != "agent":
+            step.update(role=role, sub=sub, sub_question=question)
         lessons = pipe.lessons.lessons(dict(step, question=ex.question,
                                             notebook=list(notebook))) if pipe.lessons else []
         prompt = AGENT_PROMPT.format(
-            question=ex.question, lessons=format_lessons(lessons),
+            question=question, lessons=format_lessons(lessons),
             notebook="\n".join(f"- {show(h)}" for h in notebook.values()) or "(empty)",
             query=query,
-            results="\n".join(f"[{i + 1}] {show(h)}" for i, h in enumerate(shown)) or "(nothing new)",
+            results="\n".join(f"[{j + 1}] {show(h)}" for j, h in enumerate(shown)) or "(nothing new)",
             next_hint=NEXT_LAST if last else NEXT_OPEN)
         text, m = pipe._gen(prompt, max_tokens=STEP_TOKENS)
-        ntok += m.completion_tokens
-        tps, peak = m.tokens_per_s, max(peak, m.peak_memory_mb)
+        usage.add(m)
         keep, action, nxt = parse_reply(text, len(shown))
-        for i in keep:
-            notebook[shown[i].chunk.chunk_id] = shown[i]
-        step.update(lessons=lessons, reply=text, kept=[shown[i].chunk.chunk_id for i in keep],
+        for j in keep:
+            notebook[shown[j].chunk.chunk_id] = shown[j]
+        step.update(lessons=lessons, reply=text, kept=[shown[j].chunk.chunk_id for j in keep],
                     action=action, next_query=nxt)
         steps.append(step)
         if last:
             break
         if action == "answer":
-            pipe.stop_reason = "done"
+            stop = "done"
             break
         if action != "search":
-            pipe.stop_reason = "no_marker"
+            stop = "no_marker"
             break
         if nxt.lower() in asked:
-            pipe.stop_reason = "repeated_query"
+            stop = "repeated_query"
             break
         query = nxt
+    return notebook, stop
 
+
+def answer_from(pipe, question, hits, usage):
+    ctx = "\n".join(f"- {h.chunk.text}" for h in hits)
+    text, m = pipe._gen(PROMPT.format(context=ctx, question=question))
+    usage.add(m)
+    return first_line(text)
+
+
+def run_episode(pipe, ex):
+    """Returns (traces, answer, (ntok, tps, peak)); sets pipe.stop_reason,
+    pipe.notebook and pipe.steps."""
+    usage = Usage()
+    traces, steps, seen = [], [], {}
+    notebook, pipe.stop_reason = search_loop(pipe, ex, ex.question, pipe.cfg.pipeline.max_hops,
+                                             usage, traces, steps, seen)
     ctx_hits = list(notebook.values())
     if not ctx_hits:
         ctx_hits = list(seen.values())
         pipe.stop_reason += "+fallback"
-    ctx = "\n".join(f"- {h.chunk.text}" for h in ctx_hits)
-    text, m = pipe._gen(PROMPT.format(context=ctx, question=ex.question))
-    ntok += m.completion_tokens
-    tps, peak = m.tokens_per_s, max(peak, m.peak_memory_mb)
+    answer = answer_from(pipe, ex.question, ctx_hits, usage)
     pipe.notebook = list(notebook)
     pipe.steps = steps
-    return traces, first_line(text), (ntok, tps, peak)
+    return traces, answer, usage.stats()

@@ -1712,6 +1712,109 @@ def test_agent_episode():
     assert "notebook_size" not in score_row(ex, res) and "steps" not in trace_record(ex, res)
 
 
+def test_orchestrator():
+    from src.agent.orchestrator import fill_refs, parse_plan
+    from src.eval.run_qa import score_row, trace_record
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    assert parse_plan("Sure:\n1. Who directed X?\n2) Where was #1 born?\n3. a\n4. b", 3) == \
+        ["Who directed X?", "Where was #1 born?", "a"]
+    assert parse_plan("no list here", 3) == []
+    assert fill_refs("Where was #1 born, and #3?", ["Ann"]) == "Where was Ann born, and #3?"
+
+    pool = [Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0]) for c in
+            ("Film::0", "Film::1", "Ann::0", "Ann::1")]
+
+    class NS:
+        pass
+    cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+    cfg.pipeline.mode = "orchestrator"
+    cfg.pipeline.max_hops = 3
+    cfg.pipeline.max_subquestions = 3
+    cfg.pipeline.sub_max_hops = 2
+    cfg.retrieval.top_k = 2
+
+    class Retriever:
+        def __init__(self):
+            self.queries = []
+
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            self.queries.append(query)
+            ids = ["Ann::0", "Ann::1"] if "Ann" in query else ["Film::0", "Film::1"]
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    class Gen:
+        def __init__(self, plan):
+            self.plan, self.prompts = plan, []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            m = GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=3)
+            if "Break the question" in prompt:
+                assert max_tokens == 128 and "Question: where was the director born" in prompt
+                return self.plan, m
+            if "collecting evidence" in prompt:
+                return "KEEP: 1\nNEXT: ANSWER", m
+            assert "Answer the question using only the context" in prompt
+            if "Question: Who directed the film?" in prompt:
+                assert "text of Film::0" in prompt and "Ann::" not in prompt
+                return "Ann", m
+            if "Question: Where was Ann born?" in prompt:
+                assert "text of Ann::0" in prompt and "Film::" not in prompt
+                return "Paris", m
+            assert "Question: where was the director born" in prompt
+            assert "text of Film::0" in prompt and "text of Ann::0" in prompt
+            assert "Film::1" not in prompt and "Ann::1" not in prompt
+            return "Paris\n", m
+
+    class Lessons:
+        def __init__(self):
+            self.roles = []
+
+        def lessons(self, step):
+            self.roles.append(step.get("role"))
+            return []
+
+    ex = Example(id="q", question="where was the director born", answer="Paris", hops=2,
+                 chunks=pool, gold_chunk_ids=["Film::0", "Ann::0"])
+    p = MultiHopPipeline.__new__(MultiHopPipeline)
+    p.cfg, p.retriever, p.reranker = cfg, Retriever(), None
+    p.generator = Gen("1. Who directed the film?\n2. Where was #1 born?")
+    p.lessons = Lessons()
+    res = p.run_example(ex)
+    assert res.answer == "Paris" and res.stop_reason == "subs=2"
+    assert p.retriever.queries == ["Who directed the film?", "Where was Ann born?"]
+    assert [h.hop for h in res.hops] == [0, 1] and res.notebook == ["Film::0", "Ann::0"]
+    assert p.lessons.roles == ["planner", "subagent", "subagent"]
+    subs = [s for s in res.steps if "sub_answer" in s]
+    assert [s["sub_answer"] for s in subs] == ["Ann", "Paris"]
+    assert subs[1]["planned"] == "Where was #1 born?" and subs[1]["sub_question"] == "Where was Ann born?"
+    # planner, two keep steps, two sub-answers, the final answer
+    assert len(p.generator.prompts) == 6 and res.gen_calls == 6
+    row = score_row(ex, res)
+    assert row["em"] == 1 and row["notebook_all_gold"] == 1 and row["fallback"] == 0
+    assert trace_record(ex, res)["steps"][0]["plan"] == ["Who directed the film?", "Where was #1 born?"]
+
+    # an unreadable plan runs the original question as the only sub-question
+    class Flat(Gen):
+        def generate(self, prompt, max_tokens=None):
+            if "Answer the question using only" in prompt:
+                return "Paris", GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0,
+                                           completion_tokens=3)
+            return super().generate(prompt, max_tokens)
+    p.retriever, p.generator, p.lessons = Retriever(), Flat("I would look it up."), None
+    res = p.run_example(ex)
+    assert res.stop_reason == "subs=1+plan_fallback"
+    assert p.retriever.queries == ["where was the director born"]
+    assert not score_row(ex, res)["fallback"]
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1743,4 +1846,5 @@ if __name__ == "__main__":
     test_stream_best_arm_pair_and_shuffled_controls()
     test_reader_context_selection()
     test_agent_episode()
+    test_orchestrator()
     print("all good")
