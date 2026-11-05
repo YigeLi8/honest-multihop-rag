@@ -1,5 +1,10 @@
 # Paper plan
 
+Status 4 Nov: on hold. No paper is being written now; the deliverable is
+the repository and its README (CLAUDE.md, definition of done). The argument
+and the confirmed/pending table below stay as the outline for the README's
+results section.
+
 One paper from both branches, for arXiv (cs.IR, cross-list cs.CL) by
 15 Nov 2026. A measurement paper with paired tests; no method is proposed.
 
