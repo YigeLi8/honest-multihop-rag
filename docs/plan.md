@@ -1120,11 +1120,30 @@ as cost. Steps:
       other modes' rows and traces unchanged). The smoke run became the
       full exploration run: run_qa ignored --n when --ids was given (fixed,
       the first n ids now)
-- [ ] A2 the no-memory agent on the exploration fold (500) against
+- [x] A2 the no-memory agent on the exploration fold (500) against
       `hybrid_ircot` and the matched-size reranker cut. If its notebook
       keeps all gold less often than rerank5 did (0.61 on exploration), fix
-      the prompt on exploration before any memory goes in
-- [ ] A2b main agent over subagents (`src/agent/orchestrator.py`, pipeline
+      the prompt on exploration before any memory goes in.
+      Mac, 4 Nov (`results/agent_hotpot_explore_*`; the control is
+      `results/reader_ctx_agent_hotpot_explore_*`, the A2 contexts re-read
+      as full / gold / rerank3 / rerank5 / learned3 / random3). Exploratory,
+      paired, n=500. Agent EM 0.526 against ircot 0.486 (+0.040 [+0.004,
+      +0.078], 55 vs 35, p 0.045). It searches more (2.55 hops against
+      2.11, all gold retrieved 0.862 against 0.772; it rarely says ANSWER,
+      most episodes end at max_hops or a repeated query), so the gain is
+      split with the control: ircot to the full context of the agent's own
+      retrieval +0.008 [-0.014, +0.030] (p 0.61), full context to the
+      agent's notebook +0.032 [-0.002, +0.068] (48 vs 32, p 0.093). The
+      notebook (3.6 sentences) keeps every gold chunk of its context on
+      0.624 of questions, against 0.472 / 0.652 for rerank3 / rerank5 on the
+      same contexts, and is above both by +0.108 and +0.086 EM (p 1e-7, 2e-5):
+      the reranker cuts lose 5-8 points to the full context here as on
+      the k=20 contexts, the model's own selection does not. Gold-only is
+      still +0.074 above the notebook. By type the agent gains on bridge
+      (0.450 -> 0.512) and loses on comparison (0.635 -> 0.583, n=96). The
+      gate reading holds: the notebook keeps all gold about as often as
+      rerank5, so no prompt change before the memory
+- [x] A2b main agent over subagents (`src/agent/orchestrator.py`, pipeline
       mode `orchestrator`, `configs/orchestrator.yaml`): one planning call
       splits the question into at most 3 sub-questions, #k standing for an
       earlier sub-answer; each sub-question gets the A1 keep / search loop
@@ -1132,9 +1151,21 @@ as cost. Steps:
       answer is read from the union of the notebooks. Lessons are asked for
       per role (planner / subagent). Motivated by A2's split: the single
       agent gains on bridge questions and loses on comparison ones, where
-      one notebook has to hold both entities. Code and a fake-generator
-      test written 4 Nov, neither run yet. Judged against the single agent
-      on the same questions, by question type
+      one notebook has to hold both entities. Judged against the single
+      agent on the same questions, by question type.
+      Mac, 4 Nov (`results/orchestrator_hotpot_explore_*`, commit 3d24c65),
+      exploratory, n=500. EM 0.540: +0.054 [+0.018, +0.090] over ircot (55
+      vs 28, p 0.004), +0.014 [-0.022, +0.050] over the single agent (47 vs
+      40, p 0.52). By type, as expected before the run: comparison +0.104
+      [+0.031, +0.177] over the single agent (0.583 -> 0.688, 12 vs 2, p
+      0.013, n=96 only), bridge level (-0.007 [-0.050, +0.035], n=404). Plans:
+      2 sub-questions on 327, 1 on 123, 3 on 37; none unreadable. Answering
+      with the last sub-answer instead of reading the union of notebooks is
+      far worse (0.356, -0.184), so the final read stays. Cost per question:
+      7.2 model calls and 4.1 s against 3.5 / 2.4 s for the single agent and
+      2.8 / 1.8 s for ircot. Notebook 3.7 sentences, all gold 0.516. To
+      confirm: the comparison gain on a fold with more comparison questions
+      (the hotpot confirmation fold has about 200)
 - [ ] A3 episode scoring and error typing; the reflection call
 - [ ] A4 lesson memory with regions, the flat, show-all and shuffled
       variants
