@@ -30,8 +30,10 @@ def read_ids(path):
 
 
 def load_examples(path, n=None, ids=None):
-    """First n records, or exactly the ids listed (in the list's order)."""
+    """First n records, or exactly the ids listed (in the list's order; the
+    first n of them when n is given too)."""
     if ids:
+        ids = ids[:n] if n else ids
         want = set(ids)
         by_id = {}
         with open(path) as f:
@@ -89,7 +91,7 @@ def score_row(ex, res):
     hit = len(gold & got)
     n_para, para_hit, para_rec = paragraph_recall(got, gold)
     em_, f1_ = best_em_f1(res.answer, ex)
-    return {
+    row = {
         "id": ex.id,
         "qtype": ex.qtype,
         "level": ex.level,
@@ -116,10 +118,19 @@ def score_row(ex, res):
         "tokens_per_s": round(res.tokens_per_s, 1),
         "peak_memory_mb": round(res.peak_memory_mb, 1),
     }
+    if res.steps:
+        # agent runs: what the answer was read from
+        kept = set(res.notebook)
+        n_kept_gold = len(gold & kept)
+        row.update({"notebook_size": len(kept), "notebook_gold_hit": n_kept_gold,
+                    "notebook_gold_recall": round(n_kept_gold / len(gold), 4) if gold else 0.0,
+                    "notebook_all_gold": int(gold <= kept) if kept else 0,
+                    "fallback": int(res.stop_reason.endswith("+fallback"))})
+    return row
 
 
 def trace_record(ex, res):
-    return {
+    rec = {
         "id": ex.id,
         "answer_pred": res.answer,
         "stop_reason": res.stop_reason,
@@ -128,6 +139,9 @@ def trace_record(ex, res):
                  for h in res.hops],
         "raw_outputs": res.raw_outputs,
     }
+    if res.steps:
+        rec.update(notebook=res.notebook, steps=res.steps)
+    return rec
 
 
 def main():

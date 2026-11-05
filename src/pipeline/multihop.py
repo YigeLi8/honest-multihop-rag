@@ -4,6 +4,9 @@ single_hop: retrieve once, answer from that context.
 multihop_ircot: interleave retrieve -> reason -> retrieve until the model answers.
 closed_book: no retrieval at all; the control that tells parametric answers
 apart from answers that actually came from the context.
+agent: the evidence agent of Stage 6 (src/agent/agent.py): the same searches
+as ircot, but the model keeps sentences in a notebook and the answer is
+read from the notebook only.
 
 Every hop gets logged as a HopTrace so per-hop precision can be scored
 afterwards, and every raw completion is kept on the result for later audits.
@@ -72,6 +75,7 @@ class MultiHopPipeline:
     memory = None    # ExperienceLogger when the config asks for logging
     shadow = None    # {arm: retriever} run beside the primary one, logged and never used
     _memory_s = 0.0  # seconds the current question spent in the logging path
+    lessons = None   # agent mode: what the experience memory shows the model
 
     def __init__(self, cfg):
         self.cfg = cfg
@@ -125,6 +129,7 @@ class MultiHopPipeline:
         self._prompt_tokens, self._ttft = 0, 0.0
         self._memory_s = 0.0
         self.stop_reason = ""
+        self.notebook, self.steps = [], []
         if mode == "closed_book":
             if self.generator is None:
                 raise ValueError("closed_book needs a generation backend")
@@ -137,6 +142,12 @@ class MultiHopPipeline:
                 raise ValueError("multihop_ircot needs a generation backend")
             self._index(ex)
             traces, answer, stats = self._ircot(ex)
+        elif mode == "agent":
+            if self.generator is None:
+                raise ValueError("agent needs a generation backend")
+            from src.agent.agent import run_episode
+            self._index(ex)
+            traces, answer, stats = run_episode(self, ex)
         else:
             raise ValueError(f"unknown pipeline mode {mode!r}")
 
@@ -144,6 +155,7 @@ class MultiHopPipeline:
         return PipelineResult(example_id=ex.id, answer=answer, hops=traces,
                               raw_outputs=list(self._raw),
                               stop_reason=self.stop_reason,
+                              notebook=list(self.notebook), steps=list(self.steps),
                               reasoning_tokens=ntok,
                               prompt_tokens=self._prompt_tokens,
                               ttft_s=self._ttft,
@@ -151,8 +163,8 @@ class MultiHopPipeline:
                               latency_s=time.perf_counter() - t0 - self._memory_s,
                               tokens_per_s=tps, peak_memory_mb=peak)
 
-    def _gen(self, prompt):
-        text, m = self.generator.generate(prompt)
+    def _gen(self, prompt, max_tokens=None):
+        text, m = self.generator.generate(prompt, max_tokens)
         self._raw.append(text)
         self._prompt_tokens += getattr(m, "prompt_tokens", 0)
         if self._ttft == 0.0:

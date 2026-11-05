@@ -71,3 +71,5 @@ class PipelineResult:
     latency_s: float = 0.0
     tokens_per_s: float = 0.0  # decode-only, from the last call
     peak_memory_mb: float = 0.0
+    notebook: list = field(default_factory=list)  # agent only: chunk ids kept, in order
+    steps: list = field(default_factory=list)     # agent only: one dict per step

@@ -1052,6 +1052,86 @@ same lessons without boundaries). To read in full before writing: MILES,
 - [ ] then the memory, online over the exploration fold in a seeded order,
       and once on a confirmation fold with the closed-book control
 
+### Stage 6: the agent and its experience memory (4 Nov)
+
+Stages 1-5c tested the memory offline, by replaying logged runs. This stage
+builds the live loop: the reader model acts, the memory decides what the
+model is told before it acts, and the outcome of each episode feeds the
+memory. Built whether or not it beats the baselines; reported either way.
+
+Why this shape. The confirmation fold puts the loss after retrieval (C1:
+gold-only +0.134 EM over the full k=20 context) and says a short context
+helps when it holds all the gold (C3), but every cut tried keeps all of it
+on under 60% of questions. Retrieval itself is near its ceiling at k=20
+(0.925). So the agent's main action is choosing its evidence, and the
+memory's job is to make those choices better from experience.
+
+The agent (`src/agent/`), one episode per question, Qwen2.5-7B 4-bit, greedy:
+
+- state: the question, a notebook of kept sentences, the latest search
+  results numbered, the lessons the memory hands it, the steps left
+- each step is one completion with two lines: `KEEP: <numbers or none>`
+  from the latest results, then `NEXT: SEARCH <query>` or `NEXT: ANSWER`
+- the answer comes from the same answer prompt every run uses, over the
+  notebook only; an empty notebook falls back to everything retrieved and
+  is logged as a fallback
+- retriever hybrid k=10 per search, at most 3 searches (the ircot settings),
+  so retrieval alone matches `hybrid_ircot` and the comparison isolates
+  selection and memory
+- logged per step: prompt, completion, kept ids, the lessons shown and the
+  frozen gold-free features of Stage 1 at that step
+
+The memory (`src/agent/memory.py`):
+
+- an episode is scored after it ends, gold enters only here: notebook gold
+  recall, answer EM, and a typed error per episode (dropped a gold sentence
+  that was shown / never saw a gold sentence / kept distractors with all
+  gold kept / stopped with a gold paragraph unreached / right)
+- a lesson is short advice plus where it applies. Advice comes from a
+  reflection call to the same model over the failed episode with the gold
+  shown (ExpeL style). Where it applies is a box over the frozen features,
+  revised online by the Stage 5 operators (narrow / expand / exception /
+  split / retire), every revision logged
+- at each step the lessons whose region holds the current features are shown
+  to the agent, at most three, by utility
+- built on hotpot train questions (never dev), then frozen or kept online
+  for evaluation on the exploration fold; confirmation fold once, after a
+  preregistration
+
+What it is judged against, same questions, paired:
+
+- `hybrid_ircot` with the full context (the run the agent has to beat), and
+  gold-only (the ceiling)
+- the agent with no memory (does choosing evidence help at all)
+- reranker cut to the agent's notebook size per question (matched-size
+  selection without a model)
+- flat lesson memory: the same lessons retrieved by question similarity, no
+  regions (ExpeL / ACE style)
+- every lesson shown every time (does the region matter)
+- shuffled lessons: regions and advice reassigned at random (does the
+  content matter)
+
+Primary outcomes EM and notebook gold recall; notebook size and model calls
+as cost. Steps:
+
+- [x] A1 agent loop without memory (`src/agent/agent.py`, pipeline mode
+      `agent`, `configs/agent.yaml`) and a test with a fake generator
+      (`test_agent_episode`: notebook, fallback, lessons passed through,
+      other modes' rows and traces unchanged). The smoke run became the
+      full exploration run: run_qa ignored --n when --ids was given (fixed,
+      the first n ids now)
+- [ ] A2 the no-memory agent on the exploration fold (500) against
+      `hybrid_ircot` and the matched-size reranker cut. If its notebook
+      keeps all gold less often than rerank5 did (0.61 on exploration), fix
+      the prompt on exploration before any memory goes in
+- [ ] A3 episode scoring and error typing; the reflection call
+- [ ] A4 lesson memory with regions, the flat, show-all and shuffled
+      variants
+- [ ] A5 build on 1000 hotpot train questions, evaluate on the exploration
+      fold with every baseline
+- [ ] A6 preregistration 3, then the hotpot confirmation fold; 2wiki and
+      musique after
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve

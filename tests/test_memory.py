@@ -1615,6 +1615,103 @@ def test_reader_context_selection():
     assert g.n == 2 and g.em_full == 0.5 and g.em_arm == 1.0
 
 
+def test_agent_episode():
+    from src.agent.agent import parse_reply
+    from src.eval.run_qa import score_row, trace_record
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    assert parse_reply("KEEP: 2, 1, 9\nNEXT: SEARCH: who founded it", 3) == ([1, 0], "search", "who founded it")
+    assert parse_reply("KEEP: none\nNEXT: ANSWER", 3) == ([], "answer", None)
+    assert parse_reply("I think so", 3) == ([], "", None)
+
+    pool = [Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0]) for c in
+            ("A::0", "A::1", "B::0", "C::0")]
+
+    class NS:
+        pass
+    cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+    cfg.pipeline.mode = "agent"
+    cfg.pipeline.max_hops = 3
+    cfg.retrieval.top_k = 2
+
+    class Retriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            ids = ["B::0", "C::0"] if "founded" in query else ["A::0", "A::1"]
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    class Gen:
+        def __init__(self):
+            self.prompts = []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            m = GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=4)
+            if len(self.prompts) == 1:
+                assert max_tokens == 64 and "[1] (A) text of A::0" in prompt
+                assert "Lessons from earlier questions:\n- keep both entities" in prompt
+                return "KEEP: 1\nNEXT: SEARCH who founded it", m
+            if len(self.prompts) == 2:
+                assert "- (A) text of A::0" in prompt.split("Notebook")[1]
+                return "KEEP: 1\nNEXT: ANSWER", m
+            assert "Answer the question using only the context" in prompt
+            assert "text of A::0" in prompt and "text of B::0" in prompt
+            assert "text of A::1" not in prompt and "text of C::0" not in prompt
+            return "Bob\n", m
+
+    class Lessons:
+        def __init__(self):
+            self.seen = []
+
+        def lessons(self, step):
+            self.seen.append(step)
+            return ["keep both entities"] if step["hop"] == 0 else []
+
+    ex = Example(id="q", question="who started the thing A made", answer="Bob", hops=2,
+                 chunks=pool, gold_chunk_ids=["A::0", "B::0"])
+    p = MultiHopPipeline.__new__(MultiHopPipeline)
+    p.cfg, p.retriever, p.reranker, p.generator = cfg, Retriever(), None, Gen()
+    p.lessons = Lessons()
+    res = p.run_example(ex)
+    assert res.answer == "Bob" and res.stop_reason == "done"
+    assert res.notebook == ["A::0", "B::0"] and len(res.hops) == 2
+    assert [s["kept"] for s in res.steps] == [["A::0"], ["B::0"]]
+    assert res.steps[0]["lessons"] == ["keep both entities"] and res.steps[1]["lessons"] == []
+    assert p.lessons.seen[1]["notebook"] == ["A::0"] and "features" in res.steps[0]
+    row = score_row(ex, res)
+    assert row["em"] == 1 and row["notebook_all_gold"] == 1 and row["notebook_size"] == 2
+    assert row["fallback"] == 0 and "steps" in trace_record(ex, res)
+
+    # nothing kept: the answer is read from everything retrieved, and says so
+    class Empty(Gen):
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            m = GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=4)
+            if "Answer the question using only" in prompt:
+                assert "text of A::1" in prompt
+                return "Bob", m
+            return "KEEP: none\nNEXT: ANSWER", m
+    p.generator, p.lessons = Empty(), None
+    res = p.run_example(ex)
+    assert res.stop_reason == "done+fallback" and res.notebook == []
+    assert score_row(ex, res)["fallback"] == 1
+
+    # the other modes write the same row and trace as before
+    cfg.pipeline.mode = "multihop_ircot"
+    class Ircot(Gen):
+        def generate(self, prompt, max_tokens=None):
+            m = GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=4)
+            return ("DONE" if "gathering evidence" in prompt else "Bob"), m
+    p.generator = Ircot()
+    res = p.run_example(ex)
+    assert "notebook_size" not in score_row(ex, res) and "steps" not in trace_record(ex, res)
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1645,4 +1742,5 @@ if __name__ == "__main__":
     test_twin_stream()
     test_stream_best_arm_pair_and_shuffled_controls()
     test_reader_context_selection()
+    test_agent_episode()
     print("all good")

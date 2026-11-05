@@ -1,0 +1,9 @@
+run:
+  name: agent_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: agent
+generation:
+  backend: mlx
