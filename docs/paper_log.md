@@ -3,6 +3,126 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-09
+
+Listings read in full (cs.IR 25, cs.CL 146, cs.AI 397 entries); every
+abstract read, the four below read in full.
+
+- Vahdat and Vaezipoor 2026, Decision Context (arXiv 2611.08644). A
+  tool-using agent's corrections (from a user) and its self-assessed
+  tool-call failures (retry-then-succeed, recurring errors, read off the
+  traces) are compiled into imperative rule directives, each wired at
+  compile time to a trigger node: the point in the trace before the failing
+  call where the rule would have prevented it. At run time a rule is
+  injected only where its trigger matches; rules are deduplicated and
+  superseded by later corrections, and nothing about where a rule applies
+  is revised from what happens after it fires. DC-Bench, 71 scenarios in 9
+  behavioural dimensions, corrections seeded on one company and tested on
+  another, an Opus 4.7 agent, a GPT-4 rubric judge, 5 runs. Mean compliance:
+  no injection 10%, mem0 12%, zep 15%, AWM 34%, Memp 49%, naive RAG over
+  traces 55%, annotated chunks 63%, typed graph 70%, the same graph plus
+  self-assessment rules injected unconditionally 82%, triggered directives
+  95%. That last step moves scope precision 78% -> 96% (8 scenarios) and
+  conditional activation 84% -> 95% (12 scenarios) at 159 injected tokens
+  per query against 1641; a variant that attaches a reason to each rule is
+  flat or lower on every model they tried. The authors say the stages are
+  cumulative (compilation, triggering and conflict handling are not
+  separated) and that benchmark, baselines and rubrics are all theirs. For
+  me this is the Stage 6 pair "every lesson shown every time" against
+  "lessons shown where their region holds", in print for tool agents and
+  with the region fixed at write time: 82 against 95, confounded as they
+  say. Three things to take. Their no-regression check (wherever the
+  no-injection agent passes, the memory must still pass) belongs in the A4
+  table beside false application. Keep the reflection advice to a bare
+  directive. And their scope-precision and conditional-activation scenarios
+  are the question-pair analogue of my twins. What they do not do is the
+  claim under test: no trigger is narrowed, split or retired from later
+  outcomes, and there is no shuffled-content control; the show-all baseline
+  now has a published number.
+- Schmid et al. 2026, FondueQA (arXiv 2611.09274). A multi-hop benchmark
+  built so that every required fact lives in exactly one gold document and
+  nowhere else in the question or the other documents (198,375 candidates,
+  31,077 validated, 13,063 released; Wikipedia of October 2017), so
+  removing a document removes one fact. Conditions: all gold, no gold,
+  question only, bridge-only against target-only (the answer-bearing
+  document), leave-one-out, and competitor distractors at fixed context
+  size. Thirteen model configurations, Qwen3-8B among them. On FondueQA the
+  bridge document matters more than the answer-bearing one for most
+  models, more so for small ones; competitors that support a wrong answer
+  cut EM by up to about 15 points and competitors that support the right
+  one add more than 25. The same fact-isolation checks keep 3,424 of 7,404
+  HotpotQA (46.2%), 7,740 of 12,576 2Wiki (61.5%) and 531 of 2,417 MuSiQue
+  (22.0%) instances, and on those subsets (HotpotQA-Ext, 2Wiki-Ext) the
+  role effect reverses: target-only beats bridge-only for most models,
+  which matching entity popularity and restricting to easy questions do
+  not remove (the popularity matching is run on 2Wiki-Ext). Two things for
+  me. Their HotpotQA and 2Wiki result is my intervention arm (the reader
+  does as well with the answer-bearing gold alone as with all of it) from an
+  independent harness, and their FondueQA reversal says it is a property of
+  how the sets were built, not of readers; cite beside Sufficient Context
+  and the Stage 5c paragraph. And their retention rates are a caveat on
+  the gold-completeness partition: on the standard sets a fact can be
+  supported outside its gold paragraph (680 HotpotQA and 566 MuSiQue
+  instances fail role isolation alone), so part of my "correct without
+  gold" cell is a second source in the pool rather than parametric recall;
+  report the share that passes a fact-isolation check, or cite theirs. The
+  competitor result also names a distractor the reader-context arms did not
+  try: a same-type candidate for the missing hop.
+- Luo, Wen and Wang 2026, Agentic Abstention (arXiv 2606.28733, v3 of 6
+  Nov). Abstention as a sequential decision (answer, abstain, or act again)
+  over 28,000 instructions from WebShop, Terminal-Bench 2.0 and
+  AbstentionBench QA sets; timely recall is abstaining at the first step
+  where it is warranted. Thirteen systems, the best at 32.6% timely and
+  84.2% overall. CONVOLVE is an ACE-style playbook: a reflection model reads
+  each rollout for the observation that made stopping warranted, a curator
+  writes stopping rules into fixed sections, the playbook goes into the
+  system prompt. Built from 20 trajectories (8 more for validation),
+  evaluated on 101 held-out abstention-only WebShop tasks: Llama-3.3-70B
+  timely recall 26.7 -> 57.4, overall 83.2 -> 100.0; Llama-3-8B 6.9 -> 12.9
+  with the 70B playbook. The row that matters is in their Table 2: the same
+  model with in-context examples instead gets 55.4 and 97.0, so the
+  distilled rules add two points over showing episodes (how many examples
+  the ICL row uses is not stated). Never scoped, never revised. For me: the
+  stop decision is learnable from a handful of episodes (the stop audit),
+  and raw episodes in context is a control the Stage 6 table lacks; add it
+  beside the flat and show-all lessons, since a lesson memory that does not
+  beat its own source episodes is compression, not learning. One model
+  family, n=101, WebShop only.
+- Yang et al. 2026, ENGRAM (arXiv 2611.09472). Experience records are typed
+  by skill; a skill enters LoRA training once mastered or demonstrated
+  often enough, and its records leave retrieval only after a verification
+  gate compares the updated model without retrieval against the base model
+  with retrieval on reserved probes. Qwen3-8B, 3.1-8.4 points over
+  frozen-weight retrieval on six benchmarks. The piece for me is the
+  HotpotQA release study: 600 records, 3 of 5 skills pass, 331 archived;
+  held out, retain-all EM/F1 54.4/71.1, immediate release (13 records left)
+  50.9/66.8, random release at the same 269 retrievable records 51.6/67.6,
+  verified release 54.0/70.9. Not my object (the lessons go into weights),
+  but the budget-matched random-release row is the control my retire
+  operator lacks: retiring the lessons the operator picks has to beat
+  retiring the same number at random. Add it to the operator ablation if
+  the operators run again.
+
+Seen and set aside: 2611.09792 (randomised in-trajectory interventions for
+causal effects on agent outcomes; the balanced-exposure design already noted
+from 2610.02070), 2611.09028 Scout (routing from a frozen small model's
+prefill activations, features that are not process statistics, for model
+routing), 2604.23853 ClawTrace (skill patches by rule type: prune patches
+are guardrails, preserve patches regress), 2611.09457 (knn over neighbour
+labels recovers most of a retrieval-augmented annotation gain; the surface
+key again), 2611.09609 (the wrong-user control is confounded by topic),
+2611.08855 (a source's reliability transfers within a scope, in model
+beliefs), 2611.09807 (compaction against retrieval memory on LoCoMo, McNemar
+on the disagreeing questions), 2602.02865 MemSkill (evolving memory
+routines, HotpotQA among the sets), 2611.09348 (poisoned reference answers
+become trigger-conditioned rules in a skill optimiser), 2611.09084 ACTOR
+(queried labels usable only for later samples, the decide-then-reveal
+protocol in test-time adaptation), 2611.08498 (graph-first, dense-fallback
+multi-hop RAG, no numbers in the abstract), 2605.13481 (GraphRAG on
+hotpot / 2wiki / musique, judge gains), 2611.09554 (lost-in-the-middle by
+positional modulation), 2611.09721 MemoryDojo (poisoning through agent
+memory).
+
 ## 2026-10-05
 
 Listings read in full (cs.IR 17, cs.CL 185, cs.AI 402 entries); about
