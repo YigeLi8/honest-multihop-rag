@@ -3,6 +3,144 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-10
+
+Listings read in full (cs.IR 56, cs.CL 364, cs.AI 887 entries, replacements
+included; 1114 distinct ids); every abstract screened, the five below read
+in full or as far as their results tables.
+
+- Chu et al. 2026, Peer Memory (arXiv 2611.09990). Six agents on hotpot
+  distractor questions, each holding one passage (two gold, four
+  distractors), three rounds of "pick a peer, read its answer, revise"; the
+  pick is a LinUCB contextual bandit over nine process features, rewarded
+  by the F1 of the revised answer. The memory is the saved bandit state per
+  (selector, peer) pair after a 40-question block, restarted on a second
+  block cold, warm (saved state) or shuffled (the same state permuted
+  across peer ids), all three still learning online. 80 hard questions, 12
+  paired lineages, Qwen3-32B and Gemma-4-31B. Warm lowers hindsight regret
+  against cold by 7.4% of cold regret on Qwen (CI -12.8 to -2.1, 10 of 12
+  lineages) and 6.0% on Gemma; warm against shuffled is -7.4% on Qwen and
+  -4.7 (CI -11.2 to +1.8) on Gemma; final F1 does not move (warm minus cold
+  -1.26 points on Qwen, +0.23 on Gemma, intervals through zero). A second
+  study reassigns the gold passages to other agents: warm is then 1.50 F1
+  points below cold (CI -2.79 to -0.20) and the warm agents consult
+  themselves 5 points more often. This is my shuffled-reveal control on a
+  scalar-utility routing memory, on hotpot, in print, with my result's
+  shape: the memory changes who is consulted, the regret moves, the task
+  metric does not, and on one of two models the shuffled copy keeps most
+  of the regret gain. Nothing is scoped or revised per lesson, so it is
+  the scalar-utility baseline of Stage 5 and not the claim. Two things to
+  take: regret as the primary endpoint with F1 beside it is my
+  retrieval-level / EM split in their words, and the role-reassignment
+  block is the drift test my stream still lacks (a memory that was right
+  and goes stale), cheaper than switching dataset mid-stream. Cite beside
+  Action Calibration as the second shuffled-memory control.
+- Mitra 2026, Frozen-weight self-improvement (arXiv 2611.11342). A frozen
+  Qwen3.5-9B agent; a larger writer turns its failure traces into "when
+  situation then action" lessons in a propose / validate / keep-or-revert
+  loop. The control that matters is a matched no-evidence search: the same
+  writer, prompts, loop, selection and budget with the episodes replaced by
+  a fixed sentence. On 2997 sealed tau2 retail decisions the standard
+  harness scores 70.3%, the no-evidence search 76.8%, the trace lessons
+  80.9%, so the registered contrast is +4.0 [+2.3, +5.7] (under their
+  preregistered 5-point bar) and the search without any trace gets 60% of
+  the gain, all of it on the task whose rule the writer's prompt already
+  stated. Full conversations: 82.9% without the lessons, 81.6% with
+  (-1.3 [-5.9, +3.3]). A registered gate admits a single lesson only on
+  randomised on / off exposure with per-context non-inferiority and a harm
+  bound: 2 of 12 tau2 lessons pass (none tested held out), 0 of 8 BFCL
+  trace lessons, and the one BFCL lesson that passed did not replicate
+  (-0.31 [-3.65, +3.12]); a neutral note with no procedure beats both
+  lesson sets there (+4.5 [+0.7, +8.4]), and a blind audit finds 146 of
+  240 held-out BFCL items defective. For me this is the Stage 6 result
+  stated the way it should be: my "region is level with no memory and the
+  show-all arms lose three points" has no matched no-evidence control (the
+  same reflection and probation loop fed a fixed sentence instead of the
+  episode) and no neutral-note arm, so I cannot yet say whether the
+  reflection content did anything at all; both are cheap to add to the
+  A5 table on the Mac. Their gate is a one-shot offline applicability
+  screen (contexts fixed in advance, nothing revised after), i.e. Stage 4
+  with a harm bound, not the online boundary; cite it as the strongest
+  recent negative on failure-derived lessons transferring.
+- Han et al. 2026, ChainCheck (arXiv 2611.11965). An audit of
+  evidence-sufficiency scorers on musique, 2wiki and hotpot. Negatives are
+  built by substituting the bridge entity in the later-hop passage (chain
+  broken, text edited); the control cell substitutes it in both passages
+  (chain intact, text edited); the contrasts are a chain effect, an edit
+  effect and their difference, chain selectivity. Probes and readouts on a
+  frozen Qwen3.8-27B, two LoRA variants, a zero-shot judge and four more
+  judge models. On 324 musique test pairs nominal AUCs are 0.970-0.996
+  while every trained system scores the intact-but-edited cell almost as
+  a negative and has negative selectivity; only the zero-shot judge is
+  chain-selective (+0.21 [0.13, 0.29]), and on 2276 hotpot pairs the
+  musique / 2wiki pattern did not replicate (judge selectivity -0.007 to
+  +0.042). On a crossed hotpot arm an artifact-only per-passage log-prob
+  scorer that never reads the chain reaches AUC 0.997. The number for me
+  is the surface gate: negatives made by removing all support are
+  separable from positives by a surface classifier at AUC 0.959, against
+  0.568 for the substitution negatives, so any learned "is the chain in
+  context" verifier judged on removal negatives is a relevance detector.
+  My gold-only / full-context arms are not edited text and the cell is
+  read off gold labels, so Part A is not hit; but a learned sufficiency
+  check, which the stop audit would want, needs their intact-chain edit
+  cell as a control. Cite in the shortcut paragraph, with their list of
+  disconnected-reasoning work.
+- Pardawala et al. 2026, CoRA-Bench (arXiv 2611.10238). Context selectors
+  (head / tail truncation, bm25, Qwen3 dense, dense plus reranker,
+  LLMLingua-2, Provence) at shared 32K / 64K / 128K budgets on BABILong,
+  LOONG, a NoLiMa diagnostic and LongMemEval, scored on evidence recall
+  and on reader accuracy over the identical selected context (Gemini 2.5
+  Flash-Lite, three seeds, paired bootstrap). At 32K the full context gets
+  31.1% on BABILong against bm25 46.2% and Provence 48.1% (paired +15.1
+  [10.9, 19.6] and +17.0 [12.5, 21.5]), 0.6% on NoLiMa against Provence
+  27.4%, 63.2% on LongMemEval against dense 71.1%; LLMLingua-2 is below
+  the full context everywhere (12.1% on BABILong). So on long haystacks a
+  bm25 or Provence cut beats reading everything, and my C2 result (no cut
+  short of the oracle above the full context, rerank3 below it) is a
+  property of these pools: forty sentences, gold a sentence away from its
+  distractors, every cut dropping a gold hop on about half the questions.
+  The write-up has to say that and cite this beside the filter baselines
+  of Stage 5c; Provence off the shelf, which that item lists, has its
+  long-context numbers here already. Their reporting (recall and reader
+  accuracy on the same selected context, paired) is the Stage 5c table.
+- Kumar, Wu and Suley 2026, CARL (arXiv 2605.27788, v2 of today). PPO
+  for tool use with the critic read at tool-call boundaries, Qwen2.5-3B
+  and 7B. What I take is one table: a question is "within parametric
+  competence" when the base model answers it in at least one of five
+  no-tool rollouts, and with bm25 search that leaves 24% of hotpot, 43% of
+  2wiki and 7% of musique questions parametric for Qwen2.5-7B-Instruct
+  (16 / 32 / 4% at 3B). Those are a published yardstick for my parametric
+  bucket under the same reader family: my closed-book EM on the
+  confirmation folds is 0.173 / 0.214 / 0.032, in the same order and
+  below theirs, as one greedy answer against the best of five should be.
+  The one-of-five definition is cheap and I could report it beside the
+  closed-book control. The rest (EM 47.9 / 48.3 / 30.4 against Search-R1
+  42.8 / 41.7 / 22.1, a competence boundary at AUC 0.93) is not my object.
+
+Seen and set aside: 2611.11840 (correct answers from certified
+insufficient histories: executable logs where sufficiency is provable, a
+reader gives concrete answers on 196 of 203 insufficient inputs and matches
+the hidden reference on 87; the Part A cell in a domain with a proof, cite
+if the draft needs one), 2605.15721 NCCE (instance-wise prompt routing by
+collaborative filtering, hotpot 60.1%; routes prompts, offline),
+2611.11509 SimplEvo and 2611.11560 LiveAsset (text lessons and intent
+assets, frozen at test, applicability by judge), 2611.12109 SkillDuet
+(skills turn detrimental as the model evolves; RL co-training),
+2611.10170 EviCover (complementary-evidence recall up, correctness not),
+2611.11396 (dense retrievers favour passages with answers the model
+already knows), 2611.11771 ARMOR and 2611.11010 Lightfoot (RAG RL and
+GraphRAG on the three sets, no numbers I need), 2611.10477 PatternBloom
+(reasoning-pattern memory for agentic RAG, no datasets in the abstract),
+2605.25379 StateRAG (typed retrieval state, +9.8 F1 musique), 2611.10542
+BadEvolve (failure memory as a poisoning channel), 2611.11929 SoMem,
+2611.12068 MIRIX-2.0, 2611.10683 TransMem, 2611.12872 HiVe-Mem
+(conversational memory systems, no applicability model), 2606.03056
+SkillDAG, 2606.04391 SkillAny, 2605.06978 GoSkills, 2611.10022 SkillCache,
+2611.12041 SMO, 2604.20133 EvoAgent (skill libraries, no outcome-revised
+scope), 2605.09252 When2Tool (tool necessity decodable from the prefill),
+2611.10193 PISA and 2611.10848 MultiTurnRoute (model routers), 2611.11842
+(shuffling an evidence graph does not hurt belief updating, robotics).
+
 ## 2026-11-09
 
 Listings read in full (cs.IR 25, cs.CL 146, cs.AI 397 entries); every
