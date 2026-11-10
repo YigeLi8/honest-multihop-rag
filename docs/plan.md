@@ -1347,8 +1347,22 @@ as cost. Steps:
       against the repeated arm and against the best fixed arm,
       `diff_vs_repeat_*`, `diff_vs_best_*`) beside the largest per-order
       McNemar p. Numbers under Stage 5
-- [ ] `arms.py`: the routed table has a spread over half-splits and no paired
-      test, and the fold-split table prints a spread of 0.0 for its one split
+- [x] `arms.py`: the routed table has a spread over half-splits and no paired
+      test, and the fold-split table prints a spread of 0.0 for its one split.
+      10 Nov: every routed row (the feature routers and the neighbour votes)
+      now carries a per-split McNemar against the best single arm on the
+      same score half (`p_vs_single_max`, `_median`) and a pooled paired
+      bootstrap over questions on each question's mean outcome over the
+      splits that scored it (`gain_lo`, `gain_hi`, `n_questions`), so the
+      one-split fold tables get an interval and a p where gain_sd is 0.0.
+      Hotpot rebuilt here (bm25s 0.3.10, bge-small on cpu: the replay
+      matches the committed arms trace on 1500 of 1500 hops and every old
+      cell of the four tables reproduces): against always-hybrid 0.634 no
+      row's interval clears zero upward, the widest being the pool router
+      +0.004 [-0.007, +0.015] and the dense discordant vote at k=20 +0.003
+      [-0.007, +0.013]; the tf-idf vote at k=5 is below it, -0.009 [-0.017,
+      -0.001]; the largest per-split p is 1.0 on every row. The musique and
+      2wiki tables, and the fold-split tables, wait for the Mac logs
 - [ ] `lookalike.py`: agreement counts both-miss and the random baseline is
       not matched on question type; add a row for pairs where the arms
       disagree on both questions, and a type-matched baseline
