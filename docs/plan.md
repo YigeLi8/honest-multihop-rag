@@ -1166,11 +1166,42 @@ as cost. Steps:
       2.8 / 1.8 s for ircot. Notebook 3.7 sentences, all gold 0.516. To
       confirm: the comparison gain on a fold with more comparison questions
       (the hotpot confirmation fold has about 200)
-- [ ] A3 episode scoring and error typing; the reflection call
+- [ ] A3 episode scoring and error typing; the reflection call.
+      `src/agent/memory.py` (`score_steps`, `ExperienceMemory._advice`).
+      Errors per decision point: planner `unreached` (a gold paragraph never
+      retrieved by any search), subagent step `dropped` (a gold sentence
+      shown and not in the final notebook) and `noise` (two or more
+      non-gold kept, more than the gold kept at that step). Reflection: the
+      failed step with the needed sentences marked, one rule under 25 words,
+      rejected for leaks (a capitalised word of the question or a gold
+      title, or a digit) and replaced by a fixed sentence per type, logged.
+      Code 4 Nov; tests pass 9 Nov (`test_experience_memory`,
+      `test_memory_in_the_loop`: the memory inside the main agent with a
+      fake model, lessons created by reflection for both roles and shown
+      from the next episode). No GPU run yet
 - [ ] A4 lesson memory with regions, the flat, show-all and shuffled
-      variants
-- [ ] A5 build on 1000 hotpot train questions, evaluate on the exploration
-      fold with every baseline
+      variants. Same file. Regions are boxes over the planner's question
+      features (24, from the text) or the Stage 1 step features (19), revised
+      by the Stage 5 operators. Feedback is only seen where a lesson is
+      shown, so a new lesson is on probation (shown wherever it applies)
+      for min_n=5 showings, then shown while its utility (success rate of
+      its error type when shown, minus the role's rate where no lesson of
+      the type was shown) is positive; at most three per decision. Modes
+      region / flat (question-token similarity, no regions or operators,
+      built separately) / global (top by utility everywhere) / shuffled
+      (advice permuted among the role's lessons) / none. Hooks: pipeline
+      builds it from `agent_memory` in the config, run_qa calls
+      `on_episode` after scoring and saves the store; `dataset.split`
+      picks the data file (default dev, so nothing else changes). Tests
+      pass 9 Nov; running them found the store's list of lessons shadowing
+      the `lessons()` method the agent calls (renamed `entries`). No GPU run
+      yet
+- [ ] A5 build on 1000 hotpot train questions
+      (`results/folds/hotpot_train_mem.txt`, seed 13, none in either dev
+      fold), with regions (`configs/orchestrator_mem_build.yaml`) and flat
+      (`_build_flat`); evaluate frozen on the exploration fold:
+      `orchestrator_mem_{region,global,shuffled,flat}.yaml`, against the
+      main agent without memory (`orchestrator_hotpot_explore`), paired
 - [ ] A6 preregistration 3, then the hotpot confirmation fold; 2wiki and
       musique after
 

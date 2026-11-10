@@ -161,7 +161,8 @@ def main():
     if args.name:
         cfg.run.name = args.name
 
-    data_file = Path(cfg.paths.data_dir) / f"{cfg.dataset.name}_dev.jsonl"
+    split = getattr(cfg.dataset, "split", "dev")
+    data_file = Path(cfg.paths.data_dir) / f"{cfg.dataset.name}_{split}.jsonl"
     examples = load_examples(data_file, args.n, read_ids(args.ids) if args.ids else None)
 
     out_dir = Path(cfg.paths.results_dir)
@@ -182,8 +183,15 @@ def main():
             tf.write(json.dumps(trace_record(ex, res)) + "\n")
             if pipe.memory is not None:
                 pipe.memory.on_outcome(ex, res, row)
+            if pipe.lessons is not None:
+                pipe.lessons.on_episode(ex, res, row)
             if (i + 1) % 25 == 0:
                 print(f"{i + 1}/{len(examples)}")
+
+    if pipe.lessons is not None and pipe.lessons.learn and pipe.lessons.store:
+        pipe.lessons.save()
+        from src.agent.memory import summary
+        print(f"memory: {summary(pipe.lessons)} -> {pipe.lessons.store}")
 
     out = out_dir / f"{cfg.run.name}_qa.csv"
     with open(out, "w", newline="") as f:

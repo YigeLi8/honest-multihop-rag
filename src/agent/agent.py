@@ -139,6 +139,8 @@ def search_loop(pipe, ex, question, max_hops, usage, traces, steps, seen,
         keep, action, nxt = parse_reply(text, len(shown))
         for j in keep:
             notebook[shown[j].chunk.chunk_id] = shown[j]
+        if lessons:
+            step["lesson_ids"] = list(getattr(pipe.lessons, "last_ids", []))
         step.update(lessons=lessons, reply=text, kept=[shown[j].chunk.chunk_id for j in keep],
                     action=action, next_query=nxt)
         steps.append(step)

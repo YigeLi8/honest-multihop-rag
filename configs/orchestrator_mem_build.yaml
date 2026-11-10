@@ -1,0 +1,20 @@
+# Stage 6 A5: build the memory with regions on 1000 hotpot train questions
+# (results/folds/hotpot_train_mem.txt), learning after every episode
+run:
+  name: orchestrator_mem_build_hotpot_train
+dataset:
+  split: train
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+generation:
+  backend: mlx
+agent_memory:
+  enabled: true
+  mode: region
+  learn: true
+  store: results/agent_memory/hotpot_train_region.json

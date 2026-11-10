@@ -91,6 +91,10 @@ class MultiHopPipeline:
             from src.memory.experience import ExperienceLogger, shadow_retrievers
             self.memory = ExperienceLogger(cfg, cfg.run.name)
             self.shadow = shadow_retrievers(cfg)
+        amem = getattr(cfg, "agent_memory", None)
+        if cfg.pipeline.mode in ("agent", "orchestrator") and getattr(amem, "enabled", False):
+            from src.agent.memory import ExperienceMemory
+            self.lessons = ExperienceMemory.from_config(cfg, self)
 
     def _index(self, ex):
         self.retriever.index(ex.chunks)

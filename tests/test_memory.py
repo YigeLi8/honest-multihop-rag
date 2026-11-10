@@ -1815,6 +1815,162 @@ def test_orchestrator():
     assert not score_row(ex, res)["fallback"]
 
 
+def test_experience_memory():
+    import tempfile
+    from pathlib import Path
+    from src.agent.memory import (FALLBACK, PLANNER_FEATURES, ExperienceMemory, leaks,
+                                  planner_features, score_steps)
+    from src.memory.features import FEATURES
+    from src.types import Chunk, Example, HopTrace, RetrievedChunk
+
+    class NS:
+        pass
+
+    def F(v):
+        return {f: float(v) for f in FEATURES}
+
+    pool = {c: Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0])
+            for c in ("G::0", "A::0", "X::0", "Y::0")}
+    ex = Example(id="q", question="Who directed Night Orchard?", answer="Ann", hops=2,
+                 chunks=list(pool.values()), gold_chunk_ids=["G::0"])
+
+    def episode(x, shown, kept, notebook, planner=False):
+        res = NS()
+        res.steps = ([{"role": "planner", "question": ex.question, "plan": ["a", "b"]}]
+                     if planner else [])
+        res.steps.append({"hop": 0, "query": "q", "features": F(x), "shown": shown, "kept": kept})
+        res.hops = [HopTrace(hop=0, query="q", retrieved=[RetrievedChunk(pool[c], 1.0, r)
+                                                          for r, c in enumerate(shown, 1)])]
+        res.notebook = notebook
+        return res
+
+    def step(x):
+        return {"hop": 0, "features": F(x), "question": ex.question, "notebook": []}
+
+    # error typing, gold only after the episode
+    (role, key, x, failed, detail), = score_steps(ex, episode(0, ["G::0", "X::0", "Y::0"],
+                                                              ["X::0", "Y::0"], ["X::0", "Y::0"]))
+    assert role == "subagent" and key == 0 and failed == {"dropped": True, "noise": True}
+    assert detail["dropped"] == ["G::0"] and len(x) == len(FEATURES)
+    two = Example(id="q2", question=ex.question, answer="Ann", hops=2, chunks=ex.chunks,
+                  gold_chunk_ids=["G::0", "A::0"])
+    scored = score_steps(two, episode(0, ["G::0", "X::0"], ["G::0"], ["G::0"], planner=True))
+    assert scored[0][0] == "planner" and scored[0][3] == {"unreached": True}
+    assert scored[0][4]["missing_titles"] == ["A"] and len(scored[0][2]) == len(PLANNER_FEATURES)
+    assert scored[1][3] == {"dropped": False, "noise": False}
+    assert planner_features("Were Ann and Bo born in the same city?")[PLANNER_FEATURES.index("cue_same")] == 1
+
+    assert leaks("Keep the sentence about Ann.", ex.question, ["Ann"])
+    assert leaks("Check the 1990 release.", ex.question, ["G"])
+    assert not leaks("Look up each film's director first.", ex.question, ["Night Orchard"])
+    assert leaks("Find who directed the Orchard.", ex.question, [])
+
+    # regions: create, probation, support, narrow, expand
+    mem = ExperienceMemory(None, None, mode="region", learn=True, warmup=0, min_n=2, reflect=False)
+    assert mem.lessons(step(0)) == []
+    mem.on_episode(ex, episode(0, ["G::0", "X::0", "Y::0"], ["X::0", "Y::0"], ["X::0", "Y::0"]), {})
+    assert [(l.id, l.type, l.source) for l in mem.entries] == \
+        [("s1", "dropped", "fallback"), ("s2", "noise", "fallback")]
+    s1 = mem.entries[0]
+    assert mem.lessons(step(0.5)) == [FALLBACK["dropped"], FALLBACK["noise"]]   # on probation
+    mem.on_episode(ex, episode(0.5, ["G::0", "X::0"], ["G::0"], ["G::0"]), {})
+    assert (s1.shown, s1.ok_shown, len(s1.support)) == (1, 1, 2)
+    assert mem.lessons(step(0.8)) == [FALLBACK["dropped"], FALLBACK["noise"]]
+    mem.on_episode(ex, episode(0.8, ["G::0", "X::0"], ["X::0"], ["X::0"]), {})
+    assert [e["op"] for e in mem.log] == ["create", "create", "narrow"]
+    assert s1.hi[0] < 0.8 and s1.hi[1] == 1.0 and not s1.retired
+    assert mem.lessons(step(0.8)) == [FALLBACK["noise"]]                       # cut off by the narrow
+    mem.on_episode(ex, episode(0.8, ["G::0", "X::0"], ["X::0"], ["X::0"]), {})
+    assert [e["op"] for e in mem.log][-1] == "expand" and len(mem.entries) == 2
+    assert s1.hi[0] >= 0.8 and mem.base[("subagent", "dropped")] == [0, 2]
+
+    # frozen copy shows the same; the baselines read the same store
+    with tempfile.TemporaryDirectory() as d:
+        path = Path(d) / "m.json"
+        mem.save(path)
+        assert path.with_suffix(".log.jsonl").exists()
+        frozen = ExperienceMemory(None, None, mode="region", learn=False, load=path)
+        assert frozen.lessons(step(0.5)) == mem.lessons(step(0.5))
+        frozen.on_episode(ex, episode(0.5, ["G::0"], [], []), {})
+        assert [l.shown for l in frozen.entries] == [l.shown for l in mem.entries]
+        shuf = ExperienceMemory(None, None, mode="shuffled", learn=False, load=path)
+        assert sorted(l.advice for l in shuf.entries) == sorted(l.advice for l in mem.entries)
+        assert [l.lo for l in shuf.entries] == [l.lo for l in mem.entries]
+        far = step(100.0)
+        assert ExperienceMemory(None, None, mode="region", learn=False, load=path).lessons(far) == []
+        assert len(ExperienceMemory(None, None, mode="global", learn=False, load=path).lessons(far)) == 2
+        flat = ExperienceMemory(None, None, mode="flat", learn=False, load=path)
+        assert len(flat.lessons(far)) == 2                       # same question text
+        assert flat.lessons(dict(far, question="zzz qqq")) == []
+        assert ExperienceMemory(None, None, mode="none", learn=False, load=path).lessons(far) == []
+
+
+def test_memory_in_the_loop():
+    """The real memory inside the main agent, a fake model, run_qa's order of
+    calls: run_example, score_row, on_episode."""
+    from src.agent.memory import ExperienceMemory
+    from src.eval.run_qa import score_row
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    pool = [Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0])
+            for c in ("Film::0", "Film::1", "Ann::0", "Ann::1")]
+
+    class NS:
+        pass
+    cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+    cfg.pipeline.mode = "orchestrator"
+    cfg.pipeline.max_hops = 3
+    cfg.pipeline.max_subquestions = 3
+    cfg.pipeline.sub_max_hops = 1
+    cfg.retrieval.top_k = 2
+
+    class Retriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            ids = ["Film::1", "Film::0"]        # never the Ann paragraph: planner fails
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    class Gen:
+        def __init__(self):
+            self.prompts = []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            m = GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=3)
+            if "improving an evidence-collecting assistant" in prompt:
+                return "Look up each person the question names separately.", m
+            if "Break the question" in prompt:
+                return "1. Who directed the film?", m
+            if "collecting evidence" in prompt:
+                return "KEEP: 1\nNEXT: ANSWER", m     # keeps Film::1, drops gold Film::0
+            return "Ann", m
+
+    p = MultiHopPipeline.__new__(MultiHopPipeline)
+    p.cfg, p.retriever, p.reranker, p.generator = cfg, Retriever(), None, Gen()
+    p.lessons = ExperienceMemory(cfg, p, mode="region", learn=True, warmup=0, min_n=5)
+    for i in range(6):
+        ex = Example(id=f"q{i}", question=f"Where was the director of film {i} born?",
+                     answer="Paris", hops=2, chunks=pool, gold_chunk_ids=["Film::0", "Ann::0"])
+        res = p.run_example(ex)
+        row = score_row(ex, res)
+        p.lessons.on_episode(ex, res, row)
+    roles = {(l.role, l.type, l.source) for l in p.lessons.entries}
+    assert ("planner", "unreached", "reflection") in roles
+    assert ("subagent", "dropped", "reflection") in roles
+    # created after episode 1, shown from episode 2 on, in both prompts
+    shown = [q for q in p.generator.prompts if "Lessons from earlier questions:" in q]
+    assert any("Break the question" in q for q in shown)
+    assert any("collecting evidence" in q for q in shown)
+    assert "Look up each person the question names separately." in shown[0]
+    # reflection calls never count toward an episode's calls
+    assert res.gen_calls == 4
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -1847,4 +2003,6 @@ if __name__ == "__main__":
     test_reader_context_selection()
     test_agent_episode()
     test_orchestrator()
+    test_experience_memory()
+    test_memory_in_the_loop()
     print("all good")

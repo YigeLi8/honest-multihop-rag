@@ -90,6 +90,8 @@ def run_orchestrated(pipe, ex):
     plan_fallback = not subs
     if plan_fallback:
         subs = [ex.question]
+    if lessons:
+        plan_step["lesson_ids"] = list(getattr(pipe.lessons, "last_ids", []))
     plan_step.update(lessons=lessons, reply=text, plan=subs, plan_fallback=plan_fallback)
     steps.append(plan_step)
 
