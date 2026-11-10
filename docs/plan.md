@@ -1166,7 +1166,7 @@ as cost. Steps:
       2.8 / 1.8 s for ircot. Notebook 3.7 sentences, all gold 0.516. To
       confirm: the comparison gain on a fold with more comparison questions
       (the hotpot confirmation fold has about 200)
-- [ ] A3 episode scoring and error typing; the reflection call.
+- [x] A3 episode scoring and error typing; the reflection call.
       `src/agent/memory.py` (`score_steps`, `ExperienceMemory._advice`).
       Errors per decision point: planner `unreached` (a gold paragraph never
       retrieved by any search), subagent step `dropped` (a gold sentence
@@ -1178,8 +1178,10 @@ as cost. Steps:
       Code 4 Nov; tests pass 9 Nov (`test_experience_memory`,
       `test_memory_in_the_loop`: the memory inside the main agent with a
       fake model, lessons created by reflection for both roles and shown
-      from the next episode). No GPU run yet
-- [ ] A4 lesson memory with regions, the flat, show-all and shuffled
+      from the next episode). Run on the GPU in A5: 447 of 478 region
+      lessons and 212 of 228 flat ones came from reflection, the rest from
+      the fixed sentence after a leak
+- [x] A4 lesson memory with regions, the flat, show-all and shuffled
       variants. Same file. Regions are boxes over the planner's question
       features (24, from the text) or the Stage 1 step features (19), revised
       by the Stage 5 operators. Feedback is only seen where a lesson is
@@ -1194,16 +1196,75 @@ as cost. Steps:
       `on_episode` after scoring and saves the store; `dataset.split`
       picks the data file (default dev, so nothing else changes). Tests
       pass 9 Nov; running them found the store's list of lessons shadowing
-      the `lessons()` method the agent calls (renamed `entries`). No GPU run
-      yet
-- [ ] A5 build on 1000 hotpot train questions
+      the `lessons()` method the agent calls (renamed `entries`). Run in A5
+- [x] A5 build on 1000 hotpot train questions
       (`results/folds/hotpot_train_mem.txt`, seed 13, none in either dev
       fold), with regions (`configs/orchestrator_mem_build.yaml`) and flat
       (`_build_flat`); evaluate frozen on the exploration fold:
       `orchestrator_mem_{region,global,shuffled,flat}.yaml`, against the
-      main agent without memory (`orchestrator_hotpot_explore`), paired
+      main agent without memory (`orchestrator_hotpot_explore`), paired.
+      Mac, 9-10 Nov, commit b42d92f (`results/orchestrator_mem_*`; the
+      stores and their revision logs in `results/agent_memory/`; scored by
+      `scripts/memory_eval.py` into
+      `results/orchestrator_mem_hotpot_explore_{paired,steps}.csv` and
+      `results/agent_memory/build_summary.csv`). Exploratory, n=500, paired
+      against the main agent without memory (EM 0.540), Holm over the four
+      arms:
+
+      | arm      | EM    | diff, 95% CI           | discordant | p     | Holm |
+      |----------|-------|------------------------|------------|-------|------|
+      | region   | 0.536 | -0.004 [-0.024, +0.014] | 13 / 11    | 0.84  | 1.00 |
+      | shuffled | 0.546 | +0.006 [-0.014, +0.026] | 11 / 14    | 0.69  | 1.00 |
+      | global   | 0.506 | -0.034 [-0.066, -0.002] | 42 / 25    | 0.050 | 0.20 |
+      | flat     | 0.508 | -0.032 [-0.062, +0.000] | 39 / 23    | 0.056 | 0.20 |
+
+      No arm gains. The two that hand advice to every decision lose about
+      three points (F1 -0.038 and -0.033, both intervals below zero), with
+      notebook gold recall down at about the same notebook size (0.711 and
+      0.724 against 0.742; notebooks 3.7 and 3.5 against 3.7). Region and
+      shuffled are level with no memory and with each other: lessons shown
+      on 0.81 of questions, 0.42 of subagent steps and 0.04 of plans; the
+      error rate at steps shown a lesson of that type matches the steps
+      shown none (dropped 0.276 / 0.276, noise 0.130 / 0.129). The one hint
+      the other way is small: at shown steps noise is 0.130 with the region
+      advice and 0.171 with shuffled advice (about 460 steps each), while
+      EM goes the other way. Cost: no extra calls (reflection happens only
+      while building); global's longer prompts add 0.17 s per question.
+
+      The build (regions): 478 lessons from 1000 questions, 1492 expands,
+      294 narrows, 18 exceptions, 2 splits, 179 retired; 297 active at the
+      end, 198 of them never shown and only 10 past probation (5 dropped,
+      5 noise, no planner lesson: plans leave a gold paragraph unreached on
+      about 4% of train questions, so the planner has little to learn). Lessons
+      get shown more as the build goes on (0.13 of subagent steps in the
+      first quarter, 0.42 in the last), and the errors do not fall (dropped
+      0.244, 0.214, 0.303, 0.273 by quarter). EM falls by quarter (0.692 to
+      0.604) in both builds, and the flat build shows lessons at 0.91 of
+      steps from the first quarter on, so as far as these runs can say it
+      is the questions in those quarters (there is no run without memory on
+      the train questions). The flat build made 228 lessons and retired 206
+      after probation, keeping 22.
+
+      Why, from the stores. The advice that survives is about the question
+      it came from, despite the leak filter: global's three subagent lessons
+      are "Include all results mentioning the publisher in your analysis",
+      "... the specific unincorporated community in the question" and "Only
+      keep results that directly answer the question about pseudonyms",
+      handed to every step. Utility is measured on the step's error type, so
+      a lesson is credited for where it was shown, not for what it said, on
+      a few showings (6 to 61 for the ten that passed) against base success
+      rates of 0.75 (dropped) and 0.86 (noise); the ones that pass are the
+      ones that happened to land on easy steps. The frozen step features describe the retrieval, not the
+      topic, so a region gathers steps whose search statistics look alike,
+      and the advice in it is about some other question.
+
+      Reading: as built, the experience memory does not help the main
+      agent on exploration, and advice at every step costs about three
+      points. Together with routing, deepening and the reader cuts, that is
+      the fourth memory gate that stays closed. A6 waits: the confirmation
+      fold is not spent on a version that is level on exploration
 - [ ] A6 preregistration 3, then the hotpot confirmation fold; 2wiki and
-      musique after
+      musique after. On hold after A5
 
 ### Stage 6-7, only if Stage 5 shows something
 

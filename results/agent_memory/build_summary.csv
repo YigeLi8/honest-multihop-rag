@@ -1,0 +1,11 @@
+store,part,lessons,active,reflection,fallback_advice,op_create,op_exception,op_expand,op_narrow,op_retire,op_split,active_planner_unreached,proven_planner_unreached,probation_planner_unreached,base_ok_planner_unreached,active_subagent_dropped,proven_subagent_dropped,probation_subagent_dropped,base_ok_subagent_dropped,active_subagent_noise,proven_subagent_noise,probation_subagent_noise,base_ok_subagent_noise,n,em,q_any_shown,sub_shown,planner_shown,err_dropped,err_noise,err_unreached
+hotpot_train_region,store,478,297,447,31,478,18,1492,294,179,2,19,0,19,0.9667,163,5,158,0.747,115,5,110,0.859,,,,,,,,
+hotpot_train_region,q1,,,,,,,,,,,,,,,,,,,,,,,250,0.692,0.336,0.1322,0.024,0.2444,0.1216,0.036
+hotpot_train_region,q2,,,,,,,,,,,,,,,,,,,,,,,250,0.652,0.648,0.2668,0.084,0.2137,0.1535,0.032
+hotpot_train_region,q3,,,,,,,,,,,,,,,,,,,,,,,250,0.62,0.736,0.3689,0.1,0.303,0.1497,0.032
+hotpot_train_region,q4,,,,,,,,,,,,,,,,,,,,,,,250,0.604,0.812,0.4247,0.08,0.273,0.1307,0.044
+hotpot_train_flat,store,228,22,212,16,228,,,,206,,1,0,1,0.9597,12,12,0,0.7179,9,8,1,0.8304,,,,,,,,
+hotpot_train_flat,q1,,,,,,,,,,,,,,,,,,,,,,,250,0.672,0.936,0.914,0.14,0.2772,0.1147,0.028
+hotpot_train_flat,q2,,,,,,,,,,,,,,,,,,,,,,,250,0.652,0.992,0.9807,0.12,0.2443,0.1613,0.028
+hotpot_train_flat,q3,,,,,,,,,,,,,,,,,,,,,,,250,0.62,0.992,0.9828,0.184,0.2562,0.1441,0.048
+hotpot_train_flat,q4,,,,,,,,,,,,,,,,,,,,,,,250,0.624,1.0,1.0,0.188,0.2836,0.1236,0.04
