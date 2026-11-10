@@ -34,10 +34,19 @@ both ways, 5 seeds. Then, at the cost of deepening 30% of the held-out hops,
 the learned policy (deepen the 30% with the highest predicted probability)
 against uniform k=13 and against deepening a random 30%, paired per split.
 
+When the log carries the deeper window (memory.log_deeper = 2 at backfill,
+src/memory/deepen.py: the chunks at ranks k+1..2k and gold-free features over
+them), --gate adds the probe stage: the deeper features alone and on top of
+the primary_hits features, the same held-out AUC, and the matched-cost policy
+at both stages with the two learned policies paired against each other per
+split. That is the Stage 5b question "does looking at the window before
+handing it over find what the earlier stages do not".
+
 --train-records fits the same logistic once on another log (the exploration
 fold) and applies it to --records (a confirmation fold): one paired test of
 the learned policy against uniform k+3 and against a random 30%, at the same
-30% budget. Nothing is fit on --records.
+30% budget. Nothing is fit on --records. --stage picks the feature stage of
+that policy (primary_hits, as D3 ran it, or deeper).
 
     python scripts/inloop_ceiling.py --records results/memory/hybrid_ircot_hotpot_confirm_experience.jsonl \
         --train-records results/memory/hybrid_ircot_hotpot_dev_experience.jsonl
@@ -93,6 +102,8 @@ def main():
     ap.add_argument("--records", required=True)
     ap.add_argument("--gate", action="store_true")
     ap.add_argument("--train-records", default=None, help="fit the deepening policy here, score on --records")
+    ap.add_argument("--stage", default="primary_hits", choices=("primary_hits", "deeper"),
+                    help="feature stage of the transferred policy")
     args = ap.parse_args()
     with open(args.records) as f:
         header = json.loads(f.readline())
@@ -125,7 +136,7 @@ def main():
         with open(args.train_records) as f:
             train_header = json.loads(f.readline())
             train = [json.loads(line) for line in f]
-        transfer(train_header, train, header, records)
+        transfer(train_header, train, header, records, stage=args.stage)
 
 
 SIZE = ("hop", "n_pool_chunks", "n_hits")
@@ -141,11 +152,33 @@ def stage_columns(header, names, top="primary_hits"):
     stage = header["feature_stage"]
     stage = stage if isinstance(stage, dict) else ast.literal_eval(stage)
     allowed = {"query": {"query"}, "pool": {"query", "pool"},
-               "primary_hits": {"query", "pool", "primary_hits"}}[top]
+               "primary_hits": {"query", "pool", "primary_hits"},
+               "deeper": {"query", "pool", "primary_hits"}}[top]
     return [n for n in names if stage.get(n) in allowed]
 
 
-def transfer(train_header, train, header, records, budget=0.30, seed=13):
+def has_deeper(header, records):
+    """Whether the log carries the probe stage, with the window the deep label
+    reads (ranks k+1..2k)."""
+    names = header.get("deeper_features") or []
+    if not names:
+        return False
+    if header.get("log_deeper") != 2:
+        raise SystemExit(f"log_deeper is {header.get('log_deeper')}: the deeper window must end "
+                         "at 2k, where the deep label is read")
+    if any(not r.get("deeper_features") for r in records):
+        raise SystemExit("some records have no deeper_features")
+    return True
+
+
+def matrix(records, cols, deeper_cols=()):
+    """Feature matrix: the frozen features named in cols, then the deeper ones."""
+    import numpy as np
+    return np.array([[r["features"][n] for n in cols]
+                     + [r["deeper_features"][n] for n in deeper_cols] for r in records], float)
+
+
+def transfer(train_header, train, header, records, budget=0.30, seed=13, stage="primary_hits"):
     import numpy as np
     from sklearn.linear_model import LogisticRegression
     from sklearn.pipeline import make_pipeline
@@ -156,11 +189,16 @@ def transfer(train_header, train, header, records, budget=0.30, seed=13):
     k = header["strategy"]["top_k"]
     if train_header["strategy"]["top_k"] != k:
         raise SystemExit("the two logs use different top_k")
-    cols = stage_columns(header, list(records[0]["features"]))
-    Xtr = np.array([[r["features"][n] for n in cols] for r in train], float)
+    cols = stage_columns(header, list(records[0]["features"]), top=stage)
+    deeper_cols = ()
+    if stage == "deeper":
+        if not (has_deeper(train_header, train) and has_deeper(header, records)):
+            raise SystemExit("--stage deeper needs the deeper window in both logs")
+        deeper_cols = tuple(header["deeper_features"])
+    Xtr = matrix(train, cols, deeper_cols)
     ytr = np.array([deep_label(r, k) for r in train])
     clf = make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000)).fit(Xtr, ytr)
-    p = clf.predict_proba(np.array([[r["features"][n] for n in cols] for r in records], float))[:, 1]
+    p = clf.predict_proba(matrix(records, cols, deeper_cols))[:, 1]
     learned = p >= np.quantile(p, 1 - budget)
     rnd = np.zeros(len(records), bool)
     rnd[np.random.RandomState(seed).choice(len(records), int(budget * len(records)), replace=False)] = True
@@ -176,7 +214,8 @@ def transfer(train_header, train, header, records, budget=0.30, seed=13):
         out[name] = [int(g[i] <= c[i]) for i in ids]
         cost[name] = sum(ch[i] for i in ids) / len(ids)
     print(f"\nfit on {train_header['run']} ({len(train)} hops), scored on {header['run']} "
-          f"({len(records)} hops, {len(out['k'])} questions); deepen {budget:.0%} of hops")
+          f"({len(records)} hops, {len(out['k'])} questions); deepen {budget:.0%} of hops; "
+          f"{stage} features")
     for name in out:
         print(f"{name:<13} all gold {sum(out[name]) / len(out[name]):.3f}  chunks/question {cost[name]:.1f}")
     for b in (f"uniform k={k + 3}", "random"):
@@ -220,10 +259,18 @@ def gate(header, records, budget=0.30, seeds=5):
     qid = np.array([r["id"] for r in records])
     uq = sorted(set(qid))
     print(f"\nhops where 2k adds gold: {y.sum()} of {len(y)} ({y.mean():.3f})")
-    sets = {"size control": list(SIZE)}
+    sets = {"size control": (list(SIZE), ())}
     for st, allowed in (("query", {"query"}), ("pool", {"query", "pool"}),
                         ("primary_hits", {"query", "pool", "primary_hits"})):
-        sets[st] = [n for n in names if stage.get(n) in allowed]
+        sets[st] = ([n for n in names if stage.get(n) in allowed], ())
+    deeper = has_deeper(header, records)
+    if deeper:
+        dcols = tuple(header["deeper_features"])
+        sets["deeper"] = ([], dcols)
+        sets["primary_hits+deeper"] = (sets["primary_hits"][0], dcols)
+        n_window = sum(r["deeper_features"]["deep_n"] for r in records)
+        print(f"deeper window logged: {n_window / len(records):.1f} chunks per hop at ranks "
+              f"k+1..2k, {len(dcols)} features")
 
     def splits():
         for seed in range(seeds):
@@ -235,40 +282,50 @@ def gate(header, records, budget=0.30, seeds=5):
     def fit(X, tr):
         return make_pipeline(StandardScaler(), LogisticRegression(max_iter=2000)).fit(X[tr], y[tr])
 
-    for st, cols in sets.items():
-        X = np.array([[r["features"][n] for n in cols] for r in records], float)
+    for st, (cols, dcols) in sets.items():
+        X = matrix(records, cols, dcols)
         aucs = [roc_auc_score(y[te], fit(X, tr).predict_proba(X[te])[:, 1]) for _, tr, te in splits()]
-        print(f"{st:<13} {len(cols):>2} features  held-out AUC {np.mean(aucs):.3f} +- {np.std(aucs):.3f}")
+        print(f"{st:<20} {len(cols) + len(dcols):>2} features  held-out AUC {np.mean(aucs):.3f} "
+              f"+- {np.std(aucs):.3f}")
 
-    X = np.array([[r["features"][n] for n in sets["primary_hits"]] for r in records], float)
+    policies = ["primary_hits"] + (["primary_hits+deeper"] if deeper else [])
+    X = {st: matrix(records, *sets[st]) for st in policies}
     zero = np.zeros(len(records), bool)
     rate, cost, diffs = defaultdict(list), defaultdict(list), defaultdict(list)
     for seed, tr, te in splits():
-        p = fit(X, tr).predict_proba(X)[:, 1]
-        learned = (p >= np.quantile(p[te], 1 - budget)) & te
         idx = np.where(te)[0]
         rnd = zero.copy()
         rnd[np.random.RandomState(100 + seed).choice(idx, int(budget * len(idx)), replace=False)] = True
         te_ids = sorted(set(qid[te]))
+        arms = [("k", coverage(records, zero, k)),
+                (f"uniform k={k + 3}", coverage(records, zero, k, k + 3)),
+                ("random", coverage(records, rnd, k))]
+        for st in policies:
+            p = fit(X[st], tr).predict_proba(X[st])[:, 1]
+            learned = (p >= np.quantile(p[te], 1 - budget)) & te
+            arms.append((f"learned:{st}", coverage(records, learned, k)))
         out = {}
-        for name, (g, c, ch) in (("k", coverage(records, zero, k)),
-                                 (f"uniform k={k + 3}", coverage(records, zero, k, k + 3)),
-                                 ("random", coverage(records, rnd, k)),
-                                 ("learned", coverage(records, learned, k))):
+        for name, (g, c, ch) in arms:
             out[name] = [int(g[i] <= c[i]) for i in te_ids]
             rate[name].append(np.mean(out[name]))
             cost[name].append(np.mean([ch[i] for i in te_ids]))
-        for b in (f"uniform k={k + 3}", "random"):
-            _, _, pv = mcnemar(out[b], out["learned"])
-            diffs[b].append((np.mean(out["learned"]) - np.mean(out[b]), pv))
-    print(f"\nmatched cost, deepen {budget:.0%} of held-out hops (primary_hits features), "
+        for st in policies:
+            for b in (f"uniform k={k + 3}", "random"):
+                _, _, pv = mcnemar(out[b], out[f"learned:{st}"])
+                diffs[(f"learned:{st}", b)].append((np.mean(out[f"learned:{st}"]) - np.mean(out[b]), pv))
+        if deeper:
+            a, b = out["learned:primary_hits+deeper"], out["learned:primary_hits"]
+            _, _, pv = mcnemar(b, a)
+            diffs[("learned:primary_hits+deeper", "learned:primary_hits")].append(
+                (np.mean(a) - np.mean(b), pv))
+    print(f"\nmatched cost, deepen {budget:.0%} of held-out hops, "
           f"{2 * seeds} half-splits of {len(uq) // 2} questions")
     for name in rate:
-        print(f"{name:<13} all gold {np.mean(rate[name]):.3f}  chunks/question {np.mean(cost[name]):.1f}")
-    for b, d in diffs.items():
+        print(f"{name:<28} all gold {np.mean(rate[name]):.3f}  chunks/question {np.mean(cost[name]):.1f}")
+    for (a, b), d in diffs.items():
         v = np.array([x for x, _ in d])
         ps = [p for _, p in d]
-        print(f"learned - {b}: {v.mean():+.3f} +- {v.std():.3f}; per-split McNemar p "
+        print(f"{a} - {b}: {v.mean():+.3f} +- {v.std():.3f}; per-split McNemar p "
               f"median {np.median(ps):.2g}, min {min(ps):.2g}")
 
 

@@ -27,6 +27,11 @@ when reading them:
   produced, and new_gold / cumulative_recall / aligned_hit of a shadow arm are
   relative to the primary's context before the hop. Question-level regret is
   therefore exact for single_hop runs and for hop 0 only.
+* With memory.log_deeper = m (0 by default) the record also carries "deeper",
+  the primary's chunks at ranks k+1..m*k of the same full-pool ranking that
+  gold_ranks reads, and "deeper_features", src/memory/deepen.py over that
+  window. Both are gold-free; they are the probe stage of Stage 5b, so they
+  cost a deeper retrieval and are kept out of the frozen feature dict.
 
 The logger only reads. It does not touch the hits, the example or the result,
 so a run with logging on retrieves and answers exactly what it would with
@@ -49,6 +54,7 @@ from src.config import as_dict
 from src.eval.per_hop_precision import ordered_gold, precision_recall
 from src.eval.run_qa import paragraph_recall
 from src.memory import features as feature_module
+from src.memory.deepen import DEEPER_FEATURES, DEEPER_STAGE, deeper_features, deeper_window
 from src.memory.features import (FEATURE_SCHEMA_VERSION, FEATURE_STAGE, FEATURES,
                                  PROBE_FEATURES, compute_features, probe_features)
 from src.retrieval.base import get_retriever
@@ -58,7 +64,9 @@ REPO = Path(__file__).resolve().parents[2]
 
 # Layout of a record (the keys below and what they mean), separate from the
 # feature schema: bump when a key is added, removed or changes meaning.
-RECORD_SCHEMA_VERSION = 1
+#   1  the keys up to shadow and outcome
+#   2  deeper and deeper_features (None unless memory.log_deeper is set)
+RECORD_SCHEMA_VERSION = 2
 
 # question-level outcome copied from the scored row onto every hop record
 OUTCOME_FIELDS: tuple[str, ...] = ("em", "f1", "retrieval_correct", "gold_recall",
@@ -86,6 +94,8 @@ class ExperienceRecord:
     probe_features: dict = field(default_factory=dict)   # {arm: {topk_jaccard, top1_same, depth}}
     shadow: dict = field(default_factory=dict)    # {arm: {retrieved, depth, **arm_outcome}}
     outcome: dict = field(default_factory=dict)   # OUTCOME_FIELDS and failure_type, once scored
+    deeper: Optional[list] = None        # [{chunk_id, score, rank}] at ranks k+1..m*k; memory.log_deeper
+    deeper_features: Optional[dict] = None   # src.memory.deepen over that window
 
 
 def strategy_of(cfg: Any) -> dict:
@@ -212,6 +222,7 @@ class ExperienceLogger:
         self.dataset = getattr(getattr(cfg, "dataset", None), "name", "")
         self.strategy = strategy_of(cfg)
         self.shadow_arms = shadow_strategies(cfg)
+        self.log_deeper = int(getattr(mem, "log_deeper", 0) or 0)
         # provenance is taken here, before the run: the code and config that
         # produce the records, not whatever the checkout holds when it ends
         self.config = as_dict(cfg)
@@ -277,13 +288,21 @@ class ExperienceLogger:
                            **arm_outcome(arm_ids[:depth], gold, order, hop, seen,
                                          full=shadow_full.get(arm), first_stage_ids=arm_ids)}
 
+        deeper = deep_feats = None
+        if self.log_deeper and primary_full is not None:
+            k = self.strategy.get("top_k") or len(before_rerank)   # the depth the primary was asked for
+            deeper = ranked(deeper_window(primary_full, k, self.log_deeper))
+            deep_feats = deeper_features(primary_full, k, self.log_deeper, hits, ex.chunks,
+                                         ex.question, query, seen_ids=seen)
+
         record = ExperienceRecord(
             run=self.run, dataset=self.dataset, id=ex.id, qtype=ex.qtype, hop=hop,
             query=query, strategy=dict(self.strategy), retrieved=ranked(hits),
             feature_schema_version=FEATURE_SCHEMA_VERSION, features=features,
             hop_outcome=hop_outcome,
             first_stage=None if first_stage is None else ranked(first_stage),
-            probe_features=probe_features(before_rerank, shadow_hits), shadow=shadow)
+            probe_features=probe_features(before_rerank, shadow_hits), shadow=shadow,
+            deeper=deeper, deeper_features=deep_feats)
         hops = self._records[ex.id]
         del hops[hop:]                  # a hop logged twice keeps the later one
         hops.append(record)
@@ -331,6 +350,9 @@ class ExperienceLogger:
             "feature_stage": dict(FEATURE_STAGE),
             "probe_features": list(PROBE_FEATURES),
             "features_sha256": self.features_sha256,
+            "log_deeper": self.log_deeper,
+            "deeper_features": list(DEEPER_FEATURES) if self.log_deeper else [],
+            "deeper_stage": DEEPER_STAGE,
             "created": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "platform": {"platform": platform.platform(), "machine": platform.machine(),
                          "python": platform.python_version()},

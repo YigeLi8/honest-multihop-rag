@@ -119,23 +119,25 @@ class ScriptedGen:
         return "Some University\n", m
 
 
-def stub_cfg(mode, store=None, top_k=3):
+def stub_cfg(mode, store=None, top_k=3, log_deeper=0):
     cfg = SimpleNamespace(
         run=SimpleNamespace(name="stub"),
         dataset=SimpleNamespace(name="synthetic"),
         retrieval=SimpleNamespace(method="overlap", top_k=top_k),
         pipeline=SimpleNamespace(mode=mode, max_hops=3))
     if store is not None:
-        cfg.memory = SimpleNamespace(enabled=True, mode="log", log_arms=[], store=str(store))
+        cfg.memory = SimpleNamespace(enabled=True, mode="log", log_arms=[], store=str(store),
+                                     log_deeper=log_deeper)
     return cfg
 
 
-def stub_pipeline(mode, store=None, shadow=None, generate=True, top_k=3, rerank_top_n=None):
+def stub_pipeline(mode, store=None, shadow=None, generate=True, top_k=3, rerank_top_n=None,
+                  log_deeper=0):
     """A pipeline on fakes; with a store it also carries a logger."""
     from src.memory.experience import ExperienceLogger
     from src.pipeline.multihop import MultiHopPipeline
     p = MultiHopPipeline.__new__(MultiHopPipeline)
-    p.cfg = stub_cfg(mode, store, top_k)
+    p.cfg = stub_cfg(mode, store, top_k, log_deeper)
     p.retriever = OverlapRetriever()
     p.reranker = None
     if rerank_top_n:
@@ -307,6 +309,111 @@ def test_features_source_has_no_gold():
     assert args["probe_features"] == ["first_stage", "shadow_hits"]
 
 
+def test_deeper_window_and_features():
+    """The probe stage of Stage 5b: ranks k+1..2k of the primary's full
+    ranking and the gold-free features over them, by hand on the pool."""
+    from dataclasses import asdict
+
+    from src.eval.run_qa import score_row, trace_record
+    from src.memory.backfill import replay
+    from src.memory.deepen import DEEPER_FEATURES, deeper_features, deeper_window
+    r = OverlapRetriever()
+    r.index(POOL)
+    full = r.retrieve(QUESTION, len(POOL))
+    assert [h.chunk.chunk_id for h in full] == ["Book X::0", "Author Y::1", "Author Y::0",
+                                                 "Some University (Oslo)::0", "Book X::1",
+                                                 "Distractor::0"]
+    window = deeper_window(full, 2, 2)
+    assert [(h.chunk.chunk_id, h.score, h.rank) for h in window] == \
+        [("Author Y::0", 1.0, 3), ("Some University (Oslo)::0", 1.0, 4)]
+    assert deeper_window(full, 2, 0) == [] and deeper_window(full, 10, 2) == []
+
+    # hop 0: the context is the top-2; both window titles are named in it
+    # ("Author Y", "Some University"), one window paragraph is new, the gap
+    # at the cut is (2 - 1) / (3 - 1), the mass below it 2 / 5
+    f0 = deeper_features(full, 2, 2, full[:2], POOL, QUESTION, QUESTION)
+    assert list(f0) == list(DEEPER_FEATURES)
+    assert f0 == {"deep_n": 2, "deep_named_question": 0, "deep_named_query": 0,
+                  "deep_named_context": 2, "deep_new_paragraphs": 1, "deep_gap_at_k": 0.5,
+                  "deep_score_share": 0.4, "deep_max_query_overlap": round(1 / 13, 6)}
+    # hop 1 on the follow-up query: the query names Author Y, the gap at the
+    # cut is zero (a tie at ranks 2 and 3) and the pool chunks seen at hop 0
+    # count as context
+    query = "Author Y attended which university"
+    full1 = r.retrieve(query, len(POOL))
+    assert [h.chunk.chunk_id for h in full1[:4]] == ["Author Y::1", "Book X::0", "Author Y::0",
+                                                      "Some University (Oslo)::0"]
+    f1 = deeper_features(full1, 2, 2, full1[:2], POOL, QUESTION, query,
+                         seen_ids={"Book X::0", "Author Y::1"})
+    assert f1 == {"deep_n": 2, "deep_named_question": 0, "deep_named_query": 1,
+                  "deep_named_context": 2, "deep_new_paragraphs": 1, "deep_gap_at_k": 0.0,
+                  "deep_score_share": 0.5, "deep_max_query_overlap": 0.2}
+    # a pool that ends at k has no window and every feature is zero
+    assert deeper_features(full, 10, 2, full, POOL, QUESTION, QUESTION) == \
+        dict.fromkeys(DEEPER_FEATURES, 0)
+
+    with tempfile.TemporaryDirectory() as tmp:
+        # logged only when memory.log_deeper is set, from the same full ranking
+        # that gold_ranks reads, and blind to the labels
+        recs = []
+        for ex in (example(), example(gold_chunk_ids=["Distractor::0"], reasoning_path=[],
+                                      answer="x")):
+            p = stub_pipeline("multihop_ircot", store=tmp, top_k=2, log_deeper=2)
+            res = p.run_example(ex)
+            p.memory.on_outcome(ex, res, score_row(ex, res))
+            recs.append(p.memory.records())
+        first, second = recs[0]
+        assert first.deeper == [{"chunk_id": "Author Y::0", "score": 1.0, "rank": 3},
+                                {"chunk_id": "Some University (Oslo)::0", "score": 1.0, "rank": 4}]
+        assert first.deeper_features == f0 and second.deeper_features == f1
+        assert first.hop_outcome["gold_ranks"]["Author Y::1"] == [2, 2.0]
+        assert [x.deeper for x in recs[1]] == [x.deeper for x in recs[0]]
+        assert [x.deeper_features for x in recs[1]] == [x.deeper_features for x in recs[0]]
+        assert recs[1][0].hop_outcome != first.hop_outcome
+        header = p.memory.header()
+        assert header["log_deeper"] == 2 and header["deeper_features"] == list(DEEPER_FEATURES)
+        assert header["deeper_stage"] == "deeper"
+
+        # the window is off by default, and a replay from the trace writes it back
+        off = stub_pipeline("multihop_ircot", store=tmp, top_k=2)
+        assert off.memory.log_deeper == 0
+        res = off.run_example(example())
+        assert all(x.deeper is None and x.deeper_features is None for x in off.memory.records())
+        ex = example()
+        live = stub_pipeline("multihop_ircot", store=tmp, top_k=2, log_deeper=2)
+        res = live.run_example(ex)
+        row = score_row(ex, res)
+        live.memory.on_outcome(ex, res, row)
+        again = stub_pipeline("multihop_ircot", store=tmp, top_k=2, log_deeper=2, generate=False)
+        traces = [json.loads(json.dumps(trace_record(ex, res)))]
+        rows = {ex.id: {k: str(v) for k, v in row.items()}}
+        assert replay(again, [ex], traces, rows)[1] == []
+        assert [asdict(x) for x in again.memory.records()] == \
+            [asdict(x) for x in live.memory.records()]
+
+
+def test_deeper_source_has_no_gold():
+    """src/memory/deepen.py: no label field named, nothing imported that could
+    hand it one, and the example never passed in."""
+    path = ROOT / "src" / "memory" / "deepen.py"
+    text = path.read_text()
+    for name in ("gold_chunk_ids", "reasoning_path", "evidence_triples",
+                 "gold_supporting_facts", "is_supporting", "answer", "gold"):
+        assert name not in text.lower(), f"{name} appears in {path}"
+    imported = set()
+    for node in ast.walk(ast.parse(text)):
+        if isinstance(node, ast.Import):
+            imported |= {a.name for a in node.names}
+        elif isinstance(node, ast.ImportFrom):
+            imported.add(node.module)
+    assert imported <= {"collections.abc", "types", "typing", "src.types",
+                        "src.memory.features"}, imported
+    args = {f.name: [a.arg for a in f.args.args] for f in ast.walk(ast.parse(text))
+            if isinstance(f, ast.FunctionDef)}
+    assert args["deeper_features"] == ["full", "k", "mult", "hits", "chunks", "question",
+                                       "query", "seen_ids"]
+
+
 def test_logger_records():
     from src.eval.run_qa import score_row
     from src.memory.experience import OUTCOME_FIELDS
@@ -328,7 +435,8 @@ def test_logger_records():
         assert header["config"]["memory"]["store"] == tmp
         assert header["config"]["retrieval"] == {"method": "overlap", "top_k": 1}
         assert {"git_sha", "git_dirty", "created", "platform"} <= set(header)
-        assert header["record_schema_version"] == 1
+        assert header["record_schema_version"] == 2
+        assert header["log_deeper"] == 0 and header["deeper_features"] == []
         assert header["features"] == list(FEATURES)
         assert header["feature_stage"] == dict(FEATURE_STAGE)
         assert header["probe_features"] == list(PROBE_FEATURES)
@@ -375,10 +483,12 @@ def test_logger_records():
             assert r["outcome"]["hops"] == 2 and r["outcome"]["stop_reason"] == "done"
             assert r["outcome"]["failure_type"] == ""
             assert r["shadow"] == {} and r["probe_features"] == {} and r["first_stage"] is None
+            assert r["deeper"] is None and r["deeper_features"] is None   # log_deeper is 0
             # everything that comes from a label sits in these three blocks, nowhere else
             assert set(r) - {"hop_outcome", "shadow", "outcome"} == {
                 "run", "dataset", "id", "qtype", "hop", "query", "strategy", "retrieved",
-                "first_stage", "feature_schema_version", "features", "probe_features"}
+                "first_stage", "feature_schema_version", "features", "probe_features",
+                "deeper", "deeper_features"}
 
 
 def test_logger_does_not_mutate():
@@ -735,6 +845,7 @@ def test_config_memory_block():
         assert cfg.memory.mode == "log"
         assert cfg.memory.log_arms == (["dense", "hybrid"] if arms else []), path.name
         assert cfg.memory.store == "results/memory" and cfg.memory.seed == 13
+        assert cfg.memory.log_deeper == 0, path.name      # the deeper window is opt-in
         if arms:        # retrieval only, bm25 first stage, nothing generated
             assert cfg.pipeline.mode == "single_hop" and cfg.retrieval.method == "bm25"
             assert cfg.generation.backend == "none" and not cfg.rerank.enabled
@@ -882,6 +993,20 @@ def test_predictability_is_held_out():
     assert r.loc["query"]["gain"] > 0.2 and r.loc["query"]["routed"] > 0.7
     assert abs(r.loc["size"]["gain"]) < 0.05 and r.loc["query"]["n_splits"] == 4
     assert r.loc["query"]["oracle"] >= r.loc["query"]["routed"] >= r.loc["query"]["best_single"] - 0.05
+    # paired against the best single arm on the same held-out questions: the
+    # planted signal clears zero in the pooled interval and on every split;
+    # a router over noise is at or under the best arm, never above it
+    # (gain_hi stays near zero); every question is scored once per seed
+    assert r.loc["query"]["gain_lo"] > 0 and r.loc["query"]["p_vs_single_max"] < 0.05
+    assert r.loc["size"]["gain_lo"] < 0 and r.loc["size"]["gain_hi"] < 0.03
+    assert r.loc["size"]["p_vs_single_median"] > 0.05
+    assert r.loc["query"]["n_questions"] == len(table)
+    assert r.loc["query"]["gain_lo"] <= r.loc["query"]["gain"] <= r.loc["query"]["gain_hi"]
+    one = routed_rate(table, splits=[(np.arange(len(table) // 2), np.arange(len(table) // 2, len(table)))])
+    one = one.set_index("stage")
+    assert one.loc["query"]["gain_sd"] == 0.0 and one.loc["query"]["n_splits"] == 1   # one split, no spread
+    assert one.loc["query"]["n_questions"] == len(table) - len(table) // 2         # but a paired test
+    assert one.loc["query"]["gain_lo"] > 0 and one.loc["query"]["p_vs_single_max"] < 0.05
 
     # similarity memory: when the arm that hits is a function of the question
     # text, the nearest past questions route it; random text does not
@@ -890,6 +1015,7 @@ def test_predictability_is_held_out():
                          for i in range(n)]
     nn = neighbour_routed_rate(table, ks=[5], seeds=[13, 17]).set_index("stage")
     assert nn.loc["question_knn5"]["gain"] > 0.15 and nn.loc["question_knn5"]["n_splits"] == 4
+    assert nn.loc["question_knn5"]["gain_lo"] > 0 and nn.loc["question_knn5"]["p_vs_single_max"] < 0.05
     table["question"] = ["word%d other%d" % (i * 7 % 11, i * 3 % 13) for i in range(n)]
     nn = neighbour_routed_rate(table, ks=[5], seeds=[13, 17]).set_index("stage")
     assert abs(nn.loc["question_knn5"]["gain"]) < 0.1
@@ -1979,6 +2105,8 @@ if __name__ == "__main__":
     test_probe_features()
     test_features_blind_to_gold()
     test_features_source_has_no_gold()
+    test_deeper_window_and_features()
+    test_deeper_source_has_no_gold()
     test_logger_records()
     test_logger_does_not_mutate()
     test_memory_on_off_identical()

@@ -931,12 +931,38 @@ and only then run the loop live.
       k=5 over 20-paragraph pools, so 2k is half the pool): as run 0.553,
       always-2k 0.770, oracle 0.770 at 17.9 chunks against 13.1, per-hop
       best arm 0.681
-- [ ] probe stage for deepening: features of ranks k+1..2k computed without
+- [x] probe stage for deepening: features of ranks k+1..2k computed without
       gold (does a deeper chunk come from a paragraph whose title is named in
       the question or in the context so far, score gap at rank k, how many
       deeper chunks are from paragraphs not yet in context). Retrieving 2k
       is cheap; what costs is the generator reading it, so a policy may look
-      before it hands chunks over. Same gate as above, same fold
+      before it hands chunks over. Same gate as above, same fold.
+      10 Nov. `memory.log_deeper: 2` (0 by default) logs the primary's chunks
+      at ranks k+1..2k of the same full-pool ranking that gold_ranks reads,
+      and `src/memory/deepen.py` computes eight gold-free features over the
+      window (how many of its chunks come from a paragraph the question, the
+      query or the context text names, how many from a paragraph not yet in
+      context, the score gap at the cut, the score mass below it, the
+      largest query overlap). `inloop_ceiling.py --gate` adds the window as
+      a stage and pairs the two learned policies per split. Backfilled on
+      linux (bm25s 0.3.10, bge-small on cpu): 1057 hops replayed, 11 differ
+      from the Mac trace (7 questions dropped, 493 of 500 kept); every
+      ceiling cell is within 0.001 of the committed ones (deep 0.909, best_k
+      0.830, dense 0.755; 2k adds gold on 272 of 1042 hops). Held-out AUC:
+      primary_hits 0.643 +- 0.017 as before, the window alone 0.609 +-
+      0.026, both together 0.652 +- 0.023. At matched cost (deepen 30% of
+      held-out hops, 27.4 chunks per question, ten half-splits of 246
+      questions): the primary_hits policy 0.831, with the window 0.832,
+      +0.002 +- 0.009 (per-split McNemar p median 0.71, smallest 0.25);
+      against uniform k=13 (0.815) +0.017 +- 0.013, against a random 30%
+      (0.829) +0.004 +- 0.014. The strongest single window feature is a
+      deeper chunk from a paragraph the question names (AUC 0.574; 2k adds
+      gold on 0.32 of those hops against 0.26 overall), then the largest
+      query overlap (0.571) and the gap at the cut (0.561). So looking at
+      the window before handing it over finds nothing the earlier stages
+      missed: the gate stays where D3 left it and the confirmation fold is
+      not spent on it. What the replay cannot test is the generator looking
+      at the window, which needs generation
 - [x] answer level: does more context move EM in this loop at all? Hybrid
       ircot k=20 on the hotpot exploration fold (`configs/hybrid_ircot_k20.yaml`)
       against the committed k=10 run, paired. If EM does not move with

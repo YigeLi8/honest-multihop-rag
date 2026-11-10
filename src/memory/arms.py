@@ -41,7 +41,11 @@ and _routed.csv (what a shared router over the same features gets, held out,
 and what nearest past questions get: the similarity-memory baseline, by
 tf-idf and, with --dense-neighbours, by the dense retriever's question
 embedding, each voting over every past question or only over the past
-questions on which the arms disagreed).
+questions on which the arms disagreed). Every routed row is paired against
+the best single arm on the same held-out questions: the largest and median
+McNemar p over the splits, and a pooled paired bootstrap interval on the
+gain over questions (PairedScores), beside the spread over resplits that
+gain_sd reports and that a one-split fold table prints as 0.0.
 """
 import argparse
 import json
@@ -265,6 +269,42 @@ def held_out_auc(X: np.ndarray, y: np.ndarray,
     return float(np.mean(aucs)), float(np.std(aucs)), len(aucs)
 
 
+class PairedScores:
+    """The routed outcome against the best single arm's, question by
+    question, over every split a question was scored in. Two tests come out:
+    per split, McNemar on the score half (the largest p over the splits is
+    the conservative one, as in stream.py), and pooled, a paired bootstrap
+    over questions on each question's mean outcome over the splits that
+    scored it (the seeded halves score every question once per seed, so
+    the pooled n is the whole table). The gain_sd column is the spread of
+    the per-split gains over resplits of the same questions, not a standard
+    error, which is why these two are reported beside it."""
+
+    def __init__(self, n: int) -> None:
+        self.routed_sum = np.zeros(n)
+        self.single_sum = np.zeros(n)
+        self.count = np.zeros(n)
+        self.p_values: list[float] = []
+
+    def add(self, score: np.ndarray, routed: np.ndarray, single: np.ndarray) -> None:
+        self.routed_sum[score] += routed
+        self.single_sum[score] += single
+        self.count[score] += 1
+        self.p_values.append(mcnemar(single.astype(int).tolist(), routed.astype(int).tolist())[2])
+
+    def columns(self) -> dict:
+        scored = self.count > 0
+        if not scored.any():
+            return {}
+        a = (self.single_sum[scored] / self.count[scored]).tolist()
+        b = (self.routed_sum[scored] / self.count[scored]).tolist()
+        diff, lo, hi = paired_bootstrap(a, b)
+        return {"gain_lo": round(lo, 4), "gain_hi": round(hi, 4),
+                "p_vs_single_max": round(max(self.p_values), 4),
+                "p_vs_single_median": round(float(np.median(self.p_values)), 4),
+                "n_questions": int(scored.sum())}
+
+
 def routed_rate(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29),
                 splits: Optional[Sequence[tuple[np.ndarray, np.ndarray]]] = None,
                 stages: Sequence[str] = ("size", "qtype", "query", "pool", "primary_hits",
@@ -276,7 +316,9 @@ def routed_rate(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29)
     with the best single arm (chosen on the fit half) and the oracle, so the
     gain column is the share of the ceiling a router at this stage recovers.
     AUC says whether the features carry signal; this says what the signal
-    buys at retrieval level.
+    buys at retrieval level. Each row carries the paired tests of
+    PairedScores against the best single arm; a gain whose pooled interval
+    does not clear zero is not a claimed difference.
     """
     table = with_qtype_columns(table)
     arms = arms_of(table)
@@ -290,16 +332,19 @@ def routed_rate(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29)
             continue
         X = table[cols].to_numpy(dtype=float)
         routed, single, ceiling_ = [], [], []
+        paired = PairedScores(len(table))
         for fit, score in sub_splits:
             probs = [fit_predict(X, hit[a], fit, score) for a in arms]
             if any(p is None for p in probs):
                 continue
             chosen = np.argmax(np.stack(probs), axis=0)
             actual = np.stack([hit[a][score] for a in arms])
-            routed.append(float(actual[chosen, np.arange(len(score))].mean()))
+            got = actual[chosen, np.arange(len(score))]
             best = max(arms, key=lambda a: hit[a][fit].mean())
+            routed.append(float(got.mean()))
             single.append(float(hit[best][score].mean()))
             ceiling_.append(float(oracle[score].mean()))
+            paired.add(score, got, hit[best][score])
         if not routed:
             continue
         gains = np.array(routed) - np.array(single)
@@ -307,7 +352,7 @@ def routed_rate(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29)
                      "best_single": round(np.mean(single), 4),
                      "oracle": round(np.mean(ceiling_), 4),
                      "gain": round(float(gains.mean()), 4), "gain_sd": round(float(gains.std()), 4),
-                     "n_splits": len(routed)})
+                     "n_splits": len(routed), **paired.columns()})
     return pd.DataFrame(rows)
 
 
@@ -405,6 +450,7 @@ def neighbour_routed_rate(table: pd.DataFrame, ks: Sequence[int] = (5, 20),
     rows = []
     for k in ks:
         routed, single, ceiling_ = [], [], []
+        paired = PairedScores(len(table))
         for fit, score in sub_splits:
             memory = fit[informative[fit]] if discordant_only else fit    # who may vote
             if len(fit) < MIN_FIT or len(memory) < max(MIN_FIT, k):
@@ -416,9 +462,11 @@ def neighbour_routed_rate(table: pd.DataFrame, ks: Sequence[int] = (5, 20),
             votes = np.stack([hit[a][memory][nearest].mean(axis=1) for a in order])
             chosen = np.argmax(votes, axis=0)                     # first max wins the tie
             actual = np.stack([hit[a][score] for a in order])
-            routed.append(float(actual[chosen, np.arange(len(score))].mean()))
+            got = actual[chosen, np.arange(len(score))]
+            routed.append(float(got.mean()))
             single.append(float(hit[order[0]][score].mean()))
             ceiling_.append(float(oracle[score].mean()))
+            paired.add(score, got, hit[order[0]][score])
         if not routed:
             continue
         gains = np.array(routed) - np.array(single)
@@ -427,7 +475,7 @@ def neighbour_routed_rate(table: pd.DataFrame, ks: Sequence[int] = (5, 20),
                      "best_single": round(np.mean(single), 4),
                      "oracle": round(np.mean(ceiling_), 4),
                      "gain": round(float(gains.mean()), 4), "gain_sd": round(float(gains.std()), 4),
-                     "n_splits": len(routed)})
+                     "n_splits": len(routed), **paired.columns()})
     return pd.DataFrame(rows)
 
 

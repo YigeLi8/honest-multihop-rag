@@ -56,6 +56,7 @@ memory:
   enabled: false
   mode: log             # none | log  (later stages add similarity, failure, static_boundary, dynamic_boundary, active_boundary)
   log_arms: []          # other retrievers to run in the shadow at every hop, e.g. [bm25, dense]; logged, never used
+  log_deeper: 0         # m > 0 also logs the primary's chunks at ranks k+1..m*k and their features (src/memory/deepen.py); logged, never used
   store: results/memory
   seed: 13
 
