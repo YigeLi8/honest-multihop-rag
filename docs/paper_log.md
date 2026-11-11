@@ -3,6 +3,146 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-11
+
+Listings read in full (cs.IR 29, cs.CL 178, cs.AI 381 entries, replacements
+included; 501 distinct ids); every title screened, about sixty abstracts
+read, the four below read in the body.
+
+- Tang et al. 2026, Falsification-Gated Self-Evolution (arXiv 2611.14326).
+  Each candidate lesson is a structured hypothesis: a precondition, a
+  behaviour change, an expected effect and a verifier. It is applied in a
+  temporary state and scored on three probe sets before anything is
+  written: target-transfer probes (does it help where it should),
+  falsification probes (contrastive and archived cases where it should
+  not fire) and a regression archive (solved tasks it must not break);
+  then committed, refined or rejected by measured gain and risk. Scope
+  refinement is the precondition refit on the probe outcomes, positives
+  and negatives, with a complexity penalty, on a development split, with
+  fresh probes for the final commit. WebArena 39.8, AppWorld 78.8,
+  tau-retail 0.724; falsification failures 5.0% against 18.6% without the
+  falsification probes, harmful commits 3.6% against 10.6%, regression
+  damage 1.3% against 5.2% without the archive; dropping scope refinement
+  costs 2.7-3.4 points on the task metrics, and an LLM-judge gate in
+  place of the verifier probes costs 3.1-4.7. So a per-lesson applicability
+  boundary fit from where the lesson helped and where it was falsified is
+  in print, with the ablation that says the boundary is worth about three
+  points on their tasks; the plan's Stage 4 to 5 step (a predicate per
+  lesson, then narrowed on exceptions) is their scope refinement, and the
+  item should say so. What stays open for me: their probes are run before
+  the commit and the boundary is fixed after it (post-commit monitoring
+  only retires), so a boundary that keeps moving as contradicting
+  questions arrive in the stream, and whether that beats the one-shot
+  refit, is not tested there; and every probe needs a verifier, which on
+  retrieval is the gold label I have and an agent in the wild does not.
+  Their no-falsification arm (commit whatever improved the source
+  episode) is my version-1 memory. Cite as the strongest published form
+  of the static-conditions baseline with a learned, refit precondition.
+- Lee et al. 2026, WikiTrace (arXiv 2611.14320). Names what A5 saw:
+  memory-induced degradation, an agent failing a task it solves without
+  memory because it follows a wrong lesson or misapplies a right one.
+  Lessons are kept with a link to the summary of why their trajectory
+  succeeded or failed and to the raw trajectory, and the agent descends
+  to the source when an insight lacks detail, conflicts with another or
+  came from a failure. Eight suites over five benchmarks (ALFWorld,
+  ScienceWorld, WebShop, AppWorld, tau-bench retail), DeepSeek-V4-Flash,
+  three trials. No memory averages 79.5, the same insights handed over
+  alone 87.0, WikiTrace 90.2 (+3.2 over the insights-alone arm, which is
+  the matched control), and regression (tasks lost against no memory)
+  goes 6.5% to 4.5%; it is the only memory arm at or above no memory on
+  every suite, and the degradation causes are judge-labelled. For me the
+  number is the regression rate as a reported endpoint beside the gain:
+  my A5 table has the EM difference only, and the share of exploration
+  questions the region memory loses against no memory is in the paired
+  csv and should be in the plan with the gain. Their mechanism (check the
+  lesson against its source before acting) is an applicability check made
+  by the agent at use time instead of a boundary learned in advance, and
+  it is the cheapest comparison arm I do not have: hand the subagent the
+  failure episode a lesson came from, not the lesson. Cite beside
+  frozen-weight self-improvement; both are lessons-from-failures with the
+  "same insights" control.
+- Lei and Liu 2026, SELD (arXiv 2611.12903). Silent evidence loss: a
+  context edit removes the key evidence and the reader's answer does not
+  change. SEL-Pairs is built from hotpot, 2wiki and musique: every
+  evidence deletion is matched by a control deletion of exactly the same
+  token length from the same context, as single sentences and inside
+  LLMLingua-2 and Provence outputs, so a detector cannot win by noticing
+  that the context got shorter. In their development data a key-sentence
+  deletion and an equally long control deletion both leave the answer
+  unchanged in 63-78% of pairs, and on musique about one in five correct
+  answers comes back under an officially unanswerable context. The
+  detector reads the shift in the reader's preference among the answers
+  it did not give; 83% of the evidence-removing edits identified against
+  70% for the best baseline, five readers. For Part A this is the cell
+  measured by intervention instead of by gold labels: their 63-78% is
+  "answer unchanged when a gold sentence is cut" on the same three sets,
+  which is what my answer-only and bridge-only arms measured for one
+  sentence at a time (dropping the bridge left EM level on hotpot), and
+  their one-in-five on musique is a parametric-rate yardstick beside
+  CARL's 7%. Cite in the cell's write-up with ChainCheck, and the
+  length-matched control deletion is the control the reader-cut arms of
+  Stage 5c should have had.
+- Rayeed, Stewart and Ma 2026, CLADE (arXiv 2611.14355). Passages that
+  name the broader family of the answer and not the answer itself
+  (resolvable insufficiency): readers answer from them rather than
+  abstain, abstention down 13.8 points against uninformative passages,
+  the guesses wrong about half the time, and a counterfactual edit (family
+  name in place of the exact name, against deleting the sentence) lowers
+  abstention 17.4 points, on PrimeKG and GloBI. Confidence filters, a
+  larger model and an abstain instruction do not remove it. One sentence
+  in the write-up: the partial bucket of my cell (some gold in context,
+  answer right) has this shape, and their counterfactual is the clean way
+  to show a partial context causes the answer rather than merely
+  accompanies it.
+- Beesetty 2026, Agreeing on the answer but not the reason (arXiv
+  2611.13140). Failure categories assigned by ordered tests: 50.1% of
+  failures carry evidence for more than one category, so the reported
+  share of a category depends on the test order (swapping two tests moves
+  the plurality in eleven of twelve models; the share of one category
+  spans 26.4% to 76.4% over the six orderings), and native speakers agree
+  with the classifier at kappa 0.93 on correctness and 0.09 on the
+  category. Four checks before comparing failure-mode rates: report label
+  co-occurrence, permute the tie-break, validate on a shared independent
+  sample, audit the systematic disagreements. My failure typing
+  (`src/memory/failures.py`) is exactly five ordered rules, and the Stage
+  3 item reports the type shares and the type x recovering-arm chi-square
+  without either of the first two checks. Added to that item: the
+  co-occurrence of the rules per failure and the type shares under the
+  other rule orders, before the 50-case audit is read, so that the
+  "near miss wants the fused list, named or bridge miss wants dense"
+  reading is shown to survive the order of the rules.
+- Huang et al. 2026, Synapse-Control (arXiv 2611.13615). Advice from past
+  runs selected by a control plane: rules shortlist candidates and a 1.7B
+  classifier fine-tuned on teacher-labelled (state, suggestion) pairs
+  scores whether a suggestion applies to the current state, in place of
+  Sentry's generated failure diagnosis; a table of earlier guidance and
+  its feedback puts a cooldown on repeats. AppWorld and WebShop, 1308
+  attempts per method, 270 successes against the base's 208, half the
+  control time of Sentry. This is the shared router over advice: one
+  classifier for every lesson, learned offline from a teacher's labels,
+  no per-lesson boundary and nothing revised from outcomes. Cite beside
+  Sentry as the cheap-router baseline for applicability.
+
+Seen and set aside: 2611.13144 SAT (skills admitted only after a measured
+gain on matched development tasks; libraries swapped between two student
+models, each does better with its own: a negative on transfer across
+readers, cite if the write-up claims reader specificity), 2611.12988
+Third Eye (persistent self-updates in 3-8B models lose their value after
+the next update; argues for a no-update baseline and independent scoring),
+2610.31303 (decision-theoretic account of memory value, LoCoMo and
+LongMemEval), 2611.07342 (a router trained from repair outcomes decides
+when an agent may retrieve; retrieval helps some cases and hurts others,
+building automation), 2606.02357 (93-96% of tool-solved problems also
+solved without the tool: the illusion-cell argument for tool traces),
+2611.13254 (72% of failed agent runs already held evidence against the
+error; in 88% of those no agent acted on it), 2611.13135 (which past
+success is the reference for a failure, by action-sequence alignment),
+2611.14149 (survey of information-seeking capabilities incl. retrieval
+routing), 2605.25379 StateRAG (replacement; sufficiency field in an
+explicit state), 2610.36991 SpectRAG (multi-hop context selection under a
+token budget, MultiHopRAG), 2611.14019 PASE and 2611.14009 (skill and file
+memory evolved by feedback; not on these sets).
+
 ## 2026-11-10
 
 Listings read in full (cs.IR 56, cs.CL 364, cs.AI 887 entries, replacements
