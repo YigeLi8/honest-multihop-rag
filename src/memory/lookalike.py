@@ -15,6 +15,21 @@ surface carries nothing about the outcome and a surface-keyed memory has no
 signal to find; the plan expects this to be sparse on hotpot and says to
 report it as such.
 
+Two controls on that comparison, because agreement as counted above is easy
+to inflate. Both-miss counts as agreement, and on a dataset where every arm
+misses half the time a pair agrees by chance alone half the time; the
+"discordant" rows keep only the pairs on which the arms disagree on both
+questions, where there is a routing decision on each side and the best-arm
+label is the thing a memory would copy. And the random baseline draws pairs
+from the whole set while nearest neighbours are mostly of the same question
+type, and the types differ in their hit rates; the "random_type_matched"
+rows keep each nearest pair's first question and replace its neighbour with
+a random question of the neighbour's type, so the random set has the same
+type pairing as the nearest set. The hypothesis the whole table serves is
+the similarity-memory one: that a question's nearest neighbour carries its
+outcome. The controls only ask whether the agreement that is there survives
+the chance level and the type marginal.
+
 Constructed twins (data/make_twins.py): a twin keeps the question and
 changes the pool (distractor), or keeps the pool and changes one entity
 mention (alias). Per kind and arm, how often the twin's outcome differs
@@ -90,30 +105,68 @@ def natural_pairs(table: pd.DataFrame, vectors: Optional[np.ndarray] = None) -> 
         row = {"id_a": table["id"].iloc[a], "id_b": table["id"].iloc[b],
                "similarity": round(float(sims[a, b]), 4),
                "question_a": text[a], "question_b": text[b],
-               "best_a": best[a], "best_b": best[b], "best_same": int(best[a] == best[b])}
+               "best_a": best[a], "best_b": best[b]}
+        row.update(pair_row(table, outcomes, arms, best, a, b))
         for k, arm in enumerate(arms):
             row[f"{arm}_a"], row[f"{arm}_b"] = int(outcomes[a, k]), int(outcomes[b, k])
-            row[f"{arm}_same"] = int(outcomes[a, k] == outcomes[b, k])
         rows.append(row)
     return pd.DataFrame(rows).sort_values("similarity", ascending=False).reset_index(drop=True)
 
 
-def random_pairs(table: pd.DataFrame, n_pairs: int, seed: int = 13) -> pd.DataFrame:
+def pair_row(table: pd.DataFrame, outcomes: np.ndarray, arms: Sequence[str],
+             best: Sequence[str], a: int, b: int) -> dict:
+    """The agreement columns of one pair plus whether the arms disagree on
+    each question (discordant_a / _b) and the two question types."""
+    row = {"best_same": int(best[a] == best[b]),
+           "discordant_a": int(best[a] not in ("all", "none")),
+           "discordant_b": int(best[b] not in ("all", "none")),
+           "qtype_a": table["qtype"].iloc[a] if "qtype" in table else "",
+           "qtype_b": table["qtype"].iloc[b] if "qtype" in table else ""}
+    for k, arm in enumerate(arms):
+        row[f"{arm}_same"] = int(outcomes[a, k] == outcomes[b, k])
+    return row
+
+
+def random_pairs(table: pd.DataFrame, n_pairs: int, seed: int = 13,
+                 match: Optional[pd.DataFrame] = None) -> pd.DataFrame:
     """n_pairs random unordered pairs of distinct questions, scored like
-    natural_pairs (no similarity column)."""
+    natural_pairs (no similarity column).
+
+    match   nearest-neighbour pairs (natural_pairs output): each random pair
+            keeps the first question of a random nearest pair and replaces
+            its neighbour with a random other question of the neighbour's
+            type (type-matched control). Without a qtype column every
+            question is one type and this is the plain draw.
+    """
     rng = np.random.RandomState(seed)
     n = len(table)
     outcomes = outcome_matrix(table)
     arms = arms_of(table)
     best = best_arm(outcomes, arms)
+    qtype = table["qtype"].fillna("").tolist() if "qtype" in table else [""] * n
+    by_type = {}
+    for i, t in enumerate(qtype):
+        by_type.setdefault(t, []).append(i)
+    at = {i: k for k, i in enumerate(table["id"])}
     rows = []
+    if match is None:
+        for _ in range(n_pairs):
+            a, b = rng.choice(n, 2, replace=False)
+            rows.append(pair_row(table, outcomes, arms, best, a, b))
+        return pd.DataFrame(rows)
+    anchors = [(at[x], at[y]) for x, y in zip(match["id_a"], match["id_b"])]
     for _ in range(n_pairs):
-        a, b = rng.choice(n, 2, replace=False)
-        row = {"best_same": int(best[a] == best[b])}
-        for k, arm in enumerate(arms):
-            row[f"{arm}_same"] = int(outcomes[a, k] == outcomes[b, k])
-        rows.append(row)
+        a, b = anchors[rng.randint(len(anchors))]
+        pool = [i for i in by_type[qtype[b]] if i != a]
+        if not pool:
+            continue
+        rows.append(pair_row(table, outcomes, arms, best, a, pool[rng.randint(len(pool))]))
     return pd.DataFrame(rows)
+
+
+def discordant(pairs: pd.DataFrame) -> pd.DataFrame:
+    """The pairs on which the arms disagree on both questions."""
+    return pairs[(pairs["discordant_a"] == 1) & (pairs["discordant_b"] == 1)]
 
 
 def agreement_rows(pairs: pd.DataFrame, arms: Sequence[str], label: str) -> list[dict]:
@@ -131,15 +184,24 @@ def pair_summary(pairs: pd.DataFrame, table: pd.DataFrame,
                  bands: Sequence[tuple[float, float]] = BANDS, seed: int = 13,
                  n_random: int = 5000) -> pd.DataFrame:
     """Agreement rates per similarity band of the nearest-neighbour pairs,
-    beside the same rates over random pairs."""
+    beside the same rates over random pairs and over type-matched random
+    pairs; then the same three sets cut to the pairs on which the arms
+    disagree on both questions (the _discordant rows)."""
     arms = arms_of(table)
     rows = []
     for lo, hi in bands:
         band = pairs[(pairs["similarity"] >= lo) & (pairs["similarity"] < hi)]
         if len(band):
             rows += agreement_rows(band, arms, f"nearest[{lo:.1f},{min(hi, 1.0):.1f})")
-    rows += agreement_rows(pairs, arms, "nearest_all")
-    rows += agreement_rows(random_pairs(table, n_random, seed), arms, "random")
+    random_ = random_pairs(table, n_random, seed)
+    matched = random_pairs(table, n_random, seed, match=pairs)
+    for label, p in (("nearest_all", pairs), ("random", random_), ("random_type_matched", matched)):
+        rows += agreement_rows(p, arms, label)
+    for label, p in (("nearest_discordant", pairs), ("random_discordant", random_),
+                     ("random_type_matched_discordant", matched)):
+        d = discordant(p)
+        if len(d):
+            rows += agreement_rows(d, arms, label)
     return pd.DataFrame(rows)
 
 

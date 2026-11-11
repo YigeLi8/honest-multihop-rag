@@ -32,13 +32,28 @@ query, the type, the missed gold chunks with their full-pool rank and the
 top-k, with an empty audit column to fill in. The plan item is not ticked
 until that audit is done and its disagreement rate recorded.
 
+One label per failure from ordered rules is exposed to the order (paper log,
+2026-11-11): a failure that is both a near miss and a named miss is typed by
+whichever rule is tested first, and the type shares, and the recovery rates
+per type, can move with the order. Two checks go with the table, so that
+the reading "near misses want the fused list, named and bridge misses want
+dense" is shown to survive it: the co-occurrence of the rules' conditions
+over failures (rule_flags: near, named and partial hold independently of
+each other), and the type shares, the recovery rate per type and the type x
+recovering-arm chi-square under every order of the three tests
+(order_table). The default order is near, named, partial; bridge_miss and
+total_miss are the two ends of the partial test and never move relative to
+each other.
+
     python -m src.memory.failures --records results/memory/bm25_arms_hotpot_dev_experience.jsonl \\
         --dataset hotpot [--ids ...] [--audit 50]
 
-Writes results/<dataset>_failure_types.csv and, with --audit, _failure_audit.csv.
+Writes results/<dataset>_failure_types.csv, _failure_cooccurrence.csv,
+_failure_orders.csv and, with --audit, _failure_audit.csv.
 """
 import argparse
 import re
+from itertools import combinations, permutations
 from pathlib import Path
 from typing import Optional, Sequence
 
@@ -73,30 +88,49 @@ def named_in(query: str, title: str) -> bool:
     return bool(name) and f" {name} " in f" {' '.join(tokens(query))} "
 
 
-def failure_type(record: dict) -> str:
-    """The rule-based type of the primary arm's hop-0 outcome."""
+RULES: tuple[str, ...] = ("near", "named", "partial")
+DEFAULT_ORDER: tuple[str, ...] = RULES
+
+
+def rule_flags(record: dict) -> Optional[dict]:
+    """The three conditions of the rules, each tested on its own: near (every
+    missed gold chunk within NEAR_FACTOR * k of the full-pool ranking), named
+    (a missed gold paragraph is named in the query), partial (some gold chunk
+    was hit). None when the record is not a failure."""
     out = record["hop_outcome"]
     if out["all_gold_in_topk"]:
-        return "none"
+        return None
     hit = set(out["gold_hit_ids"])
     ranks = out.get("gold_ranks") or {}
-    gold = list(ranks) if ranks else list(hit)
     if not ranks:
         # without the full ranking the missed ids are unknown by id; the
         # backfill and live runs always carry it, the stub fixture does not
-        missed_titles = []
-    else:
-        missed = [g for g in gold if g not in hit]
-        k = record["strategy"].get("top_k") or len(record["retrieved"])
-        if missed and all(ranks[g] is not None and ranks[g][0] <= NEAR_FACTOR * k for g in missed):
-            return "near_miss"
-        missed_titles = [paragraph_of(g) for g in missed]
-    query = record["query"]
-    if any(named_in(query, t) for t in missed_titles):
-        return "named_miss"
-    if hit:
-        return "bridge_miss"
+        return {"near": False, "named": False, "partial": bool(hit)}
+    missed = [g for g in ranks if g not in hit]
+    k = record["strategy"].get("top_k") or len(record["retrieved"])
+    near = bool(missed) and all(ranks[g] is not None and ranks[g][0] <= NEAR_FACTOR * k
+                                for g in missed)
+    named = any(named_in(record["query"], paragraph_of(g)) for g in missed)
+    return {"near": near, "named": named, "partial": bool(hit)}
+
+
+def type_from_flags(flags: Optional[dict], order: Sequence[str] = DEFAULT_ORDER) -> str:
+    """The type the ordered rules give: the first test in `order` that holds
+    names it (near -> near_miss, named -> named_miss, partial -> bridge_miss);
+    when none holds it is total_miss."""
+    if flags is None:
+        return "none"
+    if set(order) != set(RULES) or len(order) != len(RULES):
+        raise ValueError(f"order must be a permutation of {RULES}, not {tuple(order)}")
+    for rule in order:
+        if flags[rule]:
+            return {"near": "near_miss", "named": "named_miss", "partial": "bridge_miss"}[rule]
     return "total_miss"
+
+
+def failure_type(record: dict, order: Sequence[str] = DEFAULT_ORDER) -> str:
+    """The rule-based type of the primary arm's hop-0 outcome."""
+    return type_from_flags(rule_flags(record), order)
 
 
 def recovered_by(record: dict) -> str:
@@ -117,8 +151,10 @@ def typed_rows(records: Sequence[dict], ids: Optional[Sequence[str]] = None) -> 
         if r["hop"] != 0 or (want is not None and r["id"] not in want):
             continue
         primary = arm_name(r["strategy"])
+        flags = rule_flags(r)
         row = {"id": r["id"], "qtype": r["qtype"], "query": r["query"],
-               "failure_type": failure_type(r), "recovered_by": recovered_by(r)}
+               "failure_type": type_from_flags(flags), "recovered_by": recovered_by(r)}
+        row.update({f"rule:{k}": int(v) for k, v in (flags or {}).items()})
         for a, block in r["shadow"].items():
             if a != primary:
                 row[f"hit:{a}"] = int(bool(block.get("all_gold_in_topk")))
@@ -144,6 +180,58 @@ def failure_table(typed: pd.DataFrame) -> pd.DataFrame:
             any_ = sub[[f"hit:{a}" for a in arms]].max(axis=1) if len(sub) else pd.Series(dtype=float)
             row["recovered_by_any"] = round(float(any_.mean()), 4) if len(sub) else float("nan")
             row["recovered_by_none"] = round(1 - row["recovered_by_any"], 4) if len(sub) else float("nan")
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def cooccurrence(typed: pd.DataFrame) -> pd.DataFrame:
+    """Over the failures: how often each rule's condition holds, and how
+    often each pair and all three hold together. A failure that holds more
+    than one condition is one whose type depends on the rule order."""
+    fails = typed[typed["failure_type"] != "none"]
+    n = len(fails)
+    cols = {r: fails[f"rule:{r}"].astype(bool) for r in RULES if f"rule:{r}" in fails}
+    rows = []
+    for label, mask in ([(r, cols[r]) for r in cols]
+                        + [(f"{a}&{b}", cols[a] & cols[b]) for a, b in combinations(cols, 2)]
+                        + ([("near&named&partial", cols["near"] & cols["named"] & cols["partial"])]
+                           if len(cols) == 3 else [])):
+        rows.append({"rules": label, "n": int(mask.sum()),
+                     "share_of_failures": round(float(mask.mean()), 4) if n else float("nan")})
+    held = sum(cols[r].astype(int) for r in cols) if cols else pd.Series(dtype=int)
+    rows.append({"rules": "more_than_one", "n": int((held > 1).sum()),
+                 "share_of_failures": round(float((held > 1).mean()), 4) if n else float("nan")})
+    return pd.DataFrame(rows)
+
+
+def order_table(typed: pd.DataFrame) -> pd.DataFrame:
+    """Per order of the three tests: the type shares among failures, the
+    share of each type recovered by any shadow arm and by each arm, and the
+    chi-square p of type x recovering arm. The hypothesis the Stage 3 table
+    rests on (types differ in what recovers them) has to hold under every
+    order, or it is a property of the order."""
+    from scipy.stats import chi2_contingency
+    fails = typed[typed["failure_type"] != "none"].copy()
+    arms = [c[len("hit:"):] for c in typed.columns if c.startswith("hit:")]
+    rows = []
+    for order in permutations(RULES):
+        flags = [{r: bool(row[f"rule:{r}"]) for r in RULES} for _, row in fails.iterrows()]
+        types = pd.Series([type_from_flags(f, order) for f in flags], index=fails.index)
+        row = {"order": ">".join(order), "n_failures": len(fails)}
+        for t in FAILURE_TYPES[1:]:
+            sub = fails[types == t]
+            row[f"share_{t}"] = round(len(sub) / len(fails), 4) if len(fails) else float("nan")
+            for a in arms:
+                row[f"{t}_by_{a}"] = round(float(sub[f"hit:{a}"].mean()), 4) if len(sub) else float("nan")
+            if arms:
+                any_ = sub[[f"hit:{a}" for a in arms]].max(axis=1)
+                row[f"{t}_by_any"] = round(float(any_.mean()), 4) if len(sub) else float("nan")
+        cross = pd.crosstab(types, fails["recovered_by"])
+        if cross.shape[0] > 1 and cross.shape[1] > 1:
+            chi, p, dof, _ = chi2_contingency(cross)
+            row.update({"chi2": round(float(chi), 2), "dof": int(dof), "p": float(f"{p:.3g}")})
+        else:
+            row.update({"chi2": float("nan"), "dof": 0, "p": float("nan")})
         rows.append(row)
     return pd.DataFrame(rows)
 
@@ -194,6 +282,14 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     cross = pd.crosstab(typed["failure_type"], typed["recovered_by"])
     print("\nrecovered_by per type (counts)")
     print(cross.to_string())
+    co = cooccurrence(typed)
+    co.to_csv(out / f"{args.dataset}_failure_cooccurrence.csv", index=False)
+    print("\nrule conditions over failures")
+    print(co.to_string(index=False))
+    orders = order_table(typed)
+    orders.to_csv(out / f"{args.dataset}_failure_orders.csv", index=False)
+    print("\ntype shares and recovery under every rule order")
+    print(orders.to_string(index=False))
     if args.audit:
         audit = audit_sample(records, args.audit, args.seed, ids)
         audit.to_csv(out / f"{args.dataset}_failure_audit.csv", index=False)

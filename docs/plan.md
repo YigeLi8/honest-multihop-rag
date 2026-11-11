@@ -1315,7 +1315,16 @@ as cost. Steps:
       agent on exploration, and advice at every step costs about three
       points. Together with routing, deepening and the reader cuts, that is
       the fourth memory gate that stays closed. A6 waits: the confirmation
-      fold is not spent on a version that is level on exploration
+      fold is not spent on a version that is level on exploration.
+      The discordant column read as WikiTrace reports it (paper log,
+      2026-11-11): gain is the share of questions a memory arm answers that
+      no memory did not, regression the share it loses. Region 0.022 gain
+      / 0.026 regression, shuffled 0.028 / 0.022, global 0.050 / 0.084,
+      flat 0.046 / 0.078. So every arm changes about 5-13% of the answers,
+      and the show-all arms lose nearly twice what they win; the region
+      memory's regression (2.6%) is the degradation a boundary is meant to
+      prevent, and it is not lower than shuffled's (2.2%). Reported here
+      with the EM difference from now on
 - [ ] A6 preregistration 3, then the hotpot confirmation fold; 2wiki and
       musique after. On hold after A5
 - [ ] A7 memory version 2, aimed at the two causes A5 found (written 11

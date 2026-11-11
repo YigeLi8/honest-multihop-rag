@@ -1191,8 +1191,8 @@ def test_make_twins():
 def test_lookalike_pairs_and_twins():
     import numpy as np
     import pandas as pd
-    from src.memory.lookalike import (best_arm, natural_pairs, pair_summary, random_pairs,
-                                      twin_of, twin_table)
+    from src.memory.lookalike import (best_arm, discordant, natural_pairs, pair_summary,
+                                      random_pairs, twin_of, twin_table)
     n = 40
     rng = np.random.RandomState(1)
     table = pd.DataFrame({"id": [f"q{i}" for i in range(n)]})
@@ -1200,22 +1200,46 @@ def test_lookalike_pairs_and_twins():
     fam = np.array([i % 2 for i in range(n)])
     table["question"] = ["long query about %s %03d" % ("rivers" if i % 4 < 2 else "rivers", i)
                          if fam[i] else "short one on %s %03d" % ("kings", i) for i in range(n)]
+    table["qtype"] = ["long" if f else "short" for f in fam]
     table["arm:a"] = fam.astype(float)
     table["arm:b"] = (1 - fam).astype(float)
     assert best_arm(np.array([[1, 1], [0, 0], [1, 0]]), ["a", "b"]) == ["all", "none", "a"]
 
     pairs = natural_pairs(table)
     assert len(pairs) <= n and (pairs["similarity"].diff().dropna() <= 1e-9).all()
-    assert set(pairs.columns) >= {"id_a", "id_b", "similarity", "a_same", "b_same", "best_same"}
+    assert set(pairs.columns) >= {"id_a", "id_b", "similarity", "a_same", "b_same", "best_same",
+                                  "discordant_a", "discordant_b", "qtype_a", "qtype_b"}
     # the nearest neighbour is from the same family, so every pair agrees
     assert pairs["a_same"].all() and pairs["best_same"].all()
+    assert (pairs["qtype_a"] == pairs["qtype_b"]).all()
+    # one arm hits and one misses on every question, so every pair is discordant
+    assert len(discordant(pairs)) == len(pairs)
     rnd = random_pairs(table, 400, seed=3)
     assert 0.35 < rnd["a_same"].mean() < 0.65 and len(rnd) == 400
+    # type-matched: the neighbour is replaced by a question of its own type,
+    # which here is the same family, so the control recovers the agreement
+    # that the plain random draw lacks (the type explains all of it)
+    matched = random_pairs(table, 400, seed=3, match=pairs)
+    assert len(matched) == 400 and matched["a_same"].all() and matched["best_same"].all()
+    assert (matched["qtype_a"] == matched["qtype_b"]).all()
     summary = pair_summary(pairs, table, n_random=400)
     nearest = summary[summary["pairs"] == "nearest_all"].set_index("agreement")
     random_ = summary[summary["pairs"] == "random"].set_index("agreement")
+    typed = summary[summary["pairs"] == "random_type_matched"].set_index("agreement")
     assert nearest.loc["a"]["rate"] == 1.0 and random_.loc["a"]["rate"] < 0.7
+    assert typed.loc["a"]["rate"] == 1.0 and typed.loc["best"]["rate"] == 1.0
+    assert set(summary["pairs"]) >= {"nearest_discordant", "random_discordant",
+                                     "random_type_matched_discordant"}
     assert (summary["lo"] <= summary["rate"]).all() and (summary["rate"] <= summary["hi"]).all()
+    # with arm b hitting everywhere the long family is "all", not discordant,
+    # and the discordant cut keeps only the short-family pairs
+    both = table.copy()
+    both["arm:b"] = 1.0
+    d = discordant(natural_pairs(both))
+    assert len(d) and (d["qtype_a"] == "short").all() and (d["qtype_b"] == "short").all()
+    # no qtype column: the type-matched draw is the plain draw
+    plain = random_pairs(table.drop(columns=["qtype"]), 200, seed=5, match=pairs)
+    assert len(plain) == 200 and 0.3 < plain["a_same"].mean() < 0.7
     # vectors instead of text: the same families, the same answer
     vec = np.stack([fam * 2.0 + rng.rand(n) * 0.1, (1 - fam) * 2.0], axis=1)
     assert natural_pairs(table, vec)["a_same"].all()
@@ -1318,6 +1342,37 @@ def test_failure_typing():
     # the stub record without gold_ranks still gets a type
     stub = dict(deep, hop_outcome={"all_gold_in_topk": False, "gold_hit_ids": ["Book X::0"], "n_gold": 2})
     assert failure_type(stub) == "bridge_miss"
+    # the rules tested on their own, and the type under another order: a
+    # failure that is both near and named is typed by whichever comes first
+    from src.memory.failures import cooccurrence, order_table, rule_flags, type_from_flags
+    assert rule_flags(full) is None and type_from_flags(None) == "none"
+    assert rule_flags(near) == {"near": True, "named": False, "partial": True}
+    assert rule_flags(named) == {"near": False, "named": True, "partial": True}
+    assert rule_flags(nothing2) == {"near": False, "named": False, "partial": False}
+    nearnamed = record("nearnamed", q, ["Author Y::1", "D::0"], ["Author Y::1"],
+                       {"Book X::0": [3, 0.5], "Author Y::1": [1, 3.0]})
+    assert rule_flags(nearnamed) == {"near": True, "named": True, "partial": True}
+    assert failure_type(nearnamed) == "near_miss"
+    assert failure_type(nearnamed, order=("named", "near", "partial")) == "named_miss"
+    assert failure_type(nearnamed, order=("partial", "near", "named")) == "bridge_miss"
+    assert failure_type(nothing2, order=("partial", "near", "named")) == "total_miss"
+    try:
+        failure_type(nearnamed, order=("near", "named"))
+        raise AssertionError("order must be a permutation of the three rules")
+    except ValueError:
+        pass
+    typed2 = typed_rows(records + [nearnamed])
+    assert typed2.set_index("id").loc["nearnamed"]["rule:near"] == 1
+    co = cooccurrence(typed2).set_index("rules")
+    assert co.loc["near"]["n"] == 2 and co.loc["near&named"]["n"] == 1
+    assert co.loc["more_than_one"]["n"] == 3 and co.loc["near&named&partial"]["n"] == 1
+    orders = order_table(typed2).set_index("order")
+    assert len(orders) == 6
+    assert orders.loc["near>named>partial"]["share_near_miss"] == round(2 / 8, 4)
+    assert orders.loc["named>near>partial"]["share_named_miss"] == round(4 / 8, 4)
+    assert orders.loc["partial>near>named"]["share_bridge_miss"] == round(4 / 8, 4)
+    assert (orders["share_total_miss"] == round(2 / 8, 4)).all()        # never moves
+    assert orders.loc["near>named>partial"]["bridge_miss_by_dense"] == 1.0
     # musique ids carry the title after the paragraph index, so the named
     # rule reads it from there; hotpot and 2wiki ids keep the title first
     from src.memory.failures import paragraph_of
