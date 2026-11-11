@@ -1291,6 +1291,41 @@ as cost. Steps:
       fold is not spent on a version that is level on exploration
 - [ ] A6 preregistration 3, then the hotpot confirmation fold; 2wiki and
       musique after. On hold after A5
+- [ ] A7 memory version 2, aimed at the two causes A5 found (written 11
+      Nov, before any run). Switched on per config
+      (`configs/orchestrator_mem2_*.yaml`); the defaults are version 1, so
+      the A5 configs and results stand as they are.
+      Advice: a lesson is written from 4 failures of its type on 4
+      different questions (the nearest waiting ones: step features for
+      regions, question words for flat) in one reflection call that must
+      cover all 4, and a rule is rejected if it uses a content word that
+      occurs in fewer than half of its source steps (one retry that names
+      the words, then the fixed sentence). The box spans the 4 points plus
+      one sd on each side.
+      Credit: while building, a decision where lessons apply shows none
+      with probability 0.5 (the lessons are logged as held out, `held_ids`
+      in the trace) and otherwise one of them at random. Utility is step
+      success where shown minus where held out, in the same region; success
+      is a step with no error of any type of its role, so a lesson that
+      trades dropped for noise earns nothing. Retired when both counts
+      reach 20 and utility <= 0; frozen, a lesson is shown only if
+      utility - se > 0, one per decision.
+      Same 1000 train questions, same exploration fold, same four arms
+      against the main agent without memory, paired, scored by
+      `scripts/memory_eval.py --tag mem2`.
+      What would count, fixed now: (a) the build's pooled randomized
+      comparison, step success where a lesson was shown against where the
+      applying lessons were held out, above zero with its 95% interval: the
+      direct test that the advice helps where it applies; (b) region EM
+      above no memory and above shuffled on exploration, paired; (c)
+      region above global and flat. If (a) is level, showing the lessons is
+      not worth it whatever the frozen runs say. If no lesson is proven
+      after the build, the frozen runs are skipped (they would equal no
+      memory) and that is the result.
+      Power, before the run: in A5 lessons applied at about 40% of subagent
+      steps by the end, so about 600 shown and 600 held-out decisions; at a
+      success rate near 0.62 that resolves about 5-6 points of step success
+      (95%). Per-lesson effects will be resolved only when large
 
 ### Stage 6-7, only if Stage 5 shows something
 

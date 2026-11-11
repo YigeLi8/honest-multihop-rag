@@ -67,6 +67,29 @@ Baselines on the same store (docs/plan.md, Stage 6):
 
 learn=False freezes the store (evaluation); learn=True revises and creates
 (building on train questions, or online).
+
+Version 2 (docs/plan.md, Stage 6 A7), switched on per config; the defaults
+are version 1, so the A5 configs run as they did:
+
+    batch=k       a lesson is written from k failures of its type on k
+                  different questions, grouped by the mode's own notion of
+                  near (step features for regions, question words for flat),
+                  in one reflection call that has to cover all of them; the
+                  box spans the k points plus radius sd on each side
+    generality    a rule is rejected if it uses a content word that occurs
+                  in fewer than half of its source steps (it is about one of
+                  them); one retry names the words, then the fixed sentence
+    credit=heldout
+                  while building, a decision where lessons apply shows none
+                  with probability p_control (the lessons are logged as held
+                  out) and otherwise one of them at random. A lesson's
+                  utility is the step success rate where it was shown minus
+                  where it applied and was held out, so it is compared with
+                  the same situations, not with the role's average. Success
+                  is the step free of every error type of its role, so a
+                  lesson that trades one error for another gets no credit.
+                  Retired when both counts reach min_n and utility <= 0;
+                  shown when frozen only if utility - z * se > 0
 """
 import json
 import random
@@ -112,6 +135,68 @@ MISTAKE = {
     "dropped": "it left out results it needed: {needed}.",
     "noise": "it kept results that were not needed: {extra}.",
 }
+
+REFLECT_BATCH_PROMPT = """You are improving an evidence-collecting assistant. \
+Below are {k} steps, from different questions, where it made the same kind of \
+mistake: {kind}.
+
+{cases}
+
+Write one general rule, under 25 words, that would have avoided this mistake \
+in all {k} steps and would still make sense for a question on any other topic. \
+Do not mention any topic, name, title, place, date or number from these steps. \
+Reply with the rule only."""
+
+RETRY = """
+
+Your rule was: {advice}
+It is too specific: it mentions {words}, which only some of these steps are \
+about. Write one rule that holds for all {k} steps. Reply with the rule only."""
+
+KIND = {
+    "unreached": "its plan of lookups never reached an article the answer needed",
+    "dropped": "it left out search results that were needed",
+    "noise": "it kept search results that were not needed",
+}
+
+# words a rule about evidence may use whatever the topic
+GENERIC = set("""
+question questions result results search searches keep kept keeping include includes
+including included leave left answer answers entity entities fact facts sentence sentences
+article articles name names named mention mentions mentioned mentioning directly related
+relevant irrelevant information detail details subject subjects step steps lookup lookups
+always only every each both other others different same specific first second which that
+this these those with from about when where what whom whose there their they them then than
+more less also into does have been were will would should could must need needed needs ask
+asks asked asking give gives given state states stated describe describes described
+description background context unless even before after while until like such some most
+many much make made look looks find finds found check checks part parts provide provides
+provided support supports supporting evidence notebook enough missing link links linked
+connect connects connecting between person people place places date dates year years time
+work works title titles thing things kind kinds type types term terms query queries
+attribute attributes property properties value values main core central actual""".split())
+
+
+def _stem(w):
+    return w[:-1] if len(w) > 4 and w.endswith("s") and not w.endswith("ss") else w
+
+
+_GENERIC_STEMS = {_stem(g) for g in GENERIC}
+
+
+def specific_words(advice, texts):
+    """Content words of the advice that occur in some of the source texts but
+    in fewer than half of them (with one source, in it at all)."""
+    k = len(texts)
+    bags = [{_stem(w) for w in re.findall(r"[a-z]+", t.lower())} for t in texts]
+    out = []
+    for w in sorted({_stem(w) for w in re.findall(r"[a-z]+", advice.lower())}):
+        if len(w) <= 3 or w in _GENERIC_STEMS:
+            continue
+        n = sum(w in b for b in bags)
+        if n and (k == 1 or 2 * n < k):
+            out.append(w)
+    return out
 
 
 def planner_features(question):
@@ -189,6 +274,9 @@ class Lesson:
     support: list = field(default_factory=list)
     exceptions: list = field(default_factory=list)   # [point, radius in sd]
     retired: bool = False
+    held: int = 0                      # credit=heldout: applied, held out by the coin
+    ok_held: int = 0
+    members: list = field(default_factory=list)      # batch: [question id, question]
 
     def contains(self, x, sd):
         lo, hi = np.asarray(self.lo), np.asarray(self.hi)
@@ -199,12 +287,21 @@ class Lesson:
     def rate(self):
         return (self.ok_shown + 1) / (self.shown + 2)
 
+    def held_rate(self):
+        return (self.ok_held + 1) / (self.held + 2)
+
+    def questions(self):
+        return [q for _, q in self.members] or [self.question]
+
 
 class ExperienceMemory:
     def __init__(self, cfg, pipe, mode="region", learn=True, store=None, load=None,
                  radius=1.0, min_n=5, expand_margin=0.5, exception_radius=0.25,
-                 max_exceptions=3, max_shown=3, warmup=20, reflect=True, seed=13):
+                 max_exceptions=3, max_shown=3, warmup=20, reflect=True, seed=13,
+                 credit="base", batch=1, generality=False, p_control=0.5, z=1.0,
+                 buffer_cap=100):
         assert mode in MODES, mode
+        assert credit in ("base", "heldout"), credit
         self.cfg, self.pipe = cfg, pipe
         self.mode, self.learn = mode, learn
         self.store = Path(store) if store else None
@@ -213,6 +310,12 @@ class ExperienceMemory:
         self.max_exceptions, self.max_shown = max_exceptions, max_shown
         self.warmup = warmup
         self.reflect, self.seed = reflect, seed
+        self.credit, self.batch, self.generality = credit, batch, generality
+        self.p_control, self.z, self.buffer_cap = p_control, z, buffer_cap
+        self.rng = random.Random(seed)
+        self._held = {}           # step_key -> lesson ids held out in the current episode
+        self.last_held = []
+        self._buffer = {}         # (role, type) -> failures waiting for a batch
         self.entries: list[Lesson] = []      # every lesson, retired ones too
         self.log: list[dict] = []
         self.std = {"planner": Standardiser(len(PLANNER_FEATURES)),
@@ -232,8 +335,11 @@ class ExperienceMemory:
         return cls(cfg, pipe, mode=getattr(m, "mode", "region"), learn=getattr(m, "learn", True),
                    store=getattr(m, "store", None), load=getattr(m, "load", None),
                    radius=getattr(m, "radius", 1.0), min_n=getattr(m, "min_n", 5),
-                   warmup=getattr(m, "warmup", 20),
-                   reflect=getattr(m, "reflect", True), seed=getattr(m, "seed", 13))
+                   max_shown=getattr(m, "max_shown", 3), warmup=getattr(m, "warmup", 20),
+                   reflect=getattr(m, "reflect", True), seed=getattr(m, "seed", 13),
+                   credit=getattr(m, "credit", "base"), batch=getattr(m, "batch", 1),
+                   generality=getattr(m, "generality", False),
+                   p_control=getattr(m, "p_control", 0.5), z=getattr(m, "z", 1.0))
 
     # -- what the agent is shown
     def _active(self, role):
@@ -244,14 +350,36 @@ class ExperienceMemory:
         return (ok + 1) / (n + 2)
 
     def utility(self, lesson):
+        if self.credit == "heldout":
+            return lesson.rate() - lesson.held_rate()
         return lesson.rate() - self._base_rate(lesson.role, lesson.type)
 
+    def se(self, lesson):
+        p1, p0 = lesson.rate(), lesson.held_rate()
+        return float(np.sqrt(p1 * (1 - p1) / (lesson.shown + 2) + p0 * (1 - p0) / (lesson.held + 2)))
+
+    def tested(self, lesson):
+        return lesson.shown >= self.min_n and (self.credit == "base" or lesson.held >= self.min_n)
+
+    def proven(self, lesson):
+        """credit=heldout: enough trials both ways and utility - z * se > 0."""
+        return self.tested(lesson) and self.utility(lesson) - self.z * self.se(lesson) > 0
+
     def _eligible(self, lesson):
+        if self.credit == "heldout":
+            # building: every active lesson is still under test; frozen: proven only
+            return True if self.learn else self.proven(lesson)
         return lesson.shown < self.min_n or self.utility(lesson) > 0
 
+    def _rank(self, lesson):
+        if self.credit == "heldout":
+            return self.utility(lesson) - self.z * self.se(lesson)
+        return self.utility(lesson)
+
     def lessons(self, step):
-        """Advice strings for one decision; remembers which lessons it showed."""
-        self.last_ids = []
+        """Advice strings for one decision; remembers which lessons it showed
+        and, with held-out credit while building, which it held out."""
+        self.last_ids, self.last_held = [], []
         if self.mode == "none":
             return []
         role = "planner" if step.get("role") == "planner" else "subagent"
@@ -261,13 +389,22 @@ class ExperienceMemory:
             x = planner_features(step["question"]) if role == "planner" else step_point(step)
             sd = self.std[role].sd
             pool = [l for l in pool if l.contains(x, sd)]
-            pick = sorted(pool, key=lambda l: (-self.utility(l), l.created))
+            pick = sorted(pool, key=lambda l: (-self._rank(l), l.created))
         elif self.mode == "flat":
             q = _words(step.get("sub_question") or step["question"])
-            sim = lambda l: len(q & _words(l.question)) / max(1, len(q | _words(l.question)))  # noqa: E731
-            pick = sorted([l for l in pool if sim(l) > 0], key=lambda l: (-sim(l), l.created))
+            sim = {l.id: max(len(q & _words(t)) / max(1, len(q | _words(t))) for t in l.questions())
+                   for l in pool}
+            pick = sorted([l for l in pool if sim[l.id] > 0], key=lambda l: (-sim[l.id], l.created))
+            if self.credit == "heldout" and self.learn:
+                pick = pick[:3]           # the lessons that apply: the three most similar
         else:  # global
-            pick = sorted(pool, key=lambda l: (-self.utility(l), l.created))
+            pick = sorted(pool, key=lambda l: (-self._rank(l), l.created))
+        if self.credit == "heldout" and self.learn and pick:
+            if self.rng.random() < self.p_control:
+                self._held[key] = self.last_held = [l.id for l in pick]
+                pick = []
+            else:
+                pick = [self.rng.choice(pick)]
         pick = pick[:self.max_shown]
         self._shown[key] = self.last_ids = [l.id for l in pick]
         return [l.advice for l in pick]
@@ -276,6 +413,7 @@ class ExperienceMemory:
     def on_episode(self, ex, res, row):
         self.t += 1
         shown, self._shown = self._shown, {}
+        held, self._held = self._held, {}
         if not self.learn:
             return
         by_id = {l.id: l for l in self.entries}
@@ -283,14 +421,23 @@ class ExperienceMemory:
             sd = self.std[role].sd
             ids = shown.get(key, [])
             covered = {l.type for l in self._active(role) if l.contains(x, sd)}
+            if self.credit == "heldout":
+                ok = not any(failed.values())
+                for i in ids:
+                    by_id[i].shown += 1
+                    by_id[i].ok_shown += ok
+                for i in held.get(key, []):
+                    by_id[i].held += 1
+                    by_id[i].ok_held += ok
             for typ, bad in failed.items():
                 of_type = [by_id[i] for i in ids if i in by_id and by_id[i].type == typ]
                 if not of_type:
                     self.base[(role, typ)][0] += not bad
                     self.base[(role, typ)][1] += 1
                 for l in of_type:
-                    l.shown += 1
-                    l.ok_shown += not bad
+                    if self.credit == "base":
+                        l.shown += 1
+                        l.ok_shown += not bad
                     if not bad:
                         l.support.append(x.tolist())
                     elif self.mode == "region":
@@ -305,14 +452,18 @@ class ExperienceMemory:
                 # none covered before this episode's revisions or grew to cover
                 if (bad and not of_type and self.std[role].n >= self.warmup
                         and (self.mode != "region" or (typ not in covered and not grown))):
-                    self._create(role, typ, x, sd, ex, detail)
+                    failure = self._failure(x, ex, detail)
+                    if self.batch > 1:
+                        self._enqueue(role, typ, failure, sd)
+                    else:
+                        self._create(role, typ, [failure], sd)
             self.std[role].update(x)
         for l in list(self.entries):
             if l.retired:
                 continue
             if self.mode == "region" and len(l.exceptions) > self.max_exceptions:
                 self._split(l)
-            elif l.shown >= self.min_n and self.utility(l) <= 0:
+            elif self.tested(l) and self.utility(l) <= 0:
                 self._retire(l, "utility <= 0")
 
     # -- operators
@@ -321,17 +472,63 @@ class ExperienceMemory:
                          "type": lesson.type, "op": op, "reason": reason,
                          "shown": lesson.shown, "utility": round(self.utility(lesson), 4),
                          "n_support": len(lesson.support), "n_exceptions": len(lesson.exceptions)})
+        if self.credit == "heldout":
+            self.log[-1].update(held=lesson.held, se=round(self.se(lesson), 4))
 
-    def _create(self, role, typ, x, sd, ex, detail):
-        advice, source, prompt, reply = self._advice(typ, ex, detail)
+    @staticmethod
+    def _failure(x, ex, detail):
+        """One failed decision, as a lesson is written from it."""
+        text = " ".join([ex.question, detail.get("question", ""),
+                         *(t for _, t, _ in detail.get("shown", [])), *detail.get("plan", [])])
+        return {"x": x, "id": ex.id, "question": detail.get("question", ex.question),
+                "ex_question": ex.question, "detail": detail, "text": text,
+                "titles": sorted({g.split("::")[0] for g in ex.gold_chunk_ids})}
+
+    def _enqueue(self, role, typ, failure, sd):
+        """batch > 1: hold the failure until batch - 1 others of its type, on
+        other questions, are waiting; then write one lesson from it and its
+        nearest ones (step features for regions, question words for flat)."""
+        buf = self._buffer.setdefault((role, typ), [])
+        if self.mode == "region":   # a waiting point a lesson has since come to cover is done
+            act = [l for l in self._active(role) if l.type == typ]
+            buf[:] = [f for f in buf if not any(l.contains(f["x"], sd) for l in act)]
+        if self.mode == "region":
+            dist = lambda f: float(np.linalg.norm((f["x"] - failure["x"]) / sd))  # noqa: E731
+        else:
+            q = _words(failure["question"])
+            dist = lambda f: 1 - len(q & _words(f["question"])) / max(1, len(q | _words(f["question"])))  # noqa: E731
+        chosen, ids = [], {failure["id"]}
+        for f in sorted(buf, key=dist):
+            if f["id"] not in ids:
+                chosen.append(f)
+                ids.add(f["id"])
+            if len(chosen) == self.batch - 1:
+                break
+        if len(chosen) < self.batch - 1:
+            buf.append(failure)
+            del buf[:-self.buffer_cap]
+            return
+        buf[:] = [f for f in buf if not any(f is c for c in chosen)]
+        self._create(role, typ, [failure, *chosen], sd)
+
+    def _create(self, role, typ, members, sd):
+        if len(members) == 1 and self.batch == 1:
+            advice, source, prompt, reply = self._advice(typ, members[0])
+        else:
+            advice, source, prompt, reply = self._advice_batch(typ, members)
         self._n_created += 1
         half = self.radius * sd
+        pts = np.asarray([m["x"] for m in members])
+        first = members[0]
         lesson = Lesson(id=f"{role[0]}{self._n_created}", role=role, type=typ, advice=advice,
-                        exemplar=x.tolist(), lo=(x - half).tolist(), hi=(x + half).tolist(),
-                        question=detail.get("question", ex.question), created=self.t,
-                        source=source, support=[x.tolist()])
+                        exemplar=(pts.mean(axis=0) if len(members) > 1 else first["x"]).tolist(),
+                        lo=(pts.min(axis=0) - half).tolist(), hi=(pts.max(axis=0) + half).tolist(),
+                        question=first["question"], created=self.t, source=source,
+                        support=pts.tolist(),
+                        members=[[m["id"], m["question"]] for m in members] if len(members) > 1
+                        else [])
         self.entries.append(lesson)
-        self._record(lesson, "create", f"{typ} on {ex.id}")
+        self._record(lesson, "create", f"{typ} on {', '.join(m['id'] for m in members)}")
         self.log[-1].update(advice=advice, source=source, reflect_prompt=prompt, reflect_reply=reply)
 
     def _narrow_or_except(self, l, x, sd):
@@ -382,7 +579,8 @@ class ExperienceMemory:
                 lo[dim] = cut
             child = Lesson(id=f"{l.id}.{side}", role=l.role, type=l.type, advice=l.advice,
                            exemplar=pts[0].tolist(), lo=lo, hi=hi, question=l.question,
-                           created=self.t, source=l.source, support=pts.tolist())
+                           created=self.t, source=l.source, support=pts.tolist(),
+                           members=l.members)
             self.entries.append(child)
             self._record(child, "create", f"split of {l.id}")
 
@@ -391,7 +589,7 @@ class ExperienceMemory:
         self._record(l, "retire", reason)
 
     # -- advice
-    def _situation(self, typ, detail):
+    def _situation(self, typ, detail, clip=None):
         if typ == "unreached":
             plan = "\n".join(f"{i + 1}. {s}" for i, s in enumerate(detail["plan"]))
             return f"The lookups it planned:\n{plan}"
@@ -399,7 +597,10 @@ class ExperienceMemory:
         for i, (cid, text, needed) in enumerate(detail["shown"]):
             mark = "KEPT" if cid in detail["kept"] else "left out"
             need = ", needed" if needed else ""
-            lines.append(f"[{i + 1}] ({mark}{need}) {text.strip()}")
+            text = text.strip()
+            if clip and len(text) > clip:
+                text = text[:clip].rsplit(" ", 1)[0] + " ..."
+            lines.append(f"[{i + 1}] ({mark}{need}) {text}")
         return (f"It was looking up: {detail['question']}\nThe search results, what it did "
                 f"with each, and which were needed:\n" + "\n".join(lines))
 
@@ -412,17 +613,57 @@ class ExperienceMemory:
             return MISTAKE[typ].format(needed=", ".join(f"[{idx[c]}]" for c in detail["dropped"]))
         return MISTAKE[typ].format(extra=", ".join(f"[{idx[c]}]" for c in detail["extra"]))
 
-    def _advice(self, typ, ex, detail):
-        """(advice, source, prompt, reply). The reflection call goes to the
-        generator directly, so it never counts toward an episode's calls."""
+    def _advice(self, typ, failure):
+        """(advice, source, prompt, reply) from one failure. The reflection call
+        goes to the generator directly, so it never counts toward an
+        episode's calls."""
         if not self.reflect or self.pipe is None or self.pipe.generator is None:
             return FALLBACK[typ], "fallback", "", ""
-        prompt = REFLECT_PROMPT.format(question=ex.question, situation=self._situation(typ, detail),
+        detail = failure["detail"]
+        prompt = REFLECT_PROMPT.format(question=failure["ex_question"],
+                                       situation=self._situation(typ, detail),
                                        mistake=self._mistake(typ, detail))
+        return self._ask(typ, prompt, [failure])
+
+    def _advice_batch(self, typ, members):
+        """One rule from several failures of the same type on different
+        questions; the situations are clipped to keep the prompt short."""
+        if not self.reflect or self.pipe is None or self.pipe.generator is None:
+            return FALLBACK[typ], "fallback", "", ""
+        cases = "\n\n".join(
+            f"Step {i + 1}\nQuestion: {m['ex_question']}\n"
+            f"{self._situation(typ, m['detail'], clip=200)}\n"
+            f"Mistake: {self._mistake(typ, m['detail'])}" for i, m in enumerate(members))
+        prompt = REFLECT_BATCH_PROMPT.format(k=len(members), kind=KIND[typ], cases=cases)
+        return self._ask(typ, prompt, members)
+
+    def _ask(self, typ, prompt, members):
+        """Reflection call, the leak check against every source question and
+        gold title, and (with generality) the specific-word check with one
+        retry that names the words."""
+        def first(reply):
+            return reply.strip().splitlines()[0].strip().strip('"') if reply.strip() else ""
+
+        def problem(advice):
+            if not advice or len(advice.split()) > 40:
+                return "empty or long", []
+            if any(leaks(advice, m["ex_question"], m["titles"]) for m in members):
+                return "leak", []
+            words = specific_words(advice, [m["text"] for m in members]) if self.generality else []
+            return ("specific", words) if words else (None, [])
+
         reply, _ = self.pipe.generator.generate(prompt, 64)
-        advice = reply.strip().splitlines()[0].strip().strip('"') if reply.strip() else ""
-        titles = sorted({g.split("::")[0] for g in ex.gold_chunk_ids})
-        if not advice or len(advice.split()) > 40 or leaks(advice, ex.question, titles):
+        advice = first(reply)
+        why, words = problem(advice)
+        if why == "specific":
+            retry = prompt + RETRY.format(advice=advice, words=", ".join(words), k=len(members))
+            again, _ = self.pipe.generator.generate(retry, 64)
+            reply = reply + "\n--- retry ---\n" + again
+            advice = first(again)
+            if problem(advice)[0] is None:
+                return advice, "reflection_retry", retry, reply
+            return FALLBACK[typ], "fallback", retry, reply
+        if why:
             return FALLBACK[typ], "fallback", prompt, reply
         return advice, "reflection", prompt, reply
 
@@ -467,5 +708,10 @@ def summary(mem: Optional[ExperienceMemory]):
     ops = {}
     for e in mem.log:
         ops[e["op"]] = ops.get(e["op"], 0) + 1
-    return {"lessons": len(mem.entries), "active": sum(not l.retired for l in mem.entries),
-            "fallback_advice": sum(l.source == "fallback" for l in mem.entries), **ops}
+    out = {"lessons": len(mem.entries), "active": sum(not l.retired for l in mem.entries),
+           "fallback_advice": sum(l.source == "fallback" for l in mem.entries), **ops}
+    if mem.credit == "heldout":
+        act = [l for l in mem.entries if not l.retired]
+        out.update(tested=sum(mem.tested(l) for l in act), proven=sum(mem.proven(l) for l in act),
+                   retry=sum(l.source == "reflection_retry" for l in mem.entries))
+    return out

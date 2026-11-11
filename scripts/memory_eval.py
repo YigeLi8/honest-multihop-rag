@@ -1,46 +1,60 @@
 """Frozen experience memory on hotpot explore against the main agent without
-memory (docs/plan.md, Stage 6 A5).
+memory (docs/plan.md, Stage 6 A5 and A7).
 
-    PYTHONPATH=. .venv312/bin/python scripts/memory_eval.py
+    PYTHONPATH=. .venv312/bin/python scripts/memory_eval.py              # A5, version 1
+    PYTHONPATH=. .venv312/bin/python scripts/memory_eval.py --tag mem2   # A7, version 2
 
-Reads the no-memory run (orchestrator_hotpot_explore) and the four frozen
-memory runs (orchestrator_mem_<mode>_hotpot_explore, mode in region, global,
-shuffled, flat), all on the same 500 explore questions, plus the two stores
-built on train and the two build runs. Writes
+Reads the no-memory run (orchestrator_hotpot_explore) and the frozen memory
+runs (orchestrator_<tag>_<mode>_hotpot_explore, mode in region, global,
+shuffled, flat; a mode that was not run is skipped), all on the same 500
+explore questions, plus the two stores built on train and the two build
+runs. Writes
 
-    results/orchestrator_mem_hotpot_explore_paired.csv
+    results/orchestrator_<tag>_hotpot_explore_paired.csv
         one row per memory arm against no memory: em / f1 differences with
-        paired bootstrap intervals, exact McNemar with Holm over the four
-        arms, the same by question type, notebook gold metrics, calls and
+        paired bootstrap intervals, exact McNemar with Holm over the arms,
+        the same by question type, notebook gold metrics, calls and
         latency, and how often lessons were shown
-    results/orchestrator_mem_hotpot_explore_steps.csv
+    results/orchestrator_<tag>_hotpot_explore_steps.csv
         per arm and error type: how often the error occurred, at steps where
         a lesson of that type was shown and where none was
-    results/agent_memory/build_summary.csv
+    results/agent_memory/build_summary<suffix>.csv
         per store: operators, advice sources, active lessons by role and
-        type, how many passed probation; and per quarter of the build stream
-        (questions in random order, so the quarters are exchangeable): em,
-        show rate and error rates
+        type, how many passed probation (version 2: tested and proven); per
+        quarter of the build stream (questions in random order, so the
+        quarters are exchangeable): em, show rate and error rates; and with
+        held-out credit, the pooled randomized comparison over the build:
+        step success where a lesson was shown against where the lessons
+        that applied were held out
+    results/agent_memory/<store>_lessons.csv (version 2)
+        every lesson with its shown / held-out counts, utility, se, lower
+        bound and advice
 
-Shown-versus-not splits are descriptive: where a lesson is shown is not
-random, so they say where the lessons landed, not what they caused.
+Shown-versus-not splits on the frozen runs are descriptive: where a lesson is
+shown there is not random. The held-out comparisons from a version 2 build
+are randomized.
 """
+import argparse
 import csv
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
 from types import SimpleNamespace
 
-from src.agent.memory import TYPES, score_steps
-from src.eval.stats import holm, mcnemar, paired_bootstrap
+from src.agent.memory import TYPES, ExperienceMemory, score_steps
+from src.config import load_config
+from src.eval.stats import holm, mcnemar, paired_bootstrap, wilson_ci
 
 R = Path("results")
 DATA = Path("data/processed")
 BASE = "orchestrator_hotpot_explore"
 ARMS = ("region", "global", "shuffled", "flat")
-STORES = {"region": ("orchestrator_mem_build_hotpot_train", "hotpot_train_region"),
-          "flat": ("orchestrator_mem_build_flat_hotpot_train", "hotpot_train_flat")}
-MIN_N = 5
+TAGS = {
+    "mem": {"region": ("orchestrator_mem_build", "hotpot_train_region"),
+            "flat": ("orchestrator_mem_build_flat", "hotpot_train_flat"), "suffix": ""},
+    "mem2": {"region": ("orchestrator_mem2_build", "hotpot_train_region2"),
+             "flat": ("orchestrator_mem2_build_flat", "hotpot_train_flat2"), "suffix": "2"},
+}
 
 
 def rows_of(run):
@@ -66,18 +80,17 @@ def gold_of(split, ids):
 
 
 def step_errors(trace, gold):
-    """score_steps on a trace record: [(role, type, failed, shown_ids_of_that_type?)]."""
+    """score_steps on a trace record: [(role, key, {type: failed}, shown ids, held ids)]."""
     hops = [SimpleNamespace(retrieved=[SimpleNamespace(chunk=SimpleNamespace(chunk_id=c))
                                        for c in h["retrieved"]]) for h in trace["hops"]]
     res = SimpleNamespace(hops=hops, steps=trace["steps"], notebook=trace["notebook"])
     ex = SimpleNamespace(gold_chunk_ids=gold, chunks=[], question=trace["steps"][0]["question"])
-    shown = {}
+    shown, held = {}, {}
     for s in trace["steps"]:
-        if s.get("role") == "planner":
-            shown["planner"] = s.get("lesson_ids", [])
-        elif "features" in s:
-            shown[s["hop"]] = s.get("lesson_ids", [])
-    return [(role, key, failed, shown.get(key, []))
+        key = "planner" if s.get("role") == "planner" else s.get("hop")
+        if s.get("role") == "planner" or "features" in s:
+            shown[key], held[key] = s.get("lesson_ids", []), s.get("held_ids", [])
+    return [(role, key, failed, shown.get(key, []), held.get(key, []))
             for role, key, _, failed, _ in score_steps(ex, res)]
 
 
@@ -93,9 +106,12 @@ def paired(base, arm, ids, field):
     return d, lo, hi, a, b
 
 
-def lesson_types(store):
-    d = json.loads((R / "agent_memory" / f"{store}.json").read_text())
-    return {l["id"]: l for l in d["lessons"]}, d
+def memory_of(build_run, store):
+    """The store as the build left it, read with the build's own settings."""
+    cfg = load_config(f"configs/{build_run}.yaml")
+    mem = ExperienceMemory.from_config(cfg, None)
+    mem.load(R / "agent_memory" / f"{store}.json")
+    return mem
 
 
 def show_stats(traces):
@@ -122,6 +138,12 @@ def show_stats(traces):
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--tag", default="mem", choices=sorted(TAGS))
+    tag = ap.parse_args().tag
+    stores = {k: v for k, v in TAGS[tag].items() if k != "suffix"}
+    mems = {k: memory_of(*v) for k, v in stores.items()}
+
     base = rows_of(BASE)
     ids = list(base)
     gold = gold_of("dev", ids)
@@ -130,10 +152,22 @@ def main():
         by_type[base[i]["qtype"]].append(i)
 
     out, steps_out, pvals = [], [], []
-    store_lessons = {m: lesson_types(STORES["flat" if m == "flat" else "region"][1])[0]
-                     for m in ARMS}
+    none_tr = traces_of(BASE)
+    ncnt = defaultdict(lambda: [0, 0])
+    for i in ids:
+        for role, key, failed, _, _ in step_errors(none_tr[i], gold[i]):
+            for typ, bad in failed.items():
+                ncnt[(role, typ)][0] += bad
+                ncnt[(role, typ)][1] += 1
+    for (role, typ), (k, n) in sorted(ncnt.items()):
+        steps_out.append({"arm": "none", "role": role, "type": typ, "where": "all",
+                          "steps": n, "error_rate": k / n})
+
     for m in ARMS:
-        run = f"orchestrator_mem_{m}_hotpot_explore"
+        run = f"orchestrator_{tag}_{m}_hotpot_explore"
+        if not (R / f"{run}_qa.csv").exists():
+            print(f"{m}: not run, skipped")
+            continue
         arm, tr = rows_of(run), traces_of(run)
         assert set(arm) == set(ids), run
         d_em, lo, hi, a, b = paired(base, arm, ids, "em")
@@ -155,14 +189,15 @@ def main():
         # questions where anything was shown versus nothing (descriptive)
         shown_q = [i for i in ids if any(s.get("lesson_ids") for s in tr[i]["steps"])]
         quiet_q = [i for i in ids if i not in set(shown_q)]
-        for tag, qs in (("shownq", shown_q), ("quietq", quiet_q)):
-            row[f"n_{tag}"] = len(qs)
-            row[f"d_em_{tag}"] = (mean(float(arm[i]["em"]) for i in qs)
-                                  - mean(float(base[i]["em"]) for i in qs)) if qs else float("nan")
-        # lessons shown that had passed probation at the end of the build
-        lessons = store_lessons[m]
+        for t, qs in (("shownq", shown_q), ("quietq", quiet_q)):
+            row[f"n_{t}"] = len(qs)
+            row[f"d_em_{t}"] = (mean(float(arm[i]["em"]) for i in qs)
+                                - mean(float(base[i]["em"]) for i in qs)) if qs else float("nan")
+        # lessons shown that had passed probation (version 2: proven) at the end of the build
+        mem = mems["flat" if m == "flat" else "region"]
+        lessons = {l.id: l for l in mem.entries}
         shown_ids = [x for t in tr.values() for s in t["steps"] for x in s.get("lesson_ids") or []]
-        row["shown_past_probation"] = mean(lessons[x]["shown"] >= MIN_N for x in shown_ids) \
+        row["shown_past_probation"] = mean(mem.tested(lessons[x]) for x in shown_ids) \
             if shown_ids else float("nan")
         out.append(row)
         pvals.append(p)
@@ -170,75 +205,99 @@ def main():
         # error rates per type, at steps with a lesson of that type shown and without
         cnt = defaultdict(lambda: [0, 0])
         for i in ids:
-            for role, key, failed, sids in step_errors(tr[i], gold[i]):
+            for role, key, failed, sids, _ in step_errors(tr[i], gold[i]):
                 for typ, bad in failed.items():
-                    has = any(lessons.get(x, {}).get("type") == typ for x in sids)
-                    for tag in ("all", "shown" if has else "not_shown"):
-                        cnt[(role, typ, tag)][0] += bad
-                        cnt[(role, typ, tag)][1] += 1
-        if m == ARMS[0]:
-            none_tr = traces_of(BASE)
-            ncnt = defaultdict(lambda: [0, 0])
-            for i in ids:
-                for role, key, failed, _ in step_errors(none_tr[i], gold[i]):
-                    for typ, bad in failed.items():
-                        ncnt[(role, typ)][0] += bad
-                        ncnt[(role, typ)][1] += 1
-            for (role, typ), (k, n) in sorted(ncnt.items()):
-                steps_out.append({"arm": "none", "role": role, "type": typ, "where": "all",
-                                  "steps": n, "error_rate": k / n})
-        for (role, typ, tag), (k, n) in sorted(cnt.items()):
-            steps_out.append({"arm": m, "role": role, "type": typ, "where": tag,
+                    has = any(x in lessons and lessons[x].type == typ for x in sids)
+                    for where in ("all", "shown" if has else "not_shown"):
+                        cnt[(role, typ, where)][0] += bad
+                        cnt[(role, typ, where)][1] += 1
+        for (role, typ, where), (k, n) in sorted(cnt.items()):
+            steps_out.append({"arm": m, "role": role, "type": typ, "where": where,
                               "steps": n, "error_rate": k / n})
 
     for row, ph in zip(out, holm(pvals)):
         row["p_holm"] = ph
-    write(R / "orchestrator_mem_hotpot_explore_paired.csv", out)
-    write(R / "orchestrator_mem_hotpot_explore_steps.csv", steps_out)
+    if out:
+        write(R / f"orchestrator_{tag}_hotpot_explore_paired.csv", out)
+    write(R / f"orchestrator_{tag}_hotpot_explore_steps.csv", steps_out)
 
     build = []
-    for mode, (run, store) in STORES.items():
-        lessons, d = lesson_types(store)
+    for mode, (build_run, store) in stores.items():
+        mem = mems[mode]
+        lessons = {l.id: l for l in mem.entries}
         ops = Counter(json.loads(line)["op"]
                       for line in open(R / "agent_memory" / f"{store}.log.jsonl"))
-        base_rate = {k: (v[0] + 1) / (v[1] + 2) for k, v in d["base"].items()}
+        sources = Counter(l.source for l in lessons.values())
         rec = {"store": store, "part": "store", "lessons": len(lessons),
-               "active": sum(not l["retired"] for l in lessons.values()),
-               "reflection": sum(l["source"] == "reflection" for l in lessons.values()),
-               "fallback_advice": sum(l["source"] == "fallback" for l in lessons.values()),
+               "active": sum(not l.retired for l in lessons.values()),
+               "reflection": sources["reflection"] + sources["reflection_retry"],
+               "fallback_advice": sources["fallback"],
+               **({"reflection_retry": sources["reflection_retry"]}
+                  if mem.credit == "heldout" else {}),
                **{f"op_{k}": v for k, v in sorted(ops.items())}}
         for role, types in TYPES.items():
             for typ in types:
                 act = [l for l in lessons.values()
-                       if not l["retired"] and l["role"] == role and l["type"] == typ]
-                br = base_rate[f"{role}|{typ}"]
+                       if not l.retired and l.role == role and l.type == typ]
                 rec[f"active_{role}_{typ}"] = len(act)
-                rec[f"proven_{role}_{typ}"] = sum(
-                    l["shown"] >= MIN_N and (l["ok_shown"] + 1) / (l["shown"] + 2) > br
-                    for l in act)
-                rec[f"probation_{role}_{typ}"] = sum(l["shown"] < MIN_N for l in act)
-                rec[f"base_ok_{role}_{typ}"] = br
+                if mem.credit == "heldout":
+                    rec[f"tested_{role}_{typ}"] = sum(mem.tested(l) for l in act)
+                    rec[f"proven_{role}_{typ}"] = sum(mem.proven(l) for l in act)
+                else:
+                    rec[f"proven_{role}_{typ}"] = sum(mem.tested(l) and mem.utility(l) > 0
+                                                      for l in act)
+                    rec[f"probation_{role}_{typ}"] = sum(l.shown < mem.min_n for l in act)
+                    ok, n = mem.base[(role, typ)]
+                    rec[f"base_ok_{role}_{typ}"] = (ok + 1) / (n + 2)
         build.append(rec)
 
+        run = build_run.replace("configs/", "") + "_hotpot_train"
         rows, tr = rows_of(run), traces_of(run)
         order = list(rows)             # file order = stream order
         g = gold_of("train", order)
         q = len(order) // 4
+        pooled = defaultdict(lambda: [0, 0])     # (role, shown|held) -> [ok, n]
         for k in range(4):
             part = order[k * q:(k + 1) * q]
             errs = defaultdict(lambda: [0, 0])
             for i in part:
-                for role, key, failed, _ in step_errors(tr[i], g[i]):
+                for role, key, failed, sids, hids in step_errors(tr[i], g[i]):
                     for typ, bad in failed.items():
                         errs[typ][0] += bad
                         errs[typ][1] += 1
+                    ok = not any(failed.values())
+                    for arm_, on in (("shown", sids), ("held", hids)):
+                        if on:
+                            pooled[(role, arm_)][0] += ok
+                            pooled[(role, arm_)][1] += 1
             st = show_stats({i: tr[i] for i in part})
             build.append({"store": store, "part": f"q{k + 1}", "n": len(part),
                           "em": mean(float(rows[i]["em"]) for i in part),
                           "q_any_shown": st["q_any_shown"], "sub_shown": st["sub_shown"],
                           "planner_shown": st["planner_shown"],
                           **{f"err_{t}": v[0] / v[1] for t, v in sorted(errs.items())}})
-    write(R / "agent_memory" / "build_summary.csv", build)
+        if mem.credit == "heldout":
+            for role in TYPES:
+                (ks, ns), (kh, nh) = pooled[(role, "shown")], pooled[(role, "held")]
+                if not ns or not nh:
+                    continue
+                ps, ph = ks / ns, kh / nh
+                se = (ps * (1 - ps) / ns + ph * (1 - ph) / nh) ** 0.5
+                build.append({"store": store, "part": f"heldout_{role}", "n_shown": ns,
+                              "ok_shown": ps, "ok_shown_lo": wilson_ci(ks, ns)[0],
+                              "ok_shown_hi": wilson_ci(ks, ns)[1], "n_held": nh, "ok_held": ph,
+                              "ok_held_lo": wilson_ci(kh, nh)[0],
+                              "ok_held_hi": wilson_ci(kh, nh)[1], "diff": ps - ph,
+                              "diff_lo": ps - ph - 1.96 * se, "diff_hi": ps - ph + 1.96 * se})
+            write(R / "agent_memory" / f"{store}_lessons.csv",
+                  [{"id": l.id, "role": l.role, "type": l.type, "source": l.source,
+                    "members": " ".join(m[0] for m in l.members), "created": l.created,
+                    "shown": l.shown, "ok_shown": l.ok_shown, "held": l.held,
+                    "ok_held": l.ok_held, "utility": mem.utility(l), "se": mem.se(l),
+                    "lcb": mem.utility(l) - mem.z * mem.se(l), "tested": int(mem.tested(l)),
+                    "proven": int(mem.proven(l)), "retired": int(l.retired), "advice": l.advice}
+                   for l in mem.entries])
+    write(R / "agent_memory" / f"build_summary{TAGS[tag]['suffix']}.csv", build)
 
     for row in out:
         print(f"{row['arm']:9s} em {row['em']:.3f} vs {row['em_none']:.3f}  "
@@ -247,6 +306,11 @@ def main():
               f"bridge {row['d_em_bridge']:+.3f} comparison {row['d_em_comparison']:+.3f}  "
               f"shown q {row['q_any_shown']:.2f} sub {row['sub_shown']:.2f} "
               f"planner {row['planner_shown']:.2f}  past probation {row['shown_past_probation']:.2f}")
+    for rec in build:
+        if rec["part"].startswith("heldout"):
+            print(f"{rec['store']} {rec['part']}: ok shown {rec['ok_shown']:.3f} (n {rec['n_shown']})"
+                  f" held {rec['ok_held']:.3f} (n {rec['n_held']}) diff {rec['diff']:+.3f}"
+                  f" [{rec['diff_lo']:+.3f}, {rec['diff_hi']:+.3f}]")
 
 
 def write(path, rows):

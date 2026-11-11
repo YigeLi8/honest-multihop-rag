@@ -141,6 +141,9 @@ def search_loop(pipe, ex, question, max_hops, usage, traces, steps, seen,
             notebook[shown[j].chunk.chunk_id] = shown[j]
         if lessons:
             step["lesson_ids"] = list(getattr(pipe.lessons, "last_ids", []))
+        held = list(getattr(pipe.lessons, "last_held", [])) if pipe.lessons else []
+        if held:
+            step["held_ids"] = held       # applied, held out by the memory's coin
         step.update(lessons=lessons, reply=text, kept=[shown[j].chunk.chunk_id for j in keep],
                     action=action, next_query=nxt)
         steps.append(step)

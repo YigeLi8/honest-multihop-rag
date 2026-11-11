@@ -1,0 +1,24 @@
+# Stage 6 A7 (memory version 2): evaluation on hotpot dev with the memory frozen, mode global
+run:
+  name: orchestrator_mem2_global_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+generation:
+  backend: mlx
+agent_memory:
+  enabled: true
+  mode: global
+  learn: false
+  load: results/agent_memory/hotpot_train_region2.json
+  credit: heldout
+  batch: 4
+  generality: true
+  min_n: 20
+  max_shown: 1
+  p_control: 0.5
+  z: 1.0

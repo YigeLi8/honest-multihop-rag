@@ -2097,6 +2097,214 @@ def test_memory_in_the_loop():
     assert res.gen_calls == 4
 
 
+def test_memory_v2():
+    """Version 2: batched reflection with the generality check, held-out
+    credit while building, proven lessons only when frozen."""
+    import tempfile
+    from pathlib import Path
+    import numpy as np
+    from src.agent.memory import FALLBACK, ExperienceMemory, score_steps, specific_words
+    from src.memory.features import FEATURES
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, HopTrace, RetrievedChunk
+
+    class NS:
+        pass
+
+    texts = ["who founded the publisher of the magazine", "when was the band formed",
+             "where was the singer born", "which magazine came out first"]
+    assert specific_words("Keep results about the publisher.", texts) == ["publisher"]
+    assert specific_words("Keep results naming the magazines.", texts) == []     # 2 of 4
+    assert specific_words("Keep every result that names an entity the question asks about.",
+                          texts) == []
+    assert specific_words("Keep the singer.", ["the singer was born"]) == ["singer"]
+
+    pool = {c: Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0])
+            for c in ("G::0", "X::0", "Y::0")}
+
+    def ex_(i, q="Who directed the film?"):
+        return Example(id=i, question=q, answer="Ann", hops=2, chunks=list(pool.values()),
+                       gold_chunk_ids=["G::0"])
+
+    def episode(x, ok):
+        res = NS()
+        shown, kept = (["G::0", "X::0"], ["G::0"]) if ok else (["G::0", "X::0", "Y::0"],
+                                                               ["X::0", "Y::0"])
+        res.steps = [{"hop": 0, "query": "q", "features": {f: float(x) for f in FEATURES},
+                      "shown": shown, "kept": kept}]
+        res.hops = [HopTrace(hop=0, query="q", retrieved=[RetrievedChunk(pool[c], 1.0, r)
+                                                          for r, c in enumerate(shown, 1)])]
+        res.notebook = kept
+        return res
+
+    def step(x):
+        return {"hop": 0, "features": {f: float(x) for f in FEATURES}, "question": "q",
+                "notebook": []}
+
+    # a lesson waits for failures on batch different questions
+    mem = ExperienceMemory(None, None, mode="region", learn=True, warmup=0, min_n=2,
+                           reflect=False, credit="heldout", batch=2, max_shown=1, seed=1)
+    mem.on_episode(ex_("a"), episode(0.0, ok=False), {})
+    mem.on_episode(ex_("a"), episode(0.1, ok=False), {})
+    assert mem.entries == [] and len(mem._buffer[("subagent", "dropped")]) == 2
+    mem.on_episode(ex_("b"), episode(0.2, ok=False), {})
+    assert [(l.id, l.type) for l in mem.entries] == [("s1", "dropped"), ("s2", "noise")]
+    s1, s2 = mem.entries
+    assert [m[0] for m in s1.members] == ["b", "a"] and len(s1.support) == 2
+    assert s1.lo[0] <= 0.1 and s1.hi[0] >= 0.2
+
+    # building: each decision either holds every applicable lesson out or shows one
+    saw = {"held": 0, "shown": 0}
+    for i in range(40):
+        advice = mem.lessons(step(0.15))
+        if advice:
+            assert len(advice) == 1 and len(mem.last_ids) == 1 and mem.last_held == []
+            saw["shown"] += 1
+        else:
+            assert sorted(mem.last_held) == ["s1", "s2"] and mem.last_ids == []
+            saw["held"] += 1
+        mem.on_episode(ex_(f"r{i}"), episode(0.15, ok=bool(advice)), {})
+    assert saw["held"] > 5 and saw["shown"] > 5
+    assert s1.held + s2.held == 2 * saw["held"] and s1.shown + s2.shown == saw["shown"]
+    assert s1.ok_held == 0 and s1.ok_shown == s1.shown            # success is the whole step
+    assert mem.proven(s1) and mem.proven(s2) and len(mem.entries) == 2
+
+    # frozen: proven lessons only, one per decision, nothing held out
+    with tempfile.TemporaryDirectory() as d:
+        path = Path(d) / "m.json"
+        mem.save(path)
+        kw = dict(learn=False, load=path, credit="heldout", min_n=2, max_shown=1)
+        frozen = ExperienceMemory(None, None, mode="region", **kw)
+        assert len(frozen.lessons(step(0.15))) == 1 and frozen.last_held == []
+        a, b = frozen.entries
+        a.ok_shown = 0                                            # no better than held out
+        assert frozen.lessons(step(0.15)) == [b.advice]
+        b.held = 1                                                # too few held-out trials
+        assert frozen.lessons(step(0.15)) == []
+        assert len(ExperienceMemory(None, None, mode="global", **kw).lessons(step(100.0))) == 1
+        assert ExperienceMemory(None, None, mode="region", **kw).lessons(step(100.0)) == []
+
+    # retired once both counts reach min_n and it does no better than held out
+    s2.ok_shown, s2.ok_held = 0, s2.held
+    empty = NS()
+    empty.steps, empty.hops, empty.notebook = [], [], []
+    mem.on_episode(ex_("z"), empty, {})
+    assert s2.retired and not s1.retired and mem.log[-1]["op"] == "retire"
+
+    # batched reflection: a rule about one source step gets one retry, then
+    # the fixed sentence; a leak goes straight to the fixed sentence
+    class Gen:
+        def __init__(self, replies):
+            self.replies, self.prompts = list(replies), []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            return self.replies.pop(0), GenMetrics(tokens_per_s=1.0, ttft_s=0,
+                                                   peak_memory_mb=1.0, completion_tokens=1)
+
+    qs = ["Who founded the publisher of the magazine?", "When was the band formed?",
+          "Where was the singer born?", "Which album came out first?"]
+    fails = []
+    for i, q in enumerate(qs):
+        e = ex_(f"m{i}", q)
+        (_, _, x, _, detail), = score_steps(e, episode(0.3, ok=False))
+        fails.append(ExperienceMemory._failure(x, e, detail))
+    general = "Keep every result that states a fact about an entity the question names."
+    for replies, source, advice in (
+            (["Keep results about the publisher.", general], "reflection_retry", general),
+            (["Keep results about the publisher.", "Keep the publisher."], "fallback",
+             FALLBACK["dropped"]),
+            (["Prefer results dated after 1990."], "fallback", FALLBACK["dropped"]),
+            ([general], "reflection", general)):
+        pipe = NS()
+        pipe.generator = Gen(replies)
+        m4 = ExperienceMemory(None, pipe, mode="region", learn=True, warmup=0, credit="heldout",
+                              batch=4, generality=True)
+        m4._create("subagent", "dropped", fails, np.ones(len(FEATURES)))
+        l, = m4.entries
+        assert (l.source, l.advice) == (source, advice), (replies, l.source, l.advice)
+        assert [m[0] for m in l.members] == ["m0", "m1", "m2", "m3"]
+        assert "4 steps, from different questions" in pipe.generator.prompts[0]
+        assert all(q in pipe.generator.prompts[0] for q in qs)
+        if len(pipe.generator.prompts) > 1:
+            assert "too specific: it mentions publisher" in pipe.generator.prompts[1]
+    # with a capitalised name in a source question, naming it is a leak
+    fails[2]["ex_question"] = "Where was Ann born?"
+    pipe = NS()
+    pipe.generator = Gen(["Check where Ann was born."])
+    m4 = ExperienceMemory(None, pipe, mode="region", learn=True, credit="heldout", batch=4,
+                          generality=True)
+    m4._create("subagent", "dropped", fails, np.ones(len(FEATURES)))
+    assert m4.entries[0].source == "fallback" and len(pipe.generator.prompts) == 1
+
+
+def test_memory_v2_in_the_loop():
+    """Version 2 inside the main agent: held-out decisions are logged in the
+    steps, and the counts add up to the decisions where lessons applied."""
+    from src.agent.memory import ExperienceMemory
+    from src.eval.run_qa import score_row, trace_record
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    pool = [Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0])
+            for c in ("Film::0", "Film::1", "Ann::0", "Ann::1")]
+
+    class NS:
+        pass
+    cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+    cfg.pipeline.mode = "orchestrator"
+    cfg.pipeline.max_hops = 3
+    cfg.pipeline.max_subquestions = 3
+    cfg.pipeline.sub_max_hops = 1
+    cfg.retrieval.top_k = 2
+
+    class Retriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            ids = ["Film::1", "Film::0"]
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    class Gen:
+        def generate(self, prompt, max_tokens=None):
+            m = GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=3)
+            if "improving an evidence-collecting assistant" in prompt:
+                return "Make one lookup for each entity the question names.", m
+            if "Break the question" in prompt:
+                return "1. Who directed the film?", m
+            if "collecting evidence" in prompt:
+                return "KEEP: 1\nNEXT: ANSWER", m
+            return "Ann", m
+
+    p = MultiHopPipeline.__new__(MultiHopPipeline)
+    p.cfg, p.retriever, p.reranker, p.generator = cfg, Retriever(), None, Gen()
+    p.lessons = ExperienceMemory(cfg, p, mode="region", learn=True, warmup=0, min_n=20,
+                                 credit="heldout", batch=2, max_shown=1, generality=True, seed=13)
+    recs = []
+    for i in range(10):
+        ex = Example(id=f"q{i}", question=f"Where was the director of film {i} born?",
+                     answer="Paris", hops=2, chunks=pool, gold_chunk_ids=["Film::0", "Ann::0"])
+        res = p.run_example(ex)
+        score_row(ex, res)
+        recs.append(trace_record(ex, res))
+        p.lessons.on_episode(ex, res, {})
+    assert {(l.role, l.type) for l in p.lessons.entries} >= {("planner", "unreached"),
+                                                            ("subagent", "dropped")}
+    assert all(len(l.members) == 2 for l in p.lessons.entries)
+    steps = [s for r in recs for s in r["steps"] if "reply" in s]
+    held = [s for s in steps if s.get("held_ids")]
+    shown = [s for s in steps if s.get("lesson_ids")]
+    assert held and shown and not any(s.get("held_ids") and s.get("lesson_ids") for s in steps)
+    assert all(len(s["lesson_ids"]) == 1 for s in shown)
+    n_held = sum(len(s["held_ids"]) for s in held)
+    assert sum(l.held for l in p.lessons.entries) == n_held
+    assert sum(l.shown for l in p.lessons.entries) == len(shown)
+    assert res.gen_calls == 4
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -2133,4 +2341,6 @@ if __name__ == "__main__":
     test_orchestrator()
     test_experience_memory()
     test_memory_in_the_loop()
+    test_memory_v2()
+    test_memory_v2_in_the_loop()
     print("all good")

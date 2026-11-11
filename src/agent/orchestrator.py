@@ -83,6 +83,7 @@ def run_orchestrated(pipe, ex):
 
     plan_step = {"role": "planner", "question": ex.question}
     lessons = pipe.lessons.lessons(dict(plan_step)) if pipe.lessons else []
+    held = list(getattr(pipe.lessons, "last_held", [])) if pipe.lessons else []
     text, m = pipe._gen(PLAN_PROMPT.format(question=ex.question, lessons=format_lessons(lessons)),
                         max_tokens=PLAN_TOKENS)
     usage.add(m)
@@ -92,6 +93,8 @@ def run_orchestrated(pipe, ex):
         subs = [ex.question]
     if lessons:
         plan_step["lesson_ids"] = list(getattr(pipe.lessons, "last_ids", []))
+    if held:
+        plan_step["held_ids"] = held
     plan_step.update(lessons=lessons, reply=text, plan=subs, plan_fallback=plan_fallback)
     steps.append(plan_step)
 
