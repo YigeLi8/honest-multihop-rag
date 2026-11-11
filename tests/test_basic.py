@@ -124,6 +124,63 @@ def test_criteria_ladder():
     assert rows["f1_50"]["illusion_lo"] <= rows["f1_50"]["illusion_rate"] <= rows["f1_50"]["illusion_hi"]
 
 
+def test_stop_audit():
+    import pandas as pd
+    from src.eval.stop_audit import answer_chunks, audit_question, first_hops, summary_rows
+    from src.types import example_from_json
+    ex = example_from_json({
+        "id": "q", "question": "Which city is the Red Bridge in?", "answer": "Mumbai",
+        "hops": 2, "qtype": "bridge", "level": "hard",
+        "chunks": [{"chunk_id": "Red Bridge::0", "title": "Red Bridge", "sent_idx": 0,
+                    "text": "The Red Bridge was built by Rao."},
+                   {"chunk_id": "Rao::0", "title": "Rao", "sent_idx": 0,
+                    "text": "Rao lived in Mumbai."},
+                   {"chunk_id": "Other::0", "title": "Other", "sent_idx": 0, "text": "Noise."}],
+        "gold_chunk_ids": ["Red Bridge::0", "Rao::0"], "gold_supporting_facts": []})
+    assert answer_chunks(ex) == ["Rao::0"]
+    yesno = example_from_json({**ex.__dict__, "answer": "yes", "chunks": [], "answer_aliases": []})
+    assert answer_chunks(yesno) == []
+
+    def trace(stop, *lists):
+        return {"id": "q", "stop_reason": stop,
+                "hops": [{"hop": h, "query": "", "retrieved": l} for h, l in enumerate(lists)]}
+
+    # the bridge at hop 0, the answer sentence at hop 1, done after that
+    t = trace("done", ["Red Bridge::0", "Other::0"], ["Rao::0"])
+    assert first_hops(t, set(ex.gold_chunk_ids)) == {"Red Bridge::0": 0, "Rao::0": 1}
+    row = audit_question(ex, t, {"em": 1.0, "retrieval_correct": 1})
+    assert row["complete"] == 1 and row["hop_complete"] == 1 and row["complete_at_hop0"] == 0
+    assert row["answer_hop"] == 1 and row["premature"] == 0 and row["surplus_hops"] == 0
+    assert row["late_gold"] == 1 and row["gold_after_hop0"] == 1
+    # done with the answer sentence never retrieved: a premature stop
+    row = audit_question(ex, trace("done", ["Red Bridge::0"]), {"em": 1.0, "retrieval_correct": 0})
+    assert row["complete"] == 0 and row["premature"] == 1 and row["answer_hop"] == -1
+    assert row["n_gold_seen"] == 1 and row["gold_first_hops"] == "Red Bridge::0=0;Rao::0=-1"
+    # everything at hop 0, then two more hops to the limit: surplus, not premature
+    row = audit_question(ex, trace("max_hops", ["Rao::0", "Red Bridge::0"], ["Other::0"], ["Other::0"]),
+                         {"em": 0.0, "retrieval_correct": 1})
+    assert row["complete_at_hop0"] == 1 and row["surplus_hops"] == 2 and row["premature"] == 0
+    assert row["late_gold"] == 0 and row["model_stop"] == 0
+
+    audit = pd.DataFrame([
+        {"run": "r", "stop_reason": "done", "em": 1, "complete": 1, "complete_at_hop0": 1,
+         "gold_after_hop0": 0, "premature": 0, "surplus_hops": 0, "late_gold": 0,
+         "answer_sentence": 1, "answer_hop": 0, "hops": 1},
+        {"run": "r", "stop_reason": "done", "em": 1, "complete": 0, "complete_at_hop0": 0,
+         "gold_after_hop0": 0, "premature": 1, "surplus_hops": -1, "late_gold": 0,
+         "answer_sentence": 1, "answer_hop": -1, "hops": 1},
+        {"run": "r", "stop_reason": "max_hops", "em": 0, "complete": 1, "complete_at_hop0": 1,
+         "gold_after_hop0": 0, "premature": 0, "surplus_hops": 2, "late_gold": 0,
+         "answer_sentence": 0, "answer_hop": -1, "hops": 3},
+    ])
+    s = summary_rows(audit).set_index("stop_reason")
+    assert s.loc["all"]["n"] == 3 and s.loc["done"]["share"] == round(2 / 3, 4)
+    assert s.loc["done"]["premature"] == 0.5 and s.loc["done"]["em_premature"] == 1.0
+    assert s.loc["max_hops"]["surplus_mean"] == 2.0 and s.loc["max_hops"]["premature"] == 0.0
+    assert s.loc["all"]["answer_never"] == 0.5 and s.loc["all"]["never_complete"] == round(1 / 3, 4)
+    assert s.loc["all"]["em_lo"] <= s.loc["all"]["em"] <= s.loc["all"]["em_hi"]
+
+
 def test_precision_recall():
     from src.eval.per_hop_precision import precision_recall
     p, r = precision_recall(["a", "b", "c", "d"], ["a", "x"])
@@ -419,6 +476,7 @@ if __name__ == "__main__":
     test_answer_metrics()
     test_capped_containment()
     test_criteria_ladder()
+    test_stop_audit()
     test_precision_recall()
     test_decoupling_table()
     test_wilson_ci()
