@@ -1,0 +1,5 @@
+run,stop_reason,n,share,em,em_lo,em_hi,retrieval_correct,mean_hops,complete_at_hop0,complete_later,never_complete,gold_after_hop0,premature,em_premature,em_complete,surplus_mean,surplus_any,late_gold,answer_never,answer_at_hop0
+hybrid_ircot_musique_confirm,all,1000,1.0,0.223,0.1983,0.2498,0.553,2.625,0.278,0.275,0.447,0.401,0.381,0.1129,0.311,1.13,0.736,0.098,0.271,0.517
+hybrid_ircot_musique_confirm,repeated_query,659,0.659,0.2079,0.1786,0.2405,0.5114,2.426,0.2762,0.2352,0.4886,0.3733,0.4886,0.1118,0.2997,1.0,0.7745,0.1123,0.2944,0.525
+hybrid_ircot_musique_confirm,done,128,0.128,0.2891,0.2176,0.3728,0.5391,1.359,0.4141,0.125,0.4609,0.1484,0.4609,0.1186,0.4348,0.159,0.1304,0.1094,0.3281,0.5547
+hybrid_ircot_musique_confirm,max_hops,213,0.213,0.23,0.1786,0.2911,0.6901,4.0,0.2019,0.4883,0.3099,0.6385,0.0,,0.2789,1.884,0.932,0.0469,0.1643,0.4695

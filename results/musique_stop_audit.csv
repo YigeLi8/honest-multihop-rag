@@ -1,0 +1,1001 @@
+run,id,qtype,stop_reason,hops,em,retrieval_correct,n_gold,n_gold_seen,gold_first_hops,complete,hop_complete,complete_at_hop0,gold_after_hop0,answer_sentence,answer_hop,model_stop,premature,surplus_hops,late_gold
+hybrid_ircot_musique_confirm,4hop1__324759_378185_282674_759393,4hop1,repeated_query,3,0,0,4,1,p6::Pierce Manufacturing=0;p10::John C. Petersen=-1;p4::Pulaski High School=-1;p2::Jerome Quinn=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__159816_37168,2hop,repeated_query,3,0,1,2,2,p4::Zahi Hawass=0;p16::Egypt=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__491648_339990_15538,3hop1,repeated_query,2,1,1,3,3,"p6::Coles Creek (Pennsylvania)=0;p0::Socialist Party of Oregon (Columbia County, Oregon)=1;p12::Capital punishment in the United States=0",1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__510860_22402,2hop,repeated_query,2,0,1,2,2,p19::Roberto Andorno=0;p2::Switzerland=1,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__194006_42197_18397,3hop1,repeated_query,3,0,1,3,3,p14::Yuri Kleschev=0;p4::Imperialism=0;p19::Korean War=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__127821_157828_239539,3hop1,repeated_query,3,0,0,3,2,p14::Olivera Marković=0;p2::Serbian language=0;p13::Media in Pristina=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__593688_292889,2hop,done,1,0,0,2,1,p10::Pa Amadou Gai=0;p0::Stade de ASC HLM=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__13592_85544,2hop,repeated_query,3,1,1,2,2,p11::FC Barcelona=0;p12::La Liga=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__88342_49853_128008_80487,4hop1,repeated_query,3,0,0,4,1,p7::Major League Baseball Most Valuable Player Award=-1;p19::World Series=-1;p10::New York Yankees=-1;p4::2017 Major League Baseball All-Star Game=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__6362_14336_21111,3hop1,repeated_query,3,0,0,3,2,p17::Space Race=0;p9::Anti-aircraft warfare=-1;p7::Jews=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__135659_87694_124169,3hop1,max_hops,4,1,1,3,3,p15::Mantua Cathedral=0;p13::St. Peter's Basilica=2;p12::Governor of Vatican City=0,1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__132472_684936,2hop,repeated_query,2,0,1,2,2,p6::ALARM=0;p3::Sea Wolf (missile)=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__144678_443779_52195,3hop1,max_hops,4,0,0,3,2,p1::Bustami=1;p14::Indonesia–Timor Leste Commission of Truth and Friendship=0;p15::East Timor=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__538412_126089,2hop,done,1,1,1,2,2,p10::Schermer=0;p2::North Holland=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop3__387712_132409_223216_35031,4hop3,repeated_query,2,0,0,4,3,p19::Jacoby Shaddix=0;p16::Papa Roach=0;p14::Pathology (band)=0;p5::San Diego=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__635099_131926_87157,3hop1,repeated_query,3,0,1,3,3,p9::Write This Down (band)=0;p1::Minneapolis=1;p17::Mississippi River=2,1,2,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__329591_91104,2hop,repeated_query,2,1,1,2,2,p5::INSAT-4CR=0;p2::ATS-6=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__135793_87694_64412,3hop1,repeated_query,1,0,0,3,2,p17::San Pietro in Ciel d'Oro=0;p4::St. Peter's Basilica=0;p2::Vatican City=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__471509_136043,2hop,done,1,0,1,2,2,p19::Nicole and Natalie=0;p5::Nina Sky=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop1__458916_665330_47686,3hop1,repeated_query,3,1,0,3,2,p13::Spirit If...=1;p1::Kevin Drew=-1;p5::Toronto Coach Terminal=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__158247_71142,2hop,max_hops,4,1,1,2,2,p15::United Nations General Assembly resolution ES-10/L.22=1;p16::Siege of Jerusalem (636–637)=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__140345_2053_52946,3hop1,repeated_query,3,1,1,3,3,p5::Law of the Plainsman=0;p10::New York City=1;p15::Celebrity Big Brother (American TV series)=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__43776_162341,2hop,repeated_query,2,0,0,2,1,p12::78th Academy Awards=-1;p5::Charlie Wilson's War (film)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__304722_602987_63959,3hop2,repeated_query,2,0,0,3,1,p2::1894–95 FA Cup=-1;p15::Joe Gallagher (footballer)=0;p9::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__104979_23308_28343,3hop2,repeated_query,2,1,1,3,3,p19::Afghan bread=0;p2::Molotov–Ribbentrop Pact=0;p9::War on Terror=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__135963_486257,2hop,done,1,1,1,2,2,p8::GHZ experiment=0;p3::Anton Zeilinger=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__41158_35124,2hop,repeated_query,3,1,1,2,2,p5::Geology=0;p7::Muslim world=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__96812_130869,2hop,repeated_query,2,0,1,2,2,p5::Small Cowper Madonna=0;p16::National Gallery of Art=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__273020_57594,2hop,done,2,0,0,2,1,p4::Pollock (film)=-1;p18::LeMat Revolver=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__668178_378185_282674_759393,4hop1,repeated_query,3,0,1,4,4,p0::Don Werner=0;p7::John C. Petersen=1;p14::Pulaski High School=1;p17::Jerome Quinn=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop2__71753_261673_70784_61381,4hop2,repeated_query,3,0,0,4,3,p7::Israel=0;p1::Shamal (wind)=0;p14::Geography of Saudi Arabia=-1;p15::Saudi Arabia=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__85753_64503,2hop,repeated_query,3,0,1,2,2,p16::Capital punishment in Texas=0;p19::San Antonio River Walk=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop3__160230_470287_862998_72134,4hop3,repeated_query,3,1,1,4,4,"p4::Alma mater=0;p17::Alma Mater (Illinois sculpture)=0;p16::Hillcrest High School (Springfield, Missouri)=0;p18::Springfield, Illinois=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__68322_510545,2hop,repeated_query,2,0,0,2,1,p16::Paul Bettany=0;p11::A Beautiful Mind (soundtrack)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__132469_533882,2hop,repeated_query,3,0,1,2,2,p17::AAM-N-4 Oriole=0;p9::Martin Marietta=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__123104_77615,2hop,repeated_query,2,0,1,2,2,p0::Paolo Manalo=0;p7::Reserve Officers' Training Corps (Philippines)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__814776_765799_282674_759393,4hop1,repeated_query,2,0,0,4,1,p7::Western Islands (publisher)=0;p4::John C. Petersen=-1;p3::Pulaski High School=-1;p1::Jerome Quinn=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__152562_5274_458768_33633,4hop1,max_hops,4,0,0,4,2,"p8::Vilaiyaadu Mankatha=0;p7::Sony Music=-1;p9::The Right Stuff Records=2;p19::Santa Monica, California=-1",0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__25396_593388,2hop,done,1,0,1,2,2,p12::Political party=0;p1::William Yates Peel=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop1__280834_547811_80702,3hop1,repeated_query,2,1,1,3,3,"p11::Bajazet (opera)=0;p7::Orlando furioso (Vivaldi, 1714)=1;p6::Rialto Bridge=0",1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__131783_131926_87157,3hop1,done,1,0,0,3,2,p11::The Minikahda Club=0;p17::Minneapolis=0;p10::Mississippi River=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__326964_263934_7713,3hop2,repeated_query,3,0,1,3,3,p11::Yaxing Coach=0;p19::Tang Jinhua=0;p7::Nanjing=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__862117_792411_51423,3hop1,repeated_query,2,0,0,3,1,p9::The Speckless Sky=0;p16::Gavin Bradley=-1;p1::Casa Loma=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__47071_162399,2hop,repeated_query,2,0,1,2,2,p3::Bardoli Satyagraha=0;p5::Vallabhbhai Patel=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__84439_482364,2hop,max_hops,4,0,1,2,2,p3::Pelias=0;p8::Aeson=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__351275_75487,2hop,repeated_query,2,1,1,2,2,p11::Leon Benoit=0;p1::2017 Conservative Party of Canada leadership election=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__327688_56873,2hop,repeated_query,2,0,0,2,1,p14::Craig Westcarr=0;p15::Nottingham Forest F.C.=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__58168_38663,2hop,repeated_query,3,0,1,2,2,p9::Unemployment in the United States=1;p1::Tanzania=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__82766_67668,2hop,repeated_query,3,0,1,2,2,p13::Neil Patrick Harris=0;p4::Batman: Under the Red Hood=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__130404_59180,2hop,repeated_query,2,1,1,2,2,p2::WDXQ=0;p8::The Devil Went Down to Georgia=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__43579_289940,2hop,done,2,0,0,2,1,p17::List of National Football League annual sacks leaders=0;p12::Chandler Jones=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__76314_177869,2hop,max_hops,4,1,1,2,2,p19::The North Star (anti-slavery newspaper)=1;p17::Helen Pitts Douglass=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__168816_144857,2hop,max_hops,4,1,1,2,2,p12::Elephant (stories)=0;p1::Raymond Carver=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__194469_83289,2hop,repeated_query,3,0,1,2,2,p7::The Listening Sessions=0;p19::One Last Time (Ariana Grande song)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__45612_502967_84283,3hop1,repeated_query,2,0,0,3,1,p11::Top Gun Anthem=0;p16::Atomic Playboys=-1;p1::Warner Records=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__24980_42197_18397,3hop1,max_hops,4,0,0,3,2,p17::Dissolution of the Soviet Union=-1;p2::Imperialism=0;p7::Korean War=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__463353_66723,2hop,max_hops,4,0,0,2,1,p12::Swayze Field=0;p14::James Meredith=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop2__105527_39078_8987_8974,4hop2,repeated_query,2,0,0,4,3,p0::ZH-29=0;p9::Police=-1;p16::Josip Broz Tito=1;p18::Josip Broz Tito=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__575797_91104,2hop,max_hops,4,1,1,2,2,p6::INSAT-4CR=0;p3::ATS-6=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,4hop1__46196_497223_15840_36002,4hop1,max_hops,4,1,1,4,4,p0::List of Super Bowl halftime shows=0;p3::NFL (video game)=0;p14::Nintendo Entertainment System=0;p12::Super Nintendo Entertainment System=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,4hop1__341777_508773_85832_745702,4hop1,max_hops,4,1,0,4,3,p4::Eduardo Cuervo=0;p0::Paula Santiago=-1;p19::John Cabot=2;p12::Sebastian Cabot (explorer)=1,0,-1,0,1,1,1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__622497_160088_85460,3hop1,repeated_query,3,0,0,3,2,p8::The Wild Women of Chastity Gulch=0;p7::Aaron Spelling=1;p15::Household income in the United States=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__145209_20335_9331,3hop2,max_hops,4,0,1,3,3,p5::Alexey Brodovitch=0;p17::Thuringia=0;p12::Szlachta=1,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__663184_57816,2hop,repeated_query,2,1,1,2,2,p16::Bruce Nissen=0;p9::Florida International University College of Law=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop3__160230_470287_345497_72134,4hop3,repeated_query,1,0,0,4,3,"p1::Alma mater=0;p8::Alma Mater (Illinois sculpture)=0;p19::Taito Kantonen=0;p17::Springfield, Illinois=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__51760_122023,2hop,max_hops,4,0,0,2,0,p15::Mr. Peabody & Sherman=-1;p9::Albert Einstein=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__142881_127399,2hop,done,1,1,1,2,2,"p15::From Them, Through Us, to You=0;p1::Madina Lake=0",1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__31085_23241,2hop,max_hops,4,0,1,2,2,p5::Empiricism=1;p4::Nigeria=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__598467_68489,2hop,repeated_query,3,0,0,2,1,p9::Night Rocker=0;p12::Snapper Foster=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__132969_417697,2hop,repeated_query,3,1,1,2,2,p11::Datsun Sports=0;p0::Mohamed Atta's Nissan=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__6735_6733,2hop,done,1,0,1,2,2,p14::Catalan language=0;p1::Catalan language=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop3__373573_132409_146285_35031,4hop3,max_hops,4,0,1,4,4,p14::Still Swingin'=0;p9::Papa Roach=1;p17::Alexander Golitzen=0;p12::San Diego=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,4hop2__161602_426860_88460_18966,4hop2,max_hops,4,0,0,4,3,p4::2020 AFC U-23 Championship qualification=-1;p5::That Dam=0;p12::Geography of Myanmar=0;p7::Hokkien=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__65576_80026,2hop,repeated_query,3,0,0,2,0,p11::List of Charlie and the Chocolate Factory characters=-1;p10::Julie Dawn Cole=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__77263_84616,2hop,repeated_query,2,0,0,2,1,p12::Moon River=0;p14::List of awards and honours received by Audrey Hepburn=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__85713_72187,2hop,max_hops,4,0,1,2,2,p19::Thelma & Louise=0;p8::A League of Their Own=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__822113_91104,2hop,repeated_query,3,1,1,2,2,p10::GSAT-7=0;p12::ATS-6=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop2__90098_84553_10557,3hop2,repeated_query,3,0,1,3,3,p6::Sylvester=0;p14::Charlemagne=1;p18::Middle Ages=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__136129_87694_124169,3hop1,repeated_query,3,1,0,3,2,p16::Đakovo Cathedral=-1;p9::St. Peter's Basilica=1;p2::Governor of Vatican City=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__90327_73181_68042,3hop1,repeated_query,3,0,0,3,2,p2::Cabinet of the United States=-1;p6::Party leaders of the United States Senate=1;p8::2010 United States House of Representatives elections=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__129675_39743_24526,3hop1,done,2,0,0,3,2,"p0::WGCK-FM=0;p6::Richmond, Virginia=0;p17::North Carolina=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__161151_50883,2hop,max_hops,4,1,1,2,2,p10::Bison antiquus=0;p19::Emergency Response Guidebook=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__73796_87694_64412,3hop1,repeated_query,2,0,1,3,3,p11::Saint Peter=0;p14::St. Peter's Basilica=0;p1::Vatican City=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__95172_152907,2hop,repeated_query,2,0,0,2,1,p8::Signora Enrica=0;p4::Claudia Cardinale=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__105401_17130_70784_79935,4hop1,repeated_query,1,0,0,4,2,p0::Strangers No More=0;p18::Israel=-1;p9::Geography of Saudi Arabia=0;p17::History of Saudi Arabia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__405277_88460_30152_20999,4hop3,repeated_query,3,0,0,4,3,p1::Ban Hinlat=0;p13::Geography of Myanmar=1;p10::Ottoman Empire=0;p19::Myanmar=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__305566_568433_47686,3hop1,repeated_query,2,0,0,3,0,p3::Clive A. Smith=-1;p6::Natalie Turner=-1;p10::Toronto Coach Terminal=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__132957_132968_40768,3hop2,repeated_query,3,1,1,3,3,p10::Acura Legend=0;p2::Daihatsu Charmant=0;p14::1973 oil crisis=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__9223_9237,2hop,repeated_query,2,0,1,2,2,p17::Marshall Islands=0;p18::Marshall Islands=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__865961_159109,2hop,done,1,1,1,2,2,p13::ISO 3166-2:CV=0;p11::Cape Verde=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop2__792915_467331_162182,3hop2,max_hops,4,0,0,3,2,"p11::Cái River=0;p10::Zone 5 Military Museum, Danang=0;p16::South Central Coast=-1",0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__6827_86319,2hop,repeated_query,3,0,0,2,1,p18::Boston=1;p15::Brian Moynihan=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__337705_132457_51423,3hop1,repeated_query,3,0,0,3,2,p8::Never Too Loud=0;p15::Danko Jones=1;p19::Casa Loma=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__222979_132628_40768,3hop2,repeated_query,3,0,0,3,2,p1::Scion (automobile)=-1;p7::VTEC=0;p19::1973 oil crisis=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__749363_49925_13759_736921,4hop1,repeated_query,3,0,1,4,4,"p2::Innocenzo Ferrieri=0;p4::Reformation=1;p1::Mary, mother of Jesus=0;p16::Wittenberg (district)=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__796221_18803,2hop,repeated_query,3,0,1,2,2,p8::MV Rapana=0;p14::Royal Dutch Shell=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__465684_160545_34751,3hop1,max_hops,4,1,1,3,3,p1::Bodindecha=0;p3::Bang Bon District=3;p4::Pacific War=1,1,3,0,1,1,1,0,0,0,1
+hybrid_ircot_musique_confirm,2hop__71016_75184,2hop,repeated_query,3,0,0,2,1,p11::List of Back to the Future characters=0;p6::List of Back to the Future characters=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__163654_503371_21711,3hop1,repeated_query,3,0,1,3,3,p14::Bordalba=0;p8::Martin of Aragon=0;p17::Gothic architecture=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__159803_89752_75165,3hop1,repeated_query,2,0,0,3,1,p5::1689 Boston revolt=0;p12::New England=-1;p10::Maine=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__398232_326948_10972,3hop1,max_hops,4,0,1,3,3,p13::Mother-in-Law (song)=0;p11::Mother-in-Law Lounge=0;p10::Black people=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,4hop2__9988_729371_70784_79935,4hop2,repeated_query,3,0,0,4,1,p14::Near East=0;p18::Operation Praying Mantis=-1;p9::Geography of Saudi Arabia=-1;p17::History of Saudi Arabia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__70584_198548,2hop,repeated_query,2,0,0,2,1,p2::Basil L. Plumley=0;p9::Murder in Texas=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__765565_326948_86925,3hop1,repeated_query,2,0,0,3,2,p1::Here Come the Girls (song)=0;p7::Mother-in-Law Lounge=1;p3::Fleur-de-lis=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__304722_692815_63959,3hop2,repeated_query,2,0,0,3,1,p5::1894–95 FA Cup=-1;p14::Darren Carter=0;p15::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__133102_417697,2hop,max_hops,4,0,1,2,2,p5::Datsun DC-3=0;p16::Mohamed Atta's Nissan=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__82270_177869,2hop,repeated_query,2,0,0,2,0,p0::African-American candidates for President of the United States=-1;p18::Helen Pitts Douglass=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__160585_14670_8987_8974,4hop2,max_hops,4,0,0,4,2,p15::Czechoslovakia=2;p0::United States Army=-1;p19::Josip Broz Tito=-1;p2::Josip Broz Tito=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__13986_161674,2hop,max_hops,4,0,1,2,2,"p19::John, King of England=0;p0::Third Crusade=1",1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__37353_23241,2hop,repeated_query,2,0,0,2,1,p3::Mosaic=-1;p0::Nigeria=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__476927_31270,2hop,max_hops,4,0,1,2,2,p13::Hod Lisenbee=0;p10::Tennessee=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__38229_84500,2hop,repeated_query,2,1,0,2,1,p17::Dwight D. Eisenhower=0;p12::NATO=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__307218_161450,2hop,done,1,0,1,2,2,p7::Minudasht County=0;p6::Golestan Province=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop3__152056_698586_91248_54362,4hop3,repeated_query,2,0,0,4,2,p16::Dunn Dunn=-1;p4::Shawty Lo discography=-1;p17::History of health care reform in the United States=0;p12::Atlanta in the American Civil War=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__295815_40769_64047,3hop1,repeated_query,3,0,0,3,2,p2::Toyopet Master=-1;p19::1973 oil crisis=2;p7::Lexus RX=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__115515_779396,2hop,repeated_query,3,0,1,2,2,p3::Lap Engine=0;p18::James Watt=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__24661_66233,2hop,repeated_query,3,1,0,2,1,p6::North Carolina=-1;p13::2018–19 NHL season=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__998_25839,2hop,done,1,0,1,2,2,p2::IPod=0;p3::USB=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop1__696484_49925_13759_736921,4hop1,repeated_query,2,0,0,4,3,"p8::Bernhard Lichtenberg=0;p3::Reformation=1;p2::Mary, mother of Jesus=0;p4::Wittenberg (district)=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__580153_49925_13759_736921,4hop1,repeated_query,2,0,0,4,3,"p17::Candidacy=0;p15::Reformation=1;p14::Mary, mother of Jesus=0;p2::Wittenberg (district)=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__354480_834494_34099,3hop1,repeated_query,2,0,0,3,2,"p0::Eric Marcus Municipal Airport=0;p11::Pima County Natural Resources, Parks and Recreation=-1;p13::Tucson, Arizona=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__791757_15840_36014,3hop1,repeated_query,2,0,1,3,3,p4::Knight Rider (video game)=0;p1::Nintendo Entertainment System=1;p3::Super Nintendo Entertainment System=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__57638_615257,2hop,done,2,1,1,2,2,p10::List of National Basketball Association annual scoring leaders=0;p15::2009–10 Oklahoma City Thunder season=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__81682_707195,2hop,repeated_query,3,0,0,2,1,p4::Australian Ninja Warrior=-1;p9::Cockatoo Island (New South Wales)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__836115_49925_13759_736921,4hop1,repeated_query,2,0,0,4,2,"p19::Vincentas Sladkevičius=0;p4::Reformation=-1;p8::Mary, mother of Jesus=0;p3::Wittenberg (district)=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__837871_831637_91775,3hop1,repeated_query,2,1,0,3,2,p9::USS Tringa (ASR-16)=0;p5::List of destroyer classes of the United States Navy=-1;p4::United States Navy SEALs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__39871_314549_131976_44528,4hop1,repeated_query,2,1,0,4,3,"p14::Richmond, Virginia=0;p10::Newport News, Virginia=-1;p7::Virginia=0;p16::Gulf of Mexico=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__83460_456238,2hop,repeated_query,2,0,1,2,2,p0::Texian Army=0;p7::Sam Houston National Forest=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__158275_35739,2hop,repeated_query,2,1,0,2,1,p19::Selenium (software)=-1;p7::Windows 8=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__661103_698586_89595_54362,4hop3,repeated_query,2,0,0,4,3,p5::Dunn Dunn=0;p12::Shawty Lo discography=1;p8::A Rose for Emily=0;p6::Atlanta in the American Civil War=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__751782_2053_5289,3hop1,repeated_query,2,1,1,3,3,p17::Undercovers (TV series)=0;p1::New York City=0;p10::Sony Music=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__363214_590899,2hop,repeated_query,2,1,1,2,2,"p6::Psycho Donuts=0;p15::Campbell, California=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__668178_765799_282674_759393,4hop1,repeated_query,3,0,1,4,4,p0::Don Werner=0;p12::John C. Petersen=0;p2::Pulaski High School=0;p17::Jerome Quinn=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__75207_7363,2hop,repeated_query,2,0,1,2,2,p10::The Motorcycle Diaries (film)=0;p13::Daylight saving time=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__157376_643670,2hop,repeated_query,2,0,1,2,2,p1::Willemsbrug=0;p4::Het Scheur=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__6379_42197_18397,3hop1,repeated_query,2,0,1,3,3,p18::Space Race=0;p2::Imperialism=0;p10::Korean War=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__529164_567566_84283,3hop1,repeated_query,3,0,0,3,2,p8::Think of Laura=0;p1::Back of My Mind=1;p14::Warner Records=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__62020_158262,2hop,repeated_query,3,1,1,2,2,p2::President of the Confederate States of America=2;p1::Jefferson Davis=1,1,2,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__207597_63853,2hop,repeated_query,2,0,1,2,2,p13::Upper Orange Water Management Area=0;p10::Orange River=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__752214_639679,2hop,repeated_query,2,0,0,2,1,p6::Queen of the Elephants=0;p13::Clio Goldsmith=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__140194_49541_51068,3hop2,max_hops,4,0,0,3,1,p2::The Dinosaurs!=0;p13::Queen Victoria=-1;p1::Jenna Coleman=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__35989_623159,2hop,repeated_query,2,1,1,2,2,p12::Kievan Rus'=0;p14::Rostov=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__16632_110014,2hop,repeated_query,2,1,1,2,2,p10::Asphalt=0;p14::Pierre Belon=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__9285_5188_23307,3hop1,repeated_query,2,0,1,3,3,p2::Szlachta=0;p15::Warsaw Pact=1;p9::Molotov–Ribbentrop Pact=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__124807_135019,2hop,repeated_query,3,1,1,2,2,p1::Nephalion=0;p0::Minos=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__51113_84616,2hop,repeated_query,3,0,1,2,2,p10::Moon River=0;p3::List of awards and honours received by Audrey Hepburn=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__37097_86208,2hop,done,1,1,1,2,2,p13::Egypt=0;p11::Flooding of the Nile=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop2__92991_38242_76291,3hop2,max_hops,4,0,1,3,3,p6::Standing Rules of the United States Senate=0;p8::Dwight D. Eisenhower=0;p15::2014 United States Senate elections=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__20256_74481,2hop,repeated_query,3,0,0,2,1,p4::Queen (band)=-1;p19::The Godfather Part II=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__23459_35123,2hop,done,2,1,1,2,2,p4::History of science=0;p17::Muslim world=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__151650_5274_458768_33637,4hop1,repeated_query,3,0,1,4,4,"p15::Desde El Principio=0;p8::Sony Music=1;p14::The Right Stuff Records=1;p7::Santa Monica, California=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__326964_320101_7713,3hop2,repeated_query,3,0,0,3,2,p18::Yaxing Coach=0;p9::Noël Lee=1;p17::Nanjing=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__540585_568433_51423,3hop1,repeated_query,3,0,0,3,1,p15::Miss Spider's Sunny Patch Kids=0;p10::Natalie Turner=-1;p9::Casa Loma=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__68158_189357,2hop,repeated_query,2,0,1,2,2,p18::Sandra Day O'Connor=0;p4::Harry Rathbun=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__108881_720914_41132,3hop1,repeated_query,2,1,1,3,3,p10::The Worship of Venus=0;p6::The Martyrdom of Saint Lawrence (Titian)=1;p16::Black Death=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__9285_5188_63702,3hop1,repeated_query,2,0,0,3,1,p8::Szlachta=-1;p3::Warsaw Pact=-1;p14::Allies of World War II=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__64372_83289,2hop,repeated_query,2,0,1,2,2,p5::Over the Rainbow=0;p6::One Last Time (Ariana Grande song)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__7906_78851,2hop,done,1,0,0,2,1,p9::Arena Football League=0;p6::Sports in the New York metropolitan area=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__312146_720914_41132,3hop1,repeated_query,2,0,1,3,3,p3::Vanity (Titian)=0;p1::The Martyrdom of Saint Lawrence (Titian)=1;p13::Black Death=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__415518_616002,2hop,done,2,1,1,2,2,p15::The Happy Journey to Trenton and Camden=0;p10::The Skin of Our Teeth=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__311931_417706,2hop,repeated_query,3,0,1,2,2,p10::Emotional Rain=0;p8::Lee Aaron (album)=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__652852_2053_52946,3hop1,repeated_query,3,1,0,3,2,p12::The Cube (film)=-1;p10::New York City=0;p16::Celebrity Big Brother (American TV series)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__19768_19788_10117,3hop1,repeated_query,3,0,0,3,2,p1::Southeast Asia=-1;p3::Southeast Asia=0;p19::Zhejiang=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__128342_375952,2hop,repeated_query,3,0,1,2,2,"p19::KABG=0;p15::Los Alamos, California=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__147260_623159,2hop,max_hops,4,0,1,2,2,p1::John the Hairy=0;p5::Rostov=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop2__93066_88342_90766,3hop2,max_hops,4,0,0,3,2,p18::2017 American League Championship Series=0;p5::Major League Baseball Most Valuable Player Award=-1;p6::Dodgers–Yankees rivalry=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__37656_36240,2hop,done,1,0,0,2,1,p5::Protestantism=0;p6::Immaculate Conception=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__25396_212301,2hop,repeated_query,2,0,0,2,1,p11::Political party=0;p16::Sidney Peel=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__567956_39078_8987_8974,4hop2,repeated_query,2,0,0,4,2,p6::Prague underground (culture)=0;p19::Police=-1;p15::Josip Broz Tito=-1;p17::Josip Broz Tito=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__157251_556157,2hop,repeated_query,3,0,1,2,2,p1::Umchabezi River=0;p3::Mzingwane River=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__286621_84856,2hop,repeated_query,2,0,0,2,1,p17::Politically Incorrect=0;p12::Real Time with Bill Maher=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__619265_45326,2hop,repeated_query,2,1,1,2,2,p3::The Bag or the Bat=0;p16::List of Ray Donovan episodes=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__152229_604644,2hop,repeated_query,2,0,0,2,1,p16::So Insane=0;p5::Magic (Smash Mouth album)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__765565_326948_78782,3hop1,repeated_query,2,0,1,3,3,p17::Here Come the Girls (song)=0;p10::Mother-in-Law Lounge=1;p6::Battle of New Orleans=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__109185_720914_41132,3hop1,repeated_query,2,0,0,3,2,p17::La Schiavona=0;p0::The Martyrdom of Saint Lawrence (Titian)=-1;p3::Black Death=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__365934_87694_64412,3hop1,repeated_query,3,0,1,3,3,p6::Mantua Cathedral=0;p19::St. Peter's Basilica=1;p8::Vatican City=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__280583_229757,2hop,repeated_query,3,0,1,2,2,p6::The Mighty B!=0;p16::On Broadway (film)=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__96411_159054,2hop,repeated_query,2,0,1,2,2,p3::The Bourne Deception=0;p18::The Bourne Ultimatum (film)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__332453_139339,2hop,done,2,0,1,2,2,p6::The Accidental Husband=0;p3::Griffin Dunne=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__127483_76623_10557,3hop2,done,1,0,0,3,1,p10::Auctor=-1;p8::Charlemagne=0;p18::Middle Ages=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__131061_54221,2hop,done,1,1,1,2,2,p16::Tracy-Causer Block=0;p14::Alcohol laws of Maine=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__84937_21969,2hop,repeated_query,2,0,1,2,2,p18::Impeachment of Warren Hastings=0;p16::Edmund Burke=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__708145_30351,2hop,max_hops,4,0,1,2,2,p3::Bureaucracy (book)=0;p2::Friedrich Hayek=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__469478_15840_36014,3hop1,repeated_query,2,0,1,3,3,p9::Sunman (video game)=0;p7::Nintendo Entertainment System=0;p18::Super Nintendo Entertainment System=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__448615_127908,2hop,repeated_query,3,1,1,2,2,p0::José Cancela=0;p10::Colorado Rapids=1,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__161507_160713_77246,3hop1,repeated_query,3,0,1,3,3,p2::Masherbrum=0;p4::Partition of India=2;p17::Hindus=0,1,2,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__132967_40769_64047,3hop1,repeated_query,3,0,0,3,2,p13::Daihatsu Boon=-1;p4::1973 oil crisis=1;p19::Lexus RX=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__20536_96912,2hop,done,1,0,1,2,2,p3::British Empire=0;p8::Adam Smith Prize=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop2__326964_7861_7713,3hop2,repeated_query,3,0,1,3,3,p19::Yaxing Coach=0;p18::Nanjing=0;p0::Nanjing=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__178435_547811_80702,3hop1,repeated_query,2,0,0,3,1,"p2::Gloria (Vivaldi)=0;p1::Orlando furioso (Vivaldi, 1714)=-1;p9::Rialto Bridge=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__88342_49853_128008_86588,4hop1,max_hops,4,1,0,4,3,p12::Major League Baseball Most Valuable Player Award=0;p8::World Series=2;p3::New York Yankees=-1;p0::Home run=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__275261_443779_52195,3hop1,max_hops,4,0,1,3,3,p6::Blagar language=2;p2::Indonesia–Timor Leste Commission of Truth and Friendship=0;p7::East Timor=0,1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,4hop3__152056_698586_1926_54362,4hop3,repeated_query,2,0,0,4,3,p7::Dunn Dunn=0;p18::Shawty Lo discography=-1;p17::New York City=0;p13::Atlanta in the American Civil War=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__342858_131850_33897_81096,4hop1,repeated_query,3,0,1,4,4,"p10::Yuma, Colorado=0;p16::Yuma County Library District=0;p4::Tucson, Arizona=1;p18::Desert Diamond West Valley Phoenix Grand Prix=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__695430_831637_91775,3hop1,done,1,0,0,3,2,p18::USS Chillicothe (1862)=0;p10::List of destroyer classes of the United States Navy=-1;p17::United States Navy SEALs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__269659_722575,2hop,repeated_query,3,1,1,2,2,p17::National Observer (United States)=0;p15::Dow Jones & Company=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__701525_342810,2hop,repeated_query,2,0,1,2,2,"p5::Cedar Springs, Texas=0;p6::Troy Independent School District=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__655849_467331_162182,3hop2,max_hops,4,0,1,3,3,"p9::A Lưới District=0;p0::Zone 5 Military Museum, Danang=0;p5::South Central Coast=1",1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__6956_192417,2hop,done,1,0,0,2,1,p6::Boston=0;p15::Sports league ranking=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__584774_131926_87157,3hop1,repeated_query,3,0,1,3,3,p7::Uni-Systems=0;p1::Minneapolis=0;p15::Mississippi River=1,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__90098_19639_10557,3hop2,repeated_query,3,0,1,3,3,p11::Sylvester=0;p16::Germans=0;p10::Middle Ages=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__57186_89048_66294,3hop2,repeated_query,3,0,0,3,2,p7::She's Out of My Life=0;p11::Is She Really Going Out with Him?=0;p5::The Jacksons: An American Dream=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__106847_160713_77246,3hop1,repeated_query,3,0,0,3,1,p12::A Music Fairy=-1;p7::Partition of India=1;p2::Hindus=-1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__474028_88460_30152_20999,4hop3,max_hops,4,0,0,4,3,p9::A Don=2;p7::Geography of Myanmar=2;p14::Ottoman Empire=0;p18::Myanmar=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop3__316459_41402_145922_13584,4hop3,repeated_query,3,0,0,4,3,"p18::Charles Edmund Nugent=-1;p17::Jacksonville, Florida=0;p9::Carlos Barral=0;p10::FC Barcelona=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__140855_2053_5289,3hop1,max_hops,4,0,1,3,3,p6::Then Came Bronson=0;p14::New York City=0;p0::Sony Music=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop2__326964_7845_7713,3hop2,max_hops,4,0,1,3,3,p16::Yaxing Coach=0;p17::Nanjing=0;p5::Nanjing=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__763840_144857,2hop,repeated_query,2,0,1,2,2,p12::Neighbors (short story)=0;p16::Raymond Carver=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__671664_646310,2hop,done,1,1,1,2,2,"p9::Red Cross, North Carolina=0;p6::Stanly County Schools=0",1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop1__130480_53706_795904_580996,4hop1,max_hops,4,0,0,4,3,"p17::Atwell Mill Grove=0;p19::California Gold Rush=1;p16::History of Sacramento, California=2;p2::Rio Linda High School=-1",0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop2__855821_467331_162182,3hop2,max_hops,4,0,1,3,3,"p13::Lâm Đồng Province=1;p10::Zone 5 Military Museum, Danang=0;p16::South Central Coast=2",1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,4hop2__161602_474028_88460_21062,4hop2,repeated_query,3,0,0,4,3,p10::2020 AFC U-23 Championship qualification=0;p5::A Don=0;p12::Geography of Myanmar=-1;p8::Myanmar=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__301011_820181,2hop,repeated_query,2,1,1,2,2,"p16::Keith Sebelius=0;p4::Norton, Kansas=1",1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__95878_88628,2hop,max_hops,4,0,0,2,1,p18::Adventure's End=-1;p7::True Grit (1969 film)=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__852122_150107,2hop,max_hops,4,1,1,2,2,p0::Michael Schroeder=1;p17::Communications of the ACM=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__496792_392646,2hop,repeated_query,3,0,0,2,0,p8::Battle of Brechin=-1;p19::Clan Gordon=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__41865_55331_34700,3hop1,repeated_query,3,0,0,3,2,p19::Rhine=0;p17::North Sea=0;p7::Roman Republic=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__231890_595414,2hop,repeated_query,2,0,0,2,1,"p18::Lloyd Dane=0;p0::Eldon, Missouri=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__748182_78303,2hop,repeated_query,2,0,1,2,2,"p15::Top Dog (1995 film)=0;p10::Walker, Texas Ranger=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__792915_223623_162182,3hop2,repeated_query,3,0,0,3,2,p19::Cái River=0;p6::John Phan=0;p14::South Central Coast=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__607517_161450,2hop,done,1,0,0,2,1,p12::Bandar-e Gaz County=0;p5::Golestan Province=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__198276_709625_84283,3hop1,done,1,0,0,3,1,p4::What Kind of Love=0;p12::Ain't Living Long Like This=-1;p9::Warner Records=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__149983_108549,2hop,repeated_query,2,0,0,2,1,p13::Doctor Fate=0;p17::Smallville=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__36747_18974,2hop,max_hops,4,0,1,2,2,p16::Qing dynasty=0;p6::Hokkien=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__817096_15463,2hop,max_hops,4,0,0,2,1,p0::CEMM=-1;p12::Dell=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__53690_161697_49779,3hop1,repeated_query,3,0,1,3,3,p6::The Feminine Mystique=0;p0::Betty Friedan=1;p1::Who Wants to Be a Millionaire (American game show)=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__731584_700117,2hop,repeated_query,3,0,1,2,2,"p1::KKVU=0;p7::Stevensville, Michigan=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__90098_91678_10557,3hop2,repeated_query,3,0,0,3,2,p11::Sylvester=0;p17::Holy Roman Emperor=1;p5::Middle Ages=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__109422_720914_41132,3hop1,repeated_query,2,0,1,3,3,p15::The Punishment of Tythus=0;p0::The Martyrdom of Saint Lawrence (Titian)=1;p9::Black Death=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__58323_375563_161848_84681,4hop1,max_hops,4,0,1,4,4,p16::The Book Thief (film)=0;p19::The Messenger (Zusak novel)=1;p9::1952 Winter Olympics=3;p10::History of New Zealand=2,1,3,0,1,1,2,0,0,0,1
+hybrid_ircot_musique_confirm,2hop__412633_15781,2hop,repeated_query,2,1,1,2,2,p14::An Essay on the History of Civil Society=0;p3::Age of Enlightenment=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__25177_19506_23299,3hop2,repeated_query,2,0,1,3,3,p0::Phonograph record=0;p6::Napoleon=0;p3::Molotov–Ribbentrop Pact=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__503085_110222,2hop,done,1,0,1,2,2,p7::Femme nue couchée=0;p19::Gustave Courbet=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__21103_16335,2hop,done,1,1,1,2,2,p6::Jews=0;p0::Ashkenazi Jews=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__542569_87295,2hop,repeated_query,3,0,0,2,1,p10::A Spoonful of Sugar=-1;p2::The Princess Diaries (film)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__93963_170667_18967,3hop1,done,2,0,0,3,1,p17::Lion Air=0;p10::Cathay Pacific Flight 780=-1;p14::Hokkien=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__838590_831637_91775,3hop1,done,1,0,0,3,2,p6::USS Stag (AW-1)=0;p11::List of destroyer classes of the United States Navy=-1;p3::United States Navy SEALs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__92900_512508,2hop,repeated_query,2,0,1,2,2,p19::Discovery of the neutron=0;p5::James Chadwick=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__88906_55840,2hop,repeated_query,2,1,0,2,1,p7::George VI=-1;p1::The King's Speech=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__370911_589237,2hop,repeated_query,2,0,0,2,0,p8::Redcap (TV series)=-1;p14::The Two of Us: My Life with John Thaw=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__538735_3296,2hop,repeated_query,3,1,1,2,2,p19::Addicted (Ace Young song)=0;p13::American Idol=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__108833_720914_27537,3hop1,max_hops,4,0,1,3,3,p3::The Bacchanal of the Andrians=0;p8::The Martyrdom of Saint Lawrence (Titian)=1;p14::Pope John XXIII=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__635099_131926_13165,3hop1,repeated_query,2,0,0,3,2,p14::Write This Down (band)=0;p0::Minneapolis=-1;p3::Military history of the United States=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__251085_831637_91775,3hop1,repeated_query,2,1,1,3,3,p5::USS Grouse (AMc-12)=0;p7::List of destroyer classes of the United States Navy=1;p9::United States Navy SEALs=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__228808_49925_13759_736921,4hop1,max_hops,4,0,0,4,3,"p4::Laurean Rugambwa=0;p3::Reformation=1;p12::Mary, mother of Jesus=0;p7::Wittenberg (district)=-1",0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__77134_88165,2hop,repeated_query,2,0,1,2,2,p9::Sarah=0;p11::Keturah=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__90327_78276_68042,3hop1,max_hops,4,0,0,3,1,p9::Cabinet of the United States=-1;p0::Party leaders of the United States Senate=-1;p14::2010 United States House of Representatives elections=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__502852_75487,2hop,repeated_query,3,0,1,2,2,p9::John Lynch-Staunton=0;p6::2017 Conservative Party of Canada leadership election=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__131110_39743_24526,3hop1,done,1,0,0,3,2,"p16::Walnut Spring=0;p13::Richmond, Virginia=0;p3::North Carolina=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__38030_23241,2hop,repeated_query,3,0,1,2,2,p19::Armenians=1;p7::Nigeria=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__199513_13732,2hop,repeated_query,3,0,1,2,2,"p19::São José dos Campos=0;p18::Mary, mother of Jesus=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__998_25855,2hop,repeated_query,3,0,1,2,2,p4::IPod=0;p2::USB=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__462960_160545_34754,3hop1,repeated_query,3,0,0,3,2,p14::Pao Sarasin=0;p3::Bang Bon District=-1;p2::Pacific War=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__304722_582839_63959,3hop2,max_hops,4,0,0,3,1,p0::1894–95 FA Cup=-1;p5::Ronnie Morris (footballer)=0;p18::Second City derby=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__316374_82341,2hop,done,1,0,0,2,1,"p2::Bob Steele (baseball)=0;p13::Ocala, Florida=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__756620_127399,2hop,repeated_query,2,1,1,2,2,p19::Matthew Leone=0;p3::Madina Lake=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__141138_2053_5289,3hop1,repeated_query,3,0,1,3,3,p2::The Chisholms=1;p12::New York City=0;p6::Sony Music=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__226204_69048,2hop,repeated_query,3,0,0,2,1,p18::Friday Osanebi=0;p19::Rosaline Bozimo=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__17192_17130_70784_79935,4hop1,repeated_query,3,0,0,4,3,p4::Israel=0;p17::Israel=0;p16::Geography of Saudi Arabia=0;p0::History of Saudi Arabia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__39871_314549_131976_44892,4hop1,repeated_query,3,0,0,4,3,"p16::Richmond, Virginia=0;p3::Newport News, Virginia=-1;p6::Virginia=0;p11::Opening of the North Atlantic Ocean=1",0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__107195_160713_77246,3hop1,max_hops,4,0,1,3,3,p0::Corporate Corridor=0;p15::Partition of India=1;p9::Hindus=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__123214_22402,2hop,repeated_query,2,0,1,2,2,p0::Daniel Thürer=0;p13::Switzerland=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__14078_49084,2hop,max_hops,4,1,0,2,1,"p6::John, King of England=-1;p18::Liam Garrigan=0",0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__75207_365216,2hop,repeated_query,3,0,1,2,2,"p6::The Motorcycle Diaries (film)=0;p8::San Clemente, Chile=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__69_59409,2hop,max_hops,4,0,0,2,1,p4::Beyoncé=0;p15::Song Cry=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop2__9988_261673_70784_79935,4hop2,repeated_query,3,0,0,4,3,p17::Near East=0;p6::Shamal (wind)=0;p8::Geography of Saudi Arabia=-1;p2::History of Saudi Arabia=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__59612_42352,2hop,repeated_query,3,0,1,2,2,p0::London broil=0;p7::French and Indian War=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__499003_853511,2hop,done,1,0,1,2,2,p5::Pythons (album)=0;p17::Tarot Classics=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop1__140994_2053_5289,3hop1,repeated_query,3,1,1,3,3,"p18::Hello, Larry=0;p12::New York City=0;p5::Sony Music=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop1__161605_32392_823060_610794,4hop1,repeated_query,2,0,0,4,2,"p11::Darlington County, South Carolina=0;p14::Charleston, South Carolina=-1;p10::WWNQ=-1;p8::Forest Acres, South Carolina=1",0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__151903_5274_458768_33677,4hop1,max_hops,4,0,0,4,3,"p5::The Lost Trident Sessions=0;p15::Sony Music=1;p18::The Right Stuff Records=1;p11::Santa Monica, California=-1",0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__301587_233146,2hop,done,1,0,0,2,1,p10::Rothschild banking family of France=0;p18::Amschel Moses Rothschild=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__726561_132457_47686,3hop1,max_hops,4,0,1,3,3,p13::Born a Lion=0;p6::Danko Jones=1;p11::Toronto Coach Terminal=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,4hop1__802394_153080_159767_81096,4hop1,repeated_query,2,0,0,4,3,p10::Mingus Plays Piano=0;p11::Charles Mingus=0;p2::Arizona=-1;p13::Desert Diamond West Valley Phoenix Grand Prix=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__574496_123283,2hop,repeated_query,2,0,1,2,2,p19::Edgar Lansbury (producer)=0;p12::John Houseman=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__140194_16797_51068,3hop2,repeated_query,2,0,0,3,2,p0::The Dinosaurs!=0;p3::Queen Victoria=0;p19::Jenna Coleman=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__103790_14670_8987_8529,4hop2,repeated_query,3,0,0,4,3,p17::Ivo Werner=0;p16::United States Army=-1;p14::Josip Broz Tito=1;p6::Slavs=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__71753_261673_70784_79935,4hop2,max_hops,4,0,1,4,4,p9::Israel=0;p7::Shamal (wind)=1;p1::Geography of Saudi Arabia=1;p4::History of Saudi Arabia=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__222497_309482_89834,3hop1,repeated_query,2,0,0,3,1,p18::Al gran sole carico d'amore=0;p2::Alessandro Zezzos=-1;p8::The Merchant of Venice=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__813285_774554_64412,3hop1,repeated_query,3,0,1,3,3,p1::Quadragesimo anno=0;p8::Flag of Vatican City=1;p5::Vatican City=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__811015_3300,2hop,max_hops,4,0,1,2,2,p2::Blue Skies (Diana DeGarmo album)=0;p9::American Idol=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,3hop1__63037_567566_84283,3hop1,max_hops,4,1,1,3,3,p11::Arthur's Theme (Best That You Can Do)=0;p12::Back of My Mind=2;p16::Warner Records=1,1,2,0,1,1,1,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__223655_463572,2hop,repeated_query,3,1,1,2,2,p15::Let There Be Love (1993 Joni James album)=0;p16::Let There Be Love (1953 Joni James album)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__639445_567836,2hop,repeated_query,2,0,1,2,2,"p15::Gerald T. Whelan=0;p17::Hastings, Nebraska=1",1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__258940_135844,2hop,done,1,0,1,2,2,p16::Lesnoye Sanatorium=0;p7::Tolyatti=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__157498_127908,2hop,repeated_query,2,0,1,2,2,p7::Dick's Sporting Goods Park=0;p15::Colorado Rapids=1,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,4hop2__9988_158279_70784_61381,4hop2,repeated_query,2,0,0,4,2,p16::Near East=0;p6::Shiraz=0;p7::Geography of Saudi Arabia=-1;p5::Saudi Arabia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__91626_96912,2hop,repeated_query,2,0,1,2,2,p13::The Wealth of Nations=0;p7::Adam Smith Prize=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__53433_59035,2hop,max_hops,4,0,1,2,2,p2::The Lord of the Rings (film series)=1;p11::History of New Zealand=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__161433_33952_34099,3hop1,repeated_query,3,0,0,3,2,"p3::Jeffrey Peterson=0;p14::Tucson, Arizona=1;p6::Tucson, Arizona=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__443274_17130_70784_79935,4hop1,repeated_query,3,0,0,4,1,p4::Sar-El=-1;p11::Israel=-1;p18::Geography of Saudi Arabia=0;p1::History of Saudi Arabia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__827755_156034,2hop,repeated_query,2,0,0,2,1,p10::Kettle Generating Station=0;p9::Nelson River=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__304722_423353_63959,3hop2,repeated_query,2,0,0,3,0,p10::1894–95 FA Cup=-1;p7::José Dominguez=-1;p15::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__857_846_7770,3hop1,repeated_query,3,0,1,3,3,p18::Sino-Tibetan relations during the Ming dynasty=0;p8::Sino-Tibetan relations during the Ming dynasty=0;p9::Nanjing=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__81268_85407,2hop,repeated_query,2,1,1,2,2,p15::Venice=0;p4::Venice=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__255970_831637_91775,3hop1,done,1,1,1,3,3,p8::USS Sanderling (AM-37)=0;p1::List of destroyer classes of the United States Navy=0;p7::United States Navy SEALs=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__14095_15463,2hop,repeated_query,2,0,1,2,2,p2::Macintosh=0;p16::Dell=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__865037_214799_259594,3hop1,done,2,1,0,3,2,p3::Rainer Ernst=0;p7::Literature of East Germany=0;p4::Heinz-Josef Große=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__475070_532404,2hop,repeated_query,2,0,1,2,2,p4::Frances Tupper=0;p13::Arthur Rupert Dickey=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__814856_110882,2hop,repeated_query,2,0,1,2,2,p6::Smile (James Cottriall song)=0;p4::James Cottriall=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,4hop2__161602_474028_88460_21063,4hop2,repeated_query,2,0,0,4,3,p15::2020 AFC U-23 Championship qualification=1;p5::A Don=0;p6::Geography of Myanmar=-1;p19::Myanmar=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__48776_807969,2hop,repeated_query,2,0,0,2,1,p14::PFA Players' Player of the Year=0;p15::Ahmed Salah Hosny=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__524186_219173_548463_72134,4hop3,repeated_query,2,1,1,4,4,"p2::The Poor Boob=0;p15::Margaret Mayo (playwright)=0;p8::Superior Drill Company=0;p1::Springfield, Illinois=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__106842_30645_84681,3hop2,max_hops,4,0,1,3,3,p15::@Seven=0;p8::Philadelphia=0;p18::History of New Zealand=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__108336_772156,2hop,repeated_query,3,0,1,2,2,p0::Allegory of Isabella d'Este's Coronation=0;p16::Lorenzo Costa the Younger=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__126188_396277,2hop,repeated_query,3,0,1,2,2,p9::Abel's Island=0;p3::Doctor De Soto=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop3__131820_29339_508306_70744,4hop3,max_hops,4,0,1,4,4,"p9::WEKL=0;p8::2004 United States presidential election=0;p4::Fort Hill (Clemson, South Carolina)=0;p11::Clemson–South Carolina rivalry=0",1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__857_846_7752,3hop1,max_hops,4,0,1,3,3,p12::Sino-Tibetan relations during the Ming dynasty=0;p9::Sino-Tibetan relations during the Ming dynasty=0;p11::Nanjing=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__135659_87694_64412,3hop1,repeated_query,3,0,1,3,3,p18::Mantua Cathedral=0;p0::St. Peter's Basilica=1;p19::Vatican City=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__141365_417697,2hop,max_hops,4,0,1,2,2,p15::Datsun=0;p12::Mohamed Atta's Nissan=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__810884_22402,2hop,max_hops,4,0,1,2,2,p2::Edith Humphrey=0;p9::Switzerland=1,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__1667_40501,2hop,max_hops,4,1,1,2,2,p7::New York City=1;p10::Huguenots=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,4hop1__88342_75218_128008_67954,4hop1,done,3,1,0,4,2,p2::Major League Baseball Most Valuable Player Award=-1;p17::World Series=1;p11::New York Yankees=-1;p1::Major League Baseball All-Star Game Most Valuable Player Award=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__149862_108549,2hop,max_hops,4,0,1,2,2,p12::Cosmic Boy=0;p14::Smallville=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__42027_42004,2hop,done,1,0,1,2,2,p7::Scottish Parliament=0;p3::Scottish Parliament=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop1__689538_547811_80702,3hop1,repeated_query,3,1,1,3,3,"p3::La costanza trionfante degl'amori e de gl'odii=0;p4::Orlando furioso (Vivaldi, 1714)=1;p18::Rialto Bridge=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__145212_443779_52195,3hop1,repeated_query,3,0,1,3,3,p14::Arie Supriyatna=0;p4::Indonesia–Timor Leste Commission of Truth and Friendship=0;p3::East Timor=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__90098_60649_10557,3hop2,max_hops,4,0,1,3,3,p3::Sylvester=0;p15::Holy Roman Empire=1;p14::Middle Ages=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__354480_834494_34109,3hop1,repeated_query,2,0,0,3,2,"p15::Eric Marcus Municipal Airport=0;p16::Pima County Natural Resources, Parks and Recreation=-1;p13::Tucson, Arizona=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__685280_510757,2hop,max_hops,4,1,1,2,2,p12::The Unwinding=0;p11::The Village of Waiting=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,4hop3__220945_88460_30152_20999,4hop3,repeated_query,3,0,0,4,2,p11::Nam Theun=0;p10::Geography of Myanmar=1;p6::Ottoman Empire=-1;p18::Myanmar=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__767417_624859_355213_203322,4hop1,repeated_query,2,0,1,4,4,"p11::Change of Heart (Eric Carmen album)=0;p14::The Definitive Collection (Eric Carmen album)=1;p19::Cleveland, North Carolina=0;p18::Gold Hill, North Carolina=0",1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__459153_544076_84283,3hop1,max_hops,4,1,1,3,3,p17::Seventeen (Keisha White album)=0;p1::Out of My Hands (Keisha White album)=1;p9::Warner Records=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__147212_60904,2hop,max_hops,4,0,1,2,2,p1::Hank Moonjean=0;p6::The Rehabilitation Center at Hollywood Hills=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop2__132957_52222_40768,3hop2,repeated_query,3,1,0,3,2,p2::Acura Legend=0;p17::Automotive industry=-1;p18::1973 oil crisis=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__161602_426860_88460_21034,4hop2,max_hops,4,0,0,4,3,p2::2020 AFC U-23 Championship qualification=-1;p18::That Dam=0;p14::Geography of Myanmar=0;p5::Myanmar=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__501624_181960,2hop,repeated_query,2,1,1,2,2,p10::The Mud Bath=0;p7::David Bomberg=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__335899_124498,2hop,repeated_query,2,0,0,2,1,p19::Qui de nous deux=0;p16::Matthieu Chedid=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__157339_156796,2hop,done,2,0,1,2,2,p1::Thuli River=0;p0::Shashe River=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__362912_97805,2hop,repeated_query,2,0,0,2,1,p2::Jurmo-class landing craft=0;p0::Finnish Navy=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__24441_36630,2hop,repeated_query,3,0,1,2,2,p2::Child labour=0;p16::Great power=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__44149_32392_823060_610794,4hop1,repeated_query,3,0,0,4,3,"p3::RBC Heritage=0;p0::Charleston, South Carolina=-1;p2::WWNQ=1;p10::Forest Acres, South Carolina=1",0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__31050_725495_49925_267352,4hop1,repeated_query,2,0,0,4,1,p3::Guam=-1;p11::Catholic Church in Lesotho=-1;p10::Reformation=-1;p15::Peter Agricola=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__78873_461854,2hop,repeated_query,3,0,0,2,1,p5::Gone with the Wind (film)=0;p16::Darlings of the Gods=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__152056_698586_57596_54362,4hop3,max_hops,4,0,0,4,2,p10::Dunn Dunn=-1;p18::Shawty Lo discography=-1;p2::History of taxation in the United States=0;p5::Atlanta in the American Civil War=1,0,-1,0,1,1,1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__460946_294723,2hop,max_hops,4,0,0,2,1,p10::Green (Steve Hillage album)=0;p5::Miquette Giraudy=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop2__71753_729371_70784_61381,4hop2,max_hops,4,0,0,4,2,p2::Israel=0;p5::Operation Praying Mantis=-1;p4::Geography of Saudi Arabia=3;p0::Saudi Arabia=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__178922_5385,2hop,repeated_query,1,0,0,2,1,p4::Puterbaugh Conference on World Literature=0;p19::Oklahoma City=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__82858_654855,2hop,done,1,1,1,2,2,p15::1912 United States presidential election=0;p1::Eugene V. Debs=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop2__222979_380281_40768,3hop2,repeated_query,3,1,1,3,3,p10::Scion (automobile)=0;p15::1967 Italian Grand Prix=0;p2::1973 oil crisis=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__849312_503371_21711,3hop1,repeated_query,2,0,1,3,3,p6::Perdiguera=0;p3::Martin of Aragon=0;p15::Gothic architecture=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__122651_141338,2hop,done,1,0,0,2,1,p2::Zena Tsarfin=0;p18::Brooklyn College=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__144763_599630,2hop,repeated_query,2,0,1,2,2,p6::Zhu Qinan=0;p3::Sanjiang Church=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__786632_831637_91775,3hop1,done,2,0,1,3,3,p11::USS Edsall (DE-129)=0;p2::List of destroyer classes of the United States Navy=0;p14::United States Navy SEALs=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__73717_653666,2hop,repeated_query,2,1,1,2,2,p17::Golden plates=0;p14::History of Joseph Smith by His Mother=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__81659_52835,2hop,repeated_query,3,0,1,2,2,p14::Come Away with Me=0;p16::Turn Me On (Mark Dinning song)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__66_59409,2hop,repeated_query,2,0,0,2,1,p1::Beyoncé=0;p17::Song Cry=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__800262_466199_695123_72134,4hop3,repeated_query,2,1,1,4,4,"p10::Green Township, Randolph County, Indiana=0;p18::Randolph County, Illinois=0;p3::WIZE=0;p2::Springfield, Illinois=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__9007_698949_157828_162309,4hop1,repeated_query,3,0,0,4,2,p3::Josip Broz Tito=0;p1::Belgrade (film)=-1;p9::Serbian language=-1;p13::Yugoslavia at the Olympics=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__557743_92763,2hop,repeated_query,2,0,0,2,1,p9::Henry Latimer (judge)=0;p15::University of Miami=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__442516_595885,2hop,repeated_query,2,0,0,2,1,p14::Mara Triangle=-1;p9::Kirumi Bridge=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__44590_510545,2hop,repeated_query,2,0,0,2,1,p2::Paul Bettany=0;p15::A Beautiful Mind (soundtrack)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__751782_2053_52946,3hop1,max_hops,4,1,1,3,3,p4::Undercovers (TV series)=0;p18::New York City=0;p0::Celebrity Big Brother (American TV series)=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop2__28727_92991_76291,3hop2,repeated_query,1,0,0,3,2,p9::Alaska=0;p19::Standing Rules of the United States Senate=0;p12::2014 United States Senate elections=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__859431_18803,2hop,repeated_query,2,0,1,2,2,p12::MV Macoma=0;p7::Royal Dutch Shell=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__157177_625046_613900,3hop1,repeated_query,2,0,0,3,2,"p18::Merchants Bridge=0;p0::I-35W Mississippi River bridge=-1;p6::Minneapolis, Kansas=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__203985_524737,2hop,repeated_query,1,1,0,2,1,p14::Jose Miranda (soccer)=0;p13::Tucson Amigos=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__166471_49925_13759_736921,4hop1,repeated_query,3,0,1,4,4,"p8::Egidio Vagnozzi=0;p5::Reformation=0;p14::Mary, mother of Jesus=2;p16::Wittenberg (district)=0",1,2,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__247353_55227,2hop,repeated_query,3,0,1,2,2,p6::Here Comes the Boom=0;p17::Grown Ups (film)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop3__601548_836463_161616_77103,4hop3,repeated_query,2,1,0,4,3,"p17::Live and Beyond=0;p7::Live from Austin, TX (Eric Johnson album)=-1;p3::Suga Mama=0;p10::History of Austin, Texas=1",0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__178435_547811_41132,3hop1,max_hops,4,1,1,3,3,"p11::Gloria (Vivaldi)=0;p10::Orlando furioso (Vivaldi, 1714)=2;p3::Black Death=0",1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__81825_49084,2hop,repeated_query,2,1,1,2,2,p10::Excalibur=0;p0::Liam Garrigan=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__575188_342798,2hop,repeated_query,3,0,1,2,2,p8::Mahmoud Mirza=0;p7::Amanollah Khan Zia' os-Soltan=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__831499_228453_10972,3hop1,repeated_query,2,0,0,3,2,p10::Barton Premium Blend=0;p6::Sazerac=-1;p18::Black people=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__742464_15840_36014,3hop1,done,1,1,0,3,2,p19::Robodemons=0;p8::Nintendo Entertainment System=-1;p7::Super Nintendo Entertainment System=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__129499_85379,2hop,repeated_query,2,0,1,2,2,p10::Poachie Range=0;p6::Arizona=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__572324_568433_51423,3hop1,repeated_query,3,0,0,3,1,p7::Care Bears: Journey to Joke-a-lot=0;p6::Natalie Turner=-1;p16::Casa Loma=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__661847_288421,2hop,max_hops,4,0,1,2,2,p10::Full Cooperation=0;p8::Def Squad=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__259228_793698,2hop,max_hops,4,0,0,2,1,p14::Ulrich Walter=2;p11::Philae (spacecraft)=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__609313_20273,2hop,done,1,1,1,2,2,p2::The History of the Reformation in Scotland=0;p14::Presbyterianism=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__421324_97805,2hop,max_hops,4,0,1,2,2,p3::Finnish coastal defence ship Väinämöinen=0;p2::Finnish Navy=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__595747_31270,2hop,repeated_query,2,0,1,2,2,p2::Sloan Thomas=0;p11::Tennessee=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__143915_68489,2hop,repeated_query,3,0,1,2,2,p1::Sings America=0;p5::Snapper Foster=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__477492_240386,2hop,max_hops,4,0,1,2,2,p9::Metalworks Institute=0;p1::TML Entertainment=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__835171_141338,2hop,repeated_query,2,1,1,2,2,p14::Wolf V. Vishniac=0;p4::Brooklyn College=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__487301_443779_52195,3hop1,max_hops,4,0,1,3,3,p3::Kaimana Regency=0;p5::Indonesia–Timor Leste Commission of Truth and Friendship=0;p13::East Timor=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__29339_40482,2hop,repeated_query,2,0,1,2,2,p0::2004 United States presidential election=0;p19::Huguenots=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__89991_58067,2hop,repeated_query,2,0,1,2,2,"p18::Orders, decorations, and medals of India=0;p16::A. P. J. Abdul Kalam=1",1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__429751_32392_823060_610794,4hop1,max_hops,4,1,0,4,3,"p18::Purrysburg, South Carolina=-1;p1::Charleston, South Carolina=3;p12::WWNQ=3;p11::Forest Acres, South Carolina=1",0,-1,0,1,1,1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop2__222979_132536_40768,3hop2,repeated_query,3,0,1,3,3,p16::Scion (automobile)=0;p3::HPD ARX-03=0;p11::1973 oil crisis=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__30390_92972,2hop,repeated_query,3,0,0,2,1,p1::Friedrich Hayek=0;p11::Aftermath of World War II=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__67660_158861,2hop,done,1,0,0,2,0,p16::How I Met Your Mother=-1;p17::How I Met Your Mother=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__678814_466199_695123_72134,4hop3,repeated_query,2,1,1,4,4,"p18::Stoney Creek Township, Randolph County, Indiana=0;p19::Randolph County, Illinois=0;p3::WIZE=0;p15::Springfield, Illinois=1",1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__483807_508773_85832_745702,4hop1,repeated_query,2,1,0,4,3,p11::Hugo Casillas=0;p6::Paula Santiago=-1;p18::John Cabot=1;p8::Sebastian Cabot (explorer)=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__326964_7855_7713,3hop2,repeated_query,2,0,0,3,2,p9::Yaxing Coach=0;p8::Nanjing=-1;p16::Nanjing=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__587540_514761_594810,3hop1,repeated_query,2,0,0,3,2,p11::Mama's Broken Heart=0;p15::Candy Coburn=1;p6::Pure BS=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__14253_76873_64554,3hop2,max_hops,4,1,1,3,3,p13::Anti-aircraft warfare=0;p15::Memoirs of a Geisha=0;p10::Soviet Union–United States relations=2,1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__6827_79845,2hop,repeated_query,2,1,1,2,2,p3::Boston=0;p14::Bank of America=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__191125_781346,2hop,repeated_query,2,0,0,2,1,p14::The Citizen (South Sudan)=0;p13::Badigeru Swamp=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__46571_87694_124169,3hop1,max_hops,4,1,1,3,3,p19::The Last Supper (Leonardo)=2;p17::St. Peter's Basilica=0;p18::Governor of Vatican City=0,1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__846844_47134,2hop,done,1,1,1,2,2,p5::Goss Stadium at Coleman Field=0;p19::Benny Beaver=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop2__57233_105140_56883,3hop2,repeated_query,3,1,1,3,3,p9::The Things They Carried=0;p4::Grievous Bodily Harm=0;p19::Conscription in Australia=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop3__577443_88460_30152_20999,4hop3,repeated_query,3,0,0,4,3,p8::Tham Pha=0;p16::Geography of Myanmar=1;p15::Ottoman Empire=0;p10::Myanmar=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__167577_31122,2hop,done,1,1,0,2,1,p10::A Treatise Concerning the Principles of Human Knowledge=0;p14::Idealism=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__569322_467331_162182,3hop2,repeated_query,3,0,1,3,3,"p4::S-Fone=0;p8::Zone 5 Military Museum, Danang=0;p0::South Central Coast=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__283298_22402,2hop,repeated_query,3,0,1,2,2,p16::Marie Theres Fögen=0;p8::Switzerland=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__864101_135373,2hop,done,2,0,0,2,1,p4::St. Matthew Island=0;p7::Bering Sea=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__329676_119915,2hop,repeated_query,3,0,0,2,1,p6::Francisco Giner de los Ríos=0;p9::Taifa of Ronda=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__487706_40501,2hop,max_hops,4,0,1,2,2,p13::Battle of the Kentish Knock=0;p16::Huguenots=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__157285_556157,2hop,max_hops,4,0,1,2,2,p18::Mtetengwe River=0;p13::Mzingwane River=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__153573_45901,2hop,max_hops,4,1,1,2,2,p8::Mickey's Safari in Letterland=0;p10::Mickey Mouse=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,4hop1__525129_315334_131926_89261,4hop1,max_hops,4,0,1,4,4,"p19::Lots More Blues, Rags and Hollers=0;p14::Koerner, Ray & Glover=1;p9::Minneapolis=1;p16::Mississippi River=2",1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__119423_779396,2hop,done,1,0,1,2,2,p14::Lap Engine=0;p16::James Watt=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__72487_510545,2hop,repeated_query,3,0,1,2,2,p10::Paul Bettany=0;p6::A Beautiful Mind (soundtrack)=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__701895_752697,2hop,repeated_query,3,0,1,2,2,p11::Ciudad Deportiva (Nuevo Laredo)=0;p3::Nuevo Laredo Municipality=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__641921_42197_18397,3hop1,repeated_query,2,0,1,3,3,p1::Olga Kuragina=0;p19::Imperialism=0;p5::Korean War=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__133116_533882,2hop,repeated_query,3,0,1,2,2,p7::Martin BM=0;p2::Martin Marietta=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__22930_23241,2hop,repeated_query,3,0,1,2,2,p11::Avicenna=0;p1::Nigeria=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop1__105002_17130_70784_61381,4hop1,repeated_query,3,0,0,4,2,p12::Atalia=-1;p0::Israel=-1;p8::Geography of Saudi Arabia=0;p11::Saudi Arabia=2,0,-1,0,1,1,2,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__559908_42197_18397,3hop1,repeated_query,2,0,1,3,3,p4::Yagutil Mishiev=0;p12::Imperialism=0;p19::Korean War=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__326964_36852_7713,3hop2,repeated_query,2,0,1,3,3,p4::Yaxing Coach=0;p15::Qing dynasty=0;p5::Nanjing=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__45296_83837,2hop,repeated_query,2,1,1,2,2,p5::Someone Else Calling You Baby=0;p4::Home Alone Tonight=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__156700_73244,2hop,repeated_query,2,0,0,2,1,p14::Kraai River=0;p17::Orange River=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__63214_319330,2hop,repeated_query,3,0,0,2,1,p17::Prohibition in the United States=0;p9::Jessie Woodrow Wilson Sayre=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__29606_600504,2hop,repeated_query,2,0,0,2,1,p14::Planck constant=0;p13::Wien approximation=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__800166_156034,2hop,done,1,0,0,2,1,p10::Long Spruce Generating Station=0;p2::Nelson River=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__90098_79978_10557,3hop2,max_hops,4,0,1,3,3,p15::Sylvester=0;p10::Charlemagne=1;p8::Middle Ages=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__472083_7298,2hop,repeated_query,3,0,1,2,2,p1::Illuminations (Josh Groban album)=0;p9::Adult contemporary music=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__169494_42197_18397,3hop1,max_hops,4,0,1,3,3,p0::Dmitry Okhotsimsky=0;p7::Imperialism=0;p2::Korean War=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__390947_232243,2hop,done,1,0,1,2,2,p4::Bernd Hüttemann=0;p17::European Movement International=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__61924_712629,2hop,done,1,0,0,2,1,p10::Elizabeth II=0;p7::Wedding dress of Princess Elizabeth=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__123166_47134,2hop,repeated_query,2,1,1,2,2,p2::William J. Ripple=0;p5::Benny Beaver=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop3__130404_29339_508306_70744,4hop3,repeated_query,2,0,1,4,4,"p0::WDXQ=0;p11::2004 United States presidential election=0;p2::Fort Hill (Clemson, South Carolina)=0;p10::Clemson–South Carolina rivalry=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__96410_47902,2hop,done,1,0,0,2,1,p17::The Bourne Betrayal=0;p13::The Bourne Legacy (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__373866_5186_10659_23296,4hop1,max_hops,4,0,1,4,4,p18::Hero of Socialist Labour (Albania)=0;p8::Warsaw Pact=1;p0::Middle Ages=0;p13::Molotov–Ribbentrop Pact=3,1,3,0,1,1,1,0,0,0,1
+hybrid_ircot_musique_confirm,2hop__35137_22896,2hop,repeated_query,2,0,1,2,2,p7::Muslim world=0;p4::Avicenna=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__480375_709625_84283,3hop1,repeated_query,3,0,0,3,2,p6::Please Remember Me=0;p16::Ain't Living Long Like This=1;p9::Warner Records=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__33845_42197_18397,3hop1,done,2,0,0,3,2,p18::Central Intelligence Agency=0;p17::Imperialism=0;p4::Korean War=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__88342_49853_128008_67954,4hop1,repeated_query,2,1,0,4,3,p13::Major League Baseball Most Valuable Player Award=0;p7::World Series=1;p5::New York Yankees=-1;p6::Major League Baseball All-Star Game Most Valuable Player Award=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__498061_88622,2hop,repeated_query,2,0,1,2,2,p17::ThinThread=0;p16::Director of the National Security Agency=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__139787_88110_77129,3hop1,repeated_query,3,0,1,3,3,p2::Buchanan & Press=0;p14::MSNBC=1;p1::Hyper-V=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__781093_223623_162182,3hop2,repeated_query,3,0,0,3,2,p5::Lâm Thao District=0;p17::John Phan=0;p10::South Central Coast=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__94507_654855,2hop,repeated_query,2,1,1,2,2,p5::Adversary in the House=0;p12::Eugene V. Debs=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,4hop3__175072_88460_30152_20999,4hop3,repeated_query,3,0,0,4,2,p9::Vat Yotkeo=1;p16::Geography of Myanmar=1;p13::Ottoman Empire=-1;p17::Myanmar=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__697729_576069,2hop,max_hops,4,0,0,2,1,p0::Adolf Overweg=0;p5::Ngadda River=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__315504_629431_64412,3hop1,repeated_query,1,0,0,3,1,p18::Mater et magistra=0;p8::Canonization of Pope John XXIII and Pope John Paul II=-1;p17::Vatican City=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__833841_378185_282674_759393,4hop1,repeated_query,2,0,0,4,2,p3::Amy McKenzie=0;p11::John C. Petersen=-1;p2::Pulaski High School=-1;p9::Jerome Quinn=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__34495_85544,2hop,repeated_query,2,0,0,2,1,p15::Premier League=0;p16::La Liga=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__43565_624859_355213_203322,4hop1,repeated_query,2,0,1,4,4,"p3::All by Myself=0;p19::The Definitive Collection (Eric Carmen album)=0;p0::Cleveland, North Carolina=0;p12::Gold Hill, North Carolina=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__39063_212301,2hop,repeated_query,2,0,0,2,0,p4::Police=-1;p14::Sidney Peel=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__13170_32392_823060_610794,4hop1,repeated_query,2,0,0,4,0,"p13::Military history of the United States=-1;p19::Charleston, South Carolina=-1;p12::WWNQ=-1;p5::Forest Acres, South Carolina=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__683835_709167,2hop,repeated_query,2,0,0,2,1,p13::The Red Tree (Shaun Tan)=0;p4::Passion Pictures=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__694534_160088_73916,3hop1,repeated_query,2,0,0,3,2,p15::MacGruder and Loud=-1;p8::Aaron Spelling=1;p4::Household income in the United States=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__67057_52871,2hop,done,3,0,1,2,2,p14::Naval Battle of Guadalcanal=2;p8::Occupation of Japan=1,1,2,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,4hop2__71753_729371_70784_79935,4hop2,repeated_query,2,0,0,4,2,p12::Israel=0;p14::Operation Praying Mantis=-1;p11::Geography of Saudi Arabia=-1;p4::History of Saudi Arabia=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__568951_567566_84283,3hop1,done,1,0,0,3,1,p6::Every Turn of the World=0;p10::Back of My Mind=-1;p18::Warner Records=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__35686_58556,2hop,repeated_query,2,0,0,2,1,p15::Antibiotic=-1;p1::FDA Food Safety Modernization Act=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__71715_59747_211319_557671,4hop1,repeated_query,2,0,0,4,2,p15::The Dukes of Hazzard=0;p2::List of municipalities in Georgia (U.S. state)=1;p0::Sno*Drift=-1;p17::Alpena Power Company=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__552546_70131,2hop,max_hops,4,0,1,2,2,p5::Free State of Mecklenburg-Schwerin=0;p4::Freikorps=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__275891_55984,2hop,done,3,1,1,2,2,p14::Rhapsody Originals (Brandi Carlile EP)=0;p0::The Story (song)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__512773_346751,2hop,repeated_query,3,0,1,2,2,p8::North Hastings High School=0;p7::York River (Ontario)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop2__161602_426860_88460_20999,4hop2,max_hops,4,0,0,4,2,p3::2020 AFC U-23 Championship qualification=-1;p18::That Dam=3;p12::Geography of Myanmar=1;p11::Myanmar=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__696442_51329,2hop,max_hops,4,0,0,2,1,p12::Bold Venture=1;p4::Humphrey Bogart=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__38426_91850_685675,3hop1,repeated_query,2,0,0,3,2,p7::The Bronx=0;p18::Yankee Stadium=0;p10::Jorge Posada=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__857_846_326964_7713,4hop3,repeated_query,3,0,1,4,4,p7::Sino-Tibetan relations during the Ming dynasty=0;p13::Sino-Tibetan relations during the Ming dynasty=0;p5::Yaxing Coach=0;p4::Nanjing=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__256553_617289,2hop,repeated_query,3,0,1,2,2,p7::Consort Dowager Zhao=1;p13::Liu Yin (Southern Han)=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__655849_223623_162182,3hop2,repeated_query,3,0,1,3,3,p4::A Lưới District=0;p8::John Phan=0;p19::South Central Coast=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__626214_503371_21711,3hop1,repeated_query,2,0,0,3,1,p6::Navardún=-1;p15::Martin of Aragon=-1;p7::Gothic architecture=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__157602_21567,2hop,repeated_query,3,1,1,2,2,p15::Geography of Turkey=2;p12::Late Middle Ages=0,1,2,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__353661_629431_64412,3hop1,repeated_query,1,0,0,3,1,p11::Sacerdotii nostri primordia=0;p13::Canonization of Pope John XXIII and Pope John Paul II=-1;p19::Vatican City=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__91667_67223,2hop,done,1,0,0,2,1,p11::How I Met Your Mother=-1;p0::The Mother (How I Met Your Mother)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__765388_42197_18397,3hop1,repeated_query,3,0,1,3,3,p16::Vadim Spiridonov=0;p5::Imperialism=0;p18::Korean War=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__286268_97805,2hop,max_hops,4,1,1,2,2,p9::R-class patrol boat=0;p7::Finnish Navy=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__567588_67465,2hop,max_hops,4,0,1,2,2,p18::Goosebumpz=0;p8::Best Day Ever (mixtape)=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__337223_56873,2hop,repeated_query,2,0,0,2,0,p8::Mark Crossley=-1;p11::Nottingham Forest F.C.=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__103871_20335_9331,3hop2,max_hops,4,1,0,3,2,p5::Tamar Abakelia=-1;p12::Thuringia=0;p13::Szlachta=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__622497_160088_73916,3hop1,repeated_query,3,0,0,3,2,p3::The Wild Women of Chastity Gulch=0;p19::Aaron Spelling=1;p1::Household income in the United States=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__82669_768138,2hop,repeated_query,2,0,0,2,1,p10::Melissa & Joey=0;p13::Pulse (1988 film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__96414_159054,2hop,done,1,0,1,2,2,p17::The Bourne Ultimatum=0;p5::The Bourne Ultimatum (film)=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop2__71753_73205_70784_79935,4hop2,repeated_query,3,0,0,4,2,p18::Israel=0;p12::Arabian Peninsula=-1;p6::Geography of Saudi Arabia=1;p17::History of Saudi Arabia=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__759384_42197_18397,3hop1,repeated_query,2,0,1,3,3,p1::Mark Fradkin=0;p12::Imperialism=0;p6::Korean War=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__458916_651917_47686,3hop1,max_hops,4,0,1,3,3,p14::Spirit If...=1;p19::Kevin Drew=1;p0::Toronto Coach Terminal=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,3hop1__136016_87694_124169,3hop1,max_hops,4,1,1,3,3,p5::Leeds Minster=0;p10::St. Peter's Basilica=2;p18::Governor of Vatican City=1,1,2,0,1,1,1,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__538735_3299,2hop,max_hops,4,0,1,2,2,p6::Addicted (Ace Young song)=0;p13::American Idol=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__354480_834494_33939,3hop1,repeated_query,2,0,0,3,2,"p14::Eric Marcus Municipal Airport=0;p12::Pima County Natural Resources, Parks and Recreation=-1;p8::Tucson, Arizona=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__595371_40769_64047,3hop1,repeated_query,3,0,1,3,3,p12::Scion xB=0;p7::1973 oil crisis=1;p9::Lexus RX=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__596188_297986,2hop,done,2,1,1,2,2,p18::Mycenae House=0;p16::Maze Hill=1,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__587048_621800,2hop,repeated_query,3,0,0,2,1,p14::Heinrich Gross (rabbi)=0;p1::Senica District=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__527372_339990_54675,3hop1,repeated_query,2,0,1,3,3,"p12::Fester Hollow=0;p18::Socialist Party of Oregon (Columbia County, Oregon)=0;p10::Portland, Oregon=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__347686_127399,2hop,done,1,1,1,2,2,p3::Attics to Eden=0;p14::Madina Lake=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__93145_54024,2hop,repeated_query,2,0,1,2,2,p14::List of state leaders in 1616=0;p13::King James Version=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__803903_78606,2hop,repeated_query,3,0,1,2,2,p15::Big Stan=0;p12::Grown Ups (film)=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__106688_160713_77246,3hop1,repeated_query,3,0,1,3,3,p7::Mushkil=0;p5::Partition of India=1;p16::Hindus=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__489567_443779_52195,3hop1,repeated_query,3,1,1,3,3,p0::Inierie=0;p11::Indonesia–Timor Leste Commission of Truth and Friendship=0;p12::East Timor=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__53690_161697_73916,3hop1,repeated_query,2,0,0,3,2,p16::The Feminine Mystique=0;p3::Betty Friedan=0;p14::Household income in the United States=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__23058_20608_36327,3hop1,repeated_query,3,0,0,3,1,p5::Bermuda=0;p8::British Empire=-1;p1::Namibia=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__16581_16569,2hop,repeated_query,3,0,1,2,2,p11::Umayyad Caliphate=0;p4::Umayyad Caliphate=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__517145_367341,2hop,max_hops,4,0,1,2,2,p3::Green Ice (soundtrack)=0;p5::Nickelodeon (film)=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__160223_58067,2hop,repeated_query,3,0,1,2,2,p10::A. P. J. Abdul Kalam=0;p19::A. P. J. Abdul Kalam=1,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__507528_139339,2hop,repeated_query,3,1,1,2,2,p13::Lisa Picard Is Famous=0;p14::Griffin Dunne=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__832795_350510,2hop,max_hops,4,0,1,2,2,p8::Be the One (album)=0;p17::Jackie Jackson (album)=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop2__69814_76873_64554,3hop2,max_hops,4,1,1,3,3,p17::History of Germany (1945–1990)=0;p5::Memoirs of a Geisha=0;p7::Soviet Union–United States relations=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__511176_22458,2hop,max_hops,4,0,1,2,2,p10::Denmark national futsal team=0;p8::Switzerland=3,1,3,0,1,1,0,0,0,0,1
+hybrid_ircot_musique_confirm,3hop1__756602_831637_91775,3hop1,done,1,1,0,3,2,p12::USS Jason (AR-8)=0;p18::List of destroyer classes of the United States Navy=-1;p14::United States Navy SEALs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__75207_53316,2hop,max_hops,4,0,1,2,2,p14::The Motorcycle Diaries (film)=0;p2::1973 Chilean coup d'état=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__131818_161450,2hop,done,1,0,1,2,2,p2::Voshmgir District=0;p1::Golestan Province=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__85463_54688,2hop,done,1,0,0,2,1,p5::Yalu River=0;p6::Korean War=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__68981_91191_156667,3hop1,max_hops,4,0,0,3,2,p15::Religion in Asia=-1;p2::Identity of the first male Muslim=0;p18::Ali=1,0,-1,0,1,1,1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__617062_127905_86588,3hop1,repeated_query,2,1,1,3,3,p9::Jim Wilson (first baseman)=1;p5::Cleveland Indians=0;p10::Home run=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__402530_774333,2hop,repeated_query,2,1,1,2,2,"p17::Imperial, Texas=0;p12::Lancaster Crossing=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__49236_89752_54221,3hop1,repeated_query,2,0,0,3,1,p14::The Handmaid's Tale=-1;p16::New England=0;p13::Alcohol laws of Maine=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__862_846_613770_7713,4hop3,max_hops,4,0,1,4,4,p2::Sino-Tibetan relations during the Ming dynasty=0;p6::Sino-Tibetan relations during the Ming dynasty=0;p17::Guangling District=0;p4::Nanjing=3,1,3,0,1,1,3,0,0,0,1
+hybrid_ircot_musique_confirm,2hop__315072_120259,2hop,repeated_query,2,0,1,2,2,p8::Mildgyth=0;p12::Mercia=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__79039_131926_13165,3hop1,repeated_query,2,0,1,3,3,p19::Jucy Lucy=0;p5::Minneapolis=0;p17::Military history of the United States=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__265989_531490,2hop,repeated_query,2,0,0,2,1,p18::WarGames=0;p13::Lawrence Lasker=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__25788_25855,2hop,repeated_query,2,1,1,2,2,p10::USB=0;p7::USB=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__222497_737465_93723,3hop1,max_hops,4,1,0,3,2,p3::Al gran sole carico d'amore=0;p5::Alessandro Zezzos=-1;p16::Once Upon a Time in Venice=1,0,-1,0,1,1,1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__6736_6733,2hop,repeated_query,2,0,1,2,2,p11::Catalan language=0;p12::Catalan language=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__200391_44187,2hop,max_hops,4,0,1,2,2,p14::Vance Page=0;p2::Cast Away=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__669160_139339,2hop,done,1,0,0,2,1,p14::Addicted to Love (film)=0;p9::Griffin Dunne=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__671542_665330_47686,3hop1,repeated_query,3,0,1,3,3,p2::Darlings (Kevin Drew album)=0;p5::Kevin Drew=1;p18::Toronto Coach Terminal=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__88342_49853_128008_89859,4hop1,done,1,0,0,4,1,p5::Major League Baseball Most Valuable Player Award=0;p7::World Series=-1;p12::New York Yankees=-1;p18::2018 Major League Baseball season=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__850984_7292,2hop,repeated_query,2,0,1,2,2,p4::Off the Beaten Path=0;p19::Adult contemporary music=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__207597_73244,2hop,repeated_query,2,0,1,2,2,p3::Upper Orange Water Management Area=0;p7::Orange River=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__159979_30587_44003,3hop2,max_hops,4,0,0,3,2,p13::Tropical Storm Allison=0;p1::Miami=-1;p4::Gulf of Mexico=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__56270_68396,2hop,max_hops,4,0,1,2,2,p4::Area code 951=0;p6::Demographics of California=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__219456_87295,2hop,max_hops,4,0,1,2,2,p15::On Golden Pond (2001 film)=0;p1::The Princess Diaries (film)=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,4hop1__708184_153080_159767_81096,4hop1,repeated_query,3,0,0,4,3,p5::The Black Saint and the Sinner Lady=0;p11::Charles Mingus=2;p13::Arizona=-1;p2::Desert Diamond West Valley Phoenix Grand Prix=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__370129_621192_10659_59955,4hop1,repeated_query,3,0,0,4,2,"p14::Florimond Claude, Comte de Mercy-Argenteau=2;p10::César Gabriel de Choiseul=-1;p12::Middle Ages=0;p13::Kaliningrad=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__305282_282081_73772,3hop1,max_hops,4,0,1,3,3,p2::III (Stanton Moore album)=1;p9::Flyin' the Koop=1;p19::Battle of New Orleans=3,1,3,0,1,1,3,0,0,0,1
+hybrid_ircot_musique_confirm,3hop1__747772_514761_594810,3hop1,repeated_query,2,0,0,3,2,p18::Heart Like Mine=0;p3::Candy Coburn=1;p2::Pure BS=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__704217_82341,2hop,repeated_query,2,0,0,2,1,"p7::Sean Hampton=0;p10::Ocala, Florida=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__11282_57233_56883,3hop2,max_hops,4,0,1,3,3,p18::Bird migration=0;p16::The Things They Carried=0;p12::Conscription in Australia=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__635544_110949,2hop,repeated_query,3,0,1,2,2,p17::Ratata (band)=0;p19::Mauro Scocco=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop1__145087_32392_823060_610794,4hop1,max_hops,4,1,1,4,4,"p5::Velma Barfield=0;p17::Charleston, South Carolina=2;p11::WWNQ=2;p14::Forest Acres, South Carolina=1",1,2,0,1,1,1,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__227031_144857,2hop,repeated_query,3,0,0,2,0,p19::Raymond Carver bibliography=-1;p11::Raymond Carver=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__127483_19639_10557,3hop2,max_hops,4,0,0,3,1,p0::Auctor=-1;p13::Germans=0;p11::Middle Ages=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__309596_160713_77246,3hop1,repeated_query,3,0,1,3,3,p18::Punial=0;p4::Partition of India=1;p0::Hindus=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__7046_44085,2hop,repeated_query,2,1,1,2,2,p0::Universal Pictures=0;p6::The Mickey Mouse Club=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__125104_90098_10557,3hop2,repeated_query,3,0,1,3,3,p12::Rotrude=0;p14::Sylvester=0;p0::Middle Ages=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__81379_84616,2hop,repeated_query,2,0,0,2,1,p10::Moon River=0;p0::List of awards and honours received by Audrey Hepburn=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__304722_526346_63959,3hop2,repeated_query,2,0,0,3,1,p1::1894–95 FA Cup=-1;p16::Trevor Dark=0;p12::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__9988_158279_70784_79935,4hop2,repeated_query,1,0,0,4,1,p18::Near East=0;p19::Shiraz=-1;p6::Geography of Saudi Arabia=-1;p11::History of Saudi Arabia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__132957_595371_40768,3hop2,repeated_query,3,1,1,3,3,p17::Acura Legend=0;p13::Scion xB=0;p7::1973 oil crisis=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__132798_40769_64047,3hop1,repeated_query,2,0,1,3,3,p15::Toyopet Master=0;p18::1973 oil crisis=1;p11::Lexus RX=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__61714_80069,2hop,done,1,0,1,2,2,p15::Pam Beesly=0;p9::Pam Beesly=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__488811_30113,2hop,max_hops,4,0,1,2,2,p10::Erich Zakowski=0;p19::East Prussia=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,4hop3__710473_354093_254885_76356,4hop3,repeated_query,1,0,0,4,3,p3::Winyah Bay=0;p1::Hobcaw Barony=-1;p6::El Valle (volcano)=0;p18::History of the Panama Canal=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__135029_712629,2hop,repeated_query,2,0,1,2,2,"p9::Prince Edward, Earl of Wessex=0;p10::Wedding dress of Princess Elizabeth=1",1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__16446_58556,2hop,repeated_query,2,1,0,2,1,p7::Pharmaceutical industry=-1;p4::FDA Food Safety Modernization Act=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__418941_429437,2hop,repeated_query,2,0,1,2,2,p1::Bumping River=0;p12::Naches River=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__749581_443779_52195,3hop1,max_hops,4,1,1,3,3,p5::Sambas Regency=2;p12::Indonesia–Timor Leste Commission of Truth and Friendship=0;p8::East Timor=1,1,2,0,1,1,1,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__776377_857193,2hop,repeated_query,2,0,0,2,1,p18::Bartram's Covered Bridge=0;p9::Crum Creek=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__747667_52835,2hop,repeated_query,3,0,1,2,2,p11::Thinking About You (Norah Jones song)=0;p0::Turn Me On (Mark Dinning song)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__446612_160545_62931,3hop1,repeated_query,3,0,0,3,2,p3::Ercole Manfredi=2;p9::Bang Bon District=-1;p16::The Beach (film)=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__40270_11402,2hop,max_hops,4,0,1,2,2,"p10::Southern California=0;p0::Atlantic City, New Jersey=0",1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__272714_113442,2hop,repeated_query,3,0,1,2,2,p8::Peace Concluded=0;p9::John Everett Millais=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__88342_93066_47738,3hop2,repeated_query,2,0,0,3,2,p6::Major League Baseball Most Valuable Player Award=-1;p18::2017 American League Championship Series=0;p8::New York Yankees=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__527400_159673,2hop,max_hops,4,0,1,2,2,p18::Search for the Gods=0;p6::The Hateful Eight=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__145924_131905_41948,3hop1,max_hops,4,0,0,3,2,p9::Caspar Voght=0;p15::Hamburg=-1;p2::Rhine=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__73719_510545,2hop,repeated_query,1,0,0,2,0,p19::Paul Bettany=-1;p12::A Beautiful Mind (soundtrack)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__622145_42197_18397,3hop1,repeated_query,3,0,1,3,3,p13::Boris Lagutin=0;p0::Imperialism=0;p18::Korean War=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__209741_89048_66294,3hop2,max_hops,4,0,1,3,3,p6::Will You Be There=0;p18::Is She Really Going Out with Him?=0;p12::The Jacksons: An American Dream=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__557411_652060,2hop,repeated_query,2,0,0,2,1,p11::The Nanny Reunion: A Nosh to Remember=0;p19::List of Happily Divorced episodes=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__796649_720914_41132,3hop1,repeated_query,3,0,1,3,3,p19::Flora (Titian)=0;p13::The Martyrdom of Saint Lawrence (Titian)=1;p1::Black Death=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__1667_40502,2hop,max_hops,4,1,1,2,2,p2::New York City=1;p7::Huguenots=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,4hop1__567737_141375_458768_33637,4hop1,repeated_query,3,0,1,4,4,"p9::Study in Brown=0;p5::EmArcy Records=2;p14::The Right Stuff Records=1;p1::Santa Monica, California=0",1,2,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__222979_132957_40768,3hop2,repeated_query,3,1,1,3,3,p5::Scion (automobile)=0;p11::Acura Legend=0;p14::1973 oil crisis=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__765678_310556,2hop,repeated_query,3,0,1,2,2,p19::No Escape (1936 film)=0;p5::David Profumo=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__71034_343058,2hop,repeated_query,2,0,0,2,1,p17::Holding Out for a Hero=0;p10::Mirrorball (TV pilot)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__79039_131926_89261,3hop1,max_hops,4,0,1,3,3,p9::Jucy Lucy=0;p15::Minneapolis=1;p13::Mississippi River=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__794999_113442,2hop,done,1,0,1,2,2,p9::Christ in the House of His Parents=0;p4::John Everett Millais=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__203437_152093,2hop,max_hops,4,0,1,2,2,p8::Live Life Loud=0;p17::Hawk Nelson=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__2148_78851,2hop,max_hops,4,0,1,2,2,p13::New York City=0;p19::Sports in the New York metropolitan area=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__274110_413723,2hop,repeated_query,2,0,1,2,2,"p14::Ernie Watts (footballer, born 1872)=0;p18::Woolhampton=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__323534_810083,2hop,repeated_query,2,0,1,2,2,p0::Marcinkus=0;p17::Tom Flannery=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__13986_40169,2hop,max_hops,4,0,0,2,1,"p7::John, King of England=0;p10::Normans=-1",0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__857_846_7795,3hop1,repeated_query,3,0,1,3,3,p15::Sino-Tibetan relations during the Ming dynasty=0;p4::Sino-Tibetan relations during the Ming dynasty=0;p16::Nanjing=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__543853_124498,2hop,done,1,0,0,2,1,p13::Labo M=0;p5::Matthieu Chedid=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__132795_40769_64047,3hop1,repeated_query,2,0,0,3,2,p1::TMG EV P001=0;p9::1973 oil crisis=-1;p0::Lexus RX=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__127716_157828_239539,3hop1,max_hops,4,0,1,3,3,p14::Politika=0;p6::Serbian language=0;p7::Media in Pristina=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__525242_52835,2hop,repeated_query,3,0,1,2,2,p15::Happy Pills (song)=0;p0::Turn Me On (Mark Dinning song)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__783711_503371_21711,3hop1,max_hops,4,0,1,3,3,p13::Urriés=3;p2::Martin of Aragon=0;p15::Gothic architecture=0,1,3,0,1,1,0,0,0,0,1
+hybrid_ircot_musique_confirm,4hop1__567737_141375_458768_33632,4hop1,repeated_query,2,0,0,4,1,"p19::Study in Brown=0;p11::EmArcy Records=-1;p5::The Right Stuff Records=-1;p15::Santa Monica, California=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__468778_88165,2hop,repeated_query,2,0,1,2,2,p19::Hagar (disambiguation)=0;p13::Keturah=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__8496_21567,2hop,max_hops,4,0,1,2,2,p5::Slavs=0;p19::Late Middle Ages=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__524212_831637_91775,3hop1,done,1,0,0,3,2,p8::USS Askari=0;p14::List of destroyer classes of the United States Navy=-1;p1::United States Navy SEALs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__316459_41402_599212_13584,4hop3,repeated_query,3,0,0,4,3,"p17::Charles Edmund Nugent=0;p4::Jacksonville, Florida=0;p1::Hostafrancs=-1;p9::FC Barcelona=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__133241_33564,2hop,max_hops,4,0,0,2,1,p2::Agni-V=0;p6::Hyderabad=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop2__797545_14670_8987_8974,4hop2,repeated_query,2,0,0,4,2,p12::.cs=0;p19::United States Army=-1;p13::Josip Broz Tito=-1;p17::Josip Broz Tito=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__29368_29376,2hop,repeated_query,2,0,1,2,2,p5::Liberal Party of Australia=0;p17::Liberal Party of Australia=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__326140_9237,2hop,repeated_query,2,0,0,2,1,p2::Marshall Islands–Federated States of Micronesia Maritime Boundary Treaty=0;p14::Marshall Islands=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__662413_42197_18397,3hop1,repeated_query,2,0,1,3,3,p3::Kirill Eskov=0;p15::Imperialism=0;p14::Korean War=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__195917_575657,2hop,max_hops,4,1,1,2,2,"p15::William W. Blair=0;p17::Holley, New York=0",1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__78766_461854,2hop,repeated_query,2,0,0,2,1,p18::Vivien Leigh=0;p14::Darlings of the Gods=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__439614_349102,2hop,done,1,1,1,2,2,p11::Xiao Liwu=0;p14::Bai Yun=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop1__344155_378185_282674_759393,4hop1,repeated_query,3,0,0,4,2,p7::KRSU (FM)=0;p0::John C. Petersen=2;p2::Pulaski High School=-1;p14::Jerome Quinn=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__17192_78396_54865,3hop1,repeated_query,3,1,0,3,2,p12::Israel=0;p1::History of Israel=-1;p14::British America=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__63002_461854,2hop,repeated_query,2,0,1,2,2,p9::Scarlett O'Hara=0;p8::Darlings of the Gods=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__144439_443779_52195,3hop1,max_hops,4,1,1,3,3,p2::Mulham Arufin=0;p7::Indonesia–Timor Leste Commission of Truth and Friendship=0;p3::East Timor=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__499577_617190,2hop,done,1,1,1,2,2,p16::Johan Ludvig Heiberg (poet)=0;p11::The Crisis and a Crisis in the Life of an Actress=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop1__152562_5274_458768_33677,4hop1,repeated_query,2,1,0,4,3,"p14::Vilaiyaadu Mankatha=-1;p5::Sony Music=0;p16::The Right Stuff Records=1;p11::Santa Monica, California=0",0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__814776_378185_282674_759393,4hop1,repeated_query,2,0,0,4,1,p0::Western Islands (publisher)=0;p19::John C. Petersen=-1;p5::Pulaski High School=-1;p3::Jerome Quinn=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__439878_88460_30152_20999,4hop3,done,3,0,0,4,2,p6::Ban Kenpha=0;p18::Geography of Myanmar=-1;p4::Ottoman Empire=0;p17::Myanmar=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__176712_8311,2hop,repeated_query,2,1,1,2,2,p0::Katherine of England=0;p7::Westminster Abbey=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__80070_89752,2hop,repeated_query,3,1,1,2,2,p15::The Handmaid's Tale=1;p17::New England=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__51074_75184,2hop,done,1,0,1,2,2,p9::Back to the Future=0;p6::List of Back to the Future characters=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop1__79462_91850_685675,3hop1,repeated_query,3,1,0,3,2,p18::2017 American League Wild Card Game=0;p4::Yankee Stadium=0;p9::Jorge Posada=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__14777_8533_9331,3hop2,repeated_query,1,0,0,3,2,p13::Franco-Prussian War=0;p2::Slavs=0;p15::Szlachta=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__6989_37759_74563,3hop2,repeated_query,3,0,1,3,3,p2::Boston=0;p10::Protestantism=1;p5::History of the Puritans in North America=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__57233_106716_56883,3hop2,repeated_query,2,0,1,3,3,p13::The Things They Carried=0;p12::Pepsi Live=0;p2::Conscription in Australia=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__408237_400692_51423,3hop1,repeated_query,2,0,0,3,1,p12::Harmony (Serena Ryder album)=-1;p18::Sekou Lumumba=-1;p1::Casa Loma=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__495316_660579,2hop,repeated_query,2,0,0,2,1,"p0::Hickory Grove Estates, Mississippi=0;p15::Oktibbeha County School District=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__238811_88460_30152_20999,4hop3,repeated_query,3,0,0,4,3,p16::Ban Nampo=0;p12::Geography of Myanmar=2;p11::Ottoman Empire=0;p14::Myanmar=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__801799_547811_41132,3hop1,max_hops,4,1,1,3,3,"p14::La fida ninfa=0;p9::Orlando furioso (Vivaldi, 1714)=1;p7::Black Death=0",1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__230022_68489,2hop,repeated_query,2,0,0,2,1,p3::Michael Knight (Knight Rider)=0;p13::Snapper Foster=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__166824_185403,2hop,done,2,0,1,2,2,p11::Stadio Ciro Vigorito=0;p13::Carmelo Imbriani=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__44652_165532,2hop,repeated_query,2,0,0,2,1,p4::How the West Was Won (film)=0;p18::Five Days from Home=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__50068_494136,2hop,repeated_query,3,0,1,2,2,p19::I Can Only Imagine (film)=0;p8::Flesh and Bone (film)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop2__326964_734214_7713,3hop2,max_hops,4,0,1,3,3,p13::Yaxing Coach=0;p12::Lynn Hung=0;p3::Nanjing=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__17192_78396_42428,3hop1,done,1,0,0,3,2,p11::Israel=0;p3::History of Israel=-1;p5::French and Indian War=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__15567_59747_211319_557671,4hop1,repeated_query,3,0,0,4,3,p14::Capital punishment in the United States=0;p7::List of municipalities in Georgia (U.S. state)=1;p3::Sno*Drift=-1;p12::Alpena Power Company=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__388467_110882,2hop,done,1,0,0,2,1,p7::By Your Side (James Cottriall song)=0;p0::James Cottriall=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__152052_141308,2hop,max_hops,4,0,1,2,2,p1::Don't Let Me Wait Too Long=0;p10::Apple Records=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__51760_602275,2hop,repeated_query,3,0,0,2,0,p4::Mr. Peabody & Sherman=-1;p10::Evelyn Einstein=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__160092_80144,2hop,repeated_query,3,0,0,2,0,p13::Gleiwitz incident=-1;p12::1990 Polish presidential election=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__567955_503371_21711,3hop1,repeated_query,2,1,1,3,3,p3::Layana=0;p11::Martin of Aragon=0;p13::Gothic architecture=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__152146_5274_458768_33637,4hop1,max_hops,4,0,1,4,4,"p19::Långa nätter=0;p15::Sony Music=1;p5::The Right Stuff Records=1;p14::Santa Monica, California=0",1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__579562_629431_64412,3hop1,repeated_query,2,0,1,3,3,p13::Pacem in terris=0;p16::Canonization of Pope John XXIII and Pope John Paul II=1;p4::Vatican City=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__47257_43786,2hop,max_hops,4,0,1,2,2,p0::Law of holes=0;p5::The Washington Post=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__844109_720914_41132,3hop1,repeated_query,3,0,1,3,3,"p3::The Entombment (Titian, 1559)=0;p10::The Martyrdom of Saint Lawrence (Titian)=1;p6::Black Death=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__73760_712629,2hop,max_hops,4,0,0,2,1,p11::Windsor Castle=0;p7::Wedding dress of Princess Elizabeth=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__199513_801817,2hop,done,1,0,0,2,1,p2::São José dos Campos=0;p17::Sisters of St Joseph of Nazareth=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__105773_457883_650651_7262,4hop1,max_hops,4,0,0,4,3,"p9::Krystala=0;p1::Embassy of the Philippines, Bandar Seri Begawan=0;p8::The Biggest Loser Brunei: Lose It All=1;p7::Adult contemporary music=-1",0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop1__364476_439408_131976_90181,4hop1,repeated_query,2,1,0,4,3,"p10::Winchester, Illinois=0;p19::Trial of Daniel Dean=0;p12::Virginia=-1;p8::Puerto Rico Trench=0",0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__39871_314549_131976_56103,4hop1,max_hops,4,0,1,4,4,"p19::Richmond, Virginia=0;p11::Newport News, Virginia=1;p8::Virginia=0;p13::Atlantic hurricane=0",1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,3hop2__92991_38326_76291,3hop2,repeated_query,3,0,0,3,2,p10::Standing Rules of the United States Senate=-1;p7::Dwight D. Eisenhower=0;p2::2014 United States Senate elections=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__73615_20510,2hop,repeated_query,2,1,1,2,2,p7::Nawabs of Bengal and Murshidabad=0;p0::British Empire=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__862994_69048,2hop,done,3,0,1,2,2,p10::Gloria Kemasuode=0;p14::Rosaline Bozimo=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__145194_160545_34751,3hop1,repeated_query,2,1,0,3,2,p10::Siddhi Savetsila=0;p3::Bang Bon District=-1;p14::Pacific War=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__788306_131879,2hop,repeated_query,3,0,0,2,1,p8::Wyndham Hazelton=0;p15::Buckingham=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__144658_599630,2hop,done,1,0,0,2,1,p1::Ye Rongguang=0;p19::Sanjiang Church=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__68732_39743_24526,3hop1,done,3,0,1,3,3,"p9::Battle of Fredericksburg=0;p0::Richmond, Virginia=0;p18::North Carolina=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__761291_87295,2hop,repeated_query,3,0,1,2,2,p17::Home: A Memoir of My Early Years=0;p16::The Princess Diaries (film)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__103751_24918_24991,3hop1,repeated_query,3,0,1,3,3,p10::Ethella Chupryk=0;p11::Dissolution of the Soviet Union=0;p12::Dissolution of the Soviet Union=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__106042_64399_53006,3hop1,max_hops,4,1,0,3,2,p18::Vasilopita=-1;p5::Early centers of Christianity=1;p17::Al-Aqsa Mosque=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop3__373866_5189_31809_86687,4hop3,max_hops,4,1,1,4,4,p10::Hero of Socialist Labour (Albania)=1;p2::Warsaw Pact=0;p9::Muammar Gaddafi=0;p0::German reunification=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,4hop1__726391_153080_33952_33939,4hop1,repeated_query,2,0,0,4,1,"p6::Oh Yeah (Charles Mingus album)=0;p4::Charles Mingus=-1;p9::Tucson, Arizona=-1;p19::Tucson, Arizona=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__373866_5189_63702,3hop1,max_hops,4,0,1,3,3,p14::Hero of Socialist Labour (Albania)=0;p13::Warsaw Pact=0;p12::Allies of World War II=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__96137_62765,2hop,max_hops,4,0,1,2,2,p19::The Woman in the Window=0;p2::The Ten Commandments (1956 film)=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__142044_538202_84283,3hop1,repeated_query,3,0,0,3,2,p13::Just Got Started Lovin' You=0;p15::Sunset Man=0;p17::Warner Records=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__837900_71701,2hop,repeated_query,3,1,1,2,2,p4::New Plaza Stadium=0;p8::Twenty-First Army (Japan)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop2__304722_591230_63959,3hop2,repeated_query,2,0,0,3,1,p18::1894–95 FA Cup=-1;p5::Ken Faulkner=0;p7::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__506099_20057,2hop,repeated_query,2,1,1,2,2,p11::Defective by Design=0;p8::Intellectual property=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__77601_814677,2hop,done,1,0,1,2,2,p11::Osiris=0;p10::Hapi (Son of Horus)=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop1__346416_831637_91775,3hop1,repeated_query,2,0,1,3,3,p3::Curtiss NC=0;p10::List of destroyer classes of the United States Navy=0;p5::United States Navy SEALs=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__21103_16254,2hop,done,1,0,1,2,2,p9::Jews=0;p7::Ashkenazi Jews=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop2__76623_90098_10557,3hop2,max_hops,4,0,1,3,3,p13::Charlemagne=0;p11::Sylvester=0;p4::Middle Ages=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__159902_362941,2hop,max_hops,4,0,0,2,1,p14::List of First Ladies of the United States=0;p19::Paulsdale=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__71755_463572,2hop,max_hops,4,0,1,2,2,p11::You Belong to Me (1952 song)=1;p13::Let There Be Love (1953 Joni James album)=2,1,2,0,1,1,1,0,0,1,0
+hybrid_ircot_musique_confirm,4hop2__161602_474028_88460_126088,4hop2,repeated_query,2,0,0,4,2,p18::2020 AFC U-23 Championship qualification=-1;p9::A Don=0;p7::Geography of Myanmar=0;p15::Myanmar=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__551235_310309,2hop,max_hops,4,0,0,2,1,p7::A Distinguished Member of the Humane Society=0;p13::Edwin Lutyens=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__780238_110949,2hop,repeated_query,2,0,1,2,2,p19::Till dom ensamma=0;p15::Mauro Scocco=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__136852_30587_83479,3hop1,repeated_query,3,0,0,3,0,p4::The Golden Palace=-1;p16::Miami=-1;p3::Battle of the Atlantic=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__613779_55984,2hop,done,1,1,1,2,2,p13::That Wasn't Me=0;p16::The Story (song)=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop1__88342_75218_128008_87812,4hop1,repeated_query,3,0,0,4,3,p19::Major League Baseball Most Valuable Player Award=0;p18::World Series=-1;p3::New York Yankees=2;p16::Opening Day=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__848113_15840_36002,3hop1,repeated_query,2,0,1,3,3,p3::Star Voyager=0;p15::Nintendo Entertainment System=0;p8::Super Nintendo Entertainment System=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__203955_25719,2hop,done,1,0,0,2,1,p7::Rössen culture=0;p9::Galicia (Spain)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__422295_8311,2hop,repeated_query,3,0,1,2,2,"p5::Alice de Lusignan, Countess of Surrey=0;p13::Westminster Abbey=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__61714_42553,2hop,repeated_query,3,0,1,2,2,p16::Pam Beesly=0;p17::Pam Beesly=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__532383_768138,2hop,repeated_query,3,0,1,2,2,p3::Nothin' My Love Can't Fix=0;p10::Pulse (1988 film)=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop3__31333_29339_508306_70744,4hop3,repeated_query,2,0,1,4,4,"p5::Tennessee=0;p8::2004 United States presidential election=0;p6::Fort Hill (Clemson, South Carolina)=0;p18::Clemson–South Carolina rivalry=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__537404_55227,2hop,repeated_query,2,0,0,2,1,p6::Paul Blart: Mall Cop 2=0;p3::Grown Ups (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__102087_214799_259594,3hop1,repeated_query,2,0,0,3,1,p0::Bernd Baumgart=0;p3::Literature of East Germany=-1;p2::Heinz-Josef Große=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__92991_78276_68042,3hop1,repeated_query,2,0,0,3,2,p9::Standing Rules of the United States Senate=0;p5::Party leaders of the United States Senate=-1;p1::2010 United States House of Representatives elections=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__131820_59747_211319_557671,4hop1,repeated_query,2,0,0,4,2,p11::WEKL=0;p15::List of municipalities in Georgia (U.S. state)=1;p17::Sno*Drift=-1;p7::Alpena Power Company=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__94201_642284_131926_90707,4hop1,max_hops,4,0,0,4,3,p17::Southeast Library=0;p16::Riverside Plaza=1;p8::Minneapolis=-1;p3::Ohio River=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__497191_129669,2hop,max_hops,4,1,1,2,2,p19::Alhandra (footballer)=0;p3::Vila Franca de Xira=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__166484_798067,2hop,repeated_query,2,0,0,2,1,"p8::Zuchang Gymnasium=0;p7::Jinjiang, Fujian=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__57186_237521_291682,3hop1,repeated_query,2,0,0,3,2,p7::She's Out of My Life=0;p15::Michael Jackson: The Life of an Icon=0;p3::Liza and David=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__818422_160545_60577,3hop1,repeated_query,2,0,0,3,1,p0::Beatrice Heuser=0;p4::Bang Bon District=-1;p6::The Beach (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__463353_80420,2hop,repeated_query,3,1,1,2,2,p18::Swayze Field=0;p16::James Meredith=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__9285_42311,2hop,done,3,1,1,2,2,p5::Szlachta=2;p19::Warsaw=0,1,2,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__61664_786853,2hop,max_hops,4,0,0,2,1,p15::The Lego Batman Movie=0;p8::On Broadway (film)=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop1__94201_642284_131926_87157,4hop1,repeated_query,3,0,1,4,4,p1::Southeast Library=0;p16::Riverside Plaza=1;p18::Minneapolis=0;p14::Mississippi River=1,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__829944_474097_84283,3hop1,repeated_query,2,0,0,3,1,p0::Better Than Me (Terry Dexter song)=0;p7::Terry Dexter (album)=-1;p19::Warner Records=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__88406_83289,2hop,repeated_query,2,1,1,2,2,p12::No Tears Left to Cry=0;p16::One Last Time (Ariana Grande song)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__131275_72870,2hop,repeated_query,3,0,0,2,1,p8::Christian Science Pleasant View Home=0;p6::2016 United States presidential election in New Hampshire=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__847684_339990_54675,3hop1,repeated_query,2,0,1,3,3,"p1::Lorenz Park, New York=0;p7::Socialist Party of Oregon (Columbia County, Oregon)=0;p0::Portland, Oregon=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__21991_43945,2hop,done,3,0,1,2,2,p17::Edmund Burke=0;p8::Thomas Paine=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__129721_40482,2hop,repeated_query,3,0,1,2,2,p18::Zubly Cemetery=0;p14::Huguenots=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__140345_2053_5289,3hop1,max_hops,4,0,0,3,2,p4::Law of the Plainsman=0;p16::New York City=0;p2::Sony Music=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__50910_177869,2hop,repeated_query,3,0,0,2,1,p19::The North Star (anti-slavery newspaper)=0;p10::Helen Pitts Douglass=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__391525_49925_13759_736921,4hop1,repeated_query,3,0,0,4,3,"p7::John Kodwo Amissah=0;p14::Reformation=1;p3::Mary, mother of Jesus=0;p15::Wittenberg (district)=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__222979_133154_40768,3hop2,repeated_query,2,1,1,3,3,p17::Scion (automobile)=0;p8::Acura EL=0;p9::1973 oil crisis=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__144784_623159,2hop,repeated_query,3,0,1,2,2,p14::Dmitry Borisovich=0;p16::Rostov=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__3739_13529,2hop,repeated_query,2,1,1,2,2,p4::2008 Summer Olympics torch relay=0;p16::FC Barcelona=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__133264_40769_64047,3hop1,max_hops,4,0,1,3,3,p1::Scion Fuse=0;p11::1973 oil crisis=1;p12::Lexus RX=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,3hop2__57233_11282_56883,3hop2,repeated_query,3,0,0,3,2,p18::The Things They Carried=0;p8::Bird migration=-1;p2::Conscription in Australia=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__398344_85513,2hop,repeated_query,2,0,0,2,1,p10::Steven the Sword Fighter=0;p18::List of Steven Universe episodes=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__17854_17873,2hop,repeated_query,2,0,1,2,2,p3::Buckingham Palace=0;p5::Buckingham Palace=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__525129_315334_131926_87157,4hop1,repeated_query,3,0,1,4,4,"p16::Lots More Blues, Rags and Hollers=0;p2::Koerner, Ray & Glover=0;p13::Minneapolis=0;p9::Mississippi River=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__280451_84616,2hop,repeated_query,2,0,0,2,1,p19::Andrea Dotti (psychiatrist)=0;p4::List of awards and honours received by Audrey Hepburn=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__443274_17130_70784_61381,4hop1,repeated_query,3,1,0,4,3,p11::Sar-El=1;p8::Israel=-1;p0::Geography of Saudi Arabia=0;p4::Saudi Arabia=2,0,-1,0,1,1,2,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__821368_14251,2hop,done,2,0,0,2,1,p11::Doing His Bit=0;p10::Anti-aircraft warfare=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__841091_339990_54675,3hop1,max_hops,4,0,0,3,2,"p17::Knob Mountain (Pennsylvania)=0;p18::Socialist Party of Oregon (Columbia County, Oregon)=-1;p16::Portland, Oregon=0",0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__557496_57594,2hop,repeated_query,2,0,0,2,1,p15::Riders of the Purple Sage (1996 film)=0;p14::LeMat Revolver=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__13548_13529,2hop,repeated_query,2,1,1,2,2,p1::FC Barcelona=1;p2::FC Barcelona=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__88953_64006,2hop,repeated_query,2,0,1,2,2,p3::Marshall Plan=0;p10::Consequences of the Black Death=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__754826_7292,2hop,repeated_query,2,0,1,2,2,p10::Saxophonic=0;p4::Adult contemporary music=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__135651_669373,2hop,repeated_query,3,0,1,2,2,p3::Mach bands=0;p19::Vinko Dvořák=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__82378_158266,2hop,repeated_query,2,0,0,2,1,p11::List of countries by bauxite production=0;p4::Australia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__827995_159109,2hop,done,1,0,0,2,1,p19::Amílcar Cabral International Airport=0;p17::Cape Verde=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__25797_25839,2hop,done,1,0,1,2,2,p17::USB=0;p9::USB=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop1__139862_2053_5289,3hop1,repeated_query,2,0,0,3,2,p15::Highway to Heaven=-1;p16::New York City=0;p0::Sony Music=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__156700_63853,2hop,done,1,0,0,2,1,p3::Kraai River=0;p6::Orange River=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__66167_90991,2hop,repeated_query,2,0,1,2,2,p6::List of National Basketball Association annual scoring leaders=0;p14::2007 NBA draft=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__241001_568433_51423,3hop1,repeated_query,3,0,0,3,2,p12::Arna Selznick=0;p15::Natalie Turner=1;p14::Casa Loma=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__198650_84856,2hop,repeated_query,3,0,1,2,2,p0::True Story: A Novel=0;p17::Real Time with Bill Maher=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__654651_55349_651302,3hop1,done,2,1,1,3,3,p11::Insecurity (South Park)=0;p2::List of South Park cast members=1;p1::Dian Bachar=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__49610_89752_75165,3hop1,repeated_query,1,0,0,3,1,p16::The Handmaid's Tale=0;p8::New England=-1;p5::Maine=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__853227_68633,2hop,repeated_query,2,0,1,2,2,p2::Arthur A. Marryatt=0;p10::President of the International Olympic Committee=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__127483_79978_10557,3hop2,repeated_query,3,0,0,3,2,p9::Auctor=-1;p17::Charlemagne=0;p8::Middle Ages=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__76377_40769_64047,3hop1,repeated_query,2,0,0,3,1,p7::List of best-selling automobiles=-1;p19::1973 oil crisis=-1;p17::Lexus RX=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__136083_87694_124169,3hop1,repeated_query,3,1,1,3,3,p3::Schleswig Cathedral=0;p11::St. Peter's Basilica=1;p17::Governor of Vatican City=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__39954_65371,2hop,repeated_query,3,1,1,2,2,p15::Hunting=0;p3::Permanent Representative of Tanzania to the United Nations=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop1__711773_508773_85832_745702,4hop1,repeated_query,2,1,0,4,3,p11::Manuel Balbi=0;p9::Paula Santiago=-1;p16::John Cabot=1;p0::Sebastian Cabot (explorer)=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__52283_75184,2hop,repeated_query,2,0,0,2,1,p12::Marty McFly=0;p15::List of Back to the Future characters=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__159146_120065,2hop,repeated_query,3,0,0,2,1,p8::German Revolution of 1918–19=0;p5::Merseburg=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__52222_40769_64047,3hop1,repeated_query,3,0,0,3,2,p16::Automotive industry=-1;p15::1973 oil crisis=1;p19::Lexus RX=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__700962_88460_30152_20999,4hop3,max_hops,4,0,0,4,2,p13::Ban Pakpo=0;p6::Geography of Myanmar=1;p15::Ottoman Empire=-1;p9::Myanmar=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__157807_19788_15107,3hop1,repeated_query,3,1,0,3,2,p15::Tentacled snake=0;p12::Southeast Asia=-1;p17::Eritrea=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__797496_831637_91775,3hop1,repeated_query,3,1,0,3,2,p19::USS Acme (MSO-508)=0;p16::List of destroyer classes of the United States Navy=-1;p14::United States Navy SEALs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__639955_834494_34099,3hop1,repeated_query,3,0,1,3,3,"p7::Helvetia, Arizona=0;p17::Pima County Natural Resources, Parks and Recreation=1;p4::Tucson, Arizona=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__44815_494136,2hop,repeated_query,2,0,0,2,1,p0::A Dog's Purpose (film)=0;p10::Flesh and Bone (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__455392_40315,2hop,repeated_query,2,0,1,2,2,p7::Desert Studies Center=0;p2::Southern California=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__311694_129669,2hop,repeated_query,3,0,0,2,1,p6::Vera Barbosa=0;p5::Vila Franca de Xira=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__788226_32392_823060_610794,4hop1,max_hops,4,1,1,4,4,"p19::Mary Chesnut's Civil War=0;p1::Charleston, South Carolina=2;p18::WWNQ=2;p3::Forest Acres, South Carolina=1",1,2,0,1,1,1,0,0,1,0
+hybrid_ircot_musique_confirm,3hop1__108062_720914_27537,3hop1,repeated_query,2,0,0,3,1,p15::La Bella=-1;p17::The Martyrdom of Saint Lawrence (Titian)=-1;p8::Pope John XXIII=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__23459_22946,2hop,repeated_query,2,1,1,2,2,p5::History of science=0;p3::Avicenna=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__343844_17130_70784_61381,4hop1,repeated_query,3,0,0,4,3,p17::Joe Flexer=-1;p9::Israel=1;p10::Geography of Saudi Arabia=0;p0::Saudi Arabia=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__617062_127905_87812,3hop1,repeated_query,2,0,1,3,3,p8::Jim Wilson (first baseman)=0;p17::Cleveland Indians=1;p4::Opening Day=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__132957_133292_40768,3hop2,repeated_query,2,1,1,3,3,p9::Acura Legend=0;p17::Hino Dutro=0;p0::1973 oil crisis=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__142443_768138,2hop,repeated_query,2,0,1,2,2,p12::Nothin' My Love Can't Fix=0;p18::Pulse (1988 film)=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__241085_42197_18397,3hop1,repeated_query,3,0,1,3,3,p6::Yekaterina Fesenko=0;p2::Imperialism=0;p12::Korean War=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__197470_271394,2hop,repeated_query,1,0,1,2,2,p14::Dana MacDuff=0;p8::Dana MacDuff=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__46376_158105,2hop,repeated_query,3,0,0,2,1,p16::The World's Billionaires=0;p3::Windows 98=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__103889_86452,2hop,done,2,1,1,2,2,p13::Zaw Win Thet=0;p17::Names of Myanmar=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__135652_669373,2hop,done,2,0,1,2,2,p4::Mach number=0;p5::Vinko Dvořák=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__158279_71753_70784,3hop2,max_hops,4,0,1,3,3,p19::Shiraz=0;p0::Israel=0;p2::Geography of Saudi Arabia=1,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__455158_247871,2hop,repeated_query,2,1,1,2,2,"p16::NRHEG High School=0;p19::New Richland, Minnesota=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__645367_68633,2hop,repeated_query,3,0,0,2,1,p14::Kim Un-yong=0;p12::President of the International Olympic Committee=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__766973_770570,2hop,repeated_query,3,1,1,2,2,"p19::Erik Hort=0;p4::Montebello, New York=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__320697_547811_80702,3hop1,repeated_query,3,1,1,3,3,"p1::Nulla in mundo pax sincera=0;p7::Orlando furioso (Vivaldi, 1714)=1;p2::Rialto Bridge=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__238499_431914,2hop,repeated_query,2,0,1,2,2,p12::Digne Cathedral=0;p4::Arrondissement of Digne-les-Bains=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__84553_90098_10557,3hop2,repeated_query,3,0,1,3,3,p2::Charlemagne=1;p0::Sylvester=0;p5::Middle Ages=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__92590_43786,2hop,done,1,1,1,2,2,p12::Baby boomers=0;p18::The Washington Post=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__518354_67465,2hop,repeated_query,3,1,1,2,2,p5::Blue Slide Park=0;p7::Best Day Ever (mixtape)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__2613_59409,2hop,max_hops,4,0,1,2,2,p15::Kanye West=0;p0::Song Cry=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__321720_650651_7262,3hop1,repeated_query,2,0,0,3,2,"p10::Seria, Belait=0;p12::The Biggest Loser Brunei: Lose It All=0;p17::Adult contemporary music=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__376309_160713_77246,3hop1,repeated_query,3,0,1,3,3,p12::Garlat=0;p14::Partition of India=1;p2::Hindus=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__66872_709625_84283,3hop1,repeated_query,3,0,0,3,2,p1::'Til I Gain Control Again=0;p11::Ain't Living Long Like This=1;p0::Warner Records=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__13731_801817,2hop,done,2,0,1,2,2,"p11::Mary, mother of Jesus=0;p4::Sisters of St Joseph of Nazareth=1",1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__814408_155922,2hop,repeated_query,3,0,0,2,1,p13::Toongabbie Creek=0;p4::Parramatta River=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__124412_402641,2hop,done,1,0,1,2,2,p4::Chiang Hsiao-wen=0;p6::Chiang Hsiao-wu=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop3__839787_88460_30152_20999,4hop3,max_hops,4,0,0,4,2,p1::Sepon mine=0;p3::Geography of Myanmar=-1;p17::Ottoman Empire=0;p13::Myanmar=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__72686_83769,2hop,done,2,0,0,2,1,p11::Justice League (film)=0;p0::Dazed and Confused (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__128420_375952,2hop,repeated_query,3,0,1,2,2,"p11::KQBA=0;p8::Los Alamos, California=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__604991_339990_54675,3hop1,repeated_query,2,0,1,3,3,"p19::Frozen Run=0;p7::Socialist Party of Oregon (Columbia County, Oregon)=0;p17::Portland, Oregon=0",1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__273571_834494_34088,3hop1,repeated_query,3,1,1,3,3,"p17::Summit, Arizona=0;p3::Pima County Natural Resources, Parks and Recreation=1;p8::Tucson, Arizona=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__78756_198548,2hop,repeated_query,2,0,0,2,1,p5::Smokey Bear=0;p16::Murder in Texas=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__152880_131926_87157,3hop1,repeated_query,2,0,0,3,2,p10::Astronautalis=0;p8::Minneapolis=-1;p17::Mississippi River=1,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__686395_141338,2hop,done,2,0,0,2,1,p11::Frederic Ewen=0;p10::Brooklyn College=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__524186_219173_862998_72134,4hop3,repeated_query,3,1,1,4,4,"p8::The Poor Boob=0;p4::Margaret Mayo (playwright)=0;p0::Hillcrest High School (Springfield, Missouri)=0;p15::Springfield, Illinois=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__304722_230978_63959,3hop2,repeated_query,2,0,0,3,1,p16::1894–95 FA Cup=-1;p8::Matthew Webb (footballer)=0;p12::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__252521_80650,2hop,repeated_query,2,0,1,2,2,p3::Frost at Christmas=0;p16::The Santa Clause 3: The Escape Clause=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__31995_8583,2hop,repeated_query,3,0,1,2,2,p15::Steven Spielberg=0;p1::Slavs=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__68802_89752_75165,3hop1,repeated_query,2,0,0,3,2,p3::The Family Stone=1;p7::New England=0;p2::Maine=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__475808_71302,2hop,repeated_query,2,0,0,2,1,p8::Mistress (1992 film)=0;p2::The Godfather Part II=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__140855_2053_52946,3hop1,repeated_query,2,1,1,3,3,p18::Then Came Bronson=0;p5::New York City=0;p14::Celebrity Big Brother (American TV series)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop2__103790_39078_8987_8529,4hop2,repeated_query,2,0,0,4,2,p5::Ivo Werner=0;p6::Police=-1;p17::Josip Broz Tito=-1;p1::Slavs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__60880_87295,2hop,repeated_query,3,0,1,2,2,p19::Eloise at Christmastime=0;p10::The Princess Diaries (film)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop2__569322_223623_162182,3hop2,repeated_query,3,0,1,3,3,p9::S-Fone=0;p14::John Phan=0;p0::South Central Coast=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__79875_84469,2hop,repeated_query,2,1,1,2,2,p5::Thelma & Louise=0;p17::A League of Their Own=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__814671_82341,2hop,done,1,0,1,2,2,"p3::WMOP=0;p9::Ocala, Florida=0",1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__142130_67668,2hop,max_hops,4,0,1,2,2,p5::Nothing Suits Me Like a Suit=0;p4::Batman: Under the Red Hood=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__778212_22458,2hop,repeated_query,2,0,0,2,1,p11::David Will=0;p15::Switzerland=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__496732_658428,2hop,repeated_query,3,0,1,2,2,p17::Bansaan=0;p7::Hinagdanan Cave=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__153532_72380,2hop,done,2,0,0,2,1,p6::The Bag or the Bat=0;p3::List of Ray Donovan episodes=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__354480_834494_34053,3hop1,repeated_query,3,1,1,3,3,"p14::Eric Marcus Municipal Airport=0;p10::Pima County Natural Resources, Parks and Recreation=0;p18::Tucson, Arizona=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__342858_131850_33952_33939,4hop1,repeated_query,3,0,1,4,4,"p17::Yuma, Colorado=0;p12::Yuma County Library District=0;p11::Tucson, Arizona=0;p4::Tucson, Arizona=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop2__71753_648517_70784_79935,4hop2,repeated_query,2,0,0,4,2,p5::Israel=0;p11::Battle of Qurah and Umm al Maradim=0;p13::Geography of Saudi Arabia=-1;p3::History of Saudi Arabia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__433054_831637_91775,3hop1,done,2,0,0,3,2,p19::USS Venus (AK-135)=0;p11::List of destroyer classes of the United States Navy=-1;p7::United States Navy SEALs=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__446612_160545_60577,3hop1,repeated_query,2,0,0,3,1,p14::Ercole Manfredi=1;p0::Bang Bon District=-1;p16::The Beach (film)=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__161324_14670_8987_8974,4hop2,max_hops,4,0,0,4,2,p8::1939 German ultimatum to Lithuania=1;p13::United States Army=-1;p6::Josip Broz Tito=-1;p10::Josip Broz Tito=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__536283_67465,2hop,repeated_query,2,0,1,2,2,p4::Watching Movies=0;p13::Best Day Ever (mixtape)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__860241_766393,2hop,repeated_query,2,1,0,2,1,p0::Missing Person (novel)=0;p16::Patrick Modiano=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__135993_160249,2hop,repeated_query,3,0,1,2,2,p8::Ioannina National Airport=0;p13::Hieronymus of Cardia=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__132957_800948_40768,3hop2,repeated_query,2,1,0,3,2,p9::Acura Legend=0;p17::Katsuaki Watanabe=-1;p11::1973 oil crisis=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__9_59409,2hop,max_hops,4,0,1,2,2,p19::Beyoncé=0;p4::Song Cry=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__30032_46621,2hop,repeated_query,3,0,1,2,2,p18::Energy=0;p7::Heliocentrism=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop3__387712_132409_371500_35031,4hop3,repeated_query,3,0,1,4,4,p13::Jacoby Shaddix=2;p7::Papa Roach=0;p3::Veoh=0;p15::San Diego=1,1,2,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__428940_135373,2hop,done,1,0,0,2,1,p11::Partridge Lake (BC-Yukon)=0;p0::Bering Sea=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__31091_31122,2hop,done,2,1,1,2,2,p10::Empiricism=0;p19::Idealism=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__304722_398767_63959,3hop2,repeated_query,2,0,0,3,1,p19::1894–95 FA Cup=-1;p4::Johnny Newman (footballer)=0;p18::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__59133_512508,2hop,repeated_query,2,0,0,2,1,p4::Atomic number=0;p15::James Chadwick=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__135822_46621,2hop,repeated_query,2,0,0,2,1,p14::Solgränd=-1;p12::Heliocentrism=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__788087_150107,2hop,max_hops,4,0,1,2,2,p7::Deborah Estrin=0;p18::Communications of the ACM=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,4hop1__726152_153080_33897_81096,4hop1,repeated_query,2,0,0,4,3,"p9::Tijuana Moods=0;p5::Charles Mingus=1;p10::Tucson, Arizona=-1;p14::Desert Diamond West Valley Phoenix Grand Prix=0",0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__62823_654855,2hop,max_hops,4,0,1,2,2,p19::1920 United States presidential election=0;p12::Eugene V. Debs=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__804367_160713_77246,3hop1,repeated_query,3,0,1,3,3,p7::Kot Haibat=0;p14::Partition of India=1;p10::Hindus=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__59612_42429,2hop,done,1,0,1,2,2,p10::London broil=0;p11::French and Indian War=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__358270_108549,2hop,repeated_query,2,0,1,2,2,p19::Finale (Smallville)=0;p3::Smallville=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__389069_132457_51423,3hop1,repeated_query,3,0,0,3,2,p17::Sleep Is the Enemy=0;p19::Danko Jones=1;p13::Casa Loma=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__310746_88460_30152_20999,4hop3,repeated_query,2,0,0,4,3,"p9::Khong District, Laos=1;p15::Geography of Myanmar=0;p3::Ottoman Empire=0;p7::Myanmar=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__129456_29339_508306_70744,4hop3,max_hops,4,0,1,4,4,"p11::North Point Mall=1;p9::2004 United States presidential election=0;p8::Fort Hill (Clemson, South Carolina)=0;p17::Clemson–South Carolina rivalry=0",1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__684287_78303,2hop,repeated_query,3,0,1,2,2,"p10::Forest Warrior=0;p4::Walker, Texas Ranger=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__404541_629431_124169,3hop1,repeated_query,2,1,1,3,3,p7::Paenitentiam agere=0;p11::Canonization of Pope John XXIII and Pope John Paul II=1;p12::Governor of Vatican City=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__304722_667199_63959,3hop2,repeated_query,2,0,0,3,1,p5::1894–95 FA Cup=-1;p11::Malcolm Briggs=0;p2::Second City derby=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__77775_162341,2hop,repeated_query,2,0,1,2,2,p10::Capote (film)=0;p14::Charlie Wilson's War (film)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__36497_73181_68042,3hop1,repeated_query,3,0,0,3,2,p3::United States Air Force=-1;p9::Party leaders of the United States Senate=1;p16::2010 United States House of Representatives elections=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__463884_807572,2hop,repeated_query,1,0,1,2,2,p8::Ira C. Allen Mansion=0;p9::13th Legislative District (New Jersey)=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop1__9002_698949_157828_239539,4hop1,repeated_query,3,0,1,4,4,p3::Josip Broz Tito=0;p2::Belgrade (film)=0;p17::Serbian language=1;p6::Media in Pristina=2,1,2,0,1,1,2,1,0,0,1
+hybrid_ircot_musique_confirm,3hop1__850160_15840_36014,3hop1,done,1,1,1,3,3,p11::Pictionary (video game)=0;p13::Nintendo Entertainment System=0;p14::Super Nintendo Entertainment System=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__284613_87295,2hop,max_hops,4,0,1,2,2,p11::The Last of the Really Great Whangdoodles=0;p3::The Princess Diaries (film)=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__31124_31093,2hop,repeated_query,3,0,1,2,2,p16::Idealism=0;p2::Empiricism=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__723101_150107,2hop,repeated_query,2,0,0,2,1,p6::W. Bruce Croft=-1;p12::Communications of the ACM=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__88342_75218_128008_86588,4hop1,max_hops,4,0,0,4,3,p2::Major League Baseball Most Valuable Player Award=0;p7::World Series=1;p6::New York Yankees=-1;p13::Home run=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__222380_443779_52195,3hop1,max_hops,4,0,1,3,3,p7::Buru Regency=0;p5::Indonesia–Timor Leste Commission of Truth and Friendship=0;p9::East Timor=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,3hop2__855821_223623_162182,3hop2,max_hops,4,0,1,3,3,p14::Lâm Đồng Province=0;p8::John Phan=0;p7::South Central Coast=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__32441_274635,2hop,max_hops,4,0,1,2,2,"p15::Charleston, South Carolina=0;p18::Thomas H. Rynning=1",1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,3hop1__354480_834494_34088,3hop1,repeated_query,2,0,0,3,1,"p11::Eric Marcus Municipal Airport=0;p12::Pima County Natural Resources, Parks and Recreation=-1;p6::Tucson, Arizona=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__511454_120259,2hop,repeated_query,2,0,1,2,2,p5::Spalding Priory=0;p4::Mercia=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__10515_21567,2hop,max_hops,4,1,1,2,2,p15::Middle Ages=1;p1::Late Middle Ages=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,4hop1__433767_32392_823060_610794,4hop1,repeated_query,2,0,0,4,2,"p18::Mike Dow=0;p8::Charleston, South Carolina=-1;p14::WWNQ=-1;p3::Forest Acres, South Carolina=1",0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__831456_467331_162182,3hop2,repeated_query,3,0,1,3,3,"p3::Sa Thầy District=0;p11::Zone 5 Military Museum, Danang=0;p14::South Central Coast=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__32441_522949,2hop,repeated_query,3,0,1,2,2,"p8::Charleston, South Carolina=0;p5::Edith Derby Williams=1",1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__140514_2053_5289,3hop1,repeated_query,2,0,1,3,3,p17::Hero High=0;p19::New York City=0;p10::Sony Music=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__108881_720914_27537,3hop1,max_hops,4,0,1,3,3,p3::The Worship of Venus=0;p17::The Martyrdom of Saint Lawrence (Titian)=2;p10::Pope John XXIII=0,1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__567471_123283,2hop,repeated_query,1,0,0,2,1,p2::On Dangerous Ground=0;p4::John Houseman=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__324759_765799_282674_759393,4hop1,max_hops,4,0,0,4,2,p11::Pierce Manufacturing=0;p0::John C. Petersen=-1;p10::Pulaski High School=-1;p6::Jerome Quinn=2,0,-1,0,1,1,2,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__857_846_7849,3hop1,repeated_query,2,0,1,3,3,p13::Sino-Tibetan relations during the Ming dynasty=0;p0::Sino-Tibetan relations during the Ming dynasty=0;p9::Nanjing=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__723404_58556,2hop,repeated_query,3,0,1,2,2,p0::IPLEDGE program=0;p13::FDA Food Safety Modernization Act=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__423045_570226,2hop,repeated_query,3,0,1,2,2,"p11::Hainan Island incident=0;p7::Nada, Hainan=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__706637_93362,2hop,max_hops,4,1,0,2,1,p5::Anil Devgan=-1;p12::Yeh Raaste Hain Pyaar Ke=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop1__152146_5274_458768_33632,4hop1,max_hops,4,0,0,4,3,"p17::Långa nätter=0;p4::Sony Music=-1;p8::The Right Stuff Records=1;p10::Santa Monica, California=0",0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__786067_228453_10972,3hop1,repeated_query,2,0,0,3,2,p17::McAfee's Benchmark=0;p12::Sazerac=-1;p18::Black people=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__65854_88342_58657,3hop2,repeated_query,2,0,0,3,2,p0::1935 Detroit Tigers season=0;p9::Major League Baseball Most Valuable Player Award=-1;p11::2016 World Series=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__326964_851134_7713,3hop2,max_hops,4,0,1,3,3,p18::Yaxing Coach=0;p14::Pfrang Association=0;p11::Nanjing=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__145220_58439,2hop,max_hops,4,0,1,2,2,p5::Camille Cottin=0;p18::Île de la Cité=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__835710_7298,2hop,repeated_query,3,1,1,2,2,p17::Closer (Josh Groban album)=0;p11::Adult contemporary music=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__78401_158262,2hop,repeated_query,2,1,0,2,1,p0::President of the Confederate States of America=-1;p16::Jefferson Davis=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__804417_126089,2hop,repeated_query,3,0,0,2,0,"p4::Bergen, North Holland=-1;p8::North Holland=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__347652_47134,2hop,repeated_query,2,1,1,2,2,p17::Memorial Union (Oregon State University)=0;p13::Benny Beaver=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__558449_503371_21711,3hop1,repeated_query,3,0,1,3,3,p5::Malanquilla=0;p14::Martin of Aragon=0;p7::Gothic architecture=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop3__531933_836463_161616_77103,4hop3,repeated_query,2,1,0,4,2,"p0::Souvenir (Eric Johnson album)=-1;p3::Live from Austin, TX (Eric Johnson album)=-1;p5::Suga Mama=1;p1::History of Austin, Texas=1",0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__56806_7298,2hop,repeated_query,3,0,1,2,2,p12::The One That Got Away (Katy Perry song)=0;p9::Adult contemporary music=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__61714_89309,2hop,done,2,1,1,2,2,p1::Pam Beesly=0;p0::Niagara (The Office)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__449673_91104,2hop,repeated_query,2,1,1,2,2,p19::Resourcesat-2=0;p2::ATS-6=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__335418_279684,2hop,repeated_query,3,1,1,2,2,p9::Anna Benson=0;p16::Kris Benson=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__60001_512508,2hop,repeated_query,2,0,0,2,1,p8::Atomic number=0;p18::James Chadwick=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__72247_497223_15840_36002,4hop1,max_hops,4,0,0,4,3,p0::Super Bowl=0;p18::NFL (video game)=1;p16::Nintendo Entertainment System=1;p2::Super Nintendo Entertainment System=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop1__58323_375563_161848_83118,4hop1,max_hops,4,0,0,4,2,p11::The Book Thief (film)=0;p3::The Messenger (Zusak novel)=1;p6::1952 Winter Olympics=-1;p8::Time in New Zealand=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__28841_547811_41132,3hop1,repeated_query,2,0,1,3,3,"p1::Mandolin=0;p11::Orlando furioso (Vivaldi, 1714)=1;p15::Black Death=0",1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,4hop3__312119_132409_146285_35031,4hop3,repeated_query,3,0,0,4,3,p13::Getting Away with Murder (song)=0;p9::Papa Roach=1;p3::Alexander Golitzen=0;p12::San Diego=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__846600_153080_159767_81096,4hop1,max_hops,4,0,1,4,4,p13::A Modern Jazz Symposium of Music and Poetry=0;p3::Charles Mingus=3;p17::Arizona=1;p6::Desert Diamond West Valley Phoenix Grand Prix=0,1,3,0,1,1,0,0,0,0,1
+hybrid_ircot_musique_confirm,3hop1__818422_160545_34754,3hop1,done,1,0,0,3,1,p13::Beatrice Heuser=0;p10::Bang Bon District=-1;p0::Pacific War=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__510647_507085,2hop,done,2,0,1,2,2,p0::Crockett County=0;p15::John Crockett (frontiersman)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop2__103790_14670_8987_8974,4hop2,repeated_query,2,0,0,4,2,p7::Ivo Werner=0;p14::United States Army=-1;p12::Josip Broz Tito=-1;p11::Josip Broz Tito=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__132957_483843_40768,3hop2,repeated_query,3,1,1,3,3,p14::Acura Legend=0;p8::Scion bbX=0;p10::1973 oil crisis=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__160292_23241,2hop,max_hops,4,0,0,2,1,p5::Religion in Saudi Arabia=-1;p15::Nigeria=0,0,-1,0,0,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop1__152146_5274_458768_33633,4hop1,repeated_query,2,0,0,4,2,"p19::Långa nätter=1;p13::Sony Music=0;p15::The Right Stuff Records=-1;p9::Santa Monica, California=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__581084_828685,2hop,done,1,0,1,2,2,p12::Ravenswood: The Steelworkers' Victory and the Revival of American Labor=0;p7::Kate Bronfenbrenner=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__725233_150107,2hop,repeated_query,2,0,1,2,2,p8::Mobile Computing and Communications Review=0;p19::Communications of the ACM=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__798544_514761_594810,3hop1,repeated_query,3,1,1,3,3,p9::Somethin' Bad=0;p17::Candy Coburn=1;p14::Pure BS=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__820301_720914_41132,3hop1,repeated_query,3,0,0,3,2,p2::Crucifixion (Titian)=1;p16::The Martyrdom of Saint Lawrence (Titian)=-1;p10::Black Death=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__41158_35123,2hop,repeated_query,2,0,1,2,2,p16::Geology=0;p17::Muslim world=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__124932_278133,2hop,done,1,0,0,2,1,p13::Jujhar Singh=0;p17::Gurdwara Guru ka Bagh=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__70490_21567,2hop,repeated_query,2,1,0,2,1,p8::Powder keg of Europe=-1;p13::Late Middle Ages=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__699172_141338,2hop,done,1,1,0,2,1,p5::Lawrence Landweber=-1;p4::Brooklyn College=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__458916_665330_51423,3hop1,max_hops,4,0,0,3,2,p14::Spirit If...=1;p16::Kevin Drew=2;p15::Casa Loma=-1,0,-1,0,1,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__60336_169233,2hop,max_hops,4,1,1,2,2,p19::Hook (film)=0;p15::List of awards and nominations received by Robin Williams=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__690412_526810,2hop,max_hops,4,1,1,2,2,p4::Pa Sak Jolasid Dam=0;p7::List of tributaries of the Chao Phraya River=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__68981_39234,2hop,repeated_query,2,0,0,2,0,p17::Religion in Asia=-1;p16::Tajikistan=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__67660_67223,2hop,done,2,1,0,2,1,p1::How I Met Your Mother=-1;p8::The Mother (How I Met Your Mother)=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__488811_30078,2hop,max_hops,4,0,1,2,2,p11::Erich Zakowski=0;p19::East Prussia=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,3hop1__305566_568433_51423,3hop1,repeated_query,2,0,0,3,0,p2::Clive A. Smith=-1;p10::Natalie Turner=-1;p15::Casa Loma=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__145194_160545_60577,3hop1,repeated_query,2,1,0,3,2,p11::Siddhi Savetsila=0;p7::Bang Bon District=-1;p19::The Beach (film)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__124592_402641,2hop,repeated_query,2,0,1,2,2,p12::Chiang Hsiao-chang=0;p1::Chiang Hsiao-wu=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__31050_725495_49925_349426,4hop1,max_hops,4,0,0,4,2,p6::Guam=-1;p13::Catholic Church in Lesotho=-1;p15::Reformation=2;p16::Katharina von Bora=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,2hop__7855_7794,2hop,repeated_query,2,0,1,2,2,p2::Nanjing=0;p11::Nanjing=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__88834_356793,2hop,repeated_query,2,0,0,2,1,"p4::Return to Nim's Island=0;p13::My Daddy, the Crocodile Hunter=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__36852_326964_7713,3hop2,repeated_query,3,0,1,3,3,p8::Qing dynasty=0;p9::Yaxing Coach=0;p1::Nanjing=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__819901_32392_823060_610794,4hop1,repeated_query,2,0,0,4,2,"p11::John Doby Kennedy=0;p13::Charleston, South Carolina=-1;p9::WWNQ=1;p18::Forest Acres, South Carolina=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__51881_20590,2hop,repeated_query,3,0,1,2,2,p0::The Lord of the Rings (film series)=1;p10::British Empire=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__446612_160545_34754,3hop1,max_hops,4,0,0,3,2,p3::Ercole Manfredi=2;p13::Bang Bon District=-1;p17::Pacific War=0,0,-1,0,1,1,0,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__632623_160713_77246,3hop1,repeated_query,3,0,1,3,3,p5::Bashir Rafiq=2;p13::Partition of India=1;p9::Hindus=0,1,2,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__3496_5274_458768_33677,4hop1,max_hops,4,1,1,4,4,"p2::American Idol=0;p18::Sony Music=1;p13::The Right Stuff Records=2;p4::Santa Monica, California=0",1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__242045_2684,2hop,repeated_query,3,1,0,2,1,p12::Chrétien DuBois=-1;p6::Kanye West=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__83938_5666,2hop,max_hops,4,0,0,2,1,p5::Kamchatka Peninsula=0;p8::Russian Soviet Federative Socialist Republic=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__603558_87694_124169,3hop1,repeated_query,3,1,1,3,3,p19::San Pietro in Ciel d'Oro=0;p12::St. Peter's Basilica=0;p17::Governor of Vatican City=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__201704_135481,2hop,done,1,0,1,2,2,p8::1965 Federation Cup (tennis)=0;p16::Fed Cup=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,3hop2__304722_590317_63959,3hop2,max_hops,4,0,0,3,2,p8::1894–95 FA Cup=-1;p19::Terry Twell=0;p3::Second City derby=2,0,-1,0,1,1,2,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop1__21282_692112_236857,3hop1,max_hops,4,0,1,3,3,p8::The Sun (United Kingdom)=1;p15::Angela Merkel=2;p19::Women's football in East Germany=0,1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,4hop1__342858_131850_33952_34109,4hop1,repeated_query,3,0,1,4,4,"p7::Yuma, Colorado=0;p18::Yuma County Library District=0;p16::Tucson, Arizona=0;p15::Tucson, Arizona=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__123145_66723,2hop,repeated_query,3,1,1,2,2,p2::Stewart Patridge=0;p3::James Meredith=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__273571_834494_34099,3hop1,repeated_query,3,0,1,3,3,"p2::Summit, Arizona=0;p8::Pima County Natural Resources, Parks and Recreation=0;p16::Tucson, Arizona=0",1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__569582_304416,2hop,repeated_query,3,0,1,2,2,p7::Almost Made Ya=0;p10::Kinfolk (album)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop2__304722_466316_63959,3hop2,max_hops,4,0,0,3,2,p5::1894–95 FA Cup=-1;p16::Arthur James (footballer)=0;p19::Second City derby=2,0,-1,0,1,1,2,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop2__71753_648517_70784_61381,4hop2,repeated_query,3,0,0,4,3,p18::Israel=0;p4::Battle of Qurah and Umm al Maradim=0;p0::Geography of Saudi Arabia=-1;p15::Saudi Arabia=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__10620_49084,2hop,repeated_query,3,0,0,2,1,p2::Middle Ages=-1;p18::Liam Garrigan=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__63982_768138,2hop,repeated_query,3,0,0,2,1,p4::Gimme a Break!=0;p1::Pulse (1988 film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__13574_13498,2hop,done,1,0,0,2,0,p0::FC Barcelona=-1;p4::FC Barcelona=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__644898_64046,2hop,repeated_query,2,0,0,2,1,p11::James Trainer=0;p12::Paddington 2=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__35137_22940,2hop,repeated_query,2,0,1,2,2,p12::Muslim world=0;p7::Avicenna=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__70338_36240,2hop,max_hops,4,0,1,2,2,p7::Skin of my teeth=0;p12::Immaculate Conception=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__589264_150107,2hop,done,2,0,1,2,2,p15::Zhengyou Zhang=0;p11::Communications of the ACM=1,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__85596_807969,2hop,max_hops,4,0,0,2,1,p11::List of top Premier League goal scorers by season=0;p2::Ahmed Salah Hosny=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,3hop2__76873_69814_64554,3hop2,repeated_query,3,1,1,3,3,p17::Memoirs of a Geisha=0;p11::History of Germany (1945–1990)=0;p0::Soviet Union–United States relations=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop1__130404_59747_211319_557671,4hop1,repeated_query,2,0,0,4,2,p1::WDXQ=0;p9::List of municipalities in Georgia (U.S. state)=1;p2::Sno*Drift=-1;p10::Alpena Power Company=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__819974_129669,2hop,repeated_query,3,0,0,2,1,p17::Póvoa de Santa Iria e Forte da Casa=0;p13::Vila Franca de Xira=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop2__607269_223623_162182,3hop2,done,1,0,0,3,2,p13::Hạ Hòa District=0;p4::John Phan=0;p5::South Central Coast=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__57638_88526,2hop,repeated_query,2,0,1,2,2,p6::List of National Basketball Association annual scoring leaders=0;p11::2007 NBA draft=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__455862_508773_85832_745702,4hop1,repeated_query,3,1,0,4,3,p0::Ignacio Esparza=0;p10::Paula Santiago=-1;p11::John Cabot=0;p18::Sebastian Cabot (explorer)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__89403_122023,2hop,repeated_query,2,0,0,2,1,p5::Photoelectric effect=0;p1::Albert Einstein=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__27650_27628,2hop,repeated_query,3,0,0,2,1,p6::European Central Bank=1;p0::European Central Bank=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__259267_22402,2hop,repeated_query,3,0,0,2,1,p7::Rudolf Wolf=0;p5::Switzerland=-1,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__768312_814677,2hop,max_hops,4,1,1,2,2,p15::Khenti-Amentiu=0;p13::Hapi (Son of Horus)=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__84847_21969,2hop,repeated_query,2,0,0,2,1,p9::Governor-General of India=-1;p18::Edmund Burke=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__92385_2072,2hop,repeated_query,3,0,0,2,1,p16::The Cosby Show=-1;p17::New York City=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__144317_120065,2hop,done,1,0,0,2,1,p12::Hans-Joachim Merker=0;p16::Merseburg=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__85463_33311,2hop,repeated_query,2,0,0,2,1,p12::Yalu River=0;p14::Modern history=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__145411_443779_52195,3hop1,max_hops,4,1,1,3,3,p5::Sumardi=0;p2::Indonesia–Timor Leste Commission of Truth and Friendship=0;p18::East Timor=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__673655_316668,2hop,repeated_query,2,0,0,2,1,p12::The Blackout All-Stars=0;p16::Midnight Blue (Kenny Burrell album)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__2299_38663,2hop,repeated_query,3,1,0,2,1,p18::To Kill a Mockingbird=-1;p6::Tanzania=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__250030_7298,2hop,repeated_query,3,1,1,2,2,p15::All That Echoes=0;p6::Adult contemporary music=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__351045_47134,2hop,repeated_query,3,0,0,2,1,p4::RV Wecoma=0;p2::Benny Beaver=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__603365_120259,2hop,repeated_query,3,0,0,2,1,p14::Battle of Maserfield=0;p2::Mercia=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__702699_792411_51423,3hop1,repeated_query,2,0,0,3,1,p9::Maria (album)=0;p0::Gavin Bradley=-1;p10::Casa Loma=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__17192_17130_70784_61381,4hop1,max_hops,4,1,1,4,4,p2::Israel=0;p9::Israel=0;p18::Geography of Saudi Arabia=0;p6::Saudi Arabia=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__64323_55840,2hop,repeated_query,2,1,0,2,1,p2::George VI=-1;p16::The King's Speech=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__88342_75218_128008_80286,4hop1,repeated_query,3,0,0,4,3,p18::Major League Baseball Most Valuable Player Award=1;p12::World Series=1;p3::New York Yankees=-1;p11::List of Major League Baseball career hits leaders=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__511296_577502,2hop,repeated_query,2,0,1,2,2,p2::Terminator (character)=0;p19::Chrétien DuBois=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__726391_153080_33952_34053,4hop1,repeated_query,3,1,1,4,4,"p1::Oh Yeah (Charles Mingus album)=0;p19::Charles Mingus=1;p13::Tucson, Arizona=1;p10::Tucson, Arizona=0",1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__130623_32392_823060_610794,4hop1,repeated_query,2,0,0,4,1,"p14::Erskine College=0;p6::Charleston, South Carolina=-1;p9::WWNQ=-1;p3::Forest Acres, South Carolina=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__131829_39743_24526,3hop1,done,2,0,1,3,3,"p6::WXBX=0;p16::Richmond, Virginia=0;p0::North Carolina=1",1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__89854_92991_76291,3hop2,max_hops,4,0,1,3,3,p17::114th United States Congress=1;p19::Standing Rules of the United States Senate=0;p4::2014 United States Senate elections=0,1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__494659_5385,2hop,repeated_query,2,0,0,2,1,p19::Julian P. Kanter Political Commercial Archive=0;p3::Oklahoma City=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__96096_78606,2hop,repeated_query,3,1,1,2,2,p9::Real Rob=0;p6::Grown Ups (film)=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__132957_295815_40768,3hop2,repeated_query,3,1,1,3,3,p11::Acura Legend=0;p14::Toyopet Master=0;p4::1973 oil crisis=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,2hop__84103_345851,2hop,max_hops,4,1,1,2,2,p12::Spider-Man: Homecoming=3;p16::Zendaya (album)=1,1,3,0,1,1,1,0,0,0,1
+hybrid_ircot_musique_confirm,2hop__557284_160249,2hop,repeated_query,3,0,1,2,2,p19::Ptolemy (son of Pyrrhus)=1;p10::Hieronymus of Cardia=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__818692_113442,2hop,max_hops,4,1,1,2,2,p19::Autumn Leaves (painting)=0;p12::John Everett Millais=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__141456_6455,2hop,done,1,1,1,2,2,p9::Mozilla Messaging=0;p14::Web browser=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,4hop1__46196_497223_15840_36014,4hop1,repeated_query,3,0,1,4,4,p7::List of Super Bowl halftime shows=1;p5::NFL (video game)=0;p19::Nintendo Entertainment System=0;p4::Super Nintendo Entertainment System=0,1,1,0,1,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__95970_456836,2hop,repeated_query,2,0,1,2,2,p7::Sous les pieds des femmes=0;p3::A Summer in La Goulette=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,3hop2__30956_65244_84681,3hop2,max_hops,4,0,0,3,2,p12::John Kerry=0;p3::New Amsterdam=0;p10::History of New Zealand=-1,0,-1,0,0,1,-1,0,0,-1,0
+hybrid_ircot_musique_confirm,4hop1__93316_53706_795904_580996,4hop1,repeated_query,3,0,0,4,1,"p12::Geothermal energy in the United States=1;p16::California Gold Rush=-1;p2::History of Sacramento, California=-1;p10::Rio Linda High School=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop1__131632_32392_823060_610794,4hop1,max_hops,4,1,1,4,4,"p17::Peace Center=0;p13::Charleston, South Carolina=3;p5::WWNQ=0;p3::Forest Acres, South Carolina=3",1,3,0,1,1,3,0,0,0,1
+hybrid_ircot_musique_confirm,2hop__89764_827343,2hop,repeated_query,2,0,0,2,1,p12::Miracle on 34th Street=1;p17::Five Finger Exercise=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__77966_91191_156667,3hop1,repeated_query,2,0,0,3,2,p19::Religion in Lebanon=0;p15::Identity of the first male Muslim=0;p11::Ali=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__34595_160249,2hop,max_hops,4,0,1,2,2,p10::Roman Republic=0;p2::Hieronymus of Cardia=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__536452_15840_36002,3hop1,repeated_query,3,0,0,3,2,p14::Pinball Quest=0;p0::Nintendo Entertainment System=-1;p7::Super Nintendo Entertainment System=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__846415_88165,2hop,repeated_query,2,1,1,2,2,p17::Jokshan=1;p8::Keturah=0,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__364489_861485,2hop,max_hops,4,0,1,2,2,p12::Bamboo Among the Oaks=0;p8::Minnesota History Center=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__143650_152023,2hop,repeated_query,2,1,1,2,2,p7::Delta Hardware=0;p6::Charlie Musselwhite=1,1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__408432_32392_823060_610794,4hop1,max_hops,4,1,1,4,4,"p2::WYFG=0;p19::Charleston, South Carolina=1;p6::WWNQ=1;p13::Forest Acres, South Carolina=0",1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__80637_19033,2hop,repeated_query,2,0,1,2,2,p10::Money in the Bank ladder match=0;p14::Professional wrestling=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,2hop__496961_554601,2hop,repeated_query,2,1,1,2,2,p17::Sunnyboys=0;p18::Jeremy Oxley=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__145494_698949_157828_162309,4hop1,repeated_query,3,0,0,4,3,p0::Béla Linder=0;p7::Belgrade (film)=-1;p9::Serbian language=1;p15::Yugoslavia at the Olympics=0,0,-1,0,1,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__40970_90367,2hop,repeated_query,3,0,1,2,2,p18::Ctenophora=0;p15::Crossing the Red Sea=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,4hop1__320457_508773_85832_745702,4hop1,repeated_query,2,1,0,4,3,p17::Ulises Solís=0;p19::Paula Santiago=-1;p14::John Cabot=0;p12::Sebastian Cabot (explorer)=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__66843_494136,2hop,repeated_query,2,0,0,2,1,p16::Great Balls of Fire! (film)=0;p6::Flesh and Bone (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__728969_131890,2hop,repeated_query,2,0,1,2,2,p8::George Mills (footballer)=0;p14::Deptford=1,1,1,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__96177_62765,2hop,repeated_query,2,0,1,2,2,p6::Dark Hazard=0;p15::The Ten Commandments (1956 film)=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__573244_339990_15538,3hop1,repeated_query,2,1,1,3,3,"p10::Kashinka Hollow=0;p7::Socialist Party of Oregon (Columbia County, Oregon)=1;p6::Capital punishment in the United States=0",1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,2hop__175168_110222,2hop,done,1,1,1,2,2,p14::The Painter's Studio=0;p3::Gustave Courbet=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__34495_49388,2hop,repeated_query,3,1,1,2,2,p1::Premier League=0;p11::La Liga=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__860115_798482_131926_87157,4hop1,max_hops,4,0,1,4,4,p6::Elizabeth Berg (author)=1;p14::Newgate Education Center=2;p7::Minneapolis=0;p19::Mississippi River=2,1,2,0,1,1,0,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__452580_70131,2hop,repeated_query,2,0,0,2,1,p1::Free State of Brunswick=0;p6::Freikorps=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__715607_792411_51423,3hop1,repeated_query,2,0,0,3,2,p15::A Collection 1984–1989=0;p7::Gavin Bradley=1;p18::Casa Loma=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__179322_83289,2hop,done,1,0,1,2,2,p18::Baby I=0;p14::One Last Time (Ariana Grande song)=0,1,0,1,0,1,0,1,0,0,0
+hybrid_ircot_musique_confirm,2hop__26642_66233,2hop,repeated_query,2,1,1,2,2,p15::Exhibition game=0;p11::2018–19 NHL season=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,4hop1__130508_32392_823060_610794,4hop1,repeated_query,3,0,0,4,1,"p9::Borough House Plantation=0;p15::Charleston, South Carolina=-1;p16::WWNQ=-1;p4::Forest Acres, South Carolina=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__103662_443779_52195,3hop1,max_hops,4,0,1,3,3,p4::Radiansyah=0;p13::Indonesia–Timor Leste Commission of Truth and Friendship=0;p0::East Timor=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,3hop1__305282_282081_10972,3hop1,repeated_query,2,0,0,3,1,p6::III (Stanton Moore album)=-1;p4::Flyin' the Koop=-1;p17::Black people=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__719184_55227,2hop,repeated_query,3,0,0,2,1,p12::Here Comes the Boom=0;p9::Grown Ups (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__48481_319887,2hop,repeated_query,2,0,0,2,1,p3::Daddy's Home 2=-1;p9::Jason Keng-Kwin Chan=1,0,-1,0,1,1,1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__563476_61845,2hop,repeated_query,3,0,0,2,1,p4::David Currie (footballer)=1;p9::Mido (footballer)=-1,0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__857_846_7821,3hop1,max_hops,4,0,1,3,3,p9::Sino-Tibetan relations during the Ming dynasty=0;p15::Sino-Tibetan relations during the Ming dynasty=0;p17::Nanjing=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,4hop1__57467_53706_795904_580996,4hop1,repeated_query,2,0,0,4,1,"p5::United States House of Representatives=1;p9::California Gold Rush=-1;p7::History of Sacramento, California=-1;p0::Rio Linda High School=-1",0,-1,0,1,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__664835_650651_7262,3hop1,repeated_query,3,0,0,3,2,"p14::Bokok, Temburong=0;p16::The Biggest Loser Brunei: Lose It All=0;p11::Adult contemporary music=-1",0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__132472_120537,2hop,max_hops,4,0,1,2,2,p6::ALARM=0;p7::British Aerospace=1,1,1,0,1,1,1,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__169443_83769,2hop,repeated_query,3,0,0,2,1,p6::List of awards and nominations received by Matt Damon=0;p17::Dazed and Confused (film)=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__545624_2053_5289,3hop1,max_hops,4,0,1,3,3,p6::Here and Now (1992 TV series)=0;p14::New York City=0;p5::Sony Music=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,3hop1__104762_24918_24991,3hop1,max_hops,4,0,1,3,3,p16::Yasyn Khamid=0;p8::Dissolution of the Soviet Union=0;p13::Dissolution of the Soviet Union=0,1,0,1,0,1,0,0,0,3,0
+hybrid_ircot_musique_confirm,2hop__520033_123956,2hop,done,1,0,0,2,1,p2::Denny Januar Ali=0;p17::Battle of Palembang=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__6827_55848,2hop,repeated_query,3,0,1,2,2,p2::Boston=2;p17::Bank of America=1,1,2,0,1,1,1,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__93963_170667_443779_52195,4hop1,repeated_query,2,0,0,4,2,p13::Lion Air=-1;p3::Cathay Pacific Flight 780=-1;p14::Indonesia–Timor Leste Commission of Truth and Friendship=0;p11::East Timor=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,3hop1__680374_503371_21711,3hop1,repeated_query,2,0,1,3,3,p6::Isuerre=0;p2::Martin of Aragon=0;p7::Gothic architecture=0,1,0,1,0,1,0,1,0,1,0
+hybrid_ircot_musique_confirm,3hop2__565959_223623_162182,3hop2,max_hops,4,0,1,3,3,p0::Mount Cẩn=0;p11::John Phan=0;p8::South Central Coast=2,1,2,0,1,1,2,0,0,1,0
+hybrid_ircot_musique_confirm,2hop__77518_548781,2hop,repeated_query,2,0,0,2,1,p17::Independence Day (United States)=0;p10::Plymouth Notch Cemetery=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop2__9988_729371_70784_61381,4hop2,repeated_query,3,1,1,4,4,p19::Near East=0;p7::Operation Praying Mantis=1;p8::Geography of Saudi Arabia=1;p1::Saudi Arabia=1,1,1,0,1,1,1,1,0,1,0
+hybrid_ircot_musique_confirm,3hop1__208108_547811_80702,3hop1,repeated_query,2,1,1,3,3,"p9::La Silvia=0;p5::Orlando furioso (Vivaldi, 1714)=1;p12::Rialto Bridge=0",1,1,0,1,1,0,1,0,0,1
+hybrid_ircot_musique_confirm,4hop1__58323_375563_161848_67585,4hop1,repeated_query,2,0,0,4,2,p7::The Book Thief (film)=0;p6::The Messenger (Zusak novel)=-1;p11::1952 Winter Olympics=0;p14::Flag of New Zealand=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,4hop3__316459_41402_146281_13584,4hop3,max_hops,4,0,1,4,4,"p18::Charles Edmund Nugent=1;p16::Jacksonville, Florida=0;p4::Aleran=1;p19::FC Barcelona=0",1,1,0,1,1,0,0,0,2,0
+hybrid_ircot_musique_confirm,2hop__278022_71701,2hop,repeated_query,3,0,1,2,2,p16::Death of Wang Yue=0;p10::Twenty-First Army (Japan)=0,1,0,1,0,1,0,1,0,2,0
+hybrid_ircot_musique_confirm,3hop1__131820_59747_90139,3hop1,repeated_query,3,1,0,3,2,p12::WEKL=0;p5::List of municipalities in Georgia (U.S. state)=-1;p3::Kroy Biermann=0,0,-1,0,0,1,0,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__27650_27619,2hop,done,1,0,0,2,1,p3::European Central Bank=0;p14::European Central Bank=-1,0,-1,0,0,1,-1,1,1,-1,0
+hybrid_ircot_musique_confirm,2hop__284789_52835,2hop,repeated_query,2,0,1,2,2,p3::Sinkin' Soon=0;p8::Turn Me On (Mark Dinning song)=0,1,0,1,0,1,0,1,0,1,0

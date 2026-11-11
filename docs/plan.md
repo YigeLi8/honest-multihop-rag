@@ -107,8 +107,35 @@ Items get ticked as they land; anything cut goes to FUTURE_WORK.md with a reason
       largest gap being 3.2 points (bm25 hotpot under F1>=0.5, above the 2.3
       seen on exploration); musique bm25 goes 0.565 -> 0.632 under F1>=0.5.
       Still open: the columns in run_qa's own 2x2.
-- [ ] stop audit from the ircot traces: hop at which each gold sentence first
-      entered context, stop reason, correctness
+- [x] stop audit from the ircot traces: hop at which each gold sentence first
+      entered context, stop reason, correctness. `src/eval/stop_audit.py`
+      over the committed traces, nothing re-run
+      (`results/<dataset>_stop_audit.csv` per question,
+      `_stop_audit_summary.csv` per run and stop reason). The stop is
+      uninformed: on hotpot confirm (hybrid ircot) the gold is complete on
+      0.74 of the questions where the model wrote done, 0.74 where it
+      repeated a query and 0.83 where it ran out of hops, against 0.77
+      overall, so the done marker says nothing about whether the gold is in
+      context; 0.26 of the done stops are premature (gold still missing),
+      and EM there is 0.25 against 0.57 where the gold was complete at the
+      stop. Two thirds of the illusion cell is made by those premature
+      stops: 41 of the 60 cell questions on confirm (25 of 34 on
+      exploration; 62 of 106 with the reranker; 43 of 51 on musique, where
+      0.49 of the repeated-query stops, two thirds of all stops, are
+      premature). The other direction is as common: 0.22 of all questions
+      hit max_hops with the gold complete since hop 0, and a max_hops
+      question with complete gold spent 1.6 hops after it was complete.
+      The hops the loop does take buy something: of the questions that
+      went past hop 0, 0.20 (hotpot) and 0.45 (musique) gained a gold
+      sentence later, and 0.17 / 0.31 were completed by it; EM when the
+      gold was completed later is 0.46 against 0.54 when it was there at
+      hop 0 (musique 0.29 / 0.34), so a late gold sentence is read a
+      little worse than an early one. The answer-bearing gold sentence
+      never arrives on 0.11 of the span questions (0.27 on musique). Not a
+      test of anything, an audit; the number to carry into the write-up is
+      that the cell is mostly a stopping failure under one prompt, which a
+      sufficiency check at the stop could address and the stop marker does
+      not.
 - [ ] README rewrite: scope in paragraph one (distractor pools, one model, one
       device), confirmation-fold tables, limitations, reproduction steps
 - [x] intervention arms on the exploration fold (gold-only, gold minus bridge,
