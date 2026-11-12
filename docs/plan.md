@@ -850,7 +850,7 @@ EM beside +27 retrieval_correct).
       `results/hotpot_stream_revisions.csv` (first order) with the box
       width before and after; the test checks that narrowing never widens a
       box or loses a supporter
-- [ ] baselines on the same stream: shared online router, scalar utility,
+- [x] baselines on the same stream: shared online router, scalar utility,
       always-probe, fixed hybrid; induced drift (switch dataset mid-stream);
       a query-only router (the same router on the query-stage features
       alone), since matched query-only controls have erased retrieval-signal
@@ -861,8 +861,52 @@ EM beside +27 retrieval_correct).
       (numbers above): the query-only router equals the primary-hits router
       (0.622 vs 0.619), and the no-persistence rules are the `rule:` rows.
       The musique and 2wiki tables have the same rows, with the paired
-      columns and the shuffled control since 5 Oct. Drift is not written
-      yet; the musique and 2wiki logs it needs are on the Mac
+      columns and the shuffled control since 5 Oct.
+      Induced drift (12 Nov, `src/memory/drift.py`): the stream is 1500
+      hotpot questions in a seeded order followed by 1500 musique ones
+      (drawn per order from the 2417), and the reverse, five orders each;
+      the question-type one-hots are left out so that nothing announces
+      the dataset; every policy is run stale (carrying what it learned over
+      the switch) and cold (started fresh at the switch on the same
+      questions in the same order), and transfer is stale minus cold on the
+      second segment, paired per order (`results/hotpot_to_musique_drift.csv`,
+      `results/musique_to_hotpot_drift.csv`, and the first boundary
+      memory's log on the first order with the switch position). On the
+      second segment the fixed arms are bm25 0.174 / dense 0.329 / hybrid
+      0.278 on musique and 0.505 / 0.617 / 0.634 on hotpot, as on the single
+      streams. Transfer is within -0.025 and +0.023 for every policy in
+      both directions, and the two cells whose largest p over orders is
+      under 0.05 are the per-lesson logistic at the query stage, which
+      carries a worse boundary into the new dataset (-0.021, p 0.003 into
+      musique; -0.025, p 0.017 into hotpot), and the fixed-region memory at
+      primary_hits radius 1 into musique (+0.023, p 0.015, at 0.22 against
+      0.20, both under bm25+rule). The shared router and the knn adapt
+      inside the 200-question window (window transfer +0.02 to +0.04,
+      p 0.6-1.0) and land where their cold start lands. Why nothing moves:
+      at the pool and primary_hits stages a lesson box built on one dataset
+      never contains a question of the other, since the pool has 9.9 +- 0.7
+      paragraphs on hotpot and 20 on musique and the list 10 against 5
+      hits, so every carried lesson goes dormant (0 operator steps on the
+      old lessons after the switch, 0 of 200 window questions inside an
+      old box, 0 retirements) and the memory restarts from nothing: the
+      switch is absorbed by the size features, nothing is learned about
+      it. At the query stage every window question sits inside an old box,
+      the boundary memory retires 27 of 38 carried lessons within the
+      window going into musique and 61 of 67 going into hotpot (the
+      revision rate rises from 2.0 to 2.5 and from 2.6 to 4.2 steps per
+      question), the fixed-region memory retires none (its utilities
+      just drift down), and the two end level with each other and with
+      their cold starts (boundary transfer +0.013, p 0.42, and +0.007,
+      p 1.0; utility +0.002, p 0.91, and +0.005, p 0.93). So the
+      operators do remove the stale lessons, visibly in the log, and it
+      is worth nothing in the rate because the lesson memory sits five to
+      six points under always-dense or always-hybrid on either side of
+      the switch (0.27 against 0.33 on musique, 0.57 against 0.63 on
+      hotpot) whether it starts warm or cold. The no-persistence rules
+      transfer exactly 0, as they must. The drift control does not
+      rescue the claim: a regime change is the case the boundary memory
+      was built for, and the only policies that lose anything across it
+      are the ones with a learned per-lesson boundary
 - [x] metrics: repeated-failure rate, false application, false rejection,
       boundary precision / recall against the known best arm, adaptation
       speed, revision rate, regret, retrieval cost. Every rate that
@@ -1441,7 +1485,9 @@ as cost. Steps:
       the exit code is now 1 whenever a hop differed, written or not
 - [ ] 48 of the first 1500 2wiki pools hold one paragraph twice (same chunk
       ids), so a bm25 or dense top-10 can carry a repeated id there
-- [ ] induced drift and the 2wiki within-template pairs are not written
+- [ ] the 2wiki within-template pairs are not written (induced drift is,
+      12 Nov: `src/memory/drift.py`, numbers under the Stage 5 baselines
+      item; the 2wiki direction waits for the Mac's log and the zip)
 - [x] on musique the shuffled boundary memory creates 17-43% fewer lessons
       than the real one while firing as often; on hotpot and 2wiki it
       creates about as many. Traced (12 Nov, boundary:primary_hits:r2 on
