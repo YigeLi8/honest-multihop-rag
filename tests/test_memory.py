@@ -1755,6 +1755,113 @@ def test_stream_best_arm_pair_and_shuffled_controls():
     assert "repeat_best_changed" in summary.columns and "best_changed" in summary.columns
 
 
+def test_induced_drift():
+    """The stream switches dataset mid-way (docs/plan.md, Stage 5, induced
+    drift): the second table has the recovering arms swapped, so every lesson
+    learned on the first is wrong on the second. What has to hold: a decision
+    before the switch cannot see the second segment, the fixed arms transfer
+    nothing, the cold run is the policy on the second segment alone, the
+    boundary memory retires the lessons it carried over and revises more
+    right after the switch, and the fixed-region memory never retires one."""
+    import math
+    import numpy as np
+    from src.memory.drift import (blank_qtype, drift_orders, drift_streams, evaluate_drift,
+                                  joined_table, revision_counts)
+    from src.memory.stream import LessonMemory, OnlineRouter, make_stream, run_stream
+    a = stream_table(400, 7)
+    b = stream_table(400, 11).rename(columns={"arm:other": "arm:third", "arm:third": "arm:other"})
+    b = b[a.columns]
+    joined = joined_table(a, b)
+    assert len(joined) == 800 and set(joined["segment"]) == {0, 1}
+    assert set(joined["qtype"]) == {""}
+    orders = drift_orders(400, 400, [13, 17])
+    assert len(orders) == 2 and all(len(oa) == len(ob) == 400 for oa, ob in orders)
+    assert not np.array_equal(orders[0][0], orders[1][0])
+    assert drift_orders(400, 300, [13])[0][0].shape == (300,)
+    try:
+        drift_orders(400, 300, [13], n_per_segment=350)
+        assert False
+    except ValueError:
+        pass
+    oa, ob = orders[0]
+    stale_s, cold_s = drift_streams(joined, "primary_hits", oa, ob, 13)
+    assert len(stale_s.order) == 800 and len(cold_s.order) == 400
+    assert "qtype:none" in stale_s.columns and not any(c == "qtype:bridge" for c in stale_s.columns)
+    # the first segment is the first table alone: the same hits as a run on it
+    alone = make_stream(blank_qtype(a), "primary_hits", oa, seed=13)
+    for revise in (False, True):
+        stale = run_stream(stale_s, LessonMemory(stale_s, "primary", "primary_hits", revise,
+                                                 radius=2.0))
+        only = run_stream(alone, LessonMemory(alone, "primary", "primary_hits", revise,
+                                              radius=2.0))
+        assert np.array_equal(stale.hit[:400], only.hit) and stale.arm[:400] == only.arm
+    # the cold run is the policy on the second segment alone, in the same order
+    cold = run_stream(cold_s, LessonMemory(cold_s, "primary", "primary_hits", True, radius=2.0))
+    assert [cold_s.ids[q] for q in cold_s.order] == [stale_s.ids[q] for q in stale_s.order[400:]]
+    assert cold.hit[200:].mean() > 0.8
+
+    pols = [("router:primary_hits", "primary_hits",
+             lambda s, d: OnlineRouter(s, d, "primary_hits")),
+            ("utility:primary_hits:r2", "primary_hits",
+             lambda s, d: LessonMemory(s, d, "primary_hits", False, radius=2.0,
+                                       label="utility:primary_hits:r2")),
+            ("boundary:primary_hits:r2", "primary_hits",
+             lambda s, d: LessonMemory(s, d, "primary_hits", True, radius=2.0,
+                                       label="boundary:primary_hits:r2"))]
+    rules = [("high_entropy", lambda f: f["f:score_entropy"] > 0.5, "other")]
+    summary, log = evaluate_drift(a, b, "primary", seeds=[13, 17], policies=pols, window=100,
+                                  rules=rules)
+    row = summary.set_index("policy")
+    assert list(row.index[:3]) == ["fixed:primary", "fixed:other", "fixed:third"]
+    # the no-persistence rule carries nothing over the switch: stale equals cold
+    assert row.loc["rule:primary_hits", "transfer"] == 0.0
+    assert row.loc["rule:primary_hits", "p_vs_cold_max"] == 1.0
+    assert row.loc["rule:primary_hits", "after_fired"] == row.loc["rule:primary_hits", "cold_fired"]
+    assert row.loc["rule:primary_hits+veto", "transfer"] != 0.0     # the veto's utility persists
+    assert (row["best_fixed_a"] == "primary").all() and (row["best_fixed_b"] == "other").all()
+    for arm in ("primary", "other", "third"):
+        assert row.loc[f"fixed:{arm}", "transfer"] == 0.0
+        assert row.loc[f"fixed:{arm}", "window_transfer"] == 0.0
+        assert row.loc[f"fixed:{arm}", "p_vs_cold_max"] == 1.0
+        assert abs(row.loc[f"fixed:{arm}", "before_rate"] - a[f"arm:{arm}"].mean()) < 1e-9
+        assert abs(row.loc[f"fixed:{arm}", "after_rate"] - b[f"arm:{arm}"].mean()) < 1e-9
+    assert row.loc["fixed:primary", "after_gain"] == 0.0
+    for c in ("p_vs_cold_max", "p_window_vs_cold_max", "p_vs_default_max"):
+        assert (summary[c] <= 1.0).all() and (summary[c] >= 0.0).all()
+    assert abs(row.loc["boundary:primary_hits:r2", "transfer"] -
+               (row.loc["boundary:primary_hits:r2", "after_rate"] -
+                row.loc["boundary:primary_hits:r2", "cold_rate"])) < 1e-3
+    # the learned policies learn the region on both sides
+    for p in ("router:primary_hits", "boundary:primary_hits:r2"):
+        assert row.loc[p, "before_rate"] > 0.8 and row.loc[p, "late_rate"] > 0.8
+        assert row.loc[p, "p_vs_default_max"] < 0.01
+    # the boundary memory retires every lesson it carried over the switch and
+    # revises more right after it; the fixed regions never retire
+    bd = row.loc["boundary:primary_hits:r2"]
+    assert bd["alive_at_switch"] > 0 and bd["alive_retired_after"] == bd["alive_at_switch"]
+    assert bd["revisions_per_q_window"] > bd["revisions_per_q_before"]
+    assert bd["op_retire"] > 0
+    ut = row.loc["utility:primary_hits:r2"]
+    assert ut["op_retire"] == 0 and ut["alive_retired_after"] == 0 and ut["alive_at_switch"] > 0
+    assert ut["revisions_per_q_window"] == 0.0
+    assert math.isnan(row.loc["router:primary_hits", "op_retire"])
+    # the revision log is the boundary memory's on the first order, with the switch
+    assert log and log[0]["policy"] == "boundary:primary_hits:r2" and log[0]["switch"] == 400
+    ops = {e["op"] for e in log}
+    assert "create" in ops and "retire" in ops
+    # revision_counts on a hand-made log
+    small = [{"t": 1, "lesson": "L1", "op": "create"}, {"t": 2, "lesson": "L2", "op": "create"},
+             {"t": 3, "lesson": "L2", "op": "retire"}, {"t": 5, "lesson": "L1", "op": "narrow"},
+             {"t": 12, "lesson": "L1", "op": "narrow"}, {"t": 14, "lesson": "L1", "op": "retire"},
+             {"t": 25, "lesson": "L3", "op": "create"}]
+    rc = revision_counts(small, switch=10, window=10, n_after=20)
+    assert rc["alive_at_switch"] == 1 and rc["alive_retired_window"] == 1
+    assert rc["alive_retired_after"] == 1
+    assert rc["revisions_per_q_before"] == 0.2 and rc["revisions_per_q_window"] == 0.2
+    assert rc["revisions_per_q_late"] == 0.0
+    assert revision_counts([], 10, 10, 20) == {}
+
+
 def test_reader_context_selection():
     import pandas as pd
     from src.memory.reader_context import (answer_context, chunk_features, keep_top,
@@ -2391,6 +2498,7 @@ if __name__ == "__main__":
     test_stream_protocol_and_baselines()
     test_twin_stream()
     test_stream_best_arm_pair_and_shuffled_controls()
+    test_induced_drift()
     test_reader_context_selection()
     test_agent_episode()
     test_orchestrator()
