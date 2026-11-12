@@ -1442,9 +1442,30 @@ as cost. Steps:
 - [ ] 48 of the first 1500 2wiki pools hold one paragraph twice (same chunk
       ids), so a bm25 or dense top-10 can carry a repeated id there
 - [ ] induced drift and the 2wiki within-template pairs are not written
-- [ ] on musique the shuffled boundary memory creates 17-43% fewer lessons
+- [x] on musique the shuffled boundary memory creates 17-43% fewer lessons
       than the real one while firing as often; on hotpot and 2wiki it
-      creates about as many. Not traced
+      creates about as many. Traced (12 Nov, boundary:primary_hits:r2 on
+      the rebuilt logs, orders 13 and 17): the count is split children, not
+      experiences. Fresh exemplars are fewer under the real reveals (221 /
+      224 against 276 / 304 on musique), and the real memory makes up the
+      difference with 836 / 756 splits against 395 / 348. The chain is
+      expand -> exception -> split: with real outcomes the recoverable
+      failures sit near each other in feature space, so a box grows by
+      absorbing supporters just outside it (5208 / 4848 expansions against
+      2674 / 2329; 13 supporters per lesson against 10), a grown box then
+      holds more contradicting points, a contradiction at a would-fire
+      moment with supporters on every side becomes an exception rather than
+      a cut (3613 / 3249 against 1675 / 1475; the would-fire share of
+      contradictions is 0.50 either way), and the fourth exception splits
+      the lesson in two. Shuffled, the supporters are scattered, boxes grow
+      half as often and the chain runs at half the rate. Hotpot runs the
+      same chain with a smaller gap (expansions 2110 / 1875 against 1799 /
+      1587, splits 289 / 241 against 247 / 193), which is why its counts
+      looked level. So the larger lesson count on musique is the operators
+      churning on the clustering of the real outcomes, worth about two
+      points of rate there (0.286 / 0.288 against 0.264 / 0.270) and a
+      higher mean lesson utility (0.14 / 0.11 against 0.07 / 0.06), and not
+      more distinct lessons
 
 ## Writing
 
