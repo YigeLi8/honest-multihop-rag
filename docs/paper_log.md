@@ -3,6 +3,194 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-13
+
+Listings read in full (cs.IR 41, cs.CL 237, cs.AI 537 entries, replacements
+included; 690 distinct ids); every title screened, 24 abstracts read, the
+five below read in the body (the sixth body, Skill Adapter, is in the
+set-aside list).
+
+- Shang, Ge and Guo 2026, GraphSkillAA (arXiv 2609.20455, v3 of
+  yesterday). Skills as graph nodes with three addressable fields,
+  when_to_use, how_to_use and avoid, plus prereq / enhance edges; the
+  student logs which nodes and edges it used; after a failure a frozen
+  teacher contrasts it with related successes from the same four-example
+  group and routes the repair to one field (a missed activation extends
+  only when_to_use, a missing exclusion boundary completes only avoid, an
+  execution lapse or insufficient evidence returns NO_PATCH); each repair
+  group is retested on the examples whose usage touched the edited object
+  (Local Gate) and the merged graph on the whole update pool (Big Gate),
+  with rollback by group or by epoch. SearchQA, LiveMath, DocVQA, three
+  seeds. GPT-5.6-sol on SearchQA: no skill 66.0, flat skill text 72.5,
+  GraphSkillAA 81.5. Ablations (six-setting means): hiding when_to_use and
+  avoid at use time with the optimised graph fixed costs 9.4 points (81.5
+  to 70.5 on SearchQA, 66.7 to 42.7 on LiveMath), generic failure
+  summaries in place of the structured attribution cost 8.3, no Local Gate
+  4.9, no edges 1.8; merged candidates that passed local retest still
+  regress 3.02-9.86% of out-of-scope examples. This is the plan's narrow /
+  expand / exception step written as a routing table over text fields and
+  revised offline in epochs with a gold verifier: the applicability
+  predicate is prose that the student judges in context at use time, not
+  a boundary over features, and the 9.4-point ablation measures showing
+  the conditions, not learning them (the conditions are hidden, not
+  unlearned). Nothing is compared against a shared router or a scalar
+  utility, and nothing moves online as contradicting cases arrive. Cite
+  beside Falsification-Gated Self-Evolution as the second published form
+  of the static-conditions-with-refit baseline, and its NO_PATCH route is
+  the one thing my version-1 memory lacked: an explicit decision that a
+  failure was a lapse and writes nothing.
+- Guo et al. 2026, MemCredit (arXiv 2611.15600). Per-memory decision
+  utility defined by intervention: replay the same environment state with
+  and without one memory under a frozen policy and fixed reference
+  context, and take the change in return; 1,041 such interventions over
+  45 ALFWorld tasks, then a lightweight estimator over state descriptors,
+  memory content and failure cues is fitted to the credits and used at
+  inference to arbitrate a relevance-recalled candidate pool under a token
+  budget. The analysis is the part that matters here: 86.9% of
+  interventions change nothing, mean credit 0.054, failure-context mean
+  0.176 against 0.029 elsewhere, and semantic relevance against utility
+  has Spearman -0.011 overall (-0.191 on the dense subset, +0.135 on the
+  broad one). Task-disjoint prediction of the credit: relevance-only
+  features Spearman 0.097 / AUROC 0.483, failure-only 0.184 / 0.658, full
+  0.220 / AUROC 0.744, shuffled labels +0.048. 134 unseen ALFWorld tasks,
+  Qwen3.6-27B policy, 500-token memory budget: BM25 memory 65.67 SR@50,
+  dense 71.64, failure-aware 70.15, state-aware 76.12, MemArbiter 82.84,
+  MemCredit 86.57 (90.30 at 750 tokens against BM25 81.34); a hybrid that
+  mixes relevance into the final ranking drops to 78.36, and removing the
+  explicit failure/state indicators from the estimator raises it from
+  84.33 to 86.57, so the gain is not a failure shortcut. WebShop 0.612
+  against MemArbiter 0.586 at 152 against 428 memory tokens. For me this
+  is the shared router over gold-free state features, fitted offline to
+  exact per-(memory, situation) credits, and it works: Spearman 0.220 and
+  AUROC 0.744 against shuffled labels at 0.048 is the positive result my
+  shuffled-reveal control did not produce. The 86.9% zero-utility share
+  is the number I have not reported and should, before any boundary is
+  fitted: the fraction of (lesson, question) pairs on which applying the
+  lesson changes the retrieval outcome at all. If mine is of that order,
+  the "no region of the feature space" result is a sparse-label problem
+  as much as an absence, and the Stage 5 shared router should be given an
+  offline fit to the exact credits as its ceiling before the online
+  version is judged. Cite as the state-conditioned per-memory utility
+  baseline (a scalar utility that depends on the situation, so it sits
+  between my scalar-utility arm and the shared router).
+- Abbas, Zia and Windridge 2026, Cited but Unused (arXiv 2611.17161).
+  Parametric provenance by counterfactual value substitution: a value
+  present in both answer and retrieved passages is replaced in every
+  passage, titles included, and the question re-asked; a model that
+  repeats the original answered from memory. ASQA, GTR top-5, 800
+  questions, ALCE prompts; Qwen2.5-Instruct 0.5B to 14B and
+  Llama-3.1-8B. Parametric rate 1.2% at 0.5B rising to 13.3% at 14B,
+  Qwen2.5-7B 8.2% [6.0, 11.2] (4.6% with a near substitution, 16.3% far),
+  Llama-3.1-8B 15.7%; ELI5 4.5% and QAMPARI 2.4% on the 7B. Parametric
+  claims carry a citation as often as contextual ones (35/35 at 7B), so
+  NLI support checking is at chance on every model (AUROC intervals all
+  contain 0.5, also when restricted to the cited passage). Across ten
+  attribution methods the signal is the change in the answer token's
+  distribution when context is removed (mean AUROC 0.79; leave-one-out
+  0.61; any quantity computed with the context present is at chance);
+  asked with no context the model produces the value for 33-84% of
+  parametric claims against 10-60% of contextual ones, and among claims
+  it already knew 13.2% are parametric against 2.9%. Flagging does not
+  pay at these base rates (precision peaks at 0.45). One artefact to copy
+  into my own arms: substituting in passage bodies but not titles left
+  the true value visible in 31-95% of cases and inflated the rate about
+  twofold. For Part A this is a parametric-rate yardstick for my exact
+  reader family on single-hop questions with the evidence present but
+  contradicted: 8.2% for Qwen2.5-7B beside CARL's 7% on musique and
+  SELD's one in five, and the within-family rise from 1.2% to 13.3% says
+  the cell should grow with reader size, which is a check I can run at 3B
+  and 7B. Two consequences for Stage 5c: any detector of the illusion
+  cell read off the reader's with-context confidence is reading a
+  quantity they show carries no provenance information, so the no-context
+  log-probability of the produced answer is the feature to compute; and
+  my reader-cut arms must verify the answer value does not survive in a
+  paragraph title or the question after the gold sentence is removed.
+  Cite with SELD and CARL in the cell's write-up.
+- Pothuru, Setty and Vidra 2026, AgenticRAG-FP (arXiv 2608.20627, v2 of
+  Nov 10). Causal failure attribution for multi-hop agentic RAG: a
+  certified fault (empty, irrelevant, false-premise or stale evidence,
+  query drift, or one corrupted fact span) is injected at hop k, the
+  agent re-executes the suffix, and diagnosers are scored on whether they
+  name hop k among trajectories that stay wrong. Three-hop MuSiQue, dense
+  retrieval, Claude Haiku 4.5: gold-answer-coverage localisation
+  (Doctor-RAG style) is 0.91 at hop 1 and 0.00 at hops 2 and 3 (n 43, 36,
+  21) because it predicts hop 1 in 96% of failures, an earliest-hop rule
+  no better than the always-hop-1 prior; an LLM judge and frozen-hop
+  repair reach only 0.25-0.48 at hops 2 and 3. Content faults pooled over
+  GPT-4o-mini and Haiku on HotpotQA and MuSiQue with BM25, depth 2 (n
+  51): coverage 0.00, judge 0.49, frozen-hop repair 0.59, suffix
+  regeneration 0.14. Recovery (corrupted trajectory still answers
+  correctly) is 0.71 and 0.70 at depths 1 and 2 and 0.27 at depth 3; a
+  corrupted answer fact is absorbed into the answer in 15% of cases, a
+  corrupted bridge entity in 7%, a salient entity in 0%; the dense
+  HotpotQA sweep had 9 and 2 failed trajectories because the agent
+  recovered nearly every injected fault. Two things for me. My failure
+  typing (`src/memory/failures.py`) assigns the hop from gold per-hop
+  hit/miss, which is coverage localisation: after a hop-1 miss the later
+  hops' misses are downstream consequences, so "bridge miss" against
+  "named miss" is partly an earliest-miss artefact, and the Stage 3 item
+  should say the hop label is observational while theirs is an
+  intervention label; the lesson-level consequence is that a lesson keyed
+  to a later hop is fitted on a population whose cause is often earlier.
+  Second, their 0.70 recovery and 7% bridge absorption are the illusion
+  cell measured by intervention on musique and hotpot with an agentic
+  retriever (the context is damaged and the answer is still right), the
+  same shape as my bridge-drop arm leaving EM level on hotpot, and the
+  near-total recovery on hotpot is one more reason the hotpot stream has
+  no headroom for a memory to find. Cite in the Stage 3 failure-typing
+  item beside Beesetty, and in the Part A write-up with SELD.
+- Wu, Liang and Li 2026, SAG2 (arXiv 2610.22588, v2 of Nov 10).
+  Embedding-free multi-hop retrieval: a BM25 (SQLite FTS5) index built
+  without any model call, a decision model that scores whether each
+  candidate supplies an answer-chain fact given the question and the
+  passages already selected, and two rounds in which the top seeds' rare
+  terms retrieve unvisited passages. HippoRAG's 1,000-question subsets of
+  MuSiQue, 2Wiki and HotpotQA with corpora of 11,656, 6,119 and 9,811
+  passages: Recall@10 86.62, 97.43 and 99.00 against BM25 54.50, 71.58
+  and 86.95, NV-Embed-v2 77.27, 80.75 and 97.70, HippoRAG 2 73.76, 93.40,
+  97.15. MuSiQue ablation: scoring the BM25 pool alone adds 13.43 R@10,
+  removing the shared context from the scorer costs 10.37, scoring an
+  enlarged BM25 pool with the same number of judgments and no expansion
+  stays 16.80 below. For me this is the retrieval ceiling on my three
+  datasets in a small-corpus setting (not full-wiki, so not my numbers,
+  but the same questions): hotpot and 2wiki are at 99 and 97 by a lexical
+  index plus a reranker that sees the hop-1 passage, and the remaining
+  musique misses are last-hop passages that share no term with anything
+  activated (1.9% of supporting passages; 88.1% of lost four-hop last
+  hops). The retrieval-level outcome table should quote these as the
+  attainable ceiling per dataset, and the finding that the gain is in the
+  later-hop passage, conditional on the earlier one, is the argument for
+  the small graph arm in Part B being a context-conditioned reranker
+  rather than another retriever: that is where the headroom is, and no
+  per-question choice among bm25 / dense / hybrid gets at it.
+
+Seen and set aside: 2611.17007 Skill Adapter (per-skill adapters that
+carry their own applicability conditions, selected by a GRPO-trained
+router from the current subtask and feedback, re-checked when inputs
+arrive; ALFWorld 95.48 against SkillRL 87.14, routing policy alone 65.28
+mean against 71.86 full; conditions are written text, nothing revised from
+outcomes, not on my sets), 2611.16053 Wayfinder (resource router updated
+online from the documents the downstream agent cites, beats contextual
+bandit baselines when resources overlap; NFCorpus / FEVER testbeds, not
+retrieval QA), 2611.14654 (a truthful note beside a preserved error raises
+a receiver's recovery 51% to 66% while a clean-looking completed action
+lowers it 50% to 44%, AgentCE-Bench: evidence for the "hand over the
+failure episode, not the lesson" arm from the WikiTrace entry),
+2611.16378 EGE (statistical gate for adopting self-generated updates,
+fresh paired audits and non-inferiority tests; Monte Carlo only, no
+agent), 2611.15572 (fine-tuning a decision head from logged bandit
+feedback; proper score on the chosen action beats confirmed-answers-only
+by 2.6 points on Banking77; no retrieval), 2611.15463 TRACE (source-level
+counterfactual audit of audio-language models: 6.3% of correct answers
+score the target-absent view at or above a target-present one; the Part A
+audit in another modality), 2610.34872 (conformal claim filtering in
+agentic RAG on HotpotQA; factual support against coverage, no retrieval
+numbers), 2611.17068 MAPE and 2611.17316 CoReMem (memory designs evolved
+or valued by next-task counterfactuals on LoCoMo and ChainSWE),
+2611.16366 CURATOR (joint evidence-span selection with a decision model;
+no numbers in the abstract), 2611.17241 Ballad (bandit over LLMs for
+heuristic search, non-stationary rewards).
+
 ## 2026-11-11
 
 Listings read in full (cs.IR 29, cs.CL 178, cs.AI 381 entries, replacements
