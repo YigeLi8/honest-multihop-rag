@@ -551,13 +551,58 @@ EM beside +27 retrieval_correct).
       0) because the 2k = 10 window is half the pool and a question whose
       gold is all outside the top-5 and unnamed falls through to it; 72% of
       failures are recovered by no arm. No audit sample for musique either.
-- [ ] 4. static conditions: a fixed predicate per lesson, and the same as
+- [x] 4. static conditions: a fixed predicate per lesson, and the same as
       prose read by the generator; if a fixed rule captures most of the
       best-arm ceiling, stop here and report that. CAVE-Mem (paper log,
       2026-10-02) is this baseline in print with a cross-fitted utility veto
       and abstention, so the arm gets both, and any per-lesson utility
       reported anywhere here is cross-fitted (estimated from blocks that
-      exclude the question being scored)
+      exclude the question being scored).
+      The predicate half, 13 Nov, at retrieval level (`RuleTree` and
+      `rule_tree_rate` in `src/memory/arms.py`; the `tree:` rows of
+      `results/hotpot_arms_routed.csv`, the rules themselves in
+      `results/hotpot_arms_rules.txt`). Until now the only static
+      conditions were the three hand-fixed rules of the stream (`rule:`
+      rows), which were read off the Stage 3 table of the same questions.
+      Here the predicates are learned on one seeded half and frozen on the
+      other, both ways over five seeds, so nothing is fit where it is
+      scored: a regression tree of depth 1, 2 or 3 with at least 30
+      questions per leaf, fit to every arm's hit at once, and each leaf
+      sends its questions to the arm with the highest hit rate among its
+      fit-half questions, or stays with the best single arm when none is
+      strictly above it; with the veto a leaf may leave the best single arm
+      only when its utility (mean gain of its arm over the best single arm
+      on the fit-half questions in the leaf) clears one standard error,
+      else it abstains. Hotpot, positions 0-1499, all gold in top-10, against
+      always-hybrid 0.634 on the same held-out halves (the rebuilt linux log,
+      which replays the committed arms trace on 1500 of 1500 hops and
+      reproduces every old cell of the four tables): no row is above it.
+      Without the veto the trees land at 0.625-0.632 (query d1 -0.0025
+      [-0.0077, +0.0027], pool d2 -0.0093 [-0.0165, -0.0024], primary_hits
+      d3 -0.0088 [-0.0163, -0.0013]; the pool and primary_hits trees at
+      depth 2 and 3 are below hybrid with their interval), sending 8-30%
+      of questions away from hybrid; with the veto they land at 0.629-0.634
+      and leave hybrid on 0-7.6% of questions, the depth-1 pool and
+      primary_hits trees never, so their rows are always-hybrid exactly.
+      The widest upper bound of the 18 rows is +0.0031 (query d2 unvetoed),
+      below the shared router's +0.0148 at the pool stage. The rules are
+      legible and say why: the first split is query length (8.5 tokens),
+      pool size (24.5 and 54.5 chunks) or bm25 score entropy (0.979), i.e.
+      difficulty, and every leaf but two sends to hybrid; the two that want
+      dense are "pool above 54 chunks" (+0.026 +- 0.049 on 77 fit
+      questions) and "entropy at most 0.979 and pool above 34 chunks"
+      (+0.025 +- 0.022 on 285), neither clearing one standard error on the
+      first split; over all ten halves the vetoed depth-2 and depth-3 trees
+      leave hybrid on 3-8% of questions and lose by doing so. So a
+      fixed rule over these features captures none of the 10-point ceiling,
+      which is what the shared router (Stage 1b) and the per-lesson
+      boundary (Stage 5) said from their sides; the three baselines agree.
+      The prose half (the same condition written as a sentence and read by
+      the generator) is not run: it needs the Mac, and there is no rule
+      worth writing down; it stays available if a feature set ever gives
+      one. Musique and 2wiki wait for their arms logs on the Mac (the
+      linux musique log is a 48k-paragraph dense encoding on cpu, not run
+      today).
 
 ### Stage 5: boundaries that revise themselves (the claim under test)
 
@@ -743,8 +788,57 @@ EM beside +27 retrieval_correct).
       knn20:query 0.384 at +0.014 with -0.063 to 0.095, oracle 0.505), so
       the changed half is as underpowered as hotpot's. The twin streams
       carry the shuffled control too and no pair is under 0.05 (musique p
-      0.11-1.0, 2wiki 0.34-1.0). The hotpot twin table predates the
-      `repeat_best` and pooled columns.
+      0.11-1.0, 2wiki 0.34-1.0).
+      The hotpot twin stream rebuilt with the `repeat_best` and pooled
+      columns (13 Nov, linux, bm25s 0.3.10, bge-small on cpu;
+      `results/hotpot_twin_stream.csv`, twins of the first 500 questions
+      built here from the hf mirror's dev file: 78 alias twins, whose
+      three arm rates equal the committed `hotpot_twins_para.csv` to the
+      digit, and 364 distractor_para twins against the Mac's 365, a few
+      drawing other distractor sentences, so the distractor half is the
+      same rule over a slightly different twin set: 298 distinct unchanged
+      pairs and 46 changed, against about 27 changed pairs per order in the
+      Mac table). Distractor_para, unchanged pairs: the text key is the
+      oracle (0.633) and above always-hybrid (0.549) by +0.084 (0.054 to
+      0.121); the routers and knn are within noise of hybrid (router:query
+      +0.007, -0.014 to 0.031; knn20 +0.018, -0.010 to 0.046), the
+      fixed-region utility memory level (-0.002), the boundary memory
+      below it (boundary:query:r2 -0.041, -0.073 to -0.010) and the static
+      rules further below (-0.074). Changed pairs: the repeat rule started
+      from bm25 gets 0.248 and started from hybrid 0.392, which is
+      always-hybrid exactly (0.392; the oracle 0.588), so on hotpot too the
+      surface key's loss on changed pairs was its bm25 starting point, as
+      on 2wiki. Against the bm25-started repeat always-hybrid is +0.109
+      (-0.065 to 0.283) and the text key -0.109 against always-hybrid
+      (-0.283 to 0.065), neither separable on 46 pairs; the one row whose
+      interval against repeat clears zero is boundary:primary_hits:r2
+      (+0.137, 0.005 to 0.269, at cost 2), and against always-hybrid it is
+      +0.028 (-0.108 to 0.168), so nothing is read from it. Alias (54
+      unchanged, 21 changed distinct pairs; every rate equals the Mac
+      table): on unchanged pairs the 0.6 key is the oracle (0.767) at
+      +0.037 over always-hybrid (0.000 to 0.093) and the exact key, which
+      sees a new question, sits at bm25 (0.568); on changed pairs
+      always-hybrid 0.834 against repeat 0.546 (+0.238, 0.000 to 0.476),
+      repeat_best 0.787. So the earlier reading is cut to what the pooled
+      test supports: on unchanged pairs the surface key is the better key
+      on hotpot (as on musique and 2wiki, by construction), and on changed
+      pairs no key beats the best fixed arm, the feature boundaries
+      included.
+      qtype taken out (13 Nov, `--no-qtype` in `stream.py`,
+      `results/hotpot_stream_noqtype.csv`, the same log and orders; the
+      revision log of that run is not committed): every policy moves by at
+      most 1.2 points against the table with the one-hots
+      (boundary:primary_hits +0.012; the routers -0.001 to +0.004; the
+      lesson memories at radius 2 +0.002 to +0.008, their +lr rows -0.002 to
+      -0.009), the ranking is unchanged, nothing is above always-hybrid
+      (router:query 0.626, -0.008, p 0.92; utility:query:r2 0.627, -0.007,
+      p 0.92; every boundary memory -0.042 to -0.089, p < 1e-3) and no
+      policy separates from its shuffled copy (p 0.07-1.0). The lesson
+      memories at the box radius fire more and create fewer lessons without
+      the two extra dimensions (a box holds more questions), which moves
+      their rates by half a point. So no rate of the hotpot table rests on the question type; on
+      musique and 2wiki, where the type carries difficulty, the check waits
+      for the Mac's logs.
       5 Oct, hotpot rebuilt here (bm25s 0.3.10 on linux replays the
       committed arms trace on 1500 of 1500 hops, and every cell of the
       committed table reproduces), with the paired contrasts the table
