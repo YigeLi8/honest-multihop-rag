@@ -1065,6 +1065,63 @@ def test_predictability_is_held_out():
     assert "qtype:bridge" in with_qtype_columns(table).columns
 
 
+def test_rule_tree_is_fit_once_and_held_out():
+    """Stage 4: a fixed predicate per lesson read off a shallow tree on the
+    fit half and frozen on the score half. On a planted boundary a depth-1
+    tree at the stage that carries it names the feature and recovers the
+    gain; on the size control it finds nothing and the veto keeps it on the
+    best single arm; fired never exceeds the unvetoed row's share."""
+    import numpy as np
+    import pandas as pd
+    from src.memory.arms import RuleTree, rule_tree_rate, seeded_halves
+    rng = np.random.RandomState(1)
+    n = 400
+    table = pd.DataFrame({f"f:{name}": rng.rand(n) for name in FEATURES})
+    table["id"] = [f"q{i}" for i in range(n)]
+    table["qtype"] = ["bridge"] * n
+    table["question"] = ["q"] * n
+    # arm a hits on long queries, arm b on short ones, so the best single arm
+    # is whichever side is larger and the oracle is 1: a rule on one feature
+    # captures the whole ceiling
+    long = table["f:query_len_tokens"] > 0.5
+    table["arm:a"] = long.astype(float)
+    table["arm:b"] = (~long).astype(float)
+    r = rule_tree_rate(table, seeds=[13, 17], depths=[1]).set_index("stage")
+    assert r.loc["tree:query:d1"]["routed"] > 0.95 and r.loc["tree:query:d1"]["gain"] > 0.3
+    assert r.loc["tree:query:d1"]["gain_lo"] > 0 and r.loc["tree:query:d1"]["p_vs_single_max"] < 0.05
+    assert r.loc["tree:query:d1"]["n_rules"] == 2.0 and r.loc["tree:query:d1"]["n_splits"] == 4
+    assert r.loc["tree:query:d1+veto"]["routed"] > 0.95        # a clear gain passes the veto
+    assert r.loc["tree:query:d1"]["oracle"] == 1.0
+    # the rules are legible and name the planted feature
+    rules: list = []
+    rule_tree_rate(table, seeds=[13], depths=[1], stages=["query"], rules_out=rules)
+    text = "\n".join(rules)
+    assert "tree:query:d1  (fit half" in text and "f:query_len_tokens" in text
+    assert "-> a" in text and "-> b" in text and "abstains" not in text
+    # one arm better everywhere and no structure: the leaves stay on the
+    # best arm, little fires and no gain is claimed
+    table["arm:a"] = (rng.rand(n) < 0.7).astype(float)
+    table["arm:b"] = (rng.rand(n) < 0.2).astype(float)
+    r = rule_tree_rate(table, seeds=[13], depths=[1, 2], stages=["query"]).set_index("stage")
+    assert abs(r.loc["tree:query:d2"]["gain"]) < 0.06 and r.loc["tree:query:d2"]["fired"] <= 0.3
+    assert r.loc["tree:query:d1+veto"]["fired"] <= r.loc["tree:query:d1"]["fired"]
+    # noise: the size control finds nothing, the veto fires less than the
+    # unvetoed tree, and neither clears zero upward
+    table["arm:a"] = (rng.rand(n) < 0.5).astype(float)
+    table["arm:b"] = (rng.rand(n) < 0.5).astype(float)
+    r = rule_tree_rate(table, seeds=[13, 17], depths=[2], stages=["query"]).set_index("stage")
+    assert r.loc["tree:query:d2+veto"]["fired"] <= r.loc["tree:query:d2"]["fired"]
+    assert r.loc["tree:query:d2"]["gain_lo"] < 0.0 and r.loc["tree:query:d2+veto"]["gain_lo"] < 0.0
+    assert r.loc["tree:query:d2"]["gain_hi"] < 0.1
+    # fit and score never share a question, and a tiny table fits nothing
+    fit, score = seeded_halves(n, [13])[0]
+    X = table[["f:query_len_tokens"]].to_numpy()
+    Y = table[["arm:a", "arm:b"]].to_numpy()
+    model = RuleTree(X, Y, fit, ["a", "b"], 1, 30, False)
+    assert set(model.choose(X, score).tolist()) <= {0, 1}
+    assert rule_tree_rate(table.iloc[:40], seeds=[13], depths=[1]).empty
+
+
 def test_arms_cli():
     from src.memory.arms import main
     outcomes = [dict(primary=i % 2 == 0, other=i % 3 == 0, third=i % 5 == 0) for i in range(60)]
@@ -1075,6 +1132,7 @@ def test_arms_cli():
         main(["--records", str(path), "--dataset", "stub", "--out-dir", tmp, "--seeds", "13"])
         for name in ("discordance", "ceiling", "predictability", "routed"):
             assert (Path(tmp) / f"stub_arms_{name}.csv").exists()
+        assert (Path(tmp) / "stub_arms_rules.txt").exists()
         main(["--records", str(path), "--dataset", "half", "--out-dir", tmp, "--ids", str(ids)])
         import pandas as pd
         assert pd.read_csv(Path(tmp) / "half_arms_ceiling.csv")["n"].iloc[0] == 30
@@ -1425,6 +1483,12 @@ def test_stream_protocol_and_baselines():
     assert s.arms == ["primary", "other", "third"] and s.X.shape == (400, len(FEATURES) + 2)
     assert "f:score_entropy" in s.columns and "qtype:bridge" in s.columns
     q = make_stream(table, "query", orders[0])
+    # --no-qtype blanks the type: the one-hot that rides along at every stage
+    # becomes one constant column and the feature columns are unchanged
+    blank = make_stream(table.assign(qtype=""), "query", orders[0])
+    assert [c for c in blank.columns if c.startswith("qtype:")] == ["qtype:none"]
+    assert [c for c in blank.columns if c.startswith("f:")] == [c for c in q.columns if c.startswith("f:")]
+    assert blank.X[:, blank.columns.index("qtype:none")].min() == 1.0
     assert "f:score_entropy" not in q.columns          # the query stage cannot see the hits
 
     # the fixed arms and the probe reproduce the ceiling table
@@ -2492,6 +2556,7 @@ if __name__ == "__main__":
     test_arm_table_and_ceiling()
     test_predictability_is_held_out()
     test_arms_cli()
+    test_rule_tree_is_fit_once_and_held_out()
     test_make_twins()
     test_lookalike_pairs_and_twins()
     test_failure_typing()

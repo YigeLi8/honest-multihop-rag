@@ -41,7 +41,10 @@ and _routed.csv (what a shared router over the same features gets, held out,
 and what nearest past questions get: the similarity-memory baseline, by
 tf-idf and, with --dense-neighbours, by the dense retriever's question
 embedding, each voting over every past question or only over the past
-questions on which the arms disagreed). Every routed row is paired against
+questions on which the arms disagreed; and, the Stage 4 baseline, a set of
+fixed predicates read off a depth-limited tree fit on the fit half, with and
+without the utility veto, the rules themselves written to
+<dataset>_arms_rules.txt). Every routed row is paired against
 the best single arm on the same held-out questions: the largest and median
 McNemar p over the splits, and a pooled paired bootstrap interval on the
 gain over questions (PairedScores), beside the spread over resplits that
@@ -497,6 +500,148 @@ def similarity_memory_tables(table: pd.DataFrame, seeds: Sequence[int] = (13, 17
     return pd.concat(parts, ignore_index=True)
 
 
+class RuleTree:
+    """A set of fixed predicates over the stage's features, each sending a
+    question to one arm, read off a depth-limited regression tree fit on the
+    fit half to every arm's hit at once (a leaf is a region of feature space
+    where the arms' hit rates are homogeneous). The leaf's arm is the one
+    with the highest hit rate among the fit-half questions in it, or the
+    best single arm when no other arm is strictly above it; with the veto a
+    leaf may leave the best single arm only when its utility, the mean gain
+    of its arm over the best single arm on the fit-half questions in the
+    leaf, clears one standard error (CAVE-Mem's cross-fitted utility veto
+    with abstention: the scored question never enters its own utility, and
+    a leaf that does not clear it abstains to the best single arm).
+
+    Stage 4 of the plan: a static condition per lesson, fit once and then
+    frozen. If a tree of depth 1-3 captures most of the ceiling the
+    revisable boundary of Stage 5 has nothing to add and the plan says to
+    stop there; if it captures none, where the online boundary memory lands
+    is not for want of a region that a fixed rule could have named."""
+
+    def __init__(self, X: np.ndarray, Y: np.ndarray, fit: np.ndarray, arms: Sequence[str],
+                 depth: int, min_leaf: int, veto: bool) -> None:
+        from sklearn.tree import DecisionTreeRegressor
+        self.arms = list(arms)
+        self.veto = veto
+        self.tree = DecisionTreeRegressor(max_depth=depth, min_samples_leaf=min_leaf,
+                                          random_state=0).fit(X[fit], Y[fit])
+        rates = Y[fit].mean(axis=0)
+        self.best = int(np.argmax(rates))
+        self.leaf_arm: dict[int, int] = {}
+        self.leaf_info: dict[int, dict] = {}
+        leaves = self.tree.apply(X[fit])
+        for leaf in np.unique(leaves):
+            rows = Y[fit][leaves == leaf]
+            means = rows.mean(axis=0)
+            arm = int(np.argmax(means))
+            gain = rows[:, arm] - rows[:, self.best]
+            se = float(gain.std(ddof=1) / math.sqrt(len(gain))) if len(gain) > 1 else math.inf
+            switch = arm != self.best and means[arm] > means[self.best]
+            fires = switch and (not veto or gain.mean() - se > 0)
+            self.leaf_arm[int(leaf)] = arm if fires else self.best
+            self.leaf_info[int(leaf)] = {"n": int(len(rows)), "rates": means.round(3).tolist(),
+                                         "arm": self.arms[arm if fires else self.best],
+                                         "gain": round(float(gain.mean()), 4),
+                                         "gain_se": round(se, 4),
+                                         "abstains": bool(switch and not fires)}
+
+    def choose(self, X: np.ndarray, rows: np.ndarray) -> np.ndarray:
+        leaves = self.tree.apply(X[rows])
+        return np.array([self.leaf_arm.get(int(l), self.best) for l in leaves], dtype=int)
+
+    def rules(self, columns: Sequence[str]) -> list[str]:
+        """One line per leaf: the conjunction of threshold tests on the path
+        from the root, the arm the leaf sends to, and the fit-half numbers
+        behind that choice."""
+        t = self.tree.tree_
+        lines = []
+
+        def walk(node: int, path: list[str]) -> None:
+            if t.children_left[node] == -1:
+                info = self.leaf_info.get(int(node))
+                if info is None:
+                    return
+                cond = " and ".join(path) if path else "always"
+                rates = " / ".join(f"{a} {r}" for a, r in zip(self.arms, info["rates"]))
+                lines.append(f"if {cond} -> {info['arm']}  (n={info['n']}, hit {rates}, "
+                             f"gain over {self.arms[self.best]} {info['gain']:+.4f} "
+                             f"+- {info['gain_se']:.4f}{', abstains' if info['abstains'] else ''})")
+                return
+            name, thr = columns[t.feature[node]], t.threshold[node]
+            walk(t.children_left[node], path + [f"{name} <= {thr:.3g}"])
+            walk(t.children_right[node], path + [f"{name} > {thr:.3g}"])
+
+        walk(0, [])
+        return lines
+
+
+def rule_tree_rate(table: pd.DataFrame, seeds: Sequence[int] = (13, 17, 19, 23, 29),
+                   splits: Optional[Sequence[tuple[np.ndarray, np.ndarray]]] = None,
+                   stages: Sequence[str] = ("query", "pool", "primary_hits"),
+                   depths: Sequence[int] = (1, 2, 3), min_leaf: int = 30,
+                   rules_out: Optional[list[str]] = None) -> pd.DataFrame:
+    """The Stage 4 baseline at retrieval level: static conditions learned on
+    the fit half as a RuleTree and frozen on the score half, with and
+    without the utility veto, scored like routed_rate against the best
+    single arm on the same held-out questions. tree:<stage>:d<depth>[+veto]
+    rows; n_rules is the mean number of leaves, fired the share of scored
+    questions a rule sent away from the best single arm. The rules of the
+    first split are appended to rules_out as text, so that what the tree
+    found can be read, not only scored.
+
+    Hypothesis: if a fixed predicate captures most of the oracle's gain over
+    the best single arm, the ceiling is nameable in these features and a
+    per-lesson boundary is not needed; if the rows sit where the shared
+    router does, the two baselines agree that it is not.
+    """
+    table = with_qtype_columns(table)
+    arms = arms_of(table)
+    Y = np.stack([hits(table, a).to_numpy(dtype=float) for a in arms], axis=1)
+    oracle = Y.max(axis=1)
+    sub_splits = splits if splits is not None else seeded_halves(len(table), seeds)
+    rows = []
+    for stage in stages:
+        cols = stage_columns(table, stage)
+        if not cols:
+            continue
+        X = table[cols].to_numpy(dtype=float)
+        for depth in depths:
+            for veto in (False, True):
+                routed, single, ceiling_, n_rules, fired = [], [], [], [], []
+                paired = PairedScores(len(table))
+                for n_split, (fit, score) in enumerate(sub_splits):
+                    if len(fit) < max(MIN_FIT, 2 * min_leaf):
+                        continue
+                    model = RuleTree(X, Y, fit, arms, depth, min_leaf, veto)
+                    chosen = model.choose(X, score)
+                    got = Y[score, chosen]
+                    best = Y[fit].mean(axis=0).argmax()
+                    routed.append(float(got.mean()))
+                    single.append(float(Y[score, best].mean()))
+                    ceiling_.append(float(oracle[score].mean()))
+                    n_rules.append(len(model.leaf_info))
+                    fired.append(float((chosen != best).mean()))
+                    paired.add(score, got, Y[score, best])
+                    if rules_out is not None and n_split == 0:
+                        rules_out.append(f"tree:{stage}:d{depth}{'+veto' if veto else ''}"
+                                         f"  (fit half of the first split, {len(fit)} questions)")
+                        rules_out += ["  " + line for line in model.rules(cols)]
+                if not routed:
+                    continue
+                gains = np.array(routed) - np.array(single)
+                rows.append({"stage": f"tree:{stage}:d{depth}{'+veto' if veto else ''}",
+                             "n_features": len(cols), "routed": round(np.mean(routed), 4),
+                             "best_single": round(np.mean(single), 4),
+                             "oracle": round(np.mean(ceiling_), 4),
+                             "gain": round(float(gains.mean()), 4),
+                             "gain_sd": round(float(gains.std()), 4),
+                             "n_splits": len(routed), **paired.columns(),
+                             "n_rules": round(float(np.mean(n_rules)), 1),
+                             "fired": round(float(np.mean(fired)), 4)})
+    return pd.DataFrame(rows)
+
+
 def question_vectors(questions: Sequence[str], model: str = "BAAI/bge-small-en-v1.5",
                      batch_size: int = 64) -> np.ndarray:
     """The dense retriever's own query embedding of each question (the model
@@ -550,17 +695,23 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
 
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
+    rules: list[str] = []
     tables = {"discordance": discordance(table), "ceiling": ceiling(table, seed=args.seeds[0]),
               "predictability": predictability(table, seeds=args.seeds, splits=splits),
               "routed": pd.concat([routed_rate(table, seeds=args.seeds, splits=splits),
                                    similarity_memory_tables(table, seeds=args.seeds, splits=splits,
-                                                            vectors=vectors)],
+                                                            vectors=vectors),
+                                   rule_tree_rate(table, seeds=args.seeds, splits=splits,
+                                                  rules_out=rules)],
                                   ignore_index=True)}
     for name, df in tables.items():
         path = out / f"{args.dataset}_arms_{name}.csv"
         df.to_csv(path, index=False)
         print(f"\n{name} ({path})")
         print(df.to_string(index=False))
+    rules_path = out / f"{args.dataset}_arms_rules.txt"
+    rules_path.write_text("\n".join(rules) + "\n")
+    print(f"\nrules of the first split -> {rules_path}")
 
 
 if __name__ == "__main__":

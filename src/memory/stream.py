@@ -87,7 +87,10 @@ shuffled control the same against the policy it shuffles
 
 Writes results/<dataset>_stream.csv (one row per policy) and
 results/<dataset>_stream_revisions.csv (the first boundary memory's revision
-log on the first order).
+log on the first order). --no-qtype blanks the question type before anything
+runs (the one-hot columns become one constant column) and writes the same
+tables with the suffix _noqtype: the check that no policy's rate rests on
+the dataset's own annotation.
 
 The twins as the stream (--twin-records, the arms log of a
 data/make_twins.py file): per twin kind, one stream of the originals and
@@ -1161,10 +1164,20 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
                          "per twin kind, with the pair metrics and the text-keyed memories")
     ap.add_argument("--no-shuffled", action="store_true",
                     help="leave out the shuffled-reveal control rows")
+    ap.add_argument("--no-qtype", action="store_true",
+                    help="blank the question type, so the one-hot columns that ride along at "
+                         "every stage are one constant column; the tables get the suffix "
+                         "_noqtype. qtype is dataset annotation and on musique and 2wiki it "
+                         "carries difficulty, so this is the check that no policy's rate "
+                         "rests on it")
     ap.add_argument("--out-dir", default="results")
     args = ap.parse_args(argv)
     header, records = read_records(args.records)
     table = arm_table(records, outcome=args.outcome, ids=read_ids(args.ids) if args.ids else None)
+    suffix = ""
+    if args.no_qtype:
+        table = table.assign(qtype="")
+        suffix = "_noqtype"
     arms = arms_of(table)
     default = args.default or arms[0]
     k = int(header["strategy"]["top_k"])
@@ -1177,6 +1190,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     if args.twin_records:
         _, twin_records = read_records(args.twin_records)
         twins = arm_table(twin_records, outcome=args.outcome)
+        if args.no_qtype:
+            twins = twins.assign(qtype="")
         kinds = sorted({i.rsplit(TWIN_SEP, 1)[1] for i in twins["id"] if TWIN_SEP in i})
         summaries, logs = [], []
         for kind in kinds:
@@ -1190,17 +1205,19 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             summaries.append(summary)
             logs += [{"kind": kind, **e} for e in log]
             print(summary.to_string(index=False))
-        pd.concat(summaries, ignore_index=True).to_csv(out / f"{args.dataset}_twin_stream.csv",
-                                                       index=False)
-        pd.DataFrame(logs).to_csv(out / f"{args.dataset}_twin_stream_revisions.csv", index=False)
+        pd.concat(summaries, ignore_index=True).to_csv(
+            out / f"{args.dataset}_twin_stream{suffix}.csv", index=False)
+        pd.DataFrame(logs).to_csv(out / f"{args.dataset}_twin_stream{suffix}_revisions.csv",
+                                  index=False)
         return
 
     summary, log = evaluate(table, default, seeds=args.seeds, rules=rules,
                             shuffled=not args.no_shuffled)
-    summary.to_csv(out / f"{args.dataset}_stream.csv", index=False)
-    pd.DataFrame(log).to_csv(out / f"{args.dataset}_stream_revisions.csv", index=False)
+    summary.to_csv(out / f"{args.dataset}_stream{suffix}.csv", index=False)
+    pd.DataFrame(log).to_csv(out / f"{args.dataset}_stream{suffix}_revisions.csv", index=False)
     print(summary.to_string(index=False))
-    print(f"\nrevision log: {len(log)} entries -> {out / f'{args.dataset}_stream_revisions.csv'}")
+    print(f"\nrevision log: {len(log)} entries -> "
+          f"{out / f'{args.dataset}_stream{suffix}_revisions.csv'}")
 
 
 if __name__ == "__main__":
