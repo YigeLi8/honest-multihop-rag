@@ -371,6 +371,27 @@ EM beside +27 retrieval_correct).
       0.04 from the pool stage (174 questions, 32 bm25-only), with qtype
       alone at 0.56. It buys nothing: router gains -0.002 to +0.001 against
       always-dense 0.879, oracle 0.903.
+      The zero-utility share (14 Nov, after MemCredit, paper log
+      2026-11-13): the fraction of (lesson, question) pairs on which
+      applying the lesson changes the retrieval outcome at all. A lesson
+      here is "run arm A instead of the default", so at the arm level it
+      is read off the discordance tables: switching bm25 to hybrid changes
+      all-gold-in-top-k on 20% of hotpot questions, 15% on musique and 16%
+      on 2wiki, bm25 to dense on 31%, 27% and 30%, so 69-85% of (arm,
+      question) pairs carry zero credit. At the firing level it is
+      false_application minus harm in the stream tables (fired, and both
+      arms hit or both missed): 0.72-0.77 over the hotpot utility /
+      boundary rows, 0.67-0.86 on musique, 0.62-0.76 on 2wiki, the static
+      rules at 0.77, 0.79 and 0.85. MemCredit reports 86.9% on ALFWorld,
+      so the label is as sparse here as there, and the offline fit to the
+      exact credits that their estimator reaches AUROC 0.744 with is the
+      pairwise row above ("which of two arms hits where they disagree",
+      fit and scored on the non-zero-credit questions only): 0.56-0.66 on
+      hotpot, 0.46-0.62 on musique, 0.46-0.61 on 2wiki, against their
+      0.483 from relevance features alone. So the sparse-label reading
+      does not change the result: with the credits given exactly and the
+      zero-credit pairs taken out, the frozen features still do not say
+      which arm.
 - [ ] look-alike pairs: within-template pairs on 2wiki with discordant
       outcomes; natural pairs on hotpot by question similarity (expected
       sparse, reported as such); constructed twins (`data/make_twins.py`):
