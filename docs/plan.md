@@ -523,6 +523,19 @@ EM beside +27 retrieval_correct).
       reuse of sub-questions. Claiming it would need a paired test per vote
       in `arms.py`, a memory of the size the gain was seen at, and a split
       by shared gold paragraphs.
+      The paired test is in the table now (14 Nov, the replayed musique
+      log of the Stage 4 item, 2359 questions, pooled bootstrap over
+      questions beside the per-split McNemar): against always-dense 0.3247
+      the dense-neighbour votes are +0.010 [+0.003, +0.017] at k=5 (0.3348),
+      +0.009 [+0.002, +0.016] at k=20, +0.010 [+0.003, +0.017] discordant-
+      only at k=5, and the tf-idf vote at k=5 +0.008 [+0.001, +0.015]; the
+      other four hold zero; the largest per-split McNemar p is 0.67-1.0 on
+      every row, so no single half separates. A point, then, with its
+      interval, and the other two caveats stand: the memory is about 1180
+      questions, the split by shared gold paragraphs is not done, and the
+      fold-split table gave -0.002 to +0.009 for the same votes. Not a
+      claim; it is the row to re-test on the confirmation fold if a
+      similarity memory is ever argued for on musique.
 - [ ] 3. failure memory: failure type + what recovered it; rule-based failure
       typing with a 50-case hand audit. The typing half is in
       `src/memory/failures.py`: five ordered rules on the primary arm's
@@ -624,6 +637,41 @@ EM beside +27 retrieval_correct).
       one. Musique and 2wiki wait for their arms logs on the Mac (the
       linux musique log is a 48k-paragraph dense encoding on cpu, not run
       today).
+      Musique, 14 Nov, on linux (`results/musique_replay_arms_*.csv`,
+      rules in `results/musique_replay_arms_rules.txt`). The log is the
+      committed Mac arms trace replayed here with bm25s 0.3.10 and
+      bge-small on cpu: 58 of 2417 hops differ from the trace, every one a
+      different order inside a run of equal bm25 scores (the known machine
+      difference), so with --allow-mismatch those 58 questions are left out
+      and every table below is over 2359 questions. On them the three arm
+      rates are 0.178 / 0.325 / 0.279 against 0.177 / 0.326 / 0.281 on the
+      full set, the oracle 0.410 against 0.411, discordance 0.265 / 0.151 /
+      0.168 against 0.266 / 0.153 / 0.169, and the predictability cells are
+      within 0.05 of the Mac's (the replay took 71 minutes, most of it the
+      two dense encoders over the 20-paragraph pools). Against always-dense
+      0.3247 on the same held-out halves: no tree captures any of the 8.5
+      points to the oracle. The 18 rows sit at 0.3223-0.3284, a gain of
+      -0.0025 to +0.0037, and every per-split McNemar p is 1.0; the one
+      pooled interval that does not contain zero is tree:query:d2+veto,
+      +0.0031 [+0.0001, +0.0064], the lower bound at the edge over 18 rows,
+      and the unvetoed tree of the same depth sits at +0.0037 [-0.0006,
+      +0.0082]. The vetoed trees leave dense on 2.6-10% of questions, the
+      unvetoed on 9-18%. The rules are legible and differ from hotpot's:
+      the first split is query length at 21.5 tokens on every stage, and
+      the one leaf that clears the veto is "a question longer than 25
+      tokens" (210 fit questions of 1179 at the query stage: bm25 0.105,
+      dense 0.110, hybrid 0.181, +0.071 +- 0.022 over dense on the fit
+      half), i.e. the long compositional questions where dense is no better
+      than bm25 and the fused list is; at the pool and primary_hits stages
+      the same long-question leaf splits on the rare-token ratio or the
+      bm25 top-2 score and sends to hybrid at +0.04 to +0.08 on the fit
+      half. Held out that leaf is worth 0.3 of a point over the whole
+      stream, because the long questions are a sixth of the set and dense
+      is at 0.11 there whichever arm runs. So on musique a fixed rule finds
+      the one region the hotpot tables did not have, a nameable one, and
+      it is too small and too hard to move the rate: Stage 4 closes on
+      musique as on hotpot, the stage-level reading unchanged. 2wiki waits
+      for its log and the zip.
 
 ### Stage 5: boundaries that revise themselves (the claim under test)
 
