@@ -908,6 +908,29 @@ EM beside +27 retrieval_correct).
       their rates by half a point. So no rate of the hotpot table rests on the question type; on
       musique and 2wiki, where the type carries difficulty, the check waits
       for the Mac's logs.
+      Musique, 14 Nov, on the replayed log of the Stage 4 item (2359
+      questions; `results/musique_replay_stream.csv` with the one-hots,
+      which reproduces the committed Mac table within a point on every row
+      and the ranking, and `results/musique_replay_stream_noqtype.csv`
+      without them, the same orders; the revision logs are not committed):
+      every policy moves by at most 1.8 points. The routers +0.001 to
+      +0.003, the knn -0.003 to -0.004, the lesson memories at the box
+      radius +0.001 to +0.015 (utility:pool +0.015, the largest, firing on
+      1409 against 970 questions), their +lr rows -0.002 to -0.018
+      (boundary+lr:query:r2 -0.018), and as on hotpot the box memories fire
+      more and create fewer lessons without the six extra dimensions
+      (utility:query:r2 8.6 lessons against 19.4). Nothing is above
+      always-dense: utility:query:r2 0.322, -0.003, p 0.86; router:query
+      0.319, -0.006, p 0.42; every boundary memory -0.043 to -0.068, p <
+      1e-4. The first three of the ranking are unchanged (probe, dense,
+      utility:query:r2) and the rows below swap places within a point. The
+      shuffled control holds on 11 of 12 pairs (p 0.21-1.0); the one that
+      separates is knn20:primary_hits, 0.3145 real against 0.2986 shuffled
+      (p 0.011 on the largest order, 0.053 with the one-hots and 0.94 on
+      the Mac's full set), a row 1.0 points under always-dense. So no rate
+      of the musique table rests on the question type either, although
+      here the type does carry difficulty (Stage 1b: each arm's hit at AUC
+      0.70 from qtype alone); 2wiki waits for its log.
       5 Oct, hotpot rebuilt here (bm25s 0.3.10 on linux replays the
       committed arms trace on 1500 of 1500 hops, and every cell of the
       committed table reproduces), with the paired contrasts the table
