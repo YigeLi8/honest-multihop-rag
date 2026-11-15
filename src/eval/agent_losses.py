@@ -26,7 +26,10 @@ in_context is a lower bound.
 Paired (results/<out>_paired.csv), one row per base=arm pair of --compare:
 EM, F1, F1 >= 0.5 and capped containment differences with paired bootstrap
 intervals, exact McNemar on EM with Holm within the --compare group, EM by
-question type, calls and latency. Gold is read here and nowhere in a run.
+question type, calls and latency. When the arm is the main agent, also how
+many of the questions it won had a subagent's answer equal to the gold, and
+on how many of the ones it lost its final answer repeats a subagent's
+answer. Gold is read here and nowhere in a run.
 """
 import argparse
 import csv
@@ -140,10 +143,13 @@ def losses(run, rows, traces, gold):
         out["guard_reads"] = sum(int(rows[i]["guard_reads"]) for i in ids)
         out["guard_final"] = len(fired)
         out["guard_final_right"] = sum(float(rows[i]["em"]) > 0 for i in fired)
+        # where the string was when the final answer got its second read
+        for p in PLACES[:3]:
+            out[f"guard_final_{p}"] = sum(place[i] == p for i in fired)
     return out
 
 
-def paired(base_run, arm_run, base, arm, gold):
+def paired(base_run, arm_run, base, arm, gold, arm_traces=None):
     ids = list(base)
     assert set(arm) == set(ids), f"{arm_run} and {base_run} are not on the same questions"
 
@@ -170,6 +176,15 @@ def paired(base_run, arm_run, base, arm, gold):
     for field in ("gen_calls", "latency_s"):
         out[f"{field}_base"] = mean(float(base[i][field]) for i in ids)
         out[f"{field}_arm"] = mean(float(arm[i][field]) for i in ids)
+    subs = {i: [s["sub_answer"] for s in (arm_traces or {}).get(i, {}).get("steps", [])
+                if "sub_answer" in s] for i in ids}
+    if any(subs.values()):
+        won = [i for i in ids if float(arm[i]["em"]) and not float(base[i]["em"])]
+        lost = [i for i in ids if float(base[i]["em"]) and not float(arm[i]["em"])]
+        out["won_sub_right"] = sum(any(em(a, g) for a in subs[i] for g in gold[i][0])
+                                   for i in won)
+        out["lost_is_sub"] = sum(any(normalize(a) == normalize(arm[i]["answer_pred"])
+                                     for a in subs[i]) for i in lost)
     return out
 
 
@@ -214,7 +229,7 @@ def main(argv=None):
                      if "guard_final" in t else ""))
     pairs = []
     for base, arms in groups:
-        group = [paired(base, a, runs[base][0], runs[a][0], gold) for a in arms]
+        group = [paired(base, a, runs[base][0], runs[a][0], gold, runs[a][1]) for a in arms]
         for row, ph in zip(group, holm([r["p"] for r in group])):
             row["p_holm"] = ph
             print(f"{row['arm']} - {row['base']}: em {row['em_arm']:.3f} vs {row['em_base']:.3f} "

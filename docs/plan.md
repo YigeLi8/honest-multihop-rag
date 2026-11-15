@@ -1689,10 +1689,10 @@ looking for it.
 Changes, each a config flag that is off by default (the 4 Nov runs and
 every other mode come out as before; `test_answer_guard_and_final_notes`):
 
-- [ ] B1 `pipeline.final_notes`: the final read gets the lookups and the
+- [x] B1 `pipeline.final_notes`: the final read gets the lookups and the
       subagents' answers, written under the kept sentences inside the same
-      answer prompt. No extra call.
-- [ ] B2 `pipeline.answer_guard`: when a question does not read as yes/no
+      answer prompt. No extra call. Not kept (round 1 below).
+- [x] B2 `pipeline.answer_guard`: when a question does not read as yes/no
       and the reply is yes or no, the same context is read once more with
       the prompt's yes/no sentence replaced ("The answer is a name, a date,
       a number or a short phrase, not yes or no"); the second reply stands.
@@ -1702,9 +1702,10 @@ every other mode come out as before; `test_answer_guard_and_final_notes`):
       with a yes/no gold answer and 269 of the 18,769 others, and the guard
       leaves those alone. It sits in the answer read every mode shares, so
       it applies to lookups, final answers, ircot and single-hop alike, and
-      an agent with it is compared with ircot with it.
-- [ ] B3 `pipeline.sub_max_hops: 1`: one search per lookup, the cost
-      reading of point 3.
+      an agent with it is compared with ircot with it. Kept (round 1
+      below).
+- [x] B3 `pipeline.sub_max_hops: 1`: one search per lookup, the cost
+      reading of point 3. Not kept (round 1 below).
 
 Runs, hotpot exploration, the same 500 ids (`.local_notes/queue16.sh`):
 `orchestrator_notes`, `orchestrator_guard`, `orchestrator_notes_guard` and
@@ -1737,9 +1738,84 @@ What would count, written before the runs:
   (n=1000): the frozen agent, the 4 Nov main agent, ircot with and without
   the guard. Nothing about the agent is reported as a result before that.
 
+Round 1, Mac, 15 Nov at 6513a4e (`results/orchestrator_{notes,guard,
+notes_guard,s1}_hotpot_explore_*`, `results/hybrid_ircot_guard_hotpot_
+explore_*`, scored into `results/agent_dev_hotpot_explore_{losses,
+paired}.csv`). Exploratory, n=500, paired, Holm over the four agent arms
+against the 4 Nov main agent (EM 0.540, F1 0.658, 7.2 calls):
+
+| arm           | EM    | diff, 95% CI            | lost / won | p     | Holm  | F1     | contain | calls |
+|---------------|-------|-------------------------|------------|-------|-------|--------|---------|-------|
+| notes         | 0.536 | -0.004 [-0.032, +0.026] | 30 / 28    | 0.90  | 1.00  | -0.011 | +0.006  | 7.2   |
+| guard         | 0.544 | +0.004 [-0.006, +0.016] | 3 / 5      | 0.73  | 1.00  | +0.011 | +0.008  | 7.4   |
+| notes + guard | 0.548 | +0.008 [-0.022, +0.040] | 30 / 34    | 0.71  | 1.00  | +0.004 | +0.020  | 7.4   |
+| one search    | 0.492 | -0.048 [-0.082, -0.014] | 48 / 24    | 0.006 | 0.025 | -0.050 | -0.048  | 5.6   |
+
+ircot with the guard is 0.508 against 0.486: +0.022 [+0.010, +0.036], 0 / 11,
+p 0.001.
+
+By the rule written above:
+
+- B2 kept: EM above zero and neither F1 nor containment falls. On the agent
+  that is two questions net and its interval holds zero; the clear effect
+  is on ircot.
+- B1 not kept: -0.004 against the agent without it, F1 down; on top of the
+  guard +0.004 [-0.024, +0.034] (27 / 29) with F1 down 0.008.
+- B3 not kept: -0.048, far under the -0.01 it was allowed. Two searches
+  stay.
+
+Against the bounds: the guard could win 34 on the agent and won 5 (lost 3),
+31 on ircot and won 11; the notes could win 26 and won 28 while losing 30.
+
+What the round says:
+
+- The guard does what it was written for, and for the agent that is worth
+  little. Yes or no to a span question falls from 34 to 4 (ircot: 31 to
+  2). On ircot 11 of the 29 second reads come out right, all of them among
+  the 18 where the string was in the context, and nothing is lost. On the
+  main agent 4 of 30 do: 14 of the 30 had the string retrieved and not
+  kept and 6 never retrieved, and none of those 20 can come out right from
+  the same notebook. For the agent a yes or no to a span question mostly
+  says that the notebook does not hold the answer, not that the read
+  slipped. The 54 second reads on lookups repair no chain by themselves
+  (dropped stays at 59).
+- The notes make the final read follow the lookups. On 20 of the 28
+  questions they win, a lookup's answer equals the gold; on 25 of the 30
+  they lose, the final answer repeats a lookup's answer. The two cancel, as
+  the bound said they could. By type, which was not planned: bridge 0.505
+  -> 0.507, comparison 0.688 -> 0.656, where a lookup's answer is a value
+  to compare and not the answer.
+- The second search is worth about five points. With one search never
+  retrieved goes from 26 to 46 and dropped from 59 to 71, and the notebook
+  holds all the gold on 0.362 of the questions against 0.516, for 1.6
+  calls and 1.25 s less per question. Point 3 above read it wrong: the 0.26
+  gold sentences a second search adds are what those points are made of.
+- With the same answer step on both sides the agent's margin over ircot is
+  smaller than the 4 Nov number: the main agent with the guard against
+  ircot with the guard is +0.036 [+0.002, +0.068] (29 / 47, p 0.05, Holm
+  over the two guarded agents 0.10), against +0.054 [+0.018, +0.088] with
+  neither. A third of the margin was ircot's fixable yes/no replies. The
+  guarded pair is the one to carry forward.
+
+After round 1 the agent is the 4 Nov main agent with the guard: EM 0.544,
+F1 0.669, 7.4 calls. Nothing so far clears its interval on the agent.
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
+- [ ] the read when the notebook does not hold the answer. Round 1 gives a
+      gold-free sign of it: yes or no to a span question (30 final reads,
+      14 with the string retrieved and not kept). Two arms to weigh: the
+      second read over everything the subagents retrieved instead of the
+      same notebook (bound: those 14, at about the rate ircot reads a
+      context that holds the string, 0.53); or the final read over the
+      notebook followed by the other retrieved sentences on every question
+      (bound: the 59 dropped; risk: the read where the notebook was enough,
+      0.62 against 0.53 on ircot's longer context)
+- [ ] notes for chains only (a lookup that refers to an earlier one with
+      #k), not for parallel lookups. From the unplanned split of round 1,
+      so a new arm with its own run, and its exploration number is a
+      selected one
 - [ ] dropped (59): a lookup whose answer is not an answer ("no", "the
       context does not say") still fills the next lookup; a subagent that
       kept nothing hands the final read nothing

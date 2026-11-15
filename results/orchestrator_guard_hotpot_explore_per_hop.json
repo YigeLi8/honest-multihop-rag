@@ -1,0 +1,50 @@
+{
+ "0": {
+  "precision": 0.16545714285714286,
+  "recall": 0.6987000000000001,
+  "cumulative_recall": 0.6987000000000001,
+  "n": 500,
+  "retrieved_mean": 9.982,
+  "retrieved_var": 0.057676000000000005
+ },
+ "1": {
+  "precision": 0.17465156794425088,
+  "recall": 0.7327913279132791,
+  "cumulative_recall": 0.8025406504065041,
+  "n": 492,
+  "retrieved_mean": 9.981707317073171,
+  "retrieved_var": 0.058608467182232796
+ },
+ "2": {
+  "precision": 0.1746518105849582,
+  "recall": 0.7322191272051997,
+  "cumulative_recall": 0.9240482822655525,
+  "n": 359,
+  "retrieved_mean": 9.994428969359332,
+  "retrieved_var": 0.011111024898937779
+ },
+ "3": {
+  "precision": 0.1761744966442953,
+  "recall": 0.725950782997763,
+  "cumulative_recall": 0.9432885906040269,
+  "n": 298,
+  "retrieved_mean": 9.993288590604028,
+  "retrieved_var": 0.013377775775865953
+ },
+ "4": {
+  "precision": 0.16176470588235295,
+  "recall": 0.6151960784313726,
+  "cumulative_recall": 0.9142156862745098,
+  "n": 34,
+  "retrieved_mean": 10.0,
+  "retrieved_var": 0.0
+ },
+ "5": {
+  "precision": 0.16071428571428573,
+  "recall": 0.5982142857142857,
+  "cumulative_recall": 0.9136904761904762,
+  "n": 28,
+  "retrieved_mean": 10.0,
+  "retrieved_var": 0.0
+ }
+}

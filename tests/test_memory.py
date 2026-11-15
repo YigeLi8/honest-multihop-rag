@@ -2372,12 +2372,17 @@ def test_agent_losses():
         run(tmp, "agent", {"q1": "Paris", "q2": "no", "q3": "Lyon", "q4": "yes", "q5": "Lyon"},
             {"q1": [], "q2": ["A::0"], "q3": ["B::0"], "q4": ["A::1"], "q5": ["B::0"]}, got,
             subs={"q2": ["Ann", "Paris"], "q5": ["Lyon"]}, guard={"q2": 1})
-        al.main(["--runs", "flat", "agent", "--compare", "flat=agent", "--out", "t",
+        # the same agent with q2 and q5 right: q2 with a lookup that had it, q5 without
+        run(tmp, "agent2", {"q1": "Paris", "q2": "Paris", "q3": "Lyon", "q4": "yes", "q5": "Paris"},
+            {"q1": [], "q2": ["A::0"], "q3": ["B::0"], "q4": ["A::1"], "q5": ["B::0"]}, got,
+            subs={"q2": ["Ann", "Paris"], "q5": ["Lyon"]})
+        al.main(["--runs", "flat", "agent", "--compare", "flat=agent", "--compare",
+                 "agent=agent2", "--compare", "agent2=agent", "--out", "t",
                  "--data", str(tmp / "data.jsonl"), "--results", str(tmp)])
         with open(tmp / "t_losses.csv") as f:
             flat, agent = list(csv.DictReader(f))
         with open(tmp / "t_paired.csv") as f:
-            pair, = list(csv.DictReader(f))
+            pair, up, down = list(csv.DictReader(f))
 
     assert (flat["n"], flat["wrong"], flat["em"]) == ("5", "4", "0.2")
     # q2 and q5 had the string in what was read, q3 never retrieved it, q4 is a yes/no question
@@ -2390,10 +2395,16 @@ def test_agent_losses():
     assert agent["n_in_context"] == "2" and agent["em_in_context"] == "0.5"   # q1 by fallback, q2
     assert agent["wrong_last_sub_right"] == "1" and agent["wrong_any_sub_right"] == "1"
     assert (agent["guard_reads"], agent["guard_final"], agent["guard_final_right"]) == ("1", "1", "0")
+    assert [agent[f"guard_final_{k}"] for k in al.PLACES[:3]] == ["1", "0", "0"]   # q2 had it in the notebook
     # agent against flat: q4 won, nothing lost
     assert (pair["base"], pair["arm"], pair["lost"], pair["won"]) == ("flat", "agent", "0", "1")
     assert float(pair["d_em"]) == 0.2 and float(pair["p_holm"]) == float(pair["p"]) == 1.0
     assert (pair["n_bridge"], pair["n_comparison"]) == ("3", "2") and float(pair["d_em_comparison"]) == 0.5
+    assert (pair["won_sub_right"], pair["lost_is_sub"]) == ("0", "0")     # q4 has no lookups
+    # won q2 and q5, a lookup had the gold on q2 only; the other way round both are lost and
+    # the final answer repeats a lookup's on q5 only
+    assert (up["won"], up["won_sub_right"], up["lost"]) == ("2", "1", "0")
+    assert (down["lost"], down["lost_is_sub"], down["won"]) == ("2", "1", "0")
 
 
 def test_experience_memory():
