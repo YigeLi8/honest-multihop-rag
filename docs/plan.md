@@ -1557,7 +1557,7 @@ as cost. Steps:
       with the EM difference from now on
 - [ ] A6 preregistration 3, then the hotpot confirmation fold; 2wiki and
       musique after. On hold after A5
-- [ ] A7 memory version 2, aimed at the two causes A5 found (written 11
+- [x] A7 memory version 2, aimed at the two causes A5 found (written 11
       Nov, before any run). Switched on per config
       (`configs/orchestrator_mem2_*.yaml`); the defaults are version 1, so
       the A5 configs and results stand as they are.
@@ -1591,7 +1591,49 @@ as cost. Steps:
       Power, before the run: in A5 lessons applied at about 40% of subagent
       steps by the end, so about 600 shown and 600 held-out decisions; at a
       success rate near 0.62 that resolves about 5-6 points of step success
-      (95%). Per-lesson effects will be resolved only when large
+      (95%). Per-lesson effects will be resolved only when large.
+      Mac, 14 Nov, at 75d4efc (`results/orchestrator_mem2_*`, the stores
+      and their logs in `results/agent_memory/*2*`, scored into
+      `results/orchestrator_mem2_hotpot_explore_{paired,steps}.csv`,
+      `results/agent_memory/build_summary2.csv` and the two
+      `*2_lessons.csv`). Exploratory.
+      (a) fails. Over the region build, subagent steps shown a lesson
+      succeed at 0.624 (n 1456) and steps where the lessons that applied
+      were held out at 0.624 (n 1537): -0.000 [-0.035, +0.034]. Plans:
+      0.949 (n 137) against 0.972 (n 144), -0.023 [-0.069, +0.022]. The
+      flat build says the same (+0.006 [-0.027, +0.039] and -0.024
+      [-0.061, +0.014]). The intervals rule out a gain above about 3.5
+      points of step success, not a smaller one.
+      (b) fails. Frozen on exploration against no memory (EM 0.540), Holm
+      over the four arms:
+
+      | arm      | EM    | diff, 95% CI            | lost / won | p    | Holm |
+      |----------|-------|-------------------------|------------|------|------|
+      | region   | 0.546 | +0.006 [-0.022, +0.034] | 24 / 27    | 0.78 | 1.00 |
+      | shuffled | 0.544 | +0.004 [-0.020, +0.030] | 20 / 22    | 0.88 | 1.00 |
+      | global   | 0.528 | -0.012 [-0.042, +0.018] | 32 / 26    | 0.51 | 1.00 |
+      | flat     | 0.516 | -0.024 [-0.052, +0.004] | 33 / 21    | 0.13 | 0.53 |
+
+      (c) in part, and not corrected: region against global +0.018
+      [+0.000, +0.036] (7 / 16, p 0.093), against flat +0.030 [+0.004,
+      +0.056] (15 / 30, p 0.036); against shuffled +0.002 [-0.022, +0.026]
+      (17 / 18). So where a lesson is shown matters a little (regions lose
+      less than show-all or similarity), what it says does not (shuffled
+      is level with region), and nothing is above no memory.
+      What changed from version 1: the advice is general now ("Only keep
+      results directly answering the specific question asked", "Always
+      include results that provide specific details about the subject and
+      context of the question"); the region build ends with 14 active
+      lessons of 67 written, 4 of them proven (1 planner, 1 dropped, 2
+      noise); frozen they reach 0.85 of subagent steps and 0.33 of plans
+      (0.42 and 0.04 in A5). More answers change than in A5 and they
+      cancel: gain / regression 0.054 / 0.048 for region, 0.044 / 0.040
+      shuffled, 0.052 / 0.064 global, 0.042 / 0.066 flat. One reading:
+      advice this general says what the keep prompt already says, so the
+      keep step's errors are not for lack of a rule.
+      Fifth memory gate closed. A6 stays on hold. The memory line stops
+      here unless the agent changes what there is to learn; the agent
+      itself is Stage 6b
 
 ### Stage 6-7, only if Stage 5 shows something
 

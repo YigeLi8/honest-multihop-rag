@@ -1,0 +1,15 @@
+store,part,lessons,active,reflection,fallback_advice,reflection_retry,op_create,op_exception,op_expand,op_narrow,op_retire,op_split,active_planner_unreached,tested_planner_unreached,proven_planner_unreached,active_subagent_dropped,tested_subagent_dropped,proven_subagent_dropped,active_subagent_noise,tested_subagent_noise,proven_subagent_noise,n,em,q_any_shown,sub_shown,planner_shown,err_dropped,err_noise,err_unreached,n_shown,ok_shown,ok_shown_lo,ok_shown_hi,n_held,ok_held,ok_held_lo,ok_held_hi,diff,diff_lo,diff_hi
+hotpot_train_region2,store,67,14,67,0,3,67,137,620,170,35,18,2,1,1,6,2,1,6,3,2,,,,,,,,,,,,,,,,,,,
+hotpot_train_region2,q1,,,,,,,,,,,,,,,,,,,,,250,0.668,0.72,0.3427,0.168,0.2793,0.1397,0.032,,,,,,,,,,,
+hotpot_train_region2,q2,,,,,,,,,,,,,,,,,,,,,250,0.664,0.896,0.4828,0.124,0.2225,0.155,0.028,,,,,,,,,,,
+hotpot_train_region2,q3,,,,,,,,,,,,,,,,,,,,,250,0.608,0.832,0.4541,0.076,0.2622,0.1526,0.04,,,,,,,,,,,
+hotpot_train_region2,q4,,,,,,,,,,,,,,,,,,,,,250,0.604,0.916,0.4412,0.18,0.2671,0.1294,0.04,,,,,,,,,,,
+hotpot_train_region2,heldout_planner,,,,,,,,,,,,,,,,,,,,,,,,,,,,,137,0.9489,0.8983,0.975,144,0.9722,0.9308,0.9891,-0.0233,-0.0689,0.0223
+hotpot_train_region2,heldout_subagent,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1456,0.6236,0.5984,0.6482,1537,0.6239,0.5994,0.6478,-0.0003,-0.035,0.0344
+hotpot_train_flat2,store,257,233,255,2,34,257,,,,24,,1,0,0,139,3,2,93,3,2,,,,,,,,,,,,,,,,,,,
+hotpot_train_flat2,q1,,,,,,,,,,,,,,,,,,,,,250,0.672,0.856,0.468,0.16,0.2618,0.1469,0.048,,,,,,,,,,,
+hotpot_train_flat2,q2,,,,,,,,,,,,,,,,,,,,,250,0.656,0.856,0.5124,0.08,0.2161,0.1499,0.024,,,,,,,,,,,
+hotpot_train_flat2,q3,,,,,,,,,,,,,,,,,,,,,250,0.616,0.896,0.4787,0.176,0.296,0.1523,0.028,,,,,,,,,,,
+hotpot_train_flat2,q4,,,,,,,,,,,,,,,,,,,,,250,0.612,0.896,0.4568,0.328,0.2465,0.1297,0.032,,,,,,,,,,,
+hotpot_train_flat2,heldout_planner,,,,,,,,,,,,,,,,,,,,,,,,,,,,,186,0.9516,0.9106,0.9743,201,0.9751,0.9431,0.9893,-0.0235,-0.0611,0.0141
+hotpot_train_flat2,heldout_subagent,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1613,0.633,0.6092,0.6562,1697,0.627,0.6037,0.6497,0.006,-0.0269,0.0389
