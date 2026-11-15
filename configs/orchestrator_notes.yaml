@@ -1,0 +1,13 @@
+# orchestrator.yaml with the lookups and their answers in the final read
+run:
+  name: orchestrator_notes_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  final_notes: true
+generation:
+  backend: mlx

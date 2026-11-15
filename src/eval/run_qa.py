@@ -126,6 +126,11 @@ def score_row(ex, res):
                     "notebook_gold_recall": round(n_kept_gold / len(gold), 4) if gold else 0.0,
                     "notebook_all_gold": int(gold <= kept) if kept else 0,
                     "fallback": int(res.stop_reason.endswith("+fallback"))})
+    if res.guards is not None:
+        # answer_guard runs: second reads on this question, and whether the
+        # final answer was one of them
+        row.update({"guard_reads": len(res.guards),
+                    "guard_final": int(any(g["where"] == "final" for g in res.guards))})
     return row
 
 
@@ -141,6 +146,8 @@ def trace_record(ex, res):
     }
     if res.steps:
         rec.update(notebook=res.notebook, steps=res.steps)
+    if res.guards is not None:
+        rec["guards"] = res.guards
     return rec
 
 

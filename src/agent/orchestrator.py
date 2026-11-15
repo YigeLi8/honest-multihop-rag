@@ -20,6 +20,11 @@ caps the plan (default 3) and pipeline.sub_max_hops each subagent's searches
 (default 2). A plan that cannot be read becomes the original question as the
 only sub-question, logged as plan_fallback.
 
+pipeline.final_notes (off by default; docs/plan.md, Stage 6b): the final read
+also gets the lookups and the subagents' answers, written under the kept
+sentences. Without it the subagents' answers only fill the #k of later
+lookups and the final read never sees them.
+
 The memory hook is the same as the agent's: `pipe.lessons.lessons(step)`,
 where step["role"] says who is asking ("planner" or "subagent"), so lessons
 can be kept per role.
@@ -98,7 +103,7 @@ def run_orchestrated(pipe, ex):
     plan_step.update(lessons=lessons, reply=text, plan=subs, plan_fallback=plan_fallback)
     steps.append(plan_step)
 
-    notebook, answers, stops = {}, [], []
+    notebook, answers, stops, lookups = {}, [], [], []
     for k, sub in enumerate(subs):
         asked = fill_refs(sub, answers)
         start = len(traces)
@@ -108,8 +113,9 @@ def run_orchestrated(pipe, ex):
             notebook.setdefault(cid, h)
         own = list(kept.values()) or list({h.chunk.chunk_id: h for t in traces[start:]
                                            for h in t.retrieved}.values())
-        sub_answer = answer_from(pipe, asked, own, usage)
+        sub_answer = answer_from(pipe, asked, own, usage, where=f"sub{k}")
         answers.append(sub_answer)
+        lookups.append((asked, sub_answer))
         stops.append(stop + ("" if kept else "+fallback"))
         steps.append({"role": "subagent", "sub": k, "sub_question": asked, "planned": sub,
                       "sub_answer": sub_answer, "kept": list(kept), "stop": stops[-1]})
@@ -118,7 +124,8 @@ def run_orchestrated(pipe, ex):
     fallback = not ctx_hits
     if fallback:
         ctx_hits = list(seen.values())
-    answer = answer_from(pipe, ex.question, ctx_hits, usage)
+    notes = lookups if getattr(cfg, "final_notes", False) else None
+    answer = answer_from(pipe, ex.question, ctx_hits, usage, notes=notes)
     pipe.stop_reason = (f"subs={len(subs)}" + ("+plan_fallback" if plan_fallback else "")
                         + ("+fallback" if fallback else ""))
     pipe.notebook = list(notebook)

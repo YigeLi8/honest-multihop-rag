@@ -14,6 +14,12 @@ of the notebooks.
 Every hop gets logged as a HopTrace so per-hop precision can be scored
 afterwards, and every raw completion is kept on the result for later audits.
 
+pipeline.answer_guard (off by default; docs/plan.md, Stage 6b): every answer
+read goes through _answer, and with the guard on a question that does not
+read as yes/no and came back yes or no is read once more over the same
+context with GUARD_PROMPT. It applies to every mode that reads a context, so
+a run with it is compared with runs that have it too.
+
 With memory.enabled and memory.mode == log in the config, every retrieval step
 is also handed to an ExperienceLogger (src/memory), together with the hits of
 any shadow retrievers listed in memory.log_arms. That path only reads: the
@@ -21,6 +27,7 @@ hits, the context, the prompts and the answer are the same with it on or off.
 The time it takes (shadow indexing and retrieval, the full-pool rankings, the
 features) is measured and left out of latency_s.
 """
+import re
 import time
 
 from src.pipeline.generate import Generator
@@ -30,6 +37,17 @@ from src.types import HopTrace, PipelineResult
 
 PROMPT = """Answer the question using only the context below. Reply with just \
 the answer, no explanation. If it is a yes/no question, reply yes or no.
+
+Context:
+{context}
+
+Question: {question}
+Answer:"""
+
+# PROMPT with its yes/no sentence replaced: the second read of answer_guard
+GUARD_PROMPT = """Answer the question using only the context below. Reply with just \
+the answer, no explanation. The answer is a name, a date, a number or a short \
+phrase, not yes or no.
 
 Context:
 {context}
@@ -74,11 +92,40 @@ def first_line(text):
     return text.strip().split("\n")[0].strip()
 
 
+_AUX = {"is", "are", "was", "were", "am", "do", "does", "did", "has", "have", "had",
+        "can", "could", "will", "would", "should"}
+_WH = re.compile(r"\b(what|which|who|whom|whose|when|where|why|how|name)\b", re.I)
+
+
+def looks_yesno(question):
+    """From the wording alone: the question opens with an auxiliary, or has
+    no question word at all ("Both X and Y are plants?"). Written on the
+    first 20,000 hotpot train questions, where it holds for 1226 of the 1231
+    with a yes/no gold answer and 269 of the 18,769 others. The guard leaves
+    such questions alone, so the rule errs towards calling a question yes/no:
+    a span question it flags keeps its first reply, as without the guard."""
+    words = question.split()
+    return (bool(words) and words[0].strip("\"'(").lower() in _AUX) or not _WH.search(question)
+
+
+def is_yesno(answer):
+    return re.sub(r"[^a-z]", "", answer.lower()) in ("yes", "no")
+
+
+def usage_of(ms, ntok=0, peak=0.0):
+    """(completion tokens, last decode rate, peak memory) over some calls."""
+    for m in ms:
+        ntok += m.completion_tokens
+        peak = max(peak, m.peak_memory_mb)
+    return ntok, ms[-1].tokens_per_s, peak
+
+
 class MultiHopPipeline:
     memory = None    # ExperienceLogger when the config asks for logging
     shadow = None    # {arm: retriever} run beside the primary one, logged and never used
     _memory_s = 0.0  # seconds the current question spent in the logging path
     lessons = None   # agent mode: what the experience memory shows the model
+    guards = None    # answer_guard on: the second reads of the current question
 
     def __init__(self, cfg):
         self.cfg = cfg
@@ -137,6 +184,7 @@ class MultiHopPipeline:
         self._memory_s = 0.0
         self.stop_reason = ""
         self.notebook, self.steps = [], []
+        self.guards = [] if getattr(self.cfg.pipeline, "answer_guard", False) else None
         if mode == "closed_book":
             if self.generator is None:
                 raise ValueError("closed_book needs a generation backend")
@@ -169,6 +217,7 @@ class MultiHopPipeline:
                               raw_outputs=list(self._raw),
                               stop_reason=self.stop_reason,
                               notebook=list(self.notebook), steps=list(self.steps),
+                              guards=None if self.guards is None else list(self.guards),
                               reasoning_tokens=ntok,
                               prompt_tokens=self._prompt_tokens,
                               ttft_s=self._ttft,
@@ -184,6 +233,22 @@ class MultiHopPipeline:
             self._ttft = getattr(m, "ttft_s", 0.0)
         return text, m
 
+    def _answer(self, question, ctx, where="final"):
+        """The answer read every mode shares: PROMPT over the context, first
+        line of the reply. Returns (answer, [metrics of each call]). With the
+        guard on, yes or no to a question that does not read as yes/no gets a
+        second read with GUARD_PROMPT; the second reply stands and the pair
+        is kept on self.guards."""
+        text, m = self._gen(PROMPT.format(context=ctx, question=question))
+        answer, ms = first_line(text), [m]
+        if self.guards is not None and is_yesno(answer) and not looks_yesno(question):
+            text, m = self._gen(GUARD_PROMPT.format(context=ctx, question=question))
+            self.guards.append({"where": where, "question": question, "first": answer,
+                                "second": first_line(text)})
+            answer = first_line(text)
+            ms.append(m)
+        return answer, ms
+
     def _closed_book(self, ex):
         text, m = self._gen(CLOSED_BOOK_PROMPT.format(question=ex.question))
         trace = HopTrace(hop=0, query=ex.question, retrieved=[],
@@ -197,9 +262,8 @@ class MultiHopPipeline:
         answer, ntok, tps, peak = "", 0, 0.0, 0.0
         if self.generator:
             ctx = "\n".join(f"- {h.chunk.text}" for h in hits)
-            text, m = self._gen(PROMPT.format(context=ctx, question=ex.question))
-            answer = first_line(text)
-            ntok, tps, peak = m.completion_tokens, m.tokens_per_s, m.peak_memory_mb
+            answer, ms = self._answer(ex.question, ctx)
+            ntok, tps, peak = usage_of(ms)
         return [trace], answer, (ntok, tps, peak)
 
     def _ircot(self, ex):
@@ -240,11 +304,8 @@ class MultiHopPipeline:
             query = search
 
         ctx = "\n".join(f"- {h.chunk.text}" for h in seen.values())
-        text, m = self._gen(PROMPT.format(context=ctx, question=ex.question))
-        answer = first_line(text)
-        ntok += m.completion_tokens
-        tps, peak = m.tokens_per_s, max(peak, m.peak_memory_mb)
-        return traces, answer, (ntok, tps, peak)
+        answer, ms = self._answer(ex.question, ctx)
+        return traces, answer, usage_of(ms, ntok, peak)
 
     def run(self, examples):
         return [self.run_example(ex) for ex in examples]

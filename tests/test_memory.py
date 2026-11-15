@@ -2167,6 +2167,235 @@ def test_orchestrator():
     assert not score_row(ex, res)["fallback"]
 
 
+def test_answer_guard_and_final_notes():
+    from src.agent.agent import NOTES_HEAD
+    from src.eval.run_qa import score_row, trace_record
+    from src.pipeline.multihop import GUARD_PROMPT, MultiHopPipeline, is_yesno, looks_yesno
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    # the wording rule: an auxiliary first, or no question word at all
+    assert looks_yesno("Were Scott Derrickson and Ed Wood of the same nationality?")
+    assert looks_yesno("Both Sorbaria and Goldenrod are a genus of flowering plants?")
+    assert looks_yesno('"Is" it true?') and looks_yesno("")
+    assert not looks_yesno("This singer of A Rather Blustery Day also voiced what hedgehog?")
+    assert not looks_yesno("who is younger Keith Bostic or Jerry Glanville ?")
+    assert not looks_yesno("Name the director of the film.")
+    assert is_yesno("No.") and is_yesno(" yes") and not is_yesno("No, it was Bob") and not is_yesno("")
+
+    pool = [Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0]) for c in
+            ("Film::0", "Film::1", "Ann::0", "Ann::1")]
+
+    class NS:
+        pass
+
+    def config(mode, **flags):
+        cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+        cfg.pipeline.mode = mode
+        cfg.pipeline.max_hops = 3
+        cfg.pipeline.max_subquestions = 3
+        cfg.pipeline.sub_max_hops = 2
+        cfg.retrieval.top_k = 2
+        for k, v in flags.items():
+            setattr(cfg.pipeline, k, v)
+        return cfg
+
+    class Retriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            ids = ["Ann::0", "Ann::1"] if "Ann" in query else ["Film::0", "Film::1"]
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    def metrics(n=3):
+        return GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=n)
+
+    class Ircot:
+        """DONE at once; the first answer read says No, the second Paris."""
+        def __init__(self):
+            self.prompts = []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            if "gathering evidence" in prompt:
+                return "DONE", metrics()
+            if "not yes or no" in prompt:
+                return "Paris\n", metrics(5)
+            return "No.", metrics(2)
+
+    def pipeline(cfg, gen):
+        p = MultiHopPipeline.__new__(MultiHopPipeline)
+        p.cfg, p.retriever, p.reranker, p.generator = cfg, Retriever(), None, gen
+        return p
+
+    wh = Example(id="q", question="where was the director born", answer="Paris", hops=2,
+                 chunks=pool, gold_chunk_ids=["Film::0", "Ann::0"])
+    yn = Example(id="y", question="Was the director born in Paris?", answer="no", hops=2,
+                 chunks=pool, gold_chunk_ids=["Film::0", "Ann::0"])
+
+    # off: one read, the reply stands, nothing about the guard in the row or the trace
+    p = pipeline(config("multihop_ircot"), Ircot())
+    res = p.run_example(wh)
+    assert res.answer == "No." and res.gen_calls == 2 and res.guards is None
+    assert res.reasoning_tokens == 5
+    assert "guard_reads" not in score_row(wh, res) and "guards" not in trace_record(wh, res)
+
+    # on: yes or no to a question that does not read as yes/no is read again
+    # over the same context, and the second reply stands
+    p = pipeline(config("multihop_ircot", answer_guard=True), Ircot())
+    res = p.run_example(wh)
+    first, second = p.generator.prompts[-2:]
+    assert res.answer == "Paris" and res.gen_calls == 3 and res.reasoning_tokens == 10
+    assert "reply yes or no" in first and "not yes or no" in second
+    assert second == GUARD_PROMPT.format(context="- text of Film::0\n- text of Film::1",
+                                         question=wh.question)
+    assert first.split("Context:")[1] == second.split("Context:")[1]
+    assert res.guards == [{"where": "final", "question": wh.question, "first": "No.",
+                           "second": "Paris"}]
+    row = score_row(wh, res)
+    assert row["em"] == 1 and row["guard_reads"] == 1 and row["guard_final"] == 1
+    assert trace_record(wh, res)["guards"] == res.guards
+    # a question that reads as yes/no keeps its reply, and the columns are there with zeros
+    res = p.run_example(yn)
+    assert res.answer == "No." and res.gen_calls == 2 and res.guards == []
+    row = score_row(yn, res)
+    assert row["em"] == 1 and row["guard_reads"] == 0 and row["guard_final"] == 0
+    # single-hop goes through the same read
+    p = pipeline(config("single_hop", answer_guard=True), Ircot())
+    res = p.run_example(wh)
+    assert res.answer == "Paris" and res.gen_calls == 2 and res.reasoning_tokens == 7
+
+    class Main:
+        """Plans two lookups, keeps the first result of each search; the
+        first lookup's read says no, then Ann when asked again."""
+        def __init__(self):
+            self.prompts = []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            if "Break the question" in prompt:
+                return "1. Who directed the film?\n2. Where was #1 born?", metrics()
+            if "collecting evidence" in prompt:
+                return "KEEP: 1\nNEXT: ANSWER", metrics()
+            if "Question: Who directed the film?" in prompt:
+                return ("Ann" if "not yes or no" in prompt else "no"), metrics()
+            return "Paris", metrics()
+
+    # final_notes: the lookups and their answers under the kept sentences, in
+    # the final read only
+    p = pipeline(config("orchestrator", final_notes=True, answer_guard=True), Main())
+    res = p.run_example(wh)
+    final = p.generator.prompts[-1]
+    assert res.answer == "Paris" and "Question: where was the director born" in final
+    ctx = final.split("Context:\n")[1].split("\n\nQuestion:")[0]
+    assert ctx == ("- text of Film::0\n- text of Ann::0\n" + NOTES_HEAD + "\n"
+                   "- Who directed the film? Answer: Ann\n- Where was Ann born? Answer: Paris")
+    assert sum(NOTES_HEAD in q for q in p.generator.prompts) == 1
+    # the guard caught the first lookup, so the second one was asked about Ann
+    assert res.guards == [{"where": "sub0", "question": "Who directed the film?",
+                           "first": "no", "second": "Ann"}]
+    assert [s["sub_answer"] for s in res.steps if "sub_answer" in s] == ["Ann", "Paris"]
+    # planner, two keep steps, two reads for the first lookup, one for the second, the final
+    assert res.gen_calls == 7
+    row = score_row(wh, res)
+    assert row["guard_reads"] == 1 and row["guard_final"] == 0 and row["notebook_all_gold"] == 1
+
+    # both off: the final read is the sentences alone, and "no" goes into the second lookup
+    p = pipeline(config("orchestrator"), Main())
+    res = p.run_example(wh)
+    assert NOTES_HEAD not in "".join(p.generator.prompts) and res.guards is None
+    assert [s["sub_question"] for s in res.steps if "sub_answer" in s][1] == "Where was no born?"
+    assert res.gen_calls == 6
+
+
+def test_agent_losses():
+    import csv
+
+    from src.eval import agent_losses as al
+
+    assert al.holds("The Argand lamp, a kind of oil lamp.", "Argand lamp")
+    assert not al.holds("Lamps by Argand.", "Argand lamp") and not al.holds("anything", "")
+    assert al.reply_of("No.", ["Paris"]) == "yesno" and al.reply_of("", ["Paris"]) == "empty"
+    assert al.reply_of("Chief of Protocol", ["Chief of Protocol of the United States"]) == "inside_gold"
+    assert al.reply_of("June 1986", ["1986"]) == "around_gold"
+    assert al.reply_of("Lyon", ["Paris", "Paris, France"]) == "other"
+
+    texts = {"A::0": "Ann was born in Paris.", "A::1": "Ann directed the film.",
+             "B::0": "Bob lives in Lyon.", "C::0": "Nothing here."}
+    data = [{"id": i, "question": "q", "answer": a, "chunks": [
+        {"chunk_id": c, "text": t} for c, t in texts.items()]}
+        for i, a in (("q1", "Paris"), ("q2", "Paris"), ("q3", "Paris"), ("q4", "yes"), ("q5", "Paris"))]
+
+    def run(tmp, name, answers, notebooks, retrieved, subs=None, guard=None):
+        fields = ["id", "qtype", "answer_gold", "answer_pred", "em", "f1", "gen_calls", "latency_s"]
+        fields += ["notebook_size", "notebook_all_gold"] if notebooks else []
+        fields += ["guard_reads", "guard_final"] if guard else []
+        with open(tmp / f"{name}_qa.csv", "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader()
+            for d in data:
+                i, pred = d["id"], answers[d["id"]]
+                row = {"id": i, "qtype": "bridge" if i < "q4" else "comparison",
+                       "answer_gold": d["answer"], "answer_pred": pred,
+                       "em": float(pred.lower() == d["answer"].lower()),
+                       "f1": float(pred.lower() == d["answer"].lower()),
+                       "gen_calls": 3, "latency_s": 1.5}
+                if notebooks:
+                    row.update(notebook_size=len(notebooks[i]), notebook_all_gold=0)
+                if guard:
+                    row.update(guard_reads=guard.get(i, 0), guard_final=guard.get(i, 0))
+                w.writerow(row)
+        with open(tmp / f"{name}_trace.jsonl", "w") as f:
+            for d in data:
+                i = d["id"]
+                rec = {"id": i, "hops": [{"hop": 0, "query": "q", "retrieved": retrieved[i]}]}
+                if notebooks:
+                    rec.update(notebook=notebooks[i], steps=[
+                        {"role": "subagent", "sub": k, "sub_answer": a}
+                        for k, a in enumerate((subs or {}).get(i, []))])
+                f.write(json.dumps(rec) + "\n")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        with open(tmp / "data.jsonl", "w") as f:
+            for d in data:
+                f.write(json.dumps(d) + "\n")
+        got = {i: ["A::0", "A::1", "B::0"] for i in ("q1", "q2", "q4", "q5")}
+        got["q3"] = ["B::0", "C::0"]
+        # no notebook: the answer is read from everything retrieved
+        run(tmp, "flat", {"q1": "Paris", "q2": "No", "q3": "Lyon", "q4": "no", "q5": "in Paris"},
+            None, got)
+        # the agent: q2 kept the sentence and the subagent had it right, q5 dropped it,
+        # q1 kept nothing (read from everything retrieved); the guard fixed nothing on q2
+        run(tmp, "agent", {"q1": "Paris", "q2": "no", "q3": "Lyon", "q4": "yes", "q5": "Lyon"},
+            {"q1": [], "q2": ["A::0"], "q3": ["B::0"], "q4": ["A::1"], "q5": ["B::0"]}, got,
+            subs={"q2": ["Ann", "Paris"], "q5": ["Lyon"]}, guard={"q2": 1})
+        al.main(["--runs", "flat", "agent", "--compare", "flat=agent", "--out", "t",
+                 "--data", str(tmp / "data.jsonl"), "--results", str(tmp)])
+        with open(tmp / "t_losses.csv") as f:
+            flat, agent = list(csv.DictReader(f))
+        with open(tmp / "t_paired.csv") as f:
+            pair, = list(csv.DictReader(f))
+
+    assert (flat["n"], flat["wrong"], flat["em"]) == ("5", "4", "0.2")
+    # q2 and q5 had the string in what was read, q3 never retrieved it, q4 is a yes/no question
+    assert [flat[k] for k in al.PLACES] == ["2", "0", "1", "1"]
+    assert (flat["reply_yesno"], flat["reply_around_gold"], flat["reply_other"]) == ("1", "1", "1")
+    assert flat["in_context_yesno"] == "1" and flat["wrong_any_sub_right"] == ""
+    assert flat["contain"] == "0.4" and flat["n_in_context"] == "3"
+    assert (agent["wrong"], agent["em"]) == ("3", "0.4")
+    assert [agent[k] for k in al.PLACES] == ["1", "1", "1", "0"]
+    assert agent["n_in_context"] == "2" and agent["em_in_context"] == "0.5"   # q1 by fallback, q2
+    assert agent["wrong_last_sub_right"] == "1" and agent["wrong_any_sub_right"] == "1"
+    assert (agent["guard_reads"], agent["guard_final"], agent["guard_final_right"]) == ("1", "1", "0")
+    # agent against flat: q4 won, nothing lost
+    assert (pair["base"], pair["arm"], pair["lost"], pair["won"]) == ("flat", "agent", "0", "1")
+    assert float(pair["d_em"]) == 0.2 and float(pair["p_holm"]) == float(pair["p"]) == 1.0
+    assert (pair["n_bridge"], pair["n_comparison"]) == ("3", "2") and float(pair["d_em_comparison"]) == 0.5
+
+
 def test_experience_memory():
     import tempfile
     from pathlib import Path
@@ -2567,6 +2796,8 @@ if __name__ == "__main__":
     test_reader_context_selection()
     test_agent_episode()
     test_orchestrator()
+    test_answer_guard_and_final_notes()
+    test_agent_losses()
     test_experience_memory()
     test_memory_in_the_loop()
     test_memory_v2()

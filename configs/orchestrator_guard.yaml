@@ -1,0 +1,14 @@
+# orchestrator.yaml with the second read when a question that does not read
+# as yes/no came back yes or no (lookups and the final answer)
+run:
+  name: orchestrator_guard_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+generation:
+  backend: mlx

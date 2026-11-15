@@ -34,6 +34,8 @@ pipeline:
   mode: single_hop      # single_hop | multihop_ircot
   max_hops: 3
   stop_on_answer: true
+  answer_guard: false   # yes or no to a question that does not read as yes/no is read once more (every mode that reads a context)
+  final_notes: false    # orchestrator: the lookups and their answers go into the final read
 
 generation:
   backend: none         # none | mlx | llamacpp | vllm

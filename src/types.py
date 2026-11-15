@@ -73,3 +73,4 @@ class PipelineResult:
     peak_memory_mb: float = 0.0
     notebook: list = field(default_factory=list)  # agent only: chunk ids kept, in order
     steps: list = field(default_factory=list)     # agent only: one dict per step
+    guards: list = None        # pipeline.answer_guard on: one dict per second read

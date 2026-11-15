@@ -1635,6 +1635,122 @@ as cost. Steps:
       here unless the agent changes what there is to learn; the agent
       itself is Stage 6b
 
+### Stage 6b: the agent itself (15 Nov)
+
+Five memory gates are closed, and each of them tested a memory on agents
+that were built once (4 Nov) and then held fixed, so that a change could be
+credited to the memory. The agents are the one thing on this branch that
+moved answers (the main agent over subagents is +0.054 EM over ircot on
+exploration, p 0.004, not confirmed), and nothing has been done to them
+since. This stage works on the agent directly: find where its answers are
+lost, change one thing at a time against a matched control, choose on the
+exploration fold, confirm once.
+
+Where the answers are lost (`src/eval/agent_losses.py`: every wrong answer
+placed by where the gold answer string was; the string test is exact, per
+sentence, so "read" is a lower bound). Hotpot exploration, n=500, before
+any change:
+
+| run                         | EM    | wrong | read | dropped | never retrieved | yes/no gold | EM where read |
+|-----------------------------|-------|-------|------|---------|-----------------|-------------|---------------|
+| ircot, 13.1 sentences       | 0.486 | 257   | 206  | -       | 49              | 2           | 0.500 (n 412) |
+| single agent, 3.6 sentences | 0.526 | 237   | 167  | 39      | 24              | 7           | 0.580 (n 398) |
+| main agent, 3.7 sentences   | 0.540 | 230   | 142  | 59      | 26              | 3           | 0.618 (n 372) |
+
+read: a sentence the answer was read from holds the string. dropped:
+retrieved by some search and not kept. The agents read better from a short
+notebook (0.500 -> 0.618 where the string is there) and pay with the
+questions where the string was retrieved and not kept (62 for the main
+agent, EM 0.048 on them).
+
+Three things in the main agent's traces:
+
+1. Yes or no to a question with a span answer: 34 of the 467 span
+   questions, 13 of them with the string in the notebook. It is not the
+   agent's own: ircot 31, bm25 k=13 30, single agent 32, closed book 52. It
+   comes with the answer prompt ("If it is a yes/no question, reply yes or
+   no") on questions worded as statements ("This singer of A Rather
+   Blustery Day also voiced what hedgehog?"). In the main agent it also
+   breaks chains: a lookup answered "no" is pasted into the next lookup.
+2. The final read never sees the subagents' answers; they only fill the #k
+   of later lookups. On 27 of the 230 wrong answers a subagent's answer
+   equals the gold (the last one on 26), so final-or-last would be 0.592.
+   The last answer alone is 0.356 (A2b), so it cannot replace the read.
+3. 89% of lookups search twice (ANSWER after the first search on 8%), and
+   the second search adds 0.26 gold and 0.75 other sentences to the
+   notebook. 7.2 calls and 4.1 s per question against 2.8 and 1.8 s for
+   ircot.
+
+Most of the dropped ones read as broken chains (12 traces read): an earlier
+lookup answered wrong or "no", the next lookup asks about the wrong thing,
+and the sentence with the answer is shown to a subagent that was not
+looking for it.
+
+Changes, each a config flag that is off by default (the 4 Nov runs and
+every other mode come out as before; `test_answer_guard_and_final_notes`):
+
+- [ ] B1 `pipeline.final_notes`: the final read gets the lookups and the
+      subagents' answers, written under the kept sentences inside the same
+      answer prompt. No extra call.
+- [ ] B2 `pipeline.answer_guard`: when a question does not read as yes/no
+      and the reply is yes or no, the same context is read once more with
+      the prompt's yes/no sentence replaced ("The answer is a name, a date,
+      a number or a short phrase, not yes or no"); the second reply stands.
+      Whether a question reads as yes/no is decided from its wording (it
+      opens with an auxiliary, or has no question word), written on the
+      first 20,000 hotpot train questions: that holds for 1226 of the 1231
+      with a yes/no gold answer and 269 of the 18,769 others, and the guard
+      leaves those alone. It sits in the answer read every mode shares, so
+      it applies to lookups, final answers, ircot and single-hop alike, and
+      an agent with it is compared with ircot with it.
+- [ ] B3 `pipeline.sub_max_hops: 1`: one search per lookup, the cost
+      reading of point 3.
+
+Runs, hotpot exploration, the same 500 ids (`.local_notes/queue16.sh`):
+`orchestrator_notes`, `orchestrator_guard`, `orchestrator_notes_guard` and
+`orchestrator_s1` against `orchestrator_hotpot_explore`, `hybrid_guard`
+against `hybrid_ircot_hotpot_dev`; scored by `python -m
+src.eval.agent_losses` into
+`results/agent_dev_hotpot_explore_{losses,paired}.csv`.
+
+What would count, written before the runs:
+
+- Exploration is for choosing. With 60 to 90 discordant pairs a comparison
+  on 500 questions resolves 3 to 4 points of EM, and these changes are
+  expected to be worth 1 to 3, so most will not clear their interval alone.
+  A change is kept when its paired EM difference against the same agent
+  without it is above zero and neither F1 nor capped containment falls; all
+  three are reported with intervals, McNemar, and Holm over the four agent
+  arms. B3 is kept as the cheaper setting when its EM difference is not
+  below -0.01.
+- The guard's own effect is read on ircot (with against without). What the
+  agent adds is read with the same answer step on both sides: the main
+  agent with the guard against ircot with the guard.
+- Bounds, so the result can be checked against them: the guard can win at
+  most the 34 yes/no replies (+0.068; 31 for ircot), the notes at most the
+  26 (+0.052), less whatever the notes break among the 118 answers that
+  were right while the last lookup's answer was not.
+- The guard prompt and the notes line were written once. A change of
+  wording is a new arm with its own name, not an edit.
+- The kept changes are frozen by 23 Nov. Preregistration 3 is written
+  before the confirmation fold is touched, then one run on hotpot_confirm
+  (n=1000): the frozen agent, the 4 Nov main agent, ircot with and without
+  the guard. Nothing about the agent is reported as a result before that.
+
+Next, in the order the losses table gives after these runs (one or two
+changes a day, each written here with its control before it runs):
+
+- [ ] dropped (59): a lookup whose answer is not an answer ("no", "the
+      context does not say") still fills the next lookup; a subagent that
+      kept nothing hands the final read nothing
+- [ ] the plan: the cap of 3 cutting the last lookup off, lookups that
+      restate the question
+- [ ] never retrieved (26, all bridge): what the second search asks
+- [ ] read with the string there and another answer (68)
+- [ ] the comparison gain (+0.104 over the single agent, n=96) on the
+      confirmation fold's comparison questions
+- [ ] 2wiki and musique once hotpot is frozen
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve

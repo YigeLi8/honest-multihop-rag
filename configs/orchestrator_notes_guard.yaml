@@ -1,0 +1,14 @@
+# orchestrator.yaml with both: final_notes and answer_guard
+run:
+  name: orchestrator_notes_guard_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  final_notes: true
+  answer_guard: true
+generation:
+  backend: mlx

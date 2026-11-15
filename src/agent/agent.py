@@ -11,8 +11,9 @@ The first search is the question itself, as in ircot, with the same
 retriever and k, and at most pipeline.max_hops searches, so retrieval alone
 matches hybrid_ircot and a comparison against it isolates what the agent
 keeps. The answer comes from the same PROMPT every run uses, over the
-notebook only. An empty notebook falls back to everything retrieved
-(stop_reason gets a "+fallback" suffix).
+notebook only (through the pipeline's _answer, so pipeline.answer_guard
+applies here as everywhere). An empty notebook falls back to everything
+retrieved (stop_reason gets a "+fallback" suffix).
 
 The memory is anything with lessons(step) -> list[str] and, optionally,
 on_episode(ex, res, row); `pipe.lessons` is None for the no-memory agent.
@@ -22,7 +23,6 @@ kept ids, the lessons shown and the Stage 1 features of the search.
 import re
 
 from src.memory.features import compute_features
-from src.pipeline.multihop import PROMPT, first_line
 from src.types import HopTrace
 
 AGENT_PROMPT = """You are collecting evidence for a multi-hop question. Do not \
@@ -162,11 +162,20 @@ def search_loop(pipe, ex, question, max_hops, usage, traces, steps, seen,
     return notebook, stop
 
 
-def answer_from(pipe, question, hits, usage):
+NOTES_HEAD = "Lookups made while collecting this evidence, and the answers read then:"
+
+
+def answer_from(pipe, question, hits, usage, where="final", notes=None):
+    """The answer prompt over the kept sentences. notes, when given, are
+    (lookup, answer) pairs written under the sentences as part of the
+    context (the main agent's pipeline.final_notes)."""
     ctx = "\n".join(f"- {h.chunk.text}" for h in hits)
-    text, m = pipe._gen(PROMPT.format(context=ctx, question=question))
-    usage.add(m)
-    return first_line(text)
+    if notes:
+        ctx += "\n" + NOTES_HEAD + "\n" + "\n".join(f"- {q} Answer: {a}" for q, a in notes)
+    answer, ms = pipe._answer(question, ctx, where)
+    for m in ms:
+        usage.add(m)
+    return answer
 
 
 def run_episode(pipe, ex):

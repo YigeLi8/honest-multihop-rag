@@ -1,0 +1,12 @@
+# orchestrator.yaml with one search per lookup instead of two
+run:
+  name: orchestrator_s1_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 1
+generation:
+  backend: mlx
