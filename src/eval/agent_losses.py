@@ -30,6 +30,15 @@ question type, calls and latency. When the arm is the main agent, also how
 many of the questions it won had a subagent's answer equal to the gold, and
 on how many of the ones it lost its final answer repeats a subagent's
 answer. Gold is read here and nowhere in a run.
+
+A run named a+b is runs a and b read as one, for a comparison pooled over
+folds (their ids must not overlap); --data then takes every file the gold is
+in:
+
+    python -m src.eval.agent_losses --out agent_dev2_hotpot_pooled \
+        --data data/processed/hotpotqa_dev.jsonl data/processed/hotpotqa_train.jsonl \
+        --compare orchestrator_guard_hotpot_explore+orchestrator_guard_hotpot_train_hard=\
+orchestrator_guard_wide_hotpot_explore+orchestrator_guard_wide_hotpot_train_hard
 """
 import argparse
 import csv
@@ -44,25 +53,31 @@ REPLIES = ("yesno", "inside_gold", "around_gold", "other", "empty")
 
 
 def load_run(results_dir, run):
-    """({id: qa row}, {id: trace record}) of a run, in file order."""
-    results_dir = Path(results_dir)
-    with open(results_dir / f"{run}_qa.csv") as f:
-        rows = {r["id"]: r for r in csv.DictReader(f)}
-    with open(results_dir / f"{run}_trace.jsonl") as f:
-        traces = {d["id"]: d for d in map(json.loads, f)}
+    """({id: qa row}, {id: trace record}) of a run, in file order; a+b is runs
+    a and b one after the other."""
+    results_dir, rows, traces = Path(results_dir), {}, {}
+    for part in run.split("+"):
+        with open(results_dir / f"{part}_qa.csv") as f:
+            got = {r["id"]: r for r in csv.DictReader(f)}
+        assert not set(got) & set(rows), f"{part} repeats ids of {run}"
+        rows.update(got)
+        with open(results_dir / f"{part}_trace.jsonl") as f:
+            traces.update({d["id"]: d for d in map(json.loads, f)})
     return rows, traces
 
 
-def load_gold(data_file, ids):
-    """{id: (gold answers, {chunk_id: text})} for the ids asked."""
+def load_gold(data_files, ids):
+    """{id: (gold answers, {chunk_id: text})} for the ids asked, from one data
+    file or several."""
     want, out = set(ids), {}
-    with open(data_file) as f:
-        for line in f:
-            # records start {"id": "...", so the id is read without parsing the line
-            if line[:80].split('"')[3] in want:
-                d = json.loads(line)
-                golds = [d["answer"]] + [a for a in d.get("answer_aliases", []) if a]
-                out[d["id"]] = (golds, {c["chunk_id"]: c["text"] for c in d["chunks"]})
+    for data_file in [data_files] if isinstance(data_files, (str, Path)) else data_files:
+        with open(data_file) as f:
+            for line in f:
+                # records start {"id": "...", so the id is read without parsing the line
+                if line[:80].split('"')[3] in want:
+                    d = json.loads(line)
+                    golds = [d["answer"]] + [a for a in d.get("answer_aliases", []) if a]
+                    out[d["id"]] = (golds, {c["chunk_id"]: c["text"] for c in d["chunks"]})
     return out
 
 
@@ -205,7 +220,7 @@ def main(argv=None):
     ap.add_argument("--compare", action="append", default=[],
                     help="base=arm1,arm2,...; Holm within each group")
     ap.add_argument("--out", required=True, help="results/<out>_{losses,paired}.csv")
-    ap.add_argument("--data", default="data/processed/hotpotqa_dev.jsonl")
+    ap.add_argument("--data", nargs="+", default=["data/processed/hotpotqa_dev.jsonl"])
     ap.add_argument("--results", default="results")
     args = ap.parse_args(argv)
 

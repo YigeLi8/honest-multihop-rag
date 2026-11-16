@@ -2496,6 +2496,33 @@ def test_agent_losses():
             flat, agent = list(csv.DictReader(f))
         with open(tmp / "t_paired.csv") as f:
             pair, up, down = list(csv.DictReader(f))
+        # the same two runs split by question into two folds, pooled with +
+        folds = (("x", ("q1", "q2", "q3")), ("y", ("q4", "q5")))
+        for name in ("agent", "agent2"):
+            with open(tmp / f"{name}_qa.csv") as f:
+                rows = list(csv.DictReader(f))
+            with open(tmp / f"{name}_trace.jsonl") as f:
+                recs = f.readlines()
+            for part, keep in folds:
+                with open(tmp / f"{name}_{part}_qa.csv", "w", newline="") as f:
+                    w = csv.DictWriter(f, fieldnames=list(rows[0]))
+                    w.writeheader()
+                    w.writerows(r for r in rows if r["id"] in keep)
+                with open(tmp / f"{name}_{part}_trace.jsonl", "w") as f:
+                    f.writelines(r for r in recs if json.loads(r)["id"] in keep)
+        for part, keep in folds:
+            with open(tmp / f"data_{part}.jsonl", "w") as f:
+                f.writelines(json.dumps(d) + "\n" for d in data if d["id"] in keep)
+        al.main(["--compare", "agent_x+agent_y=agent2_x+agent2_y", "--out", "pool", "--data",
+                 str(tmp / "data_x.jsonl"), str(tmp / "data_y.jsonl"), "--results", str(tmp)])
+        with open(tmp / "pool_paired.csv") as f:
+            (pooled,) = list(csv.DictReader(f))
+        try:
+            al.load_run(tmp, "agent+agent_x")
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError("folds with the same ids were pooled")
 
     assert (flat["n"], flat["wrong"], flat["em"]) == ("5", "4", "0.2")
     # q2 and q5 had the string in what was read, q3 never retrieved it, q4 is a yes/no question
@@ -2518,6 +2545,9 @@ def test_agent_losses():
     # the final answer repeats a lookup's on q5 only
     assert (up["won"], up["won_sub_right"], up["lost"]) == ("2", "1", "0")
     assert (down["lost"], down["lost_is_sub"], down["won"]) == ("2", "1", "0")
+    # pooled folds give the row of the unsplit runs
+    assert pooled["base"] == "agent_x+agent_y" and pooled["n"] == "5"
+    assert all(pooled[k] == up[k] for k in pooled if k not in ("base", "arm"))
 
 
 def test_experience_memory():
