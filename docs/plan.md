@@ -1803,7 +1803,7 @@ F1 0.669, 7.4 calls. Nothing so far clears its interval on the agent.
 Round 2, written 15 Nov before its runs. Two changes on the agent as it
 stands after round 1 (the 4 Nov main agent with the guard):
 
-- [ ] B4 `pipeline.guard_context: wide`: the guard's second read goes over
+- [x] B4 `pipeline.guard_context: wide`: the guard's second read goes over
       the step's kept sentences followed by everything else its searches
       retrieved (for a lookup its own searches, for the final read every
       search) instead of the same sentences again. The first read does not
@@ -1817,14 +1817,14 @@ stands after round 1 (the 4 Nov main agent with the guard):
       ("Which American rock band did No information provided. play for?").
       ircot and single-hop already read everything retrieved, so the flag
       changes nothing there (`test_guard_wide_and_chain_notes`); no ircot
-      run.
-- [ ] B5 `pipeline.final_notes: chain`: B1's notes only when the plan is a
+      run. Kept (round 2 below).
+- [x] B5 `pipeline.final_notes: chain`: B1's notes only when the plan is a
       chain (a planned lookup refers to an earlier one with #k): 175 of the
       500 explore plans, all of them bridge. Parallel plans (194, with 92 of
       the 96 comparison questions) and one-lookup plans (131) get none.
       From round 1 split by plan shape after its runs: chain won 16 / lost
       11 with the notes alone and 18 / 8 with the guard; parallel 9 / 14
-      both times; one lookup 3 / 5 and 2 / 5.
+      both times; one lookup 3 / 5 and 2 / 5. Not kept (round 2 below).
 
 The runs repeat exactly: on the 439 explore questions where the guard never
 fired, the runs with and without it have identical completions, and the
@@ -1866,6 +1866,67 @@ What would count, written before the runs:
 - 500 questions resolve about 3 to 4 points and both effects are expected
   under that, so "above zero" chooses, it does not claim. If both are kept,
   the agent with both gets one train_hard run before the freeze.
+
+Round 2, Mac, 15 Nov at 688e5a7 (`results/orchestrator_guard_wide_hotpot_
+explore_*`, `results/orchestrator_guard{,_wide,_chain}_hotpot_train_hard_*`,
+scored into `results/agent_dev2_hotpot_{explore,train_hard,pooled}_
+{losses,paired}.csv`). The pooled row joins the two folds' runs with +,
+which `src.eval.agent_losses` reads as one run. The train_hard runs first
+failed on the queue passing `--split train` as one word, and ran from
+`.local_notes/queue17b.sh`. Exploratory, paired against the guard agent on
+the same ids (Holm over the two train_hard arms: 0.36 and 0.85):
+
+| arm         | fold       | n    | EM            | diff, 95% CI            | lost / won | p     | F1     | contain | calls |
+|-------------|------------|------|---------------|-------------------------|------------|-------|--------|---------|-------|
+| wide read   | explore    | 500  | 0.544 → 0.562 | +0.018 [+0.006, +0.032] | 1 / 10     | 0.012 | +0.015 | +0.014  | 7.4   |
+| wide read   | train_hard | 500  | 0.506 → 0.516 | +0.010 [-0.002, +0.022] | 2 / 7      | 0.18  | +0.011 | +0.010  | 7.5   |
+| wide read   | pooled     | 1000 | 0.525 → 0.539 | +0.014 [+0.006, +0.023] | 3 / 17     | 0.003 | +0.013 | +0.012  | 7.4   |
+| chain notes | train_hard | 500  | 0.506 → 0.510 | +0.004 [-0.016, +0.024] | 12 / 14    | 0.85  | -0.002 | +0.016  | 7.5   |
+
+By the rule written above:
+
+- B4 kept: pooled +0.014, F1 +0.013 [+0.005, +0.023], containment +0.012
+  [+0.003, +0.021]; neither fold below -0.01 (+0.018, +0.010).
+- B5 not kept: EM above zero, F1 down (-0.0025 [-0.018, +0.013]; containment
+  +0.016). With only B4 kept there is no run with both.
+
+What the round says:
+
+- The wide read moves only what it was written to move. Where the guard
+  does not fire the runs are identical (439 of the 500 explore questions,
+  436 of the 500 train_hard), so the whole difference sits on the 125 where
+  it does. Of the 17 wins, 12 had the answer string retrieved and not
+  kept, 4 had it in the notebook and 1 never retrieved it (a repaired
+  lookup changed what the next search found); 9 came from the final read
+  alone, 2 from a lookup's second read alone, 6 from both. The guard's
+  final reads that end right go from 4 of 30 to 12 of 29 on explore and
+  from 11 of 38 to 15 of 37 on train_hard; dropped goes from 59 to 53 and
+  from 61 to 56. The 3 losses are final reads with the answer in the
+  notebook, where the wider context offered a related entity ("The African
+  Queen" for White Hunter Black Heart, "9×20mmSR Browning Long" for .45
+  ACP, "Umpqua Community College" for Oregon).
+- Cost: the same calls and generated tokens, 60 more prompt tokens per
+  question (2%). Wall-clock latency rose 0.8 s pooled, more than 60 prompt
+  tokens account for; the throughput of the same generated tokens fell
+  with it (94 against 73 tokens/s on explore), and the chain arm ran 0.45 s
+  faster than its control the same night, so latency here is not read as a
+  cost of the change.
+- The chain notes make the final read follow the lookups, as B1's did. All
+  14 wins had a lookup with the gold answer (wrong answers with a lookup
+  right fall from 29 to 16); on 10 of the 12 losses the final answer
+  repeats a lookup's answer, 4 of them the gold inside a longer or shorter
+  phrase ("Foxfire magazine" for Foxfire, "Perri" for Fortunato Natale
+  Perri Jr.) and 6 another answer. The explore number chosen after the
+  split (+0.020) is +0.004 on fresh questions, which is what "not evidence"
+  meant.
+
+After round 2 the agent is the 4 Nov main agent with the guard and the
+wide second read: EM 0.562 and F1 0.685 on explore, 0.516 and 0.673 on
+train_hard, 7.4 and 7.5 calls. Pooled, the wide read's interval is above
+zero; on train_hard alone it holds zero. Like everything here it was
+chosen on these folds and is reported only after the confirmation run.
+Wrong answers by place now: explore 219 (138 in the notebook, 53 dropped,
+25 never retrieved, 3 yes/no gold), train_hard 242 (158, 56, 27, 1).
 
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
