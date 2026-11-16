@@ -3,6 +3,74 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-16
+
+New and cross listings read (cs.IR 7, cs.CL 61, cs.AI 164 entries,
+replacements not read; 204 distinct ids); every title screened, 11
+abstracts read, three of the four below searched in the body for their
+numbers.
+
+- 2026, More Agents, More Samples, or More Thinking? (arXiv 2611.17610).
+  A synthesis of nine evaluations, 516 multi-agent configurations, each
+  contrast labelled by its baseline: a single greedy pass (A), a baseline
+  matched on sample count (B), on resource budget (C), or a frontier (D),
+  with a six-part resource vector (tokens, rounds, samples, tool and
+  retrieval calls among them) and a verification state per part.
+  Against matched baselines multi-agent accuracy averages -0.042 and is
+  at or below the baseline in 74% of contrasts; going from a greedy to a
+  sampled baseline alone moves the difference by -0.038. The one HotpotQA
+  row is +0.040 over 4 contrasts. Their argument for when there is a
+  return: partitioned evidence, external verification or error diversity,
+  since agents that see the same evidence add nothing by talking. For
+  Stage 6b this is a check on how the agent's margin is written: the main
+  agent against ircot is 7.4 calls against 2.8, a category A contrast in
+  their terms, and nothing in the plan yet holds the budget fixed (ircot
+  or the single agent at the agent's call count). The main agent's
+  subagents do read partitioned evidence (each its own searches and
+  notebook), which is the condition they name, so the comparison is
+  worth making rather than assumed away. Cite in the agent section's
+  cost paragraph, and report calls, prompt tokens and searches per
+  question beside every agent number, which the paired table already
+  half does.
+- 2026, When Should LLM Agents Forget? (arXiv 2611.17338). Hard deletion
+  of facts a resolver labels stale, against keeping everything, under
+  controlled resolver error on a 530-item diagnostic: at perfect
+  resolution hard-drop gains +0.19 to +0.23, at the lowest reliability
+  it loses 0.18, and in paired targeted interventions dropping a
+  query-critical fact costs much more than keeping a stale one; a gate
+  chosen on a frozen 102-item calibration half reaches 0.655 against
+  0.641 always-drop and 0.662 oracle. The agent's keep step is the same
+  hard filter one level down: the 53 dropped answers on explore are
+  query-critical sentences the subagent saw and did not keep, and B4's
+  wide second read is a soft-retention fallback that fires only on a
+  yes/no reply. Their asymmetry is what the round 2 numbers already
+  showed (12 of the 17 wins were dropped strings, 3 losses where the
+  wider context offered a related entity). It argues for counting the
+  keep step's false drops directly, which the traces allow without a
+  model (From the traces, Stage 6b).
+- 2026, Knowledge After Collapse (arXiv 2611.17763). Freezes a dialogue at
+  the first adoption of a planted false answer and branches probes from
+  that exact history: on 46 selected adoption events with Llama 3.2 3B,
+  16/46 right under the full history against 42/46 when the history is
+  replaced by the question and a neutral acknowledgment; the matching
+  contrasts for the Qwen and DeepSeek checkpoints do not survive
+  correction, and twelve pressure templates move adoption a lot. This
+  is the B1 / B5 finding from the outside: once a wrong lookup's answer
+  is in the final read's context, the read follows it (25 of the 30 B1
+  losses, 10 of the 12 B5 losses repeat a lookup's answer). Their
+  branch-from-the-same-state design is what the plan already does by
+  having the runs repeat exactly up to the final read; nothing to
+  change, one citation for the notes paragraph.
+- 2026, CarryOn (arXiv 2611.17808). A context manager for long-horizon
+  tool agents that keeps a compact state plus source-linked evidence,
+  chosen by a learned selector with no extra model calls, and reports
+  cost per success beside success (AppWorld, OfficeBench, Tau2; 75.7%
+  macro success, +6.7 over the best baseline). Abstract only. The keep
+  step here is a model call per search; a selector that needs no call is
+  a different design, not run. The one thing to take is the reporting:
+  calls per correct answer is a single number that puts the agent's 7.4
+  calls and ircot's 2.8 on one scale.
+
 ## 2026-11-13
 
 Listings read in full (cs.IR 41, cs.CL 237, cs.AI 537 entries, replacements
