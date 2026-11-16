@@ -1,0 +1,7 @@
+break,n,right,wrong,wrong_in_context,wrong_dropped,wrong_not_retrieved,wrong_yesno_gold,em
+cut,8,5,3,2,0,1,0,0.625
+non_answer,9,5,4,2,2,0,0,0.5556
+off_path,43,13,30,16,11,3,0,0.3023
+last_non_answer,5,3,2,1,1,0,0,0.6
+no_chain,226,120,106,63,24,19,0,0.531
+intact,209,135,74,54,15,2,3,0.6459

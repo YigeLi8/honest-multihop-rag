@@ -1948,6 +1948,92 @@ changes a day, each written here with its control before it runs):
       confirmation fold's comparison questions
 - [ ] 2wiki and musique once hotpot is frozen
 
+#### From the traces
+
+Counts read from committed traces with no model, on the explore fold only,
+for the agent as it stands after round 2 (`orchestrator_guard_wide_hotpot_
+explore`, n=500, EM 0.562, 219 wrong). `python -m src.eval.agent_traces
+--run orchestrator_guard_wide_hotpot_explore --out agent_traces_hotpot_
+explore` writes `results/agent_traces_hotpot_explore_{chain,dropped,plan,
+keep,search2}.csv` (`test_agent_traces`). Gold is read only to place and
+score. "Holds the answer" is the exact string test of `agent_losses`, so it
+undercounts paraphrases and overcounts sentences that mention the string
+in passing.
+
+16 Nov, the dropped ones (53 wrong answers whose string was retrieved and
+not kept):
+
+- Who saw it. In 48 of the 53 the sentence with the string was shown to
+  the subagent of the last lookup, in 5 only to an earlier one, never to
+  none; in 17 it was shown to two or more. In 49 of the 53 no lookup came
+  back with the gold answer (4 had the last lookup right and the final
+  read still answered otherwise). So the loss is mostly one keep step:
+  the last subagent was shown the sentence and kept something else or
+  nothing.
+- 9 of the 53 are comparison questions whose gold is one of the two
+  names compared ("Ehretia", "Rolling Stone"). There the string is in
+  nearly every sentence about that entity, so "dropped" says only that
+  the final answer picked the other one; these are not keep-step losses
+  and belong with the read. The 44 bridge questions are the dropped
+  ones proper.
+- What broke the chain first (`first_break`, in this order): the plan cut
+  by the cap of three 0, a non-answer pasted into the next lookup 2, a
+  pasted answer naming no gold paragraph 11, the last lookup answering
+  with a non-answer 1, a bridge question planned with no #k 24 (12 one
+  lookup, 12 parallel lookups), nothing found 15 (the 9 comparison ones
+  among them). Over all 500 questions the cap cut 8 plans (3 wrong, none
+  dropped) and a non-answer was pasted on in 9 (4 wrong). The two
+  failures the Next item names are real ("Which American rock band did
+  No information provided. play for?") and rare.
+- The pasted-answer test is a word match against the gold paragraphs'
+  titles, and read by hand on 20 of its 43 calls over all questions it
+  is rough: 8 had clearly gone to another entity (Zoey Deutch for Lucy
+  Fry, Rosie O'Donnell for Kelly Osbourne, Can't Buy Me Love for The
+  Soloist), 4 were the right entity under another form (IBF, cranberries,
+  George Harrison for two of his songs, Gollum), 8 could not be told from
+  the strings. If the sample is representative, roughly half of its 11
+  dropped are real wrong turns.
+- Where the sentence sat in the list (every keep step over the 500
+  questions that was shown a sentence holding the string): kept 300 of
+  401 times at position 1 (0.75), 131 of 246 at 2-3 (0.53), 70 of 186 at
+  4-6 (0.38), 32 of 106 at 7 or lower (0.30). Lists are 7 to 10
+  sentences. Position here is also the retriever's score for the
+  lookup, so the count cannot tell a keep step that reads the top of the
+  list from a lookup whose answer sentence ranks low because it matches
+  the lookup badly. The dropped questions' steps are spread over all
+  four positions (26, 27, 28, 28 steps), so a low position is not most of
+  the story either.
+
+The plan's shape against the outcome (`_plan.csv`): bridge questions
+planned as one lookup 127, EM 0.551; parallel 102, 0.500; chain 175,
+0.531; comparison parallel 92, 0.696 (4 planned as one). Wrong answers by
+place differ little by shape (dropped 12, 12, 20 for bridge one /
+parallel / chain). Nothing here says one shape loses more; a bridge
+question planned without a chain is not visibly worse off than one with
+it, and the shapes are chosen by the model on different questions, so
+this is not a comparison.
+
+The never-retrieved ones (25 wrong, 42 lookups, `_search2.csv`): the
+second search adds words the lookup did not have on 32 of the 42 (76%),
+against 603 of 864 (70%) for every other question; it names a gold
+paragraph's title on 18 of 42 (43%) against 449 of 864 (52%); 4 lookups
+answered after one search. The second searches of these questions do not
+look different in kind from the rest; what they lack is not visible in
+these counts.
+
+What this suggests for the next change, not decided here: of the 44
+bridge questions that lost a retrieved answer, 31 show no break upstream
+by these tests (24 planned without a chain, 6 with nothing found, 1 with
+a last non-answer), and roughly half of the 11 rough off-path ones
+probably belong with them; against that, 2 carried a non-answer forward
+and the cap cut none. So a change aimed at the chain (refusing to paste a
+non-answer, raising the cap) has a ceiling of a few questions on this
+fold, and the larger target is the last keep step itself. The A2 control
+already says that reading everything retrieved on every question cost
+the single agent 0.032, so an arm there would have to be conditional, as
+B4 is, and would need a control for position (the same list in another
+order) before the keep step's misses are read as reading order.
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve

@@ -1,0 +1,7 @@
+break,n,comparison,shown_last_lookup,shown_earlier_lookup,shown_not_shown,shown_two_or_more,sub_right_last,sub_right_earlier,sub_right_none
+non_answer,2,0,2,0,0,0,0,0,2
+off_path,11,0,10,1,0,5,0,0,11
+last_non_answer,1,0,1,0,0,0,0,0,1
+no_chain,24,0,22,2,0,6,2,0,22
+intact,15,9,13,2,0,6,2,0,13
+all,53,9,48,5,0,17,4,0,49

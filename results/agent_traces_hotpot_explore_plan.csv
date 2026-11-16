@@ -1,0 +1,6 @@
+qtype,shape,n,em,wrong,wrong_in_context,wrong_dropped,wrong_not_retrieved,wrong_yesno_gold,cut
+bridge,one,127,0.5512,57,33,12,12,0,0
+bridge,parallel,102,0.5,51,32,12,7,0,1
+bridge,chain,175,0.5314,82,56,20,6,0,6
+comparison,one,4,0.75,1,1,0,0,0,0
+comparison,parallel,92,0.6957,28,16,9,0,3,1

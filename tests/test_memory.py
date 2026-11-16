@@ -2550,6 +2550,105 @@ def test_agent_losses():
     assert all(pooled[k] == up[k] for k in pooled if k not in ("base", "arm"))
 
 
+def test_agent_traces():
+    from src.eval import agent_traces as at
+
+    assert at.is_non_answer("Not specified in the context provided.", "Who wrote it?")
+    assert at.is_non_answer("No", "What position did she hold?")
+    assert not at.is_non_answer("No", "Was he born in Paris?")
+    assert at.is_non_answer("He", "Who directed it?") and at.is_non_answer("None", "Who?")
+    assert not at.is_non_answer("Carlo Rovelli", "Who wrote the book?")
+    assert at.on_path("Daniel Castellaneta", ["Dan Castellaneta", "Kang and Kodos"])
+    assert not at.on_path("Philadelphia Eagles", ["Oregon Ducks football"])
+    # a word the question already has does not put an answer on the path
+    assert not at.on_path("Gollum", ["Ingerophrynus gollum"], "Who is Ingerophrynus gollum named after?")
+    assert at.plan_shape(["a?"]) == "one" and at.plan_shape(["a?", "b?"]) == "parallel"
+    assert at.plan_shape(["a?", "what is #1?"]) == "chain"
+    assert at.search2_kind("Who directed the film X?", None) == "none"
+    assert at.search2_kind("Who directed the film X?", "who directed the film x") == "same"
+    assert at.search2_kind("Who directed the film X?", "film X director") == "new_terms"
+    assert at.search2_kind("Who directed the film X?", "film X") == "narrower"
+
+    def trace(plan, reply, lookups, keeps):
+        """lookups: [(planned, asked, answer)]; keeps: [(sub, shown, kept, query)]"""
+        steps = [{"role": "planner", "question": "Q?", "reply": reply, "plan": plan}]
+        for k, (planned, asked, ans) in enumerate(lookups):
+            for sub, shown, kept, query in keeps:
+                if sub == k:
+                    steps.append({"role": "subagent", "sub": k, "query": query, "shown": shown,
+                                  "kept": kept})
+            steps.append({"role": "subagent", "sub": k, "sub_question": asked, "planned": planned,
+                          "sub_answer": ans, "kept": []})
+        hops = [{"hop": j, "query": q, "retrieved": sh} for j, (_, sh, _, q) in enumerate(keeps)]
+        return {"id": "x", "hops": hops, "steps": steps,
+                "notebook": [c for _, _, kept, _ in keeps for c in kept]}
+
+    texts = {"A::0": "Ann directed Film X.", "B::0": "Bob was born in Paris.",
+             "C::0": "Carl was born in Lyon.", "D::0": "Nothing."}
+    titles = ["Film X", "Bob"]
+    # a non-answer pasted into the next lookup breaks the chain at lookup 0
+    t1 = trace(["Who directed X?", "Where was #1 born?"], "1. a\n2. b",
+               [("Who directed X?", "Who directed X?", "not provided"),
+                ("Where was #1 born?", "Where was not provided born?", "Lyon")],
+               [(0, ["A::0", "D::0"], [], "Who directed X?"),
+                (1, ["C::0", "B::0"], ["C::0"], "Where was not provided born?")])
+    assert at.first_break(t1, "bridge", titles) == ("non_answer", 0)
+    # the sentence with "Paris" was shown to the last lookup, second in its list, not kept
+    assert at.dropped_row(t1, ["Paris"], texts) == {"shown": "last_lookup", "n_shown": 1,
+                                                   "sub_right": "none"}
+    assert at.keep_positions(t1, at.holders(t1, ["Paris"], texts)) == [(2, False)]
+    # a pasted answer that names no gold paragraph: off the path
+    t2 = trace(["Who directed X?", "Where was #1 born?"], "1. a\n2. b",
+               [("Who directed X?", "Who directed X?", "Carl"),
+                ("Where was #1 born?", "Where was Carl born?", "Lyon")],
+               [(0, ["A::0"], [], "Who directed X?"), (1, ["C::0"], ["C::0"], "Carl")])
+    assert at.first_break(t2, "bridge", titles) == ("off_path", 0)
+    assert at.dropped_row(t2, ["Paris"], texts)["shown"] == "not_shown"
+    # on the path ("Bob" is a gold title), and the last lookup answers right
+    t3 = trace(["Who directed X?", "Where was #1 born?"], "1. a\n2. b",
+               [("Who directed X?", "Who directed X?", "Bob"),
+                ("Where was #1 born?", "Where was Bob born?", "Paris")],
+               [(0, ["B::0", "A::0"], ["A::0"], "Who directed X?"),
+                (1, ["B::0"], [], "Where was Bob born?")])
+    assert at.first_break(t3, "bridge", titles) == ("intact", None)
+    assert at.dropped_row(t3, ["Paris"], texts) == {"shown": "last_lookup", "n_shown": 2,
+                                                   "sub_right": "last"}
+    assert at.keep_positions(t3, {"B::0"}) == [(1, False), (1, False)]
+    # the plan listed three lookups and the cap kept two; a bridge plan with no #k
+    t4 = trace(["a?", "b?"], "1. a?\n2. b?\n3. c?", [("a?", "a?", "x"), ("b?", "b?", "y")], [])
+    assert at.plan_cut(t4) and at.first_break(t4, "bridge", titles) == ("cut", None)
+    t5 = trace(["a?", "What is b?"], "1. a?\n2. b?",
+               [("a?", "a?", "x"), ("What is b?", "What is b?", "No")], [])
+    assert at.first_break(t5, "bridge", titles) == ("last_non_answer", 1)
+    t6 = trace(["a?", "b?"], "1. a?\n2. b?", [("a?", "a?", "x"), ("b?", "b?", "y")], [])
+    assert at.first_break(t6, "bridge", titles) == ("no_chain", None)
+    assert at.first_break(t6, "comparison", titles) == ("intact", None)
+    assert at.second_searches(t3) == [("Who directed X?", None), ("Where was Bob born?", None)]
+    t3["steps"].insert(2, {"role": "subagent", "sub": 0, "query": "X director", "shown": [],
+                           "kept": []})
+    assert at.second_searches(t3)[0] == ("Who directed X?", "X director")
+
+    # the tables over a two-question run
+    rows = {"q1": {"qtype": "bridge", "em": "0.0", "answer_pred": "Lyon"},
+            "q3": {"qtype": "bridge", "em": "1.0", "answer_pred": "Paris"}}
+    t1["id"], t3["id"] = "q1", "q3"
+    t3["notebook"] = ["B::0"]
+    chain, dropped, plan, keep, search2 = at.tables(
+        rows, {"q1": t1, "q3": t3}, {i: (["Paris"], texts) for i in rows},
+        {i: titles for i in rows})
+    by = {r["break"]: r for r in chain}
+    assert by["non_answer"]["wrong_dropped"] == 1 and by["intact"]["right"] == 1
+    assert dropped[-1] == {"break": "all", "n": 1, "comparison": 0, "shown_last_lookup": 1, "shown_earlier_lookup": 0,
+                           "shown_not_shown": 0, "shown_two_or_more": 0, "sub_right_last": 0,
+                           "sub_right_earlier": 0, "sub_right_none": 1}
+    assert plan == [{"qtype": "bridge", "shape": "chain", "n": 2, "em": 0.5, "wrong": 1,
+                     "wrong_in_context": 0, "wrong_dropped": 1, "wrong_not_retrieved": 0,
+                     "wrong_yesno_gold": 0, "cut": 0}]
+    k = {r["position"]: r for r in keep}
+    assert k["1"]["steps"] == 2 and k["1"]["kept"] == 0 and k["2-3"]["steps_of_dropped_wrong"] == 1
+    assert search2[0]["questions"] == 0 and search2[1]["lookups"] == 4 and search2[1]["new_terms"] == 1
+
+
 def test_experience_memory():
     import tempfile
     from pathlib import Path
@@ -2953,6 +3052,7 @@ if __name__ == "__main__":
     test_answer_guard_and_final_notes()
     test_guard_wide_and_chain_notes()
     test_agent_losses()
+    test_agent_traces()
     test_experience_memory()
     test_memory_in_the_loop()
     test_memory_v2()
