@@ -1,0 +1,15 @@
+# orchestrator_guard.yaml with the lookups and their answers in the final
+# read when the plan is a chain (a lookup refers to an earlier one with #k)
+run:
+  name: orchestrator_guard_chain_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+  final_notes: chain
+generation:
+  backend: mlx

@@ -2310,6 +2310,119 @@ def test_answer_guard_and_final_notes():
     assert res.gen_calls == 6
 
 
+def test_guard_wide_and_chain_notes():
+    from src.agent.agent import NOTES_HEAD
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    pool = [Chunk(chunk_id=c, text=f"text of {c}", title=c.split("::")[0]) for c in
+            ("Film::0", "Film::1", "Ann::0", "Ann::1")]
+
+    class NS:
+        pass
+
+    def config(mode, **flags):
+        cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+        cfg.pipeline.mode = mode
+        cfg.pipeline.max_hops = 3
+        cfg.pipeline.max_subquestions = 3
+        cfg.pipeline.sub_max_hops = 2
+        cfg.retrieval.top_k = 2
+        for k, v in flags.items():
+            setattr(cfg.pipeline, k, v)
+        return cfg
+
+    class Retriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            ids = ["Ann::0", "Ann::1"] if "Ann" in query else ["Film::0", "Film::1"]
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    def metrics():
+        return GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=3)
+
+    def context(prompt):
+        return prompt.split("Context:\n")[1].split("\n\nQuestion:")[0]
+
+    class Main:
+        """Keeps the first result of each search; the first read of the first
+        lookup and of the final answer say no."""
+        def __init__(self, plan):
+            self.plan, self.prompts = plan, []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            if "Break the question" in prompt:
+                return self.plan, metrics()
+            if "collecting evidence" in prompt:
+                return "KEEP: 1\nNEXT: ANSWER", metrics()
+            if "Question: Who directed the film?" in prompt:
+                return ("Ann" if "not yes or no" in prompt else "no"), metrics()
+            if "Question: where was the director born" in prompt:
+                return ("Paris" if "not yes or no" in prompt else "no"), metrics()
+            return "Paris", metrics()
+
+    def pipeline(cfg, gen):
+        p = MultiHopPipeline.__new__(MultiHopPipeline)
+        p.cfg, p.retriever, p.reranker, p.generator = cfg, Retriever(), None, gen
+        return p
+
+    ex = Example(id="q", question="where was the director born", answer="Paris", hops=2,
+                 chunks=pool, gold_chunk_ids=["Film::0", "Ann::0"])
+    chain = "1. Who directed the film?\n2. Where was #1 born?"
+
+    # same (the default): both second reads go over the same sentences as the first
+    p = pipeline(config("orchestrator", answer_guard=True), Main(chain))
+    res = p.run_example(ex)
+    seconds = [q for q in p.generator.prompts if "not yes or no" in q]
+    assert [context(q) for q in seconds] == ["- text of Film::0", "- text of Film::0\n- text of Ann::0"]
+    assert all("wide" not in g for g in res.guards) and res.answer == "Paris"
+
+    # wide: the lookup's second read adds what its own searches retrieved and did not
+    # keep, the final one what every search retrieved and was not kept, after the kept ones
+    p = pipeline(config("orchestrator", answer_guard=True, guard_context="wide"), Main(chain))
+    res = p.run_example(ex)
+    firsts = [q for q in p.generator.prompts if "reply yes or no" in q]
+    seconds = [q for q in p.generator.prompts if "not yes or no" in q]
+    assert [context(q) for q in seconds] == [
+        "- text of Film::0\n- text of Film::1",
+        "- text of Film::0\n- text of Ann::0\n- text of Film::1\n- text of Ann::1"]
+    assert context(firsts[-1]) == "- text of Film::0\n- text of Ann::0"     # the first read is unchanged
+    assert [(g["where"], g["wide"]) for g in res.guards] == [("sub0", 1), ("final", 2)]
+    assert res.answer == "Paris" and res.notebook == ["Film::0", "Ann::0"] and res.gen_calls == 8
+
+    # ircot already reads everything retrieved: wide changes nothing there
+    class Ircot:
+        def __init__(self):
+            self.prompts = []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            if "gathering evidence" in prompt:
+                return "DONE", metrics()
+            return ("Paris" if "not yes or no" in prompt else "No."), metrics()
+    runs = []
+    for flags in ({}, {"guard_context": "wide"}):
+        p = pipeline(config("multihop_ircot", answer_guard=True, **flags), Ircot())
+        res = p.run_example(ex)
+        runs.append((p.generator.prompts, res.answer, res.guards))
+    assert runs[0] == runs[1] and runs[0][1] == "Paris"
+
+    # final_notes: chain gives the notes to chain plans only
+    for plan, has in ((chain, True), ("1. Who directed the film?\n2. Where was Ann born?", False),
+                      ("1. where was the director born", False)):
+        p = pipeline(config("orchestrator", final_notes="chain"), Main(plan))
+        p.run_example(ex)
+        assert (NOTES_HEAD in p.generator.prompts[-1]) == has, plan
+    p = pipeline(config("orchestrator", final_notes=True), Main("1. Who directed the film?\n2. Where was Ann born?"))
+    p.run_example(ex)
+    assert NOTES_HEAD in p.generator.prompts[-1]
+
+
 def test_agent_losses():
     import csv
 
@@ -2808,6 +2921,7 @@ if __name__ == "__main__":
     test_agent_episode()
     test_orchestrator()
     test_answer_guard_and_final_notes()
+    test_guard_wide_and_chain_notes()
     test_agent_losses()
     test_experience_memory()
     test_memory_in_the_loop()

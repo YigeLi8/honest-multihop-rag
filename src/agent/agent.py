@@ -165,14 +165,19 @@ def search_loop(pipe, ex, question, max_hops, usage, traces, steps, seen,
 NOTES_HEAD = "Lookups made while collecting this evidence, and the answers read then:"
 
 
-def answer_from(pipe, question, hits, usage, where="final", notes=None):
+def answer_from(pipe, question, hits, usage, where="final", notes=None, extra=None):
     """The answer prompt over the kept sentences. notes, when given, are
     (lookup, answer) pairs written under the sentences as part of the
-    context (the main agent's pipeline.final_notes)."""
-    ctx = "\n".join(f"- {h.chunk.text}" for h in hits)
-    if notes:
-        ctx += "\n" + NOTES_HEAD + "\n" + "\n".join(f"- {q} Answer: {a}" for q, a in notes)
-    answer, ms = pipe._answer(question, ctx, where)
+    context (the main agent's pipeline.final_notes). extra are the other
+    sentences the step's searches retrieved: what a second read of the
+    answer guard adds under pipeline.guard_context: wide."""
+    def context(hs):
+        ctx = "\n".join(f"- {h.chunk.text}" for h in hs)
+        if notes:
+            ctx += "\n" + NOTES_HEAD + "\n" + "\n".join(f"- {q} Answer: {a}" for q, a in notes)
+        return ctx
+    wide = (context(list(hits) + list(extra)), len(extra)) if extra is not None else None
+    answer, ms = pipe._answer(question, context(hits), where, wide)
     for m in ms:
         usage.add(m)
     return answer
@@ -189,7 +194,8 @@ def run_episode(pipe, ex):
     if not ctx_hits:
         ctx_hits = list(seen.values())
         pipe.stop_reason += "+fallback"
-    answer = answer_from(pipe, ex.question, ctx_hits, usage)
+    extra = [h for cid, h in seen.items() if cid not in notebook]
+    answer = answer_from(pipe, ex.question, ctx_hits, usage, extra=extra if notebook else [])
     pipe.notebook = list(notebook)
     pipe.steps = steps
     return traces, answer, usage.stats()

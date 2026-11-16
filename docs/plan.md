@@ -1800,22 +1800,82 @@ What the round says:
 After round 1 the agent is the 4 Nov main agent with the guard: EM 0.544,
 F1 0.669, 7.4 calls. Nothing so far clears its interval on the agent.
 
+Round 2, written 15 Nov before its runs. Two changes on the agent as it
+stands after round 1 (the 4 Nov main agent with the guard):
+
+- [ ] B4 `pipeline.guard_context: wide`: the guard's second read goes over
+      the step's kept sentences followed by everything else its searches
+      retrieved (for a lookup its own searches, for the final read every
+      search) instead of the same sentences again. The first read does not
+      change, so only questions where the guard fires can move. Read for
+      it: the 14 final reads in round 1 where the guard fired with the
+      answer string retrieved and not kept. In all 14 the sentence had been
+      shown to a subagent; the notebook held 2.9 sentences against 18.5
+      retrieved; several chains had gone to the wrong entity at the first
+      lookup ("Philadelphia Eagles" for an Oregon player, "Can't Buy Me
+      Love" for The Soloist) or carried a non-answer into the next lookup
+      ("Which American rock band did No information provided. play for?").
+      ircot and single-hop already read everything retrieved, so the flag
+      changes nothing there (`test_guard_wide_and_chain_notes`); no ircot
+      run.
+- [ ] B5 `pipeline.final_notes: chain`: B1's notes only when the plan is a
+      chain (a planned lookup refers to an earlier one with #k): 175 of the
+      500 explore plans, all of them bridge. Parallel plans (194, with 92 of
+      the 96 comparison questions) and one-lookup plans (131) get none.
+      From round 1 split by plan shape after its runs: chain won 16 / lost
+      11 with the notes alone and 18 / 8 with the guard; parallel 9 / 14
+      both times; one lookup 3 / 5 and 2 / 5.
+
+The runs repeat exactly: on the 439 explore questions where the guard never
+fired, the runs with and without it have identical completions, and the
+notes runs match the plain ones up to the final read on all 500. So B5 on
+the explore fold is known without running it (the guard's answers on
+non-chain plans, the notes-with-guard answers on chain plans): EM 0.564
+against 0.544, +0.020 [+0.000, +0.040] (8 / 18, p 0.076), F1 +0.015 [-0.001,
++0.032], containment +0.030 [+0.012, +0.050]. That number was chosen after
+seeing the split and is not evidence. Hence a fresh fold:
+`results/folds/hotpot_train_hard.txt` (`python -m data.folds --train-hard`),
+500 hard train questions (the dev set is all hard), seed 17, none from the
+first 20,000 train records (where the guard's wording rule was written) or
+from the memory's train fold; 386 bridge, 114 comparison. It is for
+choosing, like the explore fold; the confirmation fold stays untouched.
+
+Runs (`.local_notes/queue17.sh`), all with the guard, scored by
+`src.eval.agent_losses` into `results/agent_dev2_hotpot_{explore,
+train_hard}_{losses,paired}.csv`:
+
+- explore: `orchestrator_guard_wide` against `orchestrator_guard` (round 1)
+- train_hard (`--split train`): `orchestrator_guard` as the control,
+  `orchestrator_guard_wide`, `orchestrator_guard_chain`
+
+What would count, written before the runs:
+
+- B4 is kept when its paired EM difference against the guard agent, pooled
+  over both folds (n=1000), is above zero and neither pooled F1 nor
+  containment falls, and neither fold is below -0.01. Bound: it can move
+  only questions where the guard fires; on explore that is 30 final reads
+  (14 with the string retrieved and not kept, 10 with it kept, 6 never
+  retrieved) plus what repaired lookups change downstream. A smoke run on 8
+  of those 30 (selected, not an estimate) turned 2 wrong answers right and
+  broke none.
+- B5 is kept when its paired EM difference against the guard agent on
+  train_hard is above zero and neither F1 nor containment falls. Its
+  explore number is not counted. If the explore split holds it should give
+  about +0.02 where 35% of plans are chains; train_hard has more comparison
+  questions (23% against 19%), whose plans are parallel and get no notes.
+- 500 questions resolve about 3 to 4 points and both effects are expected
+  under that, so "above zero" chooses, it does not claim. If both are kept,
+  the agent with both gets one train_hard run before the freeze.
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
-- [ ] the read when the notebook does not hold the answer. Round 1 gives a
-      gold-free sign of it: yes or no to a span question (30 final reads,
-      14 with the string retrieved and not kept). Two arms to weigh: the
-      second read over everything the subagents retrieved instead of the
-      same notebook (bound: those 14, at about the rate ircot reads a
-      context that holds the string, 0.53); or the final read over the
-      notebook followed by the other retrieved sentences on every question
-      (bound: the 59 dropped; risk: the read where the notebook was enough,
-      0.62 against 0.53 on ircot's longer context)
-- [ ] notes for chains only (a lookup that refers to an earlier one with
-      #k), not for parallel lookups. From the unplanned split of round 1,
-      so a new arm with its own run, and its exploration number is a
-      selected one
+- [x] the read when the notebook does not hold the answer: B4 in round 2.
+      The other arm (the notebook followed by every other retrieved
+      sentence on every question) is not run: the A2 control already read
+      the single agent's full context, and it was 0.032 below the notebook
+      (p 0.093)
+- [x] notes for chains only: B5 in round 2
 - [ ] dropped (59): a lookup whose answer is not an answer ("no", "the
       context does not say") still fills the next lookup; a subagent that
       kept nothing hands the final read nothing

@@ -159,6 +159,7 @@ def main():
     ap.add_argument("--backend", default=None, help="override generation backend")
     ap.add_argument("--model", default=None, help="override generation model")
     ap.add_argument("--name", default=None, help="override run name")
+    ap.add_argument("--split", default=None, help="override dataset split (data file <name>_<split>.jsonl)")
     args = ap.parse_args()
     cfg = load_config(args.config)
     if args.backend:
@@ -167,6 +168,8 @@ def main():
         cfg.generation.model = args.model
     if args.name:
         cfg.run.name = args.name
+    if args.split:
+        cfg.dataset.split = args.split
 
     split = getattr(cfg.dataset, "split", "dev")
     data_file = Path(cfg.paths.data_dir) / f"{cfg.dataset.name}_{split}.jsonl"

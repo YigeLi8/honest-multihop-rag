@@ -35,7 +35,8 @@ pipeline:
   max_hops: 3
   stop_on_answer: true
   answer_guard: false   # yes or no to a question that does not read as yes/no is read once more (every mode that reads a context)
-  final_notes: false    # orchestrator: the lookups and their answers go into the final read
+  final_notes: false    # orchestrator: the lookups and their answers go into the final read (true, or chain: chain plans only)
+  guard_context: same   # same | wide: the guard's second read over everything the step retrieved (agents)
 
 generation:
   backend: none         # none | mlx | llamacpp | vllm

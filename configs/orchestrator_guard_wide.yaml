@@ -1,0 +1,15 @@
+# orchestrator_guard.yaml with the guard's second read over everything the
+# step's searches retrieved, the kept sentences first
+run:
+  name: orchestrator_guard_wide_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+  guard_context: wide
+generation:
+  backend: mlx

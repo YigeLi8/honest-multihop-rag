@@ -18,7 +18,10 @@ pipeline.answer_guard (off by default; docs/plan.md, Stage 6b): every answer
 read goes through _answer, and with the guard on a question that does not
 read as yes/no and came back yes or no is read once more over the same
 context with GUARD_PROMPT. It applies to every mode that reads a context, so
-a run with it is compared with runs that have it too.
+a run with it is compared with runs that have it too. pipeline.guard_context:
+wide makes that second read go over the step's kept sentences followed by
+everything else its searches retrieved (the agents only; ircot and single-hop
+already read everything retrieved, so for them it changes nothing).
 
 With memory.enabled and memory.mode == log in the config, every retrieval step
 is also handed to an ExperienceLogger (src/memory), together with the hits of
@@ -233,18 +236,23 @@ class MultiHopPipeline:
             self._ttft = getattr(m, "ttft_s", 0.0)
         return text, m
 
-    def _answer(self, question, ctx, where="final"):
+    def _answer(self, question, ctx, where="final", wide=None):
         """The answer read every mode shares: PROMPT over the context, first
         line of the reply. Returns (answer, [metrics of each call]). With the
         guard on, yes or no to a question that does not read as yes/no gets a
         second read with GUARD_PROMPT; the second reply stands and the pair
-        is kept on self.guards."""
+        is kept on self.guards. wide = (context, n added sentences) is what
+        that read goes over instead under guard_context: wide."""
         text, m = self._gen(PROMPT.format(context=ctx, question=question))
         answer, ms = first_line(text), [m]
         if self.guards is not None and is_yesno(answer) and not looks_yesno(question):
+            rec = {"where": where, "question": question, "first": answer}
+            if wide is not None and getattr(self.cfg.pipeline, "guard_context", "same") == "wide":
+                ctx = wide[0]
+                rec["wide"] = wide[1]
             text, m = self._gen(GUARD_PROMPT.format(context=ctx, question=question))
-            self.guards.append({"where": where, "question": question, "first": answer,
-                                "second": first_line(text)})
+            rec["second"] = first_line(text)
+            self.guards.append(rec)
             answer = first_line(text)
             ms.append(m)
         return answer, ms

@@ -23,7 +23,9 @@ only sub-question, logged as plan_fallback.
 pipeline.final_notes (off by default; docs/plan.md, Stage 6b): the final read
 also gets the lookups and the subagents' answers, written under the kept
 sentences. Without it the subagents' answers only fill the #k of later
-lookups and the final read never sees them.
+lookups and the final read never sees them. final_notes: chain gives them
+only when the plan is a chain (a planned lookup refers to an earlier one
+with #k); parallel lookups and one-lookup plans get none.
 
 The memory hook is the same as the agent's: `pipe.lessons.lessons(step)`,
 where step["role"] says who is asking ("planner" or "subagent"), so lessons
@@ -111,9 +113,10 @@ def run_orchestrated(pipe, ex):
                                  role="subagent", sub=k)
         for cid, h in kept.items():
             notebook.setdefault(cid, h)
-        own = list(kept.values()) or list({h.chunk.chunk_id: h for t in traces[start:]
-                                           for h in t.retrieved}.values())
-        sub_answer = answer_from(pipe, asked, own, usage, where=f"sub{k}")
+        retrieved = {h.chunk.chunk_id: h for t in traces[start:] for h in t.retrieved}
+        own = list(kept.values()) or list(retrieved.values())
+        extra = [h for cid, h in retrieved.items() if cid not in kept] if kept else []
+        sub_answer = answer_from(pipe, asked, own, usage, where=f"sub{k}", extra=extra)
         answers.append(sub_answer)
         lookups.append((asked, sub_answer))
         stops.append(stop + ("" if kept else "+fallback"))
@@ -124,8 +127,11 @@ def run_orchestrated(pipe, ex):
     fallback = not ctx_hits
     if fallback:
         ctx_hits = list(seen.values())
-    notes = lookups if getattr(cfg, "final_notes", False) else None
-    answer = answer_from(pipe, ex.question, ctx_hits, usage, notes=notes)
+    final_notes = getattr(cfg, "final_notes", False)
+    chain = any(_REF.search(sub) for sub in subs)
+    notes = lookups if final_notes is True or (final_notes == "chain" and chain) else None
+    extra = [h for cid, h in seen.items() if cid not in notebook] if notebook else []
+    answer = answer_from(pipe, ex.question, ctx_hits, usage, notes=notes, extra=extra)
     pipe.stop_reason = (f"subs={len(subs)}" + ("+plan_fallback" if plan_fallback else "")
                         + ("+fallback" if fallback else ""))
     pipe.notebook = list(notebook)
