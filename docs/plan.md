@@ -2261,6 +2261,68 @@ the single agent 0.032, so an arm there would have to be conditional, as
 B4 is, and would need a control for position (the same list in another
 order) before the keep step's misses are read as reading order.
 
+17 Nov, the read with the string there (the largest loss after round 3:
+136 of the round 3 agent's 215 wrong answers on explore,
+`orchestrator_guard_wide_unsup_hotpot_explore`). `python -m
+src.eval.agent_reads --run orchestrator_guard_wide_unsup_hotpot_explore
+--out agent_reads_hotpot_explore` writes `results/agent_reads_hotpot_
+explore_{kind,position}.csv` (`test_agent_reads`); the same for ircot with
+the guard and B6 (`hybrid_ircot_guard_unsup_hotpot_explore`) into
+`results/agent_reads_ircot_hotpot_explore_*`. Each wrong reply is given the
+first kind that holds, by string tests (the module's docstring has the
+order); I then read all 71 that are not yes/no or a span inside or around
+the gold.
+
+- By the string tests: 3 yes or no, 38 a span inside the gold and 24
+  around it (40 of these 62 repeat a lookup's answer; not read by hand
+  here), 9 the gold's words in another order or with words missing ("Leo
+  Eric Varadkar", "West Point Foundry"), 9 one of two things the question
+  names, 2 an entity of the question, 15 a gold paragraph's title, 3
+  another retrieved paragraph's title, 15 in the sentence that holds the
+  gold string, 15 in another sentence of the notebook, 3 not in the
+  notebook. In 24 of the 136 a lookup's answer equals the gold.
+- Read by hand, the 71 come to four groups. About 26 are the gold under
+  another form or at another grain: the 9 by words, 2 of the 9 two-way
+  picks (712 Fifth Avenue for "712 5th Avenue", a diacritic), 3 titles
+  that are the answer's own name in another form (Joe Scarborough,
+  Paige O'Hara), and 12 of the 38 in the notebook's sentences (Chicago
+  for Wilmette, 19th for nineteenth, novelist for author, Civella for
+  Kansas City crime family). About 16 stop one step short on the path:
+  11 of the 15 gold titles (St James's Palace for the building opposite
+  it, Diana Quick for her birthday, Portal for the series it is part of)
+  and 5 of the 38 (Umpqua Community College for Oregon, the navy for the
+  defence force). In 5 of the 11 the last lookup had come back with the
+  gold, and the final read, which does not see lookups' answers, gave
+  the entity of the first. 7 give the other of two compared things (one
+  against a gold that is a year);
+  in 4 of them the lookups' values settled it (47 against 48, 62 against
+  81) and the read went the other way. About 22 are another entity of the
+  asked type taken from what was read (the publisher for the developer,
+  another band member, another episode's director).
+- Position (`_position.csv`): EM where the string was read is 0.678 when
+  the first sentence holding it opens the notebook (n 171), 0.616 at 2-3
+  (146), 0.545 at 4 or later (55); by notebook size it is flat (0.627,
+  0.633, 0.641 for 1-2, 3-4, 5+ sentences). Notebook order follows the
+  lookups, so a late answer sentence is mostly a chain's last lookup;
+  this is not a reading-order effect until the same notebook is read in
+  another order.
+- Against ircot (190 wrong with the string read, of 412): a gold title
+  18 (the agent 15 of 372, about 4% of the questions where the string is
+  read for both), a two-way pick 15 (9), another sentence read 36 (15).
+  Stopping one step short is not the agent's own; reading the other
+  compared thing and taking another sentence's entity happen less in the
+  notebook than in everything retrieved.
+
+What this suggests, not decided here: about 88 of the 136 (the 62 spans,
+the 26 forms) are answers EM does not credit and nothing in the agent
+should chase, so the read has some 45 questions that a change could move
+on this fold. The two that are specific are 5 bridge answers where the
+last lookup had the gold and the final read answered with the bridge
+entity, and 4 comparisons whose lookups held the values that decide
+them. Both are what B1's notes hand the final read, and B1 and B5 were
+not kept because the read then follows wrong lookups as well; a ceiling
+of about 9 questions on 500 is under what one fold resolves.
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve

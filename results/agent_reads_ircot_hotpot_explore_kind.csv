@@ -1,0 +1,14 @@
+kind,n,bridge,comparison,repeats_lookup,lookup_right,guard_final
+yesno,2,2,0,0,0,0
+inside_gold,44,40,4,0,0,2
+around_gold,26,22,4,0,0,7
+gold_words,11,7,4,0,0,0
+picked_other,15,1,14,0,0,4
+in_question,3,3,0,0,0,0
+bridge_entity,18,18,0,0,0,2
+other_title,6,6,0,0,0,0
+same_sentence,23,23,0,0,0,3
+in_read,36,34,2,0,0,5
+retrieved_only,0,0,0,0,0,0
+nowhere,6,6,0,0,0,6
+all,190,162,28,0,0,29

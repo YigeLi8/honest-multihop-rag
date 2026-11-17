@@ -2780,6 +2780,63 @@ def test_agent_traces():
     assert search2[0]["questions"] == 0 and search2[1]["lookups"] == 4 and search2[1]["new_terms"] == 1
 
 
+def test_agent_reads():
+    from src.eval import agent_reads as ar
+
+    assert ar.same_words("Larry Drake", "Larry Richard Drake")
+    assert ar.same_words("West Point Iron and Cannon Foundry", "West Point Foundry")
+    assert not ar.same_words("Civella crime family", "Kansas City crime family")
+    assert ar.names_title("Awake", ["Awake (film)"]) and not ar.names_title("Awake", ["Awaken"])
+    texts = {"A::0": "Ann directed Film X in 1990.", "A::1": "It was shot in Lyon.",
+             "B::0": "Bob was born in Paris, near Versailles.", "B::1": "Bob lived in Rome.",
+             "C::0": "Carl was born in Oslo."}
+
+    def trace(notebook, retrieved, subs=()):
+        steps = [{"role": "subagent", "sub": k, "sub_question": "q?", "planned": "q?",
+                  "sub_answer": a, "kept": []} for k, a in enumerate(subs)]
+        return {"id": "x", "hops": [{"hop": 0, "query": "q", "retrieved": retrieved}],
+                "notebook": notebook, "steps": steps, "guards": []}
+
+    t = trace(["A::0", "B::0", "B::1"], ["A::0", "A::1", "B::0", "B::1", "C::0"], ["Bob", "Paris"])
+    q, gold, gt = "Where was the director of Film X born?", ["Paris"], ["Film X", "Bob"]
+
+    def kind(pred, question=q, qtype="bridge"):
+        return ar.read_kind(pred, gold, question, gt, t, texts, qtype)
+    assert kind("no") == "yesno" and kind("Paris, France") == "around_gold"
+    assert kind("Bob") == "bridge_entity" and kind("Film X") == "in_question"
+    assert kind("Versailles") == "same_sentence" and kind("Rome") == "in_read"
+    assert kind("Lyon") == "retrieved_only" and kind("Madrid") == "nowhere"
+    assert kind("C") == "other_title"  # the title of a retrieved paragraph, C::0
+    assert kind("Rome", "Paris or Rome?") == "picked_other"
+    assert kind("Film X", qtype="comparison") == "picked_other"
+    assert ar.read_kind("Larry Drake", ["Larry Richard Drake"], "Who?", [], t, texts) == "gold_words"
+    assert ar.gold_position(t, gold, texts) == 2
+    assert ar.lookup_echo("Bob", gold, t) == (True, True)
+    assert ar.lookup_echo("Rome", gold, trace([], [], ["Bob"])) == (False, False)
+    # no notebook: the read is everything retrieved, once each, in order
+    assert ar.read_ids(trace([], ["C::0", "A::0", "C::0"])) == ["C::0", "A::0"]
+    t["guards"] = [{"where": "sub0"}]
+    assert not ar.final_guarded(t)
+    t["guards"].append({"where": "final"})
+    assert ar.final_guarded(t)
+
+    # the tables over three questions: one right, one wrong with the string
+    # read, one never retrieved (left out)
+    rows = {"q1": {"qtype": "bridge", "em": "1.0", "answer_pred": "Paris"},
+            "q2": {"qtype": "bridge", "em": "0.0", "answer_pred": "Bob"},
+            "q3": {"qtype": "bridge", "em": "0.0", "answer_pred": "Oslo"}}
+    traces = {"q1": trace(["B::0"], ["B::0"]), "q2": t, "q3": trace(["C::0"], ["C::0"])}
+    gold3 = {"q1": (gold, texts), "q2": (gold, texts), "q3": (["Bergen"], texts)}
+    kt, pt = ar.tables(rows, traces, gold3, {i: gt for i in rows}, {i: q for i in rows})
+    by = {r["kind"]: r for r in kt}
+    assert by["bridge_entity"]["n"] == 1 and by["bridge_entity"]["repeats_lookup"] == 1
+    assert by["bridge_entity"]["guard_final"] == 1 and by["all"]["n"] == 1
+    pos = {(r["by"], r["group"]): r for r in pt}
+    assert pos[("position", "1")]["n"] == 1 and pos[("position", "1")]["em"] == 1.0
+    assert pos[("position", "2-3")]["wrong_other_reply"] == 1
+    assert pos[("paragraphs", "2")]["n"] == 1
+
+
 def test_experience_memory():
     import tempfile
     from pathlib import Path
@@ -3185,6 +3242,7 @@ if __name__ == "__main__":
     test_guard_unsupported_and_titles()
     test_agent_losses()
     test_agent_traces()
+    test_agent_reads()
     test_experience_memory()
     test_memory_in_the_loop()
     test_memory_v2()
