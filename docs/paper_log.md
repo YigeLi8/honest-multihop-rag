@@ -3,6 +3,51 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-17
+
+New and cross listings read (cs.IR 36, cs.CL 236, cs.AI 428 entries,
+replacements not read; 601 distinct ids, none already logged); every
+title screened, 31 abstracts read, four bodies.
+
+- 2026, DetouR: Plugging Association Routes into Search Agents for
+  Multi-hop Question Answering (arXiv 2611.19967). Adds no search and no
+  model call to an existing agent. Two parts: (1) a follow-up query that
+  nearly repeats an earlier one (content-word Jaccard at least 0.8) is
+  replaced by a query for a page linked from evidence already retrieved;
+  (2) the reader's ten passages are chosen by personalized PageRank over
+  the hyperlinks among the retrieved passages, seeded at the pages the
+  question names. Setup: BM25, Qwen2.5-7B reader, 1,500 dev questions
+  each of HotpotQA and 2Wiki, four agents (IRCoT, ReAct, Search-R1 and a
+  plan-then-search agent). Mean EM rises 40.6 -> 42.0 on HotpotQA and
+  31.6 -> 35.6 on 2Wiki; most of it comes from the context selection.
+  Two of its side results bear on this work. A per-passage 7B relevance
+  judge, which is the agent's keep step in another form, drops gold pages
+  the question does not name; a reranker keeps only 81.2% of those on
+  2Wiki against 97.8% for the link-based choice. And in an appendix, a
+  selection that gave the same ten passages in another order lost answers
+  that putting the order back mostly recovered (53 of 71). Their wrong
+  answers split much as ours do: retrieved and left out of the context
+  is rare (1.2% and 1.9%), and a complete context is read right only
+  43.8% and 51.3% of the time. For Stage 6b: the order result is the
+  reason "From the traces" asks for a same-list-other-order control
+  before the keep step's position effect is read as anything; a keep
+  rule from structure (a candidate's title named in a kept sentence or in
+  the question), conditional like B4, is an arm the plan has not listed;
+  and their IRCoT at 43-45 EM is a published point of comparison for our
+  ircot on the same set and reader size. Cite in the agent section.
+- 2026, Agents Cannot Hand Over What They Have Not Yet Understood (arXiv
+  2611.18642). One agent with its full history against a relay of agents,
+  each inheriting a 300-character note, over 56 rule-discovery worlds and
+  six models: the relay learns less for every model (19% to 48% of what
+  history gives is lost in the notes), the loss sits in summarizing a
+  summary rather than in changing agents, letting the note's writer read
+  the full record recovers most of it, and telling the writer to record
+  evidence or keep a ledger changes little. Not QA. Cite beside B1 and B5
+  (the final read follows a lookup's compressed answer once it is handed
+  one) and B4 (the second read gets the retrieved record, not the
+  notebook). Its null on writer instructions is one more reason not to
+  spend an arm on rewording the keep prompt.
+
 ## 2026-11-16
 
 New and cross listings read (cs.IR 7, cs.CL 61, cs.AI 164 entries,
