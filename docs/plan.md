@@ -1641,10 +1641,12 @@ Five memory gates are closed, and each of them tested a memory on agents
 that were built once (4 Nov) and then held fixed, so that a change could be
 credited to the memory. The agents are the one thing on this branch that
 moved answers (the main agent over subagents is +0.054 EM over ircot on
-exploration, p 0.004, not confirmed), and nothing has been done to them
-since. This stage works on the agent directly: find where its answers are
-lost, change one thing at a time against a matched control, choose on the
-exploration fold, confirm once.
+exploration, p 0.004, not confirmed; round 3 below: the round 2 agent is
++0.016 [-0.022, +0.054] against ircot whose answer read shows paragraph
+titles), and nothing has been done to them since. This stage works on
+the agent directly: find where its answers are lost, change one thing at
+a time against a matched control, choose on the exploration fold, confirm
+once.
 
 Where the answers are lost (`src/eval/agent_losses.py`: every wrong answer
 placed by where the gold answer string was; the string test is exact, per
@@ -1974,18 +1976,18 @@ Two things in that, each counted over all 500:
 
 Changes, each a flag off by default (`test_guard_unsupported_and_titles`):
 
-- [ ] B6 `pipeline.guard_unsupported`: with the guard on, its second read
+- [x] B6 `pipeline.guard_unsupported`: with the guard on, its second read
       is also given to an answer whose normalized string is not in the
       context it was read from, on a question that does not read as
       yes/no. Same GUARD_PROMPT, the same wide context under
       guard_context: wide, and the second reply stands, as for yes or no;
       the guard's records say which of the two fired. It sits in the
-      shared answer read, so ircot gets it too.
-- [ ] B7 `pipeline.answer_titles`: every answer read (a lookup's, the final
+      shared answer read, so ircot gets it too. Kept (round 3 below).
+- [x] B7 `pipeline.answer_titles`: every answer read (a lookup's, the final
       read, the guard's second reads, ircot's and single-hop's answer)
       shows each sentence as "(title) text", the form the keep step
       already uses. The keep step and the ircot loop's own step are
-      unchanged. No extra call.
+      unchanged. No extra call. Not kept (round 3 below).
 
 Runs (`.local_notes/queue18.sh`) against the round 2 agent
 (`orchestrator_guard_wide`), whose round 2 runs are the control (the runs
@@ -2027,6 +2029,120 @@ What would count, written before the runs:
   the notebook (not an estimate): B6 won 2 and lost none (1970 -> 1962 among
   them) for 0.75 more calls on those questions; B7 won 2 and lost 2.
 
+Round 3, Mac, 16-17 Nov at cf74cce, 23:37 to 02:33
+(`results/orchestrator_guard_wide_{unsup,titles}_hotpot_{explore,
+train_hard}_*`, `results/hybrid_ircot_guard_{unsup,titles}_hotpot_
+explore_*`, scored into `results/agent_dev3_hotpot_{explore,train_hard,
+pooled}_{losses,paired}.csv`). Exploratory, paired against the round 2
+agent on the same ids (Holm over the two arms, pooled: 0.070 and 0.51):
+
+| arm              | fold       | n    | EM            | diff, 95% CI            | lost / won | p     | F1      | contain | calls |
+|------------------|------------|------|---------------|-------------------------|------------|-------|---------|---------|-------|
+| unsupported read | explore    | 500  | 0.562 → 0.570 | +0.008 [-0.002, +0.020] | 2 / 6      | 0.29  | -0.0005 | +0.006  | 7.8   |
+| unsupported read | train_hard | 500  | 0.516 → 0.526 | +0.010 [+0.000, +0.022] | 1 / 6      | 0.125 | +0.003  | +0.006  | 7.9   |
+| unsupported read | pooled     | 1000 | 0.539 → 0.548 | +0.009 [+0.002, +0.017] | 3 / 12     | 0.035 | +0.001  | +0.006  | 7.8   |
+| titles           | explore    | 500  | 0.562 → 0.554 | -0.008 [-0.038, +0.022] | 30 / 26    | 0.69  | +0.0005 | -0.006  | 7.4   |
+| titles           | train_hard | 500  | 0.516 → 0.508 | -0.008 [-0.038, +0.022] | 31 / 27    | 0.69  | -0.003  | +0.000  | 7.5   |
+| titles           | pooled     | 1000 | 0.539 → 0.531 | -0.008 [-0.029, +0.013] | 61 / 53    | 0.51  | -0.001  | -0.003  | 7.4   |
+
+By the rule written above:
+
+- B6 kept: pooled +0.009, F1 +0.001 [-0.008, +0.010], containment +0.006
+  [-0.002, +0.014]; neither fold below -0.01 (+0.008, +0.010). It passes
+  on point estimates; the F1 interval sits across zero.
+- B7 not kept: pooled -0.008. With only B6 kept there is no run with both.
+
+ircot on explore against ircot with the guard (Holm over the two: 0.063
+and 0.029), then the agent against ircot with the same answer step on
+both sides:
+
+| ircot arm        | EM            | diff, 95% CI            | lost / won | p     | F1     | contain | calls |
+|------------------|---------------|-------------------------|------------|-------|--------|---------|-------|
+| unsupported read | 0.508 → 0.518 | +0.010 [+0.002, +0.020] | 0 / 5      | 0.063 | +0.007 | +0.006  | 2.9   |
+| titles           | 0.508 → 0.546 | +0.038 [+0.010, +0.066] | 18 / 37    | 0.014 | +0.037 | +0.034  | 2.8   |
+
+| answer step, both sides | agent vs ircot | diff, 95% CI            | lost / won | p     | F1     | calls      |
+|-------------------------|----------------|-------------------------|------------|-------|--------|------------|
+| guard (round 2)         | 0.562 vs 0.508 | +0.054 [+0.020, +0.088] | 26 / 53    | 0.003 | +0.042 | 7.4 vs 2.8 |
+| guard, unsupported read | 0.570 vs 0.518 | +0.052 [+0.018, +0.084] | 25 / 51    | 0.004 | +0.035 | 7.8 vs 2.9 |
+| guard, titles           | 0.554 vs 0.546 | +0.008 [-0.026, +0.042] | 39 / 43    | 0.74  | +0.005 | 7.4 vs 2.8 |
+
+What the round says:
+
+- B6 moves only what it fires on. Where it does not fire the runs are
+  identical (366 of the 500 explore questions, 350 of the 500
+  train_hard). It fired on 55 final reads and 125 lookups on explore (54
+  and 156 on train_hard), against the 67 and 156 counted on round 2's
+  traces before the runs, and the second read repeats the first on 55 of
+  180 and 66 of 210, so most of the extra calls change the reply. Of the
+  12 wins, 7 are another answer made right (1970 -> 1962, 331,000,000 ->
+  9,984, 2 -> 33, 92.1 -> 1170 kHz AM, "Not applicable" -> alternative
+  rock, Princeton University -> Rutgers University after a repaired
+  lookup, Art Is... The Permanent Revolution -> Marlene) and 5 the same
+  entity written another way or more fully (7 -> seven, 3 -> Three, film
+  directors -> film director, Catholic Church -> Catholic Church in
+  Ireland, French -> Lithuanian-born French); 4 came from the final read
+  alone, 2 from a lookup alone, 6 from both. Of the 3 losses, 1 is such a
+  rewrite the other way (Donald Trump Jr. -> Donald John Trump Jr.), 1 a
+  lookup's "Not specified in the context provided." read again into a
+  wrong name that the next lookup followed (Wendell Berry lost), 1 a
+  misread (Boston -> American). The final reads it gave a second read end
+  right on 14 of 55 and 10 of 54.
+- Its cost sits where EM does not look. The test is on the whole answer
+  string, so a short or reordered form of the gold (Edward Albee for
+  Edward Franklin Albee III) fires it too, and the second read sometimes
+  gives another entity: Edward Albee -> J. M. Barrie, Thomas Friedman ->
+  Henri Bergson, November 23, 1946 -> Diana Quick, "Royce da 5'9",
+  Eminem" -> Bad Meets Evil, Ulf Merbold -> Vladimír Remek, John Feldmann
+  -> Nicole Jung. EM counted these wrong before and after; answers with
+  F1 at least 0.5 lose 19 and gain 11 (-0.008 [-0.019, +0.003] pooled),
+  which is why F1 barely moves while EM rises. That is the bound's
+  "breaks answers written otherwise than in the context", on answers EM
+  had already failed. A trigger by words (fire only when some word of the
+  answer is in no sentence read), counted on the traces, would have left
+  28 of the 109 final reads and 69 of the 281 lookups alone, sparing 6 of
+  the 19 and losing 2 of the 12 wins: not an arm on its own.
+- Cost: 0.39 more calls per question pooled (7.44 -> 7.83; about 0.45 was
+  expected), 209 and 238 more prompt tokens (7% and 8%), 3 more
+  generated. The round 3 runs ran at 92 tokens/s against 73 and 70 for
+  the round 2 runs, so the arm is faster than its control in wall-clock
+  (4.44 against 5.27 s); the same night the titles arm, with the round 2
+  agent's calls, took 4.25 s, so B6 costs about 0.2 s a question there.
+- B7 changes every read and moves far more: 104 and 113 answers change
+  (B6: 40 and 39), and wins and losses nearly cancel (53 against 61).
+  Where the answer string was in the notebook it lost 51 and won 32. 26
+  of the 61 losses are a paragraph title given as the answer: the title's
+  form of the gold (Awake (film), Linfield F.C., Macbeth (character),
+  Kelly Osbourne for Kelly Lee Osbourne, Bill Clinton for William
+  Jefferson Clinton) or another paragraph's title (Third and Indiana for
+  The Soloist, Dogo Cubano for German Spaniel), which is what the bound
+  said would make B7 wrong.
+- For ircot, which reads every retrieved sentence, titles help as the
+  counts before the runs said they would: 37 won, 18 lost. 8 of the wins
+  were never retrieved by the sentence test, 7 of them because the
+  answer is only a retrieved paragraph's title; the place test reads
+  sentences, so "never retrieved" counts such titles (9 of ircot's 49
+  wrong ones on explore, 3 of the round 2 agent's 25). 6 of the 18 losses
+  are a title given as the answer. B6 on ircot: 5 won, none lost, 39
+  second reads, 18 of them repeating the first.
+- Most of the agent's margin over ircot on explore closes when ircot's
+  answer read shows titles. With the same step on both sides it is
+  +0.054 (guard) and +0.052 (with B6), and +0.008 when both read titles,
+  which take 0.008 from the agent and give 0.038 to ircot. Computed after
+  the runs, not written before them (`results/agent_dev3_hotpot_explore_
+  ircot_titles_paired.csv`): the round 3 agent against ircot with titles
+  is +0.024 [-0.014, +0.062] (43 lost, 55 won, p 0.27), F1 +0.004
+  [-0.031, +0.039], containment +0.020 [-0.018, +0.058], at 7.8 calls and
+  4.4 s against 2.8 and 1.8 s; the round 2 agent is +0.016 [-0.022,
+  +0.054]. ircot with titles has not run on train_hard.
+
+After round 3 the agent is the round 2 agent with B6: EM 0.570 and F1
+0.684 on explore, 0.526 and 0.676 on train_hard, 7.8 and 7.9 calls. Like
+everything here it was chosen on these folds and is reported only after
+the confirmation run. Wrong answers by place now: explore 215 (136 in the
+notebook, 48 dropped, 28 never retrieved, 3 yes/no gold), train_hard 237
+(151, 57, 28, 1).
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
@@ -2036,14 +2152,25 @@ changes a day, each written here with its control before it runs):
       the single agent's full context, and it was 0.032 below the notebook
       (p 0.093)
 - [x] notes for chains only: B5 in round 2
-- [ ] dropped (59): a lookup whose answer is not an answer ("no", "the
-      context does not say") still fills the next lookup; a subagent that
-      kept nothing hands the final read nothing
+- [ ] ircot's answer read for the confirmation: titles gave ircot +0.038
+      on explore and the agent nothing (round 3), so the ircot the agent
+      is read against should be the better of its answer reads. Before
+      the freeze: ircot with the guard, with titles, and with titles and
+      B6 on train_hard, and with titles and B6 on explore (about 15
+      minutes a run), the choice written here before they run
+- [ ] dropped (59; 53 after round 2, 48 after round 3, mostly at the last
+      keep step, "From the traces" below): a lookup whose answer is not
+      an answer ("no", "the context does not say") still fills the next
+      lookup; a subagent that kept nothing hands the final read nothing
 - [ ] the plan: the cap of 3 cutting the last lookup off, lookups that
       restate the question
-- [ ] never retrieved (26, all bridge): what the second search asks
-- [ ] read with the string there and another answer (68; 73 after round 2):
-      B6 and B7 in round 3 take two pieces of it
+- [ ] never retrieved (26, all bridge; 28 after round 3): what the second
+      search asks. 3 of round 2's 25 are a retrieved paragraph's title,
+      which the sentence test counts as never retrieved (round 3)
+- [ ] read with the string there and another answer (68; 73 after round 2,
+      71 after round 3): B6 kept and B7 not in round 3. Of the 15 read
+      before round 3, 8 were the gold under another form, which nothing
+      in the agent should chase
 - [ ] the comparison gain (+0.104 over the single agent, n=96) on the
       confirmation fold's comparison questions
 - [ ] 2wiki and musique once hotpot is frozen
