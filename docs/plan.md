@@ -2143,6 +2143,49 @@ the confirmation run. Wrong answers by place now: explore 215 (136 in the
 notebook, 48 dropped, 28 never retrieved, 3 yes/no gold), train_hard 237
 (151, 57, 28, 1).
 
+ircot's answer read, written 17 Nov before its runs. Titles in the answer
+read gave ircot +0.038 on explore and the agent nothing (round 3), and
+against ircot with titles the round 2 agent's margin is +0.016, not
++0.054. The agent should be confirmed against the best ircot found with
+the same care as the agent, so ircot's answer read is chosen on both
+folds by the rule the agent's changes follow.
+
+Candidates, all ircot with the guard: the guard alone (G, round 1), G+B6,
+G+titles, and G+titles+B6 (`configs/hybrid_guard_titles_unsup.yaml`).
+With both, an answer that is only a paragraph's title counts as in the
+context and gets no second read (`test_guard_unsupported_and_titles`).
+Explore has G, G+B6 and G+titles from rounds 1 and 3.
+
+Runs (`.local_notes/queue19.sh`, about 75 minutes): G+titles+B6 on
+explore; G, G+titles, G+titles+B6 and G+B6 on train_hard. Scored by
+`src.eval.agent_losses` into `results/ircot_read_hotpot_{explore,
+train_hard}_{losses,paired}.csv` and `results/ircot_read_hotpot_pooled_
+paired.csv`: each candidate against G, and the round 3 agent against
+each candidate.
+
+What would count, written before the runs:
+
+- A candidate passes when, against G pooled over both folds (n=1000), its
+  EM difference is above zero, neither pooled F1 nor containment falls,
+  and neither fold is below -0.01 (the agent's rule). Of those that pass,
+  the one with the highest pooled EM is the ircot the confirmation reads
+  the agent against; a tie goes to the one with fewer changes; if none
+  passes, G. The agent's runs do not enter the choice.
+- Preregistration 3 then reads the frozen agent against that ircot as its
+  main contrast, with ircot given the agent's own answer step (G+B6)
+  beside it.
+- Expected: titles were predicted before round 3 to help ircot more than
+  the agent, and did on explore; chosen there, they should help less on
+  fresh questions. B6 added +0.010 to ircot on explore with nothing lost.
+  By the rule G+titles can pass on explore's +0.038 with train_hard near
+  zero, as long as train_hard is not below -0.01.
+- Smoke, round 3's 12 explore questions (8 chosen for an agent answer not
+  in its notebook; not an estimate): G+titles+B6 gives G+titles' answer
+  on 11, with 5 second reads (4 for an answer not in the context, 1
+  yes/no); on the twelfth a sentence-long reply ("Shirley Temple was the
+  17-year ...") became a name, still wrong. 4 right, as for G, G+B6 and
+  G+titles.
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
@@ -2153,11 +2196,8 @@ changes a day, each written here with its control before it runs):
       (p 0.093)
 - [x] notes for chains only: B5 in round 2
 - [ ] ircot's answer read for the confirmation: titles gave ircot +0.038
-      on explore and the agent nothing (round 3), so the ircot the agent
-      is read against should be the better of its answer reads. Before
-      the freeze: ircot with the guard, with titles, and with titles and
-      B6 on train_hard, and with titles and B6 on explore (about 15
-      minutes a run), the choice written here before they run
+      on explore and the agent nothing (round 3); the runs and the rule
+      are above (17 Nov)
 - [ ] dropped (59; 53 after round 2, 48 after round 3, mostly at the last
       keep step, "From the traces" below): a lookup whose answer is not
       an answer ("no", "the context does not say") still fills the next

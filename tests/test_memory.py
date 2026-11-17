@@ -2440,6 +2440,12 @@ def test_guard_unsupported_and_titles():
     assert read_lines(two) == "- Night Orchard is a film directed by Ann Lee.\n-  It was shot in Rome."
     assert read_lines(two, True) == ("- (Film) Night Orchard is a film directed by Ann Lee.\n"
                                      "- (Film) It was shot in Rome.")
+    # with titles, an answer that is only a paragraph's title is in the context, so
+    # the two flags together do not send it to the second read
+    orchard = [RetrievedChunk(chunk=Chunk(chunk_id="Night Orchard::0", text="It is a 1999 drama.",
+                                          title="Night Orchard"), score=1.0, rank=1)]
+    assert in_context("Night Orchard", read_lines(orchard, True))
+    assert not in_context("Night Orchard", read_lines(orchard))
 
     class NS:
         pass
@@ -2552,6 +2558,9 @@ def test_guard_unsupported_and_titles():
         _, prompts = run(mode, q, answer_titles=True)
         assert context(reads(prompts)[-1]).startswith("- (Ann Lee) Ann Lee is a director.\n- (Ann Lee) She")
         assert all("(Ann Lee)" not in x for x in prompts if "gathering evidence" in x)
+    res, prompts = run("multihop_ircot", q, answer_guard=True, answer_titles=True, guard_unsupported=True)
+    assert res.guards == [] and res.answer == "Paris"
+    assert context(reads(prompts)[-1]).startswith("- (Ann Lee) Ann Lee is a director.")
 
 
 def test_agent_losses():

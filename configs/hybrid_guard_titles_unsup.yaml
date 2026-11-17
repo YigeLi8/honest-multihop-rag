@@ -1,0 +1,15 @@
+# hybrid_guard.yaml (ircot with the guard) with both of round 3's answer-read
+# changes: each sentence after its paragraph title, and the second read for an
+# answer that is not in its context. One of the four answer reads the
+# confirmation's ircot is chosen from (docs/plan.md, "ircot's answer read")
+run:
+  name: hybrid_ircot_guard_titles_unsup_hotpot_explore
+retrieval:
+  method: hybrid
+pipeline:
+  mode: multihop_ircot
+  answer_guard: true
+  answer_titles: true
+  guard_unsupported: true
+generation:
+  backend: mlx
