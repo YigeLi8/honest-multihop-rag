@@ -161,6 +161,15 @@ def losses(run, rows, traces, gold):
         # where the string was when the final answer got its second read
         for p in PLACES[:3]:
             out[f"guard_final_{p}"] = sum(place[i] == p for i in fired)
+        # guard_unsupported runs: the second reads given to answers not in the context
+        recs = {i: traces[i].get("guards") or [] for i in ids}
+        if any("why" in g for rs in recs.values() for g in rs):
+            unsup = [i for i in fired if any(g["where"] == "final" and g.get("why") == "unsupported"
+                                             for g in recs[i])]
+            out["guard_reads_unsupported"] = sum(g.get("why") == "unsupported"
+                                                 for rs in recs.values() for g in rs)
+            out["guard_final_unsupported"] = len(unsup)
+            out["guard_final_unsupported_right"] = sum(float(rows[i]["em"]) > 0 for i in unsup)
     return out
 
 

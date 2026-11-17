@@ -2423,6 +2423,137 @@ def test_guard_wide_and_chain_notes():
     assert NOTES_HEAD in p.generator.prompts[-1]
 
 
+def test_guard_unsupported_and_titles():
+    import re as re_
+    from src.pipeline.multihop import MultiHopPipeline, in_context, read_lines
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    texts = {"Film::0": "Night Orchard is a film directed by Ann Lee.", "Film::1": " It was shot in Rome.",
+             "Ann Lee::0": "Ann Lee is a director.", "Ann Lee::1": " She was born in Paris."}
+    pool = [Chunk(chunk_id=c, text=t, title=c.split("::")[0]) for c, t in texts.items()]
+
+    assert in_context("Ann Lee", "- Night Orchard is a film directed by Ann Lee.")
+    assert in_context("The Ann Lee.", "- (Film) Night Orchard is a film directed by Ann Lee.")
+    assert not in_context("Ann", "- Annie Lee") and not in_context("", "- anything")
+    two = [RetrievedChunk(chunk=c, score=1.0, rank=r) for r, c in enumerate(pool[:2], 1)]
+    assert read_lines(two) == "- Night Orchard is a film directed by Ann Lee.\n-  It was shot in Rome."
+    assert read_lines(two, True) == ("- (Film) Night Orchard is a film directed by Ann Lee.\n"
+                                     "- (Film) It was shot in Rome.")
+
+    class NS:
+        pass
+
+    def config(mode, **flags):
+        cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+        cfg.pipeline.mode = mode
+        cfg.pipeline.max_hops = 3
+        cfg.pipeline.max_subquestions = 3
+        cfg.pipeline.sub_max_hops = 2
+        cfg.retrieval.top_k = 2
+        for k, v in flags.items():
+            setattr(cfg.pipeline, k, v)
+        return cfg
+
+    class Retriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            ids = ["Ann Lee::0", "Ann Lee::1"] if "born" in query else ["Film::0", "Film::1"]
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    def metrics():
+        return GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=3)
+
+    def context(prompt):
+        return prompt.split("Context:\n")[1].split("\n\nQuestion:")[0]
+
+    class Gen:
+        """Keeps the first result of each search. The first read of who directed
+        the film names someone the context does not; the second read gets it."""
+        def __init__(self):
+            self.prompts = []
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            if "Break the question" in prompt:
+                return "1. Who directed Night Orchard?\n2. Where was #1 born?", metrics()
+            if "collecting evidence" in prompt:
+                return "KEEP: 1\nNEXT: ANSWER", metrics()
+            if "gathering evidence" in prompt:
+                return "DONE", metrics()
+            if "Question: Who directed Night Orchard?" in prompt:
+                return ("Ann Lee" if "not yes or no" in prompt else "Bob Ray"), metrics()
+            if "Question: Was Night Orchard directed by Ann Lee?" in prompt:
+                return "Bob Ray", metrics()
+            if "Question: Which film did Ann Lee direct?" in prompt:
+                return ("Night Orchard" if "not yes or no" in prompt else "no"), metrics()
+            return "Paris", metrics()
+
+    def run(mode, question, **flags):
+        p = MultiHopPipeline.__new__(MultiHopPipeline)
+        p.cfg, p.retriever, p.reranker, p.generator = config(mode, **flags), Retriever(), None, Gen()
+        ex = Example(id="q", question=question, answer="Paris", hops=2, chunks=pool,
+                     gold_chunk_ids=["Film::0", "Ann Lee::1"])
+        return p.run_example(ex), p.generator.prompts
+
+    def reads(prompts):
+        return [q for q in prompts if q.startswith("Answer the question using only the context")]
+
+    q = "Where was the director of Night Orchard born?"
+    # off (the round 2 agent): answers that are not in the context go through, and the
+    # flags set to false change nothing
+    res, prompts = run("orchestrator", q, answer_guard=True, guard_context="wide")
+    assert res.guards == [] and res.gen_calls == 6
+    assert "Question: Where was Bob Ray born?" in prompts[-2]
+    res2, prompts2 = run("orchestrator", q, answer_guard=True, guard_context="wide",
+                         guard_unsupported=False, answer_titles=False)
+    assert prompts2 == prompts and res2.answer == res.answer and res2.guards == []
+
+    # on: each read whose answer is not in its context is read once more, wide
+    res, prompts = run("orchestrator", q, answer_guard=True, guard_context="wide",
+                       guard_unsupported=True)
+    assert [(g["where"], g["why"], g["first"], g["second"], g["wide"]) for g in res.guards] == [
+        ("sub0", "unsupported", "Bob Ray", "Ann Lee", 1),
+        ("sub1", "unsupported", "Paris", "Paris", 1),
+        ("final", "unsupported", "Paris", "Paris", 2)]
+    assert any("Question: Where was Ann Lee born?" in x for x in prompts)
+    seconds = [x for x in reads(prompts) if "not yes or no" in x]
+    assert context(seconds[-1]) == ("- Night Orchard is a film directed by Ann Lee.\n- Ann Lee is a director."
+                                    "\n-  It was shot in Rome.\n-  She was born in Paris.")
+    assert res.answer == "Paris" and res.gen_calls == 9
+    # without the guard there is no second read of either kind
+    res, _ = run("orchestrator", q, guard_unsupported=True)
+    assert res.guards is None and res.gen_calls == 6
+
+    # a question that reads as yes/no is left alone; yes or no to a span question is
+    # still the guard's own case, and the record says which
+    res, _ = run("single_hop", "Was Night Orchard directed by Ann Lee?", answer_guard=True,
+                 guard_unsupported=True)
+    assert res.guards == [] and res.answer == "Bob Ray"
+    res, _ = run("single_hop", "Which film did Ann Lee direct?", answer_guard=True, guard_unsupported=True)
+    assert [(g["why"], g["second"]) for g in res.guards] == [("yesno", "Night Orchard")]
+    res, _ = run("single_hop", "Which film did Ann Lee direct?", answer_guard=True)
+    assert "why" not in res.guards[0]
+
+    # titles: every answer read, the guard's second reads among them, shows "(title) text";
+    # the keep step and the ircot loop are as before
+    titled = re_.compile(r"^- \((Film|Ann Lee)\) \S")
+    res, prompts = run("orchestrator", q, answer_guard=True, guard_context="wide",
+                       guard_unsupported=True, answer_titles=True)
+    assert len(reads(prompts)) == 6
+    assert all(titled.match(line) for x in reads(prompts) for line in context(x).splitlines())
+    _, plain = run("orchestrator", q, answer_guard=True, guard_context="wide", guard_unsupported=True)
+    keep = [x for x in prompts if "collecting evidence" in x]
+    assert keep == [x for x in plain if "collecting evidence" in x]
+    for mode in ("multihop_ircot", "single_hop"):
+        _, prompts = run(mode, q, answer_titles=True)
+        assert context(reads(prompts)[-1]).startswith("- (Ann Lee) Ann Lee is a director.\n- (Ann Lee) She")
+        assert all("(Ann Lee)" not in x for x in prompts if "gathering evidence" in x)
+
+
 def test_agent_losses():
     import csv
 
@@ -3051,6 +3182,7 @@ if __name__ == "__main__":
     test_orchestrator()
     test_answer_guard_and_final_notes()
     test_guard_wide_and_chain_notes()
+    test_guard_unsupported_and_titles()
     test_agent_losses()
     test_agent_traces()
     test_experience_memory()

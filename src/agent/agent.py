@@ -170,9 +170,13 @@ def answer_from(pipe, question, hits, usage, where="final", notes=None, extra=No
     (lookup, answer) pairs written under the sentences as part of the
     context (the main agent's pipeline.final_notes). extra are the other
     sentences the step's searches retrieved: what a second read of the
-    answer guard adds under pipeline.guard_context: wide."""
+    answer guard adds under pipeline.guard_context: wide. Under
+    pipeline.answer_titles each sentence carries its paragraph title."""
+    from src.pipeline.multihop import read_lines
+    titles = getattr(pipe.cfg.pipeline, "answer_titles", False)
+
     def context(hs):
-        ctx = "\n".join(f"- {h.chunk.text}" for h in hs)
+        ctx = read_lines(hs, titles)
         if notes:
             ctx += "\n" + NOTES_HEAD + "\n" + "\n".join(f"- {q} Answer: {a}" for q, a in notes)
         return ctx

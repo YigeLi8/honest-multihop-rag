@@ -1,0 +1,16 @@
+# orchestrator_guard_wide.yaml with every answer read showing each sentence
+# after its paragraph title
+run:
+  name: orchestrator_guard_wide_titles_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+  guard_context: wide
+  answer_titles: true
+generation:
+  backend: mlx

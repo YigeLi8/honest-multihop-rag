@@ -1928,6 +1928,105 @@ chosen on these folds and is reported only after the confirmation run.
 Wrong answers by place now: explore 219 (138 in the notebook, 53 dropped,
 25 never retrieved, 3 yes/no gold), train_hard 242 (158, 56, 27, 1).
 
+Round 3, written 16 Nov before its runs. The largest loss of the round 2
+agent is still the read: 138 of the 219 wrong answers on explore had the
+gold string in the notebook (73 of them another answer, 38 a span inside
+the gold, 24 a span around it, 3 yes or no). Read for it: 15 of the 73
+(seed 3).
+
+- 8 of the 15 are the gold under another form: the name the question uses
+  against the full name in the gold (Larry Drake, Janet Jackson, Arthur
+  Conan Doyle, Edward Albee), a diacritic (Ibn Arabi), a list written
+  another way (Royce da 5'9", Eminem), Detective Inspector against DI,
+  "over 150 million" against "150 million copies". EM counts them wrong
+  and F1 in part; nothing in the agent should chase them.
+- 7 are misreads: a sentence taken for another paragraph's (the first
+  episode of a season and another episode both appear as "Written by ...
+  and directed by ...", and the answer read shows no titles, so which
+  director goes with which episode is a guess), a comparison read
+  backwards, the intermediate entity given for the answer (Royal
+  Australian Navy for the defence force it is part of), "raised in" read
+  for "born in", the place a barn is in given for the mill town near it, a
+  year that is in no sentence (1970 for 1962), and two names joined by the
+  guard's second read. In 4 of the 7 a lookup had answered right.
+
+Two things in that, each counted over all 500:
+
+- The answer read shows sentences without their paragraph's title, while
+  the keep step shows "(title) text"; 0.53 of the notebook's sentences are
+  not their paragraph's first. For ircot, which reads every retrieved
+  sentence, EM where a sentence holding the answer string opens its
+  paragraph is 0.558 (n 294), and 0.449 where none does (n 118). For the
+  agent it is 0.623 against 0.643 on explore (n 260, 112) and 0.595
+  against 0.540 on train_hard (n 262, 113). So titles should matter more
+  for ircot than for the agent.
+- A final answer whose string is not in the notebook it was read from
+  (yes and no aside) is mostly wrong: 67 on explore, EM 0.224, against
+  0.597 for the 382 whose string is there; 77 on train_hard, EM 0.182
+  against 0.555. Of the 52 wrong on explore, 29 had the gold string in the
+  notebook, 13 retrieved and dropped, 10 never retrieved (train_hard 34,
+  19, 10 of 63). Lookups: 156 of 906 answers are not in the lookup's own
+  sentences (train_hard 180 of 922). Non-answers ("not specified", "the
+  context does not provide ...") are rare: no final answer on explore, 4
+  on train_hard, 20 and 9 lookups, so a trigger for them alone has a
+  ceiling of a few questions, as the counts under "From the traces" below
+  also say.
+
+Changes, each a flag off by default (`test_guard_unsupported_and_titles`):
+
+- [ ] B6 `pipeline.guard_unsupported`: with the guard on, its second read
+      is also given to an answer whose normalized string is not in the
+      context it was read from, on a question that does not read as
+      yes/no. Same GUARD_PROMPT, the same wide context under
+      guard_context: wide, and the second reply stands, as for yes or no;
+      the guard's records say which of the two fired. It sits in the
+      shared answer read, so ircot gets it too.
+- [ ] B7 `pipeline.answer_titles`: every answer read (a lookup's, the final
+      read, the guard's second reads, ircot's and single-hop's answer)
+      shows each sentence as "(title) text", the form the keep step
+      already uses. The keep step and the ircot loop's own step are
+      unchanged. No extra call.
+
+Runs (`.local_notes/queue18.sh`) against the round 2 agent
+(`orchestrator_guard_wide`), whose round 2 runs are the control (the runs
+repeat exactly):
+
+- explore and train_hard: `orchestrator_guard_wide_unsup`,
+  `orchestrator_guard_wide_titles`
+- explore: `hybrid_guard_unsup` and `hybrid_guard_titles` against ircot
+  with the guard (round 1), so the agent is also read against ircot with
+  the same answer step on both sides
+
+scored by `src.eval.agent_losses` into `results/agent_dev3_hotpot_{explore,
+train_hard}_{losses,paired}.csv` and `results/agent_dev3_hotpot_pooled_
+paired.csv`.
+
+What would count, written before the runs:
+
+- Each change is kept when its paired EM difference against the round 2
+  agent, pooled over both folds (n=1000), is above zero, neither pooled F1
+  nor containment falls, and neither fold is below -0.01 (B4's rule). Holm
+  over the two arms is reported, not used to decide.
+- If both are kept, the agent with both runs on both folds before the
+  freeze, and is taken over the better one alone only if its pooled EM is
+  above it with neither F1 nor containment falling.
+- The ircot runs do not decide. They say what each change does to the
+  shared step where no notebook is kept, and give the agent's margin over
+  ircot with the same answer step on both sides.
+- Bounds. B6 can move only questions where it fires: on explore 67 final
+  reads (at most 42 to win, the ones with the gold string retrieved; 15
+  right answers at risk) and 156 lookups, plus what a changed lookup moves
+  downstream; about 0.45 more calls per question. B7 changes every read,
+  so any question can move; by the counts above it should do more for
+  ircot than for the agent. B6 is wrong if its second reads mostly repeat
+  the first (calls for nothing) or break right answers written otherwise
+  than in the context ("Royce da 5'9", Eminem"). B7 is wrong if answers
+  turn into a paragraph's title where the question asks for something
+  about it.
+- Smoke, 12 explore questions, 8 of them chosen for a final answer not in
+  the notebook (not an estimate): B6 won 2 and lost none (1970 -> 1962 among
+  them) for 0.75 more calls on those questions; B7 won 2 and lost 2.
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
@@ -1943,7 +2042,8 @@ changes a day, each written here with its control before it runs):
 - [ ] the plan: the cap of 3 cutting the last lookup off, lookups that
       restate the question
 - [ ] never retrieved (26, all bridge): what the second search asks
-- [ ] read with the string there and another answer (68)
+- [ ] read with the string there and another answer (68; 73 after round 2):
+      B6 and B7 in round 3 take two pieces of it
 - [ ] the comparison gain (+0.104 over the single agent, n=96) on the
       confirmation fold's comparison questions
 - [ ] 2wiki and musique once hotpot is frozen

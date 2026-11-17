@@ -22,6 +22,11 @@ a run with it is compared with runs that have it too. pipeline.guard_context:
 wide makes that second read go over the step's kept sentences followed by
 everything else its searches retrieved (the agents only; ircot and single-hop
 already read everything retrieved, so for them it changes nothing).
+pipeline.guard_unsupported (with the guard) also gives that second read to an
+answer whose normalized string is not in the context it was read from.
+pipeline.answer_titles shows every sentence of an answer read with its
+paragraph title in front, "(title) text", the form the agent's keep step
+already shows; the ircot loop's own step is left as it is.
 
 With memory.enabled and memory.mode == log in the config, every retrieval step
 is also handed to an ExperienceLogger (src/memory), together with the hits of
@@ -33,6 +38,7 @@ features) is measured and left out of latency_s.
 import re
 import time
 
+from src.eval.answer_metrics import normalize
 from src.pipeline.generate import Generator
 from src.retrieval.base import get_retriever
 from src.retrieval.rerank import Reranker
@@ -113,6 +119,21 @@ def looks_yesno(question):
 
 def is_yesno(answer):
     return re.sub(r"[^a-z]", "", answer.lower()) in ("yes", "no")
+
+
+def in_context(answer, ctx):
+    """Whether the answer's normalized string is in the context's, on word
+    boundaries (pipeline.guard_unsupported). An empty answer is not."""
+    a = normalize(answer)
+    return bool(a) and f" {a} " in f" {normalize(ctx)} "
+
+
+def read_lines(hits, titles=False):
+    """The context of an answer read, a sentence a line. With titles
+    (pipeline.answer_titles) each one comes after its paragraph title, as
+    the agent's keep step shows them."""
+    return "\n".join(f"- ({h.chunk.title}) {h.chunk.text.strip()}" if titles and h.chunk.title
+                     else f"- {h.chunk.text}" for h in hits)
 
 
 def usage_of(ms, ntok=0, peak=0.0):
@@ -241,12 +262,23 @@ class MultiHopPipeline:
         line of the reply. Returns (answer, [metrics of each call]). With the
         guard on, yes or no to a question that does not read as yes/no gets a
         second read with GUARD_PROMPT; the second reply stands and the pair
-        is kept on self.guards. wide = (context, n added sentences) is what
-        that read goes over instead under guard_context: wide."""
+        is kept on self.guards. Under guard_unsupported so does a reply that
+        is not in the context (the record says why). wide = (context, n added
+        sentences) is what that read goes over instead under guard_context:
+        wide."""
         text, m = self._gen(PROMPT.format(context=ctx, question=question))
         answer, ms = first_line(text), [m]
-        if self.guards is not None and is_yesno(answer) and not looks_yesno(question):
+        unsup = getattr(self.cfg.pipeline, "guard_unsupported", False)
+        why = None
+        if self.guards is not None and not looks_yesno(question):
+            if is_yesno(answer):
+                why = "yesno"
+            elif unsup and not in_context(answer, ctx):
+                why = "unsupported"
+        if why:
             rec = {"where": where, "question": question, "first": answer}
+            if unsup:
+                rec["why"] = why
             if wide is not None and getattr(self.cfg.pipeline, "guard_context", "same") == "wide":
                 ctx = wide[0]
                 rec["wide"] = wide[1]
@@ -269,7 +301,7 @@ class MultiHopPipeline:
                          gold_chunk_ids=list(ex.gold_chunk_ids))
         answer, ntok, tps, peak = "", 0, 0.0, 0.0
         if self.generator:
-            ctx = "\n".join(f"- {h.chunk.text}" for h in hits)
+            ctx = read_lines(hits, getattr(self.cfg.pipeline, "answer_titles", False))
             answer, ms = self._answer(ex.question, ctx)
             ntok, tps, peak = usage_of(ms)
         return [trace], answer, (ntok, tps, peak)
@@ -311,7 +343,7 @@ class MultiHopPipeline:
                 break
             query = search
 
-        ctx = "\n".join(f"- {h.chunk.text}" for h in seen.values())
+        ctx = read_lines(seen.values(), getattr(self.cfg.pipeline, "answer_titles", False))
         answer, ms = self._answer(ex.question, ctx)
         return traces, answer, usage_of(ms, ntok, peak)
 

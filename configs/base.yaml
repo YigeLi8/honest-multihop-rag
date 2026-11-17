@@ -37,6 +37,8 @@ pipeline:
   answer_guard: false   # yes or no to a question that does not read as yes/no is read once more (every mode that reads a context)
   final_notes: false    # orchestrator: the lookups and their answers go into the final read (true, or chain: chain plans only)
   guard_context: same   # same | wide: the guard's second read over everything the step retrieved (agents)
+  guard_unsupported: false  # with answer_guard: the second read also for an answer that is not in its context
+  answer_titles: false  # every answer read shows each sentence as "(title) text", as the agent's keep step does
 
 generation:
   backend: none         # none | mlx | llamacpp | vllm

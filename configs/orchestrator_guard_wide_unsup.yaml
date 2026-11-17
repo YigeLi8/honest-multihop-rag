@@ -1,0 +1,16 @@
+# orchestrator_guard_wide.yaml with the guard's second read also given to an
+# answer that is not in the context it was read from
+run:
+  name: orchestrator_guard_wide_unsup_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+  guard_context: wide
+  guard_unsupported: true
+generation:
+  backend: mlx

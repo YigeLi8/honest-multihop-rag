@@ -1,0 +1,12 @@
+# hybrid_guard.yaml (ircot with the guard) with the second read also given to
+# an answer that is not in its context: the control for the agent with it
+run:
+  name: hybrid_ircot_guard_unsup_hotpot_explore
+retrieval:
+  method: hybrid
+pipeline:
+  mode: multihop_ircot
+  answer_guard: true
+  guard_unsupported: true
+generation:
+  backend: mlx
