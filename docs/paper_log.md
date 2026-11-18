@@ -3,6 +3,80 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-18
+
+New and cross listings read (cs.IR 20, cs.CL 102, cs.AI 259 entries,
+replacements not read; 324 distinct ids, none already logged); every
+title screened, 14 abstracts read, three bodies.
+
+- 2026, Multi-Agent Memory Inconsistency: Where Factual Conflicts
+  Disappear in LLM Agents (arXiv 2611.22245). Planted factual conflicts
+  in document-review tasks, a lead agent with and without required
+  delegation to workers, an evidence-flow profiler that follows each
+  claim from source read to worker report to the lead's answer.
+  Delegation retrieves both conflicting claims more often (50.2% ->
+  68.7%) and detects the conflict less (16.2% -> 13.2%). The loss is at
+  the handoff: workers that read only one side omit one or both claims
+  in 73.2% of split cases against 50.5% when one worker reads both, and
+  a lead flags 72.2% of conflicts that one report supplies whole against
+  17.1% when the two arrive in separate reports. Not QA, but it is the
+  same shape as two things on this branch: dropped answers lost at the
+  last keep step after the subagent was shown the sentence ("From the
+  traces", 16 Nov), and comparison questions planned as parallel
+  lookups, where each subagent sees one side and the final read gets
+  the two notebooks. Their split/same cohort is a count I can take from
+  the committed traces with no model: for comparison questions, whether
+  the sentences for both compared things ended in one lookup's notebook
+  or in two, against EM. Cite in the agent section beside 2611.18642.
+- 2026, Consistency Is Not Correction: Separating Confidence,
+  Abstention, and Recovery in LLM Agents (arXiv 2611.21651). Splits a
+  confidence gate's value into recoveries minus harms and notes that a
+  gate which only replaces a proposal can act only on the base policy's
+  errors, so the error count caps the discordant pairs; it recommends
+  publishing that budget against the discordant count a paired test
+  needs, and the gate's firing rate, before spending generation. This
+  is what the plan already does for the guard and its second reads (the
+  bounds written before rounds 1-3, firing counts in every round), so
+  nothing changes; it is a citation for the method, and a reminder that
+  B2/B4/B6 on the agent won 5, 17 and 12 questions where they fired
+  on 30 final reads, 125 questions and 390 reads (round 1 explore,
+  rounds 2 and 3 pooled).
+- 2026, Done, But Still Working: Anytime Evaluation of When Coding
+  Agents Should Stop (arXiv 2611.22901). Stopping rules evaluated by
+  replaying recorded runs and scoring intermediate states, paired and
+  without new trajectories, valid only for policies that stop or pick an
+  earlier state and only where replay preserves the state; a
+  preregistered replication saves 23% of cost and fails its
+  non-inferiority test. For Stage 6b: a lookup's second search is a
+  stopping decision (89% search twice), and the traces hold the keep
+  step after each search, so "answer after the first search when the
+  first keep already holds X" can be read from committed traces only to
+  the extent the first keep's output is what the lookup would have
+  answered from; the answer read after the first search is not in the
+  trace, so this is a bound, not a replay. B3 (one search always, -0.048)
+  says the unconditional rule loses; a conditional one has not been
+  counted.
+- 2026, The Resolution Hypothesis: Agent Evolution's Key Is Identifying
+  Improvements (arXiv 2611.23068). Over seven agent-evolution methods
+  and six models, helpful candidate prompts, skills and memories are
+  proposed, but selection on noisy scores is no better than random at
+  telling them from harmful ones, and method margins of a few points are
+  smaller than two runs of the same method apart. Cite for why Stage 6b
+  keeps changes by a written rule on fixed folds and confirms once.
+  Here the runs repeat exactly (temperature 0, identical completions
+  where a flag does not fire), so run-to-run noise is not ours; question
+  sampling is, which is the 3 to 4 points one fold resolves.
+- 2026, Surfacing Disagreement Beats Resolving It: A Gated Ablation
+  Study of Provenance-Weighted Memory for Multi-Agent Debate (arXiv
+  2611.22461). Five memory mechanisms removed one at a time, each gated
+  on a threshold declared beforehand; one survives (passing the ranked
+  conflict set rather than one winning fact, +0.340 F1), two cost
+  accuracy, and a harness cap first hid three quarters of the planted
+  contradictions. For the memory study's write-up, a published example
+  of the same gated, mostly-negative design as the five closed gates,
+  and of a harness bound found only after the first measurement. Cite
+  in the memory section.
+
 ## 2026-11-17
 
 New and cross listings read (cs.IR 36, cs.CL 236, cs.AI 428 entries,
