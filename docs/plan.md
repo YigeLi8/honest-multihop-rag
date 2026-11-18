@@ -1641,12 +1641,12 @@ Five memory gates are closed, and each of them tested a memory on agents
 that were built once (4 Nov) and then held fixed, so that a change could be
 credited to the memory. The agents are the one thing on this branch that
 moved answers (the main agent over subagents is +0.054 EM over ircot on
-exploration, p 0.004, not confirmed; round 3 below: the round 2 agent is
-+0.016 [-0.022, +0.054] against ircot whose answer read shows paragraph
-titles), and nothing has been done to them since. This stage works on
-the agent directly: find where its answers are lost, change one thing at
-a time against a matched control, choose on the exploration fold, confirm
-once.
+exploration, p 0.004, not confirmed; against the ircot chosen below for
+the confirmation, whose answer read shows paragraph titles, the round 3
+agent is +0.021 [-0.006, +0.049] over both folds), and nothing has been
+done to them since. This stage works on the agent directly: find where
+its answers are lost, change one thing at a time against a matched
+control, choose on the exploration fold, confirm once.
 
 Where the answers are lost (`src/eval/agent_losses.py`: every wrong answer
 placed by where the gold answer string was; the string test is exact, per
@@ -2134,7 +2134,7 @@ What the round says:
   is +0.024 [-0.014, +0.062] (43 lost, 55 won, p 0.27), F1 +0.004
   [-0.031, +0.039], containment +0.020 [-0.018, +0.058], at 7.8 calls and
   4.4 s against 2.8 and 1.8 s; the round 2 agent is +0.016 [-0.022,
-  +0.054]. ircot with titles has not run on train_hard.
+  +0.054]. ircot with titles had not yet run on train_hard (below).
 
 After round 3 the agent is the round 2 agent with B6: EM 0.570 and F1
 0.684 on explore, 0.526 and 0.676 on train_hard, 7.8 and 7.9 calls. Like
@@ -2186,6 +2186,76 @@ What would count, written before the runs:
   17-year ...") became a name, still wrong. 4 right, as for G, G+B6 and
   G+titles.
 
+ircot's answer read, results (Mac, 17 Nov at 71c9d24, 18:15 to 19:31;
+`results/hybrid_ircot_guard_titles_unsup_hotpot_{explore,train_hard}_*`,
+`results/hybrid_ircot_guard{,_unsup,_titles}_hotpot_train_hard_*`,
+scored into `results/ircot_read_hotpot_{explore,train_hard,pooled}_*`).
+Each candidate against G on the same ids (Holm over the three, pooled:
+0.001, 0.001, 0.0004):
+
+| ircot answer read | fold       | n    | EM            | diff, 95% CI            | lost / won | p      | F1     | contain | calls |
+|-------------------|------------|------|---------------|-------------------------|------------|--------|--------|---------|-------|
+| G+B6              | explore    | 500  | 0.508 → 0.518 | +0.010 [+0.002, +0.020] | 0 / 5      | 0.063  | +0.007 | +0.006  | 2.9   |
+| G+B6              | train_hard | 500  | 0.464 → 0.478 | +0.014 [+0.004, +0.024] | 0 / 7      | 0.016  | +0.013 | +0.014  | 2.9   |
+| G+B6              | pooled     | 1000 | 0.486 → 0.498 | +0.012 [+0.006, +0.019] | 0 / 12     | 0.0005 | +0.010 | +0.010  | 2.9   |
+| G+titles          | explore    | 500  | 0.508 → 0.546 | +0.038 [+0.010, +0.066] | 18 / 37    | 0.014  | +0.037 | +0.034  | 2.8   |
+| G+titles          | train_hard | 500  | 0.464 → 0.500 | +0.036 [+0.008, +0.066] | 18 / 36    | 0.020  | +0.036 | +0.032  | 2.8   |
+| G+titles          | pooled     | 1000 | 0.486 → 0.523 | +0.037 [+0.017, +0.057] | 36 / 73    | 0.0005 | +0.037 | +0.033  | 2.8   |
+| G+titles+B6       | explore    | 500  | 0.508 → 0.548 | +0.040 [+0.010, +0.070] | 19 / 39    | 0.012  | +0.033 | +0.030  | 2.9   |
+| G+titles+B6       | train_hard | 500  | 0.464 → 0.506 | +0.042 [+0.014, +0.072] | 17 / 38    | 0.006  | +0.043 | +0.040  | 2.9   |
+| G+titles+B6       | pooled     | 1000 | 0.486 → 0.527 | +0.041 [+0.021, +0.061] | 36 / 77    | 0.0001 | +0.038 | +0.035  | 2.9   |
+
+All three pass: each is above zero pooled with F1 and containment up,
+and no fold is below zero. The highest pooled EM is G+titles+B6, 0.527
+against G+titles' 0.523, so the confirmation reads the agent against
+ircot with `configs/hybrid_guard_titles_unsup.yaml`, with G+B6 beside
+it. Wrong answers by place for it: explore 226 (182 in the context, 42
+never retrieved, 2 yes/no gold), train_hard 247 (194, 52, 1); G's were
+246 (195, 49, 2) and 268 (213, 54, 1).
+
+What the check says:
+
+- The choice between the two title candidates is narrow. Computed after
+  the runs and not part of the rule, which sets each candidate against G
+  (`results/ircot_read_hotpot_{explore,train_hard,pooled}_b6_on_titles_
+  paired.csv`): G+titles+B6 against G+titles is +0.004 [-0.001, +0.009]
+  pooled, 1 lost and 5 won (p 0.22), F1 +0.001, containment +0.002; on
+  explore +0.002 with F1 -0.005 and containment -0.004, on train_hard
+  +0.006 (0 / 3). B6's second read changed 18 answers on explore and 22
+  on train_hard. The six that moved EM: 7 -> seven, a sentence -> Sean
+  Yseult, 3 -> Three, directors -> film director, 3.2 billion -> €3.2
+  billion, and Essex, right but not in its context, -> Waltham.
+- The expectation that titles would help ircot less on fresh questions
+  was wrong: +0.036 on train_hard against +0.038 on explore, with nearly
+  the same wins and losses (36 / 18 against 37 / 18). For the agent they
+  were -0.008 on both folds (round 3). B6 on ircot held as well: +0.014
+  on train_hard with nothing lost (0 / 7), as on explore (0 / 5); on top
+  of titles it adds the +0.004 above.
+- Against the chosen ircot the round 3 agent is +0.021 [-0.006, +0.049]
+  pooled (88 lost, 109 won, p 0.15), F1 +0.015 [-0.010, +0.041],
+  containment +0.018 [-0.010, +0.045]; +0.022 [-0.016, +0.060] on
+  explore and +0.020 [-0.020, +0.060] on train_hard. All of it is on
+  bridge questions (+0.027 [-0.005, +0.059], n 790; comparison 0.000, n
+  210). It costs 7.8 calls against 2.9, 3,180 prompt tokens against
+  1,656 and 4.4 s against 1.8 s a question (both at 92 tokens/s): 2.7,
+  1.9 and 2.4 times the chosen ircot.
+- Against ircot with its own answer step on both sides (G+B6) the agent
+  is +0.050 [+0.026, +0.075] pooled (57 / 107, p 0.0001), and against G
+  +0.062 [+0.037, +0.087]. With titles in ircot's read it is +0.025
+  [-0.003, +0.053] (G+titles, p 0.090) and +0.021 (chosen). So titles in
+  ircot's read take more than half of the agent's margin over ircot with
+  the same answer step, on both folds. Both sides were chosen on these
+  folds, so none of these is an estimate for the confirmation fold.
+- For preregistration 3, planning and not a result: with the discordance
+  seen here (197 of 1000 questions) and a true margin of +0.021, an
+  exact paired test at 0.05 on the 1000 confirmation questions would
+  find the agent ahead of the chosen ircot about three times in ten
+  (simulated); a margin of +0.03 about half the time, +0.04 about eight
+  times in ten. Against G+B6 (+0.050) it would nearly always. The
+  confirmation run is round 1's list (the frozen agent, the 4 Nov main
+  agent, ircot with and without the guard) with G+titles+B6 and G+B6
+  added.
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
@@ -2195,9 +2265,9 @@ changes a day, each written here with its control before it runs):
       the single agent's full context, and it was 0.032 below the notebook
       (p 0.093)
 - [x] notes for chains only: B5 in round 2
-- [ ] ircot's answer read for the confirmation: titles gave ircot +0.038
-      on explore and the agent nothing (round 3); the runs and the rule
-      are above (17 Nov)
+- [x] ircot's answer read for the confirmation: G+titles+B6 by the rule
+      (17 Nov, above); the round 3 agent is +0.021 [-0.006, +0.049]
+      against it over both folds, +0.050 against G+B6
 - [ ] dropped (59; 53 after round 2, 48 after round 3, mostly at the last
       keep step, "From the traces" below): a lookup whose answer is not
       an answer ("no", "the context does not say") still fills the next
