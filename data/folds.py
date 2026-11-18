@@ -70,6 +70,9 @@ def write(name, ids):
 
 def main(seed=13):
     for ds, label in (("hotpotqa", "hotpot"), ("2wiki", "2wiki"), ("musique", "musique")):
+        if not (PROCESSED / f"{ds}_dev.jsonl").exists():
+            print(f"{label}: no {ds}_dev.jsonl in data/processed, its folds left as committed")
+            continue
         ids, types = ids_and_types(ds)
         write(f"{label}_explore", ids[:500])
         if label == "musique":

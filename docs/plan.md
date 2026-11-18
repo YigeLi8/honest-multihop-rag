@@ -2547,3 +2547,42 @@ of about 9 questions on 500 is under what one fold resolves.
       included; decide on a write-up after Stage 5
 - [ ] pin versions and model revisions; run manifest per results file;
       `scripts/run_all.sh` end to end with a short smoke path
+      18 Nov, run_all.sh rewritten (the pins and the manifest are still
+      open). Stages in order: data, retrieval, qa, interventions,
+      reader_ctx, agents, analyses, memory, plots; qa to agents generate and
+      are marked [model], the rest read data/processed and committed files
+      only. `--no-model`, `--model-only`, `--only a,b`, and `--smoke`
+      (SMOKE_N=5 questions per stage, every write to a scratch copy of
+      results/, never to results/ itself). The runs are listed by config
+      and fold as the committed files name them (Part A on the explore and
+      confirm folds, the arms logs, Stage 6's agents and memory gates, the
+      Stage 6b rounds on explore and train_hard; no confirmation agent run
+      until preregistration 3). The queue files in .local_notes are not in
+      the repo, so the model stages are read back from the results names,
+      the configs' run names and the paired tables' base/arm columns, and
+      only the stages without the model could be checked here. On linux
+      (bm25s 0.3.16, numpy 2.5.5, pandas 3.1.1, torch 2.15 cpu):
+      - data: the hotpot train file is now fetched by `data.download
+        --datasets hotpotqa_train` (official host, hf mirror as fallback;
+        the mirror's file came out 566,426,227 bytes), and `data.folds`
+        skips a dataset with no processed file instead of failing on 2wiki.
+        All the committed folds come out byte-identical, train_hard
+        included.
+      - analyses: 72 committed tables rewritten in place, all
+        byte-identical (decomposition, criteria, paired, stop audit,
+        interventions, reader context, every agent_dev*/ircot_read*
+        losses and paired table, agent_traces, agent_reads, the A5 and A7
+        memory_eval tables), 12 minutes. The four decomposition plots
+        differ in bytes only (matplotlib build). The musique dev criteria
+        table was made without --data-file (containment against the gold
+        string, no aliases); the script keeps that and says so. Not run
+        here: everything 2wiki, and `src.eval.prereg`, which reads the
+        2wiki dev file.
+      - plots: `scripts/plots.py` redraws the 63 2x2 and 41 per-hop plots
+        and the pareto plot from the committed csv and json; the two I
+        compared by eye match.
+      - retrieval and memory: smoke only (5 questions; backfill replays
+        them with 0 hops differing from the trace). The full memory stage
+        (backfill of the 1500 hotpot and 2417 musique arms logs, then the
+        Stage 1b-5 tables) is not run yet, and the twin and _mac tables are
+        not in the script.

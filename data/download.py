@@ -10,6 +10,7 @@ RAW = Path(__file__).resolve().parent / "raw"
 
 # from hotpotqa.github.io; the host times out now and then, hf is the fallback
 HOTPOT_DEV = "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_dev_distractor_v1.json"
+HOTPOT_TRAIN = "http://curtis.ml.cmu.edu/datasets/hotpot/hotpot_train_v1.1.json"
 
 BEIR_URL = "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/{}.zip"
 BEIR_SUBSETS = ["nfcorpus", "scifact", "fiqa"]
@@ -27,11 +28,11 @@ def fetch(url, dest, timeout=30):
     return dest
 
 
-def hotpot_from_hf(dest):
+def hotpot_from_hf(dest, split="validation"):
     # the hf mirror stores supporting_facts/context as dicts of parallel lists;
     # convert back to the official layout so prepare_hotpotqa doesn't care
     from datasets import load_dataset
-    ds = load_dataset("hotpotqa/hotpot_qa", "distractor", split="validation")
+    ds = load_dataset("hotpotqa/hotpot_qa", "distractor", split=split)
     rows = []
     for r in ds:
         sf = r["supporting_facts"]
@@ -60,6 +61,19 @@ def download_hotpotqa():
     except Exception as e:
         print(f"official host not responding ({e}), using the huggingface mirror")
         hotpot_from_hf(dest)
+
+
+def download_hotpotqa_train():
+    # train_hard and the memory's train fold (data/folds.py) are drawn from it
+    dest = RAW / "hotpot_train_v1.1.json"
+    if dest.exists():
+        print(f"{dest.name} already downloaded")
+        return
+    try:
+        fetch(HOTPOT_TRAIN, dest, timeout=60)
+    except Exception as e:
+        print(f"official host not responding ({e}), using the huggingface mirror")
+        hotpot_from_hf(dest, split="train")
 
 
 def download_2wiki():
@@ -103,5 +117,5 @@ if __name__ == "__main__":
     args = p.parse_args()
     RAW.mkdir(parents=True, exist_ok=True)
     for name in args.datasets:
-        {"hotpotqa": download_hotpotqa, "2wiki": download_2wiki,
+        {"hotpotqa": download_hotpotqa, "hotpotqa_train": download_hotpotqa_train, "2wiki": download_2wiki,
          "musique": download_musique, "beir": download_beir}[name]()
