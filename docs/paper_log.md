@@ -3,6 +3,59 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-19
+
+New and cross listings read (cs.IR 13, cs.CL 72, cs.AI 230 entries,
+replacements not read; 277 distinct ids, none already logged); every
+title screened, 14 abstracts read, four bodies.
+
+- 2026, Safe to Omit, Worth Omitting? Keeping the Answer and Cutting
+  Latency When an LLM Agent Skips Another's Message (arXiv 2611.23570).
+  A receiver agent with and without a helper's message, on OpenBookQA,
+  ARC-Challenge, MMLU-Pro (and SQuAD, GSM8K) with Qwen pairs. The part
+  that matters here is a control: the receiver rerun on inputs with no
+  answer-specific content (the options rotated by one, a message written
+  for another question), resampled to change as many answers as the real
+  message did. Such a null reproduces a median 76% [68, 89] of the
+  oracle's gain over the receiver alone (85% stratified by whether the
+  receiver was right), so oracle headroom over two paths is weak evidence
+  that the second path carries anything. Skipping is gated on the
+  receiver's own confidence, with a threshold certified by an exact
+  binomial test so that at most 5% of skipped answers change; in a
+  prospective test a verifier is skipped on 39.9% of 2,000 sealed
+  questions keeping 12.55 of its 12.80 points. No multi-hop QA or
+  retrieval. For Stage 6b: point 2 of the traces reads "final-or-last
+  would be 0.592" and the 17 Nov read counts 24 of 136 where a lookup's
+  answer equals the gold; both are oracle headroom of exactly this kind,
+  and B1/B5 not being kept is what the paper would predict if much of it
+  is answer volatility. Before a further arm is built on that headroom
+  (the 5 bridge and 4 comparison questions), the matching null is a
+  count I can take without a model: final-or-X where X is the lookup
+  answer of another question of the same shape, against final-or-last.
+  The same applies to reading B2/B4's wins as the second read's content
+  rather than a second draw. Cite in the agent section beside
+  2611.21651.
+- 2026, Evidence-Based Credit Assignment for Search-Augmented Language
+  Models (arXiv 2611.23824). Search-R1-style GRPO with an extra
+  training-only reward: the length-normalized log-likelihood of the
+  shortest gold alias under a frozen copy of the policy, given only the
+  question and the deduplicated documents retrieved so far (no thoughts,
+  no queries). E5-base-v2 over Wikipedia 2018, top-3 per search,
+  Qwen2.5-7B-Instruct: EM over outcome-only GRPO on HotpotQA 38.96 ->
+  43.05, 2Wiki 36.74 -> 39.35, MuSiQue 13.49 -> 16.88, Bamboogle 32.00
+  -> 40.00. The authors call the single alias "an imperfect proxy" and
+  do not report how the score relates to final correctness. Nothing
+  here is trained, so the method does not transfer; two things do. The
+  numbers are a published 7B trained search agent on our three sets
+  (open Wikipedia, so not the same task as our pools) to set beside the
+  4 Nov agent in the agent section. And the evidence-only score is a
+  graded form of the exact string test behind "dropped" and "read",
+  which the 17 Nov read showed undercounts (about 26 of 71 the gold
+  under another form): scored on a lookup's shown list against its kept
+  notebook, it would say how much answer support a keep step throws
+  away without hand reading. It would be read by the same 7B, so it
+  measures support for this reader, not sufficiency.
+
 ## 2026-11-18
 
 New and cross listings read (cs.IR 20, cs.CL 102, cs.AI 259 entries,
