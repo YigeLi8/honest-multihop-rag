@@ -7,6 +7,10 @@
 #   scripts/run_all.sh --only analyses,plots
 #   scripts/run_all.sh --smoke [...]      a few questions per stage, written to a
 #                                         scratch results dir, never to results/
+#   scripts/run_all.sh --dry-run [...]    print each python step (stage, kind, command),
+#                                         run nothing
+#   scripts/run_all.sh --record FILE [...] run, and append to FILE every file each
+#                                         python step wrote (scripts/manifest.py reads it)
 #
 # Stages, in order. [model] stages generate with the local model (MLX, Metal)
 # and write results/<run>_{qa.csv,trace.jsonl,per_hop.json,2x2.png,...}; the
@@ -34,6 +38,8 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 SMOKE=0
+DRY=0
+RECORD=""
 WANT_MODEL=1
 WANT_CPU=1
 ONLY=""
@@ -43,17 +49,39 @@ while [ $# -gt 0 ]; do
     --no-model) WANT_MODEL=0 ;;
     --model-only) WANT_CPU=0 ;;
     --only) ONLY="$2"; shift ;;
-    -h|--help) sed -n '2,32p' "$0"; exit 0 ;;
+    --dry-run) DRY=1 ;;
+    --record) RECORD="$2"; shift ;;
+    -h|--help) sed -n '2,36p' "$0"; exit 0 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
   shift
 done
 
-PY=${PY:-python}
+PYBIN=${PY:-python}
+CUR_STAGE=""; CUR_KIND=""
+# Every python step goes through py(). --dry-run prints it; --record runs it and
+# appends one line per file it wrote under results/ (or the smoke copy), data/
+# processed or the folds: stage, kind, the command, the file (tab-separated).
+py() {
+  if [ "$DRY" = 1 ]; then
+    printf '%s\t%s\t%s\t-\n' "$CUR_STAGE" "$CUR_KIND" "python $*"; return 0
+  fi
+  if [ -z "$RECORD" ]; then "$PYBIN" "$@"; return; fi
+  local stamp; stamp=$(mktemp "${TMPDIR:-/tmp}/run_all_stamp.XXXXXX")
+  sleep 1   # mtime granularity
+  "$PYBIN" "$@"
+  local f rel
+  while IFS= read -r f; do
+    rel=${f#"$RES"/}; [ "$rel" != "$f" ] && f="results/$rel"
+    printf '%s\t%s\t%s\t%s\n' "$CUR_STAGE" "$CUR_KIND" "python $*" "$f" >> "$RECORD"
+  done < <(find "$RES" data/processed -type f -newer "$stamp" ! -name 'smoke_*' 2>/dev/null | sort)
+  rm -f "$stamp"
+}
+PY=py
 export PYTHONPATH=.${PYTHONPATH:+:$PYTHONPATH}   # scripts/*.py import src
 SMOKE_N=${SMOKE_N:-5}
 RES=results
-if [ "$SMOKE" = 1 ]; then
+if [ "$SMOKE" = 1 ] && [ "$DRY" = 0 ]; then
   RES=$(mktemp -d "${TMPDIR:-/tmp}/run_all_smoke.XXXXXX")
   # analyses read and write the same dir: give them a copy, never the originals
   cp -R results/. "$RES/"
@@ -61,6 +89,7 @@ if [ "$SMOKE" = 1 ]; then
 fi
 HAVE_2WIKI=0
 [ -f data/processed/2wiki_dev.jsonl ] && HAVE_2WIKI=1
+[ "$DRY" = 1 ] && HAVE_2WIKI=1   # list the 2wiki steps too
 HOTPOT=data/processed/hotpotqa_dev.jsonl
 HOTPOT_TRAIN=data/processed/hotpotqa_train.jsonl
 MUSIQUE=data/processed/musique_dev.jsonl
@@ -72,6 +101,8 @@ stage() {  # stage NAME KIND(model|cpu): should this stage run?
   if [ -n "$ONLY" ] && [[ ",$ONLY," != *",$name,"* ]]; then return 1; fi
   if [ "$kind" = model ] && [ "$WANT_MODEL" = 0 ]; then return 1; fi
   if [ "$kind" = cpu ] && [ "$WANT_CPU" = 0 ]; then return 1; fi
+  CUR_STAGE=$name; CUR_KIND=$kind
+  [ "$DRY" = 1 ] && return 0
   echo; echo "=== $name ($kind)"
 }
 
@@ -120,7 +151,7 @@ if stage data cpu; then
   # the folds are committed; these rewrite them and must leave results/folds unchanged
   $PY -m data.folds
   $PY -m data.folds --train-hard
-  git diff --exit-code --stat -- results/folds || { echo "folds differ from the committed ones" >&2; exit 1; }
+  [ "$DRY" = 1 ] || git diff --exit-code --stat -- results/folds || { echo "folds differ from the committed ones" >&2; exit 1; }
 fi
 
 # ---------------------------------------------------------------- retrieval
@@ -383,4 +414,4 @@ if stage plots cpu; then
   $PY scripts/plots.py --results "$RES"
 fi
 
-echo; echo "done (results in $RES)"
+[ "$DRY" = 1 ] || { echo; echo "done (results in $RES)"; }

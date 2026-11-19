@@ -2,6 +2,8 @@
 
 Run from the repo root: python -m tests.test_basic (or pytest).
 """
+from pathlib import Path
+
 from data.prepare_hotpotqa import build_record
 from src.eval.gold_mapping import map_facts
 from src.retrieval.hybrid import HybridRetriever, minmax
@@ -468,6 +470,47 @@ def test_intervention_contexts():
     assert set(by_bucket.bm25_bucket) == {"shortcut", "(wrong)"}
 
 
+def test_manifest():
+    """run_all.sh --dry-run/--record lines -> one row per (file, command)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "manifest", Path(__file__).resolve().parent.parent / "scripts" / "manifest.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    T = "\t"
+    dry = m.parse_lines([
+        "2wiki: no data/raw/2wiki, skipped",
+        f"qa{T}model{T}python -m src.eval.run_qa --config configs/bm25.yaml --ids results/folds/hotpot_explore.txt --name bm25_hotpot_dev{T}-",
+        f"analyses{T}cpu{T}python -m src.eval.agent_losses --results results --out x{T}-",
+        f"plots{T}cpu{T}python scripts/plots.py --results results{T}-",
+    ])
+    assert len(dry) == 3 and dry[0][3] is None
+    rec = m.parse_lines([
+        f"analyses{T}cpu{T}python -m src.eval.agent_losses --results results --out x{T}results/x_losses.csv",
+        f"analyses{T}cpu{T}python -m src.eval.agent_losses --results results --out x{T}results/x_paired.csv",
+        f"plots{T}cpu{T}python scripts/plots.py --results results{T}results/bm25_hotpot_dev_2x2.png",
+        f"plots{T}cpu{T}python scripts/plots.py --results results{T}results/scratch_not_committed.png",
+    ])
+    committed = {"results/bm25_hotpot_dev_qa.csv", "results/bm25_hotpot_dev_trace.jsonl",
+                 "results/bm25_hotpot_dev_2x2.png", "results/x_losses.csv",
+                 "results/x_paired.csv", "results/orphan.csv"}
+    rows = m.build(dry, rec, committed)
+    by_file = {}
+    for r in rows:
+        by_file.setdefault(r["file"], []).append(r)
+    assert set(by_file) == committed                         # every committed file, nothing else
+    png = by_file["results/bm25_hotpot_dev_2x2.png"]
+    assert [r["stage"] for r in png] == ["qa", "plots"]      # in stage order
+    assert png[0]["how"] == "by name" and png[1]["how"] == "observed"
+    qa = by_file["results/bm25_hotpot_dev_qa.csv"][0]
+    assert qa["config"] == "configs/bm25.yaml" and qa["ids"] == "results/folds/hotpot_explore.txt"
+    assert by_file["results/x_paired.csv"][0]["how"] == "observed"
+    assert by_file["results/orphan.csv"][0]["how"] == "not in run_all.sh"
+    assert m.by_name("python -m src.eval.interventions summarize --name y", {"results/y_qa.csv"}) == []
+    assert m.by_name("python -m src.eval.interventions run --config c --name y",
+                     {"results/y_qa.csv", "results/y_2x2.png"}) == ["results/y_qa.csv"]
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
@@ -489,4 +532,5 @@ if __name__ == "__main__":
     test_paired_stats()
     test_illusion_buckets()
     test_intervention_contexts()
+    test_manifest()
     print("all good")

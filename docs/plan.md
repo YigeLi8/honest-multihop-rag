@@ -2586,3 +2586,25 @@ of about 9 questions on 500 is under what one fold resolves.
         (backfill of the 1500 hotpot and 2417 musique arms logs, then the
         Stage 1b-5 tables) is not run yet, and the twin and _mac tables are
         not in the script.
+      19 Nov, pins and a manifest (`docs/pins.md`, `requirements-linux-cpu.txt`,
+      `scripts/manifest.py` into `results/manifest.csv`, `test_manifest`).
+      `run_all.sh --dry-run` lists every python step with its stage, and
+      `--record FILE` logs each file a step wrote. The data, retrieval,
+      analyses and plots stages ran recorded here (13 minutes): the folds
+      and the 72 analysis tables came out byte-identical again, the plots in
+      bytes only. The two bm25 retrieval tables did not: 16 of 7405 hotpot
+      rows and 1 of 2417 musique rows change, the same rows with bm25s
+      0.3.10 (the pin) and 0.3.16, so it is the platform and not the
+      version; they stay the Mac's. The manifest has the 504 committed
+      results files: 188 rows observed being written here, 344 credited by
+      name to commands not run here (304 model rows from the dry run, 40
+      for the 2wiki and memory steps), and 74 files that no command in
+      run_all.sh writes: the 2wiki memory tables, the _mac, replay, twin,
+      dense-lookalike and noqtype memory variants, `arms_foldsplit/`, the
+      serving sweep and its two corners, `folds/hotpot_train_mem.txt` and
+      the 2wiki folds. Pinned here: the linux environment, the three model
+      ids with the hub's current revisions (none changed on the hub since
+      2024), the sha256 of the raw and processed data. To fill on the Mac:
+      its `pip freeze`, the model revisions in its hf cache, the 2wiki zip's
+      hash (commands in `docs/pins.md`); then `--model-only --record` would
+      turn the by-name rows into observed ones.
