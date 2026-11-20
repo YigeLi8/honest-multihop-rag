@@ -2869,3 +2869,13 @@ no target by these counts.
       its `pip freeze`, the model revisions in its hf cache, the 2wiki zip's
       hash (commands in `docs/pins.md`); then `--model-only --record` would
       turn the by-name rows into observed ones.
+      20 Nov, `notebooks/demo.ipynb`, committed executed (python 3.12,
+      linux): reads committed results only. The 2x2 of the four
+      hotpot confirmation runs recomputed from their `_qa.csv` and asserted
+      equal to `hotpot_confirm_decomposition.csv`'s cell, with Wilson
+      intervals; the decomposition of the cell for the hotpot, musique and
+      2wiki confirmation tables; per-hop precision and recall of hybrid
+      ircot on hotpot and musique confirm (2wiki has no ircot run on its
+      confirmation fold, only bm25 k=10 and k=13); the round 4 agent's
+      losses on explore and train_hard and today's never-retrieved split,
+      both marked exploration only. Next: `docs/readme_draft.md`.
