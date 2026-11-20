@@ -3,6 +3,66 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-20
+
+New and cross listings read (cs.IR 21, cs.CL 96, cs.AI 252 entries,
+replacements not read; 313 distinct ids, none already logged); every
+title screened, 18 abstracts read, four bodies.
+
+- 2026, FinVeriQA: Financial Research Agents for Question Answering:
+  Routing, Retrieval, MCP Tool Use, and Provenance-Aware Evidence
+  Verification (arXiv 2611.25071). A multi-agent finance QA prototype
+  with Mistral-7B as the writer and a validator that checks cited ids
+  and figures against the notes the answer was written from. With one
+  figure corrupted in the shared evidence, self-consistency agreement
+  stays at 0.55-0.59 while accuracy falls from 0.50 to 0.00; a check
+  against the shared evidence flags 35% [0.23, 0.47] of Mistral-7B's
+  corrupted answers, a check against the original passage 77% [0.65,
+  0.87] (DeepSeek-R1-8B: 68% against 90%). The second check reads the
+  uncorrupted source, so it is an upper bound. For B6: its test asks
+  whether the answer string is in the sentences it was read from, which
+  is a check against the shared evidence in their sense. A chain that
+  went to the wrong entity at its first lookup hands the final read
+  sentences about that entity, and a wrong answer read from them passes
+  the test. The count to take from the traces: among the wrong answers
+  B6 left alone (string in the context), how many were read from a
+  notebook built on an off-path lookup (`first_break` off_path). Cite
+  beside the guard results; it is not finance-specific in what matters
+  here.
+- 2026, How Much Should an Agent Remember? Deployment Lessons from
+  Self-Distilled Memory for LLM Agents (arXiv 2611.26361). Lessons
+  mined from an agent's own trajectories are merged into guidelines with
+  support counts and put into the prompt, on AppWorld. What memory buys
+  depends on the model: DeepSeek-V3.2 79.8 -> 89.3 with all 191
+  guidelines; gpt-oss-120b 39.9 -> 51.2 with all, 55.4 with about 29
+  selected; GLM-5 flat at 87.5; Gemma-4-31B "too weak to apply memory".
+  Two identical gpt-oss runs scored 56.0 and 54.8, about 32 of 168 tasks
+  flip between identical runs, a high-support guideline was wrong and
+  caused a regression, and an early null came from a write-path bug that
+  kept the store at its seed. Against ACE most of the headline gap was
+  scaffold. The closest published account to the five closed memory
+  gates, and it reads a null on one 7B model as expected rather than odd.
+  For the write-up of the gates: say per gate that the store grew and was
+  read (store size, how often a lesson was injected), and put the
+  run-to-run noise beside each difference. On this branch the runs
+  repeat exactly (Stage 6b), so the noise there is selection noise over
+  questions, not sampling; that should be said, since their flip count
+  does not transfer. Cite in the negative results.
+- 2026, Forget Freely, Grep Later: Lossless, Index-Free Memory for
+  Long-Horizon LLM Agents (arXiv 2611.25123). Qwen3.5-9B trained with RL
+  under five context strategies; keeping an append-only plain-text log
+  of the whole history with a grep tool beside a lossy summary reaches
+  95-97% on ContextBench against at most 21% for summarization or
+  observation masking, +8.8 points over summarization on BCP-Multi, and
+  0.9 on AMA-Bench after RL, where the summary keeps what the questions
+  need. The keep step is such a lossy summary, and dropped answers are
+  the case where the log should matter. B4 (the guard's wide second read)
+  and B9 (thin notebooks read everything retrieved) already hand the
+  final read what was not kept, conditionally, and won 17 and 5 questions
+  on 1000; the paper's own result (the gap closes when the summary keeps
+  what is needed) is the same shape as A2, where reading everything on
+  every question cost 0.032. Cite with the dropped-answer counts.
+
 ## 2026-11-19
 
 New and cross listings read (cs.IR 13, cs.CL 72, cs.AI 230 entries,
