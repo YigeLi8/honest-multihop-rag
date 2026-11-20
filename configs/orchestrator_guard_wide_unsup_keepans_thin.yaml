@@ -1,0 +1,19 @@
+# orchestrator_guard_wide_unsup.yaml (the round 3 agent) with both round 4
+# changes: B8's answer sentence added to the notebook and B9's fallback for a
+# notebook of one kept sentence (docs/plan.md, Stage 6b, round 4)
+run:
+  name: orchestrator_guard_wide_unsup_keepans_thin_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+  guard_context: wide
+  guard_unsupported: true
+  keep_answer_sentence: true
+  final_min_notebook: 2
+generation:
+  backend: mlx

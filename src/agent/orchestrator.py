@@ -34,12 +34,16 @@ order, that holds the answer string joins the notebook after the lookup's
 kept ones (the step's "added"). The keep step and the lookup's answer are as
 before; only what the final read is handed changes, and never narrows: when
 no keep step kept anything, the final read still reads everything retrieved.
+A sentence it added stays counted as added when a later keep step keeps it
+as well, so a notebook whose only kept sentences it had added first is read
+as an empty one is (as run in round 4).
 
 pipeline.final_min_notebook (default 1): the final read falls back to
 everything retrieved when the keep steps kept fewer sentences than this. At 1
 that is an empty notebook only, as before; at 2 a notebook of one kept
 sentence is read followed by everything else retrieved, and stop_reason says
-"+thin".
+"+thin". Sentences keep_answer_sentence added do not count toward it, and
+are read with the notebook, before the rest.
 
 The memory hook is the same as the agent's: `pipe.lessons.lessons(step)`,
 where step["role"] says who is asking ("planner" or "subagent"), so lessons

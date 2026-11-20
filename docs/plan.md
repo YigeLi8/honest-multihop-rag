@@ -2295,18 +2295,18 @@ notebook`). Both change only what the final read is handed: the keep
 steps, the lookups and their answers are as in the round 3 agent, so
 neither adds a call.
 
-- [ ] B8 `pipeline.keep_answer_sentence`: when a lookup's answer (yes and
+- [x] B8 `pipeline.keep_answer_sentence`: when a lookup's answer (yes and
       no aside) is in no sentence of the notebook so far, the first
       sentence its own searches retrieved, in retrieval order, that holds
       the answer string joins the notebook after the lookup's kept ones.
       When no keep step kept anything the final read still reads
       everything retrieved, as before (the smoke found the first version
-      narrowing that read to the one added sentence).
-- [ ] B9 `pipeline.final_min_notebook: 2`: the final read falls back to
+      narrowing that read to the one added sentence). Kept (results below)
+- [x] B9 `pipeline.final_min_notebook: 2`: the final read falls back to
       everything retrieved when the keep steps kept fewer than two
       sentences, as it already does when they kept none; the kept sentence
       is read first. Its trace says "+thin", and `agent_losses` counts what
-      such a read was given as read.
+      such a read was given as read. Kept (results below)
 
 Runs (`.local_notes/queue20.sh`, about 2.5 hours) against the round 3
 agent (`orchestrator_guard_wide_unsup`), whose runs are the control:
@@ -2351,6 +2351,71 @@ What would count, written before the runs:
   as written above. B9 fired on 7 and changed no answer, saving one second
   read.
 
+Round 4 results (Mac, 19 Nov at f55b232, 20:05 to 22:33,
+`results/agent_dev4_hotpot_*`), each arm paired against the round 3 agent
+(0.570 explore, 0.526 train_hard, 0.548 pooled):
+
+| arm        | explore        | train_hard     | pooled d EM [95% CI]    | lost/won | p (Holm)      | d F1   | d contain | calls       |
+|------------|----------------|----------------|-------------------------|----------|---------------|--------|-----------|-------------|
+| B8 keepans | 0.574 (+0.004) | 0.534 (+0.008) | +0.006 [+0.000, +0.012] | 2/8      | 0.109 (0.125) | +0.001 | +0.006    | 7.80 / 7.83 |
+| B9 thin    | 0.572 (+0.002) | 0.534 (+0.008) | +0.005 [+0.001, +0.010] | 0/5      | 0.062 (0.125) | +0.003 | +0.004    | 7.82 / 7.83 |
+
+Both are kept by the rule (pooled EM above zero, F1 and containment not
+falling, no fold below -0.01). Neither is significant alone (Holm 0.125
+for both); at n=1000 the rule reads direction, as it did for B4.
+
+- The keep steps and the lookup answers are round 3's on all 1000
+  questions in both arms, as designed; only the final read moved.
+- B8 added a sentence on 77 and 60 questions and changed the final read
+  on 63 and 54 (21 and 18 right in round 3); on the other 14 and 6 the
+  read was everything retrieved either way. Of its 8 wins, the added
+  sentence holds the gold on 4 (Darkroom, Norman Foster and .44 caliber
+  Bulldog revolver were dropped and are now read; Dorothy and the Wizard
+  in Oz was read already), 3 are the gold's longer form after a changed
+  context (William Jefferson Clinton, Sun Valley, Idaho, much less
+  common), and 1 is a comparison (Sierra Nevada National Park). So 3 of
+  the 12 dropped answers whose added sentence held the gold were won.
+  Both losses are the guard's second read no longer running: the added
+  sentence made a wrong first reply look supported ("2" for 33 Senate
+  seats; "Nothing" for the first two cymbal notes, where round 3's first
+  reply "No" had gone to the second read). The guard's final second read
+  ran on 72 and 79 questions against 83 and 92, one call fewer each.
+- B9 fired on 27 and 44 questions (4 and 18 right in round 3), as counted
+  before the run. Its 5 wins are dropped answers now read: 1 on explore
+  (137th) and 4 on train_hard (la Manche, and three comparisons: Sierra
+  Nevada National Park, Humbug, Hot Rod). It lost nothing, so none of
+  train_hard's 18 right one-sentence answers turned into another entity.
+  The fold was guessed wrong: the gain is on train_hard, not on explore,
+  where 12 of the 27 were dropped and 1 was won. Most of what it moved
+  out of dropped stays wrong with the string read: dropped 48 -> 36 and
+  57 -> 41, read with another answer 136 -> 147 and 151 -> 163.
+- As run, B8 counts a sentence it added as added when a later lookup keeps
+  it as well. On 2 explore questions that was the only kept sentence, so
+  the read was everything retrieved rather than that sentence (wrong
+  either way: "He" -> "Semyon Aronovich Gershgorin", "Walt Disney"
+  twice). The docstring and the test now say so. It is left as run, so
+  the agent frozen is the one measured.
+- Next by the rule: both on (`configs/orchestrator_guard_wide_unsup_
+  keepans_thin.yaml`, `.local_notes/queue21.sh`, about 75 minutes) on both
+  folds, against B8, the better one alone (0.554 pooled against B9's
+  0.553, one question). Both is taken only if its pooled EM is above
+  0.554 with neither F1 nor containment falling against B8; otherwise the
+  agent is round 3 with B8. B8's sentences do not count toward B9's two,
+  and are read with the notebook before the rest.
+- Expected, counted on the runs above before this one: on the 977
+  questions where the two do not overlap (the 2 above go with B8), both
+  has to repeat the run of the arm that fires, 549 right. The other 23
+  (12 on explore, all wrong in round 3; 11 on train_hard) are open: 6
+  right in round 3, 8 under B8, 8 under B9. Both is above B8 if 6 or more
+  of the 23 are right, so it fails only if the overlap does worse than
+  round 3 did; 0.555 to 0.557 if it does as round 3 or either arm did.
+- Smoke, 12 explore questions (6 where both fire, 3 B8 only, 3 B9 only):
+  the keep steps and lookups are round 3's on all 12, and the 6 where one
+  fires repeat that arm's run (answer, calls, notebook). The 6 where both
+  fire stay wrong, one with an answer neither arm gave ("nominated" for
+  "multiple awards", where round 3's reply held the gold string and
+  neither arm's did).
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
@@ -2367,7 +2432,8 @@ changes a day, each written here with its control before it runs):
       keep step, "From the traces" below): a lookup whose answer is not
       an answer ("no", "the context does not say") still fills the next
       lookup; a subagent that kept nothing hands the final read nothing.
-      Round 4 (19 Nov, B8 and B9) above
+      Round 4 (19 Nov, B8 and B9) above: both kept, 41 dropped on explore
+      under B8 and 36 under B9; both together run next
 - [ ] the plan: the cap of 3 cutting the last lookup off, lookups that
       restate the question
 - [ ] never retrieved (26, all bridge; 28 after round 3): what the second

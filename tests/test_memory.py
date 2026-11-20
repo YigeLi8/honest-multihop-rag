@@ -3346,6 +3346,24 @@ def test_keep_answer_sentence_and_thin_notebook():
     res, _ = run(q, chain, final_min_notebook=2)
     assert res.notebook == ["Film::0", "Ann Lee::0"] and res.stop_reason == "subs=2"
 
+    # both: B8's sentences do not count toward B9's two. One kept sentence and two
+    # added ones are read in notebook order, then the rest; B8 alone reads the notebook
+    res, prompts = run(q, chain, keep="none", keep_answer_sentence=True, final_min_notebook=2)
+    assert [s.get("added") for s in res.steps if "sub_answer" in s] == [["Film::0"], ["Ann Lee::1"]]
+    assert res.notebook == ["Film::0", "Ann Lee::0", "Ann Lee::1"] and res.stop_reason == "subs=2+thin"
+    assert context(reads(prompts)[-1]) == ("- Night Orchard is a film directed by Ann Lee.\n- Ann Lee is a "
+                                           "director.\n-  She was born in Paris.\n-  It was shot in Rome.")
+    res, _ = run(q, chain, keep="none", keep_answer_sentence=True)
+    assert res.notebook == ["Film::0", "Ann Lee::0", "Ann Lee::1"] and res.stop_reason == "subs=2"
+    # as run in round 4: a sentence B8 added that a later keep step keeps stays added,
+    # so a notebook of only that sentence is read as an empty one is
+    films = "1. Who directed Night Orchard?\n2. What film did #1 direct?"
+    res, _ = run(q, films, keep="none")
+    assert res.notebook == ["Film::0"] and res.stop_reason == "subs=2"
+    res, _ = run(q, films, keep="none", keep_answer_sentence=True)
+    assert [s.get("kept") for s in res.steps if "sub_answer" in s] == [[], ["Film::0"]]
+    assert res.notebook == ["Film::0"] and res.stop_reason == "subs=2+fallback"
+
 
 if __name__ == "__main__":
     test_feature_schema()
