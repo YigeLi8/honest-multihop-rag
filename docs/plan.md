@@ -1643,7 +1643,8 @@ credited to the memory. The agents are the one thing on this branch that
 moved answers (the main agent over subagents is +0.054 EM over ircot on
 exploration, p 0.004, not confirmed; against the ircot chosen below for
 the confirmation, whose answer read shows paragraph titles, the round 3
-agent is +0.021 [-0.006, +0.049] over both folds), and nothing has been
+agent is +0.021 [-0.006, +0.049] over both folds and the round 4 agent
++0.029 [+0.001, +0.056], on the folds their changes were chosen on), and nothing has been
 done to them since. This stage works on the agent directly: find where
 its answers are lost, change one thing at a time against a matched
 control, choose on the exploration fold, confirm once.
@@ -2416,6 +2417,49 @@ for both); at n=1000 the rule reads direction, as it did for B4.
   "multiple awards", where round 3's reply held the gold string and
   neither arm's did).
 
+Both on, results (Mac, 19 Nov at 420bdd5, 22:44 to 00:00,
+`results/agent_dev4_both_hotpot_*`):
+
+| run  | explore | train_hard | pooled | against B8, d EM [95% CI] | lost/won | p     | d F1   | d contain |
+|------|---------|------------|--------|---------------------------|----------|-------|--------|-----------|
+| B8   | 0.574   | 0.534      | 0.554  |                           |          |       |        |           |
+| both | 0.576   | 0.536      | 0.556  | +0.002 [-0.003, +0.007]   | 2/4      | 0.688 | +0.002 | +0.002    |
+
+Both is taken by the rule (pooled EM above 0.554, F1 and containment not
+falling against B8). It is a narrow choice: 4 won, 2 lost. Against the
+round 3 agent it is +0.008 [+0.000, +0.016], 4 lost / 12 won, p 0.077,
+F1 +0.003, containment +0.008, at the same calls (7.80 against 7.83).
+
+- The count before the run held on answers: the 977 questions outside the
+  overlap give 549 right, each with the answer of the arm that fires. It
+  missed 8 B8-only questions (7 explore, 1 train_hard) whose second kept
+  sentence B8 had added first. Counted as one kept sentence (the as-run
+  rule above), they read as thin under both, with the same answer on all
+  8 and one call fewer on 2.
+- The 23 overlap questions: 7 right (6 in round 3, 8 under B8, 8 under
+  B9). Both keeps B8's William Jefferson Clinton and B9's 137th on explore
+  and Sierra Nevada National Park on train_hard. It loses two that round 3
+  and both arms had right: Marco Restrepo (a comparison answered with the
+  other entity, Porno for Pyros) and 1170 kHz AM (cut to "1170 kHz").
+  Against B8 its wins are 137th and B9's three train_hard wins outside
+  the overlap (la Manche, Humbug, Hot Rod).
+- Dropped answers, against round 3: 48 -> 32 on explore, 57 -> 36 on
+  train_hard, most of them now read with another answer (136 -> 149,
+  151 -> 167). The guard's final second read ran on 68 and 74 questions
+  (83 and 92 in round 3).
+- The agent for the freeze is now `configs/orchestrator_guard_wide_unsup_
+  keepans_thin.yaml`: explore 0.576 / F1 0.685, train_hard 0.536 / F1
+  0.681, 7.8 calls. It is the control for the next round.
+- Against the confirmation's ircot (G+titles+B6), computed after the runs
+  (`results/agent_dev4_vs_ircot_hotpot_pooled_paired.csv`) on the two
+  folds the changes were chosen on, so optimistic and not a result:
+  +0.029 [+0.001, +0.056], 83 lost / 112 won, F1 +0.019, containment
+  +0.026, at 7.8 calls against 2.9; against G+B6 +0.058 [+0.033, +0.083].
+  At this margin (195 of 1000 discordant) a simulated exact McNemar on
+  1000 confirmation questions finds the agent ahead about 5 times in 10
+  (3 in 10 for the round 3 agent), and the selection on these folds makes
+  that an upper figure.
+
 Next, in the order the losses table gives after these runs (one or two
 changes a day, each written here with its control before it runs):
 
@@ -2432,8 +2476,10 @@ changes a day, each written here with its control before it runs):
       keep step, "From the traces" below): a lookup whose answer is not
       an answer ("no", "the context does not say") still fills the next
       lookup; a subagent that kept nothing hands the final read nothing.
-      Round 4 (19 Nov, B8 and B9) above: both kept, 41 dropped on explore
-      under B8 and 36 under B9; both together run next
+      Round 4 (19-20 Nov, B8 and B9) above: both kept and taken together;
+      dropped 48 -> 32 on explore and 57 -> 36 on train_hard, most of them
+      now read with another answer. The malformed lookup answers pasted
+      into the next lookup (12 and 13 questions) are untouched
 - [ ] the plan: the cap of 3 cutting the last lookup off, lookups that
       restate the question
 - [ ] never retrieved (26, all bridge; 28 after round 3): what the second
