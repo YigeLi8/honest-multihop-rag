@@ -87,11 +87,16 @@ def holds(text, answer):
 
 
 def place_of(trace, golds, texts):
-    """Where the gold answer string was for one question (one of PLACES)."""
+    """Where the gold answer string was for one question (one of PLACES). What
+    was read is the notebook, or everything retrieved when the final read fell
+    back to it ("+fallback" or, under pipeline.final_min_notebook, "+thin" in
+    the main agent's stop_reason; an empty notebook in any run)."""
     if all(normalize(g) in ("yes", "no") for g in golds):
         return "yesno_gold"
     retrieved = {c for h in trace["hops"] for c in h["retrieved"]}
-    read = set(trace.get("notebook") or retrieved)
+    stop = trace.get("stop_reason") or ""
+    wide = "+thin" in stop or "+fallback" in stop
+    read = retrieved if wide else set(trace.get("notebook") or retrieved)
 
     def among(ids):
         return any(holds(texts[c], g) for c in ids if c in texts for g in golds)

@@ -27,6 +27,20 @@ lookups and the final read never sees them. final_notes: chain gives them
 only when the plan is a chain (a planned lookup refers to an earlier one
 with #k); parallel lookups and one-lookup plans get none.
 
+pipeline.keep_answer_sentence (off by default; docs/plan.md, Stage 6b, round
+4): when a lookup's answer (yes and no aside) is in no sentence of the
+notebook so far, the first sentence its own searches retrieved, in retrieval
+order, that holds the answer string joins the notebook after the lookup's
+kept ones (the step's "added"). The keep step and the lookup's answer are as
+before; only what the final read is handed changes, and never narrows: when
+no keep step kept anything, the final read still reads everything retrieved.
+
+pipeline.final_min_notebook (default 1): the final read falls back to
+everything retrieved when the keep steps kept fewer sentences than this. At 1
+that is an empty notebook only, as before; at 2 a notebook of one kept
+sentence is read followed by everything else retrieved, and stop_reason says
+"+thin".
+
 The memory hook is the same as the agent's: `pipe.lessons.lessons(step)`,
 where step["role"] says who is asking ("planner" or "subagent"), so lessons
 can be kept per role.
@@ -78,6 +92,18 @@ def fill_refs(sub, answers):
     return _REF.sub(rep, sub)
 
 
+def answer_sentence(answer, retrieved, notebook):
+    """pipeline.keep_answer_sentence: the first of a lookup's retrieved
+    sentences ({chunk_id: hit}, in retrieval order) that holds its answer
+    string, when no sentence of the notebook so far does; None otherwise, and
+    for yes or no."""
+    from src.pipeline.multihop import in_context, is_yesno
+    if is_yesno(answer) or any(in_context(answer, h.chunk.text) for h in notebook.values()):
+        return None
+    return next((h for cid, h in retrieved.items()
+                 if cid not in notebook and in_context(answer, h.chunk.text)), None)
+
+
 def run_orchestrated(pipe, ex):
     """Returns (traces, answer, (ntok, tps, peak)); sets pipe.stop_reason,
     pipe.notebook and pipe.steps (one plan step, then the subagents' steps,
@@ -85,6 +111,7 @@ def run_orchestrated(pipe, ex):
     cfg = pipe.cfg.pipeline
     cap = getattr(cfg, "max_subquestions", 3)
     sub_hops = getattr(cfg, "sub_max_hops", 2)
+    keep_answer = getattr(cfg, "keep_answer_sentence", False)
     usage = Usage()
     traces, steps, seen = [], [], {}
 
@@ -105,7 +132,7 @@ def run_orchestrated(pipe, ex):
     plan_step.update(lessons=lessons, reply=text, plan=subs, plan_fallback=plan_fallback)
     steps.append(plan_step)
 
-    notebook, answers, stops, lookups = {}, [], [], []
+    notebook, answers, stops, lookups, added_ids = {}, [], [], [], set()
     for k, sub in enumerate(subs):
         asked = fill_refs(sub, answers)
         start = len(traces)
@@ -117,23 +144,33 @@ def run_orchestrated(pipe, ex):
         own = list(kept.values()) or list(retrieved.values())
         extra = [h for cid, h in retrieved.items() if cid not in kept] if kept else []
         sub_answer = answer_from(pipe, asked, own, usage, where=f"sub{k}", extra=extra)
+        added = answer_sentence(sub_answer, retrieved, notebook) if keep_answer else None
+        if added is not None:
+            notebook[added.chunk.chunk_id] = added
+            added_ids.add(added.chunk.chunk_id)
         answers.append(sub_answer)
         lookups.append((asked, sub_answer))
         stops.append(stop + ("" if kept else "+fallback"))
-        steps.append({"role": "subagent", "sub": k, "sub_question": asked, "planned": sub,
-                      "sub_answer": sub_answer, "kept": list(kept), "stop": stops[-1]})
+        step = {"role": "subagent", "sub": k, "sub_question": asked, "planned": sub,
+                "sub_answer": sub_answer, "kept": list(kept), "stop": stops[-1]}
+        if added is not None:
+            step["added"] = [added.chunk.chunk_id]
+        steps.append(step)
 
-    ctx_hits = list(notebook.values())
-    fallback = not ctx_hits
-    if fallback:
-        ctx_hits = list(seen.values())
+    kept_n = len(notebook) - len(added_ids)
+    rest = [h for cid, h in seen.items() if cid not in notebook]
+    if not kept_n:                  # nothing kept: everything, in the order retrieved
+        fallback, ctx_hits = "+fallback", list(seen.values())
+    elif kept_n < getattr(cfg, "final_min_notebook", 1):
+        fallback, ctx_hits = "+thin", list(notebook.values()) + rest
+    else:
+        fallback, ctx_hits = "", list(notebook.values())
     final_notes = getattr(cfg, "final_notes", False)
     chain = any(_REF.search(sub) for sub in subs)
     notes = lookups if final_notes is True or (final_notes == "chain" and chain) else None
-    extra = [h for cid, h in seen.items() if cid not in notebook] if notebook else []
+    extra = [] if fallback else rest
     answer = answer_from(pipe, ex.question, ctx_hits, usage, notes=notes, extra=extra)
-    pipe.stop_reason = (f"subs={len(subs)}" + ("+plan_fallback" if plan_fallback else "")
-                        + ("+fallback" if fallback else ""))
+    pipe.stop_reason = f"subs={len(subs)}" + ("+plan_fallback" if plan_fallback else "") + fallback
     pipe.notebook = list(notebook)
     pipe.steps = steps
     return traces, answer, usage.stats()

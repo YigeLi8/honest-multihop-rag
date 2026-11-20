@@ -1,0 +1,18 @@
+# orchestrator_guard_wide_unsup.yaml (the round 3 agent) with the sentence a
+# lookup's answer was read from added to the notebook when the notebook does
+# not hold that answer yet (docs/plan.md, Stage 6b, round 4, B8)
+run:
+  name: orchestrator_guard_wide_unsup_keepans_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+  guard_context: wide
+  guard_unsupported: true
+  keep_answer_sentence: true
+generation:
+  backend: mlx

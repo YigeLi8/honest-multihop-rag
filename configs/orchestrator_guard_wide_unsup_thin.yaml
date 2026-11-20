@@ -1,0 +1,18 @@
+# orchestrator_guard_wide_unsup.yaml (the round 3 agent) with the final read
+# falling back to everything retrieved when the notebook holds one sentence,
+# as it already does when it holds none (docs/plan.md, Stage 6b, round 4, B9)
+run:
+  name: orchestrator_guard_wide_unsup_thin_hotpot_explore
+retrieval:
+  method: hybrid
+  top_k: 10
+pipeline:
+  mode: orchestrator
+  max_subquestions: 3
+  sub_max_hops: 2
+  answer_guard: true
+  guard_context: wide
+  guard_unsupported: true
+  final_min_notebook: 2
+generation:
+  backend: mlx

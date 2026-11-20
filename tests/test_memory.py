@@ -3210,6 +3210,143 @@ def test_memory_v2_in_the_loop():
     assert res.gen_calls == 4
 
 
+def test_keep_answer_sentence_and_thin_notebook():
+    from src.agent.orchestrator import answer_sentence
+    from src.eval.agent_losses import place_of
+    from src.pipeline.multihop import MultiHopPipeline
+    from src.serving.runner_mlx import GenMetrics
+    from src.types import Chunk, Example, RetrievedChunk
+
+    texts = {"Film::0": "Night Orchard is a film directed by Ann Lee.", "Film::1": " It was shot in Rome.",
+             "Ann Lee::0": "Ann Lee is a director.", "Ann Lee::1": " She was born in Paris."}
+    pool = [Chunk(chunk_id=c, text=t, title=c.split("::")[0]) for c, t in texts.items()]
+    hit = {c.chunk_id: RetrievedChunk(chunk=c, score=1.0, rank=1) for c in pool}
+
+    # the first retrieved sentence that holds the answer, unless the notebook holds it already
+    got = {"Film::1": hit["Film::1"], "Film::0": hit["Film::0"]}
+    assert answer_sentence("Ann Lee", got, {}) is hit["Film::0"]
+    assert answer_sentence("Ann Lee", got, {"Ann Lee::0": hit["Ann Lee::0"]}) is None
+    assert answer_sentence("Rome", got, {"Film::1": hit["Film::1"]}) is None
+    assert answer_sentence("Bob Ray", got, {}) is None and answer_sentence("", got, {}) is None
+    no = RetrievedChunk(chunk=Chunk(chunk_id="x::0", text="No, it was not.", title="x"), score=1.0, rank=1)
+    assert answer_sentence("no", {"x::0": no}, {}) is None
+
+    # the place test reads everything retrieved as read after a thin fallback
+    trace = {"hops": [{"retrieved": ["Film::0", "Film::1"]}], "notebook": ["Film::1"], "stop_reason": "subs=1"}
+    assert place_of(trace, ["Ann Lee"], texts) == "dropped"
+    assert place_of(dict(trace, stop_reason="subs=1+thin"), ["Ann Lee"], texts) == "in_context"
+
+    class NS:
+        pass
+
+    def config(**flags):
+        cfg = NS(); cfg.pipeline = NS(); cfg.retrieval = NS()
+        cfg.pipeline.mode = "orchestrator"
+        cfg.pipeline.max_hops = 3
+        cfg.pipeline.max_subquestions = 3
+        cfg.pipeline.sub_max_hops = 2
+        cfg.retrieval.top_k = 2
+        for k, v in flags.items():
+            setattr(cfg.pipeline, k, v)
+        return cfg
+
+    class Retriever:
+        def index(self, chunks):
+            pass
+
+        def retrieve(self, query, k):
+            ids = ["Ann Lee::0", "Ann Lee::1"] if "born" in query else ["Film::0", "Film::1"]
+            return [RetrievedChunk(chunk=next(c for c in pool if c.chunk_id == i), score=1.0 / r,
+                                   rank=r) for r, i in enumerate(ids, 1)]
+
+    def metrics():
+        return GenMetrics(tokens_per_s=10.0, ttft_s=0, peak_memory_mb=1.0, completion_tokens=3)
+
+    def context(prompt):
+        return prompt.split("Context:\n")[1].split("\n\nQuestion:")[0]
+
+    class Gen:
+        """One search per lookup. The director's lookup keeps what `keep` says
+        (2: the sentence that names the director is shown and not kept);
+        every other search keeps its first. The first read of who directed
+        the film names someone no sentence does; the second read gets it."""
+        def __init__(self, keep, plan):
+            self.prompts, self.keep, self.plan = [], keep, plan
+
+        def generate(self, prompt, max_tokens=None):
+            self.prompts.append(prompt)
+            if "Break the question" in prompt:
+                return self.plan, metrics()
+            if "collecting evidence" in prompt:
+                keep = self.keep if 'Search results for "Who directed' in prompt else "1"
+                return f"KEEP: {keep}\nNEXT: ANSWER", metrics()
+            if "Question: Who directed Night Orchard?" in prompt:
+                return ("Ann Lee" if "not yes or no" in prompt else "Bob Ray"), metrics()
+            return "Paris", metrics()
+
+    def run(question, plan, keep="1", **flags):
+        p = MultiHopPipeline.__new__(MultiHopPipeline)
+        p.cfg, p.retriever, p.reranker = config(answer_guard=True, guard_context="wide",
+                                                guard_unsupported=True, **flags), Retriever(), None
+        p.generator = Gen(keep, plan)
+        ex = Example(id="q", question=question, answer="Paris", hops=2, chunks=pool,
+                     gold_chunk_ids=["Film::0", "Ann Lee::1"])
+        return p.run_example(ex), p.generator.prompts
+
+    def reads(prompts):
+        return [q for q in prompts if q.startswith("Answer the question using only the context")]
+
+    chain = "1. Who directed Night Orchard?\n2. Where was #1 born?"
+    q = "Where was the director of Night Orchard born?"
+    # off (the round 3 agent): the director's sentence is not kept, so the final read
+    # does not have Paris's or Ann Lee's sentence and goes to the second read
+    res, prompts = run(q, chain, keep="2")
+    assert res.notebook == ["Film::1", "Ann Lee::0"]
+    assert [g["where"] for g in res.guards] == ["sub0", "sub1", "final"] and res.gen_calls == 9
+    res2, prompts2 = run(q, chain, keep="2", keep_answer_sentence=False, final_min_notebook=1)
+    assert prompts2 == prompts and res2.answer == res.answer and res2.stop_reason == res.stop_reason
+
+    # B8: each lookup's answer brings the sentence it is in; the keep steps and the
+    # lookups' reads are as before, and the final read has its answer in the notebook
+    res, on = run(q, chain, keep="2", keep_answer_sentence=True)
+    assert res.notebook == ["Film::1", "Film::0", "Ann Lee::0", "Ann Lee::1"]
+    assert [s.get("added") for s in res.steps if "sub_answer" in s] == [["Film::0"], ["Ann Lee::1"]]
+    assert on[:-1] == prompts[:-2]
+    assert context(reads(on)[-1]) == ("-  It was shot in Rome.\n- Night Orchard is a film directed by Ann Lee."
+                                      "\n- Ann Lee is a director.\n-  She was born in Paris.")
+    assert [g["where"] for g in res.guards] == ["sub0", "sub1"] and res.answer == "Paris"
+    assert res.gen_calls == 8
+    # a lookup whose answer the notebook already holds adds nothing (the director's,
+    # kept this time); the birthplace's lookup still brings its sentence
+    res, _ = run(q, chain, keep_answer_sentence=True)
+    assert [s.get("added") for s in res.steps if "sub_answer" in s] == [None, ["Ann Lee::1"]]
+    # and never narrows: with nothing kept the final read still reads everything, in the
+    # order retrieved, though the notebook now names the added sentence
+    one = "1. Who directed Night Orchard?"
+    q1 = "Who directed Night Orchard?"
+    res, off = run(q1, one, keep="none")
+    assert res.notebook == [] and res.stop_reason == "subs=1+fallback"
+    res, on = run(q1, one, keep="none", keep_answer_sentence=True)
+    assert on == off and res.stop_reason == "subs=1+fallback" and res.notebook == ["Film::0"]
+    assert place_of({"hops": [{"retrieved": ["Film::0", "Film::1"]}], "notebook": res.notebook,
+                     "stop_reason": res.stop_reason}, ["Rome"], texts) == "in_context"
+
+    # B9: a notebook of one sentence is read followed by everything else retrieved,
+    # as an empty one already is; the guard's second read goes over the same lines
+    res, prompts = run(q1, one)
+    assert res.notebook == ["Film::0"] and res.stop_reason == "subs=1"
+    assert context(reads(prompts)[-2]) == "- Night Orchard is a film directed by Ann Lee."
+    res, thin = run(q1, one, final_min_notebook=2)
+    assert res.notebook == ["Film::0"] and res.stop_reason == "subs=1+thin"
+    wide = "- Night Orchard is a film directed by Ann Lee.\n-  It was shot in Rome."
+    assert context(reads(thin)[-2]) == wide and context(reads(thin)[-1]) == wide
+    assert res.guards[-1]["where"] == "final" and res.guards[-1]["wide"] == 0
+    assert thin[:-2] == prompts[:-2]
+    # two sentences are not thin
+    res, _ = run(q, chain, final_min_notebook=2)
+    assert res.notebook == ["Film::0", "Ann Lee::0"] and res.stop_reason == "subs=2"
+
+
 if __name__ == "__main__":
     test_feature_schema()
     test_feature_schema_is_pinned()
@@ -3249,6 +3386,7 @@ if __name__ == "__main__":
     test_answer_guard_and_final_notes()
     test_guard_wide_and_chain_notes()
     test_guard_unsupported_and_titles()
+    test_keep_answer_sentence_and_thin_notebook()
     test_agent_losses()
     test_agent_traces()
     test_agent_reads()
