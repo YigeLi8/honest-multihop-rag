@@ -2846,6 +2846,68 @@ def test_agent_reads():
     assert pos[("paragraphs", "2")]["n"] == 1
 
 
+def test_agent_misses():
+    from src.eval import agent_misses as am
+
+    assert am.names("Where was Bob Smith born?", "Bob Smith (actor)")
+    assert am.names("smith, bob", "Bob Smith") and not am.names("Bob Jones", "Bob Smith")
+    q = "Where was the director of Film X born?"
+    assert am.restates("Where was the director of the film Film X born?", q)
+    assert not am.restates("Who directed Film X?", q)
+    texts = {"A::0": "Ann directed Film X.", "B::0": "Bob was born in 1950.",
+             "B::1": "Bob grew up in Paris.", "C::0": "Carl was born in Paris.",
+             "D::0": "Nothing here."}
+    gold_titles = ["A", "B"]
+
+    def trace(retrieved, plan, subs=(), queries=None, question=q):
+        steps = [{"role": "planner", "question": question, "plan": plan, "reply": ""}]
+        steps += [{"role": "subagent", "sub": k, "sub_question": a, "planned": a,
+                   "sub_answer": ans, "kept": []} for k, (a, ans) in enumerate(subs)]
+        hops = [{"hop": j, "query": (queries or ["q"] * len(retrieved))[j], "retrieved": r}
+                for j, r in enumerate(retrieved)]
+        return {"id": "x", "hops": hops, "steps": steps, "notebook": []}
+
+    # the answer paragraph B was retrieved, not its Paris sentence; gold B wins over C
+    t = trace([["A::0", "B::0"]], ["Who directed Film X?", "Where was #1 born?"],
+              [("Who directed Film X?", "Ann"), ("Where was Ann born?", "Lyon")])
+    assert am.answer_paragraph(["Paris"], texts, gold_titles) == "B"
+    assert am.miss_kind(t, ["Paris"], texts, gold_titles) == ("para_partly", "B")
+    assert am.where_named(t, "B", q) == "never" and am.other_gold_seen(t, "B", gold_titles) == "all"
+    # nothing of B retrieved; B named only by a lookup's answer
+    t2 = trace([["A::0"]], ["Who directed Film X?"], [("Who directed Film X?", "B")])
+    assert am.miss_kind(t2, ["Paris"], texts, gold_titles) == ("para_unseen", "B")
+    assert am.where_named(t2, "B", q) == "answer_only"
+    t2["hops"][0]["query"] = "B birthplace"
+    assert am.where_named(t2, "B", q) == "query"
+    assert am.where_named(t2, "Ann", "Where is Ann?") == "question"
+    # the string is a retrieved paragraph's title; or in no pool sentence
+    assert am.miss_kind(t, ["Carl"], texts, gold_titles) == ("para_unseen", "C")
+    t3 = trace([["Carl (singer)::0"]], ["a?"])
+    assert am.miss_kind(t3, ["Carl"], {"Carl (singer)::0": "x"}, ["Carl (singer)"]) == ("title", None)
+    assert am.miss_kind(t, ["Oslo"], texts, gold_titles) == ("not_in_pool", None)
+    assert am.other_gold_seen(t2, "B", gold_titles) == "all"
+    assert am.other_gold_seen(t2, "B", ["B"]) == "n/a"
+
+    # the tables: q1 never retrieved (para_partly), q2 right with a restating plan
+    rows = {"q1": {"qtype": "bridge", "em": "0.0", "answer_pred": "Lyon"},
+            "q2": {"qtype": "bridge", "em": "1.0", "answer_pred": "Paris"}}
+    t2b = trace([["B::1"]], ["Where was the director of the film Film X born?"],
+                [("Where was the director of the film Film X born?", "Paris")])
+    t2b["notebook"] = ["B::1"]
+    never, restate = am.tables(rows, {"q1": t, "q2": t2b}, {i: (["Paris"], texts) for i in rows},
+                               {i: gold_titles for i in rows})
+    by = {r["miss"]: r for r in never}
+    assert by["para_partly"]["n"] == 1 and by["para_partly"]["named_never"] == 1
+    assert by["para_partly"]["other_gold_all"] == 1 and by["para_partly"]["answer_para_gold"] == 1
+    assert by["title"]["named_never"] == "" and by["all"]["n"] == 1
+    assert by["para_partly"]["sentence_not_first"] == 1 and by["para_partly"]["neighbour_retrieved"] == 1
+    assert by["para_partly"]["plan_chain"] == 1 and by["all"]["plan_chain"] == 1
+    assert am.answer_sentence(t2, ["Paris"], texts, "B") == (True, False)
+    r = {(x["shape"], x["restates"]): x for x in restate}
+    assert r[("one", 1)]["n"] == 1 and r[("one", 1)]["em"] == 1.0
+    assert r[("chain", 0)]["wrong_not_retrieved"] == 1 and r[("all", 0)]["n"] == 1
+
+
 def test_experience_memory():
     import tempfile
     from pathlib import Path
@@ -3408,6 +3470,7 @@ if __name__ == "__main__":
     test_agent_losses()
     test_agent_traces()
     test_agent_reads()
+    test_agent_misses()
     test_experience_memory()
     test_memory_in_the_loop()
     test_memory_v2()

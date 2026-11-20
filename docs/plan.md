@@ -2641,6 +2641,59 @@ them. Both are what B1's notes hand the final read, and B1 and B5 were
 not kept because the read then follows wrong lookups as well; a ceiling
 of about 9 questions on 500 is under what one fold resolves.
 
+20 Nov, the never retrieved and the plan, on the agent as it stands after
+round 4 (`orchestrator_guard_wide_unsup_keepans_thin_hotpot_explore`, EM
+0.576, 212 wrong, 28 of them with the gold string in no retrieved
+sentence). `python -m src.eval.agent_misses --run orchestrator_guard_wide_
+unsup_keepans_thin_hotpot_explore --out agent_misses_hotpot_explore`
+writes `results/agent_misses_hotpot_explore_{never,restate}.csv`
+(`test_agent_misses`). Paragraph titles are gold-derived and read here only
+to place.
+
+- What the 28 are (all bridge). 4 have the gold as a retrieved paragraph's
+  title (Compliance, "We'll Burn That Bridge", and two where the reply is
+  the title's longer form: Donald John Trump Jr., Sir Frank P. Lowy). None
+  is missing from the pool's sentences altogether. In the other 24 the
+  string sits in a gold paragraph, and 18 of those paragraphs were
+  retrieved, only not the sentence with the answer; 6 were not retrieved
+  at all. The other gold paragraph was retrieved in 23 of the 24.
+- The 18 partly retrieved: the answer sentence is not its paragraph's
+  first in 14 of 18, and a sentence next to it was retrieved in 15. Read
+  through, they are mostly sentences that do not name their subject ("She
+  served as Chief of Protocol", "It was written by Max Martin, ..."), so a
+  search naming the entity finds its first sentence and not the one that
+  answers. Where the paragraph's title was first named: in the question 4,
+  a lookup 1, a search query 2, a lookup's answer only 4, never 7. The 7
+  never named are mostly chains that went to another entity first
+  (Alonzo Mourning for Muggsy Bogues, Innerspace for Alien, Tariq Khan
+  for Farooq Sheikh, I-85 on the way to Wytheville).
+- The 6 never retrieved: named in no lookup or query in any of them, in a
+  lookup's answer only once (Darling River: the right bridge entity, a
+  one-lookup plan that answered after one search). 4 of the 6 are
+  one-lookup plans, and in Hibbing the parallel plan found the town and
+  had no lookup left to ask its county.
+- So the second search is not where these are lost. On 23 of 24 the
+  first hop's paragraph was found; what is missing is a search for the
+  answer's entity (the 6, and the 7 never named) or the one sentence of an
+  already retrieved paragraph that answers (most of the 18, 15 with a
+  neighbour retrieved). The two overlap and a count cannot separate them.
+- Lookups that restate the question (a planned lookup with at least 0.8
+  of the question's content words): 105 of the 404 bridge plans, 73 of
+  them one-lookup plans. EM 0.543 against 0.549 without one; one-lookup
+  bridge plans 0.548 (n 73) against 0.593 (n 54), parallel 0.421 (19)
+  against 0.530 (83), chain 0.692 (13) against 0.543 (162). The model
+  chooses the plan on different questions, so these are not comparisons,
+  and none of the gaps is outside what 500 questions resolve. The cap of
+  three cut 8 plans on this run, 3 of them wrong.
+
+What this suggests, not decided here: never retrieved is 28 of 212, and
+the largest part of it (15 of 18 partly retrieved) is a sentence next to
+one already retrieved. A change there would sit in what a search
+returns, not in the agent's steps, and would lengthen every list a keep
+step is shown; its ceiling on this fold is about 15 questions before the
+keep step and the read take their share. The restating and cut plans give
+no target by these counts.
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve
