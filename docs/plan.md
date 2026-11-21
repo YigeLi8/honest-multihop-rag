@@ -2879,3 +2879,20 @@ no target by these counts.
       confirmation fold, only bm25 k=10 and k=13); the round 4 agent's
       losses on explore and train_hard and today's never-retrieved split,
       both marked exploration only. Next: `docs/readme_draft.md`.
+      21 Nov, `docs/readme_draft.md`, written by `scripts/readme_draft.py`
+      from 27 committed results files, each named beside its numbers
+      (`test_readme_draft`); README.md is untouched. Scope first (distractor
+      pools, one 7B model, one Mac), then the confirmation-fold tables and
+      the preregistered tests, the decomposition, the interventions as the
+      ablation, the stop audit, the five memory gates with their controls,
+      the agent marked exploration only, reproduction and Limitations. The
+      fixed text's directions (ircot halving the hotpot cell, shortcut
+      largest under both orders, bridge-only at closed-book level on hotpot
+      and musique, no memory arm above none) are checked against the files
+      and stop the script if a new run breaks one. Two gaps the draft
+      names: D3's deepening policy on the confirmation log has no committed
+      table (only `docs/plan.md`; the draft shows D1/D2's answer-level
+      side, paired from the two qa files), and the musique and 2wiki routed
+      tables have a spread over half-splits but no interval or test. Not
+      in it: the serving sweep (README's own section stands), the 2wiki
+      agent and ircot runs that do not exist.

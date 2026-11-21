@@ -511,6 +511,35 @@ def test_manifest():
                      {"results/y_qa.csv", "results/y_2x2.png"}) == ["results/y_qa.csv"]
 
 
+def test_readme_draft():
+    """readme_draft: one row per match or stop, every file read is listed,
+    and a sentence whose direction fails stops the script."""
+    import importlib.util
+    import tempfile
+    spec = importlib.util.spec_from_file_location(
+        "readme_draft", Path(__file__).resolve().parent.parent / "scripts" / "readme_draft.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    with tempfile.TemporaryDirectory() as d:
+        (Path(d) / "t.csv").write_text("run,em\na,0.5\nb,0.25\nb,0.75\n")
+        R = m.Results(d)
+        assert R.row("t.csv", run="a")["em"] == "0.5"
+        for bad in ({"run": "b"}, {"run": "c"}):
+            try:
+                R.row("t.csv", **bad)
+                raise AssertionError("expected one row")
+            except SystemExit:
+                pass
+        assert R.used == ["t.csv"]
+    try:
+        m.check(False, "x")
+        raise AssertionError("check must stop")
+    except SystemExit:
+        pass
+    assert m.table(["a", "b"], [[1, 2]]).splitlines() == ["| a | b |", "|---|---|", "| 1 | 2 |"]
+    assert (m.sd("0.0291"), m.ci("-0.0001", "0.056"), m.pv("0.0")) == ("+0.029", "[-0.000, +0.056]", "< 1e-4")
+
+
 if __name__ == "__main__":
     test_map_facts()
     test_build_record()
@@ -533,4 +562,5 @@ if __name__ == "__main__":
     test_illusion_buckets()
     test_intervention_contexts()
     test_manifest()
+    test_readme_draft()
     print("all good")
