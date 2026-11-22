@@ -2694,6 +2694,68 @@ step is shown; its ceiling on this fold is about 15 questions before the
 keep step and the read take their share. The restating and cut plans give
 no target by these counts.
 
+22 Nov, the read with the string there on the agent after round 4, and what
+round 4 moved into it (explore only; the largest loss of
+`results/agent_dev4_both_hotpot_explore_losses.csv`, 149 of 212 wrong, 136 of
+215 for the round 3 agent). `python -m src.eval.agent_reads --run
+orchestrator_guard_wide_unsup_keepans_thin_hotpot_explore --out
+agent_reads_dev4_hotpot_explore` and `python -m src.eval.agent_moves --base
+orchestrator_guard_wide_unsup_hotpot_explore --arm orchestrator_guard_wide_
+unsup_keepans_thin_hotpot_explore --out agent_moves_dev4_hotpot_explore`
+write `results/agent_reads_dev4_hotpot_explore_{kind,position}.csv` and
+`results/agent_moves_dev4_hotpot_explore_{moves,moved,kind}.csv`
+(`test_agent_moves`). `agent_reads` now reads a "+thin" notebook as the
+final read does (the notebook, then everything else retrieved), as
+`place_of` already did; the round 3 and ircot tables it wrote come out
+byte-identical.
+
+- Outcome by outcome, round 3 to round 4 (`_moves.csv`): 284 right in both,
+  1 read and 3 dropped now right, 1 right now dropped. Of the 48 dropped, 31
+  stay dropped and 14 are now wrong with the string read; the 135 read and
+  wrong in both and these 14 are the 149.
+- The 14 (`_moved.csv`, 8 bridge, 6 comparison): the sentence with the
+  string reached the read through B9's fallback on 8, through B8's added
+  sentence on 5, through an empty notebook on 1. The reply is the same as
+  round 3's on 9 of the 14, so on those the read was handed the sentence
+  and answered as before.
+- Read through: the 6 comparisons are the case set apart on 16 Nov (the
+  gold is one of the two names compared, so the string is in the other
+  entity's sentences): 4 give the other name (Xanthoceras for Ehretia,
+  Shonen Jump for Rolling Stone), 1 the gold's longer form (J. G. Farrell
+  for Farrell), 1 a name the question does not hold as written. Of the 8 bridge ones, 2 had the last lookup
+  come back with the gold and its sentence added by B8, and the final read
+  gave the first lookup's entity (Brian Doyle-Murray for Bill Murray;
+  George Walter Hunter Macfarlane for Charles Hastings Judd, a question
+  that asks for both); 2 are the gold at another grain or form
+  ("requiring only men to register for the draft" for Conscription,
+  "Centre" for Canadian professional ice hockey centre); 1 is cut short
+  ("King" for King George IV); 3 are another entity from what was read
+  (25,949 for 35,124, University of Phoenix Stadium for Mercedes-Benz
+  Superdome, Newark for lower Manhattan).
+- Over all 149 by the string tests (`_kind.csv`, round 3's in brackets):
+  spans inside or around the gold 63 (62), the gold's words 9 (9), the
+  other of two compared things 13 (9), a gold paragraph's title 16 (15),
+  in the gold's sentence 16 (15), in another sentence read 20 (15), the
+  rest 12 (11). A lookup's answer equals the gold on 26 (24).
+- Position (`_position.csv`): EM where the string is read is 0.685 when the
+  first sentence holding it opens what was read (n 165), 0.613 at 2-3 (160),
+  0.500 at 4 or later (70; round 3 0.545, n 55). B9's reads put the string
+  after the notebook, so the late bucket grew with them; as on 17 Nov this
+  is not a reading-order effect without the same context in another order.
+
+What this suggests, not decided here: round 4 moved 17 dropped answers on
+this fold into what the final read sees and 3 of them became right; on 9 of
+the other 14 the reply did not change at all. 6 of the 14 are comparisons
+whose "dropped" was a label, and 2 more are the gold under another form, so
+the move left about 6 bridge answers that a read could still get, 2 of them
+the pattern of 17 Nov (the last lookup right, the read answering with the
+bridge entity), beside the 5 read then on the round 3 agent. The read with the
+string there is the largest loss, but the share of it a change could move
+is about what 17 Nov found (some 45 of 136), with the comparison picks a
+little larger (13 against 9) and nothing new in kind. These are counts on
+the fold the changes were chosen on, and a reply that does not change
+says nothing about why the read passed over the sentence.
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve

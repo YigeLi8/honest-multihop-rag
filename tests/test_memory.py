@@ -2824,6 +2824,9 @@ def test_agent_reads():
     assert ar.lookup_echo("Rome", gold, trace([], [], ["Bob"])) == (False, False)
     # no notebook: the read is everything retrieved, once each, in order
     assert ar.read_ids(trace([], ["C::0", "A::0", "C::0"])) == ["C::0", "A::0"]
+    # a thin notebook is read first, then everything else retrieved
+    thin = dict(trace(["B::1"], ["A::0", "B::1", "C::0"]), stop_reason="subs=2+thin")
+    assert ar.read_ids(thin) == ["B::1", "A::0", "C::0"]
     t["guards"] = [{"where": "sub0"}]
     assert not ar.final_guarded(t)
     t["guards"].append({"where": "final"})
@@ -2906,6 +2909,58 @@ def test_agent_misses():
     r = {(x["shape"], x["restates"]): x for x in restate}
     assert r[("one", 1)]["n"] == 1 and r[("one", 1)]["em"] == 1.0
     assert r[("chain", 0)]["wrong_not_retrieved"] == 1 and r[("all", 0)]["n"] == 1
+
+
+def test_agent_moves():
+    from src.eval import agent_moves as mv
+
+    texts = {"A::0": "Ann directed Film X.", "A::1": "She was born in Paris.",
+             "B::0": "Bob lived in Rome.", "C::0": "Carl was born in Oslo."}
+    gold = (["Paris"], texts)
+
+    def trace(notebook, retrieved, stop="subs=1", added=(), subs=("Ann",)):
+        steps = [{"role": "subagent", "sub": k, "sub_question": "q?", "planned": "q?",
+                  "sub_answer": a, "kept": []} for k, a in enumerate(subs)]
+        if added:
+            steps[0]["added"] = list(added)
+        return {"id": "x", "hops": [{"hop": 0, "query": "q", "retrieved": retrieved}],
+                "notebook": notebook, "steps": steps, "guards": [], "stop_reason": stop}
+
+    ret = ["A::0", "A::1", "B::0", "C::0"]
+    # thin: the notebook, then the rest retrieved, once each
+    assert mv.read_ids(trace(["B::0"], ret, "subs=1+thin")) == ["B::0", "A::0", "A::1", "C::0"]
+    assert mv.read_ids(trace([], ret)) == ret and mv.read_ids(trace(["A::0"], ret)) == ["A::0"]
+    assert mv.how_read(trace(["A::0", "A::1"], ret), *gold) == "kept"
+    assert mv.how_read(trace(["A::0", "A::1"], ret, added=["A::1"]), *gold) == "added"
+    assert mv.how_read(trace(["B::0"], ret, "subs=1+thin"), *gold) == "thin"
+    assert mv.how_read(trace(["B::0"], ret, "subs=1+fallback"), *gold) == "fallback"
+    assert mv.how_read(trace(["B::0"], ret), *gold) is None
+
+    def row(pred, right=False, qtype="bridge"):
+        return {"qtype": qtype, "em": "1.0" if right else "0.0", "answer_pred": pred}
+    # q1 dropped -> right (added); q2 dropped -> read, wrong, same reply (thin);
+    # q3 dropped in both; q4 right in both
+    base = ({"q1": row("Rome"), "q2": row("Oslo"), "q3": row("Rome"), "q4": row("Paris", True)},
+            {"q1": trace(["B::0"], ret), "q2": trace(["B::0"], ret), "q3": trace(["B::0"], ret),
+             "q4": trace(["A::1"], ret)})
+    arm = ({"q1": row("Paris", True), "q2": row("Oslo"), "q3": row("Rome"),
+            "q4": row("Paris", True)},
+           {"q1": trace(["B::0", "A::1"], ret, added=["A::1"]),
+            "q2": trace(["B::0"], ret, "subs=1+thin"), "q3": trace(["B::0"], ret),
+            "q4": trace(["A::1"], ret)})
+    g = {i: gold for i in base[0]}
+    moves, moved, kinds = mv.tables(base, arm, g, {i: ["A"] for i in g},
+                                    {i: "Where was the director of Film X born?" for i in g})
+    m = {(r["base"], r["arm"]): r["n"] for r in moves}
+    assert m == {("right", "right"): 1, ("dropped", "right"): 1, ("dropped", "in_context"): 1,
+                 ("dropped", "dropped"): 1}
+    by = {r["id"]: r for r in moved}
+    assert set(by) == {"q1", "q2"} and by["q1"]["how"] == "added" and by["q1"]["kind"] == ""
+    assert by["q2"]["how"] == "thin" and by["q2"]["same_reply"] == 1
+    # Oslo's sentence is read only through the thin fallback's rest
+    assert by["q2"]["kind"] == "in_read"
+    k = {r["kind"]: r for r in kinds}
+    assert k["all"]["n"] == 1 and k["all"]["thin"] == 1 and k["all"]["same_reply"] == 1
 
 
 def test_experience_memory():
@@ -3471,6 +3526,7 @@ if __name__ == "__main__":
     test_agent_traces()
     test_agent_reads()
     test_agent_misses()
+    test_agent_moves()
     test_experience_memory()
     test_memory_in_the_loop()
     test_memory_v2()

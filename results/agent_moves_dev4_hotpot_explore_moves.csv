@@ -1,0 +1,10 @@
+base,arm,n,bridge,comparison
+right,right,284,217,67
+right,dropped,1,1,0
+in_context,right,1,1,0
+in_context,in_context,135,118,17
+dropped,right,3,3,0
+dropped,in_context,14,8,6
+dropped,dropped,31,28,3
+not_retrieved,not_retrieved,28,28,0
+yesno_gold,yesno_gold,3,0,3

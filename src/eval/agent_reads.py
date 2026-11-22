@@ -85,10 +85,19 @@ def names_title(pred, titles):
 
 
 def read_ids(trace):
-    """The sentences the final answer was read from, in order: the notebook,
-    or everything retrieved for a mode (or an agent) with no notebook."""
-    nb = trace.get("notebook") or [c for h in trace["hops"] for c in h["retrieved"]]
-    return list(dict.fromkeys(nb))
+    """The sentences the final answer was read from, in order, as
+    agent_losses.place_of reads them: the notebook; with "+thin" in
+    stop_reason the notebook and then everything else retrieved; with
+    "+fallback", or for a mode (or an agent) with no notebook, everything
+    retrieved."""
+    retrieved = list(dict.fromkeys(c for h in trace["hops"] for c in h["retrieved"]))
+    nb = list(dict.fromkeys(trace.get("notebook") or []))
+    stop = trace.get("stop_reason") or ""
+    if not nb or "+fallback" in stop:
+        return retrieved
+    if "+thin" in stop:
+        return nb + [c for c in retrieved if c not in nb]
+    return nb
 
 
 def retrieved_ids(trace):

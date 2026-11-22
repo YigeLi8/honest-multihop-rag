@@ -1,0 +1,18 @@
+id,qtype,arm,how,same_reply,kind,lookup_right,base_pred,arm_pred,gold
+5ae32e125542991a06ce9946,bridge,in_context,thin,0,in_read,0,261,"25,949","35,124"
+5ac2acff55429921a00ab02b,bridge,in_context,added,1,bridge_entity,1,Brian Doyle-Murray,Brian Doyle-Murray,Bill Murray
+5ae33c4d5542992f92d82262,bridge,right,thin,0,,0,Bill Clinton,William Jefferson Clinton,William Jefferson Clinton
+5a88658955429938390d3f47,bridge,in_context,thin,1,in_read,0,requiring only men to register for the draft,requiring only men to register for the draft,Conscription
+5ae305df5542992decbdcdc3,bridge,in_context,thin,0,in_read,0,Cardinal Stadium,University of Phoenix Stadium,Mercedes-Benz Superdome
+5ab2c5e255429916697740ba,bridge,in_context,added,1,inside_gold,0,Centre,Centre,Canadian professional ice hockey centre
+5a7a276d5542996c55b2dd27,bridge,in_context,added,1,in_read,1,George Walter Hunter Macfarlane,George Walter Hunter Macfarlane,Colonel Charles Hastings Judd
+5a717d4c5542994082a3e854,comparison,in_context,fallback,0,in_read,0,He,Semyon Aronovich Gershgorin,Pavel Sergeyevich Alexandrov
+5ab1d7ac554299449642c7e6,comparison,in_context,thin,1,picked_other,0,Xanthoceras,Xanthoceras,Ehretia
+5a879ba55542993e715abfc3,comparison,in_context,added,1,picked_other,0,Alain Resnais,Alain Resnais,Scott Sidney
+5a867089554299211dda2b30,comparison,in_context,added,1,picked_other,0,Shonen Jump,Shonen Jump,Rolling Stone
+5a7dd9445542997cc2c474ac,comparison,in_context,thin,1,around_gold,0,J. G. Farrell,J. G. Farrell,Farrell
+5a8d02cc554299441c6b9fb6,bridge,in_context,thin,0,inside_gold,0,King David I,King,King George IV
+5a7e7ed05542991319bc94c2,comparison,in_context,thin,0,picked_other,0,Dime Magazine,Gallery,"arose on the ""Playboy"" magazine pattern in the 1970s."
+5a8099935542996402f6a58b,bridge,right,added,0,,1,First Blood,Darkroom,Darkroom
+5ab626d555429953192ad279,bridge,in_context,thin,1,same_sentence,0,Newark,Newark,lower Manhattan
+5a84873e5542997175ce1eec,bridge,right,thin,0,,0,2017,137th,137th
