@@ -3,6 +3,41 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-23
+
+New and cross listings read (cs.IR 8, cs.CL 91, cs.AI 214 entries,
+replacements not read; 265 distinct ids, none already logged); every
+title screened, 16 abstracts read, three bodies.
+
+- 2026, Do Senior Agents Do Their Job? Measuring Role Integrity in How
+  LLM Agents Use Subordinate Material (arXiv 2611.27139). A senior agent
+  turns subordinates' material into a decision, with one property of
+  that material changed and the case held fixed: eight models, over
+  12,000 episodes, three hierarchies (area chair and program chair over
+  reviews, a judge over counsel, a committee chair relaying witnesses).
+  A false procedural fact planted in one counsel's excerpt, with the
+  correct record in front of the judge, is adopted in 111 of 3,832
+  rulings (2.9%, CI [2.0, 3.9]), 81 of them from three open models; the
+  authors read that as the error rarely reaching the ruling when the
+  record is there, not as evidence that the judge checked it. A generic
+  majority against the paper's outcome carries the decision about half
+  the time, and the second tier mostly passes on what the first did.
+  Witnesses' stated limitations are dropped in 20% to 65% of cited
+  claims. Telling the senior agent its duties raises explicit correction
+  of the planted error without changing how often it is adopted, and
+  also moves the control arms. For Stage 6b: B1 and B5 showed the final
+  read repeating a lookup's answer (25 of B1's 30 losses, 10 of B5's
+  12); their split is what is not yet counted here. From the committed
+  traces with no model: among final answers that repeat a wrong lookup
+  answer, how many had the gold string in what the final read was given
+  (the record present, as in their court arm) against absent. If most
+  had it, the loss sits in the read's use of the notebook; if few, it
+  is a lookup failure passed on. An instruction to the final read to
+  check each lookup answer against its sentences would be an arm, and
+  their result says to score it on questions whose lookups were right
+  as well, since such prompts move the controls. Cite in the agent
+  section beside 2611.17763 and 2611.18642.
+
 ## 2026-11-20
 
 New and cross listings read (cs.IR 21, cs.CL 96, cs.AI 252 entries,
