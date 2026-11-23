@@ -2963,6 +2963,56 @@ def test_agent_moves():
     assert k["all"]["n"] == 1 and k["all"]["thin"] == 1 and k["all"]["same_reply"] == 1
 
 
+def test_agent_echoes():
+    from src.eval import agent_echoes as ec
+
+    texts = {"A::0": "Ann directed Film X.", "A::1": "She was born in Paris.",
+             "B::0": "Bob lived in Rome."}
+    gold = (["Paris"], texts)
+
+    def trace(subs, notebook=("A::0", "A::1")):
+        steps = [{"role": "subagent", "sub": k, "sub_question": "q?", "planned": "q?",
+                  "sub_answer": a, "kept": []} for k, a in enumerate(subs)]
+        return {"id": "x", "hops": [{"hop": 0, "query": "q", "retrieved": list(texts)}],
+                "notebook": list(notebook), "steps": steps, "guards": [], "stop_reason": "subs=2"}
+
+    assert ec.echo_of("Rome", trace(["Ann", "Rome"])) == "last"
+    assert ec.echo_of("Ann Lee", trace(["Ann", "Rome"])) == "none"
+    assert ec.echo_of("ann", trace(["Ann", "Rome"])) == "earlier"
+    assert ec.echo_of("no", trace(["no", "no"])) == "yesno"
+    assert ec.echo_of("Rome", trace([])) == "none"
+    assert ec.adopted_wrong("Rome", trace(["Ann", "Rome"]), ["Paris"])
+    assert not ec.adopted_wrong("Paris", trace(["Ann", "Paris"]), ["Paris"])
+
+    def row(pred, right=False, qtype="bridge"):
+        return {"qtype": qtype, "em": "1.0" if right else "0.0", "answer_pred": pred}
+    # q1: base right, arm repeats the wrong last lookup with Paris in the notebook (adopted)
+    # q2: base right, last lookup wrong, arm stays right (exposed, not adopted)
+    # q3: base wrong, last lookup right, arm right (rescued)
+    # q4: base right, wrong last lookup, gold not in the notebook (not exposed)
+    tr = {"q1": trace(["Ann", "Rome"]), "q2": trace(["Ann", "Rome"]),
+          "q3": trace(["Ann", "Paris"]), "q4": trace(["Ann", "Rome"], notebook=["B::0"])}
+    base = ({"q1": row("Paris", True), "q2": row("Paris", True), "q3": row("Rome"),
+             "q4": row("Paris", True)}, tr)
+    arm = ({"q1": row("Rome"), "q2": row("Paris", True), "q3": row("Paris", True),
+            "q4": row("Rome")}, tr)
+    g = {i: gold for i in tr}
+    fb, fa = ec.facts(*base, g), ec.facts(*arm, g)
+    assert fa["q1"] == (False, "last", "in_context", False)
+    assert fa["q4"][2] == "dropped" and fa["q3"] == (True, "last", "in_context", True)
+    e = {r["echo"]: r for r in ec.echo_table("arm", fa)}
+    assert e["last"]["n"] == 3 and e["last"]["wrong"] == 2 and e["none"]["n"] == 1
+    assert e["last"]["wrong_in_context"] == 1 and e["last"]["wrong_dropped"] == 1
+    p = {(r["direction"], r["echo"]): r for r in ec.paired_table("b", "a", fb, fa)}
+    assert p[("lost", "last")]["n"] == 2 and p[("lost", "last")]["in_context"] == 1
+    assert p[("won", "last")]["n"] == 1 and p[("won", "last")]["sub_right"] == 1
+    a = {r["exposure"]: r for r in ec.adopt_table("b", "a", {"b": base, "a": arm}, g, fb, fa)}
+    assert (a["wrong_last"]["n"], a["wrong_last"]["adopted"]) == (2, 1)
+    assert (a["right_last"]["n"], a["right_last"]["adopted"]) == (1, 1)
+    # Rome is in no sentence read on q1/q2; Paris is on q3
+    assert a["wrong_last"]["n_last_in_read"] == 0 and a["right_last"]["adopted_last_in_read"] == 1
+
+
 def test_experience_memory():
     import tempfile
     from pathlib import Path

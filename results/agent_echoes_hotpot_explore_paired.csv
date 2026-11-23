@@ -1,0 +1,17 @@
+base,arm,direction,echo,n,in_context,dropped,not_retrieved,yesno_gold,sub_right,base_echo_same
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,lost,yesno,3,2,0,0,1,0,1
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,lost,last,14,14,0,0,0,1,0
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,lost,earlier,8,8,0,0,0,2,1
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,lost,none,5,5,0,0,0,1,4
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,won,yesno,1,0,0,0,1,0,1
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,won,last,20,18,2,0,0,20,0
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,won,earlier,0,0,0,0,0,0,0
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,won,none,7,6,1,0,0,0,5
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,lost,yesno,1,0,0,0,1,0,1
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,lost,last,13,13,0,0,0,1,0
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,lost,earlier,8,8,0,0,0,2,1
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,lost,none,5,5,0,0,0,1,4
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,won,yesno,1,0,0,0,1,0,1
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,won,last,22,20,2,0,0,22,0
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,won,earlier,0,0,0,0,0,0,0
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,won,none,6,5,1,0,0,0,6

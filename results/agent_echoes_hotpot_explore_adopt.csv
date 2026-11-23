@@ -1,0 +1,5 @@
+base,arm,exposure,n,adopted,share,n_last_in_read,adopted_last_in_read,n_bridge,adopted_bridge,n_comparison,adopted_comparison
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,wrong_last,78,20,0.2564,58,17,54,19,24,1
+orchestrator_hotpot_explore,orchestrator_notes_hotpot_explore,right_last,26,20,0.7692,22,18,24,20,2,0
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,wrong_last,83,19,0.2289,61,16,57,18,26,1
+orchestrator_guard_hotpot_explore,orchestrator_notes_guard_hotpot_explore,right_last,27,22,0.8148,23,20,25,22,2,0

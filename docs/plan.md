@@ -2756,6 +2756,65 @@ little larger (13 against 9) and nothing new in kind. These are counts on
 the fold the changes were chosen on, and a reply that does not change
 says nothing about why the read passed over the sentence.
 
+23 Nov, final answers that repeat a lookup's answer, and whether the record
+was in front of the read (explore only; prompted by arXiv 2611.27139 in the
+paper log, where a senior agent rarely adopts a planted error when the
+correct record is in front of it). B1 and B5 lost mostly where the final
+answer repeats a lookup's; this asks whether those reads had the gold string
+in the notebook. `python -m src.eval.agent_echoes --out agent_echoes_hotpot_
+explore` (the run list is in `scripts/run_all.sh`) writes `results/agent_
+echoes_hotpot_explore_{echo,paired,adopt}.csv` (`test_agent_echoes`). A
+repeat is the reply equal (EM) to a lookup's answer, yes and no aside; the
+notes runs match their controls up to the final read on all 500 questions,
+notebooks included, so both reads of a pair were given the same sentences.
+
+- B1's 30 losses against the 4 Nov agent (`_paired.csv`): 22 repeat a
+  lookup's answer (14 the last one's, 8 an earlier one's), 3 are yes or no,
+  5 repeat none (15 Nov counted 25 with the yes/no replies that repeat a
+  lookup's "no"). The gold string was in the notebook on all 22: the record
+  was there and the control read it right from the same sentences. Of the
+  28 wins, 20 repeat the last lookup, which had the gold on all 20 (2 of
+  them with the string dropped from the notebook). With the guard on both
+  sides: 21 of 27 losses repeat a lookup, all 21 with the gold in the
+  notebook; 22 of 29 wins repeat a right last lookup.
+- As a rate (`_adopt.csv`): where the control read right, the gold string
+  was in the notebook, and the last lookup came back with something else
+  (not yes/no), the notes read gave a wrong lookup's answer on 20 of 78
+  (0.26); bridge 19 of 54 (0.35), comparison 1 of 24, where the lookups'
+  answers are values to compare rather than candidate answers. Where the
+  control was wrong and the last lookup had the gold, the notes read took
+  it on 20 of 26 (0.77). With the guard: 19 of 83 (bridge 18 of 57) and 22
+  of 27. These are the agent's own lookups on its own questions, not a
+  planted error, so the paper's 2.9% is no benchmark for them; the bridge
+  read follows a wrong lookup about a third of the time with the right
+  sentence in front of it.
+- A test with no gold does not tell the two apart: the last lookup's
+  answer string is in a sentence read on 58 of the 78 wrong-last exposures
+  and 17 of the 20 adopted, against 22 of 26 and 18 of the 20 taken when
+  the lookup was right. The wrong lookups are mostly read off the notebook
+  too (another entity's sentence, the intermediate entity), which is the
+  2611.25071 point about checking against the evidence the chain itself
+  gathered.
+- The agent as it stands after round 4 (no notes; `_echo.csv`): 212 wrong,
+  74 equal the last lookup's answer (52 with the gold string read, 11
+  dropped, 11 never retrieved), 22 an earlier lookup's (17 read; on 7 of
+  the 22 some lookup had the gold, the stop-one-step-short pattern of 17
+  Nov), 109 none (77 read), 7 yes or no. Of the 222 final answers that
+  repeat the last lookup, 148 are right (0.667) against 74 of 183 that
+  repeat none (0.404).
+
+What this suggests, not decided here: the losses of B1 and B5 are reads
+that had the record and followed the lookup, not lookups whose errors no
+read could have caught, so a change there sits in how the lookups'
+answers are offered to the read, not in the lookups. The bound is narrow:
+on this fold handing the read the lookups gains about 20 questions and
+loses about 20, and the one gold-free signal counted here (the lookup's
+answer is in a sentence read) does not separate them. An instruction to
+check each lookup's answer against its sentences, the arm the paper's
+result points to, would be scored on the questions whose lookups were
+right as well as on the wrong ones, since its duty prompts moved their
+controls too. Counted on the fold B1 was chosen on, after its runs.
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve
