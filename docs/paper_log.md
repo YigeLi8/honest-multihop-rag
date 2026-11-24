@@ -3,6 +3,83 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-24
+
+New and cross listings read (cs.IR 36, cs.CL 204, cs.AI 485 entries,
+replacements not read; 615 distinct ids, none already logged); every
+title screened, 12 abstracts read, four bodies.
+
+- 2026, SupportChain: Trace-Calibrated Aggregation of Quote-Grounded
+  Reasoning Chains for Multi-Hop RAG with Small Readers (arXiv
+  2611.28519). Decomposes a question into single-hop sub-questions; each
+  hop retrieves, quotes one sentence verbatim, labels it explicit or
+  implied and binds a short answer; a final reader sees 5 passages plus
+  the hop notes. A logistic model over 16 trace features scores each
+  execution with no model call, and several executions are merged by the
+  pooled reliability of those that agree, adding executions until support
+  passes a threshold (MuSiQue 63.2 F1 at 8.8 calls against 63.0 at 16.9
+  with all). Qwen3.5-9B, 1,000 questions per set, paired bootstrap; +3.2
+  F1 over HippoRAG 2 on HotpotQA, +17.2 on MuSiQue. The final-step
+  ablation is the part that bears on Stage 6b: hop notes without passages
+  lose 4.9 / 2.5 / 8.4 F1, passages without notes gain 1.9 on HotpotQA
+  and lose 4.6 on MuSiQue, and dropping the final reader for the last
+  hop's answer loses 45.8 on 2Wiki. In decomposed MuSiQue dev the first
+  failing hop had its support passage retrieved and bound to a wrong
+  answer in 33.2% of questions, missing in 5.2%. Several candidates per
+  hop, a learned hop scorer with backtracking and gold-decomposition plan
+  examples gave no significant gain. For this work: it already does what
+  B1 and B5 tried (the final read given hop answers beside evidence) and
+  finds it worth something on HotpotQA only together with the passages,
+  which is how B1 was built; B1 lost what it won here because the read
+  then follows wrong lookups (23 Nov). Their remedy is several executions
+  merged by agreement, which multiplies calls, against the agent's 7.8.
+  Their "retrieved and bound to a wrong answer" is the dropped place of
+  `agent_losses`, and its size against "missing" matches ours on hotpot
+  (32 dropped against 28 never retrieved after round 4). Cite in the
+  agent section as the nearest design; its 9B reader and pools of about
+  10k passages are not our distractor pools.
+- 2026, Beyond Evidence Coverage: Encoding-Time Access in Multi-Agent
+  Systems (arXiv 2611.29107). Attention masks split 20 paragraphs over
+  two logical workers in frozen Qwen3-4B, Qwen3-8B and Llama-3.1-8B, 200
+  two-hop MuSiQue-Ans and 200 HotpotQA bridge questions. Blocking
+  cross-worker access costs 5.6 / 6.8 F1 against full access; exposing
+  only the other worker's supporting paragraph recovers 7.6 / 6.7, and an
+  equal-token non-support control gains nothing detectable. Oracle
+  support labels, no selector. For this work: a subagent reads its own
+  lookup's sentences only, and the final read is the one place both hops'
+  sentences meet; their result says the gain is the bridging sentence
+  itself, not more text, which is what B9's null on one-sentence
+  notebooks (0 lost, 5 won) and A2's full-context loss would predict. A
+  token-matched control is the one to copy if a later arm hands a
+  subagent the earlier lookup's sentences.
+- 2026, Can Search Agents Correct Their Own Errors? Evaluating
+  Retrieval, Evidence Delivery, and Answer Completion (arXiv 2611.30243).
+  BrowseComp-Plus, four open checkpoints, 709 questions: each model's own
+  wrong closed-book answer is replayed as a prior, then what evidence
+  reaches it is controlled. A confident assistant prior cut one model's
+  paired accuracy by 16.1 points with the answer-bearing passage in
+  context; gold at rank 1 often left the decisive page unopened, while
+  delivering the passage beat neutral delivery by 51.0 and 22.4 points.
+  For this work: the same separation as `agent_losses` (never retrieved,
+  retrieved and not kept, read and still wrong), on a harder benchmark,
+  and a second instance of the 23 Nov count (the read follows a wrong
+  lookup with the right sentence in front of it about a third of the
+  time on bridge questions). The search-agent samples are about 100
+  questions each.
+- 2026, CO-GRAFT: Attributing Reinforcement Learning Gains in Search
+  Agents via Role-Level Policy Grafting (arXiv 2611.31185). Search-R1
+  trajectories split into four roles (reasoning, search-or-answer,
+  query, answer extraction), each grafted between the RL agent and its
+  initialization over all 16 assignments with live retrieval; Shapley
+  shares of the EM gain on NQ and HotpotQA, Qwen2.5 and Llama-3.2 up to
+  7B. The best fixed search budget matches the learned stopping within 1
+  EM point, and under lenient scoring the answer role's credit collapses
+  for Qwen2.5 (much of its EM gain is format). For this work: a learned
+  per-question stop is not worth more than a fixed budget, in line with
+  the stop audit and with B3 (one search per lookup, -0.048); and answer
+  form moves EM, as the 26 of 71 hand-read wrong answers of 17 Nov that
+  were the gold under another form. Cite beside the stop audit.
+
 ## 2026-11-23
 
 New and cross listings read (cs.IR 8, cs.CL 91, cs.AI 214 entries,
