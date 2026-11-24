@@ -379,6 +379,7 @@ if stage analyses cpu; then
   $PY -m src.eval.agent_reads --results "$RES" --run orchestrator_guard_wide_unsup_keepans_thin$E --out agent_reads_dev4_hotpot_explore
   $PY -m src.eval.agent_moves --results "$RES" --base orchestrator_guard_wide_unsup$E \
       --arm orchestrator_guard_wide_unsup_keepans_thin$E --out agent_moves_dev4_hotpot_explore
+  $PY -m src.eval.agent_drops --results "$RES" --run orchestrator_guard_wide_unsup_keepans_thin$E --out agent_drops_hotpot_explore
   $PY -m src.eval.agent_echoes --results "$RES" --out agent_echoes_hotpot_explore \
       --runs orchestrator$E orchestrator_notes$E orchestrator_guard$E orchestrator_notes_guard$E \
       orchestrator_guard_wide_unsup_keepans_thin$E \

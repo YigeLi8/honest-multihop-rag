@@ -1,0 +1,33 @@
+id,qtype,shape,break,lookups,dangling,deciding,asked,kept,answer_from,is_last,holder_gold,holder_first,holder_pos,lookup,lookup_answer,reply
+5ae7a8175542993210983ed8,bridge,parallel,no_chain,2,0,2,other,holder_para,kept,1,1,0,2,Which other Mexican Formula One race car driver has held the podium?,Sergio Pérez,Sergio Pérez
+5a713ea95542994082a3e6e4,bridge,chain,off_path,2,0,2,other,other,kept,1,1,0,2,Which tribe of indigenous people was involved in to the native populations living south of St. Augustine and in the Cape Canaveral area?,Ais,Ais
+5ae2b770554299495565db0f,bridge,parallel,no_chain,3,0,3,other,other,kept,1,1,1,4,Who presents the annual documentary film festival?,Thom Powers and his wife Raphaela Neihausen,June
+5ae738f75542991bbc9761c4,bridge,chain,off_path,2,0,2,other,holder_para,kept,1,1,0,8,Who is the brother of 2007?,Champ Bailey,1999
+5a887bc0554299206df2b2b6,bridge,chain,off_path,2,0,2,other,other,kept,1,1,0,2,How many tournaments has Eduardo Romero won worldwide?,8,16
+5a879adb5542996e4f30887f,bridge,chain,intact,2,0,2,answer_para,other,nowhere,1,1,1,1,What other political positions did Chris Van Hollen hold?,U.S. Senator from Maryland,D-Maryland
+5ac120c55542992a796dedfc,bridge,parallel,no_chain,2,0,2,other,holder_para,kept,1,1,1,3,Which American multinational equity firm owns Maxeda now?,Kohlberg Kravis Roberts,Kohlberg Kravis Roberts & Co.
+5abd01205542992ac4f3819b,bridge,parallel,no_chain,2,0,2,other,other,kept,1,1,0,7,Where is Mummulgum located on the Bruxner Highway?,between Tenterfield and Casino,Clarence River
+5a7a230e5542996a35c170ee,bridge,chain,intact,2,0,2,other,holder_para,added,1,1,1,10,"In what year was the film that starred Alexander ""Alex"" Draper Wolff?",2008,2008
+5ac2d1d755429921a00ab053,comparison,parallel,intact,2,0,1,title_answer,other,kept,0,1,1,1,What was the highest singles ranking for Roberta Vinci?,World No. 51,Jorge Lozano
+5ac298f9554299657fa28fc9,comparison,parallel,intact,2,0,2,answer_para,holder_para,nowhere,1,1,0,4,Was Ian Watkins incarcerated?,yes,Ian Watkins
+5a7625c7554299109176e668,bridge,chain,off_path,2,0,2,title_answer,other,added,1,1,1,3,What podcast has Peter Levin been a guest on?,The Drop-In,The Drop-In
+5ac0d83a554299294b219038,bridge,one,no_chain,1,0,1,other,other,kept,1,1,1,7,What Nevada city is associated with Randall Cunningham II's high school?,Nevada City,Nevada City
+5add673e5542992ae4cec54d,bridge,chain,off_path,2,0,1,title_answer,other,kept,0,1,1,4,For which team did Joe Walker play?,Philadelphia Eagles,Oregon Ducks
+5ae819ac55429952e35eaa16,bridge,chain,intact,2,0,1,answer_para,holder_para,kept,0,1,0,10,"What series was the episode ""Marry Me a Little, Marry Me a Little More"" from?",Will & Grace,NBC
+5ade69e455429975fa854ec5,bridge,chain,off_path,2,0,2,other,other,kept,1,1,0,3,Who worked with Vikram Bhatt on Chandrakant Singh?,Rajneesh Duggal,Vikram Bhatt
+5ab2659e554299340b5254b2,bridge,parallel,no_chain,2,0,1,other,nothing,added,0,1,0,1,Which empire succeeded the Sassanid Empire?,Brahmin dynasty,Sasanian Empire
+5adf58f15542993a75d264d2,bridge,chain,intact,2,0,2,other,other,kept,1,1,0,5,"Which television series did Nigel Planer, Rik Mayall, and Adrian Edmondson also perform in?",The Young Ones,Bottom
+5a7a3a945542996a35c17147,bridge,parallel,no_chain,3,1,3,other,other,kept,1,1,1,2,In what city is that building located?,Singapore,yes
+5a85cead5542991dd0999ea9,bridge,parallel,no_chain,2,0,2,other,holder_para,kept,1,1,1,3,What is the name of the player in major league history who had a 0.300 batting average for 7 consecutive seasons?,Frank Thomas,Frank Thomas
+5a7f113d55429934daa2fcbe,bridge,parallel,no_chain,2,0,1,other,holder_para,kept,0,1,1,1,Who was inducted into the National Baseball Hall of Fame in 1993?,Jackson,Jackson
+5ae6f2a7554299572ea5464a,bridge,chain,intact,2,0,2,answer_para,other,kept,1,1,0,4,Who is Benvolio in Romeo and Juliet?,Montague's nephew and Romeo's cousin,Romeo Montague
+5ae7edee554299540e5a56ad,bridge,parallel,no_chain,3,1,3,other,holder_para,kept,1,1,0,6,What larger area does this island belong to?,"Ansan city, Gyeonggi Province, South Korea",Canary Islands
+5ae1801955429901ffe4aec4,bridge,one,no_chain,1,0,1,other,other,kept,1,1,1,4,Where is the Cocoa Krispies and former Superman sponsor located?,1 Wall Street Court,1 Wall Street Court
+5a886886554299206df2b258,bridge,one,no_chain,1,0,1,other,holder_para,kept,1,1,1,1,"What is the international football competition for women that Liu Ailing played in the 1991, 1995, 1999 editions?",FIFA Women's World Cup,FIFA Women's World Cup
+5a7b7bed5542997c3ec971bc,bridge,one,no_chain,1,0,1,other,other,kept,1,1,1,1,At whose residence and administrative headquarters is the Waterloo Vase used as a garden ornament?,Buckingham Palace,Buckingham Palace
+5a7b65ab5542997c3ec97144,bridge,chain,off_path,2,0,2,other,other,nowhere,1,1,0,2,From what college did E. J. Donahue graduate?,not given,Centre College
+5ae32b6755429928c4239644,bridge,one,no_chain,1,0,1,other,holder_para,kept,1,1,1,2,In which annual production did Wendy Ayche feature in 2016?,YouTube Rewind,Google
+5a874ce15542996432c57256,bridge,one,no_chain,1,0,1,other,other,kept,1,1,0,7,Who was recognized by MIAL and is an American soprano?,Camille Amy Zamora,"December 14, 1970"
+5ac0cf0f554299294b219018,comparison,parallel,intact,2,0,2,title_answer,other,nowhere,1,1,1,1,How many members does the band X Ambassadors have?,3,Test Icicles
+5a7757215542993569682d58,bridge,chain,off_path,3,0,3,title_answer,other,added,1,1,1,5,What 2016 film stars Xavier Samuel and Zoey Deutch?,Love & Friendship,Spin Out
+5ab1eac95542993be8fa987f,bridge,chain,off_path,2,0,2,other,nothing,added,1,1,0,1,How many Senate seats are up for election in Florida during the midterm elections?,2,2

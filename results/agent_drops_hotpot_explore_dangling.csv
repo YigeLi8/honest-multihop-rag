@@ -1,0 +1,6 @@
+shape,dangling,n,bridge,em,wrong,wrong_in_context,wrong_dropped,wrong_not_retrieved,wrong_yesno_gold
+parallel,1,8,7,0.625,3,1,2,0,0
+parallel,0,186,95,0.5968,75,54,10,8,3
+chain,0,175,175,0.5543,78,56,14,8,0
+all,1,8,7,0.625,3,1,2,0,0
+all,0,492,397,0.5752,209,148,30,28,3

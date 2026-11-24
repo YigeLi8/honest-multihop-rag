@@ -2911,6 +2911,69 @@ def test_agent_misses():
     assert r[("chain", 0)]["wrong_not_retrieved"] == 1 and r[("all", 0)]["n"] == 1
 
 
+def test_agent_drops():
+    from src.eval import agent_drops as ad
+
+    texts = {"Ann::0": "Ann directed Film X.", "Bob::0": "Bob is a painter.",
+             "Bob::1": "He was born in Paris.", "Carl::0": "Carl was born in Lyon.",
+             "Paris::0": "Paris is a city."}
+    q = "Where was the director of Film X born?"
+
+    def trace(subs, shown, kept, added=None, plan=None):
+        steps = [{"role": "planner", "question": q, "plan": plan or [a for a, _ in subs], "reply": ""}]
+        for k, (a, ans) in enumerate(subs):
+            steps.append({"role": "subagent", "sub": k, "sub_question": a, "query": a,
+                          "shown": shown[k], "kept": kept[k]})
+            steps.append({"role": "subagent", "sub": k, "sub_question": a, "planned": a,
+                          "sub_answer": ans, "kept": kept[k]})
+            if added and k in added:
+                steps[-1]["added"] = added[k]
+        hops = [{"hop": k, "query": a, "retrieved": shown[k]} for k, (a, _) in enumerate(subs)]
+        return {"id": "x", "hops": hops, "steps": steps, "notebook": [c for ks in kept for c in ks]}
+
+    hold = {"Bob::1"}
+    # the last lookup asked about Bob, was shown his Paris sentence, kept B::0 and answered from it
+    t = trace([("Who directed Film X?", "Bob"), ("Where was Bob born?", "a painter")],
+              [["Ann::0", "Bob::1"], ["Bob::0", "Carl::0", "Bob::1"]], [["Ann::0"], ["Bob::0"]])
+    assert ad.deciding(t, hold) == (1, {"Bob::1"})
+    assert ad.asked("Where was Bob born?", q, {"Bob::1"}) == "answer_para"
+    assert ad.asked("Where was Carl born?", q, {"Bob::1"}) == "other"
+    assert ad.asked("Where was Carl born?", "Bob and Carl?", {"Bob::1"}) == "question_only"
+    assert ad.asked("Where?", q, {"Paris::0"}, ["Paris"]) == "title_answer"
+    assert ad.kept_kind(t, 1, {"Bob::1"}) == "holder_para"
+    assert ad.answer_from(t, 1, texts) == "kept"
+    assert ad.holder_place(t, 1, {"Bob::1"}, ["Ann", "Bob"]) == (True, False, 3)
+    # a wrong entity pasted on: the last lookup is about Carl and keeps nothing; B8 added C::0
+    t2 = trace([("Who directed Film X?", "Carl"), ("Where was Carl born?", "Lyon")],
+               [["Ann::0", "Bob::1"], ["Carl::0"]], [["Ann::0"], []], added={1: ["Carl::0"]})
+    assert ad.deciding(t2, hold) == (0, {"Bob::1"})
+    assert ad.kept_kind(t2, 1, hold) == "nothing" and ad.answer_from(t2, 1, texts) == "added"
+    assert ad.answer_from(t2, 0, texts) == "nowhere"
+    assert ad.deciding(t2, {"Paris::0"}) == (None, set())
+    # dangling: a later lookup pointing back in words without #k
+    assert ad.dangling(["Who built the tower?", "In what city is that building located?"]) == [1]
+    assert ad.dangling(["Who built the tower?", "Where did he die?", "Where is #1 from?"]) == [1]
+    assert ad.dangling(["Who is Ann?", "From what college did Ann receive his B.A.?"]) == []
+    assert ad.dangling(["Where is this town?"]) == []
+
+    rows = {"q1": {"qtype": "bridge", "em": "0.0", "answer_pred": "a painter"},
+            "q2": {"qtype": "bridge", "em": "0.0", "answer_pred": "Lyon"},
+            "q3": {"qtype": "bridge", "em": "1.0", "answer_pred": "Paris"}}
+    t3 = trace([("Who directed Film X?", "Bob"), ("Where was he born?", "Paris")],
+               [["Ann::0"], ["Bob::1"]], [["Ann::0"], ["Bob::1"]])
+    per, tab, dtab = ad.tables(rows, {"q1": t, "q2": t2, "q3": t3},
+                               {i: (["Paris"], texts) for i in rows}, {i: ["Ann", "Bob"] for i in rows})
+    assert [r["id"] for r in per] == ["q1", "q2"]
+    assert per[0]["asked"] == "answer_para" and per[0]["deciding"] == 2 and per[0]["is_last"] == 1
+    assert per[1]["asked"] == "other" and per[1]["is_last"] == 0 and per[1]["break"] == "no_chain"
+    a = {(r["qtype"], r["asked"]): r for r in tab}
+    assert a[("all", "all")]["n"] == 2 and a[("bridge", "other")]["kept_holder_para"] == 0
+    assert a[("bridge", "all")]["from_kept"] == 1 and a[("bridge", "all")]["holder_gold"] == 2
+    d = {(r["shape"], r["dangling"]): r for r in dtab}
+    assert d[("parallel", 1)]["n"] == 1 and d[("parallel", 1)]["em"] == 1.0
+    assert d[("all", 0)]["wrong_dropped"] == 2
+
+
 def test_agent_moves():
     from src.eval import agent_moves as mv
 
@@ -3576,6 +3639,7 @@ if __name__ == "__main__":
     test_agent_traces()
     test_agent_reads()
     test_agent_misses()
+    test_agent_drops()
     test_agent_moves()
     test_experience_memory()
     test_memory_in_the_loop()

@@ -2815,6 +2815,69 @@ result points to, would be scored on the questions whose lookups were
 right as well as on the wrong ones, since its duty prompts moved their
 controls too. Counted on the fold B1 was chosen on, after its runs.
 
+24 Nov, the dropped ones on the agent after round 4 (explore only; 32 of the
+212 wrong in `results/agent_dev4_both_hotpot_explore_losses.csv`, 29 bridge
+and 3 comparison, against 53 on the round 2 agent read on 16 Nov). `python
+-m src.eval.agent_drops --run orchestrator_guard_wide_unsup_keepans_thin_
+hotpot_explore --out agent_drops_hotpot_explore` writes `results/agent_
+drops_hotpot_explore_{rows,asked,dangling}.csv` (`test_agent_drops`). It
+reads the deciding lookup, the last one whose keep steps were shown a
+sentence holding the gold string, and asks what that lookup was about; I
+then read all 32 with their gold.
+
+- By the tests (`_asked.csv`): the deciding lookup is the last lookup on 27
+  of 32; every holder it was shown is in a gold paragraph; it opens its
+  paragraph on 17 and sat first in the list on 8. The lookup names the
+  holder's paragraph on 4, the holder's paragraph has the gold for its
+  title on 5 (KKR, Comedy Film Nerds, Mr. Church, two comparisons), and on
+  23, all bridge, the lookup is about something else. It kept another
+  sentence of the holder's paragraph on 11, only other paragraphs on 19,
+  nothing on 2. Its answer was read from a sentence it kept on 23, from
+  the sentence B8 added for it on 5, from neither on 4. First breaks
+  (`agent_traces.first_break`): off_path 9, no_chain 15, intact 8; no cut
+  plan, no non-answer pasted on, no last non-answer. So the two chain
+  failures this item names, and the cap, account for none of the 32.
+- Read by hand, the 32 come to four groups. 7 are the gold under another
+  form or a gold that is not an answer, with the right thing in the reply
+  or in a lookup's answer (Kohlberg Kravis Roberts & Co. for KKR & Co,
+  Oregon Ducks, NBC, Jackson, a gold that is a sentence, a gold that is
+  the question's own words, and "U.S. Senator from Maryland" from the last
+  lookup read as "D-Maryland"). 13 are plans that never ask the last hop:
+  one-lookup or parallel bridge plans whose lookups stop at the bridge
+  entity or ask the whole question (Buckingham Palace for the monarch
+  whose residence it is, YouTube Rewind for who made it with YouTube, the
+  player for the pinball machine named after him, the month of "the
+  annual documentary film festival" asked before the festival was
+  found), 2 of them with a later lookup pointing back as "that building"
+  and "this island" without #k, and one that asks who Benvolio is when the
+  question asks whom Romeo slays. 8 went to another entity or the wrong
+  kind of answer upstream and pasted it on ("Who is the brother of 2007?",
+  Eduardo Romero for Roberto De Vicenzo, Florida's seats for the national
+  midterms, a phrase for a tribe). 4 asked the right lookup and answered
+  it wrong from what it was shown: Mr. Church, "The Young Ones" given as
+  the other series its own cast was in, and two comparisons whose two
+  lookups came back with the same value ("World No. 51" twice, "3" twice).
+- Pointing back without #k (`_dangling.csv`, a word list, so rough): 8 of
+  the 500 plans, 7 of them real by reading ("This Is Elvis" is a title),
+  EM 0.625, 3 wrong (2 dropped, 1 read).
+
+What this suggests, not decided here: after round 4 the dropped answers
+are no longer mostly the last keep step. 16 Nov read 48 of 53 as shown to
+the last lookup's keep step and called that step the larger target; on
+the round 4 agent the deciding lookup asked about the answer's own entity
+and missed it on about 4 of 32, after B8 and B9 had moved 17 of the round
+3 agent's 48 into what the final read sees (22 Nov). What is left is mostly the plan (13, all bridge) and wrong turns
+upstream (8), with 7 that EM does not credit. A planner change aimed at
+the 13 has a ceiling of about 2.6 points on this fold before the keep
+step and the read take their share, and it would touch every plan: 16 Nov
+found one-lookup and parallel bridge plans no worse by EM than chains
+(0.551 and 0.500 against 0.531, n 127, 102, 175, on the round 2 agent;
+chosen by the model on different questions, so not a comparison). The dangling references
+are a ceiling of 3. The hand groups are one reading of 32 questions, the
+counts are on the fold the round 4 changes were chosen on, and the ASKED
+test is a word test on titles, so it calls a lookup that names the
+entity in another form "other".
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve
