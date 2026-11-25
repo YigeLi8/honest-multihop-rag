@@ -3,6 +3,37 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-25
+
+New and cross listings read (cs.IR 21, cs.CL 126, cs.AI 300 entries,
+replacements not read; 375 distinct ids, none already logged); every
+title screened, 18 abstracts read, two bodies.
+
+- 2026, SOARS: System One Assisted Reranking for Agentic Search (arXiv
+  2611.32917). A deep search agent's every search is reranked in one call
+  by a small scorer that is given the agent's sub-query together with the
+  original question, over a passage chosen from the long document rather
+  than its first tokens. Six API backbones on BrowseComp-Plus and
+  WebShaper, paired two-tailed t-tests: GPT-5.4 Mini 73.9 -> 84.7
+  accuracy with searches 23 -> 14. They trace gold evidence through the
+  trajectory as surfaced (returned by a search), previewed (its snippet
+  inspected) and behavior (opened or cited) recall; for GPT-5.5 surfaced
+  gold recall is already 94.4 and barely moves, previewed goes 72.9 ->
+  88.7. The gain is evidence already returned that is now looked at, not
+  new retrieval. For this work: their three recalls are the never
+  retrieved / dropped / read places of `agent_losses`, and their gain
+  sits in the middle place. The agent's keep step and lookup answer are
+  given only the lookup as asked (`src/agent/orchestrator.py`, `asked`
+  with #k filled), never the question, so on a plan that stops at the
+  bridge entity (13 of the 32 dropped on explore, 24 Nov) the step that
+  is shown the answer sentence judges it against a lookup the sentence
+  does not answer. The question beside the lookup at the keep step costs
+  no call and is not among B1 to B9. Their evidence is reranker recall
+  with frontier sub-queries over web documents, not a 7B keep step over
+  distractor pools, and more context could move a keep step either way,
+  so an arm there would need its control on the questions whose lookups
+  were right. Cite beside 2611.28519 for the dropped place.
+
 ## 2026-11-24
 
 New and cross listings read (cs.IR 36, cs.CL 204, cs.AI 485 entries,
