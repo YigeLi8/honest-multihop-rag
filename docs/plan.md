@@ -2878,6 +2878,55 @@ counts are on the fold the round 4 changes were chosen on, and the ASKED
 test is a word test on titles, so it calls a lookup that names the
 entity in another form "other".
 
+25 Nov, the plan's shape against the outcome on the agent after round 4
+(explore only; the plan item of Next, last counted on the round 2 agent on
+16 Nov). `python -m src.eval.agent_plans --run orchestrator_guard_wide_
+unsup_keepans_thin_hotpot_explore --base orchestrator_hotpot_explore --out
+agent_plans_hotpot_explore` writes `results/agent_plans_hotpot_explore_
+{shape,source,restate}.csv` (`test_agent_plans`). The planner has not
+changed since 4 Nov and the runs agree: the plan is the same in the 4 Nov
+agent and the round 4 agent on all 500 questions (the script stops if one
+differs), so within a shape the two are paired on identical questions and
+plans. Across shapes they are not a comparison.
+
+- By shape (`_shape.csv`, 4 Nov in brackets): bridge one lookup 127, EM
+  0.567 (0.520, 6 won / 0 lost); parallel 102, 0.510 (0.480, 4 / 1);
+  chain 175, 0.554 (0.509, 11 / 3); comparison parallel 92, 0.696 (0.685,
+  1 / 0), 4 planned as one. Rounds 1 to 4 (0.540 -> 0.576, 22 won / 4
+  lost) moved every bridge shape, one lookup and chains by about the same
+  (+0.047, +0.046), parallel less (+0.029). The wrong bridge answers by
+  place: one lookup 37 read / 6 dropped / 12 never retrieved, parallel 33
+  / 9 / 8, chain 56 / 14 / 8.
+- Who gave the bridge answer (`_source.csv`, 404 questions): the final
+  answer is the last lookup's answer on 216 (EM 0.657), an earlier
+  lookup's on 53 (0.623), no lookup's on 131 (0.351), yes or no on 4. Of
+  the 221 right, 142 are the last lookup's answer and 46 no lookup's. On
+  one-lookup plans 88 repeat the lone lookup (0.636; 56 of the 72 right
+  there) and 37 do not (0.432, 16 right). Some lookup came back with the
+  gold and the final answer is wrong on 25 (15 with an answer no lookup
+  gave, 7 an earlier lookup's), the stop-one-step-short count of 17 and 23
+  Nov.
+- Lookups that restate the question (`_restate.csv`, a word test: the last
+  lookup as asked has 0.75 or more of the question's content words): 99
+  of 404 bridge plans, 79 of them one-lookup plans. One-lookup plans that
+  restate are 0.544 (n 79), those that do not 0.604 (n 48); parallel 14
+  and chain 6 restate.
+
+What this suggests, not decided here: a planner change aimed at the 13
+plans that never ask the last hop (24 Nov) would touch the 229 bridge
+questions planned without a chain, which hold 124 right answers; on
+one-lookup plans most of those (56 of 72) are the lone lookup answering
+the whole question, so a forced chain would have to keep them. One-lookup
+plans that restate the question are not visibly worse than chains (0.544
+against 0.554) and the round 1 to 4 changes helped them as much, so these
+counts give the planner no clear target; they do not show what a chain
+would have done on the same questions. Answers that come from no lookup
+are the weak ones (0.351 on 131), and 46 right answers come that way, so
+the final read does make a hop of its own; whether it should is the B1
+question again (23 Nov). The restate test is wording only and sees
+neither a paraphrased question nor a lookup that copies the question's
+names and asks only the first hop.
+
 ### Stage 6-7, only if Stage 5 shows something
 
 - [ ] active probing when applicability is uncertain, on the cost-regret curve

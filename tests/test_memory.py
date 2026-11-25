@@ -2974,6 +2974,57 @@ def test_agent_drops():
     assert d[("all", 0)]["wrong_dropped"] == 2
 
 
+def test_agent_plans():
+    from src.eval import agent_plans as ap
+
+    q = "Where was the director of Film X born?"
+
+    def trace(plan, subs):
+        steps = [{"role": "planner", "question": q, "plan": plan, "reply": ""}]
+        for k, (a, ans) in enumerate(subs):
+            steps.append({"role": "subagent", "sub": k, "sub_question": a, "planned": plan[k],
+                          "sub_answer": ans, "kept": []})
+        return {"id": "x", "hops": [{"hop": 0, "retrieved": ["Ann::0", "Bob::1"]}],
+                "steps": steps, "notebook": ["Ann::0"]}
+
+    texts = {"Ann::0": "Ann directed Film X.", "Bob::1": "Bob was born in Paris."}
+    # one lookup asking the whole question; the read repeats its answer
+    t1 = trace([q], [("Where was the director of Film X born?", "Paris")])
+    # a chain whose last lookup asks only the last hop; the read answers with neither lookup
+    t2 = trace(["Who directed Film X?", "Where was #1 born?"],
+               [("Who directed Film X?", "Bob"), ("Where was Bob born?", "Lyon")])
+    # parallel lookups; the read repeats the earlier one
+    t3 = trace(["Who directed Film X?", "Where was Ann born?"],
+               [("Who directed Film X?", "Ann"), ("Where was Ann born?", "no")])
+    assert ap.coverage("Where was the director of Film X born?", q) == 1.0
+    assert ap.coverage("Where was Bob born?", q) == 1 / 3         # born of director, x, born
+    assert (ap.restate_of(t1), ap.restate_of(t2)) == ("whole", "part")
+    assert ap.same_plans({"a": t1, "b": t2}, {"a": t1, "b": t3}) == ["b"]
+
+    rows = {"q1": {"qtype": "bridge", "em": "1.0", "answer_pred": "Paris"},
+            "q2": {"qtype": "bridge", "em": "0.0", "answer_pred": "Ann"},
+            "q3": {"qtype": "bridge", "em": "0.0", "answer_pred": "Ann"},
+            "q4": {"qtype": "comparison", "em": "1.0", "answer_pred": "Ann"}}
+    base = {"q1": {"em": "0.0"}, "q2": {"em": "1.0"}, "q3": {"em": "0.0"}, "q4": {"em": "1.0"}}
+    gold = {i: (["Paris"], texts) for i in rows}
+    f = ap.facts(rows, {"q1": t1, "q2": t2, "q3": t3, "q4": t3}, gold, base)
+    assert [f[i]["shape"] for i in rows] == ["one", "chain", "parallel", "parallel"]
+    assert [f[i]["source"] for i in rows] == ["last", "none", "earlier", "earlier"]
+    assert [f[i]["place"] for i in rows] == ["dropped", "dropped", "dropped", "dropped"]
+    assert [f[i]["sub_gold"] for i in rows] == [True, False, False, False]
+    shape, source, restate = ap.tables(f)
+    s = {(r["qtype"], r["shape"]): r for r in shape}
+    assert s[("bridge", "all")]["n"] == 3 and s[("bridge", "all")]["right"] == 1
+    assert s[("bridge", "one")]["won"] == 1 and s[("bridge", "chain")]["lost"] == 1
+    assert s[("all", "parallel")]["n"] == 2 and s[("all", "all")]["em_base"] == 0.5
+    assert s[("bridge", "all")]["wrong_dropped"] == 2 and s[("bridge", "all")]["restate_whole"] == 1
+    src = {(r["shape"], r["source"]): r for r in source}
+    assert ("all", "earlier") in src and src[("all", "earlier")]["n"] == 1   # bridge only
+    assert src[("all", "all")]["n"] == 3 and src[("one", "last")]["right"] == 1
+    rs = {(r["shape"], r["restate"]): r for r in restate}
+    assert rs[("all", "whole")]["source_last"] == 1 and rs[("all", "part")]["source_none"] == 1
+
+
 def test_agent_moves():
     from src.eval import agent_moves as mv
 
@@ -3640,7 +3691,9 @@ if __name__ == "__main__":
     test_agent_reads()
     test_agent_misses()
     test_agent_drops()
+    test_agent_plans()
     test_agent_moves()
+    test_agent_echoes()
     test_experience_memory()
     test_memory_in_the_loop()
     test_memory_v2()
