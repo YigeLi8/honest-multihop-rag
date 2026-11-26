@@ -230,7 +230,7 @@ if stage reader_ctx model; then
 fi
 
 # ---------------------------------------------------------------- agents [model]
-# Stage 6 (4 Nov agents and the memory gates) and Stage 6b (rounds 1-3 and
+# Stage 6 (4 Nov agents and the memory gates) and Stage 6b (rounds 1-4 and
 # ircot's answer read). Exploration and train_hard only: the confirmation run
 # is added here when preregistration 3 is written.
 if stage agents model; then
@@ -262,6 +262,12 @@ if stage agents model; then
   done
   for c in hybrid_guard hybrid_guard_unsup hybrid_guard_titles hybrid_guard_titles_unsup; do
     qa $c hotpot_train_hard hybrid_ircot_${c#hybrid_}_hotpot_train_hard train
+  done
+  # round 4 (B8, B9, then both on), on explore and train_hard
+  for c in orchestrator_guard_wide_unsup_keepans orchestrator_guard_wide_unsup_thin \
+           orchestrator_guard_wide_unsup_keepans_thin; do
+    qa $c hotpot_explore ${c}_hotpot_explore
+    qa $c hotpot_train_hard ${c}_hotpot_train_hard train
   done
 fi
 
@@ -371,6 +377,23 @@ if stage analyses cpu; then
       --compare $G=$(s $AG) --compare $GU=$(s $AG) --compare $GT=$(s $AG) --compare $GTU=$(s $AG)
     losses --out ircot_read_hotpot_${fold}_b6_on_titles ${data[@]+"${data[@]}"} --compare $GT=$GTU
   done
+  # round 4: B8 and B9 against the round 3 agent, then both on against B8 and
+  # against round 3, then the agent against the confirmation's two ircots
+  R3=orchestrator_guard_wide_unsup; KA=${R3}_keepans; TH=${R3}_thin; KT=${R3}_keepans_thin
+  losses --out agent_dev4_hotpot_explore --runs $R3$E $KA$E $TH$E --compare $R3$E=$KA$E,$TH$E
+  losses --out agent_dev4_hotpot_train_hard --data $HOTPOT_TRAIN \
+    --runs $R3$T $KA$T $TH$T --compare $R3$T=$KA$T,$TH$T
+  losses --out agent_dev4_hotpot_pooled --data $HOTPOT $HOTPOT_TRAIN \
+    --compare $R3$E+$R3$T=$KA$E+$KA$T,$TH$E+$TH$T
+  losses --out agent_dev4_both_hotpot_explore --runs $KA$E $KT$E \
+    --compare $KA$E=$KT$E --compare $R3$E=$KT$E
+  losses --out agent_dev4_both_hotpot_train_hard --data $HOTPOT_TRAIN --runs $KA$T $KT$T \
+    --compare $KA$T=$KT$T --compare $R3$T=$KT$T
+  losses --out agent_dev4_both_hotpot_pooled --data $HOTPOT $HOTPOT_TRAIN \
+    --compare $KA$E+$KA$T=$KT$E+$KT$T --compare $R3$E+$R3$T=$KT$E+$KT$T
+  losses --out agent_dev4_vs_ircot_hotpot_pooled --data $HOTPOT $HOTPOT_TRAIN \
+    --compare hybrid_ircot_guard_titles_unsup$E+hybrid_ircot_guard_titles_unsup$T=$KT$E+$KT$T \
+    --compare hybrid_ircot_guard_unsup$E+hybrid_ircot_guard_unsup$T=$KT$E+$KT$T
   # From the traces (explore fold only)
   $PY -m src.eval.agent_traces --results "$RES" --run orchestrator_guard_wide$E --out agent_traces_hotpot_explore
   $PY -m src.eval.agent_reads --results "$RES" --run orchestrator_guard_wide_unsup$E --out agent_reads_hotpot_explore

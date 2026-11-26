@@ -3129,3 +3129,19 @@ names and asks only the first hop.
       tables have a spread over half-splits but no interval or test. Not
       in it: the serving sweep (README's own section stands), the 2wiki
       agent and ircot runs that do not exist.
+      26 Nov, round 4 into `run_all.sh` and the manifest. The script stopped
+      at round 3, so the 41 files of round 4 (the B8, B9 and both-on runs on
+      explore and train_hard, and the 11 `agent_dev4*` tables) were in no
+      manifest row. The agents stage now lists the three round 4 configs on
+      both folds, and the analyses stage the seven `agent_losses` calls
+      behind the `agent_dev4*` tables, read back from their base and arm
+      columns (Holm is within a --compare group, so each comparison keeps
+      the grouping it was run with). Run here, all 11 came out
+      byte-identical. A recorded pass of data, retrieval, analyses and plots
+      (14 minutes) left every analysis table byte-identical again, the plots
+      different in bytes only, and the two bm25 retrieval tables different
+      on the same 16 and 1 rows as on 19 Nov (left as the Mac's). The
+      manifest has the 561 committed files: 227 rows observed being written
+      here, 374 by name (208 of them the agents stage), and the same 74
+      that no command writes. The confirmation agent run is still not in
+      the script.
