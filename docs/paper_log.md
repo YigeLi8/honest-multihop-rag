@@ -3,6 +3,49 @@
 One entry per paper that changes what this repo should do or cite. Newest
 first. Short: what it does, what it means here.
 
+## 2026-11-26
+
+New and cross listings read (cs.IR 14, cs.CL 116, cs.AI 248 entries,
+replacements not read; 331 distinct ids, none already logged); every
+title screened, 26 abstracts read, four bodies.
+
+- 2026, When Rerankers Work Together: Better and Faster Reranking without
+  Joint Training (arXiv 2611.33844). Chains a cheap cached first-pass
+  scorer in front of a stronger reranker to prune long contexts, with
+  paired bootstrap intervals throughout. The part that bears here is a
+  control in their appendix (A.9): on 612 held-out HotpotQA examples,
+  Gemma 3 12B is given all annotated evidence, with distractors added up
+  to a 50% token cap, so that only the distractors differ. Evidence alone
+  is 67.65%; every way of choosing the distractors (random, BM25, MiniLM,
+  cross-encoder, their own) gives 61.76 to 63.40, a 4.25 to 5.88 point
+  cost with recall held fixed, and the choice of selector makes no
+  significant difference. On 2Wiki (n=600) their cascade raises F1 0.527
+  -> 0.568 [+0.004, +0.078]. For this work: it is the same direction as
+  the A2 control (the single agent reading everything it retrieved, 0.032
+  below its notebook) and Part A's gold-only intervention, measured on a
+  larger reader with evidence fixed by construction rather than by
+  pairing runs. It is a reason the round 2 to 4 wide reads (B4, B9) are
+  conditional and should stay so: their gain is on reads whose notebook
+  lacks the string, and the other reads would pay this cost. Its
+  repair/breakage rates per stage removed are the form the B-arm tables
+  already take. Cite with A2.
+- 2026, Constraint-Aware Test-Time Scoring for LLM and VLM Candidate
+  Selection (arXiv 2611.33161). Picks one of several sampled candidates
+  behind hard vetoes and a weighted blend of soft scores, on code, robot
+  plans and HotpotQA. On HotpotQA (50 distractor-split questions, 25
+  bridge and 25 comparison, gold paragraphs always in the context) one of
+  the three vetoes is "answer-question compatible": a regex check that
+  yes/no questions get yes/no answers and entity questions entity-shaped
+  ones, which is B2's guard as a filter over samples rather than a
+  second read. The gain is where the first sample is often broken
+  (gpt-oss-20B joint score 0.58 -> 0.79) and nil or negative elsewhere
+  (Phi-4 0.735 -> 0.713, Gemma and Qwen within noise at n=50); per-task
+  weights never beat uniform ones; no paired test. For this work: cite
+  beside B2; it agrees with round 1, where the guard moved ircot (+0.022,
+  0 lost) and the agent hardly (+0.004), because on the agent a yes or no
+  to a span question mostly marked a notebook without the answer. At
+  n=50 with the gold in every context it says nothing about that case.
+
 ## 2026-11-25
 
 New and cross listings read (cs.IR 21, cs.CL 126, cs.AI 300 entries,
