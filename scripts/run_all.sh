@@ -434,7 +434,11 @@ if stage memory cpu; then
       $PY -m src.memory.failures --records $rec --dataset $ds --out-dir "$RES"
       $PY -m src.memory.lookalike natural --records $rec --dataset $ds --out-dir "$RES"
       $PY -m src.memory.stream --records $rec --dataset $ds --out-dir "$RES"
+      $PY -m src.memory.lookalike natural --records $rec --dataset $ds --dense-neighbours --out-dir "$RES"
     done
+    # the stream with qtype taken out (Stage 5, 13 Nov)
+    $PY -m src.memory.stream --records $MEM/bm25_arms_hotpot_dev_experience.jsonl --dataset hotpot \
+      --no-qtype --out-dir "$RES"
     $PY -m src.memory.drift --records-a $MEM/bm25_arms_hotpot_dev_experience.jsonl --dataset-a hotpot \
       --records-b $MEM/bm25_arms_musique_dev_experience.jsonl --dataset-b musique --out-dir "$RES"
   fi

@@ -3001,6 +3001,36 @@ names and asks only the first hop.
 - [ ] `lookalike.py`: agreement counts both-miss and the random baseline is
       not matched on question type; add a row for pairs where the arms
       disagree on both questions, and a type-matched baseline
+      The rows have been in the code since 11 Nov (`pair_summary`: the
+      `random_type_matched` set keeps each nearest pair's first question
+      and draws a random partner of the neighbour's type; the `_discordant`
+      sets keep the pairs where the arms disagree on both questions), but
+      the committed tables predated them. 27 Nov, written on linux from the
+      rebuilt logs (hotpot 0-1499, musique dev 2417;
+      `results/{hotpot,musique}_lookalike{,_dense}_summary.csv`). The old
+      rows come out unchanged on hotpot and within 0.002 on musique (the
+      dense rows, which predate the stable neighbour sort). Best-arm label
+      agreement, Wilson 95%:
+      - hotpot, tf-idf: nearest 0.288 [0.264, 0.314] (n 1225), random
+        0.260, type-matched 0.274 [0.261, 0.286]; discordant pairs only:
+        nearest 0.336 [0.264, 0.417] (n 143) against random 0.291 [0.254,
+        0.330] (547) and type-matched 0.314 [0.276, 0.355] (535). Dense
+        neighbours: discordant 0.257 (144) against type-matched 0.265.
+        Nothing on hotpot, as on 2 Oct.
+      - musique, tf-idf: nearest 0.579 [0.556, 0.602] (1813), random 0.379,
+        type-matched 0.438 [0.424, 0.451], so question type is about a
+        third of the all-pairs gap. Discordant pairs only: nearest 0.506
+        [0.444, 0.569] (241) against random 0.303 [0.262, 0.348] (439) and
+        type-matched 0.280 [0.240, 0.323] (454); dense 0.523 (241) against
+        0.304 (418). The hand check of 4 Oct (0.51 against 0.30 on 242
+        pairs) holds in the table, and the type-matched baseline does not
+        take it away.
+      What the table cannot show: 79% of musique's nearest pairs share a
+      gold paragraph (4 Oct, by hand), and the table has no column for
+      that, so a label shared by two questions built from the same
+      single-hop question is not told apart from a look-alike carrying its
+      outcome. 2wiki, where the plan said the type-matched baseline matters
+      most, waits for the zip
 - [x] `backfill.py --allow-mismatch` exited 0 whatever the mismatch count;
       the exit code is now 1 whenever a hop differed, written or not
 - [ ] 48 of the first 1500 2wiki pools hold one paragraph twice (same chunk
@@ -3145,3 +3175,47 @@ names and asks only the first hop.
       here, 374 by name (208 of them the agents stage), and the same 74
       that no command writes. The confirmation agent run is still not in
       the script.
+      27 Nov, the memory stage run here end to end for the first time
+      (`run_all.sh --only memory --record`, bm25s 0.3.10, bge-small on
+      cpu, torch 2.15 cpu; 2 h 15 min, most of it the two backfills and
+      the streams; drift, 14 min, ran by hand after the run was stopped at
+      a time limit, with the script's own command). The backfill replays
+      both committed arms traces with no hop differing: hotpot 1500 of
+      1500, musique 2417 of 2417. Of the 24 files the stage was credited
+      with by name, 16 come out byte-identical (the hotpot and musique
+      ceiling, discordance and predictability tables, the hotpot rules and
+      failure types, both streams with their revisions, the four drift
+      tables). The others:
+      - the four lookalike tables (`{hotpot,musique}_lookalike_{pairs,
+        summary}.csv`) are rewritten: the code has written the discordant
+        and type-matched rows and the per-question columns since 11 Nov,
+        and the committed tables predated it. The old rows are unchanged
+        (musique's dense rows move by up to 0.002). Numbers under the
+        `lookalike.py` item of "Found while running".
+      - `hotpot_arms_routed.csv` and `musique_arms_routed.csv` stay as
+        committed. Hotpot's has four `question_dense_knn` rows that come
+        from `arms --dense-neighbours`, a call the script does not make;
+        musique's is in a format older than the interval and tree columns.
+        Neither is in the script as it was made, and the manifest says
+        observed for them, as for the two bm25 retrieval tables, though
+        the committed bytes are not the ones written here.
+      - `musique_failure_types.csv` stays as committed: one question moves
+        from near_miss to named_miss (466 / 369 -> 465 / 370) and the
+        recovery shares move in the third decimal. The committed table
+        predates the 11 Nov check of the rule order; not traced further.
+      - not committed: `failures` now also writes `_failure_cooccurrence`
+        and `_failure_orders` (since 11 Nov), and `arms` writes
+        `musique_arms_rules.txt`; `hotpot_failure_audit.csv` is the hand
+        audit (`--audit 50`) and stays out of the script.
+      Added to the stage: the dense-neighbour lookalike on both datasets
+      (both tables rewritten with the same new rows) and the hotpot stream
+      without qtype (byte-identical; its revisions file is written but was
+      never committed). `scripts/manifest.py --keep-observed` keeps the
+      observed rows of the manifest already there, so a session that
+      records one stage does not need the earlier sessions' record files.
+      Manifest: the same 561 files, 255 rows observed (227 before), 350 by
+      name, 70 that no command writes (74 before: the 5 tables added to
+      the stage, and the hand audit now listed with them). Still outside
+      the script: the twin logs and tables (they need the twin arms runs,
+      `data/make_twins.py` then `run_qa --backend none`), the `_mac` and
+      `replay` variants, `arms_foldsplit/`, everything 2wiki.
