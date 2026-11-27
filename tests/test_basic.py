@@ -506,6 +506,25 @@ def test_manifest():
     assert qa["config"] == "configs/bm25.yaml" and qa["ids"] == "results/folds/hotpot_explore.txt"
     assert by_file["results/x_paired.csv"][0]["how"] == "observed"
     assert by_file["results/orphan.csv"][0]["how"] == "not in run_all.sh"
+    assert m.by_name("python -m src.memory.lookalike natural --records r --dataset hotpot "
+                     "--dense-neighbours --out-dir results",
+                     {"results/hotpot_lookalike_dense_pairs.csv", "results/hotpot_lookalike_pairs.csv"}) \
+        == ["results/hotpot_lookalike_dense_pairs.csv"]
+    assert m.by_name("python -m src.memory.stream --records r --dataset hotpot --no-qtype",
+                     {"results/hotpot_stream_noqtype.csv", "results/hotpot_stream.csv"}) \
+        == ["results/hotpot_stream_noqtype.csv"]
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:          # an earlier manifest's observed rows
+        old = Path(tmp) / "manifest.csv"
+        old.write_text("file,stage,kind,how,command,config,ids,sha256\n"
+                       "results/x_losses.csv,analyses,cpu,observed,python -m a,,,0\n"
+                       "results/q.csv,qa,model,by name,python -m b,,,0\n")
+        kept = m.observed_from_manifest(old)
+        assert kept == [("analyses", "cpu", "python -m a", "results/x_losses.csv")]
+        assert m.observed_from_manifest(Path(tmp) / "missing.csv") == []
+        both = m.build(dry, kept + rec, committed)
+        assert {r["command"] for r in both if r["file"] == "results/x_losses.csv"} \
+            == {"python -m a", "python -m src.eval.agent_losses --results results --out x"}
     assert m.by_name("python -m src.eval.interventions summarize --name y", {"results/y_qa.csv"}) == []
     assert m.by_name("python -m src.eval.interventions run --config c --name y",
                      {"results/y_qa.csv", "results/y_2x2.png"}) == ["results/y_qa.csv"]

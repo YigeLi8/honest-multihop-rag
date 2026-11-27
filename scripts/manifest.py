@@ -2,6 +2,7 @@
 """Which command, config and fold each committed results file comes from.
 
     python scripts/manifest.py --record rec/cpu.tsv [rec/memory.tsv ...]
+    python scripts/manifest.py --keep-observed --record rec/memory.tsv
 
 writes results/manifest.csv, one row per (file, command that writes it):
 
@@ -122,13 +123,28 @@ def outputs_by_name(cmd):
     if mod == "src.memory.failures":
         return [f"{d}_failure_{t}.csv" for t in ("types", "cooccurrence", "orders", "audit")]
     if mod == "src.memory.lookalike" and sub == "natural":
-        return [f"{d}_lookalike_pairs.csv", f"{d}_lookalike_summary.csv"]
+        tag = "_dense" if "--dense-neighbours" in shlex.split(cmd) else ""
+        return [f"{d}_lookalike{tag}_pairs.csv", f"{d}_lookalike{tag}_summary.csv"]
     if mod == "src.memory.stream":
-        return [f"{d}_stream.csv", f"{d}_stream_revisions.csv"]
+        tag = "_noqtype" if "--no-qtype" in shlex.split(cmd) else ""
+        return [f"{d}_stream{tag}.csv", f"{d}_stream{tag}_revisions.csv"]
     if mod == "src.memory.drift":
         a, b = arg(cmd, "--dataset-a"), arg(cmd, "--dataset-b")
         return [f"{x}_to_{y}_drift{t}.csv" for x, y in ((a, b), (b, a)) for t in ("", "_revisions")]
     return []
+
+
+def observed_from_manifest(path):
+    """The observed rows of an earlier manifest.csv, as --record lines, so that
+    a session which records one stage keeps what earlier sessions observed of
+    the others (a later --record of the same file and command replaces nothing:
+    rows are keyed by (file, command))."""
+    p = Path(path)
+    if not p.exists():
+        return []
+    with open(p, newline="") as f:
+        return [(r["stage"], r["kind"], r["command"], r["file"])
+                for r in csv.DictReader(f) if r["how"] == "observed"]
 
 
 def by_name(cmd, committed):
@@ -180,11 +196,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--record", nargs="*", default=[], help="files written by run_all.sh --record")
     ap.add_argument("--out", default="results/manifest.csv")
+    ap.add_argument("--keep-observed", action="store_true",
+                    help="also keep the observed rows of the manifest already at --out")
     args = ap.parse_args()
 
     dry = parse_lines(subprocess.run(["bash", "scripts/run_all.sh", "--dry-run"], cwd=ROOT,
                                      check=True, capture_output=True, text=True).stdout.splitlines())
-    recorded = []
+    recorded = observed_from_manifest(ROOT / args.out) if args.keep_observed else []
     for p in args.record:
         with open(p) as f:
             recorded += parse_lines(f)
